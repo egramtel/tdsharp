@@ -37,16 +37,14 @@ namespace TD
         public void Send<TResut>(Method<TResut> method)
         {
             var data = JsonConvert.SerializeObject(method);
-            Log(data);
             _client.Send(data);
         }
 
         public Structure Execute<TResult>(Method<TResult> method)
         {
             var data = JsonConvert.SerializeObject(method);
-            Log(data);
             data = _client.Execute(data);
-            Log(data);
+            
             var structure = JsonConvert.DeserializeObject<Structure>(data, new Converter());
             return structure;
         }
@@ -78,11 +76,6 @@ namespace TD
         public void Dispose()
         {
             _hub.Received -= OnReceived;
-        }
-
-        private void Log(string data)
-        {
-            Console.WriteLine(data);
         }
     }
 }

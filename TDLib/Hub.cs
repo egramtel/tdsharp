@@ -27,7 +27,6 @@ namespace TD
                 var data = _client.Receive(10.0);
                 if (!string.IsNullOrEmpty(data))
                 {
-                    Log(data);
                     var structure = JsonConvert.DeserializeObject<Structure>(data, new Converter());
                     Received?.Invoke(this, structure);
                 }
@@ -37,11 +36,6 @@ namespace TD
         public void Stop()
         {
             _cts.Cancel();
-        }
-
-        private void Log(string data)
-        {
-            Console.WriteLine(data);
         }
     }
 }
