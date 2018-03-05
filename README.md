@@ -13,6 +13,8 @@ TDSharp - .NET bindings for TDLib (Telegram Database Library) JSON API: https://
 
 ### Simple example
 
+Client is a wrapper around native JSON API. Use it to send/receive data as strings.
+
 ```csharp
 // create client
 var client = new Client();
@@ -28,6 +30,8 @@ while (true)
 ```
 
 ### Using generated APIs
+
+Lib contains classes for API types and methods. It handles json serialization/deserialization behind the scenes. Use Hub to subscribe to events. Use Dialer to asynchronously call methods.
 
 ```csharp
 // receiving data
