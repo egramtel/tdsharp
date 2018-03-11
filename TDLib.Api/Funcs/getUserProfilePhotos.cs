@@ -20,15 +20,15 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("user_id")]
-                public int? user_id_;
+                public int user_id_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("offset")]
-                public int? offset_;
+                public int offset_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("limit")]
-                public int? limit_;
+                public int limit_;
 
         }
 

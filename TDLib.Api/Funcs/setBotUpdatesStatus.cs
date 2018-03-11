@@ -20,7 +20,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("pending_update_count")]
-                public int? pending_update_count_;
+                public int pending_update_count_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("error_message")]

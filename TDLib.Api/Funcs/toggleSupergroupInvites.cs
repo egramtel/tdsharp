@@ -20,11 +20,11 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("supergroup_id")]
-                public int? supergroup_id_;
+                public int supergroup_id_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("anyone_can_invite")]
-                public bool? anyone_can_invite_;
+                public bool anyone_can_invite_;
 
         }
 

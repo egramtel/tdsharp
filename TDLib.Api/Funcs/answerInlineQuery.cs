@@ -24,7 +24,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_personal")]
-                public bool? is_personal_;
+                public bool is_personal_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("results")]
@@ -32,7 +32,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("cache_time")]
-                public int? cache_time_;
+                public int cache_time_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("next_offset")]

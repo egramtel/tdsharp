@@ -56,15 +56,15 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("embed_width")]
-                public int? embed_width_;
+                public int embed_width_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("embed_height")]
-                public int? embed_height_;
+                public int embed_height_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("duration")]
-                public int? duration_;
+                public int duration_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("author")]
@@ -100,7 +100,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("has_instant_view")]
-                public bool? has_instant_view_;
+                public bool has_instant_view_;
 
         }
 

@@ -40,11 +40,11 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("photo_width")]
-                public int? photo_width_;
+                public int photo_width_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("photo_height")]
-                public int? photo_height_;
+                public int photo_height_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("reply_markup")]

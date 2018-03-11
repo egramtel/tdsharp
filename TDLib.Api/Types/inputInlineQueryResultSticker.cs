@@ -32,11 +32,11 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("sticker_width")]
-                public int? sticker_width_;
+                public int sticker_width_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("sticker_height")]
-                public int? sticker_height_;
+                public int sticker_height_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("reply_markup")]

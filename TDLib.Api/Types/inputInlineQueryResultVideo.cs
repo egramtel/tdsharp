@@ -44,15 +44,15 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("video_width")]
-                public int? video_width_;
+                public int video_width_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("video_height")]
-                public int? video_height_;
+                public int video_height_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("video_duration")]
-                public int? video_duration_;
+                public int video_duration_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("reply_markup")]

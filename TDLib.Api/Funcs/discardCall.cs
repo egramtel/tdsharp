@@ -20,15 +20,15 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("call_id")]
-                public int? call_id_;
+                public int call_id_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_disconnected")]
-                public bool? is_disconnected_;
+                public bool is_disconnected_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("duration")]
-                public int? duration_;
+                public int duration_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("connection_id")]

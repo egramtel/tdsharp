@@ -28,7 +28,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("expected_size")]
-                public int? expected_size_;
+                public int expected_size_;
 
         }
 

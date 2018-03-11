@@ -20,7 +20,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("chat_id")]
-                public long? chat_id_;
+                public long chat_id_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("type")]
@@ -36,7 +36,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("member_count")]
-                public int? member_count_;
+                public int member_count_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("member_user_ids")]
@@ -44,7 +44,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_public")]
-                public bool? is_public_;
+                public bool is_public_;
 
         }
 

@@ -24,11 +24,11 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("expected_size")]
-                public int? expected_size_;
+                public int expected_size_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("local_prefix_size")]
-                public int? local_prefix_size_;
+                public int local_prefix_size_;
 
         }
 

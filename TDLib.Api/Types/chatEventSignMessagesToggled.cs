@@ -20,7 +20,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("sign_messages")]
-                public bool? sign_messages_;
+                public bool sign_messages_;
 
         }
 

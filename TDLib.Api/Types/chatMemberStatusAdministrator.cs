@@ -20,39 +20,39 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("can_be_edited")]
-                public bool? can_be_edited_;
+                public bool can_be_edited_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("can_change_info")]
-                public bool? can_change_info_;
+                public bool can_change_info_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("can_post_messages")]
-                public bool? can_post_messages_;
+                public bool can_post_messages_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("can_edit_messages")]
-                public bool? can_edit_messages_;
+                public bool can_edit_messages_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("can_delete_messages")]
-                public bool? can_delete_messages_;
+                public bool can_delete_messages_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("can_invite_users")]
-                public bool? can_invite_users_;
+                public bool can_invite_users_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("can_restrict_members")]
-                public bool? can_restrict_members_;
+                public bool can_restrict_members_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("can_pin_messages")]
-                public bool? can_pin_messages_;
+                public bool can_pin_messages_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("can_promote_members")]
-                public bool? can_promote_members_;
+                public bool can_promote_members_;
 
         }
 

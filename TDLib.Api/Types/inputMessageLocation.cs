@@ -24,7 +24,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("live_period")]
-                public int? live_period_;
+                public int live_period_;
 
         }
 

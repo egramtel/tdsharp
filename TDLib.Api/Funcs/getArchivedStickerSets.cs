@@ -20,7 +20,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_masks")]
-                public bool? is_masks_;
+                public bool is_masks_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("offset_sticker_set_id")]
@@ -28,7 +28,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("limit")]
-                public int? limit_;
+                public int limit_;
 
         }
 

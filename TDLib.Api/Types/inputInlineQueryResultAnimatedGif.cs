@@ -36,15 +36,15 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("gif_duration")]
-                public int? gif_duration_;
+                public int gif_duration_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("gif_width")]
-                public int? gif_width_;
+                public int gif_width_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("gif_height")]
-                public int? gif_height_;
+                public int gif_height_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("reply_markup")]

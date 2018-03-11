@@ -20,7 +20,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("was_online")]
-                public int? was_online_;
+                public int was_online_;
 
         }
 

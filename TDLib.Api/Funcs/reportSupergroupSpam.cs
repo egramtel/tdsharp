@@ -20,11 +20,11 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("supergroup_id")]
-                public int? supergroup_id_;
+                public int supergroup_id_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("user_id")]
-                public int? user_id_;
+                public int user_id_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("message_ids")]

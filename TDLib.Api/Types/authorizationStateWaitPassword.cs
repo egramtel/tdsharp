@@ -24,7 +24,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("has_recovery_email_address")]
-                public bool? has_recovery_email_address_;
+                public bool has_recovery_email_address_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("recovery_email_address_pattern")]

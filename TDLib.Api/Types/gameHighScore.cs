@@ -20,15 +20,15 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("position")]
-                public int? position_;
+                public int position_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("user_id")]
-                public int? user_id_;
+                public int user_id_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("score")]
-                public int? score_;
+                public int score_;
 
         }
 

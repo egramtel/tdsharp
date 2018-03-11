@@ -24,11 +24,11 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_installed")]
-                public bool? is_installed_;
+                public bool is_installed_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_archived")]
-                public bool? is_archived_;
+                public bool is_archived_;
 
         }
 

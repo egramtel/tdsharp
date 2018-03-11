@@ -32,7 +32,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("date")]
-                public int? date_;
+                public int date_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("page_blocks")]

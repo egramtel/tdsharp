@@ -24,7 +24,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("show_alert")]
-                public bool? show_alert_;
+                public bool show_alert_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("url")]

@@ -20,7 +20,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_masks")]
-                public bool? is_masks_;
+                public bool is_masks_;
 
         }
 

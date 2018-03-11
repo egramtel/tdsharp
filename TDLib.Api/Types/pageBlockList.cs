@@ -24,7 +24,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_ordered")]
-                public bool? is_ordered_;
+                public bool is_ordered_;
 
         }
 

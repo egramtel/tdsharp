@@ -20,7 +20,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("progress")]
-                public int? progress_;
+                public int progress_;
 
         }
 

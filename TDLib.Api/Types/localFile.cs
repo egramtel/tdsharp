@@ -24,27 +24,27 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("can_be_downloaded")]
-                public bool? can_be_downloaded_;
+                public bool can_be_downloaded_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("can_be_deleted")]
-                public bool? can_be_deleted_;
+                public bool can_be_deleted_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_downloading_active")]
-                public bool? is_downloading_active_;
+                public bool is_downloading_active_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_downloading_completed")]
-                public bool? is_downloading_completed_;
+                public bool is_downloading_completed_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("downloaded_prefix_size")]
-                public int? downloaded_prefix_size_;
+                public int downloaded_prefix_size_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("downloaded_size")]
-                public int? downloaded_size_;
+                public int downloaded_size_;
 
         }
 

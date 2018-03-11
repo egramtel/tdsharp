@@ -24,15 +24,15 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("sender_user_id")]
-                public int? sender_user_id_;
+                public int sender_user_id_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("chat_id")]
-                public long? chat_id_;
+                public long chat_id_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("message_id")]
-                public long? message_id_;
+                public long message_id_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("chat_instance")]

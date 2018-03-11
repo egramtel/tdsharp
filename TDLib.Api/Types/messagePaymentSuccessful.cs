@@ -20,7 +20,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("invoice_message_id")]
-                public long? invoice_message_id_;
+                public long invoice_message_id_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("currency")]
@@ -28,7 +28,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("total_amount")]
-                public long? total_amount_;
+                public long total_amount_;
 
         }
 

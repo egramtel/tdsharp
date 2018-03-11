@@ -24,7 +24,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("position")]
-                public int? position_;
+                public int position_;
 
         }
 

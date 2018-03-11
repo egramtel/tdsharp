@@ -20,7 +20,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_attached")]
-                public bool? is_attached_;
+                public bool is_attached_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("sticker_ids")]

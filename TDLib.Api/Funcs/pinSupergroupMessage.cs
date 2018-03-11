@@ -20,15 +20,15 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("supergroup_id")]
-                public int? supergroup_id_;
+                public int supergroup_id_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("message_id")]
-                public long? message_id_;
+                public long message_id_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("disable_notification")]
-                public bool? disable_notification_;
+                public bool disable_notification_;
 
         }
 

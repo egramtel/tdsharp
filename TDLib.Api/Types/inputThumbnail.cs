@@ -24,11 +24,11 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("width")]
-                public int? width_;
+                public int width_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("height")]
-                public int? height_;
+                public int height_;
 
         }
 

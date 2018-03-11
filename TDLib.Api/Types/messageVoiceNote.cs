@@ -28,7 +28,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_listened")]
-                public bool? is_listened_;
+                public bool is_listened_;
 
         }
 

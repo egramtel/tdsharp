@@ -24,11 +24,11 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("date")]
-                public int? date_;
+                public int date_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("user_id")]
-                public int? user_id_;
+                public int user_id_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("action")]

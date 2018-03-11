@@ -20,11 +20,11 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("chat_id")]
-                public long? chat_id_;
+                public long chat_id_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_pinned")]
-                public bool? is_pinned_;
+                public bool is_pinned_;
 
         }
 

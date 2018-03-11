@@ -20,7 +20,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("length")]
-                public int? length_;
+                public int length_;
 
         }
 

@@ -20,11 +20,11 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("id")]
-                public int? id_;
+                public int id_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("member_count")]
-                public int? member_count_;
+                public int member_count_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("status")]
@@ -32,15 +32,15 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("everyone_is_administrator")]
-                public bool? everyone_is_administrator_;
+                public bool everyone_is_administrator_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_active")]
-                public bool? is_active_;
+                public bool is_active_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("upgraded_to_supergroup_id")]
-                public int? upgraded_to_supergroup_id_;
+                public int upgraded_to_supergroup_id_;
 
         }
 

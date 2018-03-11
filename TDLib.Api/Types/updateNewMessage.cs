@@ -24,11 +24,11 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("disable_notification")]
-                public bool? disable_notification_;
+                public bool disable_notification_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("contains_mention")]
-                public bool? contains_mention_;
+                public bool contains_mention_;
 
         }
 

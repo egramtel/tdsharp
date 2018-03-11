@@ -20,15 +20,15 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("from_chat_id")]
-                public long? from_chat_id_;
+                public long from_chat_id_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("message_id")]
-                public long? message_id_;
+                public long message_id_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("in_game_share")]
-                public bool? in_game_share_;
+                public bool in_game_share_;
 
         }
 

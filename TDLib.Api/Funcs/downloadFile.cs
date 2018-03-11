@@ -20,11 +20,11 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("file_id")]
-                public int? file_id_;
+                public int file_id_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("priority")]
-                public int? priority_;
+                public int priority_;
 
         }
 

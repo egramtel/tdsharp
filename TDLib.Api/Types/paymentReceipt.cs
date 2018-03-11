@@ -20,11 +20,11 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("date")]
-                public int? date_;
+                public int date_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("payments_provider_user_id")]
-                public int? payments_provider_user_id_;
+                public int payments_provider_user_id_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("invoice")]

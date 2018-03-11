@@ -24,7 +24,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_app_sandbox")]
-                public bool? is_app_sandbox_;
+                public bool is_app_sandbox_;
 
         }
 

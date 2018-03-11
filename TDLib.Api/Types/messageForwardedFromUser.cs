@@ -20,19 +20,19 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("sender_user_id")]
-                public int? sender_user_id_;
+                public int sender_user_id_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("date")]
-                public int? date_;
+                public int date_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("forwarded_from_chat_id")]
-                public long? forwarded_from_chat_id_;
+                public long forwarded_from_chat_id_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("forwarded_from_message_id")]
-                public long? forwarded_from_message_id_;
+                public long forwarded_from_message_id_;
 
         }
 

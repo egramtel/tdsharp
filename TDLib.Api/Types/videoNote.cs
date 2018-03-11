@@ -20,11 +20,11 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("duration")]
-                public int? duration_;
+                public int duration_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("length")]
-                public int? length_;
+                public int length_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("thumbnail")]

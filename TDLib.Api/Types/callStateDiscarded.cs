@@ -24,11 +24,11 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("need_rating")]
-                public bool? need_rating_;
+                public bool need_rating_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("need_debug_information")]
-                public bool? need_debug_information_;
+                public bool need_debug_information_;
 
         }
 

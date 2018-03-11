@@ -32,7 +32,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("set_recovery_email_address")]
-                public bool? set_recovery_email_address_;
+                public bool set_recovery_email_address_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("new_recovery_email_address")]

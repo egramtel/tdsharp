@@ -20,7 +20,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("user_id")]
-                public int? user_id_;
+                public int user_id_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("title")]
@@ -32,7 +32,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_masks")]
-                public bool? is_masks_;
+                public bool is_masks_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("stickers")]

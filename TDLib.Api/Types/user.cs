@@ -20,7 +20,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("id")]
-                public int? id_;
+                public int id_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("first_name")]
@@ -56,7 +56,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_verified")]
-                public bool? is_verified_;
+                public bool is_verified_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("restriction_reason")]
@@ -64,7 +64,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("have_access")]
-                public bool? have_access_;
+                public bool have_access_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("type")]

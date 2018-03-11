@@ -20,7 +20,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("code")]
-                public int? code_;
+                public int code_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("message")]

@@ -24,7 +24,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("amount")]
-                public long? amount_;
+                public long amount_;
 
         }
 

@@ -28,7 +28,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("live_period")]
-                public int? live_period_;
+                public int live_period_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("title")]
@@ -40,11 +40,11 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("thumbnail_width")]
-                public int? thumbnail_width_;
+                public int thumbnail_width_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("thumbnail_height")]
-                public int? thumbnail_height_;
+                public int thumbnail_height_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("reply_markup")]

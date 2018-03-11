@@ -20,19 +20,19 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("udp_p2p")]
-                public bool? udp_p2p_;
+                public bool udp_p2p_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("udp_reflector")]
-                public bool? udp_reflector_;
+                public bool udp_reflector_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("min_layer")]
-                public int? min_layer_;
+                public int min_layer_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("max_layer")]
-                public int? max_layer_;
+                public int max_layer_;
 
         }
 

@@ -20,7 +20,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("supergroup_id")]
-                public long? supergroup_id_;
+                public long supergroup_id_;
 
         }
 

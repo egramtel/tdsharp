@@ -24,7 +24,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_full")]
-                public bool? is_full_;
+                public bool is_full_;
 
         }
 

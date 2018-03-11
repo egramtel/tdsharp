@@ -24,15 +24,15 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_uploading_active")]
-                public bool? is_uploading_active_;
+                public bool is_uploading_active_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_uploading_completed")]
-                public bool? is_uploading_completed_;
+                public bool is_uploading_completed_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("uploaded_size")]
-                public int? uploaded_size_;
+                public int uploaded_size_;
 
         }
 

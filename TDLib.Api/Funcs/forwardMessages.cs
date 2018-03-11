@@ -20,11 +20,11 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("chat_id")]
-                public long? chat_id_;
+                public long chat_id_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("from_chat_id")]
-                public long? from_chat_id_;
+                public long from_chat_id_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("message_ids")]
@@ -32,15 +32,15 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("disable_notification")]
-                public bool? disable_notification_;
+                public bool disable_notification_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("from_background")]
-                public bool? from_background_;
+                public bool from_background_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("as_album")]
-                public bool? as_album_;
+                public bool as_album_;
 
         }
 

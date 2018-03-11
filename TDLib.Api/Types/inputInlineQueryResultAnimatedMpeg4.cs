@@ -36,15 +36,15 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("mpeg4_duration")]
-                public int? mpeg4_duration_;
+                public int mpeg4_duration_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("mpeg4_width")]
-                public int? mpeg4_width_;
+                public int mpeg4_width_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("mpeg4_height")]
-                public int? mpeg4_height_;
+                public int mpeg4_height_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("reply_markup")]

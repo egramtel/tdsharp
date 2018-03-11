@@ -20,7 +20,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("expires")]
-                public int? expires_;
+                public int expires_;
 
         }
 

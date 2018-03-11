@@ -28,7 +28,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("need_autoplay")]
-                public bool? need_autoplay_;
+                public bool need_autoplay_;
 
         }
 

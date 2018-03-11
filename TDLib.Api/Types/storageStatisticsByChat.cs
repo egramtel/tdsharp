@@ -20,15 +20,15 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("chat_id")]
-                public long? chat_id_;
+                public long chat_id_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("size")]
-                public long? size_;
+                public long size_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("count")]
-                public int? count_;
+                public int count_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("by_file_type")]

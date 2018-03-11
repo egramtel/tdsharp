@@ -20,15 +20,15 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("user_id")]
-                public int? user_id_;
+                public int user_id_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("inviter_user_id")]
-                public int? inviter_user_id_;
+                public int inviter_user_id_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("joined_chat_date")]
-                public int? joined_chat_date_;
+                public int joined_chat_date_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("status")]

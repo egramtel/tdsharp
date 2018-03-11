@@ -20,15 +20,15 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_blocked")]
-                public bool? is_blocked_;
+                public bool is_blocked_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("can_be_called")]
-                public bool? can_be_called_;
+                public bool can_be_called_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("has_private_calls")]
-                public bool? has_private_calls_;
+                public bool has_private_calls_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("bio")]
@@ -40,7 +40,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("group_in_common_count")]
-                public int? group_in_common_count_;
+                public int group_in_common_count_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("bot_info")]

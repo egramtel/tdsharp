@@ -20,15 +20,15 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("chat_id")]
-                public long? chat_id_;
+                public long chat_id_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("last_read_inbox_message_id")]
-                public long? last_read_inbox_message_id_;
+                public long last_read_inbox_message_id_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("unread_count")]
-                public int? unread_count_;
+                public int unread_count_;
 
         }
 

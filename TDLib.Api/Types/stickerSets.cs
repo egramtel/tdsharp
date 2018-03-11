@@ -20,7 +20,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("total_count")]
-                public int? total_count_;
+                public int total_count_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("sets")]

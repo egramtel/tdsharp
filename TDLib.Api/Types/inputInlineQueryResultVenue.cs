@@ -32,11 +32,11 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("thumbnail_width")]
-                public int? thumbnail_width_;
+                public int thumbnail_width_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("thumbnail_height")]
-                public int? thumbnail_height_;
+                public int thumbnail_height_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("reply_markup")]

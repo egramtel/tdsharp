@@ -20,7 +20,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("game_message_id")]
-                public long? game_message_id_;
+                public long game_message_id_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("game_id")]
@@ -28,7 +28,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("score")]
-                public int? score_;
+                public int score_;
 
         }
 

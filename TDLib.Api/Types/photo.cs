@@ -24,7 +24,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("has_stickers")]
-                public bool? has_stickers_;
+                public bool has_stickers_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("sizes")]

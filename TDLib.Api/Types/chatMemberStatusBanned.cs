@@ -20,7 +20,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("banned_until_date")]
-                public int? banned_until_date_;
+                public int banned_until_date_;
 
         }
 

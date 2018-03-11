@@ -20,7 +20,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("can_report_spam")]
-                public bool? can_report_spam_;
+                public bool can_report_spam_;
 
         }
 

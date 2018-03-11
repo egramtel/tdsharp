@@ -32,7 +32,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("voice_note_duration")]
-                public int? voice_note_duration_;
+                public int voice_note_duration_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("reply_markup")]

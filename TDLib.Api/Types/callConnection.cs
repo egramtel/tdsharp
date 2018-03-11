@@ -32,7 +32,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("port")]
-                public int? port_;
+                public int port_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("peer_tag")]

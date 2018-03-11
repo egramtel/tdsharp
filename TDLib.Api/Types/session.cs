@@ -24,11 +24,11 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_current")]
-                public bool? is_current_;
+                public bool is_current_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("api_id")]
-                public int? api_id_;
+                public int api_id_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("application_name")]
@@ -40,7 +40,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_official_application")]
-                public bool? is_official_application_;
+                public bool is_official_application_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("device_model")]
@@ -56,11 +56,11 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("log_in_date")]
-                public int? log_in_date_;
+                public int log_in_date_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("last_active_date")]
-                public int? last_active_date_;
+                public int last_active_date_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("ip")]

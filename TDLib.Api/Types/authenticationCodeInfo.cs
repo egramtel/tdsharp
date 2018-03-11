@@ -28,7 +28,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("timeout")]
-                public int? timeout_;
+                public int timeout_;
 
         }
 

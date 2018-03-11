@@ -28,7 +28,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("priority")]
-                public int? priority_;
+                public int priority_;
 
         }
 

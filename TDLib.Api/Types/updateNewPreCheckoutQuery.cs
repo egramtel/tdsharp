@@ -24,7 +24,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("sender_user_id")]
-                public int? sender_user_id_;
+                public int sender_user_id_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("currency")]
@@ -32,7 +32,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("total_amount")]
-                public long? total_amount_;
+                public long total_amount_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("invoice_payload")]

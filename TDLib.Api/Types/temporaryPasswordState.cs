@@ -20,11 +20,11 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("has_password")]
-                public bool? has_password_;
+                public bool has_password_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("valid_for")]
-                public int? valid_for_;
+                public int valid_for_;
 
         }
 

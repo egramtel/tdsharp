@@ -20,7 +20,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("use_test_dc")]
-                public bool? use_test_dc_;
+                public bool use_test_dc_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("database_directory")]
@@ -32,23 +32,23 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("use_file_database")]
-                public bool? use_file_database_;
+                public bool use_file_database_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("use_chat_info_database")]
-                public bool? use_chat_info_database_;
+                public bool use_chat_info_database_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("use_message_database")]
-                public bool? use_message_database_;
+                public bool use_message_database_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("use_secret_chats")]
-                public bool? use_secret_chats_;
+                public bool use_secret_chats_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("api_id")]
-                public int? api_id_;
+                public int api_id_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("api_hash")]
@@ -72,11 +72,11 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("enable_storage_optimizer")]
-                public bool? enable_storage_optimizer_;
+                public bool enable_storage_optimizer_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("ignore_file_names")]
-                public bool? ignore_file_names_;
+                public bool ignore_file_names_;
 
         }
 

@@ -32,15 +32,15 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("duration")]
-                public int? duration_;
+                public int duration_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("width")]
-                public int? width_;
+                public int width_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("height")]
-                public int? height_;
+                public int height_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("caption")]
@@ -48,7 +48,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("ttl")]
-                public int? ttl_;
+                public int ttl_;
 
         }
 

@@ -20,43 +20,43 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("message_edits")]
-                public bool? message_edits_;
+                public bool message_edits_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("message_deletions")]
-                public bool? message_deletions_;
+                public bool message_deletions_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("message_pins")]
-                public bool? message_pins_;
+                public bool message_pins_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("member_joins")]
-                public bool? member_joins_;
+                public bool member_joins_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("member_leaves")]
-                public bool? member_leaves_;
+                public bool member_leaves_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("member_invites")]
-                public bool? member_invites_;
+                public bool member_invites_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("member_promotions")]
-                public bool? member_promotions_;
+                public bool member_promotions_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("member_restrictions")]
-                public bool? member_restrictions_;
+                public bool member_restrictions_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("info_changes")]
-                public bool? info_changes_;
+                public bool info_changes_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("setting_changes")]
-                public bool? setting_changes_;
+                public bool setting_changes_;
 
         }
 

@@ -32,11 +32,11 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("width")]
-                public int? width_;
+                public int width_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("height")]
-                public int? height_;
+                public int height_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("caption")]
@@ -44,11 +44,11 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_full_width")]
-                public bool? is_full_width_;
+                public bool is_full_width_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("allow_scrolling")]
-                public bool? allow_scrolling_;
+                public bool allow_scrolling_;
 
         }
 

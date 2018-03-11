@@ -20,11 +20,11 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_created")]
-                public bool? is_created_;
+                public bool is_created_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_received")]
-                public bool? is_received_;
+                public bool is_received_;
 
         }
 

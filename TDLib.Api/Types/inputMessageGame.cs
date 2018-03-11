@@ -20,7 +20,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("bot_user_id")]
-                public int? bot_user_id_;
+                public int bot_user_id_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("game_short_name")]

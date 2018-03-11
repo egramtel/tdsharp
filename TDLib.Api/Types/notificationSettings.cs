@@ -20,7 +20,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("mute_for")]
-                public int? mute_for_;
+                public int mute_for_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("sound")]
@@ -28,7 +28,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("show_preview")]
-                public bool? show_preview_;
+                public bool show_preview_;
 
         }
 

@@ -20,7 +20,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_registered")]
-                public bool? is_registered_;
+                public bool is_registered_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("code_info")]

@@ -20,19 +20,19 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("size")]
-                public long? size_;
+                public long size_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("ttl")]
-                public int? ttl_;
+                public int ttl_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("count")]
-                public int? count_;
+                public int count_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("immunity_delay")]
-                public int? immunity_delay_;
+                public int immunity_delay_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("file_types")]
@@ -48,7 +48,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("chat_limit")]
-                public int? chat_limit_;
+                public int chat_limit_;
 
         }
 

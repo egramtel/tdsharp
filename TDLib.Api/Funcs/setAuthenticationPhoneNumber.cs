@@ -24,11 +24,11 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("allow_flash_call")]
-                public bool? allow_flash_call_;
+                public bool allow_flash_call_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_current_phone_number")]
-                public bool? is_current_phone_number_;
+                public bool is_current_phone_number_;
 
         }
 

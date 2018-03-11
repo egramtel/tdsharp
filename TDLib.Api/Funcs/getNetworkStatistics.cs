@@ -20,7 +20,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("only_current")]
-                public bool? only_current_;
+                public bool only_current_;
 
         }
 

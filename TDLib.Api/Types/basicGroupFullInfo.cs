@@ -20,7 +20,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("creator_user_id")]
-                public int? creator_user_id_;
+                public int creator_user_id_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("members")]

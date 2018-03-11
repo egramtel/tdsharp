@@ -24,11 +24,11 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("sent_bytes")]
-                public long? sent_bytes_;
+                public long sent_bytes_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("received_bytes")]
-                public long? received_bytes_;
+                public long received_bytes_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("duration")]

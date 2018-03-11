@@ -32,27 +32,27 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_installed")]
-                public bool? is_installed_;
+                public bool is_installed_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_archived")]
-                public bool? is_archived_;
+                public bool is_archived_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_official")]
-                public bool? is_official_;
+                public bool is_official_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_masks")]
-                public bool? is_masks_;
+                public bool is_masks_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_viewed")]
-                public bool? is_viewed_;
+                public bool is_viewed_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("size")]
-                public int? size_;
+                public int size_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("covers")]

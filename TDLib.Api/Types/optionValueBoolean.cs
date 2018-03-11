@@ -20,7 +20,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("value")]
-                public bool? value_;
+                public bool value_;
 
         }
 

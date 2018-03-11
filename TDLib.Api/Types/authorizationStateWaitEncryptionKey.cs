@@ -20,7 +20,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_encrypted")]
-                public bool? is_encrypted_;
+                public bool is_encrypted_;
 
         }
 

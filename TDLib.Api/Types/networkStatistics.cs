@@ -20,7 +20,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("since_date")]
-                public int? since_date_;
+                public int since_date_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("entries")]

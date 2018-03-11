@@ -20,19 +20,19 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("chat_id")]
-                public long? chat_id_;
+                public long chat_id_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("reply_to_message_id")]
-                public long? reply_to_message_id_;
+                public long reply_to_message_id_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("disable_notification")]
-                public bool? disable_notification_;
+                public bool disable_notification_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("from_background")]
-                public bool? from_background_;
+                public bool from_background_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("reply_markup")]

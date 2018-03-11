@@ -20,7 +20,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("days")]
-                public int? days_;
+                public int days_;
 
         }
 

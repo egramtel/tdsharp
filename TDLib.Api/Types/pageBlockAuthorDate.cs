@@ -24,7 +24,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("publish_date")]
-                public int? publish_date_;
+                public int publish_date_;
 
         }
 

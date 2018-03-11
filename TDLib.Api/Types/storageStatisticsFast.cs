@@ -20,15 +20,15 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("files_size")]
-                public long? files_size_;
+                public long files_size_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("file_count")]
-                public int? file_count_;
+                public int file_count_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("database_size")]
-                public long? database_size_;
+                public long database_size_;
 
         }
 

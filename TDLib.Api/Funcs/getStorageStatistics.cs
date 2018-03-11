@@ -20,7 +20,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("chat_limit")]
-                public int? chat_limit_;
+                public int chat_limit_;
 
         }
 

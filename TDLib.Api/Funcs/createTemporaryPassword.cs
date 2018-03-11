@@ -24,7 +24,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("valid_for")]
-                public int? valid_for_;
+                public int valid_for_;
 
         }
 

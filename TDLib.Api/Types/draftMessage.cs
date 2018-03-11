@@ -20,7 +20,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("reply_to_message_id")]
-                public long? reply_to_message_id_;
+                public long reply_to_message_id_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("input_message_text")]

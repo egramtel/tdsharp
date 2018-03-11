@@ -24,19 +24,19 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("offset_date")]
-                public int? offset_date_;
+                public int offset_date_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("offset_chat_id")]
-                public long? offset_chat_id_;
+                public long offset_chat_id_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("offset_message_id")]
-                public long? offset_message_id_;
+                public long offset_message_id_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("limit")]
-                public int? limit_;
+                public int limit_;
 
         }
 

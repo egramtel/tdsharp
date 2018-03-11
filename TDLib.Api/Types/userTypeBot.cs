@@ -20,15 +20,15 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("can_join_groups")]
-                public bool? can_join_groups_;
+                public bool can_join_groups_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("can_read_all_group_messages")]
-                public bool? can_read_all_group_messages_;
+                public bool can_read_all_group_messages_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_inline")]
-                public bool? is_inline_;
+                public bool is_inline_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("inline_query_placeholder")]
@@ -36,7 +36,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("need_location")]
-                public bool? need_location_;
+                public bool need_location_;
 
         }
 

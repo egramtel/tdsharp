@@ -28,7 +28,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("show_alert")]
-                public bool? show_alert_;
+                public bool show_alert_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("url")]
@@ -36,7 +36,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("cache_time")]
-                public int? cache_time_;
+                public int cache_time_;
 
         }
 

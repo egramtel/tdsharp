@@ -20,7 +20,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("basic_group_id")]
-                public int? basic_group_id_;
+                public int basic_group_id_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("basic_group_full_info")]

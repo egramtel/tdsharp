@@ -28,35 +28,35 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_test")]
-                public bool? is_test_;
+                public bool is_test_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("need_name")]
-                public bool? need_name_;
+                public bool need_name_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("need_phone_number")]
-                public bool? need_phone_number_;
+                public bool need_phone_number_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("need_email_address")]
-                public bool? need_email_address_;
+                public bool need_email_address_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("need_shipping_address")]
-                public bool? need_shipping_address_;
+                public bool need_shipping_address_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("send_phone_number_to_provider")]
-                public bool? send_phone_number_to_provider_;
+                public bool send_phone_number_to_provider_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("send_email_address_to_provider")]
-                public bool? send_email_address_to_provider_;
+                public bool send_email_address_to_provider_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_flexible")]
-                public bool? is_flexible_;
+                public bool is_flexible_;
 
         }
 

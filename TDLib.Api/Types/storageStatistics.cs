@@ -20,11 +20,11 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("size")]
-                public long? size_;
+                public long size_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("count")]
-                public int? count_;
+                public int count_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("by_chat")]

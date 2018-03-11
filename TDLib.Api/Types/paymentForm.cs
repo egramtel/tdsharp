@@ -40,11 +40,11 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("can_save_credentials")]
-                public bool? can_save_credentials_;
+                public bool can_save_credentials_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("need_password")]
-                public bool? need_password_;
+                public bool need_password_;
 
         }
 

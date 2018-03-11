@@ -20,15 +20,15 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("id")]
-                public long? id_;
+                public long id_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("sender_user_id")]
-                public int? sender_user_id_;
+                public int sender_user_id_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("chat_id")]
-                public long? chat_id_;
+                public long chat_id_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("sending_state")]
@@ -36,39 +36,39 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_outgoing")]
-                public bool? is_outgoing_;
+                public bool is_outgoing_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("can_be_edited")]
-                public bool? can_be_edited_;
+                public bool can_be_edited_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("can_be_forwarded")]
-                public bool? can_be_forwarded_;
+                public bool can_be_forwarded_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("can_be_deleted_only_for_self")]
-                public bool? can_be_deleted_only_for_self_;
+                public bool can_be_deleted_only_for_self_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("can_be_deleted_for_all_users")]
-                public bool? can_be_deleted_for_all_users_;
+                public bool can_be_deleted_for_all_users_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_channel_post")]
-                public bool? is_channel_post_;
+                public bool is_channel_post_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("contains_unread_mention")]
-                public bool? contains_unread_mention_;
+                public bool contains_unread_mention_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("date")]
-                public int? date_;
+                public int date_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("edit_date")]
-                public int? edit_date_;
+                public int edit_date_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("forward_info")]
@@ -76,11 +76,11 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("reply_to_message_id")]
-                public long? reply_to_message_id_;
+                public long reply_to_message_id_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("ttl")]
-                public int? ttl_;
+                public int ttl_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("ttl_expires_in")]
@@ -88,7 +88,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("via_bot_user_id")]
-                public int? via_bot_user_id_;
+                public int via_bot_user_id_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("author_signature")]
@@ -96,7 +96,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("views")]
-                public int? views_;
+                public int views_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("media_album_id")]

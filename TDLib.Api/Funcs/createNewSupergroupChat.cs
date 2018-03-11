@@ -24,7 +24,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_channel")]
-                public bool? is_channel_;
+                public bool is_channel_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("description")]

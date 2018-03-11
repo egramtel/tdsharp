@@ -24,15 +24,15 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("resize_keyboard")]
-                public bool? resize_keyboard_;
+                public bool resize_keyboard_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("one_time")]
-                public bool? one_time_;
+                public bool one_time_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_personal")]
-                public bool? is_personal_;
+                public bool is_personal_;
 
         }
 

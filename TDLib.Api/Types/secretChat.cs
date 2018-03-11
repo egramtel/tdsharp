@@ -20,11 +20,11 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("id")]
-                public int? id_;
+                public int id_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("user_id")]
-                public int? user_id_;
+                public int user_id_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("state")]
@@ -32,11 +32,11 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_outbound")]
-                public bool? is_outbound_;
+                public bool is_outbound_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("ttl")]
-                public int? ttl_;
+                public int ttl_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("key_hash")]
@@ -44,7 +44,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("layer")]
-                public int? layer_;
+                public int layer_;
 
         }
 

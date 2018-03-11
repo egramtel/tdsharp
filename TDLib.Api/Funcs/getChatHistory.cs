@@ -20,23 +20,23 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("chat_id")]
-                public long? chat_id_;
+                public long chat_id_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("from_message_id")]
-                public long? from_message_id_;
+                public long from_message_id_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("offset")]
-                public int? offset_;
+                public int offset_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("limit")]
-                public int? limit_;
+                public int limit_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("only_local")]
-                public bool? only_local_;
+                public bool only_local_;
 
         }
 

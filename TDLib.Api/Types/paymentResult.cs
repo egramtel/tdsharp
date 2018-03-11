@@ -20,7 +20,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("success")]
-                public bool? success_;
+                public bool success_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("verification_url")]

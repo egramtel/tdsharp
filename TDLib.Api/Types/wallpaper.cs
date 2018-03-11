@@ -20,7 +20,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("id")]
-                public int? id_;
+                public int id_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("sizes")]
@@ -28,7 +28,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("color")]
-                public int? color_;
+                public int color_;
 
         }
 

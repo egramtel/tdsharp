@@ -20,11 +20,11 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("file_id")]
-                public int? file_id_;
+                public int file_id_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("only_if_pending")]
-                public bool? only_if_pending_;
+                public bool only_if_pending_;
 
         }
 

@@ -24,11 +24,11 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("disable_web_page_preview")]
-                public bool? disable_web_page_preview_;
+                public bool disable_web_page_preview_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("clear_draft")]
-                public bool? clear_draft_;
+                public bool clear_draft_;
 
         }
 

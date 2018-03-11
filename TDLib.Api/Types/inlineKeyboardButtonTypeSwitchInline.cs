@@ -24,7 +24,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("in_current_chat")]
-                public bool? in_current_chat_;
+                public bool in_current_chat_;
 
         }
 

@@ -20,7 +20,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("file_id")]
-                public int? file_id_;
+                public int file_id_;
 
         }
 

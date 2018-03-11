@@ -20,15 +20,15 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("from_message_id")]
-                public long? from_message_id_;
+                public long from_message_id_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("limit")]
-                public int? limit_;
+                public int limit_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("only_missed")]
-                public bool? only_missed_;
+                public bool only_missed_;
 
         }
 

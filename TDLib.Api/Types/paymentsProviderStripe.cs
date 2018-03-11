@@ -24,15 +24,15 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("need_country")]
-                public bool? need_country_;
+                public bool need_country_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("need_postal_code")]
-                public bool? need_postal_code_;
+                public bool need_postal_code_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("need_cardholder_name")]
-                public bool? need_cardholder_name_;
+                public bool need_cardholder_name_;
 
         }
 

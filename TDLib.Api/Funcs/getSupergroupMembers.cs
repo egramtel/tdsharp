@@ -20,7 +20,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("supergroup_id")]
-                public int? supergroup_id_;
+                public int supergroup_id_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("filter")]
@@ -28,11 +28,11 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("offset")]
-                public int? offset_;
+                public int offset_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("limit")]
-                public int? limit_;
+                public int limit_;
 
         }
 

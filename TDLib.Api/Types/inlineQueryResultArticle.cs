@@ -28,7 +28,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("hide_url")]
-                public bool? hide_url_;
+                public bool hide_url_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("title")]

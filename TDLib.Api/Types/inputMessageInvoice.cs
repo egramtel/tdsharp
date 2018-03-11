@@ -36,15 +36,15 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("photo_size")]
-                public int? photo_size_;
+                public int photo_size_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("photo_width")]
-                public int? photo_width_;
+                public int photo_width_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("photo_height")]
-                public int? photo_height_;
+                public int photo_height_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("payload")]

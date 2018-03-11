@@ -24,7 +24,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("allow_save")]
-                public bool? allow_save_;
+                public bool allow_save_;
 
         }
 

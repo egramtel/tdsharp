@@ -20,7 +20,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("id")]
-                public long? id_;
+                public long id_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("type")]
@@ -44,23 +44,23 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_pinned")]
-                public bool? is_pinned_;
+                public bool is_pinned_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("unread_count")]
-                public int? unread_count_;
+                public int unread_count_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("last_read_inbox_message_id")]
-                public long? last_read_inbox_message_id_;
+                public long last_read_inbox_message_id_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("last_read_outbox_message_id")]
-                public long? last_read_outbox_message_id_;
+                public long last_read_outbox_message_id_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("unread_mention_count")]
-                public int? unread_mention_count_;
+                public int unread_mention_count_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("notification_settings")]
@@ -68,7 +68,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("reply_markup_message_id")]
-                public long? reply_markup_message_id_;
+                public long reply_markup_message_id_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("draft_message")]

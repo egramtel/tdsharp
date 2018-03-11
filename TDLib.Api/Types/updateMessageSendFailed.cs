@@ -24,11 +24,11 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("old_message_id")]
-                public long? old_message_id_;
+                public long old_message_id_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("error_code")]
-                public int? error_code_;
+                public int error_code_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("error_message")]

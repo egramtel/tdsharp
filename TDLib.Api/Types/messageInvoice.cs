@@ -36,7 +36,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("total_amount")]
-                public long? total_amount_;
+                public long total_amount_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("start_parameter")]
@@ -44,15 +44,15 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_test")]
-                public bool? is_test_;
+                public bool is_test_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("need_shipping_address")]
-                public bool? need_shipping_address_;
+                public bool need_shipping_address_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("receipt_message_id")]
-                public long? receipt_message_id_;
+                public long receipt_message_id_;
 
         }
 

@@ -24,7 +24,7 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("old_message_id")]
-                public long? old_message_id_;
+                public long old_message_id_;
 
         }
 

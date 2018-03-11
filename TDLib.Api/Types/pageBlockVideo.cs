@@ -28,11 +28,11 @@ namespace TD {
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("need_autoplay")]
-                public bool? need_autoplay_;
+                public bool need_autoplay_;
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_looped")]
-                public bool? is_looped_;
+                public bool is_looped_;
 
         }
 
