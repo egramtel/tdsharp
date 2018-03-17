@@ -7,7 +7,7 @@ TDSharp - .NET bindings for TDLib (Telegram Database Library) JSON API: https://
 ### Dependencies
 
 [Build TDLib](https://core.telegram.org/tdlib/docs/index.html#building) and put the compiled library into your project's output directory
-* libtdjson.dll (Windows)
+* tdjson.dll (Windows)
 * libtdjson.dylib (MacOS)
 * libtdjson.so (Linux)
 

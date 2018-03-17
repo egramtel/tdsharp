@@ -5,7 +5,7 @@ namespace TD.Bindings
 {
     internal static class WindowsBindings
     {
-        private const string Dll = "libtdjson.dll";
+        private const string Dll = "tdjson.dll";
         
         [DllImport(Dll)]
         internal static extern IntPtr td_json_client_create();
