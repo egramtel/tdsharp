@@ -9,26 +9,26 @@ namespace TD {
     public partial class Update : Structure
     {
 
-        public partial class updateNewCustomQuery : Update
+        public class UpdateNewCustomQuery : Update
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "updateNewCustomQuery";
+                public override string DataType { get; set; } = "updateNewCustomQuery";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("id")]
-                public string id_;
+                public string Id { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("data")]
-                public string data_;
+                public string Data { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("timeout")]
-                public int timeout_;
+                public int Timeout { get; set; }
 
         }
 

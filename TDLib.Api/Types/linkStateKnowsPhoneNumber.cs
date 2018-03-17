@@ -9,11 +9,11 @@ namespace TD {
     public partial class LinkState : Structure
     {
 
-        public partial class linkStateKnowsPhoneNumber : LinkState
+        public class LinkStateKnowsPhoneNumber : LinkState
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "linkStateKnowsPhoneNumber";
+                public override string DataType { get; set; } = "linkStateKnowsPhoneNumber";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }

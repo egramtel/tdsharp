@@ -9,11 +9,11 @@ namespace TD {
     public partial class MessageSendingState : Structure
     {
 
-        public partial class messageSendingStatePending : MessageSendingState
+        public class MessageSendingStatePending : MessageSendingState
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "messageSendingStatePending";
+                public override string DataType { get; set; } = "messageSendingStatePending";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }

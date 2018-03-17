@@ -9,11 +9,11 @@ namespace TD {
     public partial class MessageContent : Structure
     {
 
-        public partial class messageExpiredVideo : MessageContent
+        public class MessageExpiredVideo : MessageContent
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "messageExpiredVideo";
+                public override string DataType { get; set; } = "messageExpiredVideo";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }

@@ -5,9 +5,9 @@ namespace TD
 {
     public class ErrorException : Exception
     {
-        public readonly Error.error Error;
+        public readonly Error Error;
 
-        public ErrorException(Error.error error) : base(error.message_)
+        public ErrorException(Error error) : base(error.Message)
         {
             Error = error;
         }

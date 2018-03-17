@@ -9,30 +9,30 @@ namespace TD {
     public partial class PageBlock : Structure
     {
 
-        public partial class pageBlockVideo : PageBlock
+        public class PageBlockVideo : PageBlock
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "pageBlockVideo";
+                public override string DataType { get; set; } = "pageBlockVideo";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("video")]
-                public Video.video video_;
+                public Video Video { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("caption")]
-                public RichText caption_;
+                public RichText Caption { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("need_autoplay")]
-                public bool need_autoplay_;
+                public bool NeedAutoplay { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_looped")]
-                public bool is_looped_;
+                public bool IsLooped { get; set; }
 
         }
 

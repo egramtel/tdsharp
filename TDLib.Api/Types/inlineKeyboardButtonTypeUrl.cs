@@ -9,18 +9,18 @@ namespace TD {
     public partial class InlineKeyboardButtonType : Structure
     {
 
-        public partial class inlineKeyboardButtonTypeUrl : InlineKeyboardButtonType
+        public class InlineKeyboardButtonTypeUrl : InlineKeyboardButtonType
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "inlineKeyboardButtonTypeUrl";
+                public override string DataType { get; set; } = "inlineKeyboardButtonTypeUrl";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("url")]
-                public string url_;
+                public string Url { get; set; }
 
         }
 

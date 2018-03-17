@@ -9,11 +9,11 @@ namespace TD {
     public partial class TopChatCategory : Structure
     {
 
-        public partial class topChatCategoryGroups : TopChatCategory
+        public class TopChatCategoryGroups : TopChatCategory
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "topChatCategoryGroups";
+                public override string DataType { get; set; } = "topChatCategoryGroups";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }

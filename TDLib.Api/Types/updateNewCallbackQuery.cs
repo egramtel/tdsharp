@@ -9,38 +9,38 @@ namespace TD {
     public partial class Update : Structure
     {
 
-        public partial class updateNewCallbackQuery : Update
+        public class UpdateNewCallbackQuery : Update
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "updateNewCallbackQuery";
+                public override string DataType { get; set; } = "updateNewCallbackQuery";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("id")]
-                public string id_;
+                public string Id { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("sender_user_id")]
-                public int sender_user_id_;
+                public int SenderUserId { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("chat_id")]
-                public long chat_id_;
+                public long ChatId { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("message_id")]
-                public long message_id_;
+                public long MessageId { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("chat_instance")]
-                public string chat_instance_;
+                public string ChatInstance { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("payload")]
-                public CallbackQueryPayload payload_;
+                public CallbackQueryPayload Payload { get; set; }
 
         }
 

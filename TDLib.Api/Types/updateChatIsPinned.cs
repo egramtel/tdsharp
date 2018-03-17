@@ -9,26 +9,26 @@ namespace TD {
     public partial class Update : Structure
     {
 
-        public partial class updateChatIsPinned : Update
+        public class UpdateChatIsPinned : Update
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "updateChatIsPinned";
+                public override string DataType { get; set; } = "updateChatIsPinned";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("chat_id")]
-                public long chat_id_;
+                public long ChatId { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_pinned")]
-                public bool is_pinned_;
+                public bool IsPinned { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("order")]
-                public string order_;
+                public string Order { get; set; }
 
         }
 

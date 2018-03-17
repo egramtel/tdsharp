@@ -9,42 +9,42 @@ namespace TD {
     public partial class InputInlineQueryResult : Structure
     {
 
-        public partial class inputInlineQueryResultContact : InputInlineQueryResult
+        public class InputInlineQueryResultContact : InputInlineQueryResult
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "inputInlineQueryResultContact";
+                public override string DataType { get; set; } = "inputInlineQueryResultContact";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("id")]
-                public string id_;
+                public string Id { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("contact")]
-                public Contact.contact contact_;
+                public Contact Contact { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("thumbnail_url")]
-                public string thumbnail_url_;
+                public string ThumbnailUrl { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("thumbnail_width")]
-                public int thumbnail_width_;
+                public int ThumbnailWidth { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("thumbnail_height")]
-                public int thumbnail_height_;
+                public int ThumbnailHeight { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("reply_markup")]
-                public ReplyMarkup reply_markup_;
+                public ReplyMarkup ReplyMarkup { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("input_message_content")]
-                public InputMessageContent input_message_content_;
+                public InputMessageContent InputMessageContent { get; set; }
 
         }
 

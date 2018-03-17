@@ -9,18 +9,18 @@ namespace TD {
     public partial class ChatEventAction : Structure
     {
 
-        public partial class chatEventMessagePinned : ChatEventAction
+        public class ChatEventMessagePinned : ChatEventAction
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "chatEventMessagePinned";
+                public override string DataType { get; set; } = "chatEventMessagePinned";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("message")]
-                public Message.message message_;
+                public Message Message { get; set; }
 
         }
 

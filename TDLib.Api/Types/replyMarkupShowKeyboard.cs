@@ -9,30 +9,30 @@ namespace TD {
     public partial class ReplyMarkup : Structure
     {
 
-        public partial class replyMarkupShowKeyboard : ReplyMarkup
+        public class ReplyMarkupShowKeyboard : ReplyMarkup
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "replyMarkupShowKeyboard";
+                public override string DataType { get; set; } = "replyMarkupShowKeyboard";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("rows")]
-                public KeyboardButton.keyboardButton[][] rows_;
+                public KeyboardButton[][] Rows { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("resize_keyboard")]
-                public bool resize_keyboard_;
+                public bool ResizeKeyboard { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("one_time")]
-                public bool one_time_;
+                public bool OneTime { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_personal")]
-                public bool is_personal_;
+                public bool IsPersonal { get; set; }
 
         }
 

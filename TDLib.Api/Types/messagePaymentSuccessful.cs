@@ -9,26 +9,26 @@ namespace TD {
     public partial class MessageContent : Structure
     {
 
-        public partial class messagePaymentSuccessful : MessageContent
+        public class MessagePaymentSuccessful : MessageContent
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "messagePaymentSuccessful";
+                public override string DataType { get; set; } = "messagePaymentSuccessful";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("invoice_message_id")]
-                public long invoice_message_id_;
+                public long InvoiceMessageId { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("currency")]
-                public string currency_;
+                public string Currency { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("total_amount")]
-                public long total_amount_;
+                public long TotalAmount { get; set; }
 
         }
 

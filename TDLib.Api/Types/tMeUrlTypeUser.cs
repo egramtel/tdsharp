@@ -9,18 +9,18 @@ namespace TD {
     public partial class TMeUrlType : Structure
     {
 
-        public partial class tMeUrlTypeUser : TMeUrlType
+        public class TMeUrlTypeUser : TMeUrlType
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "tMeUrlTypeUser";
+                public override string DataType { get; set; } = "tMeUrlTypeUser";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("user_id")]
-                public int user_id_;
+                public int UserId { get; set; }
 
         }
 

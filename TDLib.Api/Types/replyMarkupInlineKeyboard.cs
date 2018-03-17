@@ -9,18 +9,18 @@ namespace TD {
     public partial class ReplyMarkup : Structure
     {
 
-        public partial class replyMarkupInlineKeyboard : ReplyMarkup
+        public class ReplyMarkupInlineKeyboard : ReplyMarkup
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "replyMarkupInlineKeyboard";
+                public override string DataType { get; set; } = "replyMarkupInlineKeyboard";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("rows")]
-                public InlineKeyboardButton.inlineKeyboardButton[][] rows_;
+                public InlineKeyboardButton[][] Rows { get; set; }
 
         }
 

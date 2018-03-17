@@ -9,11 +9,11 @@ namespace TD {
     public partial class SecretChatState : Structure
     {
 
-        public partial class secretChatStatePending : SecretChatState
+        public class SecretChatStatePending : SecretChatState
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "secretChatStatePending";
+                public override string DataType { get; set; } = "secretChatStatePending";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }

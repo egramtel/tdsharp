@@ -9,26 +9,26 @@ namespace TD {
     public partial class Update : Structure
     {
 
-        public partial class updateNewMessage : Update
+        public class UpdateNewMessage : Update
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "updateNewMessage";
+                public override string DataType { get; set; } = "updateNewMessage";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("message")]
-                public Message.message message_;
+                public Message Message { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("disable_notification")]
-                public bool disable_notification_;
+                public bool DisableNotification { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("contains_mention")]
-                public bool contains_mention_;
+                public bool ContainsMention { get; set; }
 
         }
 

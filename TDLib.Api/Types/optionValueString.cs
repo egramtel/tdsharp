@@ -9,18 +9,18 @@ namespace TD {
     public partial class OptionValue : Structure
     {
 
-        public partial class optionValueString : OptionValue
+        public class OptionValueString : OptionValue
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "optionValueString";
+                public override string DataType { get; set; } = "optionValueString";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("value")]
-                public string value_;
+                public string Value { get; set; }
 
         }
 

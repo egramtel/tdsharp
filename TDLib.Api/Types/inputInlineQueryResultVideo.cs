@@ -9,58 +9,58 @@ namespace TD {
     public partial class InputInlineQueryResult : Structure
     {
 
-        public partial class inputInlineQueryResultVideo : InputInlineQueryResult
+        public class InputInlineQueryResultVideo : InputInlineQueryResult
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "inputInlineQueryResultVideo";
+                public override string DataType { get; set; } = "inputInlineQueryResultVideo";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("id")]
-                public string id_;
+                public string Id { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("title")]
-                public string title_;
+                public string Title { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("description")]
-                public string description_;
+                public string Description { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("thumbnail_url")]
-                public string thumbnail_url_;
+                public string ThumbnailUrl { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("video_url")]
-                public string video_url_;
+                public string VideoUrl { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("mime_type")]
-                public string mime_type_;
+                public string MimeType { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("video_width")]
-                public int video_width_;
+                public int VideoWidth { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("video_height")]
-                public int video_height_;
+                public int VideoHeight { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("video_duration")]
-                public int video_duration_;
+                public int VideoDuration { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("reply_markup")]
-                public ReplyMarkup reply_markup_;
+                public ReplyMarkup ReplyMarkup { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("input_message_content")]
-                public InputMessageContent input_message_content_;
+                public InputMessageContent InputMessageContent { get; set; }
 
         }
 

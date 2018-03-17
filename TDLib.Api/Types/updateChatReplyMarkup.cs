@@ -9,22 +9,22 @@ namespace TD {
     public partial class Update : Structure
     {
 
-        public partial class updateChatReplyMarkup : Update
+        public class UpdateChatReplyMarkup : Update
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "updateChatReplyMarkup";
+                public override string DataType { get; set; } = "updateChatReplyMarkup";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("chat_id")]
-                public long chat_id_;
+                public long ChatId { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("reply_markup_message_id")]
-                public long reply_markup_message_id_;
+                public long ReplyMarkupMessageId { get; set; }
 
         }
 

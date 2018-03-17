@@ -9,18 +9,18 @@ namespace TD {
     public partial class DeviceToken : Structure
     {
 
-        public partial class deviceTokenGoogleCloudMessaging : DeviceToken
+        public class DeviceTokenGoogleCloudMessaging : DeviceToken
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "deviceTokenGoogleCloudMessaging";
+                public override string DataType { get; set; } = "deviceTokenGoogleCloudMessaging";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("token")]
-                public string token_;
+                public string Token { get; set; }
 
         }
 

@@ -9,34 +9,34 @@ namespace TD {
     public partial class UserType : Structure
     {
 
-        public partial class userTypeBot : UserType
+        public class UserTypeBot : UserType
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "userTypeBot";
+                public override string DataType { get; set; } = "userTypeBot";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("can_join_groups")]
-                public bool can_join_groups_;
+                public bool CanJoinGroups { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("can_read_all_group_messages")]
-                public bool can_read_all_group_messages_;
+                public bool CanReadAllGroupMessages { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_inline")]
-                public bool is_inline_;
+                public bool IsInline { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("inline_query_placeholder")]
-                public string inline_query_placeholder_;
+                public string InlineQueryPlaceholder { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("need_location")]
-                public bool need_location_;
+                public bool NeedLocation { get; set; }
 
         }
 

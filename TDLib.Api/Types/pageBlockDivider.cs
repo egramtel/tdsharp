@@ -9,11 +9,11 @@ namespace TD {
     public partial class PageBlock : Structure
     {
 
-        public partial class pageBlockDivider : PageBlock
+        public class PageBlockDivider : PageBlock
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "pageBlockDivider";
+                public override string DataType { get; set; } = "pageBlockDivider";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }

@@ -9,26 +9,26 @@ namespace TD {
     public partial class PageBlock : Structure
     {
 
-        public partial class pageBlockChatLink : PageBlock
+        public class PageBlockChatLink : PageBlock
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "pageBlockChatLink";
+                public override string DataType { get; set; } = "pageBlockChatLink";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("title")]
-                public string title_;
+                public string Title { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("photo")]
-                public ChatPhoto.chatPhoto photo_;
+                public ChatPhoto Photo { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("username")]
-                public string username_;
+                public string Username { get; set; }
 
         }
 

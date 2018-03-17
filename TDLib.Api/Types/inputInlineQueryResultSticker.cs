@@ -9,42 +9,42 @@ namespace TD {
     public partial class InputInlineQueryResult : Structure
     {
 
-        public partial class inputInlineQueryResultSticker : InputInlineQueryResult
+        public class InputInlineQueryResultSticker : InputInlineQueryResult
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "inputInlineQueryResultSticker";
+                public override string DataType { get; set; } = "inputInlineQueryResultSticker";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("id")]
-                public string id_;
+                public string Id { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("thumbnail_url")]
-                public string thumbnail_url_;
+                public string ThumbnailUrl { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("sticker_url")]
-                public string sticker_url_;
+                public string StickerUrl { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("sticker_width")]
-                public int sticker_width_;
+                public int StickerWidth { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("sticker_height")]
-                public int sticker_height_;
+                public int StickerHeight { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("reply_markup")]
-                public ReplyMarkup reply_markup_;
+                public ReplyMarkup ReplyMarkup { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("input_message_content")]
-                public InputMessageContent input_message_content_;
+                public InputMessageContent InputMessageContent { get; set; }
 
         }
 

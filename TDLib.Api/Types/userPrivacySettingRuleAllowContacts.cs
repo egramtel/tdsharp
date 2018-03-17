@@ -9,11 +9,11 @@ namespace TD {
     public partial class UserPrivacySettingRule : Structure
     {
 
-        public partial class userPrivacySettingRuleAllowContacts : UserPrivacySettingRule
+        public class UserPrivacySettingRuleAllowContacts : UserPrivacySettingRule
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "userPrivacySettingRuleAllowContacts";
+                public override string DataType { get; set; } = "userPrivacySettingRuleAllowContacts";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }

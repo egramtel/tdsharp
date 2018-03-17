@@ -9,50 +9,50 @@ namespace TD {
     public partial class InputInlineQueryResult : Structure
     {
 
-        public partial class inputInlineQueryResultAnimatedMpeg4 : InputInlineQueryResult
+        public class InputInlineQueryResultAnimatedMpeg4 : InputInlineQueryResult
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "inputInlineQueryResultAnimatedMpeg4";
+                public override string DataType { get; set; } = "inputInlineQueryResultAnimatedMpeg4";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("id")]
-                public string id_;
+                public string Id { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("title")]
-                public string title_;
+                public string Title { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("thumbnail_url")]
-                public string thumbnail_url_;
+                public string ThumbnailUrl { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("mpeg4_url")]
-                public string mpeg4_url_;
+                public string Mpeg4Url { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("mpeg4_duration")]
-                public int mpeg4_duration_;
+                public int Mpeg4Duration { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("mpeg4_width")]
-                public int mpeg4_width_;
+                public int Mpeg4Width { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("mpeg4_height")]
-                public int mpeg4_height_;
+                public int Mpeg4Height { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("reply_markup")]
-                public ReplyMarkup reply_markup_;
+                public ReplyMarkup ReplyMarkup { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("input_message_content")]
-                public InputMessageContent input_message_content_;
+                public InputMessageContent InputMessageContent { get; set; }
 
         }
 

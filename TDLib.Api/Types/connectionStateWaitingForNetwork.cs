@@ -9,11 +9,11 @@ namespace TD {
     public partial class ConnectionState : Structure
     {
 
-        public partial class connectionStateWaitingForNetwork : ConnectionState
+        public class ConnectionStateWaitingForNetwork : ConnectionState
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "connectionStateWaitingForNetwork";
+                public override string DataType { get; set; } = "connectionStateWaitingForNetwork";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }

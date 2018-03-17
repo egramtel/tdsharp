@@ -9,22 +9,22 @@ namespace TD {
     public partial class AuthorizationState : Structure
     {
 
-        public partial class authorizationStateWaitCode : AuthorizationState
+        public class AuthorizationStateWaitCode : AuthorizationState
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "authorizationStateWaitCode";
+                public override string DataType { get; set; } = "authorizationStateWaitCode";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_registered")]
-                public bool is_registered_;
+                public bool IsRegistered { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("code_info")]
-                public AuthenticationCodeInfo.authenticationCodeInfo code_info_;
+                public AuthenticationCodeInfo CodeInfo { get; set; }
 
         }
 

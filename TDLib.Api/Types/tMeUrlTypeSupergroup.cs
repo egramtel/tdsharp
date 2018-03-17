@@ -9,18 +9,18 @@ namespace TD {
     public partial class TMeUrlType : Structure
     {
 
-        public partial class tMeUrlTypeSupergroup : TMeUrlType
+        public class TMeUrlTypeSupergroup : TMeUrlType
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "tMeUrlTypeSupergroup";
+                public override string DataType { get; set; } = "tMeUrlTypeSupergroup";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("supergroup_id")]
-                public long supergroup_id_;
+                public long SupergroupId { get; set; }
 
         }
 

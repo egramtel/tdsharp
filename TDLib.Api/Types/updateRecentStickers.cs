@@ -9,22 +9,22 @@ namespace TD {
     public partial class Update : Structure
     {
 
-        public partial class updateRecentStickers : Update
+        public class UpdateRecentStickers : Update
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "updateRecentStickers";
+                public override string DataType { get; set; } = "updateRecentStickers";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_attached")]
-                public bool is_attached_;
+                public bool IsAttached { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("sticker_ids")]
-                public int[] sticker_ids_;
+                public int[] StickerIds { get; set; }
 
         }
 

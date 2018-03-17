@@ -9,22 +9,22 @@ namespace TD {
     public partial class RichText : Structure
     {
 
-        public partial class richTextUrl : RichText
+        public class RichTextUrl : RichText
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "richTextUrl";
+                public override string DataType { get; set; } = "richTextUrl";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("text")]
-                public RichText text_;
+                public RichText Text { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("url")]
-                public string url_;
+                public string Url { get; set; }
 
         }
 

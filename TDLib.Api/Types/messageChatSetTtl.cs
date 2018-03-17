@@ -9,18 +9,18 @@ namespace TD {
     public partial class MessageContent : Structure
     {
 
-        public partial class messageChatSetTtl : MessageContent
+        public class MessageChatSetTtl : MessageContent
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "messageChatSetTtl";
+                public override string DataType { get; set; } = "messageChatSetTtl";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("ttl")]
-                public int ttl_;
+                public int Ttl { get; set; }
 
         }
 

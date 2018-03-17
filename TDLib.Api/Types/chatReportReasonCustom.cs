@@ -9,18 +9,18 @@ namespace TD {
     public partial class ChatReportReason : Structure
     {
 
-        public partial class chatReportReasonCustom : ChatReportReason
+        public class ChatReportReasonCustom : ChatReportReason
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "chatReportReasonCustom";
+                public override string DataType { get; set; } = "chatReportReasonCustom";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("text")]
-                public string text_;
+                public string Text { get; set; }
 
         }
 

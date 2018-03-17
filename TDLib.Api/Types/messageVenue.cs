@@ -9,18 +9,18 @@ namespace TD {
     public partial class MessageContent : Structure
     {
 
-        public partial class messageVenue : MessageContent
+        public class MessageVenue : MessageContent
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "messageVenue";
+                public override string DataType { get; set; } = "messageVenue";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("venue")]
-                public Venue.venue venue_;
+                public Venue Venue { get; set; }
 
         }
 

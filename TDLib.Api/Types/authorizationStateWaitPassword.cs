@@ -9,26 +9,26 @@ namespace TD {
     public partial class AuthorizationState : Structure
     {
 
-        public partial class authorizationStateWaitPassword : AuthorizationState
+        public class AuthorizationStateWaitPassword : AuthorizationState
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "authorizationStateWaitPassword";
+                public override string DataType { get; set; } = "authorizationStateWaitPassword";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("password_hint")]
-                public string password_hint_;
+                public string PasswordHint { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("has_recovery_email_address")]
-                public bool has_recovery_email_address_;
+                public bool HasRecoveryEmailAddress { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("recovery_email_address_pattern")]
-                public string recovery_email_address_pattern_;
+                public string RecoveryEmailAddressPattern { get; set; }
 
         }
 

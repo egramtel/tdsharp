@@ -9,30 +9,30 @@ namespace TD {
     public partial class Proxy : Structure
     {
 
-        public partial class proxySocks5 : Proxy
+        public class ProxySocks5 : Proxy
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "proxySocks5";
+                public override string DataType { get; set; } = "proxySocks5";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("server")]
-                public string server_;
+                public string Server { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("port")]
-                public int port_;
+                public int Port { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("username")]
-                public string username_;
+                public string Username { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("password")]
-                public string password_;
+                public string Password { get; set; }
 
         }
 

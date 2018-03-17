@@ -9,50 +9,50 @@ namespace TD {
     public partial class InputInlineQueryResult : Structure
     {
 
-        public partial class inputInlineQueryResultPhoto : InputInlineQueryResult
+        public class InputInlineQueryResultPhoto : InputInlineQueryResult
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "inputInlineQueryResultPhoto";
+                public override string DataType { get; set; } = "inputInlineQueryResultPhoto";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("id")]
-                public string id_;
+                public string Id { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("title")]
-                public string title_;
+                public string Title { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("description")]
-                public string description_;
+                public string Description { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("thumbnail_url")]
-                public string thumbnail_url_;
+                public string ThumbnailUrl { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("photo_url")]
-                public string photo_url_;
+                public string PhotoUrl { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("photo_width")]
-                public int photo_width_;
+                public int PhotoWidth { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("photo_height")]
-                public int photo_height_;
+                public int PhotoHeight { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("reply_markup")]
-                public ReplyMarkup reply_markup_;
+                public ReplyMarkup ReplyMarkup { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("input_message_content")]
-                public InputMessageContent input_message_content_;
+                public InputMessageContent InputMessageContent { get; set; }
 
         }
 

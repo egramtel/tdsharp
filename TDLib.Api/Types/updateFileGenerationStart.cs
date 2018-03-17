@@ -9,30 +9,30 @@ namespace TD {
     public partial class Update : Structure
     {
 
-        public partial class updateFileGenerationStart : Update
+        public class UpdateFileGenerationStart : Update
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "updateFileGenerationStart";
+                public override string DataType { get; set; } = "updateFileGenerationStart";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("generation_id")]
-                public string generation_id_;
+                public string GenerationId { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("original_path")]
-                public string original_path_;
+                public string OriginalPath { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("destination_path")]
-                public string destination_path_;
+                public string DestinationPath { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("conversion")]
-                public string conversion_;
+                public string Conversion { get; set; }
 
         }
 

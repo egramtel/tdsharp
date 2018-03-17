@@ -9,18 +9,18 @@ namespace TD {
     public partial class MessageContent : Structure
     {
 
-        public partial class messagePinMessage : MessageContent
+        public class MessagePinMessage : MessageContent
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "messagePinMessage";
+                public override string DataType { get; set; } = "messagePinMessage";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("message_id")]
-                public long message_id_;
+                public long MessageId { get; set; }
 
         }
 

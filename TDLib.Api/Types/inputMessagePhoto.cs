@@ -9,42 +9,42 @@ namespace TD {
     public partial class InputMessageContent : Structure
     {
 
-        public partial class inputMessagePhoto : InputMessageContent
+        public class InputMessagePhoto : InputMessageContent
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "inputMessagePhoto";
+                public override string DataType { get; set; } = "inputMessagePhoto";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("photo")]
-                public InputFile photo_;
+                public InputFile Photo { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("thumbnail")]
-                public InputThumbnail.inputThumbnail thumbnail_;
+                public InputThumbnail Thumbnail { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("added_sticker_file_ids")]
-                public int[] added_sticker_file_ids_;
+                public int[] AddedStickerFileIds { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("width")]
-                public int width_;
+                public int Width { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("height")]
-                public int height_;
+                public int Height { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("caption")]
-                public FormattedText.formattedText caption_;
+                public FormattedText Caption { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("ttl")]
-                public int ttl_;
+                public int Ttl { get; set; }
 
         }
 

@@ -9,18 +9,18 @@ namespace TD {
     public partial class ChatAction : Structure
     {
 
-        public partial class chatActionUploadingVideo : ChatAction
+        public class ChatActionUploadingVideo : ChatAction
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "chatActionUploadingVideo";
+                public override string DataType { get; set; } = "chatActionUploadingVideo";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("progress")]
-                public int progress_;
+                public int Progress { get; set; }
 
         }
 

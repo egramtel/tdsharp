@@ -9,18 +9,18 @@ namespace TD {
     public partial class ReplyMarkup : Structure
     {
 
-        public partial class replyMarkupForceReply : ReplyMarkup
+        public class ReplyMarkupForceReply : ReplyMarkup
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "replyMarkupForceReply";
+                public override string DataType { get; set; } = "replyMarkupForceReply";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_personal")]
-                public bool is_personal_;
+                public bool IsPersonal { get; set; }
 
         }
 

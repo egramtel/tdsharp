@@ -9,22 +9,22 @@ namespace TD {
     public partial class ChatType : Structure
     {
 
-        public partial class chatTypeSecret : ChatType
+        public class ChatTypeSecret : ChatType
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "chatTypeSecret";
+                public override string DataType { get; set; } = "chatTypeSecret";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("secret_chat_id")]
-                public int secret_chat_id_;
+                public int SecretChatId { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("user_id")]
-                public int user_id_;
+                public int UserId { get; set; }
 
         }
 

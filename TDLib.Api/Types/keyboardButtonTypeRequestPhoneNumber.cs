@@ -9,11 +9,11 @@ namespace TD {
     public partial class KeyboardButtonType : Structure
     {
 
-        public partial class keyboardButtonTypeRequestPhoneNumber : KeyboardButtonType
+        public class KeyboardButtonTypeRequestPhoneNumber : KeyboardButtonType
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "keyboardButtonTypeRequestPhoneNumber";
+                public override string DataType { get; set; } = "keyboardButtonTypeRequestPhoneNumber";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }

@@ -9,34 +9,34 @@ namespace TD {
     public partial class Update : Structure
     {
 
-        public partial class updateNewInlineQuery : Update
+        public class UpdateNewInlineQuery : Update
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "updateNewInlineQuery";
+                public override string DataType { get; set; } = "updateNewInlineQuery";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("id")]
-                public string id_;
+                public string Id { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("sender_user_id")]
-                public int sender_user_id_;
+                public int SenderUserId { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("user_location")]
-                public Location.location user_location_;
+                public Location UserLocation { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("query")]
-                public string query_;
+                public string Query { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("offset")]
-                public string offset_;
+                public string Offset { get; set; }
 
         }
 

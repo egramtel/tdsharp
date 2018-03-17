@@ -9,42 +9,42 @@ namespace TD {
     public partial class InputInlineQueryResult : Structure
     {
 
-        public partial class inputInlineQueryResultAudio : InputInlineQueryResult
+        public class InputInlineQueryResultAudio : InputInlineQueryResult
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "inputInlineQueryResultAudio";
+                public override string DataType { get; set; } = "inputInlineQueryResultAudio";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("id")]
-                public string id_;
+                public string Id { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("title")]
-                public string title_;
+                public string Title { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("performer")]
-                public string performer_;
+                public string Performer { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("audio_url")]
-                public string audio_url_;
+                public string AudioUrl { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("audio_duration")]
-                public int audio_duration_;
+                public int AudioDuration { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("reply_markup")]
-                public ReplyMarkup reply_markup_;
+                public ReplyMarkup ReplyMarkup { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("input_message_content")]
-                public InputMessageContent input_message_content_;
+                public InputMessageContent InputMessageContent { get; set; }
 
         }
 

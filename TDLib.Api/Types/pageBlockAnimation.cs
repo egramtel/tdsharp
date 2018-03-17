@@ -9,26 +9,26 @@ namespace TD {
     public partial class PageBlock : Structure
     {
 
-        public partial class pageBlockAnimation : PageBlock
+        public class PageBlockAnimation : PageBlock
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "pageBlockAnimation";
+                public override string DataType { get; set; } = "pageBlockAnimation";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("animation")]
-                public Animation.animation animation_;
+                public Animation Animation { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("caption")]
-                public RichText caption_;
+                public RichText Caption { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("need_autoplay")]
-                public bool need_autoplay_;
+                public bool NeedAutoplay { get; set; }
 
         }
 

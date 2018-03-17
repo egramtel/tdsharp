@@ -9,58 +9,58 @@ namespace TD {
     public partial class InputMessageContent : Structure
     {
 
-        public partial class inputMessageInvoice : InputMessageContent
+        public class InputMessageInvoice : InputMessageContent
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "inputMessageInvoice";
+                public override string DataType { get; set; } = "inputMessageInvoice";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("invoice")]
-                public Invoice.invoice invoice_;
+                public Invoice Invoice { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("title")]
-                public string title_;
+                public string Title { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("description")]
-                public string description_;
+                public string Description { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("photo_url")]
-                public string photo_url_;
+                public string PhotoUrl { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("photo_size")]
-                public int photo_size_;
+                public int PhotoSize { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("photo_width")]
-                public int photo_width_;
+                public int PhotoWidth { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("photo_height")]
-                public int photo_height_;
+                public int PhotoHeight { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("payload")]
-                public byte[] payload_;
+                public byte[] Payload { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("provider_token")]
-                public string provider_token_;
+                public string ProviderToken { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("provider_data")]
-                public string provider_data_;
+                public string ProviderData { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("start_parameter")]
-                public string start_parameter_;
+                public string StartParameter { get; set; }
 
         }
 

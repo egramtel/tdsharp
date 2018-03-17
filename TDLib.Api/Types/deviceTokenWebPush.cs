@@ -9,26 +9,26 @@ namespace TD {
     public partial class DeviceToken : Structure
     {
 
-        public partial class deviceTokenWebPush : DeviceToken
+        public class DeviceTokenWebPush : DeviceToken
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "deviceTokenWebPush";
+                public override string DataType { get; set; } = "deviceTokenWebPush";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("endpoint")]
-                public string endpoint_;
+                public string Endpoint { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("p256dh_base64url")]
-                public string p256dh_base64url_;
+                public string P256dhBase64url { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("auth_base64url")]
-                public string auth_base64url_;
+                public string AuthBase64url { get; set; }
 
         }
 

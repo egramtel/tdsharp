@@ -9,18 +9,18 @@ namespace TD {
     public partial class ChatMemberStatus : Structure
     {
 
-        public partial class chatMemberStatusBanned : ChatMemberStatus
+        public class ChatMemberStatusBanned : ChatMemberStatus
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "chatMemberStatusBanned";
+                public override string DataType { get; set; } = "chatMemberStatusBanned";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("banned_until_date")]
-                public int banned_until_date_;
+                public int BannedUntilDate { get; set; }
 
         }
 

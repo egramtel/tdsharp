@@ -9,50 +9,50 @@ namespace TD {
     public partial class MessageContent : Structure
     {
 
-        public partial class messageInvoice : MessageContent
+        public class MessageInvoice : MessageContent
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "messageInvoice";
+                public override string DataType { get; set; } = "messageInvoice";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("title")]
-                public string title_;
+                public string Title { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("description")]
-                public string description_;
+                public string Description { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("photo")]
-                public Photo.photo photo_;
+                public Photo Photo { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("currency")]
-                public string currency_;
+                public string Currency { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("total_amount")]
-                public long total_amount_;
+                public long TotalAmount { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("start_parameter")]
-                public string start_parameter_;
+                public string StartParameter { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_test")]
-                public bool is_test_;
+                public bool IsTest { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("need_shipping_address")]
-                public bool need_shipping_address_;
+                public bool NeedShippingAddress { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("receipt_message_id")]
-                public long receipt_message_id_;
+                public long ReceiptMessageId { get; set; }
 
         }
 

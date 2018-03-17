@@ -9,22 +9,22 @@ namespace TD {
     public partial class Update : Structure
     {
 
-        public partial class updateUserPrivacySettingRules : Update
+        public class UpdateUserPrivacySettingRules : Update
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "updateUserPrivacySettingRules";
+                public override string DataType { get; set; } = "updateUserPrivacySettingRules";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("setting")]
-                public UserPrivacySetting setting_;
+                public UserPrivacySetting Setting { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("rules")]
-                public UserPrivacySettingRules.userPrivacySettingRules rules_;
+                public UserPrivacySettingRules Rules { get; set; }
 
         }
 

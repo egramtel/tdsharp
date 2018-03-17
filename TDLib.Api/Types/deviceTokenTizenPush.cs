@@ -9,18 +9,18 @@ namespace TD {
     public partial class DeviceToken : Structure
     {
 
-        public partial class deviceTokenTizenPush : DeviceToken
+        public class DeviceTokenTizenPush : DeviceToken
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "deviceTokenTizenPush";
+                public override string DataType { get; set; } = "deviceTokenTizenPush";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("reg_id")]
-                public string reg_id_;
+                public string RegId { get; set; }
 
         }
 

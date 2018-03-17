@@ -9,38 +9,38 @@ namespace TD {
     public partial class MessageForwardInfo : Structure
     {
 
-        public partial class messageForwardedPost : MessageForwardInfo
+        public class MessageForwardedPost : MessageForwardInfo
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "messageForwardedPost";
+                public override string DataType { get; set; } = "messageForwardedPost";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("chat_id")]
-                public long chat_id_;
+                public long ChatId { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("author_signature")]
-                public string author_signature_;
+                public string AuthorSignature { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("date")]
-                public int date_;
+                public int Date { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("message_id")]
-                public long message_id_;
+                public long MessageId { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("forwarded_from_chat_id")]
-                public long forwarded_from_chat_id_;
+                public long ForwardedFromChatId { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("forwarded_from_message_id")]
-                public long forwarded_from_message_id_;
+                public long ForwardedFromMessageId { get; set; }
 
         }
 

@@ -9,18 +9,18 @@ namespace TD {
     public partial class AuthenticationCodeType : Structure
     {
 
-        public partial class authenticationCodeTypeSms : AuthenticationCodeType
+        public class AuthenticationCodeTypeSms : AuthenticationCodeType
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "authenticationCodeTypeSms";
+                public override string DataType { get; set; } = "authenticationCodeTypeSms";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("length")]
-                public int length_;
+                public int Length { get; set; }
 
         }
 

@@ -9,22 +9,22 @@ namespace TD {
     public partial class InlineKeyboardButtonType : Structure
     {
 
-        public partial class inlineKeyboardButtonTypeSwitchInline : InlineKeyboardButtonType
+        public class InlineKeyboardButtonTypeSwitchInline : InlineKeyboardButtonType
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "inlineKeyboardButtonTypeSwitchInline";
+                public override string DataType { get; set; } = "inlineKeyboardButtonTypeSwitchInline";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("query")]
-                public string query_;
+                public string Query { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("in_current_chat")]
-                public bool in_current_chat_;
+                public bool InCurrentChat { get; set; }
 
         }
 

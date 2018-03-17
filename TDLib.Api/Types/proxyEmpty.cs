@@ -9,11 +9,11 @@ namespace TD {
     public partial class Proxy : Structure
     {
 
-        public partial class proxyEmpty : Proxy
+        public class ProxyEmpty : Proxy
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "proxyEmpty";
+                public override string DataType { get; set; } = "proxyEmpty";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }

@@ -9,26 +9,26 @@ namespace TD {
     public partial class InputFile : Structure
     {
 
-        public partial class inputFileGenerated : InputFile
+        public class InputFileGenerated : InputFile
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "inputFileGenerated";
+                public override string DataType { get; set; } = "inputFileGenerated";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("original_path")]
-                public string original_path_;
+                public string OriginalPath { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("conversion")]
-                public string conversion_;
+                public string Conversion { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("expected_size")]
-                public int expected_size_;
+                public int ExpectedSize { get; set; }
 
         }
 

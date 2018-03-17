@@ -9,18 +9,18 @@ namespace TD {
     public partial class UserStatus : Structure
     {
 
-        public partial class userStatusOffline : UserStatus
+        public class UserStatusOffline : UserStatus
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "userStatusOffline";
+                public override string DataType { get; set; } = "userStatusOffline";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("was_online")]
-                public int was_online_;
+                public int WasOnline { get; set; }
 
         }
 

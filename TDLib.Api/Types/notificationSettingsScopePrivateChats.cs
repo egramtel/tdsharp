@@ -9,11 +9,11 @@ namespace TD {
     public partial class NotificationSettingsScope : Structure
     {
 
-        public partial class notificationSettingsScopePrivateChats : NotificationSettingsScope
+        public class NotificationSettingsScopePrivateChats : NotificationSettingsScope
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "notificationSettingsScopePrivateChats";
+                public override string DataType { get; set; } = "notificationSettingsScopePrivateChats";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }

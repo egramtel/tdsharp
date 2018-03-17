@@ -9,22 +9,22 @@ namespace TD {
     public partial class InlineQueryResult : Structure
     {
 
-        public partial class inlineQueryResultAudio : InlineQueryResult
+        public class InlineQueryResultAudio : InlineQueryResult
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "inlineQueryResultAudio";
+                public override string DataType { get; set; } = "inlineQueryResultAudio";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("id")]
-                public string id_;
+                public string Id { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("audio")]
-                public Audio.audio audio_;
+                public Audio Audio { get; set; }
 
         }
 

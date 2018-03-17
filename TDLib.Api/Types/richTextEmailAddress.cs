@@ -9,22 +9,22 @@ namespace TD {
     public partial class RichText : Structure
     {
 
-        public partial class richTextEmailAddress : RichText
+        public class RichTextEmailAddress : RichText
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "richTextEmailAddress";
+                public override string DataType { get; set; } = "richTextEmailAddress";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("text")]
-                public RichText text_;
+                public RichText Text { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("email_address")]
-                public string email_address_;
+                public string EmailAddress { get; set; }
 
         }
 

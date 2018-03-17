@@ -9,26 +9,26 @@ namespace TD {
     public partial class InlineQueryResult : Structure
     {
 
-        public partial class inlineQueryResultVoiceNote : InlineQueryResult
+        public class InlineQueryResultVoiceNote : InlineQueryResult
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "inlineQueryResultVoiceNote";
+                public override string DataType { get; set; } = "inlineQueryResultVoiceNote";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("id")]
-                public string id_;
+                public string Id { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("voice_note")]
-                public VoiceNote.voiceNote voice_note_;
+                public VoiceNote VoiceNote { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("title")]
-                public string title_;
+                public string Title { get; set; }
 
         }
 

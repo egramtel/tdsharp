@@ -9,18 +9,18 @@ namespace TD {
     public partial class TextEntityType : Structure
     {
 
-        public partial class textEntityTypePreCode : TextEntityType
+        public class TextEntityTypePreCode : TextEntityType
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "textEntityTypePreCode";
+                public override string DataType { get; set; } = "textEntityTypePreCode";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("language")]
-                public string language_;
+                public string Language { get; set; }
 
         }
 

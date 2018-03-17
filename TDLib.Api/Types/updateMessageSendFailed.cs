@@ -9,30 +9,30 @@ namespace TD {
     public partial class Update : Structure
     {
 
-        public partial class updateMessageSendFailed : Update
+        public class UpdateMessageSendFailed : Update
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "updateMessageSendFailed";
+                public override string DataType { get; set; } = "updateMessageSendFailed";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("message")]
-                public Message.message message_;
+                public Message Message { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("old_message_id")]
-                public long old_message_id_;
+                public long OldMessageId { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("error_code")]
-                public int error_code_;
+                public int ErrorCode { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("error_message")]
-                public string error_message_;
+                public string ErrorMessage { get; set; }
 
         }
 

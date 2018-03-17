@@ -9,26 +9,26 @@ namespace TD {
     public partial class MessageContent : Structure
     {
 
-        public partial class messageVoiceNote : MessageContent
+        public class MessageVoiceNote : MessageContent
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "messageVoiceNote";
+                public override string DataType { get; set; } = "messageVoiceNote";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("voice_note")]
-                public VoiceNote.voiceNote voice_note_;
+                public VoiceNote VoiceNote { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("caption")]
-                public FormattedText.formattedText caption_;
+                public FormattedText Caption { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_listened")]
-                public bool is_listened_;
+                public bool IsListened { get; set; }
 
         }
 

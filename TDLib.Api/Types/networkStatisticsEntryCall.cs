@@ -9,30 +9,30 @@ namespace TD {
     public partial class NetworkStatisticsEntry : Structure
     {
 
-        public partial class networkStatisticsEntryCall : NetworkStatisticsEntry
+        public class NetworkStatisticsEntryCall : NetworkStatisticsEntry
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "networkStatisticsEntryCall";
+                public override string DataType { get; set; } = "networkStatisticsEntryCall";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("network_type")]
-                public NetworkType network_type_;
+                public NetworkType NetworkType { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("sent_bytes")]
-                public long sent_bytes_;
+                public long SentBytes { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("received_bytes")]
-                public long received_bytes_;
+                public long ReceivedBytes { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("duration")]
-                public double? duration_;
+                public double? Duration { get; set; }
 
         }
 

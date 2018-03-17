@@ -9,26 +9,26 @@ namespace TD {
     public partial class InputMessageContent : Structure
     {
 
-        public partial class inputMessageDocument : InputMessageContent
+        public class InputMessageDocument : InputMessageContent
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "inputMessageDocument";
+                public override string DataType { get; set; } = "inputMessageDocument";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("document")]
-                public InputFile document_;
+                public InputFile Document { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("thumbnail")]
-                public InputThumbnail.inputThumbnail thumbnail_;
+                public InputThumbnail Thumbnail { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("caption")]
-                public FormattedText.formattedText caption_;
+                public FormattedText Caption { get; set; }
 
         }
 

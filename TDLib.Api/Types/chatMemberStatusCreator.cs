@@ -9,18 +9,18 @@ namespace TD {
     public partial class ChatMemberStatus : Structure
     {
 
-        public partial class chatMemberStatusCreator : ChatMemberStatus
+        public class ChatMemberStatusCreator : ChatMemberStatus
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "chatMemberStatusCreator";
+                public override string DataType { get; set; } = "chatMemberStatusCreator";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_member")]
-                public bool is_member_;
+                public bool IsMember { get; set; }
 
         }
 

@@ -9,22 +9,22 @@ namespace TD {
     public partial class PageBlock : Structure
     {
 
-        public partial class pageBlockAuthorDate : PageBlock
+        public class PageBlockAuthorDate : PageBlock
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "pageBlockAuthorDate";
+                public override string DataType { get; set; } = "pageBlockAuthorDate";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("author")]
-                public RichText author_;
+                public RichText Author { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("publish_date")]
-                public int publish_date_;
+                public int PublishDate { get; set; }
 
         }
 

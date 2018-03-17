@@ -9,11 +9,11 @@ namespace TD {
     public partial class MessageContent : Structure
     {
 
-        public partial class messageScreenshotTaken : MessageContent
+        public class MessageScreenshotTaken : MessageContent
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "messageScreenshotTaken";
+                public override string DataType { get; set; } = "messageScreenshotTaken";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }

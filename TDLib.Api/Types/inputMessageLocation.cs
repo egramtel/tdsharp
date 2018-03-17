@@ -9,22 +9,22 @@ namespace TD {
     public partial class InputMessageContent : Structure
     {
 
-        public partial class inputMessageLocation : InputMessageContent
+        public class InputMessageLocation : InputMessageContent
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "inputMessageLocation";
+                public override string DataType { get; set; } = "inputMessageLocation";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("location")]
-                public Location.location location_;
+                public Location Location { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("live_period")]
-                public int live_period_;
+                public int LivePeriod { get; set; }
 
         }
 

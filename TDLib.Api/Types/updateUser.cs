@@ -9,18 +9,18 @@ namespace TD {
     public partial class Update : Structure
     {
 
-        public partial class updateUser : Update
+        public class UpdateUser : Update
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "updateUser";
+                public override string DataType { get; set; } = "updateUser";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("user")]
-                public User.user user_;
+                public User User { get; set; }
 
         }
 

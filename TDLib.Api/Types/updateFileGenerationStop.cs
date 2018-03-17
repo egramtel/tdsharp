@@ -9,18 +9,18 @@ namespace TD {
     public partial class Update : Structure
     {
 
-        public partial class updateFileGenerationStop : Update
+        public class UpdateFileGenerationStop : Update
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "updateFileGenerationStop";
+                public override string DataType { get; set; } = "updateFileGenerationStop";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("generation_id")]
-                public string generation_id_;
+                public string GenerationId { get; set; }
 
         }
 

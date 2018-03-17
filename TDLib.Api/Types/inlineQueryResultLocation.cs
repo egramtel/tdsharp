@@ -9,30 +9,30 @@ namespace TD {
     public partial class InlineQueryResult : Structure
     {
 
-        public partial class inlineQueryResultLocation : InlineQueryResult
+        public class InlineQueryResultLocation : InlineQueryResult
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "inlineQueryResultLocation";
+                public override string DataType { get; set; } = "inlineQueryResultLocation";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("id")]
-                public string id_;
+                public string Id { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("location")]
-                public Location.location location_;
+                public Location Location { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("title")]
-                public string title_;
+                public string Title { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("thumbnail")]
-                public PhotoSize.photoSize thumbnail_;
+                public PhotoSize Thumbnail { get; set; }
 
         }
 

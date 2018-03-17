@@ -9,22 +9,22 @@ namespace TD {
     public partial class CallState : Structure
     {
 
-        public partial class callStatePending : CallState
+        public class CallStatePending : CallState
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "callStatePending";
+                public override string DataType { get; set; } = "callStatePending";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_created")]
-                public bool is_created_;
+                public bool IsCreated { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_received")]
-                public bool is_received_;
+                public bool IsReceived { get; set; }
 
         }
 

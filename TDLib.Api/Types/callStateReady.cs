@@ -9,34 +9,34 @@ namespace TD {
     public partial class CallState : Structure
     {
 
-        public partial class callStateReady : CallState
+        public class CallStateReady : CallState
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "callStateReady";
+                public override string DataType { get; set; } = "callStateReady";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("protocol")]
-                public CallProtocol.callProtocol protocol_;
+                public CallProtocol Protocol { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("connections")]
-                public CallConnection.callConnection[] connections_;
+                public CallConnection[] Connections { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("config")]
-                public string config_;
+                public string Config { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("encryption_key")]
-                public byte[] encryption_key_;
+                public byte[] EncryptionKey { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("emojis")]
-                public string[] emojis_;
+                public string[] Emojis { get; set; }
 
         }
 

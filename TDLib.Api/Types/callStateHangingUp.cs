@@ -9,11 +9,11 @@ namespace TD {
     public partial class CallState : Structure
     {
 
-        public partial class callStateHangingUp : CallState
+        public class CallStateHangingUp : CallState
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "callStateHangingUp";
+                public override string DataType { get; set; } = "callStateHangingUp";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }

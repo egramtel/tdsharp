@@ -9,38 +9,38 @@ namespace TD {
     public partial class InputMessageContent : Structure
     {
 
-        public partial class inputMessageAudio : InputMessageContent
+        public class InputMessageAudio : InputMessageContent
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "inputMessageAudio";
+                public override string DataType { get; set; } = "inputMessageAudio";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("audio")]
-                public InputFile audio_;
+                public InputFile Audio { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("album_cover_thumbnail")]
-                public InputThumbnail.inputThumbnail album_cover_thumbnail_;
+                public InputThumbnail AlbumCoverThumbnail { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("duration")]
-                public int duration_;
+                public int Duration { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("title")]
-                public string title_;
+                public string Title { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("performer")]
-                public string performer_;
+                public string Performer { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("caption")]
-                public FormattedText.formattedText caption_;
+                public FormattedText Caption { get; set; }
 
         }
 

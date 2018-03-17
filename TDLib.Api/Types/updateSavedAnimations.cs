@@ -9,18 +9,18 @@ namespace TD {
     public partial class Update : Structure
     {
 
-        public partial class updateSavedAnimations : Update
+        public class UpdateSavedAnimations : Update
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "updateSavedAnimations";
+                public override string DataType { get; set; } = "updateSavedAnimations";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("animation_ids")]
-                public int[] animation_ids_;
+                public int[] AnimationIds { get; set; }
 
         }
 

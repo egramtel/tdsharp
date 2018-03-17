@@ -9,18 +9,18 @@ namespace TD {
     public partial class Update : Structure
     {
 
-        public partial class updateFavoriteStickers : Update
+        public class UpdateFavoriteStickers : Update
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "updateFavoriteStickers";
+                public override string DataType { get; set; } = "updateFavoriteStickers";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("sticker_ids")]
-                public int[] sticker_ids_;
+                public int[] StickerIds { get; set; }
 
         }
 

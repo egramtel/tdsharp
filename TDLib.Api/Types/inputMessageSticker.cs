@@ -9,30 +9,30 @@ namespace TD {
     public partial class InputMessageContent : Structure
     {
 
-        public partial class inputMessageSticker : InputMessageContent
+        public class InputMessageSticker : InputMessageContent
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "inputMessageSticker";
+                public override string DataType { get; set; } = "inputMessageSticker";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("sticker")]
-                public InputFile sticker_;
+                public InputFile Sticker { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("thumbnail")]
-                public InputThumbnail.inputThumbnail thumbnail_;
+                public InputThumbnail Thumbnail { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("width")]
-                public int width_;
+                public int Width { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("height")]
-                public int height_;
+                public int Height { get; set; }
 
         }
 

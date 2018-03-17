@@ -9,46 +9,46 @@ namespace TD {
     public partial class PageBlock : Structure
     {
 
-        public partial class pageBlockEmbedded : PageBlock
+        public class PageBlockEmbedded : PageBlock
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "pageBlockEmbedded";
+                public override string DataType { get; set; } = "pageBlockEmbedded";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("url")]
-                public string url_;
+                public string Url { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("html")]
-                public string html_;
+                public string Html { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("poster_photo")]
-                public Photo.photo poster_photo_;
+                public Photo PosterPhoto { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("width")]
-                public int width_;
+                public int Width { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("height")]
-                public int height_;
+                public int Height { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("caption")]
-                public RichText caption_;
+                public RichText Caption { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_full_width")]
-                public bool is_full_width_;
+                public bool IsFullWidth { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("allow_scrolling")]
-                public bool allow_scrolling_;
+                public bool AllowScrolling { get; set; }
 
         }
 

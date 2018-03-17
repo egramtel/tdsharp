@@ -9,18 +9,18 @@ namespace TD {
     public partial class ChatType : Structure
     {
 
-        public partial class chatTypePrivate : ChatType
+        public class ChatTypePrivate : ChatType
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "chatTypePrivate";
+                public override string DataType { get; set; } = "chatTypePrivate";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("user_id")]
-                public int user_id_;
+                public int UserId { get; set; }
 
         }
 

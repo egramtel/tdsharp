@@ -9,11 +9,11 @@ namespace TD {
     public partial class MaskPoint : Structure
     {
 
-        public partial class maskPointChin : MaskPoint
+        public class MaskPointChin : MaskPoint
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "maskPointChin";
+                public override string DataType { get; set; } = "maskPointChin";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }

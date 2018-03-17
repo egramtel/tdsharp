@@ -9,22 +9,22 @@ namespace TD {
     public partial class InlineQueryResult : Structure
     {
 
-        public partial class inlineQueryResultGame : InlineQueryResult
+        public class InlineQueryResultGame : InlineQueryResult
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "inlineQueryResultGame";
+                public override string DataType { get; set; } = "inlineQueryResultGame";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("id")]
-                public string id_;
+                public string Id { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("game")]
-                public Game.game game_;
+                public Game Game { get; set; }
 
         }
 

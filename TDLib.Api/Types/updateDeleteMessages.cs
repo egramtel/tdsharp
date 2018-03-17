@@ -9,30 +9,30 @@ namespace TD {
     public partial class Update : Structure
     {
 
-        public partial class updateDeleteMessages : Update
+        public class UpdateDeleteMessages : Update
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "updateDeleteMessages";
+                public override string DataType { get; set; } = "updateDeleteMessages";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("chat_id")]
-                public long chat_id_;
+                public long ChatId { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("message_ids")]
-                public long[] message_ids_;
+                public long[] MessageIds { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_permanent")]
-                public bool is_permanent_;
+                public bool IsPermanent { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("from_cache")]
-                public bool from_cache_;
+                public bool FromCache { get; set; }
 
         }
 

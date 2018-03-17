@@ -9,11 +9,11 @@ namespace TD {
     public partial class FileType : Structure
     {
 
-        public partial class fileTypeAnimation : FileType
+        public class FileTypeAnimation : FileType
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "fileTypeAnimation";
+                public override string DataType { get; set; } = "fileTypeAnimation";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }

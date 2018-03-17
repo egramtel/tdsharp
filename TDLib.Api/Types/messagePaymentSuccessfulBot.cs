@@ -9,46 +9,46 @@ namespace TD {
     public partial class MessageContent : Structure
     {
 
-        public partial class messagePaymentSuccessfulBot : MessageContent
+        public class MessagePaymentSuccessfulBot : MessageContent
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "messagePaymentSuccessfulBot";
+                public override string DataType { get; set; } = "messagePaymentSuccessfulBot";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("invoice_message_id")]
-                public long invoice_message_id_;
+                public long InvoiceMessageId { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("currency")]
-                public string currency_;
+                public string Currency { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("total_amount")]
-                public long total_amount_;
+                public long TotalAmount { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("invoice_payload")]
-                public byte[] invoice_payload_;
+                public byte[] InvoicePayload { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("shipping_option_id")]
-                public string shipping_option_id_;
+                public string ShippingOptionId { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("order_info")]
-                public OrderInfo.orderInfo order_info_;
+                public OrderInfo OrderInfo { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("telegram_payment_charge_id")]
-                public string telegram_payment_charge_id_;
+                public string TelegramPaymentChargeId { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("provider_payment_charge_id")]
-                public string provider_payment_charge_id_;
+                public string ProviderPaymentChargeId { get; set; }
 
         }
 

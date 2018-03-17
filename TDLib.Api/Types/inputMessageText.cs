@@ -9,26 +9,26 @@ namespace TD {
     public partial class InputMessageContent : Structure
     {
 
-        public partial class inputMessageText : InputMessageContent
+        public class InputMessageText : InputMessageContent
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "inputMessageText";
+                public override string DataType { get; set; } = "inputMessageText";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("text")]
-                public FormattedText.formattedText text_;
+                public FormattedText Text { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("disable_web_page_preview")]
-                public bool disable_web_page_preview_;
+                public bool DisableWebPagePreview { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("clear_draft")]
-                public bool clear_draft_;
+                public bool ClearDraft { get; set; }
 
         }
 

@@ -9,11 +9,11 @@ namespace TD {
     public partial class TextEntityType : Structure
     {
 
-        public partial class textEntityTypeCode : TextEntityType
+        public class TextEntityTypeCode : TextEntityType
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "textEntityTypeCode";
+                public override string DataType { get; set; } = "textEntityTypeCode";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }

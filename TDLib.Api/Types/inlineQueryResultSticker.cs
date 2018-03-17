@@ -9,22 +9,22 @@ namespace TD {
     public partial class InlineQueryResult : Structure
     {
 
-        public partial class inlineQueryResultSticker : InlineQueryResult
+        public class InlineQueryResultSticker : InlineQueryResult
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "inlineQueryResultSticker";
+                public override string DataType { get; set; } = "inlineQueryResultSticker";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("id")]
-                public string id_;
+                public string Id { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("sticker")]
-                public Sticker.sticker sticker_;
+                public Sticker Sticker { get; set; }
 
         }
 

@@ -9,11 +9,11 @@ namespace TD {
     public partial class SupergroupMembersFilter : Structure
     {
 
-        public partial class supergroupMembersFilterBots : SupergroupMembersFilter
+        public class SupergroupMembersFilterBots : SupergroupMembersFilter
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "supergroupMembersFilterBots";
+                public override string DataType { get; set; } = "supergroupMembersFilterBots";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }

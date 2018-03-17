@@ -9,30 +9,30 @@ namespace TD {
     public partial class InputMessageContent : Structure
     {
 
-        public partial class inputMessageVideoNote : InputMessageContent
+        public class InputMessageVideoNote : InputMessageContent
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "inputMessageVideoNote";
+                public override string DataType { get; set; } = "inputMessageVideoNote";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("video_note")]
-                public InputFile video_note_;
+                public InputFile VideoNote { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("thumbnail")]
-                public InputThumbnail.inputThumbnail thumbnail_;
+                public InputThumbnail Thumbnail { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("duration")]
-                public int duration_;
+                public int Duration { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("length")]
-                public int length_;
+                public int Length { get; set; }
 
         }
 

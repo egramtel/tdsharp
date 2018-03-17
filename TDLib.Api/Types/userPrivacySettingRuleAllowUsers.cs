@@ -9,18 +9,18 @@ namespace TD {
     public partial class UserPrivacySettingRule : Structure
     {
 
-        public partial class userPrivacySettingRuleAllowUsers : UserPrivacySettingRule
+        public class UserPrivacySettingRuleAllowUsers : UserPrivacySettingRule
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "userPrivacySettingRuleAllowUsers";
+                public override string DataType { get; set; } = "userPrivacySettingRuleAllowUsers";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("user_ids")]
-                public int[] user_ids_;
+                public int[] UserIds { get; set; }
 
         }
 

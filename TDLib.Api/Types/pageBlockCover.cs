@@ -9,18 +9,18 @@ namespace TD {
     public partial class PageBlock : Structure
     {
 
-        public partial class pageBlockCover : PageBlock
+        public class PageBlockCover : PageBlock
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "pageBlockCover";
+                public override string DataType { get; set; } = "pageBlockCover";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("cover")]
-                public PageBlock cover_;
+                public PageBlock Cover { get; set; }
 
         }
 

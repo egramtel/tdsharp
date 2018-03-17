@@ -9,22 +9,22 @@ namespace TD {
     public partial class Update : Structure
     {
 
-        public partial class updateServiceNotification : Update
+        public class UpdateServiceNotification : Update
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "updateServiceNotification";
+                public override string DataType { get; set; } = "updateServiceNotification";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("type")]
-                public string type_;
+                public string Type { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("content")]
-                public MessageContent content_;
+                public MessageContent Content { get; set; }
 
         }
 

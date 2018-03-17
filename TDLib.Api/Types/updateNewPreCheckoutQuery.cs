@@ -9,42 +9,42 @@ namespace TD {
     public partial class Update : Structure
     {
 
-        public partial class updateNewPreCheckoutQuery : Update
+        public class UpdateNewPreCheckoutQuery : Update
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "updateNewPreCheckoutQuery";
+                public override string DataType { get; set; } = "updateNewPreCheckoutQuery";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("id")]
-                public string id_;
+                public string Id { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("sender_user_id")]
-                public int sender_user_id_;
+                public int SenderUserId { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("currency")]
-                public string currency_;
+                public string Currency { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("total_amount")]
-                public long total_amount_;
+                public long TotalAmount { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("invoice_payload")]
-                public byte[] invoice_payload_;
+                public byte[] InvoicePayload { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("shipping_option_id")]
-                public string shipping_option_id_;
+                public string ShippingOptionId { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("order_info")]
-                public OrderInfo.orderInfo order_info_;
+                public OrderInfo OrderInfo { get; set; }
 
         }
 

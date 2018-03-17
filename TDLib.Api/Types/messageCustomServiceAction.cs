@@ -9,18 +9,18 @@ namespace TD {
     public partial class MessageContent : Structure
     {
 
-        public partial class messageCustomServiceAction : MessageContent
+        public class MessageCustomServiceAction : MessageContent
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "messageCustomServiceAction";
+                public override string DataType { get; set; } = "messageCustomServiceAction";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("text")]
-                public string text_;
+                public string Text { get; set; }
 
         }
 

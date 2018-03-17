@@ -9,18 +9,18 @@ namespace TD {
     public partial class Update : Structure
     {
 
-        public partial class updateFile : Update
+        public class UpdateFile : Update
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "updateFile";
+                public override string DataType { get; set; } = "updateFile";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("file")]
-                public File.file file_;
+                public File File { get; set; }
 
         }
 

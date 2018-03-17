@@ -9,22 +9,22 @@ namespace TD {
     public partial class MessageContent : Structure
     {
 
-        public partial class messageAnimation : MessageContent
+        public class MessageAnimation : MessageContent
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "messageAnimation";
+                public override string DataType { get; set; } = "messageAnimation";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("animation")]
-                public Animation.animation animation_;
+                public Animation Animation { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("caption")]
-                public FormattedText.formattedText caption_;
+                public FormattedText Caption { get; set; }
 
         }
 

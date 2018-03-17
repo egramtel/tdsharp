@@ -9,18 +9,18 @@ namespace TD {
     public partial class Update : Structure
     {
 
-        public partial class updateSupergroup : Update
+        public class UpdateSupergroup : Update
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "updateSupergroup";
+                public override string DataType { get; set; } = "updateSupergroup";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("supergroup")]
-                public Supergroup.supergroup supergroup_;
+                public Supergroup Supergroup { get; set; }
 
         }
 

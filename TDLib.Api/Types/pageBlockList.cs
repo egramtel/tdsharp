@@ -9,22 +9,22 @@ namespace TD {
     public partial class PageBlock : Structure
     {
 
-        public partial class pageBlockList : PageBlock
+        public class PageBlockList : PageBlock
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "pageBlockList";
+                public override string DataType { get; set; } = "pageBlockList";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("items")]
-                public RichText[] items_;
+                public RichText[] Items { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_ordered")]
-                public bool is_ordered_;
+                public bool IsOrdered { get; set; }
 
         }
 

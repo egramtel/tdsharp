@@ -9,18 +9,18 @@ namespace TD {
     public partial class SupergroupMembersFilter : Structure
     {
 
-        public partial class supergroupMembersFilterSearch : SupergroupMembersFilter
+        public class SupergroupMembersFilterSearch : SupergroupMembersFilter
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "supergroupMembersFilterSearch";
+                public override string DataType { get; set; } = "supergroupMembersFilterSearch";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("query")]
-                public string query_;
+                public string Query { get; set; }
 
         }
 

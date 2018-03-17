@@ -9,22 +9,22 @@ namespace TD {
     public partial class InputMessageContent : Structure
     {
 
-        public partial class inputMessageGame : InputMessageContent
+        public class InputMessageGame : InputMessageContent
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "inputMessageGame";
+                public override string DataType { get; set; } = "inputMessageGame";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("bot_user_id")]
-                public int bot_user_id_;
+                public int BotUserId { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("game_short_name")]
-                public string game_short_name_;
+                public string GameShortName { get; set; }
 
         }
 

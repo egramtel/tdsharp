@@ -9,22 +9,22 @@ namespace TD {
     public partial class InputCredentials : Structure
     {
 
-        public partial class inputCredentialsNew : InputCredentials
+        public class InputCredentialsNew : InputCredentials
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "inputCredentialsNew";
+                public override string DataType { get; set; } = "inputCredentialsNew";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("data")]
-                public string data_;
+                public string Data { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("allow_save")]
-                public bool allow_save_;
+                public bool AllowSave { get; set; }
 
         }
 

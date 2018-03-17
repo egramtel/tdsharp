@@ -9,30 +9,30 @@ namespace TD {
     public partial class Update : Structure
     {
 
-        public partial class updateNewShippingQuery : Update
+        public class UpdateNewShippingQuery : Update
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "updateNewShippingQuery";
+                public override string DataType { get; set; } = "updateNewShippingQuery";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("id")]
-                public string id_;
+                public string Id { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("sender_user_id")]
-                public int sender_user_id_;
+                public int SenderUserId { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("invoice_payload")]
-                public string invoice_payload_;
+                public string InvoicePayload { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("shipping_address")]
-                public ShippingAddress.shippingAddress shipping_address_;
+                public ShippingAddress ShippingAddress { get; set; }
 
         }
 

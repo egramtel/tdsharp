@@ -9,18 +9,18 @@ namespace TD {
     public partial class InputFile : Structure
     {
 
-        public partial class inputFileRemote : InputFile
+        public class InputFileRemote : InputFile
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "inputFileRemote";
+                public override string DataType { get; set; } = "inputFileRemote";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("id")]
-                public string id_;
+                public string Id { get; set; }
 
         }
 

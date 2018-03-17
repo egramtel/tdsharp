@@ -9,18 +9,18 @@ namespace TD {
     public partial class MessageContent : Structure
     {
 
-        public partial class messageChatAddMembers : MessageContent
+        public class MessageChatAddMembers : MessageContent
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "messageChatAddMembers";
+                public override string DataType { get; set; } = "messageChatAddMembers";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("member_user_ids")]
-                public int[] member_user_ids_;
+                public int[] MemberUserIds { get; set; }
 
         }
 

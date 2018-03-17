@@ -9,18 +9,18 @@ namespace TD {
     public partial class NotificationSettingsScope : Structure
     {
 
-        public partial class notificationSettingsScopeChat : NotificationSettingsScope
+        public class NotificationSettingsScopeChat : NotificationSettingsScope
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "notificationSettingsScopeChat";
+                public override string DataType { get; set; } = "notificationSettingsScopeChat";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("chat_id")]
-                public long chat_id_;
+                public long ChatId { get; set; }
 
         }
 

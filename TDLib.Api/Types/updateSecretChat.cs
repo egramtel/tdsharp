@@ -9,18 +9,18 @@ namespace TD {
     public partial class Update : Structure
     {
 
-        public partial class updateSecretChat : Update
+        public class UpdateSecretChat : Update
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "updateSecretChat";
+                public override string DataType { get; set; } = "updateSecretChat";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("secret_chat")]
-                public SecretChat.secretChat secret_chat_;
+                public SecretChat SecretChat { get; set; }
 
         }
 

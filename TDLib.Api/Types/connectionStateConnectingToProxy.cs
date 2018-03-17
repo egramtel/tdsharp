@@ -9,11 +9,11 @@ namespace TD {
     public partial class ConnectionState : Structure
     {
 
-        public partial class connectionStateConnectingToProxy : ConnectionState
+        public class ConnectionStateConnectingToProxy : ConnectionState
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "connectionStateConnectingToProxy";
+                public override string DataType { get; set; } = "connectionStateConnectingToProxy";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }

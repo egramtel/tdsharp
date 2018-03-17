@@ -9,22 +9,22 @@ namespace TD {
     public partial class MessageContent : Structure
     {
 
-        public partial class messageVideoNote : MessageContent
+        public class MessageVideoNote : MessageContent
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "messageVideoNote";
+                public override string DataType { get; set; } = "messageVideoNote";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("video_note")]
-                public VideoNote.videoNote video_note_;
+                public VideoNote VideoNote { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_viewed")]
-                public bool is_viewed_;
+                public bool IsViewed { get; set; }
 
         }
 

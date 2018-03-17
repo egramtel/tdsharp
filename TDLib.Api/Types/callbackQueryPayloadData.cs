@@ -9,18 +9,18 @@ namespace TD {
     public partial class CallbackQueryPayload : Structure
     {
 
-        public partial class callbackQueryPayloadData : CallbackQueryPayload
+        public class CallbackQueryPayloadData : CallbackQueryPayload
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "callbackQueryPayloadData";
+                public override string DataType { get; set; } = "callbackQueryPayloadData";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("data")]
-                public byte[] data_;
+                public byte[] Data { get; set; }
 
         }
 

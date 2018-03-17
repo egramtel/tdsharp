@@ -9,18 +9,18 @@ namespace TD {
     public partial class RichText : Structure
     {
 
-        public partial class richTextFixed : RichText
+        public class RichTextFixed : RichText
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "richTextFixed";
+                public override string DataType { get; set; } = "richTextFixed";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("text")]
-                public RichText text_;
+                public RichText Text { get; set; }
 
         }
 

@@ -9,18 +9,18 @@ namespace TD {
     public partial class PageBlock : Structure
     {
 
-        public partial class pageBlockFooter : PageBlock
+        public class PageBlockFooter : PageBlock
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "pageBlockFooter";
+                public override string DataType { get; set; } = "pageBlockFooter";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("footer")]
-                public RichText footer_;
+                public RichText Footer { get; set; }
 
         }
 

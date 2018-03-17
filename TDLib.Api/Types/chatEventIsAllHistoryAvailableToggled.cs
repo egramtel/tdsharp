@@ -9,18 +9,18 @@ namespace TD {
     public partial class ChatEventAction : Structure
     {
 
-        public partial class chatEventIsAllHistoryAvailableToggled : ChatEventAction
+        public class ChatEventIsAllHistoryAvailableToggled : ChatEventAction
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "chatEventIsAllHistoryAvailableToggled";
+                public override string DataType { get; set; } = "chatEventIsAllHistoryAvailableToggled";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_all_history_available")]
-                public bool is_all_history_available_;
+                public bool IsAllHistoryAvailable { get; set; }
 
         }
 

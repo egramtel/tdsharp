@@ -9,11 +9,11 @@ namespace TD {
     public partial class NetworkType : Structure
     {
 
-        public partial class networkTypeMobileRoaming : NetworkType
+        public class NetworkTypeMobileRoaming : NetworkType
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "networkTypeMobileRoaming";
+                public override string DataType { get; set; } = "networkTypeMobileRoaming";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }

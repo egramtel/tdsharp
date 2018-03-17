@@ -9,22 +9,22 @@ namespace TD {
     public partial class DeviceToken : Structure
     {
 
-        public partial class deviceTokenApplePush : DeviceToken
+        public class DeviceTokenApplePush : DeviceToken
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "deviceTokenApplePush";
+                public override string DataType { get; set; } = "deviceTokenApplePush";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("device_token")]
-                public string device_token_;
+                public string DeviceToken { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_app_sandbox")]
-                public bool is_app_sandbox_;
+                public bool IsAppSandbox { get; set; }
 
         }
 

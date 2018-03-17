@@ -9,18 +9,18 @@ namespace TD {
     public partial class TMeUrlType : Structure
     {
 
-        public partial class tMeUrlTypeChatInvite : TMeUrlType
+        public class TMeUrlTypeChatInvite : TMeUrlType
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "tMeUrlTypeChatInvite";
+                public override string DataType { get; set; } = "tMeUrlTypeChatInvite";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("info")]
-                public ChatInviteLinkInfo.chatInviteLinkInfo info_;
+                public ChatInviteLinkInfo Info { get; set; }
 
         }
 

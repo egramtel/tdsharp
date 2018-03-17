@@ -9,22 +9,22 @@ namespace TD {
     public partial class MessageContent : Structure
     {
 
-        public partial class messageCall : MessageContent
+        public class MessageCall : MessageContent
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "messageCall";
+                public override string DataType { get; set; } = "messageCall";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("discard_reason")]
-                public CallDiscardReason discard_reason_;
+                public CallDiscardReason DiscardReason { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("duration")]
-                public int duration_;
+                public int Duration { get; set; }
 
         }
 

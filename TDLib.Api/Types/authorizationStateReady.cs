@@ -9,11 +9,11 @@ namespace TD {
     public partial class AuthorizationState : Structure
     {
 
-        public partial class authorizationStateReady : AuthorizationState
+        public class AuthorizationStateReady : AuthorizationState
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "authorizationStateReady";
+                public override string DataType { get; set; } = "authorizationStateReady";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }

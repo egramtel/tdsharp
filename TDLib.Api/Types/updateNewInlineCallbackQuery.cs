@@ -9,34 +9,34 @@ namespace TD {
     public partial class Update : Structure
     {
 
-        public partial class updateNewInlineCallbackQuery : Update
+        public class UpdateNewInlineCallbackQuery : Update
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "updateNewInlineCallbackQuery";
+                public override string DataType { get; set; } = "updateNewInlineCallbackQuery";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("id")]
-                public string id_;
+                public string Id { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("sender_user_id")]
-                public int sender_user_id_;
+                public int SenderUserId { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("inline_message_id")]
-                public string inline_message_id_;
+                public string InlineMessageId { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("chat_instance")]
-                public string chat_instance_;
+                public string ChatInstance { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("payload")]
-                public CallbackQueryPayload payload_;
+                public CallbackQueryPayload Payload { get; set; }
 
         }
 

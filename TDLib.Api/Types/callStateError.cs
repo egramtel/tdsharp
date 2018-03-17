@@ -9,18 +9,18 @@ namespace TD {
     public partial class CallState : Structure
     {
 
-        public partial class callStateError : CallState
+        public class CallStateError : CallState
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "callStateError";
+                public override string DataType { get; set; } = "callStateError";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("error")]
-                public Error.error error_;
+                public Error Error { get; set; }
 
         }
 

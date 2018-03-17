@@ -9,18 +9,18 @@ namespace TD {
     public partial class PageBlock : Structure
     {
 
-        public partial class pageBlockTitle : PageBlock
+        public class PageBlockTitle : PageBlock
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "pageBlockTitle";
+                public override string DataType { get; set; } = "pageBlockTitle";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("title")]
-                public RichText title_;
+                public RichText Title { get; set; }
 
         }
 

@@ -9,26 +9,26 @@ namespace TD {
     public partial class CallState : Structure
     {
 
-        public partial class callStateDiscarded : CallState
+        public class CallStateDiscarded : CallState
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "callStateDiscarded";
+                public override string DataType { get; set; } = "callStateDiscarded";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("reason")]
-                public CallDiscardReason reason_;
+                public CallDiscardReason Reason { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("need_rating")]
-                public bool need_rating_;
+                public bool NeedRating { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("need_debug_information")]
-                public bool need_debug_information_;
+                public bool NeedDebugInformation { get; set; }
 
         }
 

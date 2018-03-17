@@ -9,11 +9,11 @@ namespace TD {
     public partial class CallDiscardReason : Structure
     {
 
-        public partial class callDiscardReasonDisconnected : CallDiscardReason
+        public class CallDiscardReasonDisconnected : CallDiscardReason
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "callDiscardReasonDisconnected";
+                public override string DataType { get; set; } = "callDiscardReasonDisconnected";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }

@@ -9,11 +9,11 @@ namespace TD {
     public partial class ChatReportReason : Structure
     {
 
-        public partial class chatReportReasonSpam : ChatReportReason
+        public class ChatReportReasonSpam : ChatReportReason
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "chatReportReasonSpam";
+                public override string DataType { get; set; } = "chatReportReasonSpam";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }

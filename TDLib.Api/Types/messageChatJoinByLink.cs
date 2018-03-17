@@ -9,11 +9,11 @@ namespace TD {
     public partial class MessageContent : Structure
     {
 
-        public partial class messageChatJoinByLink : MessageContent
+        public class MessageChatJoinByLink : MessageContent
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "messageChatJoinByLink";
+                public override string DataType { get; set; } = "messageChatJoinByLink";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }

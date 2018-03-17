@@ -9,11 +9,11 @@ namespace TD {
     public partial class TextParseMode : Structure
     {
 
-        public partial class textParseModeHTML : TextParseMode
+        public class TextParseModeHTML : TextParseMode
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "textParseModeHTML";
+                public override string DataType { get; set; } = "textParseModeHTML";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }

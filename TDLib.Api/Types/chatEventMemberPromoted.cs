@@ -9,26 +9,26 @@ namespace TD {
     public partial class ChatEventAction : Structure
     {
 
-        public partial class chatEventMemberPromoted : ChatEventAction
+        public class ChatEventMemberPromoted : ChatEventAction
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "chatEventMemberPromoted";
+                public override string DataType { get; set; } = "chatEventMemberPromoted";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("user_id")]
-                public int user_id_;
+                public int UserId { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("old_status")]
-                public ChatMemberStatus old_status_;
+                public ChatMemberStatus OldStatus { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("new_status")]
-                public ChatMemberStatus new_status_;
+                public ChatMemberStatus NewStatus { get; set; }
 
         }
 

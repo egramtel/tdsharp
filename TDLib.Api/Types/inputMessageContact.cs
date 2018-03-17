@@ -9,18 +9,18 @@ namespace TD {
     public partial class InputMessageContent : Structure
     {
 
-        public partial class inputMessageContact : InputMessageContent
+        public class InputMessageContact : InputMessageContent
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "inputMessageContact";
+                public override string DataType { get; set; } = "inputMessageContact";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("contact")]
-                public Contact.contact contact_;
+                public Contact Contact { get; set; }
 
         }
 

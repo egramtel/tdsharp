@@ -9,38 +9,38 @@ namespace TD {
     public partial class PageBlock : Structure
     {
 
-        public partial class pageBlockEmbeddedPost : PageBlock
+        public class PageBlockEmbeddedPost : PageBlock
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "pageBlockEmbeddedPost";
+                public override string DataType { get; set; } = "pageBlockEmbeddedPost";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("url")]
-                public string url_;
+                public string Url { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("author")]
-                public string author_;
+                public string Author { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("author_photo")]
-                public Photo.photo author_photo_;
+                public Photo AuthorPhoto { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("date")]
-                public int date_;
+                public int Date { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("page_blocks")]
-                public PageBlock[] page_blocks_;
+                public PageBlock[] PageBlocks { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("caption")]
-                public RichText caption_;
+                public RichText Caption { get; set; }
 
         }
 

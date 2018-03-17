@@ -9,18 +9,18 @@ namespace TD {
     public partial class AuthorizationState : Structure
     {
 
-        public partial class authorizationStateWaitEncryptionKey : AuthorizationState
+        public class AuthorizationStateWaitEncryptionKey : AuthorizationState
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "authorizationStateWaitEncryptionKey";
+                public override string DataType { get; set; } = "authorizationStateWaitEncryptionKey";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_encrypted")]
-                public bool is_encrypted_;
+                public bool IsEncrypted { get; set; }
 
         }
 

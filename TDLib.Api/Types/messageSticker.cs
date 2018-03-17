@@ -9,18 +9,18 @@ namespace TD {
     public partial class MessageContent : Structure
     {
 
-        public partial class messageSticker : MessageContent
+        public class MessageSticker : MessageContent
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "messageSticker";
+                public override string DataType { get; set; } = "messageSticker";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("sticker")]
-                public Sticker.sticker sticker_;
+                public Sticker Sticker { get; set; }
 
         }
 

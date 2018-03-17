@@ -9,26 +9,26 @@ namespace TD {
     public partial class InputMessageContent : Structure
     {
 
-        public partial class inputMessageForwarded : InputMessageContent
+        public class InputMessageForwarded : InputMessageContent
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "inputMessageForwarded";
+                public override string DataType { get; set; } = "inputMessageForwarded";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("from_chat_id")]
-                public long from_chat_id_;
+                public long FromChatId { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("message_id")]
-                public long message_id_;
+                public long MessageId { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("in_game_share")]
-                public bool in_game_share_;
+                public bool InGameShare { get; set; }
 
         }
 

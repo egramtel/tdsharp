@@ -9,11 +9,11 @@ namespace TD {
     public partial class UserPrivacySetting : Structure
     {
 
-        public partial class userPrivacySettingAllowChatInvites : UserPrivacySetting
+        public class UserPrivacySettingAllowChatInvites : UserPrivacySetting
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "userPrivacySettingAllowChatInvites";
+                public override string DataType { get; set; } = "userPrivacySettingAllowChatInvites";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }

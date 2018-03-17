@@ -9,26 +9,26 @@ namespace TD {
     public partial class InlineQueryResult : Structure
     {
 
-        public partial class inlineQueryResultContact : InlineQueryResult
+        public class InlineQueryResultContact : InlineQueryResult
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "inlineQueryResultContact";
+                public override string DataType { get; set; } = "inlineQueryResultContact";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("id")]
-                public string id_;
+                public string Id { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("contact")]
-                public Contact.contact contact_;
+                public Contact Contact { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("thumbnail")]
-                public PhotoSize.photoSize thumbnail_;
+                public PhotoSize Thumbnail { get; set; }
 
         }
 

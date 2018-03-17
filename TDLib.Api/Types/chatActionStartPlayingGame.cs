@@ -9,11 +9,11 @@ namespace TD {
     public partial class ChatAction : Structure
     {
 
-        public partial class chatActionStartPlayingGame : ChatAction
+        public class ChatActionStartPlayingGame : ChatAction
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "chatActionStartPlayingGame";
+                public override string DataType { get; set; } = "chatActionStartPlayingGame";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }

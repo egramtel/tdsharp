@@ -9,18 +9,18 @@ namespace TD {
     public partial class InputCredentials : Structure
     {
 
-        public partial class inputCredentialsApplePay : InputCredentials
+        public class InputCredentialsApplePay : InputCredentials
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "inputCredentialsApplePay";
+                public override string DataType { get; set; } = "inputCredentialsApplePay";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("data")]
-                public string data_;
+                public string Data { get; set; }
 
         }
 

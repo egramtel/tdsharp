@@ -9,22 +9,22 @@ namespace TD {
     public partial class MessageContent : Structure
     {
 
-        public partial class messageBasicGroupChatCreate : MessageContent
+        public class MessageBasicGroupChatCreate : MessageContent
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "messageBasicGroupChatCreate";
+                public override string DataType { get; set; } = "messageBasicGroupChatCreate";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("title")]
-                public string title_;
+                public string Title { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("member_user_ids")]
-                public int[] member_user_ids_;
+                public int[] MemberUserIds { get; set; }
 
         }
 

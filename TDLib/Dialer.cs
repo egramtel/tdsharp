@@ -10,7 +10,7 @@ namespace TD
     {
         private static int _id = 0;
         private readonly ConcurrentDictionary<int, Action<Structure>> _tasks;
-        
+
         private readonly Client _client;
         private readonly Hub _hub;
 
@@ -58,7 +58,7 @@ namespace TD
             method.Extra = id.ToString();
             _tasks.TryAdd(id, structure =>
             {
-                if (structure is Error.error err)
+                if (structure is Error err)
                 {
                     tcs.SetException(new ErrorException(err));
                 }

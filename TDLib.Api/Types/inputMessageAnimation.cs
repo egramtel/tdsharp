@@ -9,38 +9,38 @@ namespace TD {
     public partial class InputMessageContent : Structure
     {
 
-        public partial class inputMessageAnimation : InputMessageContent
+        public class InputMessageAnimation : InputMessageContent
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "inputMessageAnimation";
+                public override string DataType { get; set; } = "inputMessageAnimation";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("animation")]
-                public InputFile animation_;
+                public InputFile Animation { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("thumbnail")]
-                public InputThumbnail.inputThumbnail thumbnail_;
+                public InputThumbnail Thumbnail { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("duration")]
-                public int duration_;
+                public int Duration { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("width")]
-                public int width_;
+                public int Width { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("height")]
-                public int height_;
+                public int Height { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("caption")]
-                public FormattedText.formattedText caption_;
+                public FormattedText Caption { get; set; }
 
         }
 

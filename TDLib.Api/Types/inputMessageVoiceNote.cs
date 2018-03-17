@@ -9,30 +9,30 @@ namespace TD {
     public partial class InputMessageContent : Structure
     {
 
-        public partial class inputMessageVoiceNote : InputMessageContent
+        public class InputMessageVoiceNote : InputMessageContent
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "inputMessageVoiceNote";
+                public override string DataType { get; set; } = "inputMessageVoiceNote";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("voice_note")]
-                public InputFile voice_note_;
+                public InputFile VoiceNote { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("duration")]
-                public int duration_;
+                public int Duration { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("waveform")]
-                public byte[] waveform_;
+                public byte[] Waveform { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("caption")]
-                public FormattedText.formattedText caption_;
+                public FormattedText Caption { get; set; }
 
         }
 

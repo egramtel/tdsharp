@@ -9,11 +9,11 @@ namespace TD {
     public partial class CallState : Structure
     {
 
-        public partial class callStateExchangingKeys : CallState
+        public class CallStateExchangingKeys : CallState
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "callStateExchangingKeys";
+                public override string DataType { get; set; } = "callStateExchangingKeys";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }

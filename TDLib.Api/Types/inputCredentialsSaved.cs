@@ -9,18 +9,18 @@ namespace TD {
     public partial class InputCredentials : Structure
     {
 
-        public partial class inputCredentialsSaved : InputCredentials
+        public class InputCredentialsSaved : InputCredentials
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "inputCredentialsSaved";
+                public override string DataType { get; set; } = "inputCredentialsSaved";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("saved_credentials_id")]
-                public string saved_credentials_id_;
+                public string SavedCredentialsId { get; set; }
 
         }
 

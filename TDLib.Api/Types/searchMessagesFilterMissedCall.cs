@@ -9,11 +9,11 @@ namespace TD {
     public partial class SearchMessagesFilter : Structure
     {
 
-        public partial class searchMessagesFilterMissedCall : SearchMessagesFilter
+        public class SearchMessagesFilterMissedCall : SearchMessagesFilter
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "searchMessagesFilterMissedCall";
+                public override string DataType { get; set; } = "searchMessagesFilterMissedCall";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }

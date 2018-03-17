@@ -9,22 +9,22 @@ namespace TD {
     public partial class Update : Structure
     {
 
-        public partial class updateBasicGroupFullInfo : Update
+        public class UpdateBasicGroupFullInfo : Update
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "updateBasicGroupFullInfo";
+                public override string DataType { get; set; } = "updateBasicGroupFullInfo";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("basic_group_id")]
-                public int basic_group_id_;
+                public int BasicGroupId { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("basic_group_full_info")]
-                public BasicGroupFullInfo.basicGroupFullInfo basic_group_full_info_;
+                public BasicGroupFullInfo BasicGroupFullInfo { get; set; }
 
         }
 

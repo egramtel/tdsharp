@@ -9,18 +9,18 @@ namespace TD {
     public partial class MessageContent : Structure
     {
 
-        public partial class messageChatChangePhoto : MessageContent
+        public class MessageChatChangePhoto : MessageContent
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "messageChatChangePhoto";
+                public override string DataType { get; set; } = "messageChatChangePhoto";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("photo")]
-                public Photo.photo photo_;
+                public Photo Photo { get; set; }
 
         }
 

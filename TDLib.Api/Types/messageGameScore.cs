@@ -9,26 +9,26 @@ namespace TD {
     public partial class MessageContent : Structure
     {
 
-        public partial class messageGameScore : MessageContent
+        public class MessageGameScore : MessageContent
         {
 
                 [JsonProperty("@type")]
-                public override string Type { get; set; } = "messageGameScore";
+                public override string DataType { get; set; } = "messageGameScore";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("game_message_id")]
-                public long game_message_id_;
+                public long GameMessageId { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("game_id")]
-                public string game_id_;
+                public string GameId { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("score")]
-                public int score_;
+                public int Score { get; set; }
 
         }
 
