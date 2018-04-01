@@ -6,14 +6,9 @@ TDSharp - .NET bindings for TDLib (Telegram Database Library) JSON API: https://
 
 ### Installation
 
-Install via NuGet:
-
-```
-TDLib
-```
+Install via NuGet: ```TDLib```
 
 [![NuGet](https://img.shields.io/nuget/v/TDLib.svg)](https://www.nuget.org/packages/TDLib/)
-[![NuGet](https://img.shields.io/nuget/v/TDLib.Api.svg)](https://www.nuget.org/packages/TDLib.Api/)
 
 ### Dependencies
 
