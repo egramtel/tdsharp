@@ -51,9 +51,9 @@ namespace TD {
         [JsonProperty("is_all_history_available")]
         public bool IsAllHistoryAvailable { get; set; }
 
-        [JsonConverter(typeof(Converter))]
+        [JsonConverter(typeof(Converter.Int64))]
         [JsonProperty("sticker_set_id")]
-        public string StickerSetId { get; set; }
+        public Int64 StickerSetId { get; set; }
 
         [JsonConverter(typeof(Converter))]
         [JsonProperty("invite_link")]

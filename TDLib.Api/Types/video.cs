@@ -40,6 +40,10 @@ namespace TD {
         public bool HasStickers { get; set; }
 
         [JsonConverter(typeof(Converter))]
+        [JsonProperty("supports_streaming")]
+        public bool SupportsStreaming { get; set; }
+
+        [JsonConverter(typeof(Converter))]
         [JsonProperty("thumbnail")]
         public PhotoSize Thumbnail { get; set; }
 

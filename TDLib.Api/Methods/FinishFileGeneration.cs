@@ -15,9 +15,9 @@ namespace TD {
         [JsonProperty("@extra")]
         public override string Extra { get; set; }
 
-        [JsonConverter(typeof(Converter))]
+        [JsonConverter(typeof(Converter.Int64))]
         [JsonProperty("generation_id")]
-        public string GenerationId { get; set; }
+        public Int64 GenerationId { get; set; }
 
         [JsonConverter(typeof(Converter))]
         [JsonProperty("error")]

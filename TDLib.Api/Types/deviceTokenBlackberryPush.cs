@@ -9,11 +9,11 @@ namespace TD {
     public partial class DeviceToken : Structure
     {
 
-        public class DeviceTokenBlackberryPush : DeviceToken
+        public class DeviceTokenBlackBerryPush : DeviceToken
         {
 
                 [JsonProperty("@type")]
-                public override string DataType { get; set; } = "deviceTokenBlackberryPush";
+                public override string DataType { get; set; } = "deviceTokenBlackBerryPush";
 
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }

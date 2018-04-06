@@ -95,9 +95,9 @@ namespace TD {
         [JsonProperty("views")]
         public int Views { get; set; }
 
-        [JsonConverter(typeof(Converter))]
+        [JsonConverter(typeof(Converter.Int64))]
         [JsonProperty("media_album_id")]
-        public string MediaAlbumId { get; set; }
+        public Int64 MediaAlbumId { get; set; }
 
         [JsonConverter(typeof(Converter))]
         [JsonProperty("content")]

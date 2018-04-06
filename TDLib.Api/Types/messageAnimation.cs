@@ -26,6 +26,10 @@ namespace TD {
                 [JsonProperty("caption")]
                 public FormattedText Caption { get; set; }
 
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("is_secret")]
+                public bool IsSecret { get; set; }
+
         }
 
     }

@@ -35,13 +35,17 @@ namespace TD {
         [JsonProperty("last_message")]
         public Message LastMessage { get; set; }
 
-        [JsonConverter(typeof(Converter))]
+        [JsonConverter(typeof(Converter.Int64))]
         [JsonProperty("order")]
-        public string Order { get; set; }
+        public Int64 Order { get; set; }
 
         [JsonConverter(typeof(Converter))]
         [JsonProperty("is_pinned")]
         public bool IsPinned { get; set; }
+
+        [JsonConverter(typeof(Converter))]
+        [JsonProperty("can_be_reported")]
+        public bool CanBeReported { get; set; }
 
         [JsonConverter(typeof(Converter))]
         [JsonProperty("unread_count")]

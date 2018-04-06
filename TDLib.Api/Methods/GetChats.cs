@@ -15,9 +15,9 @@ namespace TD {
         [JsonProperty("@extra")]
         public override string Extra { get; set; }
 
-        [JsonConverter(typeof(Converter))]
+        [JsonConverter(typeof(Converter.Int64))]
         [JsonProperty("offset_order")]
-        public string OffsetOrder { get; set; }
+        public Int64 OffsetOrder { get; set; }
 
         [JsonConverter(typeof(Converter))]
         [JsonProperty("offset_chat_id")]

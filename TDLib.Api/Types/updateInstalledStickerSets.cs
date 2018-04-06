@@ -22,9 +22,9 @@ namespace TD {
                 [JsonProperty("is_masks")]
                 public bool IsMasks { get; set; }
 
-                [JsonConverter(typeof(Converter))]
+                [JsonConverter(typeof(Converter.Int64))]
                 [JsonProperty("sticker_set_ids")]
-                public string[] StickerSetIds { get; set; }
+                public Int64[] StickerSetIds { get; set; }
 
         }
 

@@ -22,9 +22,9 @@ namespace TD {
                 [JsonProperty("game_message_id")]
                 public long GameMessageId { get; set; }
 
-                [JsonConverter(typeof(Converter))]
+                [JsonConverter(typeof(Converter.Int64))]
                 [JsonProperty("game_id")]
-                public string GameId { get; set; }
+                public Int64 GameId { get; set; }
 
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("score")]

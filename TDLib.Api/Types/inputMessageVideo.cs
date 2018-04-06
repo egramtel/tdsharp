@@ -43,6 +43,10 @@ namespace TD {
                 public int Height { get; set; }
 
                 [JsonConverter(typeof(Converter))]
+                [JsonProperty("supports_streaming")]
+                public bool SupportsStreaming { get; set; }
+
+                [JsonConverter(typeof(Converter))]
                 [JsonProperty("caption")]
                 public FormattedText Caption { get; set; }
 

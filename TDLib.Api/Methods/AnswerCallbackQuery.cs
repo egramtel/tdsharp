@@ -15,9 +15,9 @@ namespace TD {
         [JsonProperty("@extra")]
         public override string Extra { get; set; }
 
-        [JsonConverter(typeof(Converter))]
+        [JsonConverter(typeof(Converter.Int64))]
         [JsonProperty("callback_query_id")]
-        public string CallbackQueryId { get; set; }
+        public Int64 CallbackQueryId { get; set; }
 
         [JsonConverter(typeof(Converter))]
         [JsonProperty("text")]

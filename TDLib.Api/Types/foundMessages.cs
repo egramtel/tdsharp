@@ -19,9 +19,9 @@ namespace TD {
         [JsonProperty("messages")]
         public Message[] Messages { get; set; }
 
-        [JsonConverter(typeof(Converter))]
+        [JsonConverter(typeof(Converter.Int64))]
         [JsonProperty("next_from_search_id")]
-        public string NextFromSearchId { get; set; }
+        public Int64 NextFromSearchId { get; set; }
 
     }
 

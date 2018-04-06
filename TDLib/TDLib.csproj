@@ -17,4 +17,7 @@
   <ItemGroup>
     <ProjectReference Include="..\TDLib.Api\TDLib.Api.csproj" />
   </ItemGroup>
+  <PropertyGroup>
+    <Version>1.2.0</Version>
+  </PropertyGroup>
 </Project>

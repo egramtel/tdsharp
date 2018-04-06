@@ -18,13 +18,13 @@ namespace TD {
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
-                [JsonConverter(typeof(Converter))]
+                [JsonConverter(typeof(Converter.Int64))]
                 [JsonProperty("old_sticker_set_id")]
-                public string OldStickerSetId { get; set; }
+                public Int64 OldStickerSetId { get; set; }
 
-                [JsonConverter(typeof(Converter))]
+                [JsonConverter(typeof(Converter.Int64))]
                 [JsonProperty("new_sticker_set_id")]
-                public string NewStickerSetId { get; set; }
+                public Int64 NewStickerSetId { get; set; }
 
         }
 

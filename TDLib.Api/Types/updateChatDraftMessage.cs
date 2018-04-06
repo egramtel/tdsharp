@@ -26,9 +26,9 @@ namespace TD {
                 [JsonProperty("draft_message")]
                 public DraftMessage DraftMessage { get; set; }
 
-                [JsonConverter(typeof(Converter))]
+                [JsonConverter(typeof(Converter.Int64))]
                 [JsonProperty("order")]
-                public string Order { get; set; }
+                public Int64 Order { get; set; }
 
         }
 

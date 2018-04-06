@@ -23,9 +23,9 @@ namespace TD {
         [JsonProperty("query")]
         public string Query { get; set; }
 
-        [JsonConverter(typeof(Converter))]
+        [JsonConverter(typeof(Converter.Int64))]
         [JsonProperty("from_search_id")]
-        public string FromSearchId { get; set; }
+        public Int64 FromSearchId { get; set; }
 
         [JsonConverter(typeof(Converter))]
         [JsonProperty("limit")]

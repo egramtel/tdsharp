@@ -16,6 +16,10 @@ namespace TD {
         public override string Extra { get; set; }
 
         [JsonConverter(typeof(Converter))]
+        [JsonProperty("phone_number")]
+        public string PhoneNumber { get; set; }
+
+        [JsonConverter(typeof(Converter))]
         [JsonProperty("type")]
         public AuthenticationCodeType Type { get; set; }
 

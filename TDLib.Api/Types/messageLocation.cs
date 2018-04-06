@@ -26,6 +26,10 @@ namespace TD {
                 [JsonProperty("live_period")]
                 public int LivePeriod { get; set; }
 
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("expires_in")]
+                public int ExpiresIn { get; set; }
+
         }
 
     }

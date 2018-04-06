@@ -31,9 +31,9 @@ namespace TD {
         [JsonProperty("from_background")]
         public bool FromBackground { get; set; }
 
-        [JsonConverter(typeof(Converter))]
+        [JsonConverter(typeof(Converter.Int64))]
         [JsonProperty("query_id")]
-        public string QueryId { get; set; }
+        public Int64 QueryId { get; set; }
 
         [JsonConverter(typeof(Converter))]
         [JsonProperty("result_id")]

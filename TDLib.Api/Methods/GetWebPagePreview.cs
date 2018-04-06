@@ -16,8 +16,8 @@ namespace TD {
         public override string Extra { get; set; }
 
         [JsonConverter(typeof(Converter))]
-        [JsonProperty("message_text")]
-        public string MessageText { get; set; }
+        [JsonProperty("text")]
+        public FormattedText Text { get; set; }
 
     }
 

@@ -15,9 +15,9 @@ namespace TD {
         [JsonProperty("@extra")]
         public override string Extra { get; set; }
 
-        [JsonConverter(typeof(Converter))]
+        [JsonConverter(typeof(Converter.Int64))]
         [JsonProperty("pre_checkout_query_id")]
-        public string PreCheckoutQueryId { get; set; }
+        public Int64 PreCheckoutQueryId { get; set; }
 
         [JsonConverter(typeof(Converter))]
         [JsonProperty("error_message")]

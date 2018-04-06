@@ -23,6 +23,10 @@ namespace TD {
         [JsonProperty("reason")]
         public ChatReportReason Reason { get; set; }
 
+        [JsonConverter(typeof(Converter))]
+        [JsonProperty("message_ids")]
+        public long[] MessageIds { get; set; }
+
     }
 
 }

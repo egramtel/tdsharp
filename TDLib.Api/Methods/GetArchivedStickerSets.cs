@@ -19,9 +19,9 @@ namespace TD {
         [JsonProperty("is_masks")]
         public bool IsMasks { get; set; }
 
-        [JsonConverter(typeof(Converter))]
+        [JsonConverter(typeof(Converter.Int64))]
         [JsonProperty("offset_sticker_set_id")]
-        public string OffsetStickerSetId { get; set; }
+        public Int64 OffsetStickerSetId { get; set; }
 
         [JsonConverter(typeof(Converter))]
         [JsonProperty("limit")]

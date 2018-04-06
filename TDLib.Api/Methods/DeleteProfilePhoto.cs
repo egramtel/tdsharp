@@ -15,9 +15,9 @@ namespace TD {
         [JsonProperty("@extra")]
         public override string Extra { get; set; }
 
-        [JsonConverter(typeof(Converter))]
+        [JsonConverter(typeof(Converter.Int64))]
         [JsonProperty("profile_photo_id")]
-        public string ProfilePhotoId { get; set; }
+        public Int64 ProfilePhotoId { get; set; }
 
     }
 

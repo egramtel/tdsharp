@@ -27,9 +27,9 @@ namespace TD {
         [JsonProperty("duration")]
         public int Duration { get; set; }
 
-        [JsonConverter(typeof(Converter))]
+        [JsonConverter(typeof(Converter.Int64))]
         [JsonProperty("connection_id")]
-        public string ConnectionId { get; set; }
+        public Int64 ConnectionId { get; set; }
 
     }
 

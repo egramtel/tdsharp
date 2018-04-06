@@ -15,9 +15,9 @@ namespace TD {
         [JsonProperty("@extra")]
         public override string Extra { get; set; }
 
-        [JsonConverter(typeof(Converter))]
+        [JsonConverter(typeof(Converter.Int64))]
         [JsonProperty("custom_query_id")]
-        public string CustomQueryId { get; set; }
+        public Int64 CustomQueryId { get; set; }
 
         [JsonConverter(typeof(Converter))]
         [JsonProperty("data")]

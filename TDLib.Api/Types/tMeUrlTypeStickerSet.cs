@@ -18,9 +18,9 @@ namespace TD {
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
-                [JsonConverter(typeof(Converter))]
+                [JsonConverter(typeof(Converter.Int64))]
                 [JsonProperty("sticker_set_id")]
-                public string StickerSetId { get; set; }
+                public Int64 StickerSetId { get; set; }
 
         }
 
