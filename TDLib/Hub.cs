@@ -2,14 +2,14 @@
 using System.Threading;
 using Newtonsoft.Json;
 
-namespace TD
+namespace TdLib
 {
     public class Hub
     {
         private readonly CancellationTokenSource _cts;
         private readonly Client _client;
         
-        public event EventHandler<Structure> Received;
+        public event EventHandler<TdApi.Object> Received;
         
         public Hub(
             Client client
@@ -27,7 +27,7 @@ namespace TD
                 var data = _client.Receive(10.0);
                 if (!string.IsNullOrEmpty(data))
                 {
-                    var structure = JsonConvert.DeserializeObject<Structure>(data, new Converter());
+                    var structure = JsonConvert.DeserializeObject<TdApi.Object>(data, new Converter());
                     Received?.Invoke(this, structure);
                 }
             }

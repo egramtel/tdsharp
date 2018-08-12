@@ -1,7 +1,7 @@
 ﻿using System;
-using TD.Bindings;
+using TdLib.Bindings;
 
-namespace TD
+namespace TdLib
 {
     public class Client : IDisposable
     {

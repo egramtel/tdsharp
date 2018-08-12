@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TD.Bindings
+namespace TdLib.Bindings
 {
     internal delegate void Callback(IntPtr ptr);
 }

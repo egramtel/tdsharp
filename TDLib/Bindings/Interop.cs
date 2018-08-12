@@ -3,7 +3,7 @@ using System.IO;
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace TD.Bindings
+namespace TdLib.Bindings
 {
     internal static class Interop
     {

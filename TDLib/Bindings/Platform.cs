@@ -1,4 +1,4 @@
-﻿namespace TD.Bindings
+﻿namespace TdLib.Bindings
 {
     internal enum Platform
     {

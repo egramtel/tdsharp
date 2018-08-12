@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace TD.Bindings
+namespace TdLib.Bindings
 {
     internal static class MacosBindings
     {

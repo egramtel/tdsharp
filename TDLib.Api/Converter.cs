@@ -5,7 +5,7 @@ using System.Reflection;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace TD
+namespace TdLib
 {
     public class Converter : JsonConverter
     {

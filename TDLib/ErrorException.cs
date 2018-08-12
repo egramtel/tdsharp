@@ -1,13 +1,13 @@
 ﻿using System;
-using TD;
+using TdLib;
 
-namespace TD
+namespace TdLib
 {
     public class ErrorException : Exception
     {
-        public readonly Error Error;
+        public readonly TdApi.Error Error;
 
-        public ErrorException(Error error) : base(error.Message)
+        public ErrorException(TdApi.Error error) : base(error.Message)
         {
             Error = error;
         }

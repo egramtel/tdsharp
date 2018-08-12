@@ -4,12 +4,12 @@ using System.Threading;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace TD
+namespace TdLib
 {
     public class Dialer : IDisposable
     {
         private static int _id = 0;
-        private readonly ConcurrentDictionary<int, Action<Structure>> _tasks;
+        private readonly ConcurrentDictionary<int, Action<TdApi.Object>> _tasks;
 
         private readonly Client _client;
         private readonly Hub _hub;
@@ -19,14 +19,14 @@ namespace TD
             Hub hub
             )
         {
-            _tasks = new ConcurrentDictionary<int, Action<Structure>>();
+            _tasks = new ConcurrentDictionary<int, Action<TdApi.Object>>();
             _client = client;
             _hub = hub;
 
             _hub.Received += OnReceived;
         }
 
-        private void OnReceived(object _, Structure structure)
+        private void OnReceived(object _, TdApi.Object structure)
         {
             if (int.TryParse(structure.Extra, out int id) && _tasks.TryRemove(id, out var action))
             {
@@ -34,31 +34,30 @@ namespace TD
             }
         }
         
-        public void Send<TResut>(Method<TResut> method)
+        public void Send<TResut>(TdApi.Function<TResut> function)
         {
-            var data = JsonConvert.SerializeObject(method);
+            var data = JsonConvert.SerializeObject(function);
             _client.Send(data);
         }
 
-        public Structure Execute<TResult>(Method<TResult> method)
+        public TdApi.Object Execute<TResult>(TdApi.Function<TResult> function)
         {
-            var data = JsonConvert.SerializeObject(method);
+            var data = JsonConvert.SerializeObject(function);
             data = _client.Execute(data);
-            
-            var structure = JsonConvert.DeserializeObject<Structure>(data, new Converter());
+            var structure = JsonConvert.DeserializeObject<TdApi.Object>(data, new Converter());
             return structure;
         }
         
-        public Task<TResult> ExecuteAsync<TResult>(Method<TResult> method)
-            where TResult : Structure
+        public Task<TResult> ExecuteAsync<TResult>(TdApi.Function<TResult> function)
+            where TResult : TdApi.Object
         {
             var id = Interlocked.Increment(ref _id);
             var tcs = new TaskCompletionSource<TResult>();
 
-            method.Extra = id.ToString();
+            function.Extra = id.ToString();
             _tasks.TryAdd(id, structure =>
             {
-                if (structure is Error err)
+                if (structure is TdApi.Error err)
                 {
                     tcs.SetException(new ErrorException(err));
                 }
@@ -68,7 +67,7 @@ namespace TD
                 }
             });
             
-            Send(method);
+            Send(function);
             
             return tcs.Task;
         }
