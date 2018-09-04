@@ -5,7 +5,7 @@ namespace TdLib.Bindings
 {
     internal static class LinuxBindings
     {
-        private const string Dll = "libtdjson.so";
+        private const string Dll = "tdjson";
         
         [DllImport(Dll)]
         internal static extern IntPtr td_json_client_create();
