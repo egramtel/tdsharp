@@ -25,6 +25,10 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("limit")]
             public int Limit { get; set; }
+
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("filter")]
+            public ChatMembersFilter Filter { get; set; }
         }
     }
 }

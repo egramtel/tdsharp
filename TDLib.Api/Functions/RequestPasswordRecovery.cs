@@ -8,7 +8,7 @@ namespace TdLib
     /// </summary>
     public partial class TdApi
     {
-        public class RequestPasswordRecovery : Function<PasswordRecoveryInfo>
+        public class RequestPasswordRecovery : Function<EmailAddressAuthenticationCodeInfo>
         {
             [JsonProperty("@type")] public override string DataType { get; set; } = "requestPasswordRecovery";
 

@@ -28,7 +28,7 @@ namespace TdLib
 
             [JsonConverter(typeof(Converter))]
             [JsonProperty("shipping_address")]
-            public ShippingAddress ShippingAddress { get; set; }
+            public Address ShippingAddress { get; set; }
         }
     }
 }

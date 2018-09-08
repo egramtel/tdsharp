@@ -27,6 +27,10 @@ namespace TdLib
             public bool HasRecoveryEmailAddress { get; set; }
 
             [JsonConverter(typeof(Converter))]
+            [JsonProperty("has_passport_data")]
+            public bool HasPassportData { get; set; }
+
+            [JsonConverter(typeof(Converter))]
             [JsonProperty("unconfirmed_recovery_email_address_pattern")]
             public string UnconfirmedRecoveryEmailAddressPattern { get; set; }
         }

@@ -21,6 +21,10 @@ namespace TdLib
                 public bool IsRegistered { get; set; }
 
                 [JsonConverter(typeof(Converter))]
+                [JsonProperty("terms_of_service")]
+                public TermsOfService TermsOfService { get; set; }
+
+                [JsonConverter(typeof(Converter))]
                 [JsonProperty("code_info")]
                 public AuthenticationCodeInfo CodeInfo { get; set; }
             }

@@ -33,6 +33,10 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("id")]
             public string Id { get; set; }
+
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("type")]
+            public string Type { get; set; }
         }
     }
 }

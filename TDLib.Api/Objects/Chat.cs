@@ -43,8 +43,20 @@ namespace TdLib
             public bool IsPinned { get; set; }
 
             [JsonConverter(typeof(Converter))]
+            [JsonProperty("is_marked_as_unread")]
+            public bool IsMarkedAsUnread { get; set; }
+
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("is_sponsored")]
+            public bool IsSponsored { get; set; }
+
+            [JsonConverter(typeof(Converter))]
             [JsonProperty("can_be_reported")]
             public bool CanBeReported { get; set; }
+
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("default_disable_notification")]
+            public bool DefaultDisableNotification { get; set; }
 
             [JsonConverter(typeof(Converter))]
             [JsonProperty("unread_count")]
@@ -64,7 +76,7 @@ namespace TdLib
 
             [JsonConverter(typeof(Converter))]
             [JsonProperty("notification_settings")]
-            public NotificationSettings NotificationSettings { get; set; }
+            public ChatNotificationSettings NotificationSettings { get; set; }
 
             [JsonConverter(typeof(Converter))]
             [JsonProperty("reply_markup_message_id")]

@@ -27,6 +27,10 @@ namespace TdLib
             public string LastName { get; set; }
 
             [JsonConverter(typeof(Converter))]
+            [JsonProperty("vcard")]
+            public string Vcard { get; set; }
+
+            [JsonConverter(typeof(Converter))]
             [JsonProperty("user_id")]
             public int UserId { get; set; }
         }
