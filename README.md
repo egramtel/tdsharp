@@ -7,6 +7,7 @@
 ### Installation
 
 Install via NuGet: ```TDLib```
+Also Install native dependencies if you don't want to compile it yourself: ```TDLib.Native```
 
 [![NuGet](https://img.shields.io/nuget/v/TDLib.svg)](https://www.nuget.org/packages/TDLib/)
 

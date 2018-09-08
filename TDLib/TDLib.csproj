@@ -3,21 +3,12 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <None Update="**\*.dll" CopyToOutputDirectory="PreserveNewest" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Update="**\*.dylib" CopyToOutputDirectory="PreserveNewest" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Update="**\*.so" CopyToOutputDirectory="PreserveNewest" />
-  </ItemGroup>
-  <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="11.0.1" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TDLib.Api\TDLib.Api.csproj" />
   </ItemGroup>
   <PropertyGroup>
-    <Version>1.2.1</Version>
+    <Version>1.3.0</Version>
   </PropertyGroup>
 </Project>
