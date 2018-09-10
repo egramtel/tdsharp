@@ -7,14 +7,19 @@
 ### Installation
 
 Install via NuGet: ```TDLib```
-Also Install native dependencies if you don't want to compile it yourself: ```TDLib.Native```
 
 [![NuGet](https://img.shields.io/nuget/v/TDLib.svg)](https://www.nuget.org/packages/TDLib/)
 
 ### Dependencies
 
-[Build TDLib](https://core.telegram.org/tdlib/docs/index.html#building) and put the compiled library into your project's output directory
-* tdjson.dll (Windows)
+You're recommended to use precompiled version of TDLib native artifacts from NuGet:
+
+[![NuGet](https://img.shields.io/nuget/v/tdlib.native.svg)](https://www.nuget.org/packages/tdlib.native/)
+
+Note that `tdlib.native` is not a dependency of `TDLib`, so you may choose to build the binaries yourself and provide them at the runtime.
+
+To do that, [build TDLib](https://core.telegram.org/tdlib/docs/index.html#building) and put the compiled library into your project's output directory
+* tdjson.dll (Windows) (optionally accompanied by other DLL files from the build directory if you want to bundle OpenSSL and ZLib dependencies as well)
 * libtdjson.dylib (MacOS)
 * libtdjson.so (Linux)
 
