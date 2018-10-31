@@ -39,7 +39,7 @@ var result = client.Execute(json);
 // receiving data
 while (true)
 {
-    result = cient.Receive(timeout);
+    result = client.Receive(timeout);
 }
 ```
 
