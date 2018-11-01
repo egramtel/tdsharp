@@ -63,6 +63,7 @@ hub.Received += data =>
         // handle error
     }
 }
+hub.Start();
 
 // asynchronous execution
 var dialer = new Dialer(client, hub);
