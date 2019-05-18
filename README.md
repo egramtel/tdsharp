@@ -12,7 +12,7 @@ Install via NuGet: ```TDLib```
 
 ### Dependencies
 
-You're recommended to use precompiled version of TDLib native artifacts from NuGet:
+You're recommended to use precompiled version of TDLib native artifacts from NuGet: ```TDLib.Native```
 
 [![NuGet](https://img.shields.io/nuget/v/tdlib.native.svg)](https://www.nuget.org/packages/tdlib.native/)
 
