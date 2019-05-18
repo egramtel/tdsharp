@@ -50,9 +50,9 @@ This library contains generated classes for API objects and functions. It handle
 ```csharp
 using TdLib;
 
-// receiving data
+// receiving data (subscribing to events)
 var hub = new Hub(client);
-hub.Received += data =>
+hub.Received += (sender, data) =>
 {
     if (data is TdApi.Ok)
     {
@@ -80,4 +80,67 @@ catch (ErrorException e)
     TdApi.Error error = e.Error;
     // handle error
 }
+```
+
+### Authentication example
+
+```csharp
+_hub.Received += async (sender, data) =>
+{
+    switch (data)
+    {
+        case TdApi.AuthorizationState.AuthorizationStateWaitTdlibParameters _:
+            await _dialer.ExecuteAsync(new TdApi.SetTdlibParameters
+            {
+                Parameters = new TdApi.TdlibParameters
+                {
+                    UseTestDc = false,
+                    DatabaseDirectory = "./path", // directory here
+                    FilesDirectory = "./path", // directory here
+                    UseFileDatabase = true,
+                    UseChatInfoDatabase = true,
+                    UseMessageDatabase = true,
+                    UseSecretChats = true,
+                    ApiId = 123456, // your API ID
+                    ApiHash = "hash", // your API HASH
+                    SystemLanguageCode = "en",
+                    DeviceModel = "Windows",
+                    SystemVersion = "0.1",
+                    ApplicationVersion = "0.1",
+                    EnableStorageOptimizer = true,
+                    IgnoreFileNames = false
+                }
+            });
+            break;
+            
+        case TdApi.AuthorizationState.AuthorizationStateWaitEncryptionKey _:
+            await _dialer.ExecuteAsync(new TdApi.CheckDatabaseEncryptionKey());
+            break;
+        
+        case TdApi.AuthorizationState.AuthorizationStateWaitPhoneNumber _:
+            await _dialer.ExecuteAsync(new TdApi.SetAuthenticationPhoneNumber
+            {
+                PhoneNumber = "+01234567789" // your phone
+            });
+            break;
+        
+        case TdApi.AuthorizationState.AuthorizationStateWaitCode _:
+            await _dialer.ExecuteAsync(new TdApi.CheckAuthenticationCode
+            {
+                Code = "123456", // your auth code
+            });
+            break;
+        
+        case TdApi.AuthorizationState.AuthorizationStateWaitPassword _:
+            await _dialer.ExecuteAsync(new TdApi.CheckAuthenticationPassword
+            {
+                Password = "P@$$w0rd" // your password
+            });
+            break;
+        
+        case TdApi.AuthorizationState.AuthorizationStateReady _:
+            // now authenticated. do something here
+            break;
+    }
+};
 ```
