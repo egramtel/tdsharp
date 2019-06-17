@@ -14,44 +14,64 @@ namespace TdLib
     {
         private readonly bool _disposeJsonClient;
         private readonly TdJsonClient _tdJsonClient;
-        private readonly Action<TdApi.Update> _updatesHandler;
         
-        private static int _id = 0;
+        private int _taskId;
         private readonly ConcurrentDictionary<int, Action<TdApi.Object>> _tasks;
         
-        private readonly Hub _hub;
+        private Receiver _receiver;
         
         public TdClient(
-            TdJsonClient tdJsonClient,
-            Action<TdApi.Update> updatesHandler)
+            TdJsonClient tdJsonClient)
         {
             _tdJsonClient = tdJsonClient;
-            _updatesHandler = updatesHandler;
             
             _tasks = new ConcurrentDictionary<int, Action<TdApi.Object>>();
             
-            _hub = new Hub(tdJsonClient);
-            _hub.Received += OnReceived;
-            _hub.Start();
-        }
-
-        public TdClient(
-            TdJsonClient tdJsonClient)
-            : this(tdJsonClient, _ => { })
-        {
-        }
-
-        public TdClient(
-            Action<TdApi.Update> updatesHandler)
-            : this(new TdJsonClient(), updatesHandler)
-        {
-            _disposeJsonClient = true;
+            _receiver = new Receiver(tdJsonClient);
+            _receiver.Received += OnReceived;
         }
 
         public TdClient()
-            : this(new TdJsonClient(), _ => { })
+            : this(new TdJsonClient())
         {
             _disposeJsonClient = true;
+        }
+        
+        /// <summary>
+        /// Provides updates.
+        /// Updates start when at least one subscriber exists.
+        /// Updates stop when there are no subscribers.
+        /// </summary>
+        public event EventHandler<TdApi.Update> UpdateReceived
+        {
+            add
+            {
+                lock (_receiverLock)
+                {
+                    _updateReceived += value;
+
+                    if (_receiverCount == 0)
+                    {
+                        _receiver.Start();
+                    }
+
+                    _receiverCount++;
+                }
+            }
+            remove
+            {
+                lock (_receiverLock)
+                {
+                    _updateReceived -= value;
+
+                    if (_receiverCount == 1)
+                    {
+                        _receiver.Stop();
+                    }
+                    
+                    _receiverCount--;
+                }
+            }
         }
 
         private void OnReceived(object _, TdApi.Object obj)
@@ -62,16 +82,20 @@ namespace TdLib
             }
             else if (obj is TdApi.Update update)
             {
-                _updatesHandler(update);
+                _updateReceived?.Invoke(this, update);
             }
         }
+
+        private readonly object _receiverLock = new object();
+        private int _receiverCount;
+        private EventHandler<TdApi.Update> _updateReceived;
         
         /// <summary>
         /// Executes function and ignores response
         /// </summary>
         public void Send<TResut>(TdApi.Function<TResut> function)
         {
-            if (_hub.WasStopped)
+            if (_receiver == null)
             {
                 throw new ObjectDisposedException("TDLib client was disposed");
             }
@@ -85,7 +109,7 @@ namespace TdLib
         /// </summary>
         public TdApi.Object Execute<TResult>(TdApi.Function<TResult> function)
         {
-            if (_hub.WasStopped)
+            if (_receiver == null)
             {
                 throw new ObjectDisposedException("TDLib client was disposed");
             }
@@ -102,12 +126,12 @@ namespace TdLib
         public Task<TResult> ExecuteAsync<TResult>(TdApi.Function<TResult> function)
             where TResult : TdApi.Object
         {
-            if (_hub.WasStopped)
+            if (_receiver == null)
             {
                 throw new ObjectDisposedException("TDLib client was disposed");
             }
             
-            var id = Interlocked.Increment(ref _id);
+            var id = Interlocked.Increment(ref _taskId);
             var tcs = new TaskCompletionSource<TResult>();
 
             function.Extra = id.ToString();
@@ -134,8 +158,9 @@ namespace TdLib
         /// </summary>
         public void Dispose()
         {
-            _hub.Stop();
-            _hub.Received -= OnReceived;
+            _receiver.Stop();
+            _receiver.Received -= OnReceived;
+            _receiver = null;
 
             if (_disposeJsonClient)
             {
