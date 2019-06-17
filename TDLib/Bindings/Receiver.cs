@@ -8,7 +8,6 @@ namespace TDLib.Bindings
 {
     internal class Receiver
     {
-        private readonly object _locker = new object();
         private readonly TdJsonClient _tdJsonClient;
         private CancellationTokenSource _cts;
         
@@ -24,21 +23,19 @@ namespace TDLib.Bindings
         
         internal void Start()
         {   
-            Task.Factory.StartNew(() =>
-            {   
-                lock (_locker)
+            Task.Factory.StartNew(async () =>
+            {
+                await Task.Yield();
+                _cts = new CancellationTokenSource();
+            
+                var ct = _cts.Token;
+                while (!ct.IsCancellationRequested)
                 {
-                    _cts = new CancellationTokenSource();
-                
-                    var ct = _cts.Token;
-                    while (!ct.IsCancellationRequested)
+                    var data = _tdJsonClient.Receive(1);
+                    if (!string.IsNullOrEmpty(data))
                     {
-                        var data = _tdJsonClient.Receive(1);
-                        if (!string.IsNullOrEmpty(data))
-                        {
-                            var structure = JsonConvert.DeserializeObject<TdApi.Object>(data, new Converter());
-                            Received?.Invoke(this, structure);
-                        }
+                        var structure = JsonConvert.DeserializeObject<TdApi.Object>(data, new Converter());
+                        Received?.Invoke(this, structure);
                     }
                 }
             }, TaskCreationOptions.LongRunning);

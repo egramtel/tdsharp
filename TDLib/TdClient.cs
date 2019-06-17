@@ -29,6 +29,7 @@ namespace TdLib
             
             _receiver = new Receiver(tdJsonClient);
             _receiver.Received += OnReceived;
+            _receiver.Start();
         }
 
         public TdClient()
@@ -38,38 +39,30 @@ namespace TdLib
         }
         
         /// <summary>
-        /// Provides updates.
-        /// Updates start when at least one subscriber exists.
-        /// Updates stop when there are no subscribers.
+        /// Provides updates from TDLib
         /// </summary>
         public event EventHandler<TdApi.Update> UpdateReceived
         {
             add
             {
-                lock (_receiverLock)
+                lock (_updateLock)
                 {
                     _updateReceived += value;
-
-                    if (_receiverCount == 0)
+                    
+                    while (_updateBuffer.TryDequeue(out var update))
                     {
-                        _receiver.Start();
+                        _updateReceived(this, update);
                     }
 
-                    _receiverCount++;
+                    _updateReceiverCount++;
                 }
             }
             remove
             {
-                lock (_receiverLock)
+                lock (_updateLock)
                 {
                     _updateReceived -= value;
-
-                    if (_receiverCount == 1)
-                    {
-                        _receiver.Stop();
-                    }
-                    
-                    _receiverCount--;
+                    _updateReceiverCount--;
                 }
             }
         }
@@ -82,13 +75,21 @@ namespace TdLib
             }
             else if (obj is TdApi.Update update)
             {
-                _updateReceived?.Invoke(this, update);
+                if (_updateReceiverCount == 0)
+                {
+                    _updateBuffer.Enqueue(update);
+                }
+                else
+                {
+                    _updateReceived(this, update);
+                }
             }
         }
 
-        private readonly object _receiverLock = new object();
-        private int _receiverCount;
+        private readonly object _updateLock = new object();
+        private readonly ConcurrentQueue<TdApi.Update> _updateBuffer = new ConcurrentQueue<TdApi.Update>();
         private EventHandler<TdApi.Update> _updateReceived;
+        private int _updateReceiverCount;
         
         /// <summary>
         /// Executes function and ignores response
