@@ -6,7 +6,7 @@ namespace TDLib.Tests
 {
     public class TdClientNetworkTests
     {
-        [Fact]
+        [Fact(Skip = "Networking is slow")]
         public async Task Execute_WhenNetworkCallIsMade_ReturnsOk()
         {
             using (var client = new TdClient())
