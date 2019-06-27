@@ -108,7 +108,8 @@ namespace TdLib
         /// <summary>
         /// Synchronously executes function and returns response
         /// </summary>
-        public TdApi.Object Execute<TResult>(TdApi.Function<TResult> function)
+        public TResult Execute<TResult>(TdApi.Function<TResult> function)
+            where TResult : TdApi.Object
         {
             if (_receiver == null)
             {
@@ -118,7 +119,13 @@ namespace TdLib
             var data = JsonConvert.SerializeObject(function);
             data = _tdJsonClient.Execute(data);
             var structure = JsonConvert.DeserializeObject<TdApi.Object>(data, new Converter());
-            return structure;
+            
+            if (structure is TdApi.Error error)
+            {
+                throw new TdException(error);
+            }
+            
+            return (TResult)structure;
         }
         
         /// <summary>
@@ -138,9 +145,9 @@ namespace TdLib
             function.Extra = id.ToString();
             _tasks.TryAdd(id, structure =>
             {
-                if (structure is TdApi.Error err)
+                if (structure is TdApi.Error error)
                 {
-                    tcs.SetException(new TdException(err));
+                    tcs.SetException(new TdException(error));
                 }
                 else if (structure is TResult result)
                 {
