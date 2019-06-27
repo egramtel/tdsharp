@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TDLib", "TDLib\TDLib.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TDLib.Api", "TDLib.Api\TDLib.Api.csproj", "{DF52A2FE-0464-40EE-AACC-42781FA5FBDB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TDLib.Tests", "TDLib.Tests\TDLib.Tests.csproj", "{6707D62C-5FCB-472E-8F46-6B7EDAE56453}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{DF52A2FE-0464-40EE-AACC-42781FA5FBDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DF52A2FE-0464-40EE-AACC-42781FA5FBDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DF52A2FE-0464-40EE-AACC-42781FA5FBDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6707D62C-5FCB-472E-8F46-6B7EDAE56453}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6707D62C-5FCB-472E-8F46-6B7EDAE56453}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6707D62C-5FCB-472E-8F46-6B7EDAE56453}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6707D62C-5FCB-472E-8F46-6B7EDAE56453}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
