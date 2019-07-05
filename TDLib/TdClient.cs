@@ -12,8 +12,11 @@ namespace TdLib
     /// </summary>
     public class TdClient : IDisposable
     {
+        private static readonly TimeSpan MaxTimeoutToClose = TimeSpan.FromMinutes(1.0); 
+        
         private readonly bool _disposeJsonClient;
         private readonly TdJsonClient _tdJsonClient;
+        private volatile bool _isClosed; // TODO: Think better about possible race conditions 
         
         private int _taskId;
         private readonly ConcurrentDictionary<int, Action<TdApi.Object>> _tasks;
@@ -81,6 +84,9 @@ namespace TdLib
                 }
                 else
                 {
+                    if (update.IsAuthorizationStateClosed())
+                        _isClosed = true;
+                    
                     _updateReceived(this, update);
                 }
             }
@@ -166,6 +172,11 @@ namespace TdLib
         /// </summary>
         public void Dispose()
         {
+            if (_disposeJsonClient)
+            {
+                CloseSynchronously();
+            }
+            
             _receiver.Stop();
             _receiver.Received -= OnReceived;
             _receiver = null;
@@ -173,6 +184,20 @@ namespace TdLib
             if (_disposeJsonClient)
             {
                 _tdJsonClient.Dispose();
+            }
+        }
+
+        private void CloseSynchronously()
+        {
+            if (_isClosed) return;
+
+            var task = this.WaitForUpdate(UpdateEx.IsAuthorizationStateClosed, MaxTimeoutToClose);
+            _ = ExecuteAsync(new TdApi.Close());
+            
+            var result = task.Result;
+            if (result == null)
+            {
+                throw new Exception("Timeout when trying to close the client");
             }
         }
     }

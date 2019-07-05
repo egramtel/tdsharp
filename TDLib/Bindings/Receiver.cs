@@ -8,6 +8,7 @@ namespace TDLib.Bindings
 {
     internal class Receiver
     {
+        private readonly ManualResetEvent _stopped = new ManualResetEvent(false);
         private readonly TdJsonClient _tdJsonClient;
         private CancellationTokenSource _cts;
         
@@ -25,18 +26,26 @@ namespace TDLib.Bindings
         {   
             Task.Factory.StartNew(async () =>
             {
-                await Task.Yield();
-                _cts = new CancellationTokenSource();
-            
-                var ct = _cts.Token;
-                while (!ct.IsCancellationRequested)
+                try
                 {
-                    var data = _tdJsonClient.Receive(1);
-                    if (!string.IsNullOrEmpty(data))
+                    await Task.Yield();
+                    _cts = new CancellationTokenSource();
+
+                    var ct = _cts.Token;
+                    while (!ct.IsCancellationRequested)
                     {
-                        var structure = JsonConvert.DeserializeObject<TdApi.Object>(data, new Converter());
-                        Received?.Invoke(this, structure);
+                        var data = _tdJsonClient.Receive(1);
+
+                        if (!string.IsNullOrEmpty(data))
+                        {
+                            var structure = JsonConvert.DeserializeObject<TdApi.Object>(data, new Converter());
+                            Received?.Invoke(this, structure);
+                        }
                     }
+                }
+                finally
+                {
+                    _stopped.Set();
                 }
             }, TaskCreationOptions.LongRunning);
         }
@@ -44,6 +53,7 @@ namespace TDLib.Bindings
         internal void Stop()
         {
             _cts.Cancel();
+            _stopped.WaitOne();
         }
     }
 }
