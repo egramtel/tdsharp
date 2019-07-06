@@ -12,8 +12,7 @@ namespace TDLib.Tests
             using (var client = new TdClient())
             {
                 var result = client.WaitForUpdate(
-                    update => update is TdApi.Update.UpdateAuthorizationState stateUpdate
-                              && stateUpdate.AuthorizationState is TdApi.AuthorizationState.AuthorizationStateClosed,
+                    update => update.IsAuthorizationStateClosed(),
                     TimeSpan.FromMinutes(1.0));
 
                 Assert.NotNull(result);

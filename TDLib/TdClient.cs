@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Concurrent;
 using System.Threading;
 using System.Threading.Tasks;
@@ -12,7 +12,7 @@ namespace TdLib
     /// </summary>
     public class TdClient : IDisposable
     {
-        private static readonly TimeSpan MaxTimeoutToClose = TimeSpan.FromMinutes(1.0); 
+        public TimeSpan TimeoutToClose { get; set; } = TimeSpan.FromMinutes(1.0); 
         
         private readonly bool _disposeJsonClient;
         private readonly TdJsonClient _tdJsonClient;
@@ -78,15 +78,18 @@ namespace TdLib
             }
             else if (obj is TdApi.Update update)
             {
+                if (update.IsAuthorizationStateClosed())
+                {
+                    BeforeClosed();
+                    _isClosed = true;
+                }
+                
                 if (_updateReceiverCount == 0)
                 {
                     _updateBuffer.Enqueue(update);
                 }
                 else
                 {
-                    if (update.IsAuthorizationStateClosed())
-                        _isClosed = true;
-                    
                     _updateReceived(this, update);
                 }
             }
@@ -192,7 +195,8 @@ namespace TdLib
         {
             if (_isClosed) return;
 
-            var task = this.WaitForUpdate(UpdateEx.IsAuthorizationStateClosed, MaxTimeoutToClose);
+            BeforeStartClosing();
+            var task = this.WaitForUpdate(UpdateEx.IsAuthorizationStateClosed, TimeoutToClose);
             _ = ExecuteAsync(new TdApi.Close());
             
             var result = task.Result;
@@ -201,5 +205,11 @@ namespace TdLib
                 throw new Exception("Timeout when trying to close the client");
             }
         }
+
+        /// <remarks>For test purposes.</remarks>
+        private protected virtual void BeforeClosed() { }
+        
+        /// <remarks>For test purposes.</remarks>
+        private protected virtual void BeforeStartClosing() { }
     }
 }
