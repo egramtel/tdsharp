@@ -16,7 +16,6 @@ namespace TdLib
         
         private readonly bool _disposeJsonClient;
         private readonly TdJsonClient _tdJsonClient;
-        private volatile bool _isClosed; // TODO: Think better about possible race conditions 
         
         private int _taskId;
         private readonly ConcurrentDictionary<int, Action<TdApi.Object>> _tasks;
@@ -78,12 +77,6 @@ namespace TdLib
             }
             else if (obj is TdApi.Update update)
             {
-                if (update.IsAuthorizationStateClosed())
-                {
-                    BeforeClosed();
-                    _isClosed = true;
-                }
-                
                 if (_updateReceiverCount == 0)
                 {
                     _updateBuffer.Enqueue(update);
@@ -191,24 +184,34 @@ namespace TdLib
             }
         }
 
-        private void CloseSynchronously()
+        private async Task CloseAsync()
         {
-            if (_isClosed) return;
-
-            BeforeStartClosing();
-            var task = this.WaitForUpdate(UpdateEx.IsAuthorizationStateClosed, TimeoutToClose);
-            _ = ExecuteAsync(new TdApi.Close());
-            
-            var result = task.Result;
-            if (result == null)
+            Task<TdApi.Update> waitForClose = null;
+            await _receiver.Queue((ref Receiver.ReceiverInternalState state) =>
             {
-                throw new Exception("Timeout when trying to close the client");
+                if (state.IsAuthenticationClosed) return;
+                
+                BeforeStartClosing();
+                
+                waitForClose = this.WaitForUpdate(UpdateEx.IsAuthorizationStateClosed, TimeoutToClose);    
+            });
+            
+            if (waitForClose != null)
+            {
+                await ExecuteAsync(new TdApi.Close());
+                var result = await waitForClose;
+                if (result == null)
+                {
+                    throw new Exception("Timeout when trying to close the client");
+                }
             }
         }
-
-        /// <remarks>For test purposes.</remarks>
-        private protected virtual void BeforeClosed() { }
         
+        private void CloseSynchronously()
+        {
+            CloseAsync().GetAwaiter().GetResult();
+        }
+
         /// <remarks>For test purposes.</remarks>
         private protected virtual void BeforeStartClosing() { }
     }
