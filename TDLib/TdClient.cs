@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Concurrent;
 using System.Threading;
 using System.Threading.Tasks;
@@ -179,6 +179,7 @@ namespace TdLib
             
             _receiver.Stop();
             _receiver.Received -= OnReceived;
+            _receiver.Dispose();
             _receiver = null;
 
             if (_disposeJsonClient)

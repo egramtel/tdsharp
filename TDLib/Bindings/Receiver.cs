@@ -6,9 +6,9 @@ using TdLib;
 
 namespace TDLib.Bindings
 {
-    internal class Receiver
+    internal class Receiver : IDisposable
     {
-        private readonly ManualResetEvent _stopped = new ManualResetEvent(false);
+        private readonly ManualResetEventSlim _stopped = new ManualResetEventSlim(false);
         private readonly TdJsonClient _tdJsonClient;
         private CancellationTokenSource _cts;
         
@@ -53,7 +53,12 @@ namespace TDLib.Bindings
         internal void Stop()
         {
             _cts.Cancel();
-            _stopped.WaitOne();
+            _stopped.Wait();
+        }
+
+        public void Dispose()
+        {
+            _stopped.Dispose();
         }
     }
 }
