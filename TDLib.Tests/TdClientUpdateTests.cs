@@ -12,10 +12,14 @@ namespace TDLib.Tests
             using (var client = new TdClient())
             {
                 var tcs = new TaskCompletionSource<TdApi.Update>();
-                client.UpdateReceived += (sender, update) =>
+
+                void Handler(object sender, TdApi.Update update)
                 {
                     tcs.SetResult(update);
-                };
+                    client.UpdateReceived -= Handler;
+                }
+
+                client.UpdateReceived += Handler; 
 
 #pragma warning disable 4014
                 client.ExecuteAsync(new TdApi.TestUseUpdate());

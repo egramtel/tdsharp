@@ -12,6 +12,8 @@ namespace TdLib
     /// </summary>
     public class TdClient : IDisposable
     {
+        public TimeSpan TimeoutToClose { get; set; } = TimeSpan.FromMinutes(1.0); 
+        
         private readonly bool _disposeJsonClient;
         private readonly TdJsonClient _tdJsonClient;
         
@@ -166,8 +168,14 @@ namespace TdLib
         /// </summary>
         public void Dispose()
         {
+            if (_disposeJsonClient)
+            {
+                CloseSynchronously();
+            }
+            
             _receiver.Stop();
             _receiver.Received -= OnReceived;
+            _receiver.Dispose();
             _receiver = null;
 
             if (_disposeJsonClient)
@@ -175,5 +183,36 @@ namespace TdLib
                 _tdJsonClient.Dispose();
             }
         }
+
+        private async Task CloseAsync()
+        {
+            Task<TdApi.Update> waitForClose = null;
+            await _receiver.Queue((ref Receiver.ReceiverInternalState state) =>
+            {
+                if (state.IsAuthenticationClosed) return;
+                
+                BeforeStartClosing();
+                
+                waitForClose = this.WaitForUpdate(UpdateEx.IsAuthorizationStateClosed, TimeoutToClose);    
+            });
+            
+            if (waitForClose != null)
+            {
+                await ExecuteAsync(new TdApi.Close());
+                var result = await waitForClose;
+                if (result == null)
+                {
+                    throw new Exception("Timeout when trying to close the client");
+                }
+            }
+        }
+        
+        private void CloseSynchronously()
+        {
+            CloseAsync().GetAwaiter().GetResult();
+        }
+
+        /// <remarks>For test purposes.</remarks>
+        private protected virtual void BeforeStartClosing() { }
     }
 }
