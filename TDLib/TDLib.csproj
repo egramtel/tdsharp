@@ -2,6 +2,8 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <LangVersion>latest</LangVersion>
+    <PackageId>TDLib</PackageId>
+    <Version>1.4.0</Version>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="11.0.1" />
@@ -9,7 +11,4 @@
   <ItemGroup>
     <ProjectReference Include="..\TDLib.Api\TDLib.Api.csproj" />
   </ItemGroup>
-  <PropertyGroup>
-    <Version>1.3.0</Version>
-  </PropertyGroup>
 </Project>
