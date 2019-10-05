@@ -8,52 +8,44 @@ namespace TDLib.Tests
 {
     public class TdClientDisposeTests
     {
-        private class BlockableTdClient : TdClient
+        [Fact]
+        public async Task Dispose_WhenCalled_DoesNotThrowException()
         {
-            private readonly ManualResetEventSlim _allowBeforeStartClosing;
-            public readonly ManualResetEventSlim IsBlockedInBeforeStartClosing = new ManualResetEventSlim();
+            var client = new TdClient();
             
-            public BlockableTdClient(ManualResetEventSlim allowBeforeStartClosing)
-            {
-                _allowBeforeStartClosing = allowBeforeStartClosing;
-            }
+            // do some stuff
+            await client.ExecuteAsync(new TdApi.TestCallEmpty());
 
-            private protected override void BeforeStartClosing()
-            {
-                IsBlockedInBeforeStartClosing.Set();
-                _allowBeforeStartClosing.Wait();
-            }
+            // dispose client from other thread
+            await Task.Run(() => client.Dispose());
         }
         
         [Fact]
-        public async Task RaceConditionInDisposeCase()
+        public async Task Dispose_WhenCalledTwice_DoesNotThrowException()
         {
-            using (var receiverUnblocked = new ManualResetEventSlim(false))
+            var client = new TdClient();
+            
+            // do some stuff
+            await client.ExecuteAsync(new TdApi.TestCallEmpty());
+
+            // dispose client from other thread
+            await Task.Run(() => client.Dispose());
+            
+            // and then from main thread
+            client.Dispose();
+        }
+
+        [Fact]
+        public async Task Dispose_WhenCalledOnDifferentClients_DoesNotThrowException()
+        {
+            using (var client1 = new TdClient())
+            using (var client2 = new TdClient())
+            using (var client3 = new TdClient())
             {
-                // 1. Inject a blocking callback into the Receiver thread so the update from the Close command won't be
-                //    received by the client in time.
-                var client = new BlockableTdClient(receiverUnblocked)
-                {
-                    TimeoutToClose = TimeSpan.FromSeconds(1.0)
-                };
-                
-                // 2. This test requires a constant observer to be on the client, so it doesn't buffer the incoming
-                //    events.
-                client.UpdateReceived += delegate { };
-                
-                // 3. Send a Close command call into the client. 
-                _ = client.ExecuteAsync(new TdApi.Close());
-                
-                // 4. Now call the Dispose method.
-                var disposeParallel = Task.Run(() => client.Dispose());
-                
-                // 5. Wait for a thread to be inside of the closing procedure.
-                client.IsBlockedInBeforeStartClosing.Wait();
-                
-                // 6. Now unblock the receiver thread.
-                receiverUnblocked.Set();
-                
-                await disposeParallel; // could produce a timeout error in case of a race condition
+                // do some stuff
+                await client1.ExecuteAsync(new TdApi.TestCallEmpty());
+                await client2.ExecuteAsync(new TdApi.TestCallEmpty());
+                await client3.ExecuteAsync(new TdApi.TestCallEmpty());
             }
         }
     }

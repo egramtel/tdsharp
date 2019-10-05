@@ -82,6 +82,11 @@ namespace TdLib
         
         private void Destroy()
         {
+            if (_handle == IntPtr.Zero)
+            {
+                return;
+            }
+            
             Interop.ClientDestroy(_handle);
             _handle = IntPtr.Zero;
         }

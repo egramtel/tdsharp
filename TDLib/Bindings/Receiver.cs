@@ -9,97 +9,67 @@ namespace TDLib.Bindings
 {
     internal class Receiver : IDisposable
     {
-        /// <summary>Should never be directly exposed outside of the Receiver thread, thus ref struct.</summary>
-        internal ref struct ReceiverInternalState
-        {
-            public bool IsAuthenticationClosed;
-        }
-
-        internal delegate void ReceiverStateAction(ref ReceiverInternalState state);
-        
-        private readonly ManualResetEventSlim _stopped = new ManualResetEventSlim(false);
-        private readonly ConcurrentQueue<ReceiverStateAction> _actionQueue = new ConcurrentQueue<ReceiverStateAction>();
+        private readonly Converter _converter;
         private readonly TdJsonClient _tdJsonClient;
-        private CancellationTokenSource _cts;
+        
+        private readonly CancellationTokenSource _cts = new CancellationTokenSource();
+        private readonly ManualResetEventSlim _stopped = new ManualResetEventSlim(false);
         
         internal event EventHandler<TdApi.Object> Received;
+        internal event EventHandler<TdApi.AuthorizationState> AuthorizationStateChanged;
         
-        internal Receiver(
-            TdJsonClient tdJsonClient
-            )
+        internal Receiver(TdJsonClient tdJsonClient)
         {
-            _cts = new CancellationTokenSource();
+            _converter = new Converter();
             _tdJsonClient = tdJsonClient;
         }
         
         internal void Start()
         {   
             Task.Factory.StartNew(async () =>
-            {
-                try
                 {
-                    await Task.Yield();
-                    ProcessEvents();
-                }
-                finally
-                {
-                    _stopped.Set();
-                }
-            }, TaskCreationOptions.LongRunning);
-        }
-
-        public void ScheduleAction(ReceiverStateAction action)
-        {
-            _actionQueue.Enqueue(action);
+                    try
+                    {
+                        await Task.Yield();
+                        ProcessEvents();
+                    }
+                    finally
+                    {
+                        _stopped.Set();
+                    }
+                },
+                TaskCreationOptions.LongRunning);
         }
 
         private void ProcessEvents()
         {
-            _cts = new CancellationTokenSource();
-
-            var state = new ReceiverInternalState();
             var ct = _cts.Token;
             while (!ct.IsCancellationRequested)
             {
-                var data = _tdJsonClient.Receive(1);
+                var data = _tdJsonClient.Receive(0.1);
 
                 if (!string.IsNullOrEmpty(data))
                 {
-                    var structure = JsonConvert.DeserializeObject<TdApi.Object>(data, new Converter());
-                    UpdateState(ref state, structure);
+                    var structure = JsonConvert.DeserializeObject<TdApi.Object>(data, _converter);
+                    
                     Received?.Invoke(this, structure);
+
+                    if (structure is TdApi.Update.UpdateAuthorizationState update)
+                    {
+                        AuthorizationStateChanged?.Invoke(this, update.AuthorizationState);
+                    }
                 }
-
-                PerformQueuedActions(ref state);
             }
-        }
-
-        internal void Stop()
-        {
-            _cts.Cancel();
-            _stopped.Wait();
         }
 
         public void Dispose()
         {
-            _stopped.Dispose();
-        }
-
-        private void PerformQueuedActions(ref ReceiverInternalState state)
-        {
-            if (_actionQueue.IsEmpty) return;
-            while (_actionQueue.TryDequeue(out var action))
+            if (!_cts.IsCancellationRequested)
             {
-                action(ref state);
+                _cts.Cancel();
             }
-        }
-        
-        private void UpdateState(ref ReceiverInternalState state, TdApi.Object obj)
-        {
-            if (obj is TdApi.Update.UpdateAuthorizationState authStateUpdate)
-            {
-                state.IsAuthenticationClosed = authStateUpdate.IsAuthorizationStateClosed();
-            }
+            
+            _stopped.Wait();
         }
     }
 }

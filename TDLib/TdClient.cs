@@ -12,33 +12,30 @@ namespace TdLib
     /// </summary>
     public class TdClient : IDisposable
     {
-        public TimeSpan TimeoutToClose { get; set; } = TimeSpan.FromMinutes(1.0); 
-        
-        private readonly bool _disposeJsonClient;
-        private readonly TdJsonClient _tdJsonClient;
+        private TdJsonClient _tdJsonClient;
         
         private int _taskId;
         private readonly ConcurrentDictionary<int, Action<TdApi.Object>> _tasks;
         
         private Receiver _receiver;
+        private TdApi.AuthorizationState _authorizationState;
         
-        public TdClient(
-            TdJsonClient tdJsonClient)
+        public TdClient()
         {
-            _tdJsonClient = tdJsonClient;
+            _tdJsonClient = new TdJsonClient();
             
             _tasks = new ConcurrentDictionary<int, Action<TdApi.Object>>();
             
-            _receiver = new Receiver(tdJsonClient);
+            _receiver = new Receiver(_tdJsonClient);
             _receiver.Received += OnReceived;
+            _receiver.AuthorizationStateChanged += OnAuthorizationStateChanged;
             _receiver.Start();
         }
 
-        public TdClient()
-            : this(new TdJsonClient())
-        {
-            _disposeJsonClient = true;
-        }
+        /// <summary>
+        /// How much time should wait for closed state
+        /// </summary>
+        public TimeSpan TimeoutToClose { get; set; } = TimeSpan.FromMinutes(1.0); 
         
         /// <summary>
         /// Provides updates from TDLib
@@ -88,6 +85,12 @@ namespace TdLib
             }
         }
 
+        private void OnAuthorizationStateChanged(object sender, TdApi.AuthorizationState state)
+        {
+            _authorizationState = state;
+        }
+
+        private readonly object _disposeLock = new object();
         private readonly object _updateLock = new object();
         private readonly ConcurrentQueue<TdApi.Update> _updateBuffer = new ConcurrentQueue<TdApi.Update>();
         private EventHandler<TdApi.Update> _updateReceived;
@@ -163,47 +166,57 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Disposes client and json client (if it was created inside this class)
+        /// Disposes client and json client
         /// Updates are stopped from being sent to updates handler
         /// </summary>
         public void Dispose()
         {
-            if (_disposeJsonClient)
+            lock (_disposeLock)
             {
-                CloseSynchronously();
-            }
+                if (_receiver == null || _tdJsonClient == null)
+                {
+                    return;
+                }
             
-            _receiver.Stop();
-            _receiver.Received -= OnReceived;
-            _receiver.Dispose();
-            _receiver = null;
-
-            if (_disposeJsonClient)
-            {
+                CloseSynchronously();
+            
+                _receiver.Dispose();
+                _receiver.Received -= OnReceived;
+                _receiver.AuthorizationStateChanged -= OnAuthorizationStateChanged;
+                _receiver = null;
+            
                 _tdJsonClient.Dispose();
+                _tdJsonClient = null;
             }
         }
 
         private async Task CloseAsync()
         {
-            Task<TdApi.Update> waitForClose = null;
-            await _receiver.Queue((ref Receiver.ReceiverInternalState state) =>
-            {
-                if (state.IsAuthenticationClosed) return;
-                
-                BeforeStartClosing();
-                
-                waitForClose = this.WaitForUpdate(UpdateEx.IsAuthorizationStateClosed, TimeoutToClose);    
-            });
+            var tcs = new TaskCompletionSource<TdApi.AuthorizationState>();
             
-            if (waitForClose != null)
+            EventHandler<TdApi.AuthorizationState> handler = (sender, state) =>
             {
-                await ExecuteAsync(new TdApi.Close());
-                var result = await waitForClose;
-                if (result == null)
+                if (state is TdApi.AuthorizationState.AuthorizationStateClosed)
                 {
-                    throw new Exception("Timeout when trying to close the client");
+                    tcs.SetResult(state);
                 }
+            };
+            
+            try
+            {
+                _receiver.AuthorizationStateChanged += handler;
+                
+                if (_authorizationState is TdApi.AuthorizationState.AuthorizationStateClosed)
+                {
+                    return;
+                }
+                
+                await ExecuteAsync(new TdApi.Close());
+                await Task.WhenAny(tcs.Task, Task.Delay(TimeoutToClose));
+            }
+            finally
+            {
+                _receiver.AuthorizationStateChanged -= handler;
             }
         }
         
@@ -211,8 +224,5 @@ namespace TdLib
         {
             CloseAsync().GetAwaiter().GetResult();
         }
-
-        /// <remarks>For test purposes.</remarks>
-        private protected virtual void BeforeStartClosing() { }
     }
 }
