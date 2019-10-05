@@ -23,124 +23,47 @@ To do that, [build TDLib](https://core.telegram.org/tdlib/docs/index.html#buildi
 * libtdjson.dylib (MacOS)
 * libtdjson.so (Linux)
 
-### Simple example
+### Using json client
 
-Client is a wrapper around native JSON API. Use it to send/receive data as strings.
-
-```csharp
-using TdLib;
-
-// create client
-var client = new Client();
-// sending data
-client.Send(json);
-// synchronous execution
-var result = client.Execute(json);
-// receiving data
-while (true)
-{
-    result = client.Receive(timeout);
-}
-```
-
-### Using generated APIs
-
-This library contains generated classes for API objects and functions. It handles json serialization/deserialization behind the scenes. Use Hub to subscribe to events. Use Dialer to asynchronously call functions.
+TdJsonClient is a wrapper around native JSON APIs. Use it to send/receive data as strings.
 
 ```csharp
 using TdLib;
 
-// receiving data (subscribing to events)
-var hub = new Hub(client);
-hub.Received += (sender, data) =>
-{
-    if (data is TdApi.Ok)
-    {
-        // do something
-    }
-    else if (data is TdApi.Error)
-    {
-        // handle error
-    }
-}
-hub.Start();
+var json = ""; // json data
+double timeout = 1.0; // 1 second
 
-// asynchronous execution
-var dialer = new Dialer(client, hub);
-try
+using (var jsonClient = new TdJsonClient())
 {
-    TdApi.Ok ok = await dialer.ExecuteAsync(new TdApi.SetAuthenticationPhoneNumber
-    {
-        PhoneNumber = phoneNumber
-    });
-    // do something
-}
-catch (ErrorException e)
-{
-    TdApi.Error error = e.Error;
-    // handle error
+    jsonClient.Send(json); // send request
+    var result = jsonClient.Receive(timeout); // receive response
 }
 ```
 
-### Authentication example
+### Using strongly typed APIs
+
+This library contains generated classes for objects and functions. JSON serialization and deserialization is handled automatically. Use TdClient to asynchronously execute functions.
 
 ```csharp
-_hub.Received += async (sender, data) =>
+using TdLib;
+
+using (var client = new TdClient())
 {
-    switch (data)
+    try
     {
-        case TdApi.AuthorizationState.AuthorizationStateWaitTdlibParameters _:
-            await _dialer.ExecuteAsync(new TdApi.SetTdlibParameters
-            {
-                Parameters = new TdApi.TdlibParameters
-                {
-                    UseTestDc = false,
-                    DatabaseDirectory = "./path", // directory here
-                    FilesDirectory = "./path", // directory here
-                    UseFileDatabase = true,
-                    UseChatInfoDatabase = true,
-                    UseMessageDatabase = true,
-                    UseSecretChats = true,
-                    ApiId = 123456, // your API ID
-                    ApiHash = "hash", // your API HASH
-                    SystemLanguageCode = "en",
-                    DeviceModel = "Windows",
-                    SystemVersion = "0.1",
-                    ApplicationVersion = "0.1",
-                    EnableStorageOptimizer = true,
-                    IgnoreFileNames = false
-                }
-            });
-            break;
-            
-        case TdApi.AuthorizationState.AuthorizationStateWaitEncryptionKey _:
-            await _dialer.ExecuteAsync(new TdApi.CheckDatabaseEncryptionKey());
-            break;
-        
-        case TdApi.AuthorizationState.AuthorizationStateWaitPhoneNumber _:
-            await _dialer.ExecuteAsync(new TdApi.SetAuthenticationPhoneNumber
-            {
-                PhoneNumber = "+01234567789" // your phone
-            });
-            break;
-        
-        case TdApi.AuthorizationState.AuthorizationStateWaitCode _:
-            await _dialer.ExecuteAsync(new TdApi.CheckAuthenticationCode
-            {
-                Code = "123456", // your auth code
-            });
-            break;
-        
-        case TdApi.AuthorizationState.AuthorizationStateWaitPassword _:
-            await _dialer.ExecuteAsync(new TdApi.CheckAuthenticationPassword
-            {
-                Password = "P@$$w0rd" // your password
-            });
-            break;
-        
-        case TdApi.AuthorizationState.AuthorizationStateReady _:
-            // now authenticated. do something here
-            break;
+        // asynchronously execute function
+        TdApi.Ok ok = await client.ExecuteAsync(new TdApi.SetAuthenticationPhoneNumber
+        {
+            PhoneNumber = phoneNumber
+        });
+
+        // do something...
     }
-};
+    catch (ErrorException e)
+    {
+        TdApi.Error error = e.Error;
+
+        // handle error...
+    }
+}
 ```
