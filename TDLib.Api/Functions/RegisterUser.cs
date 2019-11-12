@@ -11,13 +11,13 @@ namespace TdLib
         /// <summary>
         /// Checks the authentication code. Works only when the current authorization state is authorizationStateWaitCode 
         /// </summary>
-        public class CheckAuthenticationCode : Function<Ok>
+        public class RegisterUser : Function<Ok>
         {
             /// <summary>
             /// Data type for serialization
             /// </summary>
             [JsonProperty("@type")]
-            public override string DataType { get; set; } = "checkAuthenticationCode";
+            public override string DataType { get; set; } = "registerUser";
 
             /// <summary>
             /// Extra data attached to the message
@@ -26,11 +26,18 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// The verification code received via SMS, Telegram message, phone call, or flash call
+            /// If the user is not yet registered, the first name of the user; 1-64 characters. You can also pass an empty string for unregistered user there to check verification code validness. In the latter case PHONE_NUMBER_UNOCCUPIED error will be returned for a valid code
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("code")]
-            public string Code { get; set; }
+            [JsonProperty("first_name")]
+            public string FirstName { get; set; }
+
+            /// <summary>
+            /// If the user is not yet registered; the last name of the user; optional; 0-64 characters
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("last_name")]
+            public string LastName { get; set; }
         }
     }
 }

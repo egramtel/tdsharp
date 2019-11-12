@@ -16,13 +16,13 @@ namespace TdLib
             /// <summary>
             /// TDLib needs the user's authentication code to finalize authorization 
             /// </summary>
-            public class AuthorizationStateWaitCode : AuthorizationState
+            public class AuthorizationStateWaitRegistration : AuthorizationState
             {
                 /// <summary>
                 /// Data type for serialization
                 /// </summary>
                 [JsonProperty("@type")]
-                public override string DataType { get; set; } = "authorizationStateWaitCode";
+                public override string DataType { get; set; } = "authorizationStateWaitRegistration";
 
                 /// <summary>
                 /// Extra data attached to the message
@@ -34,8 +34,8 @@ namespace TdLib
                 /// Information about the authorization code that was sent
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("code_info")]
-                public AuthenticationCodeInfo CodeInfo { get; set; }
+                [JsonProperty("terms_of_service")]
+                public TermsOfService TermsOfService { get; set; }
             }
         }
     }
