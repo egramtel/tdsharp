@@ -46,18 +46,29 @@ namespace TDLib.Bindings
             var ct = _cts.Token;
             while (!ct.IsCancellationRequested)
             {
-                var data = _tdJsonClient.Receive(0.1);
-
-                if (!string.IsNullOrEmpty(data))
+                string data = null;
+                try
                 {
-                    var structure = JsonConvert.DeserializeObject<TdApi.Object>(data, _converter);
-                    
-                    Received?.Invoke(this, structure);
+                    data = _tdJsonClient.Receive(0.1);
 
-                    if (structure is TdApi.Update.UpdateAuthorizationState update)
+                    if (!string.IsNullOrEmpty(data))
                     {
-                        AuthorizationStateChanged?.Invoke(this, update.AuthorizationState);
+                        var structure = JsonConvert.DeserializeObject<TdApi.Object>(data, _converter);
+
+                        Received?.Invoke(this, structure);
+
+                        if (structure is TdApi.Update.UpdateAuthorizationState update)
+                        {
+                            AuthorizationStateChanged?.Invoke(this, update.AuthorizationState);
+                        }
                     }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("An error has been occured while receiving new update:");
+                    Console.WriteLine(ex.ToString());
+                    Console.WriteLine(data);
+                    Console.WriteLine("If the above type has not been implemented yet, try implementing it as soon as possible.");
                 }
             }
         }
