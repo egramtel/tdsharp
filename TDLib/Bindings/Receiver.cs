@@ -65,10 +65,7 @@ namespace TDLib.Bindings
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("An error has been occured while receiving new update:");
-                    Console.WriteLine(ex.ToString());
-                    Console.WriteLine(data);
-                    Console.WriteLine("If the above type has not been implemented yet, try implementing it as soon as possible.");
+                    throw new TdApiNotFoundException(data, ex);
                 }
             }
         }
