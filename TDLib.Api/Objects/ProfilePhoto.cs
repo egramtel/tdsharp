@@ -33,14 +33,14 @@ namespace TdLib
             public Int64 Id { get; set; }
 
             /// <summary>
-            /// A small (160x160) user profile photo 
+            /// A small (160x160) user profile photo. The file can be downloaded only before the photo is changed 
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("small")]
             public File Small { get; set; }
 
             /// <summary>
-            /// A big (640x640) user profile photo
+            /// A big (640x640) user profile photo. The file can be downloaded only before the photo is changed
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("big")]

@@ -9,7 +9,7 @@ namespace TdLib
     public partial class TdApi
     {
         /// <summary>
-        /// Describes an audio file. Audio is usually in MP3 format 
+        /// Describes an audio file. Audio is usually in MP3 or M4A format 
         /// </summary>
         public class Audio : Object
         {
@@ -59,6 +59,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("mime_type")]
             public string MimeType { get; set; }
+
+            /// <summary>
+            /// The minithumbnail of the album cover; may be null 
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("album_cover_minithumbnail")]
+            public Minithumbnail AlbumCoverMinithumbnail { get; set; }
 
             /// <summary>
             /// The thumbnail of the album cover; as defined by the sender. The full size thumbnail should be extracted from the downloaded file; may be null 

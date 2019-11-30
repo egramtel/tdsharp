@@ -9,7 +9,7 @@ namespace TdLib
     public partial class TdApi
     {
         /// <summary>
-        /// Changes the sticker set of a supergroup; requires appropriate rights in the supergroup 
+        /// Changes the sticker set of a supergroup; requires can_change_info rights 
         /// </summary>
         public class SetSupergroupStickerSet : Function<Ok>
         {

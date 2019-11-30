@@ -61,7 +61,7 @@ namespace TdLib
             public string MimeType { get; set; }
 
             /// <summary>
-            /// True, if stickers were added to the photo
+            /// True, if stickers were added to the video
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("has_stickers")]
@@ -73,6 +73,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("supports_streaming")]
             public bool SupportsStreaming { get; set; }
+
+            /// <summary>
+            /// Video minithumbnail; may be null 
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("minithumbnail")]
+            public Minithumbnail Minithumbnail { get; set; }
 
             /// <summary>
             /// Video thumbnail; as defined by the sender; may be null 

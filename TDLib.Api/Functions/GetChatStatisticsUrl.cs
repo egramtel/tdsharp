@@ -9,7 +9,7 @@ namespace TdLib
     public partial class TdApi
     {
         /// <summary>
-        /// Returns URL with the chat statistics. Currently this method can be used only for channels 
+        /// Returns an HTTP URL with the chat statistics. Currently this method can be used only for channels 
         /// </summary>
         public class GetChatStatisticsUrl : Function<HttpUrl>
         {

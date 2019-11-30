@@ -9,12 +9,12 @@ namespace TdLib
     public partial class TdApi
     {
         /// <summary>
-        /// A file defined by its remote ID 
+        /// A file defined by its remote ID. The remote ID is guaranteed to work only if it was received after TDLib launch and the corresponding file is still accessible to the user.
         /// </summary>
         public partial class InputFile : Object
         {
             /// <summary>
-            /// A file defined by its remote ID 
+            /// A file defined by its remote ID. The remote ID is guaranteed to work only if it was received after TDLib launch and the corresponding file is still accessible to the user.
             /// </summary>
             public class InputFileRemote : InputFile
             {

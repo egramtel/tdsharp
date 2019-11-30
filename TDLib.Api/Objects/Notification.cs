@@ -33,11 +33,18 @@ namespace TdLib
             public int Id { get; set; }
 
             /// <summary>
-            /// Notification date 
+            /// Notification date
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("date")]
             public int Date { get; set; }
+
+            /// <summary>
+            /// True, if the notification was initially silent 
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("is_silent")]
+            public bool IsSilent { get; set; }
 
             /// <summary>
             /// Notification type

@@ -38,14 +38,14 @@ namespace TdLib
                 public Document Document { get; set; }
 
                 /// <summary>
-                /// Width of a bounding box in which the image should be shown, 0 if unknown
+                /// Width of a bounding box in which the image should be shown; 0 if unknown
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("width")]
                 public int Width { get; set; }
 
                 /// <summary>
-                /// Height of a bounding box in which the image should be shown, 0 if unknown
+                /// Height of a bounding box in which the image should be shown; 0 if unknown
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("height")]

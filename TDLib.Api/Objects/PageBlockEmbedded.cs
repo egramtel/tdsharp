@@ -52,14 +52,14 @@ namespace TdLib
                 public Photo PosterPhoto { get; set; }
 
                 /// <summary>
-                /// Block width, 0 if unknown 
+                /// Block width; 0 if unknown 
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("width")]
                 public int Width { get; set; }
 
                 /// <summary>
-                /// Block height, 0 if unknown 
+                /// Block height; 0 if unknown 
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("height")]

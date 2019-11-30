@@ -26,14 +26,14 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// A small (160x160) chat photo 
+            /// A small (160x160) chat photo. The file can be downloaded only before the photo is changed 
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("small")]
             public File Small { get; set; }
 
             /// <summary>
-            /// A big (640x640) chat photo
+            /// A big (640x640) chat photo. The file can be downloaded only before the photo is changed
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("big")]

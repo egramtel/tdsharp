@@ -38,11 +38,18 @@ namespace TdLib
                 public RichText Text { get; set; }
 
                 /// <summary>
-                /// URL
+                /// URL 
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("url")]
                 public string Url { get; set; }
+
+                /// <summary>
+                /// True, if the URL has cached instant view server-side
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("is_cached")]
+                public bool IsCached { get; set; }
             }
         }
     }

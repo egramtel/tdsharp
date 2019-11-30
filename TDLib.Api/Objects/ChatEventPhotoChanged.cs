@@ -35,14 +35,14 @@ namespace TdLib
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("old_photo")]
-                public ChatPhoto OldPhoto { get; set; }
+                public Photo OldPhoto { get; set; }
 
                 /// <summary>
                 /// New chat photo value; may be null
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("new_photo")]
-                public ChatPhoto NewPhoto { get; set; }
+                public Photo NewPhoto { get; set; }
             }
         }
     }

@@ -9,15 +9,15 @@ namespace TdLib
     public partial class TdApi
     {
         /// <summary>
-        /// Toggles the "All members are admins" setting in basic groups; requires creator privileges in the group 
+        /// Changes the chat members permissions. Supported only for basic groups and supergroups. Requires can_restrict_members administrator right
         /// </summary>
-        public class ToggleBasicGroupAdministrators : Function<Ok>
+        public class SetChatPermissions : Function<Ok>
         {
             /// <summary>
             /// Data type for serialization
             /// </summary>
             [JsonProperty("@type")]
-            public override string DataType { get; set; } = "toggleBasicGroupAdministrators";
+            public override string DataType { get; set; } = "setChatPermissions";
 
             /// <summary>
             /// Extra data attached to the message
@@ -26,18 +26,18 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Identifier of the basic group 
+            /// Chat identifier 
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("basic_group_id")]
-            public int BasicGroupId { get; set; }
+            [JsonProperty("chat_id")]
+            public long ChatId { get; set; }
 
             /// <summary>
-            /// New value of everyone_is_administrator
+            /// New non-administrator members permissions in the chat
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("everyone_is_administrator")]
-            public bool EveryoneIsAdministrator { get; set; }
+            [JsonProperty("permissions")]
+            public ChatPermissions Permissions { get; set; }
         }
     }
 }

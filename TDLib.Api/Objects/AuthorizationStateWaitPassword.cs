@@ -38,7 +38,7 @@ namespace TdLib
                 public string PasswordHint { get; set; }
 
                 /// <summary>
-                /// True if a recovery email address has been set up
+                /// True, if a recovery email address has been set up
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("has_recovery_email_address")]

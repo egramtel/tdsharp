@@ -40,11 +40,18 @@ namespace TdLib
             public int Rating { get; set; }
 
             /// <summary>
-            /// An optional user comment if the rating is less than 5
+            /// An optional user comment if the rating is less than 5 
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("comment")]
             public string Comment { get; set; }
+
+            /// <summary>
+            /// List of the exact types of problems with the call, specified by the user
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("problems")]
+            public CallProblem[] Problems { get; set; }
         }
     }
 }

@@ -47,13 +47,6 @@ namespace TdLib
             public ChatMemberStatus Status { get; set; }
 
             /// <summary>
-            /// True, if all members have been granted administrator rights in the group
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("everyone_is_administrator")]
-            public bool EveryoneIsAdministrator { get; set; }
-
-            /// <summary>
             /// True, if the group is active
             /// </summary>
             [JsonConverter(typeof(Converter))]

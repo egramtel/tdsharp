@@ -15,7 +15,7 @@ namespace TDLib.Tests
                 TdException exception = null;
                 try
                 {
-                    await client.ExecuteAsync(new TdApi.TestUseError());
+                    await client.ExecuteAsync(new TdApi.TestReturnError());
                 }
                 catch (TdException e)
                 {

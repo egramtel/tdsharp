@@ -61,13 +61,6 @@ namespace TdLib
             public int MemberCount { get; set; }
 
             /// <summary>
-            /// True, if any member of the supergroup can invite other members. This field has no meaning for channels
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("anyone_can_invite")]
-            public bool AnyoneCanInvite { get; set; }
-
-            /// <summary>
             /// True, if messages sent to the channel should contain information about the sender. This field is only applicable to channels
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -94,6 +87,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("restriction_reason")]
             public string RestrictionReason { get; set; }
+
+            /// <summary>
+            /// True, if many users reported this supergroup as a scam
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("is_scam")]
+            public bool IsScam { get; set; }
         }
     }
 }

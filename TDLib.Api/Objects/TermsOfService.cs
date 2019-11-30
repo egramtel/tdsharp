@@ -33,7 +33,7 @@ namespace TdLib
             public FormattedText Text { get; set; }
 
             /// <summary>
-            /// Mininum age of a user to be able to accept the terms; 0 if any 
+            /// Minimum age of a user to be able to accept the terms; 0 if any 
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("min_user_age")]

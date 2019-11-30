@@ -33,7 +33,7 @@ namespace TdLib
             public long Id { get; set; }
 
             /// <summary>
-            /// Identifier of the user who sent the message; 0 if unknown. It is unknown for channel posts
+            /// Identifier of the user who sent the message; 0 if unknown. Currently, it is unknown for channel posts and for channel posts automatically forwarded to discussion group
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("sender_user_id")]

@@ -9,7 +9,7 @@ namespace TdLib
     public partial class TdApi
     {
         /// <summary>
-        /// Changes the 2-step verification recovery email address of the user. If a new recovery email address is specified, then the change will not be applied until the new recovery email address is confirmed
+        /// Changes the 2-step verification recovery email address of the user. If a new recovery email address is specified, then the change will not be applied until the new recovery email address is confirmed.
         /// </summary>
         public class SetRecoveryEmailAddress : Function<PasswordState>
         {

@@ -9,15 +9,15 @@ namespace TdLib
     public partial class TdApi
     {
         /// <summary>
-        /// Contains a list of wallpapers 
+        /// Represents a list of emoji 
         /// </summary>
-        public class Wallpapers : Object
+        public class Emojis : Object
         {
             /// <summary>
             /// Data type for serialization
             /// </summary>
             [JsonProperty("@type")]
-            public override string DataType { get; set; } = "wallpapers";
+            public override string DataType { get; set; } = "emojis";
 
             /// <summary>
             /// Extra data attached to the message
@@ -26,11 +26,11 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// A list of wallpapers
+            /// List of emojis
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("wallpapers")]
-            public Wallpaper[] Wallpapers_ { get; set; }
+            [JsonProperty("emojis")]
+            public string[] Emojis_ { get; set; }
         }
     }
 }

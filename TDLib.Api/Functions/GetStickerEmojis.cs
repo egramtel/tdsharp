@@ -9,9 +9,9 @@ namespace TdLib
     public partial class TdApi
     {
         /// <summary>
-        /// Returns emoji corresponding to a sticker 
+        /// Returns emoji corresponding to a sticker. The list is only for informational purposes, because a sticker is always sent with a fixed emoji from the corresponding Sticker object 
         /// </summary>
-        public class GetStickerEmojis : Function<StickerEmojis>
+        public class GetStickerEmojis : Function<Emojis>
         {
             /// <summary>
             /// Data type for serialization

@@ -26,6 +26,13 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
+            /// Contains full information about a basic group 
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("description")]
+            public string Description { get; set; }
+
+            /// <summary>
             /// User identifier of the creator of the group; 0 if unknown 
             /// </summary>
             [JsonConverter(typeof(Converter))]

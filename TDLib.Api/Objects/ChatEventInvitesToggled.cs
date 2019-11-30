@@ -9,12 +9,12 @@ namespace TdLib
     public partial class TdApi
     {
         /// <summary>
-        /// The anyone_can_invite setting of a supergroup chat was toggled 
+        /// The can_invite_users permission of a supergroup chat was toggled 
         /// </summary>
         public partial class ChatEventAction : Object
         {
             /// <summary>
-            /// The anyone_can_invite setting of a supergroup chat was toggled 
+            /// The can_invite_users permission of a supergroup chat was toggled 
             /// </summary>
             public class ChatEventInvitesToggled : ChatEventAction
             {
@@ -31,11 +31,11 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// New value of anyone_can_invite
+                /// New value of can_invite_users permission
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("anyone_can_invite")]
-                public bool AnyoneCanInvite { get; set; }
+                [JsonProperty("can_invite_users")]
+                public bool CanInviteUsers { get; set; }
             }
         }
     }

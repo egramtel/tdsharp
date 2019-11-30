@@ -9,7 +9,7 @@ namespace TdLib
     public partial class TdApi
     {
         /// <summary>
-        /// Toggles sender signatures messages sent in a channel; requires appropriate administrator rights in the channel. 
+        /// Toggles sender signatures messages sent in a channel; requires can_change_info rights 
         /// </summary>
         public class ToggleSupergroupSignMessages : Function<Ok>
         {

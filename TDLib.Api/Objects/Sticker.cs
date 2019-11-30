@@ -54,6 +54,13 @@ namespace TdLib
             public string Emoji { get; set; }
 
             /// <summary>
+            /// True, if the sticker is an animated sticker in TGS format 
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("is_animated")]
+            public bool IsAnimated { get; set; }
+
+            /// <summary>
             /// True, if the sticker is a mask 
             /// </summary>
             [JsonConverter(typeof(Converter))]

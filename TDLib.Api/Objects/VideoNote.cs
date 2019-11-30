@@ -40,6 +40,13 @@ namespace TdLib
             public int Length { get; set; }
 
             /// <summary>
+            /// Video minithumbnail; may be null 
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("minithumbnail")]
+            public Minithumbnail Minithumbnail { get; set; }
+
+            /// <summary>
             /// Video thumbnail; as defined by the sender; may be null 
             /// </summary>
             [JsonConverter(typeof(Converter))]

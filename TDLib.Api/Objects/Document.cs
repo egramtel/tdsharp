@@ -40,7 +40,14 @@ namespace TdLib
             public string MimeType { get; set; }
 
             /// <summary>
-            /// Document thumbnail; as defined by the sender; may be null 
+            /// Document minithumbnail; may be null 
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("minithumbnail")]
+            public Minithumbnail Minithumbnail { get; set; }
+
+            /// <summary>
+            /// Document thumbnail in JPEG or PNG format (PNG will be used only for background patterns); as defined by the sender; may be null 
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("thumbnail")]

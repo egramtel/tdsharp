@@ -9,7 +9,7 @@ namespace TdLib
     public partial class TdApi
     {
         /// <summary>
-        /// Toggles whether the message history of a supergroup is available to new members; requires appropriate administrator rights in the supergroup. 
+        /// Toggles whether the message history of a supergroup is available to new members; requires can_change_info rights 
         /// </summary>
         public class ToggleSupergroupIsAllHistoryAvailable : Function<Ok>
         {

@@ -33,18 +33,11 @@ namespace TdLib
             public string PhoneNumber { get; set; }
 
             /// <summary>
-            /// Pass true if the authentication code may be sent via flash call to the specified phone number 
+            /// Settings for the authentication of the user's phone number
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("allow_flash_call")]
-            public bool AllowFlashCall { get; set; }
-
-            /// <summary>
-            /// Pass true if the phone number is used on the current device. Ignored if allow_flash_call is false
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("is_current_phone_number")]
-            public bool IsCurrentPhoneNumber { get; set; }
+            [JsonProperty("settings")]
+            public PhoneNumberAuthenticationSettings Settings { get; set; }
         }
     }
 }

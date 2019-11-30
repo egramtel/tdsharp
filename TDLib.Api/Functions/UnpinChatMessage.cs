@@ -9,7 +9,7 @@ namespace TdLib
     public partial class TdApi
     {
         /// <summary>
-        /// Removes the pinned message from a chat; requires appropriate administrator rights in the group or channel 
+        /// Removes the pinned message from a chat; requires can_pin_messages rights in the group or channel 
         /// </summary>
         public class UnpinChatMessage : Function<Ok>
         {

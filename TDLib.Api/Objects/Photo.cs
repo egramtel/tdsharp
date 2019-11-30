@@ -33,6 +33,13 @@ namespace TdLib
             public bool HasStickers { get; set; }
 
             /// <summary>
+            /// Photo minithumbnail; may be null 
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("minithumbnail")]
+            public Minithumbnail Minithumbnail { get; set; }
+
+            /// <summary>
             /// Available variants of the photo, in different sizes
             /// </summary>
             [JsonConverter(typeof(Converter))]

@@ -9,7 +9,7 @@ namespace TdLib
     public partial class TdApi
     {
         /// <summary>
-        /// Represents short information about a sticker set 
+        /// Represents short information about a sticker set
         /// </summary>
         public class StickerSetInfo : Object
         {
@@ -47,14 +47,21 @@ namespace TdLib
             public string Name { get; set; }
 
             /// <summary>
-            /// True, if the sticker set has been installed by current user
+            /// Sticker set thumbnail in WEBP format with width and height 100; may be null
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("thumbnail")]
+            public PhotoSize Thumbnail { get; set; }
+
+            /// <summary>
+            /// True, if the sticker set has been installed by current user 
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_installed")]
             public bool IsInstalled { get; set; }
 
             /// <summary>
-            /// True, if the sticker set has been archived. A sticker set can't be installed and archived simultaneously 
+            /// True, if the sticker set has been archived. A sticker set can't be installed and archived simultaneously
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_archived")]
@@ -68,14 +75,21 @@ namespace TdLib
             public bool IsOfficial { get; set; }
 
             /// <summary>
-            /// True, if the stickers in the set are masks
+            /// True, is the stickers in the set are animated 
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("is_animated")]
+            public bool IsAnimated { get; set; }
+
+            /// <summary>
+            /// True, if the stickers in the set are masks 
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_masks")]
             public bool IsMasks { get; set; }
 
             /// <summary>
-            /// True for already viewed trending sticker sets 
+            /// True for already viewed trending sticker sets
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_viewed")]

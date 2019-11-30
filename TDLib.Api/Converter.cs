@@ -11,7 +11,7 @@ namespace TdLib
     {
         private static Assembly _assembly;
         private static Dictionary<string, Type> _mapper;
-        
+
         static Converter()
         {
             _assembly = typeof(Converter).Assembly;
@@ -22,7 +22,7 @@ namespace TdLib
                 _mapper.Add(type.Name, type);
             }
         }
-        
+
         public override bool CanRead => true;
 
         public override bool CanWrite => false;
@@ -32,18 +32,19 @@ namespace TdLib
             return _mapper.ContainsKey(type.Name);
         }
 
-        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+        public override object ReadJson(JsonReader reader, Type objectType, object existingValue,
+            JsonSerializer serializer)
         {
             var jToken = JToken.Load(reader);
 
             if (jToken.Type == JTokenType.Object)
             {
                 var jObject = (JObject) jToken;
-                
+
                 var typeProp = jObject["@type"];
                 if (typeProp != null)
                 {
-                    var typeName = (string)typeProp;
+                    var typeName = (string) typeProp;
                     if (typeName != null && _mapper.TryGetValue(typeName, out var type))
                     {
                         return jObject.ToObject(type);
@@ -53,7 +54,7 @@ namespace TdLib
 
             return jToken.ToObject(objectType);
         }
-        
+
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
             throw new NotImplementedException();
@@ -65,7 +66,8 @@ namespace TdLib
 
             public override bool CanWrite => true;
 
-            public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+            public override object ReadJson(JsonReader reader, Type objectType, object existingValue,
+                JsonSerializer serializer)
             {
                 var token = JToken.ReadFrom(reader);
                 if (token.Type == JTokenType.Array)
@@ -91,8 +93,8 @@ namespace TdLib
 
             public override bool CanConvert(Type objectType)
             {
-                return objectType == typeof(long) 
-                    || objectType == typeof(long[]);
+                return objectType == typeof(long)
+                       || objectType == typeof(long[]);
             }
 
             public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)

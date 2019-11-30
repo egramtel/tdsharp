@@ -38,7 +38,7 @@ namespace TdLib
                 public long FromChatId { get; set; }
 
                 /// <summary>
-                /// Identifier of the message to forward 
+                /// Identifier of the message to forward
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("message_id")]
@@ -50,6 +50,20 @@ namespace TdLib
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("in_game_share")]
                 public bool InGameShare { get; set; }
+
+                /// <summary>
+                /// True, if content of the message needs to be copied without a link to the original message. Always true if the message is forwarded to a secret chat
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("send_copy")]
+                public bool SendCopy { get; set; }
+
+                /// <summary>
+                /// True, if media caption of the message copy needs to be removed. Ignored if send_copy is false
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("remove_caption")]
+                public bool RemoveCaption { get; set; }
             }
         }
     }

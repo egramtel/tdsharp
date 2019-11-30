@@ -9,15 +9,15 @@ namespace TdLib
     public partial class TdApi
     {
         /// <summary>
-        /// Does nothing and ensures that the Error object is used; for testing only. This is an offline method. Can be called before authorization
+        /// Returns auto-download settings presets for the currently logged in user
         /// </summary>
-        public class TestUseError : Function<Error>
+        public class GetAutoDownloadSettingsPresets : Function<AutoDownloadSettingsPresets>
         {
             /// <summary>
             /// Data type for serialization
             /// </summary>
             [JsonProperty("@type")]
-            public override string DataType { get; set; } = "testUseError";
+            public override string DataType { get; set; } = "getAutoDownloadSettingsPresets";
 
             /// <summary>
             /// Extra data attached to the message

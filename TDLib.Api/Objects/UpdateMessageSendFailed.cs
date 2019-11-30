@@ -31,7 +31,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Contains information about the message that failed to send 
+                /// Contains information about the message which failed to send 
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("message")]

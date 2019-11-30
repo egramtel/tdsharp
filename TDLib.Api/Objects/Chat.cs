@@ -54,6 +54,13 @@ namespace TdLib
             public ChatPhoto Photo { get; set; }
 
             /// <summary>
+            /// Actions that non-administrator chat members are allowed to take in the chat
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("permissions")]
+            public ChatPermissions Permissions { get; set; }
+
+            /// <summary>
             /// Last message in the chat; may be null
             /// </summary>
             [JsonConverter(typeof(Converter))]

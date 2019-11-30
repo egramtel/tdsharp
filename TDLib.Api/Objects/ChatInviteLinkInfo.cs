@@ -68,7 +68,7 @@ namespace TdLib
             public int[] MemberUserIds { get; set; }
 
             /// <summary>
-            /// True, if the chat is a public supergroup or channel with a username
+            /// True, if the chat is a public supergroup or a channel with a username
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_public")]

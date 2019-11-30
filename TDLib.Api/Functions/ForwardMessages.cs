@@ -54,7 +54,7 @@ namespace TdLib
             public bool DisableNotification { get; set; }
 
             /// <summary>
-            /// Pass true if the message is sent from the background
+            /// Pass true if the messages are sent from the background
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("from_background")]
@@ -66,6 +66,20 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("as_album")]
             public bool AsAlbum { get; set; }
+
+            /// <summary>
+            /// True, if content of the messages needs to be copied without links to the original messages. Always true if the messages are forwarded to a secret chat
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("send_copy")]
+            public bool SendCopy { get; set; }
+
+            /// <summary>
+            /// True, if media captions of message copies needs to be removed. Ignored if send_copy is false
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("remove_caption")]
+            public bool RemoveCaption { get; set; }
         }
     }
 }

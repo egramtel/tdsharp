@@ -31,20 +31,6 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("code")]
             public string Code { get; set; }
-
-            /// <summary>
-            /// If the user is not yet registered, the first name of the user; 1-64 characters. You can also pass an empty string for unregistered user there to check verification code validness. In the latter case PHONE_NUMBER_UNOCCUPIED error will be returned for a valid code
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("first_name")]
-            public string FirstName { get; set; }
-
-            /// <summary>
-            /// If the user is not yet registered; the last name of the user; optional; 0-64 characters
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("last_name")]
-            public string LastName { get; set; }
         }
     }
 }

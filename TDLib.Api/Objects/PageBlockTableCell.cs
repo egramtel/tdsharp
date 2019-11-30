@@ -26,7 +26,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Cell text 
+            /// Cell text; may be null. If the text is null, then the cell should be invisible 
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("text")]

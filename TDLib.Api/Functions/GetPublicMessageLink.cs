@@ -9,7 +9,7 @@ namespace TdLib
     public partial class TdApi
     {
         /// <summary>
-        /// Returns a public HTTPS link to a message. Available only for messages in public supergroups and channels
+        /// Returns a public HTTPS link to a message. Available only for messages in supergroups and channels with username
         /// </summary>
         public class GetPublicMessageLink : Function<PublicMessageLink>
         {

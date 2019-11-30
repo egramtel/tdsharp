@@ -45,32 +45,11 @@ namespace TdLib
                 public int RestrictedUntilDate { get; set; }
 
                 /// <summary>
-                /// True, if the user can send text messages, contacts, locations, and venues
+                /// User permissions in the chat
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("can_send_messages")]
-                public bool CanSendMessages { get; set; }
-
-                /// <summary>
-                /// True, if the user can send audio files, documents, photos, videos, video notes, and voice notes. Implies can_send_messages permissions
-                /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("can_send_media_messages")]
-                public bool CanSendMediaMessages { get; set; }
-
-                /// <summary>
-                /// True, if the user can send animations, games, and stickers and use inline bots. Implies can_send_media_messages permissions
-                /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("can_send_other_messages")]
-                public bool CanSendOtherMessages { get; set; }
-
-                /// <summary>
-                /// True, if the user may add a web page preview to his messages. Implies can_send_messages permissions
-                /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("can_add_web_page_previews")]
-                public bool CanAddWebPagePreviews { get; set; }
+                [JsonProperty("permissions")]
+                public ChatPermissions Permissions { get; set; }
             }
         }
     }

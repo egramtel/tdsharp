@@ -40,7 +40,7 @@ namespace TdLib
             public long ChatId { get; set; }
 
             /// <summary>
-            /// A hidden parameter sent to the bot for deep linking purposes (https://api.telegram.org/bots#deep-linking)
+            /// A hidden parameter sent to the bot for deep linking purposes (https://core.telegram.org/bots#deep-linking)
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("parameter")]

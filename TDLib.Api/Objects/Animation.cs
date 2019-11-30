@@ -54,11 +54,18 @@ namespace TdLib
             public string FileName { get; set; }
 
             /// <summary>
-            /// MIME type of the file, usually "image/gif" or "video/mp4" 
+            /// MIME type of the file, usually "image/gif" or "video/mp4"
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("mime_type")]
             public string MimeType { get; set; }
+
+            /// <summary>
+            /// Animation minithumbnail; may be null 
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("minithumbnail")]
+            public Minithumbnail Minithumbnail { get; set; }
 
             /// <summary>
             /// Animation thumbnail; may be null 

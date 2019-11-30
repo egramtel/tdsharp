@@ -9,12 +9,12 @@ namespace TdLib
     public partial class TdApi
     {
         /// <summary>
-        /// The user has too much public chats, one of them should be made private first
+        /// The user has too much chats with username, one of them should be made private first
         /// </summary>
         public partial class CheckChatUsernameResult : Object
         {
             /// <summary>
-            /// The user has too much public chats, one of them should be made private first
+            /// The user has too much chats with username, one of them should be made private first
             /// </summary>
             public class CheckChatUsernameResultPublicChatsTooMuch : CheckChatUsernameResult
             {

@@ -9,15 +9,15 @@ namespace TdLib
     public partial class TdApi
     {
         /// <summary>
-        /// Represents a list of all emoji corresponding to a sticker in a sticker set. The list is only for informational purposes, because a sticker is always sent with a fixed emoji from the corresponding Sticker object 
+        /// Returns information about a public or private message link 
         /// </summary>
-        public class StickerEmojis : Object
+        public class GetMessageLinkInfo : Function<MessageLinkInfo>
         {
             /// <summary>
             /// Data type for serialization
             /// </summary>
             [JsonProperty("@type")]
-            public override string DataType { get; set; } = "stickerEmojis";
+            public override string DataType { get; set; } = "getMessageLinkInfo";
 
             /// <summary>
             /// Extra data attached to the message
@@ -26,11 +26,11 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// List of emojis
+            /// The message link in the format "https://t.me/c/...", or "tg://privatepost?...", or "https://t.me/username/...", or "tg://resolve?..."
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("emojis")]
-            public string[] Emojis { get; set; }
+            [JsonProperty("url")]
+            public string Url { get; set; }
         }
     }
 }

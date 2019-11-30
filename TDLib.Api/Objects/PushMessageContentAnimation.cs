@@ -9,12 +9,12 @@ namespace TdLib
     public partial class TdApi
     {
         /// <summary>
-        /// An animation message (GIF-style) 
+        /// An animation message (GIF-style). 
         /// </summary>
         public partial class PushMessageContent : Object
         {
             /// <summary>
-            /// An animation message (GIF-style) 
+            /// An animation message (GIF-style). 
             /// </summary>
             public class PushMessageContentAnimation : PushMessageContent
             {

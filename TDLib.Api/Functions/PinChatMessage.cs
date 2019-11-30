@@ -9,7 +9,7 @@ namespace TdLib
     public partial class TdApi
     {
         /// <summary>
-        /// Pins a message in a chat; requires appropriate administrator rights in the group or channel 
+        /// Pins a message in a chat; requires can_pin_messages rights 
         /// </summary>
         public class PinChatMessage : Function<Ok>
         {

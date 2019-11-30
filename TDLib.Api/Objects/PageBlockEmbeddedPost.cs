@@ -45,7 +45,7 @@ namespace TdLib
                 public string Author { get; set; }
 
                 /// <summary>
-                /// Post author photo 
+                /// Post author photo; may be null 
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("author_photo")]

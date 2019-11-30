@@ -9,15 +9,15 @@ namespace TdLib
     public partial class TdApi
     {
         /// <summary>
-        /// Toggles whether all members of a supergroup can add new members; requires appropriate administrator rights in the supergroup. 
+        /// Sets auto-download settings 
         /// </summary>
-        public class ToggleSupergroupInvites : Function<Ok>
+        public class SetAutoDownloadSettings : Function<Ok>
         {
             /// <summary>
             /// Data type for serialization
             /// </summary>
             [JsonProperty("@type")]
-            public override string DataType { get; set; } = "toggleSupergroupInvites";
+            public override string DataType { get; set; } = "setAutoDownloadSettings";
 
             /// <summary>
             /// Extra data attached to the message
@@ -26,18 +26,18 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Identifier of the supergroup 
+            /// New user auto-download settings 
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("supergroup_id")]
-            public int SupergroupId { get; set; }
+            [JsonProperty("settings")]
+            public AutoDownloadSettings Settings { get; set; }
 
             /// <summary>
-            /// New value of anyone_can_invite
+            /// Type of the network for which the new settings are applied
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("anyone_can_invite")]
-            public bool AnyoneCanInvite { get; set; }
+            [JsonProperty("type")]
+            public NetworkType Type { get; set; }
         }
     }
 }

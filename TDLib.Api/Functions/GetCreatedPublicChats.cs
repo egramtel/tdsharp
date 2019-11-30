@@ -9,7 +9,7 @@ namespace TdLib
     public partial class TdApi
     {
         /// <summary>
-        /// Returns a list of public chats created by the user
+        /// Returns a list of public chats with username created by the user
         /// </summary>
         public class GetCreatedPublicChats : Function<Chats>
         {

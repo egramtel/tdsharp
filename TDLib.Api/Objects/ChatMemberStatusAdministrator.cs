@@ -87,7 +87,7 @@ namespace TdLib
                 public bool CanPinMessages { get; set; }
 
                 /// <summary>
-                /// True, if the administrator can add new administrators with a subset of his own privileges or demote administrators that were directly or indirectly promoted by him
+                /// True, if the administrator can add new administrators with a subset of their own privileges or demote administrators that were directly or indirectly promoted by him
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("can_promote_members")]

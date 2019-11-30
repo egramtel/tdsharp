@@ -9,15 +9,15 @@ namespace TdLib
     public partial class TdApi
     {
         /// <summary>
-        /// Contains information about a wallpaper 
+        /// Contains auto-download settings presets for the user
         /// </summary>
-        public class Wallpaper : Object
+        public class AutoDownloadSettingsPresets : Object
         {
             /// <summary>
             /// Data type for serialization
             /// </summary>
             [JsonProperty("@type")]
-            public override string DataType { get; set; } = "wallpaper";
+            public override string DataType { get; set; } = "autoDownloadSettingsPresets";
 
             /// <summary>
             /// Extra data attached to the message
@@ -26,25 +26,25 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Unique persistent wallpaper identifier 
+            /// Preset with lowest settings; supposed to be used by default when roaming
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("id")]
-            public int Id { get; set; }
+            [JsonProperty("low")]
+            public AutoDownloadSettings Low { get; set; }
 
             /// <summary>
-            /// Available variants of the wallpaper in different sizes. These photos can only be downloaded; they can't be sent in a message 
+            /// Preset with medium settings; supposed to be used by default when using mobile data
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("sizes")]
-            public PhotoSize[] Sizes { get; set; }
+            [JsonProperty("medium")]
+            public AutoDownloadSettings Medium { get; set; }
 
             /// <summary>
-            /// Main color of the wallpaper in RGB24 format; should be treated as background color if no photos are specified
+            /// Preset with highest settings; supposed to be used by default when connected on Wi-Fi
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("color")]
-            public int Color { get; set; }
+            [JsonProperty("high")]
+            public AutoDownloadSettings High { get; set; }
         }
     }
 }

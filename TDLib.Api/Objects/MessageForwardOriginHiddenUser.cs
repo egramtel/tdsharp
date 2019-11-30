@@ -9,12 +9,12 @@ namespace TdLib
     public partial class TdApi
     {
         /// <summary>
-        /// The message was originally written by a user, which is hidden by his privacy settings 
+        /// The message was originally written by a user, which is hidden by their privacy settings 
         /// </summary>
         public partial class MessageForwardOrigin : Object
         {
             /// <summary>
-            /// The message was originally written by a user, which is hidden by his privacy settings 
+            /// The message was originally written by a user, which is hidden by their privacy settings 
             /// </summary>
             public class MessageForwardOriginHiddenUser : MessageForwardOrigin
             {

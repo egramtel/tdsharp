@@ -40,14 +40,14 @@ namespace TdLib
             public int Date { get; set; }
 
             /// <summary>
-            /// For messages forwarded to the chat with the current user (saved messages), the identifier of the chat from which the message was forwarded last time; 0 if unknown
+            /// For messages forwarded to the chat with the current user (saved messages) or to the channel discussion supergroup, the identifier of the chat from which the message was forwarded last time; 0 if unknown
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("from_chat_id")]
             public long FromChatId { get; set; }
 
             /// <summary>
-            /// For messages forwarded to the chat with the current user (saved messages), the identifier of the original message from which the new message was forwarded last time; 0 if unknown
+            /// For messages forwarded to the chat with the current user (saved messages) or to the channel discussion supergroup, the identifier of the original message from which the new message was forwarded last time; 0 if unknown
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("from_message_id")]

@@ -110,6 +110,13 @@ namespace TdLib
             public string RestrictionReason { get; set; }
 
             /// <summary>
+            /// True, if many users reported this user as a scam
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("is_scam")]
+            public bool IsScam { get; set; }
+
+            /// <summary>
             /// If false, the user is inaccessible, and the only information known about the user is inside this class. It can't be passed to any method except GetUser 
             /// </summary>
             [JsonConverter(typeof(Converter))]
