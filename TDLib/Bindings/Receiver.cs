@@ -17,6 +17,7 @@ namespace TDLib.Bindings
         
         internal event EventHandler<TdApi.Object> Received;
         internal event EventHandler<TdApi.AuthorizationState> AuthorizationStateChanged;
+        internal event EventHandler<Exception> ExceptionThrown;
         
         internal Receiver(TdJsonClient tdJsonClient)
         {
@@ -50,13 +51,20 @@ namespace TDLib.Bindings
 
                 if (!string.IsNullOrEmpty(data))
                 {
-                    var structure = JsonConvert.DeserializeObject<TdApi.Object>(data, _converter);
-                    
-                    Received?.Invoke(this, structure);
-
-                    if (structure is TdApi.Update.UpdateAuthorizationState update)
+                    try
                     {
-                        AuthorizationStateChanged?.Invoke(this, update.AuthorizationState);
+                        var structure = JsonConvert.DeserializeObject<TdApi.Object>(data, _converter);
+
+                        Received?.Invoke(this, structure);
+
+                        if (structure is TdApi.Update.UpdateAuthorizationState update)
+                        {
+                            AuthorizationStateChanged?.Invoke(this, update.AuthorizationState);
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        ExceptionThrown?.Invoke(this, e);
                     }
                 }
             }
