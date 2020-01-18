@@ -1,10 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TDLib", "TDLib\TDLib.csproj", "{2D4466D1-02F4-4983-B4B7-101FB4D76D91}"
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29418.71
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TDLib", "TDLib\TDLib.csproj", "{2D4466D1-02F4-4983-B4B7-101FB4D76D91}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TDLib.Api", "TDLib.Api\TDLib.Api.csproj", "{DF52A2FE-0464-40EE-AACC-42781FA5FBDB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TDLib.Api", "TDLib.Api\TDLib.Api.csproj", "{DF52A2FE-0464-40EE-AACC-42781FA5FBDB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TDLib.Tests", "TDLib.Tests\TDLib.Tests.csproj", "{6707D62C-5FCB-472E-8F46-6B7EDAE56453}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TDLib.Tests", "TDLib.Tests\TDLib.Tests.csproj", "{6707D62C-5FCB-472E-8F46-6B7EDAE56453}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TDLib.Samples.GetChats", "Samples\TdLib.Samples.GetChats\TDLib.Samples.GetChats.csproj", "{E5D00251-CD3E-4736-B9A3-FF5A0996E9E3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{B25EBBCB-983A-42DF-8EEF-2158ECE297AE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,5 +31,18 @@ Global
 		{6707D62C-5FCB-472E-8F46-6B7EDAE56453}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6707D62C-5FCB-472E-8F46-6B7EDAE56453}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6707D62C-5FCB-472E-8F46-6B7EDAE56453}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5D00251-CD3E-4736-B9A3-FF5A0996E9E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5D00251-CD3E-4736-B9A3-FF5A0996E9E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5D00251-CD3E-4736-B9A3-FF5A0996E9E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5D00251-CD3E-4736-B9A3-FF5A0996E9E3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E5D00251-CD3E-4736-B9A3-FF5A0996E9E3} = {B25EBBCB-983A-42DF-8EEF-2158ECE297AE}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {46AB197A-DFB5-4F3A-97C7-65193A741D19}
 	EndGlobalSection
 EndGlobal
