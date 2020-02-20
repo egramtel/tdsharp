@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Concurrent;
 using System.Threading;
 using System.Threading.Tasks;
@@ -145,7 +145,7 @@ namespace TdLib
             }
             
             var id = Interlocked.Increment(ref _taskId);
-            var tcs = new TaskCompletionSource<TResult>();
+            var tcs = new TaskCompletionSource<TResult>(TaskCreationOptions.RunContinuationsAsynchronously);
 
             function.Extra = id.ToString();
             _tasks.TryAdd(id, structure =>
@@ -192,8 +192,8 @@ namespace TdLib
 
         private async Task CloseAsync()
         {
-            var tcs = new TaskCompletionSource<TdApi.AuthorizationState>();
-            
+            var tcs = new TaskCompletionSource<TdApi.AuthorizationState>(TaskCreationOptions.RunContinuationsAsynchronously);
+
             EventHandler<TdApi.AuthorizationState> handler = (sender, state) =>
             {
                 if (state is TdApi.AuthorizationState.AuthorizationStateClosed)
