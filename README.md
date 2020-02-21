@@ -57,6 +57,9 @@ using (var client = new TdClient())
             PhoneNumber = phoneNumber
         });
 
+        // or use extension method
+        ok = await client.SetAuthenticationPhoneNumberAsync(phoneNumber);
+
         // do something...
     }
     catch (ErrorException e)
