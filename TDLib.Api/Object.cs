@@ -2,7 +2,7 @@
 
 namespace TdLib
 {
-    public partial class TdApi
+    public static partial class TdApi
     {
         /// <summary>
         /// Base class for all objects

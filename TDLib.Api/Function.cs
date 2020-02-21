@@ -1,6 +1,8 @@
-﻿namespace TdLib
+﻿using System.Threading.Tasks;
+
+namespace TdLib
 {
-    public partial class TdApi
+    public static partial class TdApi
     {
         /// <summary>
         /// Base class for all functions
