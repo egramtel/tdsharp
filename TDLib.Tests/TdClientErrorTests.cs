@@ -16,13 +16,10 @@ namespace TDLib.Tests
                 
                 try
                 {
-                    await client.ExecuteAsync(new TdApi.TestReturnError
+                    await client.TestReturnErrorAsync(new TdApi.Error
                     {
-                        Error = new TdApi.Error
-                        {
-                            Code = 0,
-                            Message = "Error"
-                        }
+                        Code = 0,
+                        Message = "Error"
                     });
                 }
                 catch (TdException e)

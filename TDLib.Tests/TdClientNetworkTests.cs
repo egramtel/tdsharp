@@ -11,7 +11,7 @@ namespace TDLib.Tests
         {
             using (var client = new TdClient())
             {
-                var result = await client.ExecuteAsync(new TdApi.TestNetwork());
+                var result = await client.TestNetworkAsync();
                 
                 Assert.NotNull(result);
             }

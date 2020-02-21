@@ -14,7 +14,7 @@ namespace TDLib.Tests
             var client = new TdClient();
             
             // do some stuff
-            await client.ExecuteAsync(new TdApi.TestCallEmpty());
+            await client.TestCallEmptyAsync();
 
             // dispose client from other thread
             await Task.Run(() => client.Dispose());
@@ -26,7 +26,7 @@ namespace TDLib.Tests
             var client = new TdClient();
             
             // do some stuff
-            await client.ExecuteAsync(new TdApi.TestCallEmpty());
+            await client.TestCallEmptyAsync();
 
             // dispose client from other thread
             await Task.Run(() => client.Dispose());
@@ -43,9 +43,9 @@ namespace TDLib.Tests
             using (var client3 = new TdClient())
             {
                 // do some stuff
-                await client1.ExecuteAsync(new TdApi.TestCallEmpty());
-                await client2.ExecuteAsync(new TdApi.TestCallEmpty());
-                await client3.ExecuteAsync(new TdApi.TestCallEmpty());
+                await client1.TestCallEmptyAsync();
+                await client2.TestCallEmptyAsync();
+                await client3.TestCallEmptyAsync();
             }
         }
     }
