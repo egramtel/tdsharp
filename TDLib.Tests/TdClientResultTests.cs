@@ -12,7 +12,7 @@ namespace TDLib.Tests
         {
             using (var client = new TdClient())
             {
-                var result = await client.ExecuteAsync(new TdApi.TestCallEmpty());
+                var result = await client.TestCallEmptyAsync();
                 
                 Assert.NotNull(result);
             }
@@ -24,10 +24,7 @@ namespace TDLib.Tests
             using (var client = new TdClient())
             {
                 var arg = "test";
-                var result = await client.ExecuteAsync(new TdApi.TestCallString
-                {
-                    X = arg
-                });
+                var result = await client.TestCallStringAsync(arg);
                 
                 Assert.NotNull(result);
                 Assert.NotNull(result.Value);
@@ -41,10 +38,7 @@ namespace TDLib.Tests
             using (var client = new TdClient())
             {
                 var arg = new byte[] {1, 2, 3};
-                var result = await client.ExecuteAsync(new TdApi.TestCallBytes
-                {
-                    X = arg
-                });
+                var result = await client.TestCallBytesAsync(arg);
                 
                 Assert.NotNull(result);
                 Assert.NotNull(result.Value);
@@ -58,10 +52,7 @@ namespace TDLib.Tests
             using (var client = new TdClient())
             {
                 var arg = new [] {1, 2, 3};
-                var result = await client.ExecuteAsync(new TdApi.TestCallVectorInt
-                {
-                    X = arg
-                });
+                var result = await client.TestCallVectorIntAsync(arg);
                 
                 Assert.NotNull(result);
                 Assert.NotNull(result.Value);
@@ -75,10 +66,7 @@ namespace TDLib.Tests
             using (var client = new TdClient())
             {
                 var arg = new[] {"foo", "bar"};
-                var result = await client.ExecuteAsync(new TdApi.TestCallVectorString
-                {
-                    X = arg
-                });
+                var result = await client.TestCallVectorStringAsync(arg);
                 
                 Assert.NotNull(result);
                 Assert.NotNull(result.Value);

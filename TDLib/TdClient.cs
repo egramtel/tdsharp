@@ -10,7 +10,7 @@ namespace TdLib
     /// <summary>
     /// TDLib client for using with generated APIs
     /// </summary>
-    public class TdClient : IDisposable
+    public class TdClient : TdApi.Client, IDisposable
     {
         private TdJsonClient _tdJsonClient;
         
@@ -99,7 +99,7 @@ namespace TdLib
         /// <summary>
         /// Executes function and ignores response
         /// </summary>
-        public void Send<TResut>(TdApi.Function<TResut> function)
+        public override void Send<TResut>(TdApi.Function<TResut> function)
         {
             if (_receiver == null)
             {
@@ -113,8 +113,7 @@ namespace TdLib
         /// <summary>
         /// Synchronously executes function and returns response
         /// </summary>
-        public TResult Execute<TResult>(TdApi.Function<TResult> function)
-            where TResult : TdApi.Object
+        public override TResult Execute<TResult>(TdApi.Function<TResult> function)
         {
             if (_receiver == null)
             {
@@ -136,8 +135,7 @@ namespace TdLib
         /// <summary>
         /// Asynchronously executes function and returns response
         /// </summary>
-        public Task<TResult> ExecuteAsync<TResult>(TdApi.Function<TResult> function)
-            where TResult : TdApi.Object
+        public override Task<TResult> ExecuteAsync<TResult>(TdApi.Function<TResult> function)
         {
             if (_receiver == null)
             {
