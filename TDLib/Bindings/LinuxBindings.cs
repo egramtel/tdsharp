@@ -8,19 +8,19 @@ namespace TdLib.Bindings
         private const string Dll = "tdjson";
         
         [DllImport(Dll)]
-        internal static extern IntPtr td_json_client_create();
+        internal static extern IntPtr _td_json_client_create();
         
         [DllImport(Dll)]
-        internal static extern void td_json_client_destroy(IntPtr handle);
+        internal static extern void _td_json_client_destroy(IntPtr handle);
         
         [DllImport(Dll)]
-        internal static extern void td_json_client_send(IntPtr handle, IntPtr data);
+        internal static extern void _td_json_client_send(IntPtr handle, IntPtr data);
         
         [DllImport(Dll)]
-        internal static extern IntPtr td_json_client_receive(IntPtr handle, double t);
+        internal static extern IntPtr _td_json_client_receive(IntPtr handle, double t);
         
         [DllImport(Dll)]
-        internal static extern IntPtr td_json_client_execute(IntPtr handle, IntPtr data);
+        internal static extern IntPtr _td_json_client_execute(IntPtr handle, IntPtr data);
         
         [DllImport(Dll)]
         internal static extern int td_set_log_file_path(IntPtr path);
