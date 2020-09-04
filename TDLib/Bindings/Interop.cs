@@ -46,11 +46,11 @@ namespace TdLib.Bindings
             }
             else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
             {
-                ClientCreate = LinuxBindings.td_json_client_create;
-                ClientDestroy = LinuxBindings.td_json_client_destroy;
-                ClientSend = LinuxBindings.td_json_client_send;
-                ClientReceive = LinuxBindings.td_json_client_receive;
-                ClientExecute = LinuxBindings.td_json_client_execute;
+                ClientCreate = LinuxBindings._td_json_client_create;
+                ClientDestroy = LinuxBindings._td_json_client_destroy;
+                ClientSend = LinuxBindings._td_json_client_send;
+                ClientReceive = LinuxBindings._td_json_client_receive;
+                ClientExecute = LinuxBindings._td_json_client_execute;
                 SetLogFilePath = LinuxBindings.td_set_log_file_path;
                 SetLogFileMaxSize = LinuxBindings.td_set_log_max_file_size;
                 SetLogVerbosityLevel = LinuxBindings.td_set_log_verbosity_level;
