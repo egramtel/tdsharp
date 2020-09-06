@@ -3,6 +3,7 @@ using System.Collections.Concurrent;
 using System.Threading;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using TdLib.Bindings;
 using TDLib.Bindings;
 
 namespace TdLib
@@ -19,10 +20,12 @@ namespace TdLib
         
         private Receiver _receiver;
         private TdApi.AuthorizationState _authorizationState;
-        
-        public TdClient()
+
+        public TdClient() : this(Interop.AutoDetectBindings()) {}
+
+        public TdClient(ITdLibBindings bindings)
         {
-            _tdJsonClient = new TdJsonClient();
+            _tdJsonClient = new TdJsonClient(bindings);
             
             _tasks = new ConcurrentDictionary<int, Action<TdApi.Object>>();
             
@@ -31,6 +34,8 @@ namespace TdLib
             _receiver.AuthorizationStateChanged += OnAuthorizationStateChanged;
             _receiver.Start();
         }
+
+        public ITdLibBindings Bindings => _tdJsonClient.Bindings;
 
         /// <summary>
         /// How much time should wait for closed state

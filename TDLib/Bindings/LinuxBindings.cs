@@ -44,5 +44,8 @@ namespace TdLib.Bindings
         public void SetLogFileMaxSize(long size) => td_set_log_max_file_size(size);
         public void SetLogVerbosityLevel(int level) => td_set_log_verbosity_level(level);
         public void SetLogFatalErrorCallback(Callback stringCallback) => td_set_log_fatal_error_callback(stringCallback);
+
+        private LinuxBindings() {}
+        public static readonly LinuxBindings Instance = new LinuxBindings();
     }
 }

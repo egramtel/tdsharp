@@ -73,4 +73,4 @@ using (var client = new TdClient())
 
 ### Overriding native bindings
 
-By default, TdSharp will try to detect the platform and use the corresponding bindings to native td library. In case you want to override it (e.g. for Xamarin), set the static property `TdLib.Bindings.Interop.Bindings` to a custom implementation of `ITdLibBindings` (which corresponds to native library interface used by TdSharp).
+By default, TdSharp will try to detect the platform and use the corresponding bindings to native td library. In case you want to override it (e.g. for Xamarin), create a custom implementation of `ITdLibBindings` (which corresponds to native library interface used by TdSharp) and pass it to `TdClient` constructor.

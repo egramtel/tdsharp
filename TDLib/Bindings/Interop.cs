@@ -8,46 +8,22 @@ namespace TdLib.Bindings
 {
     internal static class Interop
     {
-        private static readonly object Lock = new object();
-        private static volatile ITdLibBindings _bindings;
-        public static ITdLibBindings Bindings
-        {
-            get
-            {
-                if (_bindings == null)
-                {
-                    lock (Lock)
-                    {
-                        if (_bindings == null)
-                            _bindings = AutoDetectBindings();
-                    }
-                }
-
-                return _bindings;
-            }
-            set
-            {
-                if (value == null) throw new ArgumentNullException();
-                lock(Lock) _bindings = value;
-            }
-        }
-        
-        private static ITdLibBindings AutoDetectBindings()
+        internal static ITdLibBindings AutoDetectBindings()
         {
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
-                return new WindowsBindings();
+                return WindowsBindings.Instance;
             }
             else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
             {
-                return new MacosBindings();
+                return MacosBindings.Instance;
             }
             else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
             {
-                return new LinuxBindings();
+                return LinuxBindings.Instance;
             }
 
-            throw new PlatformNotSupportedException($"Current platform is not supported by TdLib. Please override static property {typeof(Interop).FullName}.{nameof(Bindings)}.");
+            throw new PlatformNotSupportedException($"Current platform is not supported by TdLib. Please pass your own instance of {typeof(ITdLibBindings).FullName} to a constructor of {typeof(TdClient).FullName} or {typeof(TdJsonClient).FullName}.");
         }
 
         internal static string IntPtrToString(IntPtr ptr)
