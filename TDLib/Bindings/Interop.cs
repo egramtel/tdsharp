@@ -47,7 +47,7 @@ namespace TdLib.Bindings
                 return new LinuxBindings();
             }
 
-            throw new PlatformNotSupportedException();
+            throw new PlatformNotSupportedException($"Current platform is not supported by TdLib. Please override static property {typeof(Interop).FullName}.{nameof(Bindings)}.");
         }
 
         internal static string IntPtrToString(IntPtr ptr)
