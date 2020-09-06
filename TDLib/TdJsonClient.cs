@@ -12,7 +12,7 @@ namespace TdLib
         
         public TdJsonClient()
         {
-            _handle = Interop.ClientCreate();
+            _handle = Interop.Bindings.ClientCreate();
         }
 
         /// <summary>
@@ -29,7 +29,7 @@ namespace TdLib
             
             try
             {
-                Interop.ClientSend(_handle, ptr);
+                Interop.Bindings.ClientSend(_handle, ptr);
             }
             finally
             {
@@ -47,7 +47,7 @@ namespace TdLib
                 throw new ObjectDisposedException("TDLib JSON client was disposed");
             }
             
-            var res = Interop.ClientReceive(_handle, timeout);
+            var res = Interop.Bindings.ClientReceive(_handle, timeout);
             return Interop.IntPtrToString(res);
         }
 
@@ -65,7 +65,7 @@ namespace TdLib
 
             try
             {
-                var res = Interop.ClientExecute(_handle, ptr);
+                var res = Interop.Bindings.ClientExecute(_handle, ptr);
                 return Interop.IntPtrToString(res);
             }
             finally
@@ -87,7 +87,7 @@ namespace TdLib
                 return;
             }
             
-            Interop.ClientDestroy(_handle);
+            Interop.Bindings.ClientDestroy(_handle);
             _handle = IntPtr.Zero;
         }
 

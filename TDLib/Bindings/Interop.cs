@@ -2,62 +2,54 @@
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Text;
+using TDLib.Bindings;
 
 namespace TdLib.Bindings
 {
     internal static class Interop
     {
-        internal static readonly Func<IntPtr> ClientCreate; // handle
-        internal static readonly Action<IntPtr> ClientDestroy; // handle
-        internal static readonly Action<IntPtr, IntPtr> ClientSend; // handle, str
-        internal static readonly Func<IntPtr, double, IntPtr> ClientReceive; // handle, time -> str
-        internal static readonly Func<IntPtr, IntPtr, IntPtr> ClientExecute; // handle, str -> str
-        
-        internal static readonly Func<IntPtr, int> SetLogFilePath; // str -> int
-        internal static readonly Action<long> SetLogFileMaxSize; // long
-        internal static readonly Action<int> SetLogVerbosityLevel; // int
-        internal static readonly Action<Callback> SetLogFatalErrorCallback; // callback(str)
-        
-        static Interop()
+        private static readonly object Lock = new object();
+        private static volatile ITdLibBindings _bindings;
+        public static ITdLibBindings Bindings
         {
-            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            get
             {
-                ClientCreate = WindowsBindings.td_json_client_create;
-                ClientDestroy = WindowsBindings.td_json_client_destroy;
-                ClientSend = WindowsBindings.td_json_client_send;
-                ClientReceive = WindowsBindings.td_json_client_receive;
-                ClientExecute = WindowsBindings.td_json_client_execute;
-                SetLogFilePath = WindowsBindings.td_set_log_file_path;
-                SetLogFileMaxSize = WindowsBindings.td_set_log_max_file_size;
-                SetLogVerbosityLevel = WindowsBindings.td_set_log_verbosity_level;
-                SetLogFatalErrorCallback = WindowsBindings.td_set_log_fatal_error_callback;
+                if (_bindings == null)
+                {
+                    lock (Lock)
+                    {
+                        if (_bindings == null)
+                            _bindings = AutoDetectBindings();
+                    }
+                }
+
+                return _bindings;
             }
-            else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+            set
             {
-                ClientCreate = MacosBindings.td_json_client_create;
-                ClientDestroy = MacosBindings.td_json_client_destroy;
-                ClientSend = MacosBindings.td_json_client_send;
-                ClientReceive = MacosBindings.td_json_client_receive;
-                ClientExecute = MacosBindings.td_json_client_execute;
-                SetLogFilePath = MacosBindings.td_set_log_file_path;
-                SetLogFileMaxSize = MacosBindings.td_set_log_max_file_size;
-                SetLogVerbosityLevel = MacosBindings.td_set_log_verbosity_level;
-                SetLogFatalErrorCallback = MacosBindings.td_set_log_fatal_error_callback;
-            }
-            else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
-            {
-                ClientCreate = LinuxBindings.td_json_client_create;
-                ClientDestroy = LinuxBindings.td_json_client_destroy;
-                ClientSend = LinuxBindings.td_json_client_send;
-                ClientReceive = LinuxBindings.td_json_client_receive;
-                ClientExecute = LinuxBindings.td_json_client_execute;
-                SetLogFilePath = LinuxBindings.td_set_log_file_path;
-                SetLogFileMaxSize = LinuxBindings.td_set_log_max_file_size;
-                SetLogVerbosityLevel = LinuxBindings.td_set_log_verbosity_level;
-                SetLogFatalErrorCallback = LinuxBindings.td_set_log_fatal_error_callback;
+                if (value == null) throw new ArgumentNullException();
+                lock(Lock) _bindings = value;
             }
         }
         
+        private static ITdLibBindings AutoDetectBindings()
+        {
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                return new WindowsBindings();
+            }
+            else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+            {
+                return new MacosBindings();
+            }
+            else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+            {
+                return new LinuxBindings();
+            }
+
+            throw new PlatformNotSupportedException();
+        }
+
         internal static string IntPtrToString(IntPtr ptr)
         {
             if (ptr == IntPtr.Zero)
