@@ -2,5 +2,5 @@
 
 namespace TdLib.Bindings
 {
-    internal delegate void Callback(IntPtr ptr);
+    public delegate void Callback(IntPtr ptr);
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using TdLib.Bindings;
+using TDLib.Bindings;
 
 namespace TdLib
 {
@@ -8,11 +9,15 @@ namespace TdLib
     /// </summary>
     public class TdJsonClient : IDisposable
     {
+        public ITdLibBindings Bindings { get; }
         private IntPtr _handle;
+
+        public TdJsonClient() : this(Interop.AutoDetectBindings()) {}
         
-        public TdJsonClient()
+        public TdJsonClient(ITdLibBindings bindings)
         {
-            _handle = Interop.ClientCreate();
+            Bindings = bindings;
+            _handle = Bindings.ClientCreate();
         }
 
         /// <summary>
@@ -29,7 +34,7 @@ namespace TdLib
             
             try
             {
-                Interop.ClientSend(_handle, ptr);
+                Bindings.ClientSend(_handle, ptr);
             }
             finally
             {
@@ -47,7 +52,7 @@ namespace TdLib
                 throw new ObjectDisposedException("TDLib JSON client was disposed");
             }
             
-            var res = Interop.ClientReceive(_handle, timeout);
+            var res = Bindings.ClientReceive(_handle, timeout);
             return Interop.IntPtrToString(res);
         }
 
@@ -65,7 +70,7 @@ namespace TdLib
 
             try
             {
-                var res = Interop.ClientExecute(_handle, ptr);
+                var res = Bindings.ClientExecute(_handle, ptr);
                 return Interop.IntPtrToString(res);
             }
             finally
@@ -87,7 +92,7 @@ namespace TdLib
                 return;
             }
             
-            Interop.ClientDestroy(_handle);
+            Bindings.ClientDestroy(_handle);
             _handle = IntPtr.Zero;
         }
 

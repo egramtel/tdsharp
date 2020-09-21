@@ -17,8 +17,8 @@ namespace TdLib.Samples.GetChats
 
         static async Task Main(string[] args)
         {
-            TdLog.SetVerbosityLevel(0);
             _client = new TdClient();
+            _client.Bindings.SetLogVerbosityLevel(0);
 
             _client.UpdateReceived += async (sender, update) =>
             {
