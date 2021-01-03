@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "setBackground";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -48,20 +48,16 @@ namespace TdLib
             public bool ForDarkTheme { get; set; }
         }
 
-
         /// <summary>
         /// Changes the background selected by the user; adds background to the list of installed backgrounds
         /// </summary>
-        public static Task<Background> SetBackgroundAsync(this Client client,
-            InputBackground background = default(InputBackground),
-            BackgroundType type = default(BackgroundType),
-            bool forDarkTheme = default(bool))
+        public static Task<Background> SetBackgroundAsync(
+            this Client client, InputBackground background = default, BackgroundType type = default,
+            bool forDarkTheme = default)
         {
             return client.ExecuteAsync(new SetBackground
             {
-                Background = background,
-                Type = type,
-                ForDarkTheme = forDarkTheme,
+                Background = background, Type = type, ForDarkTheme = forDarkTheme
             });
         }
     }

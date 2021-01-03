@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// An authorization confirmation dialog needs to be shown to the user 
-        /// </summary>
         public partial class LoginUrlInfo : Object
         {
             /// <summary>
-            /// An authorization confirmation dialog needs to be shown to the user 
+            /// An authorization confirmation dialog needs to be shown to the user
             /// </summary>
             public class LoginUrlInfoRequestConfirmation : LoginUrlInfo
             {
@@ -31,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// An HTTP URL to be opened 
+                /// An HTTP URL to be opened
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("url")]
@@ -45,7 +42,7 @@ namespace TdLib
                 public string Domain { get; set; }
 
                 /// <summary>
-                /// User identifier of a bot linked with the website 
+                /// User identifier of a bot linked with the website
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("bot_user_id")]

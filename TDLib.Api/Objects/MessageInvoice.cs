@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A message with an invoice from a bot 
-        /// </summary>
         public partial class MessageContent : Object
         {
             /// <summary>
-            /// A message with an invoice from a bot 
+            /// A message with an invoice from a bot
             /// </summary>
             public class MessageInvoice : MessageContent
             {
@@ -31,28 +28,28 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Product title 
+                /// Product title
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("title")]
                 public string Title { get; set; }
 
                 /// <summary>
-                /// A message with an invoice from a bot 
+                /// 
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("description")]
                 public string Description { get; set; }
 
                 /// <summary>
-                /// Product photo; may be null 
+                /// Product photo; may be null
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("photo")]
                 public Photo Photo { get; set; }
 
                 /// <summary>
-                /// Currency for the product price 
+                /// Currency for the product price
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("currency")]
@@ -66,7 +63,7 @@ namespace TdLib
                 public long TotalAmount { get; set; }
 
                 /// <summary>
-                /// Unique invoice bot start_parameter. To share an invoice use the URL https://t.me/{bot_username}?start={start_parameter} 
+                /// Unique invoice bot start_parameter. To share an invoice use the URL https://t.me/{bot_username}?start={start_parameter}
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("start_parameter")]
@@ -80,7 +77,7 @@ namespace TdLib
                 public bool IsTest { get; set; }
 
                 /// <summary>
-                /// True, if the shipping address should be specified 
+                /// True, if the shipping address should be specified
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("need_shipping_address")]

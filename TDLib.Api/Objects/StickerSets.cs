@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Represents a list of sticker sets 
+        /// Represents a list of sticker sets
         /// </summary>
-        public class StickerSets : Object
+        public partial class StickerSets : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,13 +20,13 @@ namespace TdLib
             public override string DataType { get; set; } = "stickerSets";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Approximate total number of sticker sets found 
+            /// Approximate total number of sticker sets found
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("total_count")]

@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A header 
-        /// </summary>
         public partial class PageBlock : Object
         {
             /// <summary>
-            /// A header 
+            /// A header
             /// </summary>
             public class PageBlockHeader : PageBlock
             {

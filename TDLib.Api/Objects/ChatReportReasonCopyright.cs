@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The chat contains copyrighted content
-        /// </summary>
         public partial class ChatReportReason : Object
         {
             /// <summary>

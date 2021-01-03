@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A supergroup (i.e. a chat with up to GetOption("supergroup_max_size") other users), or channel (with unlimited members) 
-        /// </summary>
         public partial class ChatType : Object
         {
             /// <summary>
-            /// A supergroup (i.e. a chat with up to GetOption("supergroup_max_size") other users), or channel (with unlimited members) 
+            /// A supergroup (i.e. a chat with up to GetOption("supergroup_max_size") other users), or channel (with unlimited members)
             /// </summary>
             public class ChatTypeSupergroup : ChatType
             {
@@ -31,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Supergroup or channel identifier 
+                /// Supergroup or channel identifier
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("supergroup_id")]

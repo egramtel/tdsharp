@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Describes a voice note. The voice note must be encoded with the Opus codec, and stored inside an OGG container. Voice notes can have only a single audio channel 
+        /// Describes a voice note. The voice note must be encoded with the Opus codec, and stored inside an OGG container. Voice notes can have only a single audio channel
         /// </summary>
-        public class VoiceNote : Object
+        public partial class VoiceNote : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,7 +20,7 @@ namespace TdLib
             public override string DataType { get; set; } = "voiceNote";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -33,14 +33,14 @@ namespace TdLib
             public int Duration { get; set; }
 
             /// <summary>
-            /// A waveform representation of the voice note in 5-bit format 
+            /// A waveform representation of the voice note in 5-bit format
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("waveform")]
             public byte[] Waveform { get; set; }
 
             /// <summary>
-            /// MIME type of the file; as defined by the sender 
+            /// MIME type of the file; as defined by the sender
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("mime_type")]

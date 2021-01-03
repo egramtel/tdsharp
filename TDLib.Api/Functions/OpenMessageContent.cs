@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Informs TDLib that the message content has been opened (e.g., the user has opened a photo, video, document, location or venue, or has listened to an audio file or voice note message). An updateMessageContentOpened update will be generated if something has changed 
+        /// Informs TDLib that the message content has been opened (e.g., the user has opened a photo, video, document, location or venue, or has listened to an audio file or voice note message). An updateMessageContentOpened update will be generated if something has changed
         /// </summary>
         public class OpenMessageContent : Function<Ok>
         {
@@ -21,13 +21,13 @@ namespace TdLib
             public override string DataType { get; set; } = "openMessageContent";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Chat identifier of the message 
+            /// Chat identifier of the message
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_id")]
@@ -41,18 +41,15 @@ namespace TdLib
             public long MessageId { get; set; }
         }
 
-
         /// <summary>
-        /// Informs TDLib that the message content has been opened (e.g., the user has opened a photo, video, document, location or venue, or has listened to an audio file or voice note message). An updateMessageContentOpened update will be generated if something has changed 
+        /// Informs TDLib that the message content has been opened (e.g., the user has opened a photo, video, document, location or venue, or has listened to an audio file or voice note message). An updateMessageContentOpened update will be generated if something has changed
         /// </summary>
-        public static Task<Ok> OpenMessageContentAsync(this Client client,
-            long chatId = default(long),
-            long messageId = default(long))
+        public static Task<Ok> OpenMessageContentAsync(
+            this Client client, long chatId = default, long messageId = default)
         {
             return client.ExecuteAsync(new OpenMessageContent
             {
-                ChatId = chatId,
-                MessageId = messageId,
+                ChatId = chatId, MessageId = messageId
             });
         }
     }

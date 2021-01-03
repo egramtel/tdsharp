@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns the current authorization state; this is an offline request. For informational purposes only. Use updateAuthorizationState instead to maintain the current authorization state
+        /// Returns the current authorization state; this is an offline request. For informational purposes only. Use updateAuthorizationState instead to maintain the current authorization state. Can be called before initialization
         /// </summary>
         public class GetAuthorizationState : Function<AuthorizationState>
         {
@@ -21,17 +21,17 @@ namespace TdLib
             public override string DataType { get; set; } = "getAuthorizationState";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
         }
 
-
         /// <summary>
-        /// Returns the current authorization state; this is an offline request. For informational purposes only. Use updateAuthorizationState instead to maintain the current authorization state
+        /// Returns the current authorization state; this is an offline request. For informational purposes only. Use updateAuthorizationState instead to maintain the current authorization state. Can be called before initialization
         /// </summary>
-        public static Task<AuthorizationState> GetAuthorizationStateAsync(this Client client)
+        public static Task<AuthorizationState> GetAuthorizationStateAsync(
+            this Client client)
         {
             return client.ExecuteAsync(new GetAuthorizationState
             {

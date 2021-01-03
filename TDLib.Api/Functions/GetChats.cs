@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns an ordered list of chats in a chat list. Chats are sorted by the pair (order, chat_id) in decreasing order. (For example, to get a list of chats from the beginning, the offset_order should be equal to a biggest signed 64-bit number 9223372036854775807 == 2^63 - 1).
+        /// Returns an ordered list of chats in a chat list. Chats are sorted by the pair (chat.position.order, chat.id) in descending order. (For example, to get a list of chats from the beginning, the offset_order should be equal to a biggest signed 64-bit number 9223372036854775807 == 2^63 - 1).
         /// </summary>
         public class GetChats : Function<Chats>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "getChats";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,11 +34,11 @@ namespace TdLib
             public ChatList ChatList { get; set; }
 
             /// <summary>
-            /// Chat order to return chats from 
+            /// Chat order to return chats from
             /// </summary>
             [JsonConverter(typeof(Converter.Int64))]
             [JsonProperty("offset_order")]
-            public Int64 OffsetOrder { get; set; }
+            public long OffsetOrder { get; set; }
 
             /// <summary>
             /// Chat identifier to return chats from
@@ -55,22 +55,16 @@ namespace TdLib
             public int Limit { get; set; }
         }
 
-
         /// <summary>
-        /// Returns an ordered list of chats in a chat list. Chats are sorted by the pair (order, chat_id) in decreasing order. (For example, to get a list of chats from the beginning, the offset_order should be equal to a biggest signed 64-bit number 9223372036854775807 == 2^63 - 1).
+        /// Returns an ordered list of chats in a chat list. Chats are sorted by the pair (chat.position.order, chat.id) in descending order. (For example, to get a list of chats from the beginning, the offset_order should be equal to a biggest signed 64-bit number 9223372036854775807 == 2^63 - 1).
         /// </summary>
-        public static Task<Chats> GetChatsAsync(this Client client,
-            ChatList chatList = default(ChatList),
-            Int64 offsetOrder = default(Int64),
-            long offsetChatId = default(long),
-            int limit = default(int))
+        public static Task<Chats> GetChatsAsync(
+            this Client client, ChatList chatList = default, long offsetOrder = default, long offsetChatId = default,
+            int limit = default)
         {
             return client.ExecuteAsync(new GetChats
             {
-                ChatList = chatList,
-                OffsetOrder = offsetOrder,
-                OffsetChatId = offsetChatId,
-                Limit = limit,
+                ChatList = chatList, OffsetOrder = offsetOrder, OffsetChatId = offsetChatId, Limit = limit
             });
         }
     }

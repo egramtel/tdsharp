@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A new high score was achieved in a game 
-        /// </summary>
         public partial class PushMessageContent : Object
         {
             /// <summary>
-            /// A new high score was achieved in a game 
+            /// A new high score was achieved in a game
             /// </summary>
             public class PushMessageContentGameScore : PushMessageContent
             {
@@ -31,14 +28,14 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Game title, empty for pinned message 
+                /// Game title, empty for pinned message
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("title")]
                 public string Title { get; set; }
 
                 /// <summary>
-                /// New score, 0 for pinned message 
+                /// New score, 0 for pinned message
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("score")]

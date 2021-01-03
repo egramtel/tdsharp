@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Changes the chat title. Supported only for basic groups, supergroups and channels. Requires can_change_info rights. The title will not be changed until the request to the server has been completed
+        /// Changes the chat title. Supported only for basic groups, supergroups and channels. Requires can_change_info rights
         /// </summary>
         public class SetChatTitle : Function<Ok>
         {
@@ -21,13 +21,13 @@ namespace TdLib
             public override string DataType { get; set; } = "setChatTitle";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Chat identifier 
+            /// Chat identifier
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_id")]
@@ -41,18 +41,15 @@ namespace TdLib
             public string Title { get; set; }
         }
 
-
         /// <summary>
-        /// Changes the chat title. Supported only for basic groups, supergroups and channels. Requires can_change_info rights. The title will not be changed until the request to the server has been completed
+        /// Changes the chat title. Supported only for basic groups, supergroups and channels. Requires can_change_info rights
         /// </summary>
-        public static Task<Ok> SetChatTitleAsync(this Client client,
-            long chatId = default(long),
-            string title = default(string))
+        public static Task<Ok> SetChatTitleAsync(
+            this Client client, long chatId = default, string title = default)
         {
             return client.ExecuteAsync(new SetChatTitle
             {
-                ChatId = chatId,
-                Title = title,
+                ChatId = chatId, Title = title
             });
         }
     }

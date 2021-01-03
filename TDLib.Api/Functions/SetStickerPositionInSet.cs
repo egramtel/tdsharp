@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Changes the position of a sticker in the set to which it belongs; for bots only. The sticker set must have been created by the bot 
+        /// Changes the position of a sticker in the set to which it belongs; for bots only. The sticker set must have been created by the bot
         /// </summary>
         public class SetStickerPositionInSet : Function<Ok>
         {
@@ -21,13 +21,13 @@ namespace TdLib
             public override string DataType { get; set; } = "setStickerPositionInSet";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Sticker 
+            /// Sticker
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("sticker")]
@@ -41,18 +41,15 @@ namespace TdLib
             public int Position { get; set; }
         }
 
-
         /// <summary>
-        /// Changes the position of a sticker in the set to which it belongs; for bots only. The sticker set must have been created by the bot 
+        /// Changes the position of a sticker in the set to which it belongs; for bots only. The sticker set must have been created by the bot
         /// </summary>
-        public static Task<Ok> SetStickerPositionInSetAsync(this Client client,
-            InputFile sticker = default(InputFile),
-            int position = default(int))
+        public static Task<Ok> SetStickerPositionInSetAsync(
+            this Client client, InputFile sticker = default, int position = default)
         {
             return client.ExecuteAsync(new SetStickerPositionInSet
             {
-                Sticker = sticker,
-                Position = position,
+                Sticker = sticker, Position = position
             });
         }
     }

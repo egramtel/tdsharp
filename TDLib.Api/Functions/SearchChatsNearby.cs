@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns a list of users and location-based supergroups nearby. The list of users nearby will be updated for 60 seconds after the request by the updates updateUsersNearby. The request should be sent again every 25 seconds with adjusted location to not miss new chats 
+        /// Returns a list of users and location-based supergroups nearby. The list of users nearby will be updated for 60 seconds after the request by the updates updateUsersNearby. The request should be sent again every 25 seconds with adjusted location to not miss new chats
         /// </summary>
         public class SearchChatsNearby : Function<ChatsNearby>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "searchChatsNearby";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public Location Location { get; set; }
         }
 
-
         /// <summary>
-        /// Returns a list of users and location-based supergroups nearby. The list of users nearby will be updated for 60 seconds after the request by the updates updateUsersNearby. The request should be sent again every 25 seconds with adjusted location to not miss new chats 
+        /// Returns a list of users and location-based supergroups nearby. The list of users nearby will be updated for 60 seconds after the request by the updates updateUsersNearby. The request should be sent again every 25 seconds with adjusted location to not miss new chats
         /// </summary>
-        public static Task<ChatsNearby> SearchChatsNearbyAsync(this Client client,
-            Location location = default(Location))
+        public static Task<ChatsNearby> SearchChatsNearbyAsync(
+            this Client client, Location location = default)
         {
             return client.ExecuteAsync(new SearchChatsNearby
             {
-                Location = location,
+                Location = location
             });
         }
     }

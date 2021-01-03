@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// Notification settings for a chat were changed 
-        /// </summary>
         public partial class Update : Object
         {
             /// <summary>
-            /// Notification settings for a chat were changed 
+            /// Notification settings for a chat were changed
             /// </summary>
             public class UpdateChatNotificationSettings : Update
             {
@@ -31,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Chat identifier 
+                /// Chat identifier
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("chat_id")]

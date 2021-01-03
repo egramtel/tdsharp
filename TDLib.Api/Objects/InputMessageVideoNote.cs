@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A video note message 
-        /// </summary>
         public partial class InputMessageContent : Object
         {
             /// <summary>
-            /// A video note message 
+            /// A video note message
             /// </summary>
             public class InputMessageVideoNote : InputMessageContent
             {
@@ -31,21 +28,21 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Video note to be sent 
+                /// Video note to be sent
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("video_note")]
                 public InputFile VideoNote { get; set; }
 
                 /// <summary>
-                /// Video thumbnail, if available 
+                /// Video thumbnail, if available
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("thumbnail")]
                 public InputThumbnail Thumbnail { get; set; }
 
                 /// <summary>
-                /// Duration of the video, in seconds 
+                /// Duration of the video, in seconds
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("duration")]

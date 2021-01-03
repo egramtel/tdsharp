@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A message has been pinned 
-        /// </summary>
         public partial class MessageContent : Object
         {
             /// <summary>
-            /// A message has been pinned 
+            /// A message has been pinned
             /// </summary>
             public class MessagePinMessage : MessageContent
             {

@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The other side kept disappearing
-        /// </summary>
         public partial class CallProblem : Object
         {
             /// <summary>

@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns the current privacy settings 
+        /// Returns the current privacy settings
         /// </summary>
         public class GetUserPrivacySettingRules : Function<UserPrivacySettingRules>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "getUserPrivacySettingRules";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public UserPrivacySetting Setting { get; set; }
         }
 
-
         /// <summary>
-        /// Returns the current privacy settings 
+        /// Returns the current privacy settings
         /// </summary>
-        public static Task<UserPrivacySettingRules> GetUserPrivacySettingRulesAsync(this Client client,
-            UserPrivacySetting setting = default(UserPrivacySetting))
+        public static Task<UserPrivacySettingRules> GetUserPrivacySettingRulesAsync(
+            this Client client, UserPrivacySetting setting = default)
         {
             return client.ExecuteAsync(new GetUserPrivacySettingRules
             {
-                Setting = setting,
+                Setting = setting
             });
         }
     }

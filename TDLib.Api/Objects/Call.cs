@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Describes a call 
+        /// Describes a call
         /// </summary>
-        public class Call : Object
+        public partial class Call : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,31 +20,38 @@ namespace TdLib
             public override string DataType { get; set; } = "call";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Call identifier, not persistent 
+            /// Call identifier, not persistent
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("id")]
             public int Id { get; set; }
 
             /// <summary>
-            /// Peer user identifier 
+            /// Peer user identifier
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("user_id")]
             public int UserId { get; set; }
 
             /// <summary>
-            /// True, if the call is outgoing 
+            /// True, if the call is outgoing
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_outgoing")]
             public bool IsOutgoing { get; set; }
+
+            /// <summary>
+            /// True, if the call is a video call
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("is_video")]
+            public bool IsVideo { get; set; }
 
             /// <summary>
             /// Call state

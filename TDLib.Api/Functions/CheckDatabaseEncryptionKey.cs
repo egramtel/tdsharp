@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Checks the database encryption key for correctness. Works only when the current authorization state is authorizationStateWaitEncryptionKey 
+        /// Checks the database encryption key for correctness. Works only when the current authorization state is authorizationStateWaitEncryptionKey
         /// </summary>
         public class CheckDatabaseEncryptionKey : Function<Ok>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "checkDatabaseEncryptionKey";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public byte[] EncryptionKey { get; set; }
         }
 
-
         /// <summary>
-        /// Checks the database encryption key for correctness. Works only when the current authorization state is authorizationStateWaitEncryptionKey 
+        /// Checks the database encryption key for correctness. Works only when the current authorization state is authorizationStateWaitEncryptionKey
         /// </summary>
-        public static Task<Ok> CheckDatabaseEncryptionKeyAsync(this Client client,
-            byte[] encryptionKey = default(byte[]))
+        public static Task<Ok> CheckDatabaseEncryptionKeyAsync(
+            this Client client, byte[] encryptionKey = default)
         {
             return client.ExecuteAsync(new CheckDatabaseEncryptionKey
             {
-                EncryptionKey = encryptionKey,
+                EncryptionKey = encryptionKey
             });
         }
     }

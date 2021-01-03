@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Succeeds after a specified amount of time has passed. Can be called before authorization. Can be called before initialization 
+        /// Succeeds after a specified amount of time has passed. Can be called before initialization
         /// </summary>
         public class SetAlarm : Function<Ok>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "setAlarm";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public double? Seconds { get; set; }
         }
 
-
         /// <summary>
-        /// Succeeds after a specified amount of time has passed. Can be called before authorization. Can be called before initialization 
+        /// Succeeds after a specified amount of time has passed. Can be called before initialization
         /// </summary>
-        public static Task<Ok> SetAlarmAsync(this Client client,
-            double? seconds = default(double?))
+        public static Task<Ok> SetAlarmAsync(
+            this Client client, double? seconds = default)
         {
             return client.ExecuteAsync(new SetAlarm
             {
-                Seconds = seconds,
+                Seconds = seconds
             });
         }
     }

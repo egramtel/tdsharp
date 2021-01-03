@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Removes users from the contact list 
+        /// Removes users from the contact list
         /// </summary>
         public class RemoveContacts : Function<Ok>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "removeContacts";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public int[] UserIds { get; set; }
         }
 
-
         /// <summary>
-        /// Removes users from the contact list 
+        /// Removes users from the contact list
         /// </summary>
-        public static Task<Ok> RemoveContactsAsync(this Client client,
-            int[] userIds = default(int[]))
+        public static Task<Ok> RemoveContactsAsync(
+            this Client client, int[] userIds = default)
         {
             return client.ExecuteAsync(new RemoveContacts
             {
-                UserIds = userIds,
+                UserIds = userIds
             });
         }
     }

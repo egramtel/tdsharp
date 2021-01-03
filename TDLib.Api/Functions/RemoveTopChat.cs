@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Removes a chat from the list of frequently used chats. Supported only if the chat info database is enabled 
+        /// Removes a chat from the list of frequently used chats. Supported only if the chat info database is enabled
         /// </summary>
         public class RemoveTopChat : Function<Ok>
         {
@@ -21,13 +21,13 @@ namespace TdLib
             public override string DataType { get; set; } = "removeTopChat";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Category of frequently used chats 
+            /// Category of frequently used chats
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("category")]
@@ -41,18 +41,15 @@ namespace TdLib
             public long ChatId { get; set; }
         }
 
-
         /// <summary>
-        /// Removes a chat from the list of frequently used chats. Supported only if the chat info database is enabled 
+        /// Removes a chat from the list of frequently used chats. Supported only if the chat info database is enabled
         /// </summary>
-        public static Task<Ok> RemoveTopChatAsync(this Client client,
-            TopChatCategory category = default(TopChatCategory),
-            long chatId = default(long))
+        public static Task<Ok> RemoveTopChatAsync(
+            this Client client, TopChatCategory category = default, long chatId = default)
         {
             return client.ExecuteAsync(new RemoveTopChat
             {
-                Category = category,
-                ChatId = chatId,
+                Category = category, ChatId = chatId
             });
         }
     }

@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Describes a user contact 
+        /// Describes a user contact
         /// </summary>
-        public class Contact : Object
+        public partial class Contact : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,34 +20,34 @@ namespace TdLib
             public override string DataType { get; set; } = "contact";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Phone number of the user 
+            /// Phone number of the user
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("phone_number")]
             public string PhoneNumber { get; set; }
 
             /// <summary>
-            /// First name of the user; 1-255 characters in length 
+            /// First name of the user; 1-255 characters in length
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("first_name")]
             public string FirstName { get; set; }
 
             /// <summary>
-            /// Last name of the user 
+            /// Last name of the user
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("last_name")]
             public string LastName { get; set; }
 
             /// <summary>
-            /// Additional data about the user in a form of vCard; 0-2048 bytes in length 
+            /// Additional data about the user in a form of vCard; 0-2048 bytes in length
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("vcard")]

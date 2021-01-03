@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Removes a chat action bar without any other action 
+        /// Removes a chat action bar without any other action
         /// </summary>
         public class RemoveChatActionBar : Function<Ok>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "removeChatActionBar";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public long ChatId { get; set; }
         }
 
-
         /// <summary>
-        /// Removes a chat action bar without any other action 
+        /// Removes a chat action bar without any other action
         /// </summary>
-        public static Task<Ok> RemoveChatActionBarAsync(this Client client,
-            long chatId = default(long))
+        public static Task<Ok> RemoveChatActionBarAsync(
+            this Client client, long chatId = default)
         {
             return client.ExecuteAsync(new RemoveChatActionBar
             {
-                ChatId = chatId,
+                ChatId = chatId
             });
         }
     }

@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A token for Apple Push Notification service 
-        /// </summary>
         public partial class DeviceToken : Object
         {
             /// <summary>
-            /// A token for Apple Push Notification service 
+            /// A token for Apple Push Notification service
             /// </summary>
             public class DeviceTokenApplePush : DeviceToken
             {
@@ -31,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Device token; may be empty to de-register a device 
+                /// Device token; may be empty to de-register a device
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("device_token")]

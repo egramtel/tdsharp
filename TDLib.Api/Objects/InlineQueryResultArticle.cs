@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// Represents a link to an article or web page 
-        /// </summary>
         public partial class InlineQueryResult : Object
         {
             /// <summary>
-            /// Represents a link to an article or web page 
+            /// Represents a single result of an inline query
             /// </summary>
             public class InlineQueryResultArticle : InlineQueryResult
             {
@@ -31,21 +28,21 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Unique identifier of the query result 
+                /// Unique identifier of the query result
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("id")]
                 public string Id { get; set; }
 
                 /// <summary>
-                /// URL of the result, if it exists 
+                /// URL of the result, if it exists
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("url")]
                 public string Url { get; set; }
 
                 /// <summary>
-                /// True, if the URL must be not shown 
+                /// True, if the URL must be not shown
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("hide_url")]
@@ -59,18 +56,18 @@ namespace TdLib
                 public string Title { get; set; }
 
                 /// <summary>
-                /// Represents a link to an article or web page 
+                /// 
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("description")]
                 public string Description { get; set; }
 
                 /// <summary>
-                /// Result thumbnail; may be null
+                /// Result thumbnail in JPEG format; may be null
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("thumbnail")]
-                public PhotoSize Thumbnail { get; set; }
+                public Thumbnail Thumbnail { get; set; }
             }
         }
     }

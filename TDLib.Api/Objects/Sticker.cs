@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Describes a sticker 
+        /// Describes a sticker
         /// </summary>
-        public class Sticker : Object
+        public partial class Sticker : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,20 +20,20 @@ namespace TdLib
             public override string DataType { get; set; } = "sticker";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// The identifier of the sticker set to which the sticker belongs; 0 if none 
+            /// The identifier of the sticker set to which the sticker belongs; 0 if none
             /// </summary>
             [JsonConverter(typeof(Converter.Int64))]
             [JsonProperty("set_id")]
-            public Int64 SetId { get; set; }
+            public long SetId { get; set; }
 
             /// <summary>
-            /// Sticker width; as defined by the sender 
+            /// Sticker width; as defined by the sender
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("width")]
@@ -47,39 +47,46 @@ namespace TdLib
             public int Height { get; set; }
 
             /// <summary>
-            /// Emoji corresponding to the sticker 
+            /// Emoji corresponding to the sticker
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("emoji")]
             public string Emoji { get; set; }
 
             /// <summary>
-            /// True, if the sticker is an animated sticker in TGS format 
+            /// True, if the sticker is an animated sticker in TGS format
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_animated")]
             public bool IsAnimated { get; set; }
 
             /// <summary>
-            /// True, if the sticker is a mask 
+            /// True, if the sticker is a mask
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_mask")]
             public bool IsMask { get; set; }
 
             /// <summary>
-            /// Position where the mask should be placed; may be null 
+            /// Position where the mask should be placed; may be null
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("mask_position")]
             public MaskPosition MaskPosition { get; set; }
 
             /// <summary>
-            /// Sticker thumbnail in WEBP or JPEG format; may be null 
+            /// Sticker's outline represented as a list of closed vector paths; may be empty. The coordinate system origin is in the upper-left corner
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("outline")]
+            public ClosedVectorPath[] Outline { get; set; }
+
+            /// <summary>
+            /// Sticker thumbnail in WEBP or JPEG format; may be null
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("thumbnail")]
-            public PhotoSize Thumbnail { get; set; }
+            public Thumbnail Thumbnail { get; set; }
 
             /// <summary>
             /// File containing the sticker

@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The log is written to a file 
-        /// </summary>
         public partial class LogStream : Object
         {
             /// <summary>
-            /// The log is written to a file 
+            /// The log is written to a file
             /// </summary>
             public class LogStreamFile : LogStream
             {
@@ -31,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Path to the file to where the internal TDLib log will be written 
+                /// Path to the file to where the internal TDLib log will be written
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("path")]
@@ -43,6 +40,13 @@ namespace TdLib
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("max_file_size")]
                 public long MaxFileSize { get; set; }
+
+                /// <summary>
+                /// Pass true to additionally redirect stderr to the log file. Ignored on Windows
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("redirect_stderr")]
+                public bool RedirectStderr { get; set; }
             }
         }
     }

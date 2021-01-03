@@ -21,17 +21,17 @@ namespace TdLib
             public override string DataType { get; set; } = "getProxies";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
         }
 
-
         /// <summary>
         /// Returns list of proxies that are currently set up. Can be called before authorization
         /// </summary>
-        public static Task<Proxies> GetProxiesAsync(this Client client)
+        public static Task<Proxies> GetProxiesAsync(
+            this Client client)
         {
             return client.ExecuteAsync(new GetProxies
             {

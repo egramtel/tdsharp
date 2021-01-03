@@ -21,17 +21,17 @@ namespace TdLib
             public override string DataType { get; set; } = "getImportedContactCount";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
         }
 
-
         /// <summary>
         /// Returns the total number of imported contacts
         /// </summary>
-        public static Task<Count> GetImportedContactCountAsync(this Client client)
+        public static Task<Count> GetImportedContactCountAsync(
+            this Client client)
         {
             return client.ExecuteAsync(new GetImportedContactCount
             {

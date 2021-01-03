@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Information about the email address authentication code that was sent 
+        /// Information about the email address authentication code that was sent
         /// </summary>
-        public class EmailAddressAuthenticationCodeInfo : Object
+        public partial class EmailAddressAuthenticationCodeInfo : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,13 +20,13 @@ namespace TdLib
             public override string DataType { get; set; } = "emailAddressAuthenticationCodeInfo";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Pattern of the email address to which an authentication code was sent 
+            /// Pattern of the email address to which an authentication code was sent
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("email_address_pattern")]

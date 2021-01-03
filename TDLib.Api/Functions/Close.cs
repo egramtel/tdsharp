@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Closes the TDLib instance. All databases will be flushed to disk and properly closed. After the close completes, updateAuthorizationState with authorizationStateClosed will be sent
+        /// Closes the TDLib instance. All databases will be flushed to disk and properly closed. After the close completes, updateAuthorizationState with authorizationStateClosed will be sent. Can be called before initialization
         /// </summary>
         public class Close : Function<Ok>
         {
@@ -21,17 +21,17 @@ namespace TdLib
             public override string DataType { get; set; } = "close";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
         }
 
-
         /// <summary>
-        /// Closes the TDLib instance. All databases will be flushed to disk and properly closed. After the close completes, updateAuthorizationState with authorizationStateClosed will be sent
+        /// Closes the TDLib instance. All databases will be flushed to disk and properly closed. After the close completes, updateAuthorizationState with authorizationStateClosed will be sent. Can be called before initialization
         /// </summary>
-        public static Task<Ok> CloseAsync(this Client client)
+        public static Task<Ok> CloseAsync(
+            this Client client)
         {
             return client.ExecuteAsync(new Close
             {

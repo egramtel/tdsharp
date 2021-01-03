@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// Returns bot members of the chat
-        /// </summary>
         public partial class ChatMembersFilter : Object
         {
             /// <summary>

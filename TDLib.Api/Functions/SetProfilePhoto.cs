@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Uploads a new profile photo for the current user. If something changes, updateUser will be sent 
+        /// Changes a profile photo for the current user
         /// </summary>
         public class SetProfilePhoto : Function<Ok>
         {
@@ -21,29 +21,28 @@ namespace TdLib
             public override string DataType { get; set; } = "setProfilePhoto";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Profile photo to set. inputFileId and inputFileRemote may still be unsupported
+            /// Profile photo to set
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("photo")]
-            public InputFile Photo { get; set; }
+            public InputChatPhoto Photo { get; set; }
         }
 
-
         /// <summary>
-        /// Uploads a new profile photo for the current user. If something changes, updateUser will be sent 
+        /// Changes a profile photo for the current user
         /// </summary>
-        public static Task<Ok> SetProfilePhotoAsync(this Client client,
-            InputFile photo = default(InputFile))
+        public static Task<Ok> SetProfilePhotoAsync(
+            this Client client, InputChatPhoto photo = default)
         {
             return client.ExecuteAsync(new SetProfilePhoto
             {
-                Photo = photo,
+                Photo = photo
             });
         }
     }

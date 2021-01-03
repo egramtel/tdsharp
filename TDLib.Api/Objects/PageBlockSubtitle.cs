@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The subtitle of a page 
-        /// </summary>
         public partial class PageBlock : Object
         {
             /// <summary>
-            /// The subtitle of a page 
+            /// The subtitle of a page
             /// </summary>
             public class PageBlockSubtitle : PageBlock
             {

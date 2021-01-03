@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns a globally unique push notification subscription identifier for identification of an account, which has received a push notification. This is an offline method. Can be called before authorization. Can be called synchronously 
+        /// Returns a globally unique push notification subscription identifier for identification of an account, which has received a push notification. Can be called synchronously
         /// </summary>
         public class GetPushReceiverId : Function<PushReceiverId>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "getPushReceiverId";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public string Payload { get; set; }
         }
 
-
         /// <summary>
-        /// Returns a globally unique push notification subscription identifier for identification of an account, which has received a push notification. This is an offline method. Can be called before authorization. Can be called synchronously 
+        /// Returns a globally unique push notification subscription identifier for identification of an account, which has received a push notification. Can be called synchronously
         /// </summary>
-        public static Task<PushReceiverId> GetPushReceiverIdAsync(this Client client,
-            string payload = default(string))
+        public static Task<PushReceiverId> GetPushReceiverIdAsync(
+            this Client client, string payload = default)
         {
             return client.ExecuteAsync(new GetPushReceiverId
             {
-                Payload = payload,
+                Payload = payload
             });
         }
     }

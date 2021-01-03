@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "addSavedAnimation";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public InputFile Animation { get; set; }
         }
 
-
         /// <summary>
         /// Manually adds a new animation to the list of saved animations. The new animation is added to the beginning of the list. If the animation was already in the list, it is removed first. Only non-secret video animations with MIME type "video/mp4" can be added to the list
         /// </summary>
-        public static Task<Ok> AddSavedAnimationAsync(this Client client,
-            InputFile animation = default(InputFile))
+        public static Task<Ok> AddSavedAnimationAsync(
+            this Client client, InputFile animation = default)
         {
             return client.ExecuteAsync(new AddSavedAnimation
             {
-                Animation = animation,
+                Animation = animation
             });
         }
     }

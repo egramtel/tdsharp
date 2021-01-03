@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Saves application log event on the server. Can be called before authorization 
+        /// Saves application log event on the server. Can be called before authorization
         /// </summary>
         public class SaveApplicationLogEvent : Function<Ok>
         {
@@ -21,20 +21,20 @@ namespace TdLib
             public override string DataType { get; set; } = "saveApplicationLogEvent";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Event type 
+            /// Event type
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("type")]
             public string Type { get; set; }
 
             /// <summary>
-            /// Optional chat identifier, associated with the event 
+            /// Optional chat identifier, associated with the event
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_id")]
@@ -48,20 +48,15 @@ namespace TdLib
             public JsonValue Data { get; set; }
         }
 
-
         /// <summary>
-        /// Saves application log event on the server. Can be called before authorization 
+        /// Saves application log event on the server. Can be called before authorization
         /// </summary>
-        public static Task<Ok> SaveApplicationLogEventAsync(this Client client,
-            string type = default(string),
-            long chatId = default(long),
-            JsonValue data = default(JsonValue))
+        public static Task<Ok> SaveApplicationLogEventAsync(
+            this Client client, string type = default, long chatId = default, JsonValue data = default)
         {
             return client.ExecuteAsync(new SaveApplicationLogEvent
             {
-                Type = type,
-                ChatId = chatId,
-                Data = data,
+                Type = type, ChatId = chatId, Data = data
             });
         }
     }

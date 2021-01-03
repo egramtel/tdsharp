@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Removes background from the list of installed backgrounds 
+        /// Removes background from the list of installed backgrounds
         /// </summary>
         public class RemoveBackground : Function<Ok>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "removeBackground";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -31,19 +31,18 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter.Int64))]
             [JsonProperty("background_id")]
-            public Int64 BackgroundId { get; set; }
+            public long BackgroundId { get; set; }
         }
 
-
         /// <summary>
-        /// Removes background from the list of installed backgrounds 
+        /// Removes background from the list of installed backgrounds
         /// </summary>
-        public static Task<Ok> RemoveBackgroundAsync(this Client client,
-            Int64 backgroundId = default(Int64))
+        public static Task<Ok> RemoveBackgroundAsync(
+            this Client client, long backgroundId = default)
         {
             return client.ExecuteAsync(new RemoveBackground
             {
-                BackgroundId = backgroundId,
+                BackgroundId = backgroundId
             });
         }
     }

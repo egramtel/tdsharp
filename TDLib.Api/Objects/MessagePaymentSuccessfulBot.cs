@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A payment has been completed; for bots only 
-        /// </summary>
         public partial class MessageContent : Object
         {
             /// <summary>
-            /// A payment has been completed; for bots only 
+            /// A payment has been completed; for bots only
             /// </summary>
             public class MessagePaymentSuccessfulBot : MessageContent
             {
@@ -31,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Identifier of the message with the corresponding invoice; can be an identifier of a deleted message 
+                /// Identifier of the message with the corresponding invoice; can be an identifier of a deleted message
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("invoice_message_id")]
@@ -45,21 +42,21 @@ namespace TdLib
                 public string Currency { get; set; }
 
                 /// <summary>
-                /// Total price for the product, in the minimal quantity of the currency 
+                /// Total price for the product, in the minimal quantity of the currency
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("total_amount")]
                 public long TotalAmount { get; set; }
 
                 /// <summary>
-                /// Invoice payload 
+                /// Invoice payload
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("invoice_payload")]
                 public byte[] InvoicePayload { get; set; }
 
                 /// <summary>
-                /// Identifier of the shipping option chosen by the user; may be empty if not applicable 
+                /// Identifier of the shipping option chosen by the user; may be empty if not applicable
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("shipping_option_id")]
@@ -73,7 +70,7 @@ namespace TdLib
                 public OrderInfo OrderInfo { get; set; }
 
                 /// <summary>
-                /// Telegram payment identifier 
+                /// Telegram payment identifier
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("telegram_payment_charge_id")]

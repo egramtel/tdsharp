@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Adds, edits or deletes a string in a custom local language pack. Can be called before authorization 
+        /// Adds, edits or deletes a string in a custom local language pack. Can be called before authorization
         /// </summary>
         public class SetCustomLanguagePackString : Function<Ok>
         {
@@ -21,13 +21,13 @@ namespace TdLib
             public override string DataType { get; set; } = "setCustomLanguagePackString";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Identifier of a previously added custom local language pack in the current localization target 
+            /// Identifier of a previously added custom local language pack in the current localization target
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("language_pack_id")]
@@ -41,18 +41,15 @@ namespace TdLib
             public LanguagePackString NewString { get; set; }
         }
 
-
         /// <summary>
-        /// Adds, edits or deletes a string in a custom local language pack. Can be called before authorization 
+        /// Adds, edits or deletes a string in a custom local language pack. Can be called before authorization
         /// </summary>
-        public static Task<Ok> SetCustomLanguagePackStringAsync(this Client client,
-            string languagePackId = default(string),
-            LanguagePackString newString = default(LanguagePackString))
+        public static Task<Ok> SetCustomLanguagePackStringAsync(
+            this Client client, string languagePackId = default, LanguagePackString newString = default)
         {
             return client.ExecuteAsync(new SetCustomLanguagePackString
             {
-                LanguagePackId = languagePackId,
-                NewString = newString,
+                LanguagePackId = languagePackId, NewString = newString
             });
         }
     }

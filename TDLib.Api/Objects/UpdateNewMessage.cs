@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A new message was received; can also be an outgoing message 
-        /// </summary>
         public partial class Update : Object
         {
             /// <summary>
-            /// A new message was received; can also be an outgoing message 
+            /// A new message was received; can also be an outgoing message
             /// </summary>
             public class UpdateNewMessage : Update
             {

@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A voice note message 
-        /// </summary>
         public partial class MessageContent : Object
         {
             /// <summary>
-            /// A voice note message 
+            /// A voice note message
             /// </summary>
             public class MessageVoiceNote : MessageContent
             {
@@ -31,14 +28,14 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// The voice note description 
+                /// The voice note description
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("voice_note")]
                 public VoiceNote VoiceNote { get; set; }
 
                 /// <summary>
-                /// Voice note caption 
+                /// Voice note caption
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("caption")]

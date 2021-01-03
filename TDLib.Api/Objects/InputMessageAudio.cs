@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// An audio message 
-        /// </summary>
         public partial class InputMessageContent : Object
         {
             /// <summary>
-            /// An audio message 
+            /// An audio message
             /// </summary>
             public class InputMessageAudio : InputMessageContent
             {
@@ -31,21 +28,21 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Audio file to be sent 
+                /// Audio file to be sent
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("audio")]
                 public InputFile Audio { get; set; }
 
                 /// <summary>
-                /// Thumbnail of the cover for the album, if available 
+                /// Thumbnail of the cover for the album, if available
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("album_cover_thumbnail")]
                 public InputThumbnail AlbumCoverThumbnail { get; set; }
 
                 /// <summary>
-                /// Duration of the audio, in seconds; may be replaced by the server 
+                /// Duration of the audio, in seconds; may be replaced by the server
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("duration")]
@@ -59,7 +56,7 @@ namespace TdLib
                 public string Title { get; set; }
 
                 /// <summary>
-                /// Performer of the audio; 0-64 characters, may be replaced by the server 
+                /// Performer of the audio; 0-64 characters, may be replaced by the server
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("performer")]

@@ -21,17 +21,17 @@ namespace TdLib
             public override string DataType { get; set; } = "requestAuthenticationPasswordRecovery";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
         }
 
-
         /// <summary>
         /// Requests to send a password recovery code to an email address that was previously set up. Works only when the current authorization state is authorizationStateWaitPassword
         /// </summary>
-        public static Task<Ok> RequestAuthenticationPasswordRecoveryAsync(this Client client)
+        public static Task<Ok> RequestAuthenticationPasswordRecoveryAsync(
+            this Client client)
         {
             return client.ExecuteAsync(new RequestAuthenticationPasswordRecovery
             {

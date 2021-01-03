@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A collapsible block 
-        /// </summary>
         public partial class PageBlock : Object
         {
             /// <summary>
-            /// A collapsible block 
+            /// A collapsible block
             /// </summary>
             public class PageBlockDetails : PageBlock
             {
@@ -31,14 +28,14 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Always visible heading for the block 
+                /// Always visible heading for the block
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("header")]
                 public RichText Header { get; set; }
 
                 /// <summary>
-                /// Block contents 
+                /// Block contents
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("page_blocks")]

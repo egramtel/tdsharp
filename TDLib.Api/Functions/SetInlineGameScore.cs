@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Updates the game score of the specified user in a game; for bots only 
+        /// Updates the game score of the specified user in a game; for bots only
         /// </summary>
         public class SetInlineGameScore : Function<Ok>
         {
@@ -21,27 +21,27 @@ namespace TdLib
             public override string DataType { get; set; } = "setInlineGameScore";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Inline message identifier 
+            /// Inline message identifier
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("inline_message_id")]
             public string InlineMessageId { get; set; }
 
             /// <summary>
-            /// True, if the message should be edited 
+            /// True, if the message should be edited
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("edit_message")]
             public bool EditMessage { get; set; }
 
             /// <summary>
-            /// User identifier 
+            /// User identifier
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("user_id")]
@@ -62,24 +62,17 @@ namespace TdLib
             public bool Force { get; set; }
         }
 
-
         /// <summary>
-        /// Updates the game score of the specified user in a game; for bots only 
+        /// Updates the game score of the specified user in a game; for bots only
         /// </summary>
-        public static Task<Ok> SetInlineGameScoreAsync(this Client client,
-            string inlineMessageId = default(string),
-            bool editMessage = default(bool),
-            int userId = default(int),
-            int score = default(int),
-            bool force = default(bool))
+        public static Task<Ok> SetInlineGameScoreAsync(
+            this Client client, string inlineMessageId = default, bool editMessage = default, int userId = default,
+            int score = default, bool force = default)
         {
             return client.ExecuteAsync(new SetInlineGameScore
             {
-                InlineMessageId = inlineMessageId,
-                EditMessage = editMessage,
-                UserId = userId,
-                Score = score,
-                Force = force,
+                InlineMessageId = inlineMessageId, EditMessage = editMessage, UserId = userId, Score = score,
+                Force = force
             });
         }
     }

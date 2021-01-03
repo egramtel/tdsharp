@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Describes a poll 
+        /// Describes a poll
         /// </summary>
-        public class Poll : Object
+        public partial class Poll : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,20 +20,20 @@ namespace TdLib
             public override string DataType { get; set; } = "poll";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Unique poll identifier 
+            /// Unique poll identifier
             /// </summary>
             [JsonConverter(typeof(Converter.Int64))]
             [JsonProperty("id")]
-            public Int64 Id { get; set; }
+            public long Id { get; set; }
 
             /// <summary>
-            /// Poll question, 1-255 characters 
+            /// Poll question, 1-300 characters
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("question")]
@@ -47,7 +47,7 @@ namespace TdLib
             public PollOption[] Options { get; set; }
 
             /// <summary>
-            /// Total number of voters, participating in the poll 
+            /// Total number of voters, participating in the poll
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("total_voter_count")]
@@ -61,18 +61,32 @@ namespace TdLib
             public int[] RecentVoterUserIds { get; set; }
 
             /// <summary>
-            /// True, if the poll is anonymous 
+            /// True, if the poll is anonymous
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_anonymous")]
             public bool IsAnonymous { get; set; }
 
             /// <summary>
-            /// Type of the poll 
+            /// Type of the poll
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("type")]
             public PollType Type { get; set; }
+
+            /// <summary>
+            /// Amount of time the poll will be active after creation, in seconds
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("open_period")]
+            public int OpenPeriod { get; set; }
+
+            /// <summary>
+            /// Point in time (Unix timestamp) when the poll will be automatically closed
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("close_date")]
+            public int CloseDate { get; set; }
 
             /// <summary>
             /// True, if the poll is closed

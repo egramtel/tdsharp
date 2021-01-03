@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Recovers the password with a password recovery code sent to an email address that was previously set up. Works only when the current authorization state is authorizationStateWaitPassword 
+        /// Recovers the password with a password recovery code sent to an email address that was previously set up. Works only when the current authorization state is authorizationStateWaitPassword
         /// </summary>
         public class RecoverAuthenticationPassword : Function<Ok>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "recoverAuthenticationPassword";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public string RecoveryCode { get; set; }
         }
 
-
         /// <summary>
-        /// Recovers the password with a password recovery code sent to an email address that was previously set up. Works only when the current authorization state is authorizationStateWaitPassword 
+        /// Recovers the password with a password recovery code sent to an email address that was previously set up. Works only when the current authorization state is authorizationStateWaitPassword
         /// </summary>
-        public static Task<Ok> RecoverAuthenticationPasswordAsync(this Client client,
-            string recoveryCode = default(string))
+        public static Task<Ok> RecoverAuthenticationPasswordAsync(
+            this Client client, string recoveryCode = default)
         {
             return client.ExecuteAsync(new RecoverAuthenticationPassword
             {
-                RecoveryCode = recoveryCode,
+                RecoveryCode = recoveryCode
             });
         }
     }

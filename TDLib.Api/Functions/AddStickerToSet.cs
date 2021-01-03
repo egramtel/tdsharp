@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Adds a new sticker to a set; for bots only. Returns the sticker set 
+        /// Adds a new sticker to a set; for bots only. Returns the sticker set
         /// </summary>
         public class AddStickerToSet : Function<StickerSet>
         {
@@ -21,20 +21,20 @@ namespace TdLib
             public override string DataType { get; set; } = "addStickerToSet";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Sticker set owner 
+            /// Sticker set owner
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("user_id")]
             public int UserId { get; set; }
 
             /// <summary>
-            /// Sticker set name 
+            /// Sticker set name
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("name")]
@@ -48,20 +48,15 @@ namespace TdLib
             public InputSticker Sticker { get; set; }
         }
 
-
         /// <summary>
-        /// Adds a new sticker to a set; for bots only. Returns the sticker set 
+        /// Adds a new sticker to a set; for bots only. Returns the sticker set
         /// </summary>
-        public static Task<StickerSet> AddStickerToSetAsync(this Client client,
-            int userId = default(int),
-            string name = default(string),
-            InputSticker sticker = default(InputSticker))
+        public static Task<StickerSet> AddStickerToSetAsync(
+            this Client client, int userId = default, string name = default, InputSticker sticker = default)
         {
             return client.ExecuteAsync(new AddStickerToSet
             {
-                UserId = userId,
-                Name = name,
-                Sticker = sticker,
+                UserId = userId, Name = name, Sticker = sticker
             });
         }
     }

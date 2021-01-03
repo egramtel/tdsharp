@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The file is a wallpaper or a background pattern
-        /// </summary>
         public partial class FileType : Object
         {
             /// <summary>

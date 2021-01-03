@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// Represents a voice note 
-        /// </summary>
         public partial class InlineQueryResult : Object
         {
             /// <summary>
-            /// Represents a voice note 
+            /// Represents a voice note
             /// </summary>
             public class InlineQueryResultVoiceNote : InlineQueryResult
             {
@@ -31,14 +28,14 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Unique identifier of the query result 
+                /// Unique identifier of the query result
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("id")]
                 public string Id { get; set; }
 
                 /// <summary>
-                /// Voice note 
+                /// Voice note
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("voice_note")]

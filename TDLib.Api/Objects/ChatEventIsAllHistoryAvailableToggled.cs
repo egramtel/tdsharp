@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The is_all_history_available setting of a supergroup was toggled 
-        /// </summary>
         public partial class ChatEventAction : Object
         {
             /// <summary>
-            /// The is_all_history_available setting of a supergroup was toggled 
+            /// The is_all_history_available setting of a supergroup was toggled
             /// </summary>
             public class ChatEventIsAllHistoryAvailableToggled : ChatEventAction
             {

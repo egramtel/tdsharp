@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Edits information about a custom local language pack in the current localization target. Can be called before authorization 
+        /// Edits information about a custom local language pack in the current localization target. Can be called before authorization
         /// </summary>
         public class EditCustomLanguagePackInfo : Function<Ok>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "editCustomLanguagePackInfo";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public LanguagePackInfo Info { get; set; }
         }
 
-
         /// <summary>
-        /// Edits information about a custom local language pack in the current localization target. Can be called before authorization 
+        /// Edits information about a custom local language pack in the current localization target. Can be called before authorization
         /// </summary>
-        public static Task<Ok> EditCustomLanguagePackInfoAsync(this Client client,
-            LanguagePackInfo info = default(LanguagePackInfo))
+        public static Task<Ok> EditCustomLanguagePackInfoAsync(
+            this Client client, LanguagePackInfo info = default)
         {
             return client.ExecuteAsync(new EditCustomLanguagePackInfo
             {
-                Info = info,
+                Info = info
             });
         }
     }

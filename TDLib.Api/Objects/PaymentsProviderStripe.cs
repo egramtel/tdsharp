@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Stripe payment provider 
+        /// Stripe payment provider
         /// </summary>
-        public class PaymentsProviderStripe : Object
+        public partial class PaymentsProviderStripe : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,27 +20,27 @@ namespace TdLib
             public override string DataType { get; set; } = "paymentsProviderStripe";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Stripe API publishable key 
+            /// Stripe API publishable key
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("publishable_key")]
             public string PublishableKey { get; set; }
 
             /// <summary>
-            /// True, if the user country must be provided 
+            /// True, if the user country must be provided
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("need_country")]
             public bool NeedCountry { get; set; }
 
             /// <summary>
-            /// True, if the user ZIP/postal code must be provided 
+            /// True, if the user ZIP/postal code must be provided
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("need_postal_code")]

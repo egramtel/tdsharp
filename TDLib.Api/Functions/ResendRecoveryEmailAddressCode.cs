@@ -21,17 +21,17 @@ namespace TdLib
             public override string DataType { get; set; } = "resendRecoveryEmailAddressCode";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
         }
 
-
         /// <summary>
         /// Resends the 2-step verification recovery email address verification code
         /// </summary>
-        public static Task<PasswordState> ResendRecoveryEmailAddressCodeAsync(this Client client)
+        public static Task<PasswordState> ResendRecoveryEmailAddressCodeAsync(
+            this Client client)
         {
             return client.ExecuteAsync(new ResendRecoveryEmailAddressCode
             {

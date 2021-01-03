@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Contains one row of the game high score table 
+        /// Contains one row of the game high score table
         /// </summary>
-        public class GameHighScore : Object
+        public partial class GameHighScore : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,20 +20,20 @@ namespace TdLib
             public override string DataType { get; set; } = "gameHighScore";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Position in the high score table 
+            /// Position in the high score table
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("position")]
             public int Position { get; set; }
 
             /// <summary>
-            /// User identifier 
+            /// User identifier
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("user_id")]

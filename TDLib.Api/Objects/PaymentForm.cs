@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Contains information about an invoice payment form 
+        /// Contains information about an invoice payment form
         /// </summary>
-        public class PaymentForm : Object
+        public partial class PaymentForm : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,20 +20,20 @@ namespace TdLib
             public override string DataType { get; set; } = "paymentForm";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Full information of the invoice 
+            /// Full information of the invoice
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("invoice")]
             public Invoice Invoice { get; set; }
 
             /// <summary>
-            /// Payment form URL 
+            /// Payment form URL
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("url")]
@@ -47,21 +47,21 @@ namespace TdLib
             public PaymentsProviderStripe PaymentsProvider { get; set; }
 
             /// <summary>
-            /// Saved server-side order information; may be null 
+            /// Saved server-side order information; may be null
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("saved_order_info")]
             public OrderInfo SavedOrderInfo { get; set; }
 
             /// <summary>
-            /// Contains information about saved card credentials; may be null 
+            /// Contains information about saved card credentials; may be null
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("saved_credentials")]
             public SavedCredentials SavedCredentials { get; set; }
 
             /// <summary>
-            /// True, if the user can choose to save credentials 
+            /// True, if the user can choose to save credentials
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("can_save_credentials")]

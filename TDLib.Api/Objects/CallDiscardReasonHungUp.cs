@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The call was ended because one of the parties hung up
-        /// </summary>
         public partial class CallDiscardReason : Object
         {
             /// <summary>

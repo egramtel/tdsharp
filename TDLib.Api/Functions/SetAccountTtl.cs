@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Changes the period of inactivity after which the account of the current user will automatically be deleted 
+        /// Changes the period of inactivity after which the account of the current user will automatically be deleted
         /// </summary>
         public class SetAccountTtl : Function<Ok>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "setAccountTtl";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public AccountTtl Ttl { get; set; }
         }
 
-
         /// <summary>
-        /// Changes the period of inactivity after which the account of the current user will automatically be deleted 
+        /// Changes the period of inactivity after which the account of the current user will automatically be deleted
         /// </summary>
-        public static Task<Ok> SetAccountTtlAsync(this Client client,
-            AccountTtl ttl = default(AccountTtl))
+        public static Task<Ok> SetAccountTtlAsync(
+            this Client client, AccountTtl ttl = default)
         {
             return client.ExecuteAsync(new SetAccountTtl
             {
-                Ttl = ttl,
+                Ttl = ttl
             });
         }
     }

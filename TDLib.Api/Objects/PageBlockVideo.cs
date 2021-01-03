@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A video 
-        /// </summary>
         public partial class PageBlock : Object
         {
             /// <summary>
-            /// A video 
+            /// A video
             /// </summary>
             public class PageBlockVideo : PageBlock
             {
@@ -31,21 +28,21 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Video file; may be null 
+                /// Video file; may be null
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("video")]
                 public Video Video { get; set; }
 
                 /// <summary>
-                /// Video caption 
+                /// Video caption
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("caption")]
                 public PageBlockCaption Caption { get; set; }
 
                 /// <summary>
-                /// True, if the video should be played automatically 
+                /// True, if the video should be played automatically
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("need_autoplay")]

@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Deletes a profile photo. If something changes, updateUser will be sent 
+        /// Deletes a profile photo
         /// </summary>
         public class DeleteProfilePhoto : Function<Ok>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "deleteProfilePhoto";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -31,19 +31,18 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter.Int64))]
             [JsonProperty("profile_photo_id")]
-            public Int64 ProfilePhotoId { get; set; }
+            public long ProfilePhotoId { get; set; }
         }
 
-
         /// <summary>
-        /// Deletes a profile photo. If something changes, updateUser will be sent 
+        /// Deletes a profile photo
         /// </summary>
-        public static Task<Ok> DeleteProfilePhotoAsync(this Client client,
-            Int64 profilePhotoId = default(Int64))
+        public static Task<Ok> DeleteProfilePhotoAsync(
+            this Client client, long profilePhotoId = default)
         {
             return client.ExecuteAsync(new DeleteProfilePhoto
             {
-                ProfilePhotoId = profilePhotoId,
+                ProfilePhotoId = profilePhotoId
             });
         }
     }

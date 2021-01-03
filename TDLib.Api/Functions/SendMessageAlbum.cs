@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Sends messages grouped together into an album. Currently only photo and video messages can be grouped into an album. Returns sent messages
+        /// Sends 2-10 messages grouped together into an album. Currently only audio, document, photo and video messages can be grouped into an album. Documents and audio files can be only grouped in an album with messages of the same type. Returns sent messages
         /// </summary>
         public class SendMessageAlbum : Function<Messages>
         {
@@ -21,17 +21,24 @@ namespace TdLib
             public override string DataType { get; set; } = "sendMessageAlbum";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Target chat 
+            /// Target chat
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_id")]
             public long ChatId { get; set; }
+
+            /// <summary>
+            /// If not 0, a message thread identifier in which the messages will be sent
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("message_thread_id")]
+            public long MessageThreadId { get; set; }
 
             /// <summary>
             /// Identifier of a message to reply to or 0
@@ -45,32 +52,27 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("options")]
-            public SendMessageOptions Options { get; set; }
+            public MessageSendOptions Options { get; set; }
 
             /// <summary>
-            /// Contents of messages to be sent
+            /// Contents of messages to be sent. At most 10 messages can be added to an album
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("input_message_contents")]
             public InputMessageContent[] InputMessageContents { get; set; }
         }
 
-
         /// <summary>
-        /// Sends messages grouped together into an album. Currently only photo and video messages can be grouped into an album. Returns sent messages
+        /// Sends 2-10 messages grouped together into an album. Currently only audio, document, photo and video messages can be grouped into an album. Documents and audio files can be only grouped in an album with messages of the same type. Returns sent messages
         /// </summary>
-        public static Task<Messages> SendMessageAlbumAsync(this Client client,
-            long chatId = default(long),
-            long replyToMessageId = default(long),
-            SendMessageOptions options = default(SendMessageOptions),
-            InputMessageContent[] inputMessageContents = default(InputMessageContent[]))
+        public static Task<Messages> SendMessageAlbumAsync(
+            this Client client, long chatId = default, long messageThreadId = default, long replyToMessageId = default,
+            MessageSendOptions options = default, InputMessageContent[] inputMessageContents = default)
         {
             return client.ExecuteAsync(new SendMessageAlbum
             {
-                ChatId = chatId,
-                ReplyToMessageId = replyToMessageId,
-                Options = options,
-                InputMessageContents = inputMessageContents,
+                ChatId = chatId, MessageThreadId = messageThreadId, ReplyToMessageId = replyToMessageId,
+                Options = options, InputMessageContents = inputMessageContents
             });
         }
     }

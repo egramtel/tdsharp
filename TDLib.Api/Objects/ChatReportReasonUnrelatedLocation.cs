@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The location-based chat is unrelated to its stated location
-        /// </summary>
         public partial class ChatReportReason : Object
         {
             /// <summary>

@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A URL linking to a public supergroup or channel 
-        /// </summary>
         public partial class TMeUrlType : Object
         {
             /// <summary>
-            /// A URL linking to a public supergroup or channel 
+            /// A URL linking to a public supergroup or channel
             /// </summary>
             public class TMeUrlTypeSupergroup : TMeUrlType
             {

@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// Returns restricted supergroup members; can be used only by administrators 
-        /// </summary>
         public partial class SupergroupMembersFilter : Object
         {
             /// <summary>
-            /// Returns restricted supergroup members; can be used only by administrators 
+            /// Returns restricted supergroup members; can be used only by administrators
             /// </summary>
             public class SupergroupMembersFilterRestricted : SupergroupMembersFilter
             {

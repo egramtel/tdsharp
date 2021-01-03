@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A token for Microsoft Push Notification Service 
-        /// </summary>
         public partial class DeviceToken : Object
         {
             /// <summary>
-            /// A token for Microsoft Push Notification Service 
+            /// A token for Microsoft Push Notification Service
             /// </summary>
             public class DeviceTokenMicrosoftPush : DeviceToken
             {

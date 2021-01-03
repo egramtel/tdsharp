@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Changes information about a chat. Available for basic groups, supergroups, and channels. Requires can_change_info rights 
+        /// Changes information about a chat. Available for basic groups, supergroups, and channels. Requires can_change_info rights
         /// </summary>
         public class SetChatDescription : Function<Ok>
         {
@@ -21,38 +21,35 @@ namespace TdLib
             public override string DataType { get; set; } = "setChatDescription";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Identifier of the chat 
+            /// Identifier of the chat
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_id")]
             public long ChatId { get; set; }
 
             /// <summary>
-            /// Changes information about a chat. Available for basic groups, supergroups, and channels. Requires can_change_info rights 
+            /// 
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("description")]
             public string Description { get; set; }
         }
 
-
         /// <summary>
-        /// Changes information about a chat. Available for basic groups, supergroups, and channels. Requires can_change_info rights 
+        /// Changes information about a chat. Available for basic groups, supergroups, and channels. Requires can_change_info rights
         /// </summary>
-        public static Task<Ok> SetChatDescriptionAsync(this Client client,
-            long chatId = default(long),
-            string description = default(string))
+        public static Task<Ok> SetChatDescriptionAsync(
+            this Client client, long chatId = default, string description = default)
         {
             return client.ExecuteAsync(new SetChatDescription
             {
-                ChatId = chatId,
-                Description = description,
+                ChatId = chatId, Description = description
             });
         }
     }

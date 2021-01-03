@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Creates a new temporary password for processing payments 
+        /// Creates a new temporary password for processing payments
         /// </summary>
         public class CreateTemporaryPassword : Function<TemporaryPasswordState>
         {
@@ -21,13 +21,13 @@ namespace TdLib
             public override string DataType { get; set; } = "createTemporaryPassword";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Persistent user password 
+            /// Persistent user password
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("password")]
@@ -41,18 +41,15 @@ namespace TdLib
             public int ValidFor { get; set; }
         }
 
-
         /// <summary>
-        /// Creates a new temporary password for processing payments 
+        /// Creates a new temporary password for processing payments
         /// </summary>
-        public static Task<TemporaryPasswordState> CreateTemporaryPasswordAsync(this Client client,
-            string password = default(string),
-            int validFor = default(int))
+        public static Task<TemporaryPasswordState> CreateTemporaryPasswordAsync(
+            this Client client, string password = default, int validFor = default)
         {
             return client.ExecuteAsync(new CreateTemporaryPassword
             {
-                Password = password,
-                ValidFor = validFor,
+                Password = password, ValidFor = validFor
             });
         }
     }

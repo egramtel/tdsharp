@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Informs the server about the number of pending bot updates if they haven't been processed for a long time; for bots only 
+        /// Informs the server about the number of pending bot updates if they haven't been processed for a long time; for bots only
         /// </summary>
         public class SetBotUpdatesStatus : Function<Ok>
         {
@@ -21,13 +21,13 @@ namespace TdLib
             public override string DataType { get; set; } = "setBotUpdatesStatus";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// The number of pending updates 
+            /// The number of pending updates
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("pending_update_count")]
@@ -41,18 +41,15 @@ namespace TdLib
             public string ErrorMessage { get; set; }
         }
 
-
         /// <summary>
-        /// Informs the server about the number of pending bot updates if they haven't been processed for a long time; for bots only 
+        /// Informs the server about the number of pending bot updates if they haven't been processed for a long time; for bots only
         /// </summary>
-        public static Task<Ok> SetBotUpdatesStatusAsync(this Client client,
-            int pendingUpdateCount = default(int),
-            string errorMessage = default(string))
+        public static Task<Ok> SetBotUpdatesStatusAsync(
+            this Client client, int pendingUpdateCount = default, string errorMessage = default)
         {
             return client.ExecuteAsync(new SetBotUpdatesStatus
             {
-                PendingUpdateCount = pendingUpdateCount,
-                ErrorMessage = errorMessage,
+                PendingUpdateCount = pendingUpdateCount, ErrorMessage = errorMessage
             });
         }
     }

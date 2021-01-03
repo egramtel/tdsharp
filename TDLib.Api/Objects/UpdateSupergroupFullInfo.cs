@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// Some data from supergroupFullInfo has been changed 
-        /// </summary>
         public partial class Update : Object
         {
             /// <summary>
-            /// Some data from supergroupFullInfo has been changed 
+            /// Some data from supergroupFullInfo has been changed
             /// </summary>
             public class UpdateSupergroupFullInfo : Update
             {
@@ -31,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Identifier of the supergroup or channel 
+                /// Identifier of the supergroup or channel
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("supergroup_id")]

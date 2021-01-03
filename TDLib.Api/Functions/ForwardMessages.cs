@@ -21,27 +21,27 @@ namespace TdLib
             public override string DataType { get; set; } = "forwardMessages";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Identifier of the chat to which to forward messages 
+            /// Identifier of the chat to which to forward messages
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_id")]
             public long ChatId { get; set; }
 
             /// <summary>
-            /// Identifier of the chat from which to forward messages 
+            /// Identifier of the chat from which to forward messages
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("from_chat_id")]
             public long FromChatId { get; set; }
 
             /// <summary>
-            /// Identifiers of the messages to forward
+            /// Identifiers of the messages to forward. Message identifiers must be in a strictly increasing order. At most 100 messages can be forwarded simultaneously
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("message_ids")]
@@ -52,14 +52,7 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("options")]
-            public SendMessageOptions Options { get; set; }
-
-            /// <summary>
-            /// True, if the messages should be grouped into an album after forwarding. For this to work, no more than 10 messages may be forwarded, and all of them must be photo or video messages
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("as_album")]
-            public bool AsAlbum { get; set; }
+            public MessageSendOptions Options { get; set; }
 
             /// <summary>
             /// True, if content of the messages needs to be copied without links to the original messages. Always true if the messages are forwarded to a secret chat
@@ -69,35 +62,24 @@ namespace TdLib
             public bool SendCopy { get; set; }
 
             /// <summary>
-            /// True, if media captions of message copies needs to be removed. Ignored if send_copy is false
+            /// True, if media caption of message copies needs to be removed. Ignored if send_copy is false
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("remove_caption")]
             public bool RemoveCaption { get; set; }
         }
 
-
         /// <summary>
         /// Forwards previously sent messages. Returns the forwarded messages in the same order as the message identifiers passed in message_ids. If a message can't be forwarded, null will be returned instead of the message
         /// </summary>
-        public static Task<Messages> ForwardMessagesAsync(this Client client,
-            long chatId = default(long),
-            long fromChatId = default(long),
-            long[] messageIds = default(long[]),
-            SendMessageOptions options = default(SendMessageOptions),
-            bool asAlbum = default(bool),
-            bool sendCopy = default(bool),
-            bool removeCaption = default(bool))
+        public static Task<Messages> ForwardMessagesAsync(
+            this Client client, long chatId = default, long fromChatId = default, long[] messageIds = default,
+            MessageSendOptions options = default, bool sendCopy = default, bool removeCaption = default)
         {
             return client.ExecuteAsync(new ForwardMessages
             {
-                ChatId = chatId,
-                FromChatId = fromChatId,
-                MessageIds = messageIds,
-                Options = options,
-                AsAlbum = asAlbum,
-                SendCopy = sendCopy,
-                RemoveCaption = removeCaption,
+                ChatId = chatId, FromChatId = fromChatId, MessageIds = messageIds, Options = options,
+                SendCopy = sendCopy, RemoveCaption = removeCaption
             });
         }
     }

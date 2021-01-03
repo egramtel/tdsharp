@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// An audio file 
-        /// </summary>
         public partial class PageBlock : Object
         {
             /// <summary>
-            /// An audio file 
+            /// An audio file
             /// </summary>
             public class PageBlockAudio : PageBlock
             {
@@ -31,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Audio file; may be null 
+                /// Audio file; may be null
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("audio")]

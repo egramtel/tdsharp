@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A user changed the answer to a poll; for bots only 
-        /// </summary>
         public partial class Update : Object
         {
             /// <summary>
-            /// A user changed the answer to a poll; for bots only 
+            /// A user changed the answer to a poll; for bots only
             /// </summary>
             public class UpdatePollAnswer : Update
             {
@@ -31,14 +28,14 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Unique poll identifier 
+                /// Unique poll identifier
                 /// </summary>
                 [JsonConverter(typeof(Converter.Int64))]
                 [JsonProperty("poll_id")]
-                public Int64 PollId { get; set; }
+                public long PollId { get; set; }
 
                 /// <summary>
-                /// The user, who changed the answer to the poll 
+                /// The user, who changed the answer to the poll
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("user_id")]

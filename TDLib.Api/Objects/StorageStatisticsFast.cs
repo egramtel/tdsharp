@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Contains approximate storage usage statistics, excluding files of unknown file type 
+        /// Contains approximate storage usage statistics, excluding files of unknown file type
         /// </summary>
-        public class StorageStatisticsFast : Object
+        public partial class StorageStatisticsFast : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,13 +20,13 @@ namespace TdLib
             public override string DataType { get; set; } = "storageStatisticsFast";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Approximate total size of files 
+            /// Approximate total size of files
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("files_size")]
@@ -40,14 +40,14 @@ namespace TdLib
             public int FileCount { get; set; }
 
             /// <summary>
-            /// Size of the database 
+            /// Size of the database
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("database_size")]
             public long DatabaseSize { get; set; }
 
             /// <summary>
-            /// Size of the language pack database 
+            /// Size of the language pack database
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("language_pack_database_size")]

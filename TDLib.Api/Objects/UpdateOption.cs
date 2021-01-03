@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// An option changed its value 
-        /// </summary>
         public partial class Update : Object
         {
             /// <summary>
-            /// An option changed its value 
+            /// An option changed its value
             /// </summary>
             public class UpdateOption : Update
             {
@@ -31,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// The option name 
+                /// The option name
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("name")]

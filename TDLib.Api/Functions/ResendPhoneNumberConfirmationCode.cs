@@ -21,17 +21,17 @@ namespace TdLib
             public override string DataType { get; set; } = "resendPhoneNumberConfirmationCode";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
         }
 
-
         /// <summary>
         /// Resends phone number confirmation code
         /// </summary>
-        public static Task<AuthenticationCodeInfo> ResendPhoneNumberConfirmationCodeAsync(this Client client)
+        public static Task<AuthenticationCodeInfo> ResendPhoneNumberConfirmationCodeAsync(
+            this Client client)
         {
             return client.ExecuteAsync(new ResendPhoneNumberConfirmationCode
             {

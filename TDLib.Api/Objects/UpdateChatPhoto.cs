@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A chat photo was changed 
-        /// </summary>
         public partial class Update : Object
         {
             /// <summary>
-            /// A chat photo was changed 
+            /// A chat photo was changed
             /// </summary>
             public class UpdateChatPhoto : Update
             {
@@ -31,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Chat identifier 
+                /// Chat identifier
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("chat_id")]
@@ -42,7 +39,7 @@ namespace TdLib
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("photo")]
-                public ChatPhoto Photo { get; set; }
+                public ChatPhotoInfo Photo { get; set; }
             }
         }
     }

@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Changes client data associated with a chat 
+        /// Changes application-specific data associated with a chat
         /// </summary>
         public class SetChatClientData : Function<Ok>
         {
@@ -21,13 +21,13 @@ namespace TdLib
             public override string DataType { get; set; } = "setChatClientData";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Chat identifier 
+            /// Chat identifier
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_id")]
@@ -41,18 +41,15 @@ namespace TdLib
             public string ClientData { get; set; }
         }
 
-
         /// <summary>
-        /// Changes client data associated with a chat 
+        /// Changes application-specific data associated with a chat
         /// </summary>
-        public static Task<Ok> SetChatClientDataAsync(this Client client,
-            long chatId = default(long),
-            string clientData = default(string))
+        public static Task<Ok> SetChatClientDataAsync(
+            this Client client, long chatId = default, string clientData = default)
         {
             return client.ExecuteAsync(new SetChatClientData
             {
-                ChatId = chatId,
-                ClientData = clientData,
+                ChatId = chatId, ClientData = clientData
             });
         }
     }

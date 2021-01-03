@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Changes the discussion group of a channel chat; requires can_change_info rights in the channel if it is specified 
+        /// Changes the discussion group of a channel chat; requires can_change_info rights in the channel if it is specified
         /// </summary>
         public class SetChatDiscussionGroup : Function<Ok>
         {
@@ -21,13 +21,13 @@ namespace TdLib
             public override string DataType { get; set; } = "setChatDiscussionGroup";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Identifier of the channel chat. Pass 0 to remove a link from the supergroup passed in the second argument to a linked channel chat (requires can_pin_messages rights in the supergroup) 
+            /// Identifier of the channel chat. Pass 0 to remove a link from the supergroup passed in the second argument to a linked channel chat (requires can_pin_messages rights in the supergroup)
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_id")]
@@ -41,18 +41,15 @@ namespace TdLib
             public long DiscussionChatId { get; set; }
         }
 
-
         /// <summary>
-        /// Changes the discussion group of a channel chat; requires can_change_info rights in the channel if it is specified 
+        /// Changes the discussion group of a channel chat; requires can_change_info rights in the channel if it is specified
         /// </summary>
-        public static Task<Ok> SetChatDiscussionGroupAsync(this Client client,
-            long chatId = default(long),
-            long discussionChatId = default(long))
+        public static Task<Ok> SetChatDiscussionGroupAsync(
+            this Client client, long chatId = default, long discussionChatId = default)
         {
             return client.ExecuteAsync(new SetChatDiscussionGroup
             {
-                ChatId = chatId,
-                DiscussionChatId = discussionChatId,
+                ChatId = chatId, DiscussionChatId = discussionChatId
             });
         }
     }

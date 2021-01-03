@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A SOCKS5 proxy server 
-        /// </summary>
         public partial class ProxyType : Object
         {
             /// <summary>
-            /// A SOCKS5 proxy server 
+            /// Describes the type of a proxy server
             /// </summary>
             public class ProxyTypeSocks5 : ProxyType
             {
@@ -31,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Username for logging in; may be empty 
+                /// Username for logging in; may be empty
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("username")]

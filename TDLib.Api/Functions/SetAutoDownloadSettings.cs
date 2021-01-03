@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Sets auto-download settings 
+        /// Sets auto-download settings
         /// </summary>
         public class SetAutoDownloadSettings : Function<Ok>
         {
@@ -21,13 +21,13 @@ namespace TdLib
             public override string DataType { get; set; } = "setAutoDownloadSettings";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// New user auto-download settings 
+            /// New user auto-download settings
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("settings")]
@@ -41,18 +41,15 @@ namespace TdLib
             public NetworkType Type { get; set; }
         }
 
-
         /// <summary>
-        /// Sets auto-download settings 
+        /// Sets auto-download settings
         /// </summary>
-        public static Task<Ok> SetAutoDownloadSettingsAsync(this Client client,
-            AutoDownloadSettings settings = default(AutoDownloadSettings),
-            NetworkType type = default(NetworkType))
+        public static Task<Ok> SetAutoDownloadSettingsAsync(
+            this Client client, AutoDownloadSettings settings = default, NetworkType type = default)
         {
             return client.ExecuteAsync(new SetAutoDownloadSettings
             {
-                Settings = settings,
-                Type = type,
+                Settings = settings, Type = type
             });
         }
     }

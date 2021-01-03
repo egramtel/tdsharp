@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Removes a proxy server. Can be called before authorization 
+        /// Removes a proxy server. Can be called before authorization
         /// </summary>
         public class RemoveProxy : Function<Ok>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "removeProxy";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public int ProxyId { get; set; }
         }
 
-
         /// <summary>
-        /// Removes a proxy server. Can be called before authorization 
+        /// Removes a proxy server. Can be called before authorization
         /// </summary>
-        public static Task<Ok> RemoveProxyAsync(this Client client,
-            int proxyId = default(int))
+        public static Task<Ok> RemoveProxyAsync(
+            this Client client, int proxyId = default)
         {
             return client.ExecuteAsync(new RemoveProxy
             {
-                ProxyId = proxyId,
+                ProxyId = proxyId
             });
         }
     }

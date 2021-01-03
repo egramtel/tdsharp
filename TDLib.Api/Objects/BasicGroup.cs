@@ -11,7 +11,7 @@ namespace TdLib
         /// <summary>
         /// Represents a basic group of 0-200 users (must be upgraded to a supergroup to accommodate more than 200 users)
         /// </summary>
-        public class BasicGroup : Object
+        public partial class BasicGroup : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,7 +20,7 @@ namespace TdLib
             public override string DataType { get; set; } = "basicGroup";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }

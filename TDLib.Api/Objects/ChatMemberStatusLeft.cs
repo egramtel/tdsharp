@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The user is not a chat member
-        /// </summary>
         public partial class ChatMemberStatus : Object
         {
             /// <summary>

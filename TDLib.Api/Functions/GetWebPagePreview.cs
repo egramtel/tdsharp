@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns a web page preview by the text of the message. Do not call this function too often. Returns a 404 error if the web page has no preview 
+        /// Returns a web page preview by the text of the message. Do not call this function too often. Returns a 404 error if the web page has no preview
         /// </summary>
         public class GetWebPagePreview : Function<WebPage>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "getWebPagePreview";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public FormattedText Text { get; set; }
         }
 
-
         /// <summary>
-        /// Returns a web page preview by the text of the message. Do not call this function too often. Returns a 404 error if the web page has no preview 
+        /// Returns a web page preview by the text of the message. Do not call this function too often. Returns a 404 error if the web page has no preview
         /// </summary>
-        public static Task<WebPage> GetWebPagePreviewAsync(this Client client,
-            FormattedText text = default(FormattedText))
+        public static Task<WebPage> GetWebPagePreviewAsync(
+            this Client client, FormattedText text = default)
         {
             return client.ExecuteAsync(new GetWebPagePreview
             {
-                Text = text,
+                Text = text
             });
         }
     }

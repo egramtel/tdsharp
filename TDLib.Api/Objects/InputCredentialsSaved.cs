@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// Applies if a user chooses some previously saved payment credentials. To use their previously saved credentials, the user must have a valid temporary password 
-        /// </summary>
         public partial class InputCredentials : Object
         {
             /// <summary>
-            /// Applies if a user chooses some previously saved payment credentials. To use their previously saved credentials, the user must have a valid temporary password 
+            /// Contains information about the payment method chosen by the user
             /// </summary>
             public class InputCredentialsSaved : InputCredentials
             {

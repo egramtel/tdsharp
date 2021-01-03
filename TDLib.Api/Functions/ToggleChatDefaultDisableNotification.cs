@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Changes the value of the default disable_notification parameter, used when a message is sent to a chat 
+        /// Changes the value of the default disable_notification parameter, used when a message is sent to a chat
         /// </summary>
         public class ToggleChatDefaultDisableNotification : Function<Ok>
         {
@@ -21,13 +21,13 @@ namespace TdLib
             public override string DataType { get; set; } = "toggleChatDefaultDisableNotification";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Chat identifier 
+            /// Chat identifier
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_id")]
@@ -41,18 +41,15 @@ namespace TdLib
             public bool DefaultDisableNotification { get; set; }
         }
 
-
         /// <summary>
-        /// Changes the value of the default disable_notification parameter, used when a message is sent to a chat 
+        /// Changes the value of the default disable_notification parameter, used when a message is sent to a chat
         /// </summary>
-        public static Task<Ok> ToggleChatDefaultDisableNotificationAsync(this Client client,
-            long chatId = default(long),
-            bool defaultDisableNotification = default(bool))
+        public static Task<Ok> ToggleChatDefaultDisableNotificationAsync(
+            this Client client, long chatId = default, bool defaultDisableNotification = default)
         {
             return client.ExecuteAsync(new ToggleChatDefaultDisableNotification
             {
-                ChatId = chatId,
-                DefaultDisableNotification = defaultDisableNotification,
+                ChatId = chatId, DefaultDisableNotification = defaultDisableNotification
             });
         }
     }

@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A main list of chats
-        /// </summary>
         public partial class ChatList : Object
         {
             /// <summary>
-            /// A main list of chats
+            /// Describes a list of chats
             /// </summary>
             public class ChatListMain : ChatList
             {

@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Represents a list of stickers 
+        /// Represents a list of stickers
         /// </summary>
-        public class Stickers : Object
+        public partial class Stickers : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,7 +20,7 @@ namespace TdLib
             public override string DataType { get; set; } = "stickers";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }

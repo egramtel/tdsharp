@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns a list of archived sticker sets 
+        /// Returns a list of archived sticker sets
         /// </summary>
         public class GetArchivedStickerSets : Function<StickerSets>
         {
@@ -21,24 +21,24 @@ namespace TdLib
             public override string DataType { get; set; } = "getArchivedStickerSets";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Pass true to return mask stickers sets; pass false to return ordinary sticker sets 
+            /// Pass true to return mask stickers sets; pass false to return ordinary sticker sets
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_masks")]
             public bool IsMasks { get; set; }
 
             /// <summary>
-            /// Identifier of the sticker set from which to return the result 
+            /// Identifier of the sticker set from which to return the result
             /// </summary>
             [JsonConverter(typeof(Converter.Int64))]
             [JsonProperty("offset_sticker_set_id")]
-            public Int64 OffsetStickerSetId { get; set; }
+            public long OffsetStickerSetId { get; set; }
 
             /// <summary>
             /// The maximum number of sticker sets to return
@@ -48,20 +48,15 @@ namespace TdLib
             public int Limit { get; set; }
         }
 
-
         /// <summary>
-        /// Returns a list of archived sticker sets 
+        /// Returns a list of archived sticker sets
         /// </summary>
-        public static Task<StickerSets> GetArchivedStickerSetsAsync(this Client client,
-            bool isMasks = default(bool),
-            Int64 offsetStickerSetId = default(Int64),
-            int limit = default(int))
+        public static Task<StickerSets> GetArchivedStickerSetsAsync(
+            this Client client, bool isMasks = default, long offsetStickerSetId = default, int limit = default)
         {
             return client.ExecuteAsync(new GetArchivedStickerSets
             {
-                IsMasks = isMasks,
-                OffsetStickerSetId = offsetStickerSetId,
-                Limit = limit,
+                IsMasks = isMasks, OffsetStickerSetId = offsetStickerSetId, Limit = limit
             });
         }
     }

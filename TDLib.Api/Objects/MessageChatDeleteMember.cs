@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A chat member was deleted 
-        /// </summary>
         public partial class MessageContent : Object
         {
             /// <summary>
-            /// A chat member was deleted 
+            /// A chat member was deleted
             /// </summary>
             public class MessageChatDeleteMember : MessageContent
             {

@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A message with a location 
-        /// </summary>
         public partial class PushMessageContent : Object
         {
             /// <summary>
-            /// A message with a location 
+            /// A message with a location
             /// </summary>
             public class PushMessageContentLocation : PushMessageContent
             {
@@ -31,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// True, if the location is live 
+                /// True, if the location is live
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_live")]

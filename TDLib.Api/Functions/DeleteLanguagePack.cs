@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Deletes all information about a language pack in the current localization target. The language pack which is currently in use (including base language pack) or is being synchronized can't be deleted. Can be called before authorization 
+        /// Deletes all information about a language pack in the current localization target. The language pack which is currently in use (including base language pack) or is being synchronized can't be deleted. Can be called before authorization
         /// </summary>
         public class DeleteLanguagePack : Function<Ok>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "deleteLanguagePack";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public string LanguagePackId { get; set; }
         }
 
-
         /// <summary>
-        /// Deletes all information about a language pack in the current localization target. The language pack which is currently in use (including base language pack) or is being synchronized can't be deleted. Can be called before authorization 
+        /// Deletes all information about a language pack in the current localization target. The language pack which is currently in use (including base language pack) or is being synchronized can't be deleted. Can be called before authorization
         /// </summary>
-        public static Task<Ok> DeleteLanguagePackAsync(this Client client,
-            string languagePackId = default(string))
+        public static Task<Ok> DeleteLanguagePackAsync(
+            this Client client, string languagePackId = default)
         {
             return client.ExecuteAsync(new DeleteLanguagePack
             {
-                LanguagePackId = languagePackId,
+                LanguagePackId = languagePackId
             });
         }
     }

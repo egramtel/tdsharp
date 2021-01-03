@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// Represents information about a venue 
-        /// </summary>
         public partial class InlineQueryResult : Object
         {
             /// <summary>
-            /// Represents information about a venue 
+            /// Represents information about a venue
             /// </summary>
             public class InlineQueryResultVenue : InlineQueryResult
             {
@@ -31,25 +28,25 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Unique identifier of the query result 
+                /// Unique identifier of the query result
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("id")]
                 public string Id { get; set; }
 
                 /// <summary>
-                /// Venue result 
+                /// Venue result
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("venue")]
                 public Venue Venue { get; set; }
 
                 /// <summary>
-                /// Result thumbnail; may be null
+                /// Result thumbnail in JPEG format; may be null
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("thumbnail")]
-                public PhotoSize Thumbnail { get; set; }
+                public Thumbnail Thumbnail { get; set; }
             }
         }
     }

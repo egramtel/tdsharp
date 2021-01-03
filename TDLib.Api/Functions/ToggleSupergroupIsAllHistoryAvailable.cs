@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Toggles whether the message history of a supergroup is available to new members; requires can_change_info rights 
+        /// Toggles whether the message history of a supergroup is available to new members; requires can_change_info rights
         /// </summary>
         public class ToggleSupergroupIsAllHistoryAvailable : Function<Ok>
         {
@@ -21,13 +21,13 @@ namespace TdLib
             public override string DataType { get; set; } = "toggleSupergroupIsAllHistoryAvailable";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// The identifier of the supergroup 
+            /// The identifier of the supergroup
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("supergroup_id")]
@@ -41,18 +41,15 @@ namespace TdLib
             public bool IsAllHistoryAvailable { get; set; }
         }
 
-
         /// <summary>
-        /// Toggles whether the message history of a supergroup is available to new members; requires can_change_info rights 
+        /// Toggles whether the message history of a supergroup is available to new members; requires can_change_info rights
         /// </summary>
-        public static Task<Ok> ToggleSupergroupIsAllHistoryAvailableAsync(this Client client,
-            int supergroupId = default(int),
-            bool isAllHistoryAvailable = default(bool))
+        public static Task<Ok> ToggleSupergroupIsAllHistoryAvailableAsync(
+            this Client client, int supergroupId = default, bool isAllHistoryAvailable = default)
         {
             return client.ExecuteAsync(new ToggleSupergroupIsAllHistoryAvailable
             {
-                SupergroupId = supergroupId,
-                IsAllHistoryAvailable = isAllHistoryAvailable,
+                SupergroupId = supergroupId, IsAllHistoryAvailable = isAllHistoryAvailable
             });
         }
     }

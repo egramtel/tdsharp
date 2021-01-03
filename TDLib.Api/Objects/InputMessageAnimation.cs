@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// An animation message (GIF-style). 
-        /// </summary>
         public partial class InputMessageContent : Object
         {
             /// <summary>
-            /// An animation message (GIF-style). 
+            /// An animation message (GIF-style).
             /// </summary>
             public class InputMessageAnimation : InputMessageContent
             {
@@ -31,35 +28,42 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Animation file to be sent 
+                /// Animation file to be sent
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("animation")]
                 public InputFile Animation { get; set; }
 
                 /// <summary>
-                /// Animation thumbnail, if available 
+                /// Animation thumbnail, if available
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("thumbnail")]
                 public InputThumbnail Thumbnail { get; set; }
 
                 /// <summary>
-                /// Duration of the animation, in seconds 
+                /// File identifiers of the stickers added to the animation, if applicable
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("added_sticker_file_ids")]
+                public int[] AddedStickerFileIds { get; set; }
+
+                /// <summary>
+                /// Duration of the animation, in seconds
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("duration")]
                 public int Duration { get; set; }
 
                 /// <summary>
-                /// Width of the animation; may be replaced by the server 
+                /// Width of the animation; may be replaced by the server
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("width")]
                 public int Width { get; set; }
 
                 /// <summary>
-                /// Height of the animation; may be replaced by the server 
+                /// Height of the animation; may be replaced by the server
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("height")]

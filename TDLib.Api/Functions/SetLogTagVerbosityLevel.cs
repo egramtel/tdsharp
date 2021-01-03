@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Sets the verbosity level for a specified TDLib internal log tag. This is an offline method. Can be called before authorization. Can be called synchronously
+        /// Sets the verbosity level for a specified TDLib internal log tag. Can be called synchronously
         /// </summary>
         public class SetLogTagVerbosityLevel : Function<Ok>
         {
@@ -21,13 +21,13 @@ namespace TdLib
             public override string DataType { get; set; } = "setLogTagVerbosityLevel";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Logging tag to change verbosity level 
+            /// Logging tag to change verbosity level
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("tag")]
@@ -41,18 +41,15 @@ namespace TdLib
             public int NewVerbosityLevel { get; set; }
         }
 
-
         /// <summary>
-        /// Sets the verbosity level for a specified TDLib internal log tag. This is an offline method. Can be called before authorization. Can be called synchronously
+        /// Sets the verbosity level for a specified TDLib internal log tag. Can be called synchronously
         /// </summary>
-        public static Task<Ok> SetLogTagVerbosityLevelAsync(this Client client,
-            string tag = default(string),
-            int newVerbosityLevel = default(int))
+        public static Task<Ok> SetLogTagVerbosityLevelAsync(
+            this Client client, string tag = default, int newVerbosityLevel = default)
         {
             return client.ExecuteAsync(new SetLogTagVerbosityLevel
             {
-                Tag = tag,
-                NewVerbosityLevel = newVerbosityLevel,
+                Tag = tag, NewVerbosityLevel = newVerbosityLevel
             });
         }
     }

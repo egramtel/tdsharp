@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A data field contains an error. The error is considered resolved when the field's value changes 
-        /// </summary>
         public partial class InputPassportElementErrorSource : Object
         {
             /// <summary>
-            /// A data field contains an error. The error is considered resolved when the field's value changes 
+            /// A data field contains an error. The error is considered resolved when the field's value changes
             /// </summary>
             public class InputPassportElementErrorSourceDataField : InputPassportElementErrorSource
             {
@@ -31,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Field name 
+                /// Field name
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("field_name")]

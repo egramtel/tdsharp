@@ -21,17 +21,17 @@ namespace TdLib
             public override string DataType { get; set; } = "getSavedOrderInfo";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
         }
 
-
         /// <summary>
         /// Returns saved order info, if any
         /// </summary>
-        public static Task<OrderInfo> GetSavedOrderInfoAsync(this Client client)
+        public static Task<OrderInfo> GetSavedOrderInfoAsync(
+            this Client client)
         {
             return client.ExecuteAsync(new GetSavedOrderInfo
             {

@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Searches for a background by its name 
+        /// Searches for a background by its name
         /// </summary>
         public class SearchBackground : Function<Background>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "searchBackground";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public string Name { get; set; }
         }
 
-
         /// <summary>
-        /// Searches for a background by its name 
+        /// Searches for a background by its name
         /// </summary>
-        public static Task<Background> SearchBackgroundAsync(this Client client,
-            string name = default(string))
+        public static Task<Background> SearchBackgroundAsync(
+            this Client client, string name = default)
         {
             return client.ExecuteAsync(new SearchBackground
             {
-                Name = name,
+                Name = name
             });
         }
     }

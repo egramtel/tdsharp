@@ -11,7 +11,7 @@ namespace TdLib
         /// <summary>
         /// Contains information about notification settings for several chats
         /// </summary>
-        public class ScopeNotificationSettings : Object
+        public partial class ScopeNotificationSettings : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,7 +20,7 @@ namespace TdLib
             public override string DataType { get; set; } = "scopeNotificationSettings";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }

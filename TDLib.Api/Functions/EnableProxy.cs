@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Enables a proxy. Only one proxy can be enabled at a time. Can be called before authorization 
+        /// Enables a proxy. Only one proxy can be enabled at a time. Can be called before authorization
         /// </summary>
         public class EnableProxy : Function<Ok>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "enableProxy";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public int ProxyId { get; set; }
         }
 
-
         /// <summary>
-        /// Enables a proxy. Only one proxy can be enabled at a time. Can be called before authorization 
+        /// Enables a proxy. Only one proxy can be enabled at a time. Can be called before authorization
         /// </summary>
-        public static Task<Ok> EnableProxyAsync(this Client client,
-            int proxyId = default(int))
+        public static Task<Ok> EnableProxyAsync(
+            this Client client, int proxyId = default)
         {
             return client.ExecuteAsync(new EnableProxy
             {
-                ProxyId = proxyId,
+                ProxyId = proxyId
             });
         }
     }

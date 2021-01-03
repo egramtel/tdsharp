@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Searches a public chat by its username. Currently only private chats, supergroups and channels can be public. Returns the chat if found; otherwise an error is returned 
+        /// Searches a public chat by its username. Currently only private chats, supergroups and channels can be public. Returns the chat if found; otherwise an error is returned
         /// </summary>
         public class SearchPublicChat : Function<Chat>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "searchPublicChat";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public string Username { get; set; }
         }
 
-
         /// <summary>
-        /// Searches a public chat by its username. Currently only private chats, supergroups and channels can be public. Returns the chat if found; otherwise an error is returned 
+        /// Searches a public chat by its username. Currently only private chats, supergroups and channels can be public. Returns the chat if found; otherwise an error is returned
         /// </summary>
-        public static Task<Chat> SearchPublicChatAsync(this Client client,
-            string username = default(string))
+        public static Task<Chat> SearchPublicChatAsync(
+            this Client client, string username = default)
         {
             return client.ExecuteAsync(new SearchPublicChat
             {
-                Username = username,
+                Username = username
             });
         }
     }

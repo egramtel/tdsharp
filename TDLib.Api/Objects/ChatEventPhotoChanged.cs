@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The chat photo was changed 
-        /// </summary>
         public partial class ChatEventAction : Object
         {
             /// <summary>
-            /// The chat photo was changed 
+            /// The chat photo was changed
             /// </summary>
             public class ChatEventPhotoChanged : ChatEventAction
             {
@@ -31,18 +28,18 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Previous chat photo value; may be null 
+                /// Previous chat photo value; may be null
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("old_photo")]
-                public Photo OldPhoto { get; set; }
+                public ChatPhoto OldPhoto { get; set; }
 
                 /// <summary>
                 /// New chat photo value; may be null
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("new_photo")]
-                public Photo NewPhoto { get; set; }
+                public ChatPhoto NewPhoto { get; set; }
             }
         }
     }

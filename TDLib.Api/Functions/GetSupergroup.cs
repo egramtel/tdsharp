@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns information about a supergroup or a channel by its identifier. This is an offline request if the current user is not a bot 
+        /// Returns information about a supergroup or a channel by its identifier. This is an offline request if the current user is not a bot
         /// </summary>
         public class GetSupergroup : Function<Supergroup>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "getSupergroup";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public int SupergroupId { get; set; }
         }
 
-
         /// <summary>
-        /// Returns information about a supergroup or a channel by its identifier. This is an offline request if the current user is not a bot 
+        /// Returns information about a supergroup or a channel by its identifier. This is an offline request if the current user is not a bot
         /// </summary>
-        public static Task<Supergroup> GetSupergroupAsync(this Client client,
-            int supergroupId = default(int))
+        public static Task<Supergroup> GetSupergroupAsync(
+            this Client client, int supergroupId = default)
         {
             return client.ExecuteAsync(new GetSupergroup
             {
-                SupergroupId = supergroupId,
+                SupergroupId = supergroupId
             });
         }
     }

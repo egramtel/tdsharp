@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Contains a list of backgrounds 
+        /// Contains a list of backgrounds
         /// </summary>
-        public class Backgrounds : Object
+        public partial class Backgrounds : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,7 +20,7 @@ namespace TdLib
             public override string DataType { get; set; } = "backgrounds";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }

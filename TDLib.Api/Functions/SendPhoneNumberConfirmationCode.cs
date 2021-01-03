@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Sends phone number confirmation code. Should be called when user presses "https://t.me/confirmphone?phone=*******&hash=**********" or "tg://confirmphone?phone=*******&hash=**********" link 
+        /// Sends phone number confirmation code. Should be called when user presses "https://t.me/confirmphone?phone=*******&hash=**********" or "tg://confirmphone?phone=*******&hash=**********" link
         /// </summary>
         public class SendPhoneNumberConfirmationCode : Function<AuthenticationCodeInfo>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "sendPhoneNumberConfirmationCode";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,7 +34,7 @@ namespace TdLib
             public string Hash { get; set; }
 
             /// <summary>
-            /// Value of the "phone" parameter from the link 
+            /// Value of the "phone" parameter from the link
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("phone_number")]
@@ -48,20 +48,16 @@ namespace TdLib
             public PhoneNumberAuthenticationSettings Settings { get; set; }
         }
 
-
         /// <summary>
-        /// Sends phone number confirmation code. Should be called when user presses "https://t.me/confirmphone?phone=*******&hash=**********" or "tg://confirmphone?phone=*******&hash=**********" link 
+        /// Sends phone number confirmation code. Should be called when user presses "https://t.me/confirmphone?phone=*******&hash=**********" or "tg://confirmphone?phone=*******&hash=**********" link
         /// </summary>
-        public static Task<AuthenticationCodeInfo> SendPhoneNumberConfirmationCodeAsync(this Client client,
-            string hash = default(string),
-            string phoneNumber = default(string),
-            PhoneNumberAuthenticationSettings settings = default(PhoneNumberAuthenticationSettings))
+        public static Task<AuthenticationCodeInfo> SendPhoneNumberConfirmationCodeAsync(
+            this Client client, string hash = default, string phoneNumber = default,
+            PhoneNumberAuthenticationSettings settings = default)
         {
             return client.ExecuteAsync(new SendPhoneNumberConfirmationCode
             {
-                Hash = hash,
-                PhoneNumber = phoneNumber,
-                Settings = settings,
+                Hash = hash, PhoneNumber = phoneNumber, Settings = settings
             });
         }
     }

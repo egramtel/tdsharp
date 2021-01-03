@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A voice note 
-        /// </summary>
         public partial class PageBlock : Object
         {
             /// <summary>
-            /// A voice note 
+            /// A voice note
             /// </summary>
             public class PageBlockVoiceNote : PageBlock
             {
@@ -31,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Voice note; may be null 
+                /// Voice note; may be null
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("voice_note")]

@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Describes a photo 
+        /// Describes a photo
         /// </summary>
-        public class Photo : Object
+        public partial class Photo : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,20 +20,20 @@ namespace TdLib
             public override string DataType { get; set; } = "photo";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// True, if stickers were added to the photo 
+            /// True, if stickers were added to the photo. The list of corresponding sticker sets can be received using getAttachedStickerSets
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("has_stickers")]
             public bool HasStickers { get; set; }
 
             /// <summary>
-            /// Photo minithumbnail; may be null 
+            /// Photo minithumbnail; may be null
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("minithumbnail")]

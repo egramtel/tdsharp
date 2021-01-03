@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Contains a list of messages 
+        /// Contains a list of messages
         /// </summary>
-        public class Messages : Object
+        public partial class Messages : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,13 +20,13 @@ namespace TdLib
             public override string DataType { get; set; } = "messages";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Approximate total count of messages found 
+            /// Approximate total count of messages found
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("total_count")]

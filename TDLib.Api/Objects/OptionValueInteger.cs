@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// Represents an integer option 
-        /// </summary>
         public partial class OptionValue : Object
         {
             /// <summary>
-            /// Represents an integer option 
+            /// Represents an integer option
             /// </summary>
             public class OptionValueInteger : OptionValue
             {
@@ -33,9 +30,9 @@ namespace TdLib
                 /// <summary>
                 /// The value of the option
                 /// </summary>
-                [JsonConverter(typeof(Converter))]
+                [JsonConverter(typeof(Converter.Int64))]
                 [JsonProperty("value")]
-                public int Value { get; set; }
+                public long Value { get; set; }
             }
         }
     }

@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Contains a caption of an instant view web page block, consisting of a text and a trailing credit 
+        /// Contains a caption of an instant view web page block, consisting of a text and a trailing credit
         /// </summary>
-        public class PageBlockCaption : Object
+        public partial class PageBlockCaption : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,13 +20,13 @@ namespace TdLib
             public override string DataType { get; set; } = "pageBlockCaption";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Content of the caption 
+            /// Content of the caption
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("text")]

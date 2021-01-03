@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A message was edited. Changes in the message content will come in a separate updateMessageContent 
-        /// </summary>
         public partial class Update : Object
         {
             /// <summary>
-            /// A message was edited. Changes in the message content will come in a separate updateMessageContent 
+            /// A message was edited. Changes in the message content will come in a separate updateMessageContent
             /// </summary>
             public class UpdateMessageEdited : Update
             {
@@ -31,21 +28,21 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Chat identifier 
+                /// Chat identifier
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("chat_id")]
                 public long ChatId { get; set; }
 
                 /// <summary>
-                /// Message identifier 
+                /// Message identifier
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("message_id")]
                 public long MessageId { get; set; }
 
                 /// <summary>
-                /// Point in time (Unix timestamp) when the message was edited 
+                /// Point in time (Unix timestamp) when the message was edited
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("edit_date")]

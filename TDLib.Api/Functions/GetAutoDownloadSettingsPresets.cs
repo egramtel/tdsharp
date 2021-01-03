@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns auto-download settings presets for the currently logged in user
+        /// Returns auto-download settings presets for the current user
         /// </summary>
         public class GetAutoDownloadSettingsPresets : Function<AutoDownloadSettingsPresets>
         {
@@ -21,17 +21,17 @@ namespace TdLib
             public override string DataType { get; set; } = "getAutoDownloadSettingsPresets";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
         }
 
-
         /// <summary>
-        /// Returns auto-download settings presets for the currently logged in user
+        /// Returns auto-download settings presets for the current user
         /// </summary>
-        public static Task<AutoDownloadSettingsPresets> GetAutoDownloadSettingsPresetsAsync(this Client client)
+        public static Task<AutoDownloadSettingsPresets> GetAutoDownloadSettingsPresetsAsync(
+            this Client client)
         {
             return client.ExecuteAsync(new GetAutoDownloadSettingsPresets
             {

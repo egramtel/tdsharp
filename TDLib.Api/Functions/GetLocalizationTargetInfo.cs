@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns information about the current localization target. This is an offline request if only_local is true. Can be called before authorization 
+        /// Returns information about the current localization target. This is an offline request if only_local is true. Can be called before authorization
         /// </summary>
         public class GetLocalizationTargetInfo : Function<LocalizationTargetInfo>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "getLocalizationTargetInfo";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public bool OnlyLocal { get; set; }
         }
 
-
         /// <summary>
-        /// Returns information about the current localization target. This is an offline request if only_local is true. Can be called before authorization 
+        /// Returns information about the current localization target. This is an offline request if only_local is true. Can be called before authorization
         /// </summary>
-        public static Task<LocalizationTargetInfo> GetLocalizationTargetInfoAsync(this Client client,
-            bool onlyLocal = default(bool))
+        public static Task<LocalizationTargetInfo> GetLocalizationTargetInfoAsync(
+            this Client client, bool onlyLocal = default)
         {
             return client.ExecuteAsync(new GetLocalizationTargetInfo
             {
-                OnlyLocal = onlyLocal,
+                OnlyLocal = onlyLocal
             });
         }
     }

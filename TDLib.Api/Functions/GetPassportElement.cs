@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns one of the available Telegram Passport elements 
+        /// Returns one of the available Telegram Passport elements
         /// </summary>
         public class GetPassportElement : Function<PassportElement>
         {
@@ -21,13 +21,13 @@ namespace TdLib
             public override string DataType { get; set; } = "getPassportElement";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Telegram Passport element type 
+            /// Telegram Passport element type
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("type")]
@@ -41,18 +41,15 @@ namespace TdLib
             public string Password { get; set; }
         }
 
-
         /// <summary>
-        /// Returns one of the available Telegram Passport elements 
+        /// Returns one of the available Telegram Passport elements
         /// </summary>
-        public static Task<PassportElement> GetPassportElementAsync(this Client client,
-            PassportElementType type = default(PassportElementType),
-            string password = default(string))
+        public static Task<PassportElement> GetPassportElementAsync(
+            this Client client, PassportElementType type = default, string password = default)
         {
             return client.ExecuteAsync(new GetPassportElement
             {
-                Type = type,
-                Password = password,
+                Type = type, Password = password
             });
         }
     }

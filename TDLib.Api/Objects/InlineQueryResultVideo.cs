@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// Represents a video 
-        /// </summary>
         public partial class InlineQueryResult : Object
         {
             /// <summary>
-            /// Represents a video 
+            /// Represents a video
             /// </summary>
             public class InlineQueryResultVideo : InlineQueryResult
             {
@@ -31,28 +28,28 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Unique identifier of the query result 
+                /// Unique identifier of the query result
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("id")]
                 public string Id { get; set; }
 
                 /// <summary>
-                /// Video 
+                /// Video
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("video")]
                 public Video Video { get; set; }
 
                 /// <summary>
-                /// Title of the video 
+                /// Title of the video
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("title")]
                 public string Title { get; set; }
 
                 /// <summary>
-                /// Represents a video 
+                /// 
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("description")]

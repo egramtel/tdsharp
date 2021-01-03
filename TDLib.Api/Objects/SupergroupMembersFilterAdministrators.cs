@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// Returns the owner and administrators
-        /// </summary>
         public partial class SupergroupMembersFilter : Object
         {
             /// <summary>

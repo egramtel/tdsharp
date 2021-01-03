@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Clears the list of recently used stickers 
+        /// Clears the list of recently used stickers
         /// </summary>
         public class ClearRecentStickers : Function<Ok>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "clearRecentStickers";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public bool IsAttached { get; set; }
         }
 
-
         /// <summary>
-        /// Clears the list of recently used stickers 
+        /// Clears the list of recently used stickers
         /// </summary>
-        public static Task<Ok> ClearRecentStickersAsync(this Client client,
-            bool isAttached = default(bool))
+        public static Task<Ok> ClearRecentStickersAsync(
+            this Client client, bool isAttached = default)
         {
             return client.ExecuteAsync(new ClearRecentStickers
             {
-                IsAttached = isAttached,
+                IsAttached = isAttached
             });
         }
     }

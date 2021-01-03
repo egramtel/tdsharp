@@ -10,9 +10,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns a private HTTPS link to a message in a chat. Available only for already sent messages in supergroups and channels. The link will work only for members of the chat
+        /// Returns an HTTPS link to a message in a chat. Available only for already sent messages in supergroups and channels. This is an offline request
         /// </summary>
-        public class GetMessageLink : Function<HttpUrl>
+        public class GetMessageLink : Function<MessageLink>
         {
             /// <summary>
             /// Data type for serialization
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "getMessageLink";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -39,20 +39,32 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("message_id")]
             public long MessageId { get; set; }
+
+            /// <summary>
+            /// Pass true to create a link for the whole media album
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("for_album")]
+            public bool ForAlbum { get; set; }
+
+            /// <summary>
+            /// Pass true to create a link to the message as a channel post comment, or from a message thread
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("for_comment")]
+            public bool ForComment { get; set; }
         }
 
-
         /// <summary>
-        /// Returns a private HTTPS link to a message in a chat. Available only for already sent messages in supergroups and channels. The link will work only for members of the chat
+        /// Returns an HTTPS link to a message in a chat. Available only for already sent messages in supergroups and channels. This is an offline request
         /// </summary>
-        public static Task<HttpUrl> GetMessageLinkAsync(this Client client,
-            long chatId = default(long),
-            long messageId = default(long))
+        public static Task<MessageLink> GetMessageLinkAsync(
+            this Client client, long chatId = default, long messageId = default, bool forAlbum = default,
+            bool forComment = default)
         {
             return client.ExecuteAsync(new GetMessageLink
             {
-                ChatId = chatId,
-                MessageId = messageId,
+                ChatId = chatId, MessageId = messageId, ForAlbum = forAlbum, ForComment = forComment
             });
         }
     }

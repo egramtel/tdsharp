@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A deleted language pack string, the value should be taken from the built-in english language pack
-        /// </summary>
         public partial class LanguagePackStringValue : Object
         {
             /// <summary>

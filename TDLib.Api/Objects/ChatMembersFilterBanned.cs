@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// Returns users banned from the chat; can be used only by administrators in a supergroup or in a channel
-        /// </summary>
         public partial class ChatMembersFilter : Object
         {
             /// <summary>

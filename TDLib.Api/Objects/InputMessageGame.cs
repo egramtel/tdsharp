@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A message with a game; not supported for channels or secret chats 
-        /// </summary>
         public partial class InputMessageContent : Object
         {
             /// <summary>
-            /// A message with a game; not supported for channels or secret chats 
+            /// A message with a game; not supported for channels or secret chats
             /// </summary>
             public class InputMessageGame : InputMessageContent
             {
@@ -31,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// User identifier of the bot that owns the game 
+                /// User identifier of the bot that owns the game
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("bot_user_id")]

@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Contains a TDLib internal log verbosity level 
+        /// Contains a TDLib internal log verbosity level
         /// </summary>
-        public class LogVerbosityLevel : Object
+        public partial class LogVerbosityLevel : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,7 +20,7 @@ namespace TdLib
             public override string DataType { get; set; } = "logVerbosityLevel";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }

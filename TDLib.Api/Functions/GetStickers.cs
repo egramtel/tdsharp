@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns stickers from the installed sticker sets that correspond to a given emoji. If the emoji is not empty, favorite and recently used stickers may also be returned 
+        /// Returns stickers from the installed sticker sets that correspond to a given emoji. If the emoji is not empty, favorite and recently used stickers may also be returned
         /// </summary>
         public class GetStickers : Function<Stickers>
         {
@@ -21,13 +21,13 @@ namespace TdLib
             public override string DataType { get; set; } = "getStickers";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// String representation of emoji. If empty, returns all known installed stickers 
+            /// String representation of emoji. If empty, returns all known installed stickers
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("emoji")]
@@ -41,18 +41,15 @@ namespace TdLib
             public int Limit { get; set; }
         }
 
-
         /// <summary>
-        /// Returns stickers from the installed sticker sets that correspond to a given emoji. If the emoji is not empty, favorite and recently used stickers may also be returned 
+        /// Returns stickers from the installed sticker sets that correspond to a given emoji. If the emoji is not empty, favorite and recently used stickers may also be returned
         /// </summary>
-        public static Task<Stickers> GetStickersAsync(this Client client,
-            string emoji = default(string),
-            int limit = default(int))
+        public static Task<Stickers> GetStickersAsync(
+            this Client client, string emoji = default, int limit = default)
         {
             return client.ExecuteAsync(new GetStickers
             {
-                Emoji = emoji,
-                Limit = limit,
+                Emoji = emoji, Limit = limit
             });
         }
     }

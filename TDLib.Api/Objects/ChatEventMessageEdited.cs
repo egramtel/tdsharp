@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A message was edited 
-        /// </summary>
         public partial class ChatEventAction : Object
         {
             /// <summary>
-            /// A message was edited 
+            /// Represents a chat event
             /// </summary>
             public class ChatEventMessageEdited : ChatEventAction
             {
@@ -31,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// The original message before the edit 
+                /// The original message before the edit
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("old_message")]

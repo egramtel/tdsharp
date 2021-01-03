@@ -11,7 +11,7 @@ namespace TdLib
         /// <summary>
         /// Contains auto-download settings presets for the user
         /// </summary>
-        public class AutoDownloadSettingsPresets : Object
+        public partial class AutoDownloadSettingsPresets : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,7 +20,7 @@ namespace TdLib
             public override string DataType { get; set; } = "autoDownloadSettingsPresets";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }

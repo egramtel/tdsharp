@@ -21,13 +21,13 @@ namespace TdLib
             public override string DataType { get; set; } = "getPollVoters";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Identifier of the chat to which the poll belongs 
+            /// Identifier of the chat to which the poll belongs
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_id")]
@@ -62,24 +62,16 @@ namespace TdLib
             public int Limit { get; set; }
         }
 
-
         /// <summary>
         /// Returns users voted for the specified option in a non-anonymous polls. For the optimal performance the number of returned users is chosen by the library
         /// </summary>
-        public static Task<Users> GetPollVotersAsync(this Client client,
-            long chatId = default(long),
-            long messageId = default(long),
-            int optionId = default(int),
-            int offset = default(int),
-            int limit = default(int))
+        public static Task<Users> GetPollVotersAsync(
+            this Client client, long chatId = default, long messageId = default, int optionId = default,
+            int offset = default, int limit = default)
         {
             return client.ExecuteAsync(new GetPollVoters
             {
-                ChatId = chatId,
-                MessageId = messageId,
-                OptionId = optionId,
-                Offset = offset,
-                Limit = limit,
+                ChatId = chatId, MessageId = messageId, OptionId = optionId, Offset = offset, Limit = limit
             });
         }
     }

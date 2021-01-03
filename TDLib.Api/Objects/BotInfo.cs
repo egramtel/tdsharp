@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Provides information about a bot and its supported commands 
+        /// Provides information about a bot and its supported commands
         /// </summary>
-        public class BotInfo : Object
+        public partial class BotInfo : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,13 +20,13 @@ namespace TdLib
             public override string DataType { get; set; } = "botInfo";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Provides information about a bot and its supported commands 
+            /// 
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("description")]

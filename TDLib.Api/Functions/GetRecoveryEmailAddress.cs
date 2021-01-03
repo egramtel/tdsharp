@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns a 2-step verification recovery email address that was previously set up. This method can be used to verify a password provided by the user 
+        /// Returns a 2-step verification recovery email address that was previously set up. This method can be used to verify a password provided by the user
         /// </summary>
         public class GetRecoveryEmailAddress : Function<RecoveryEmailAddress>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "getRecoveryEmailAddress";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public string Password { get; set; }
         }
 
-
         /// <summary>
-        /// Returns a 2-step verification recovery email address that was previously set up. This method can be used to verify a password provided by the user 
+        /// Returns a 2-step verification recovery email address that was previously set up. This method can be used to verify a password provided by the user
         /// </summary>
-        public static Task<RecoveryEmailAddress> GetRecoveryEmailAddressAsync(this Client client,
-            string password = default(string))
+        public static Task<RecoveryEmailAddress> GetRecoveryEmailAddressAsync(
+            this Client client, string password = default)
         {
             return client.ExecuteAsync(new GetRecoveryEmailAddress
             {
-                Password = password,
+                Password = password
             });
         }
     }

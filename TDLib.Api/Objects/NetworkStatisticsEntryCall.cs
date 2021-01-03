@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// Contains information about the total amount of data that was used for calls 
-        /// </summary>
         public partial class NetworkStatisticsEntry : Object
         {
             /// <summary>
-            /// Contains information about the total amount of data that was used for calls 
+            /// Contains information about the total amount of data that was used for calls
             /// </summary>
             public class NetworkStatisticsEntryCall : NetworkStatisticsEntry
             {
@@ -38,14 +35,14 @@ namespace TdLib
                 public NetworkType NetworkType { get; set; }
 
                 /// <summary>
-                /// Total number of bytes sent 
+                /// Total number of bytes sent
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("sent_bytes")]
                 public long SentBytes { get; set; }
 
                 /// <summary>
-                /// Total number of bytes received 
+                /// Total number of bytes received
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("received_bytes")]

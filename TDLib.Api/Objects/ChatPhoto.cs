@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Describes the photo of a chat 
+        /// Describes a chat or user profile photo
         /// </summary>
-        public class ChatPhoto : Object
+        public partial class ChatPhoto : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,24 +20,45 @@ namespace TdLib
             public override string DataType { get; set; } = "chatPhoto";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// A small (160x160) chat photo. The file can be downloaded only before the photo is changed 
+            /// Unique photo identifier
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("small")]
-            public File Small { get; set; }
+            [JsonConverter(typeof(Converter.Int64))]
+            [JsonProperty("id")]
+            public long Id { get; set; }
 
             /// <summary>
-            /// A big (640x640) chat photo. The file can be downloaded only before the photo is changed
+            /// Point in time (Unix timestamp) when the photo has been added
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("big")]
-            public File Big { get; set; }
+            [JsonProperty("added_date")]
+            public int AddedDate { get; set; }
+
+            /// <summary>
+            /// Photo minithumbnail; may be null
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("minithumbnail")]
+            public Minithumbnail Minithumbnail { get; set; }
+
+            /// <summary>
+            /// Available variants of the photo in JPEG format, in different size
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("sizes")]
+            public PhotoSize[] Sizes { get; set; }
+
+            /// <summary>
+            /// Animated variant of the photo in MPEG4 format; may be null
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("animation")]
+            public AnimatedChatPhoto Animation { get; set; }
         }
     }
 }

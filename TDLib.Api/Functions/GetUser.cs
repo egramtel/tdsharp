@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns information about a user by their identifier. This is an offline request if the current user is not a bot 
+        /// Returns information about a user by their identifier. This is an offline request if the current user is not a bot
         /// </summary>
         public class GetUser : Function<User>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "getUser";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public int UserId { get; set; }
         }
 
-
         /// <summary>
-        /// Returns information about a user by their identifier. This is an offline request if the current user is not a bot 
+        /// Returns information about a user by their identifier. This is an offline request if the current user is not a bot
         /// </summary>
-        public static Task<User> GetUserAsync(this Client client,
-            int userId = default(int))
+        public static Task<User> GetUserAsync(
+            this Client client, int userId = default)
         {
             return client.ExecuteAsync(new GetUser
             {
-                UserId = userId,
+                UserId = userId
             });
         }
     }

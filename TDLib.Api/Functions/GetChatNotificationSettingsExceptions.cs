@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns list of chats with non-default notification settings 
+        /// Returns list of chats with non-default notification settings
         /// </summary>
         public class GetChatNotificationSettingsExceptions : Function<Chats>
         {
@@ -21,13 +21,13 @@ namespace TdLib
             public override string DataType { get; set; } = "getChatNotificationSettingsExceptions";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// If specified, only chats from the specified scope will be returned 
+            /// If specified, only chats from the specified scope will be returned
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("scope")]
@@ -41,18 +41,15 @@ namespace TdLib
             public bool CompareSound { get; set; }
         }
 
-
         /// <summary>
-        /// Returns list of chats with non-default notification settings 
+        /// Returns list of chats with non-default notification settings
         /// </summary>
-        public static Task<Chats> GetChatNotificationSettingsExceptionsAsync(this Client client,
-            NotificationSettingsScope scope = default(NotificationSettingsScope),
-            bool compareSound = default(bool))
+        public static Task<Chats> GetChatNotificationSettingsExceptionsAsync(
+            this Client client, NotificationSettingsScope scope = default, bool compareSound = default)
         {
             return client.ExecuteAsync(new GetChatNotificationSettingsExceptions
             {
-                Scope = scope,
-                CompareSound = compareSound,
+                Scope = scope, CompareSound = compareSound
             });
         }
     }

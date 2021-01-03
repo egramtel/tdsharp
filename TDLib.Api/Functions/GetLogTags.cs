@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns list of available TDLib internal log tags, for example, ["actor", "binlog", "connections", "notifications", "proxy"]. This is an offline method. Can be called before authorization. Can be called synchronously
+        /// Returns list of available TDLib internal log tags, for example, ["actor", "binlog", "connections", "notifications", "proxy"]. Can be called synchronously
         /// </summary>
         public class GetLogTags : Function<LogTags>
         {
@@ -21,17 +21,17 @@ namespace TdLib
             public override string DataType { get; set; } = "getLogTags";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
         }
 
-
         /// <summary>
-        /// Returns list of available TDLib internal log tags, for example, ["actor", "binlog", "connections", "notifications", "proxy"]. This is an offline method. Can be called before authorization. Can be called synchronously
+        /// Returns list of available TDLib internal log tags, for example, ["actor", "binlog", "connections", "notifications", "proxy"]. Can be called synchronously
         /// </summary>
-        public static Task<LogTags> GetLogTagsAsync(this Client client)
+        public static Task<LogTags> GetLogTagsAsync(
+            this Client client)
         {
             return client.ExecuteAsync(new GetLogTags
             {

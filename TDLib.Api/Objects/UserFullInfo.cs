@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Contains full information about a user (except the full list of profile photos) 
+        /// Contains full information about a user
         /// </summary>
-        public class UserFullInfo : Object
+        public partial class UserFullInfo : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,24 +20,38 @@ namespace TdLib
             public override string DataType { get; set; } = "userFullInfo";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// True, if the user is blacklisted by the current user
+            /// User profile photo; may be null
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("photo")]
+            public ChatPhoto Photo { get; set; }
+
+            /// <summary>
+            /// True, if the user is blocked by the current user
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_blocked")]
             public bool IsBlocked { get; set; }
 
             /// <summary>
-            /// True, if the user can be called 
+            /// True, if the user can be called
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("can_be_called")]
             public bool CanBeCalled { get; set; }
+
+            /// <summary>
+            /// True, if a video call can be created with the user
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("supports_video_calls")]
+            public bool SupportsVideoCalls { get; set; }
 
             /// <summary>
             /// True, if the user can't be called due to their privacy settings
@@ -54,21 +68,21 @@ namespace TdLib
             public bool NeedPhoneNumberPrivacyException { get; set; }
 
             /// <summary>
-            /// A short user bio 
+            /// A short user bio
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("bio")]
             public string Bio { get; set; }
 
             /// <summary>
-            /// For bots, the text that is included with the link when users share the bot 
+            /// For bots, the text that is included with the link when users share the bot
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("share_text")]
             public string ShareText { get; set; }
 
             /// <summary>
-            /// Number of group chats where both the other user and the current user are a member; 0 for the current user 
+            /// Number of group chats where both the other user and the current user are a member; 0 for the current user
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("group_in_common_count")]

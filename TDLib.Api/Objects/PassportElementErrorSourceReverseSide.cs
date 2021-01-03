@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The reverse side of the document contains an error. The error will be considered resolved when the file with the reverse side changes
-        /// </summary>
         public partial class PassportElementErrorSource : Object
         {
             /// <summary>

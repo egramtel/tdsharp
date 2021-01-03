@@ -21,17 +21,17 @@ namespace TdLib
             public override string DataType { get; set; } = "getInviteText";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
         }
 
-
         /// <summary>
         /// Returns the default text for invitation messages to be used as a placeholder when the current user invites friends to Telegram
         /// </summary>
-        public static Task<Text> GetInviteTextAsync(this Client client)
+        public static Task<Text> GetInviteTextAsync(
+            this Client client)
         {
             return client.ExecuteAsync(new GetInviteText
             {

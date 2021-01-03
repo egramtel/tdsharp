@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Represents one member of a JSON object 
+        /// Represents one member of a JSON object
         /// </summary>
-        public class JsonObjectMember : Object
+        public partial class JsonObjectMember : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,13 +20,13 @@ namespace TdLib
             public override string DataType { get; set; } = "jsonObjectMember";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Member's key 
+            /// Member's key
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("key")]

@@ -21,13 +21,13 @@ namespace TdLib
             public override string DataType { get; set; } = "setChatPermissions";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Chat identifier 
+            /// Chat identifier
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_id")]
@@ -41,18 +41,15 @@ namespace TdLib
             public ChatPermissions Permissions { get; set; }
         }
 
-
         /// <summary>
         /// Changes the chat members permissions. Supported only for basic groups and supergroups. Requires can_restrict_members administrator right
         /// </summary>
-        public static Task<Ok> SetChatPermissionsAsync(this Client client,
-            long chatId = default(long),
-            ChatPermissions permissions = default(ChatPermissions))
+        public static Task<Ok> SetChatPermissionsAsync(
+            this Client client, long chatId = default, ChatPermissions permissions = default)
         {
             return client.ExecuteAsync(new SetChatPermissions
             {
-                ChatId = chatId,
-                Permissions = permissions,
+                ChatId = chatId, Permissions = permissions
             });
         }
     }

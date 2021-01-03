@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Updates the game score of the specified user in the game; for bots only 
+        /// Updates the game score of the specified user in the game; for bots only
         /// </summary>
         public class SetGameScore : Function<Message>
         {
@@ -21,34 +21,34 @@ namespace TdLib
             public override string DataType { get; set; } = "setGameScore";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// The chat to which the message with the game belongs 
+            /// The chat to which the message with the game belongs
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_id")]
             public long ChatId { get; set; }
 
             /// <summary>
-            /// Identifier of the message 
+            /// Identifier of the message
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("message_id")]
             public long MessageId { get; set; }
 
             /// <summary>
-            /// True, if the message should be edited 
+            /// True, if the message should be edited
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("edit_message")]
             public bool EditMessage { get; set; }
 
             /// <summary>
-            /// User identifier 
+            /// User identifier
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("user_id")]
@@ -69,26 +69,17 @@ namespace TdLib
             public bool Force { get; set; }
         }
 
-
         /// <summary>
-        /// Updates the game score of the specified user in the game; for bots only 
+        /// Updates the game score of the specified user in the game; for bots only
         /// </summary>
-        public static Task<Message> SetGameScoreAsync(this Client client,
-            long chatId = default(long),
-            long messageId = default(long),
-            bool editMessage = default(bool),
-            int userId = default(int),
-            int score = default(int),
-            bool force = default(bool))
+        public static Task<Message> SetGameScoreAsync(
+            this Client client, long chatId = default, long messageId = default, bool editMessage = default,
+            int userId = default, int score = default, bool force = default)
         {
             return client.ExecuteAsync(new SetGameScore
             {
-                ChatId = chatId,
-                MessageId = messageId,
-                EditMessage = editMessage,
-                UserId = userId,
-                Score = score,
-                Force = force,
+                ChatId = chatId, MessageId = messageId, EditMessage = editMessage, UserId = userId, Score = score,
+                Force = force
             });
         }
     }

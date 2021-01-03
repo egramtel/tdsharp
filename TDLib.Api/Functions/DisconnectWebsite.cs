@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Disconnects website from the current user's Telegram account 
+        /// Disconnects website from the current user's Telegram account
         /// </summary>
         public class DisconnectWebsite : Function<Ok>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "disconnectWebsite";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -31,19 +31,18 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter.Int64))]
             [JsonProperty("website_id")]
-            public Int64 WebsiteId { get; set; }
+            public long WebsiteId { get; set; }
         }
 
-
         /// <summary>
-        /// Disconnects website from the current user's Telegram account 
+        /// Disconnects website from the current user's Telegram account
         /// </summary>
-        public static Task<Ok> DisconnectWebsiteAsync(this Client client,
-            Int64 websiteId = default(Int64))
+        public static Task<Ok> DisconnectWebsiteAsync(
+            this Client client, long websiteId = default)
         {
             return client.ExecuteAsync(new DisconnectWebsite
             {
-                WebsiteId = websiteId,
+                WebsiteId = websiteId
             });
         }
     }

@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Represents the results of the inline query. Use sendInlineQueryResultMessage to send the result of the query 
+        /// Represents the results of the inline query. Use sendInlineQueryResultMessage to send the result of the query
         /// </summary>
-        public class InlineQueryResults : Object
+        public partial class InlineQueryResults : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,20 +20,20 @@ namespace TdLib
             public override string DataType { get; set; } = "inlineQueryResults";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Unique identifier of the inline query 
+            /// Unique identifier of the inline query
             /// </summary>
             [JsonConverter(typeof(Converter.Int64))]
             [JsonProperty("inline_query_id")]
-            public Int64 InlineQueryId { get; set; }
+            public long InlineQueryId { get; set; }
 
             /// <summary>
-            /// The offset for the next request. If empty, there are no more results 
+            /// The offset for the next request. If empty, there are no more results
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("next_offset")]
@@ -47,7 +47,7 @@ namespace TdLib
             public InlineQueryResult[] Results { get; set; }
 
             /// <summary>
-            /// If non-empty, this text should be shown on the button, which opens a private chat with the bot and sends the bot a start message with the switch_pm_parameter 
+            /// If non-empty, this text should be shown on the button, which opens a private chat with the bot and sends the bot a start message with the switch_pm_parameter
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("switch_pm_text")]

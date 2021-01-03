@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns all scheduled messages in a chat. The messages are returned in a reverse chronological order (i.e., in order of decreasing message_id) 
+        /// Returns all scheduled messages in a chat. The messages are returned in a reverse chronological order (i.e., in order of decreasing message_id)
         /// </summary>
         public class GetChatScheduledMessages : Function<Messages>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "getChatScheduledMessages";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public long ChatId { get; set; }
         }
 
-
         /// <summary>
-        /// Returns all scheduled messages in a chat. The messages are returned in a reverse chronological order (i.e., in order of decreasing message_id) 
+        /// Returns all scheduled messages in a chat. The messages are returned in a reverse chronological order (i.e., in order of decreasing message_id)
         /// </summary>
-        public static Task<Messages> GetChatScheduledMessagesAsync(this Client client,
-            long chatId = default(long))
+        public static Task<Messages> GetChatScheduledMessagesAsync(
+            this Client client, long chatId = default)
         {
             return client.ExecuteAsync(new GetChatScheduledMessages
             {
-                ChatId = chatId,
+                ChatId = chatId
             });
         }
     }

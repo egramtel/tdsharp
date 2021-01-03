@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A new incoming query; for bots only 
-        /// </summary>
         public partial class Update : Object
         {
             /// <summary>
-            /// A new incoming query; for bots only 
+            /// A new incoming query; for bots only
             /// </summary>
             public class UpdateNewCustomQuery : Update
             {
@@ -31,14 +28,14 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// The query identifier 
+                /// The query identifier
                 /// </summary>
                 [JsonConverter(typeof(Converter.Int64))]
                 [JsonProperty("id")]
-                public Int64 Id { get; set; }
+                public long Id { get; set; }
 
                 /// <summary>
-                /// JSON-serialized query data 
+                /// JSON-serialized query data
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("data")]

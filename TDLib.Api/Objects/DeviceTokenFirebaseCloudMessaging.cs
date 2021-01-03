@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A token for Firebase Cloud Messaging 
-        /// </summary>
         public partial class DeviceToken : Object
         {
             /// <summary>
-            /// A token for Firebase Cloud Messaging 
+            /// Represents a data needed to subscribe for push notifications through registerDevice method. To use specific push notification service, the correct application platform must be specified and a valid server authentication data must be uploaded at https://my.telegram.org
             /// </summary>
             public class DeviceTokenFirebaseCloudMessaging : DeviceToken
             {
@@ -31,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Device registration token; may be empty to de-register a device 
+                /// Device registration token; may be empty to de-register a device
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("token")]

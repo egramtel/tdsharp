@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// An audio message 
-        /// </summary>
         public partial class PushMessageContent : Object
         {
             /// <summary>
-            /// An audio message 
+            /// An audio message
             /// </summary>
             public class PushMessageContentAudio : PushMessageContent
             {
@@ -31,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Message content; may be null 
+                /// Message content; may be null
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("audio")]

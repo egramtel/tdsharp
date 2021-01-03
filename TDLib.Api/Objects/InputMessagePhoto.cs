@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A photo message 
-        /// </summary>
         public partial class InputMessageContent : Object
         {
             /// <summary>
-            /// A photo message 
+            /// A photo message
             /// </summary>
             public class InputMessagePhoto : InputMessageContent
             {
@@ -31,35 +28,35 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Photo to send 
+                /// Photo to send
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("photo")]
                 public InputFile Photo { get; set; }
 
                 /// <summary>
-                /// Photo thumbnail to be sent, this is sent to the other party in secret chats only 
+                /// Photo thumbnail to be sent, this is sent to the other party in secret chats only
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("thumbnail")]
                 public InputThumbnail Thumbnail { get; set; }
 
                 /// <summary>
-                /// File identifiers of the stickers added to the photo, if applicable 
+                /// File identifiers of the stickers added to the photo, if applicable
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("added_sticker_file_ids")]
                 public int[] AddedStickerFileIds { get; set; }
 
                 /// <summary>
-                /// Photo width 
+                /// Photo width
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("width")]
                 public int Width { get; set; }
 
                 /// <summary>
-                /// Photo height 
+                /// Photo height
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("height")]

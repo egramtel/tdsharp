@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A link to a chat 
-        /// </summary>
         public partial class PageBlock : Object
         {
             /// <summary>
-            /// A link to a chat 
+            /// A link to a chat
             /// </summary>
             public class PageBlockChatLink : PageBlock
             {
@@ -31,18 +28,18 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Chat title 
+                /// Chat title
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("title")]
                 public string Title { get; set; }
 
                 /// <summary>
-                /// Chat photo; may be null 
+                /// Chat photo; may be null
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("photo")]
-                public ChatPhoto Photo { get; set; }
+                public ChatPhotoInfo Photo { get; set; }
 
                 /// <summary>
                 /// Chat username, by which all other information about the chat should be resolved

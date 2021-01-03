@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// Used to search for supergroup or channel members via a (string) query 
-        /// </summary>
         public partial class SupergroupMembersFilter : Object
         {
             /// <summary>
-            /// Used to search for supergroup or channel members via a (string) query 
+            /// Used to search for supergroup or channel members via a (string) query
             /// </summary>
             public class SupergroupMembersFilterSearch : SupergroupMembersFilter
             {

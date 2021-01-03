@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns emoji corresponding to a sticker. The list is only for informational purposes, because a sticker is always sent with a fixed emoji from the corresponding Sticker object 
+        /// Returns emoji corresponding to a sticker. The list is only for informational purposes, because a sticker is always sent with a fixed emoji from the corresponding Sticker object
         /// </summary>
         public class GetStickerEmojis : Function<Emojis>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "getStickerEmojis";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public InputFile Sticker { get; set; }
         }
 
-
         /// <summary>
-        /// Returns emoji corresponding to a sticker. The list is only for informational purposes, because a sticker is always sent with a fixed emoji from the corresponding Sticker object 
+        /// Returns emoji corresponding to a sticker. The list is only for informational purposes, because a sticker is always sent with a fixed emoji from the corresponding Sticker object
         /// </summary>
-        public static Task<Emojis> GetStickerEmojisAsync(this Client client,
-            InputFile sticker = default(InputFile))
+        public static Task<Emojis> GetStickerEmojisAsync(
+            this Client client, InputFile sticker = default)
         {
             return client.ExecuteAsync(new GetStickerEmojis
             {
-                Sticker = sticker,
+                Sticker = sticker
             });
         }
     }

@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// A full list of available network statistic entries 
+        /// A full list of available network statistic entries
         /// </summary>
-        public class NetworkStatistics : Object
+        public partial class NetworkStatistics : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,13 +20,13 @@ namespace TdLib
             public override string DataType { get; set; } = "networkStatistics";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Point in time (Unix timestamp) when the app began collecting statistics 
+            /// Point in time (Unix timestamp) from which the statistics are collected
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("since_date")]

@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Changes the sticker set of a supergroup; requires can_change_info rights 
+        /// Changes the sticker set of a supergroup; requires can_change_info rights
         /// </summary>
         public class SetSupergroupStickerSet : Function<Ok>
         {
@@ -21,13 +21,13 @@ namespace TdLib
             public override string DataType { get; set; } = "setSupergroupStickerSet";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Identifier of the supergroup 
+            /// Identifier of the supergroup
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("supergroup_id")]
@@ -38,21 +38,18 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter.Int64))]
             [JsonProperty("sticker_set_id")]
-            public Int64 StickerSetId { get; set; }
+            public long StickerSetId { get; set; }
         }
 
-
         /// <summary>
-        /// Changes the sticker set of a supergroup; requires can_change_info rights 
+        /// Changes the sticker set of a supergroup; requires can_change_info rights
         /// </summary>
-        public static Task<Ok> SetSupergroupStickerSetAsync(this Client client,
-            int supergroupId = default(int),
-            Int64 stickerSetId = default(Int64))
+        public static Task<Ok> SetSupergroupStickerSetAsync(
+            this Client client, int supergroupId = default, long stickerSetId = default)
         {
             return client.ExecuteAsync(new SetSupergroupStickerSet
             {
-                SupergroupId = supergroupId,
-                StickerSetId = stickerSetId,
+                SupergroupId = supergroupId, StickerSetId = stickerSetId
             });
         }
     }

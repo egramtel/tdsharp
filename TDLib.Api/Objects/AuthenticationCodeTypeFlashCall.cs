@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// An authentication code is delivered by an immediately cancelled call to the specified phone number. The number from which the call was made is the code 
-        /// </summary>
         public partial class AuthenticationCodeType : Object
         {
             /// <summary>
-            /// An authentication code is delivered by an immediately cancelled call to the specified phone number. The number from which the call was made is the code 
+            /// An authentication code is delivered by an immediately cancelled call to the specified phone number. The number from which the call was made is the code
             /// </summary>
             public class AuthenticationCodeTypeFlashCall : AuthenticationCodeType
             {

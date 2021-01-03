@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A kicker 
-        /// </summary>
         public partial class PageBlock : Object
         {
             /// <summary>
-            /// A kicker 
+            /// A kicker
             /// </summary>
             public class PageBlockKicker : PageBlock
             {

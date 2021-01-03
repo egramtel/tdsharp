@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The list of trending sticker sets was updated or some of them were viewed 
-        /// </summary>
         public partial class Update : Object
         {
             /// <summary>
-            /// The list of trending sticker sets was updated or some of them were viewed 
+            /// The list of trending sticker sets was updated or some of them were viewed
             /// </summary>
             public class UpdateTrendingStickerSets : Update
             {
@@ -31,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// The new list of trending sticker sets
+                /// The prefix of the list of trending sticker sets with the newest trending sticker sets
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("sticker_sets")]

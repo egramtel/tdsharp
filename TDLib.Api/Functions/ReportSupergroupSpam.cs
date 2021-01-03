@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Reports some messages from a user in a supergroup as spam; requires administrator rights in the supergroup 
+        /// Reports some messages from a user in a supergroup as spam; requires administrator rights in the supergroup
         /// </summary>
         public class ReportSupergroupSpam : Function<Ok>
         {
@@ -21,20 +21,20 @@ namespace TdLib
             public override string DataType { get; set; } = "reportSupergroupSpam";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Supergroup identifier 
+            /// Supergroup identifier
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("supergroup_id")]
             public int SupergroupId { get; set; }
 
             /// <summary>
-            /// User identifier 
+            /// User identifier
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("user_id")]
@@ -48,20 +48,15 @@ namespace TdLib
             public long[] MessageIds { get; set; }
         }
 
-
         /// <summary>
-        /// Reports some messages from a user in a supergroup as spam; requires administrator rights in the supergroup 
+        /// Reports some messages from a user in a supergroup as spam; requires administrator rights in the supergroup
         /// </summary>
-        public static Task<Ok> ReportSupergroupSpamAsync(this Client client,
-            int supergroupId = default(int),
-            int userId = default(int),
-            long[] messageIds = default(long[]))
+        public static Task<Ok> ReportSupergroupSpamAsync(
+            this Client client, int supergroupId = default, int userId = default, long[] messageIds = default)
         {
             return client.ExecuteAsync(new ReportSupergroupSpam
             {
-                SupergroupId = supergroupId,
-                UserId = userId,
-                MessageIds = messageIds,
+                SupergroupId = supergroupId, UserId = userId, MessageIds = messageIds
             });
         }
     }

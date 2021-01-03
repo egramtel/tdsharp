@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// Returns recently active users in reverse chronological order
-        /// </summary>
         public partial class SupergroupMembersFilter : Object
         {
             /// <summary>
-            /// Returns recently active users in reverse chronological order
+            /// Specifies the kind of chat members to return in getSupergroupMembers
             /// </summary>
             public class SupergroupMembersFilterRecent : SupergroupMembersFilter
             {

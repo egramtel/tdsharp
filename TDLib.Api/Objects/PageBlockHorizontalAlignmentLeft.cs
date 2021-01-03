@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The content should be left-aligned
-        /// </summary>
         public partial class PageBlockHorizontalAlignment : Object
         {
             /// <summary>
-            /// The content should be left-aligned
+            /// Describes a horizontal alignment of a table cell content
             /// </summary>
             public class PageBlockHorizontalAlignmentLeft : PageBlockHorizontalAlignment
             {

@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// Downloading data received while the client was offline
-        /// </summary>
         public partial class ConnectionState : Object
         {
             /// <summary>
-            /// Downloading data received while the client was offline
+            /// Downloading data received while the application was offline
             /// </summary>
             public class ConnectionStateUpdating : ConnectionState
             {

@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The user is offline, but was online last week
-        /// </summary>
         public partial class UserStatus : Object
         {
             /// <summary>

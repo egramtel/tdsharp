@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns information about the recent locations of chat members that were sent to the chat. Returns up to 1 location message per user 
+        /// Returns information about the recent locations of chat members that were sent to the chat. Returns up to 1 location message per user
         /// </summary>
         public class SearchChatRecentLocationMessages : Function<Messages>
         {
@@ -21,13 +21,13 @@ namespace TdLib
             public override string DataType { get; set; } = "searchChatRecentLocationMessages";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Chat identifier 
+            /// Chat identifier
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_id")]
@@ -41,18 +41,15 @@ namespace TdLib
             public int Limit { get; set; }
         }
 
-
         /// <summary>
-        /// Returns information about the recent locations of chat members that were sent to the chat. Returns up to 1 location message per user 
+        /// Returns information about the recent locations of chat members that were sent to the chat. Returns up to 1 location message per user
         /// </summary>
-        public static Task<Messages> SearchChatRecentLocationMessagesAsync(this Client client,
-            long chatId = default(long),
-            int limit = default(int))
+        public static Task<Messages> SearchChatRecentLocationMessagesAsync(
+            this Client client, long chatId = default, int limit = default)
         {
             return client.ExecuteAsync(new SearchChatRecentLocationMessages
             {
-                ChatId = chatId,
-                Limit = limit,
+                ChatId = chatId, Limit = limit
             });
         }
     }

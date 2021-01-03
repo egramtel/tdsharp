@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A button that opens a specified URL and automatically logs in in current user if they allowed to do that 
-        /// </summary>
         public partial class InlineKeyboardButtonType : Object
         {
             /// <summary>
-            /// A button that opens a specified URL and automatically logs in in current user if they allowed to do that 
+            /// A button that opens a specified URL and automatically authorize the current user if allowed to do so
             /// </summary>
             public class InlineKeyboardButtonTypeLoginUrl : InlineKeyboardButtonType
             {
@@ -31,14 +28,14 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// An HTTP URL to open 
+                /// An HTTP URL to open
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("url")]
                 public string Url { get; set; }
 
                 /// <summary>
-                /// Unique button identifier 
+                /// Unique button identifier
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("id")]

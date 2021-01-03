@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The secret chat is closed
-        /// </summary>
         public partial class SecretChatState : Object
         {
             /// <summary>

@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The translation of the document contains an error. The error is considered resolved when the list of files changes 
-        /// </summary>
         public partial class InputPassportElementErrorSource : Object
         {
             /// <summary>
-            /// The translation of the document contains an error. The error is considered resolved when the list of files changes 
+            /// The translation of the document contains an error. The error is considered resolved when the list of files changes
             /// </summary>
             public class InputPassportElementErrorSourceTranslationFiles : InputPassportElementErrorSource
             {

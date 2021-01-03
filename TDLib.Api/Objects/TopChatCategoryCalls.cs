@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A category containing frequently used chats used for calls
-        /// </summary>
         public partial class TopChatCategory : Object
         {
             /// <summary>

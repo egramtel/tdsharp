@@ -21,17 +21,17 @@ namespace TdLib
             public override string DataType { get; set; } = "testGetDifference";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
         }
 
-
         /// <summary>
         /// Forces an updates.getDifference call to the Telegram servers; for testing only
         /// </summary>
-        public static Task<Ok> TestGetDifferenceAsync(this Client client)
+        public static Task<Ok> TestGetDifferenceAsync(
+            this Client client)
         {
             return client.ExecuteAsync(new TestGetDifference
             {

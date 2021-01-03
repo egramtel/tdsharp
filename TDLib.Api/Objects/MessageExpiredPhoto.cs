@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// An expired photo message (self-destructed after TTL has elapsed)
-        /// </summary>
         public partial class MessageContent : Object
         {
             /// <summary>

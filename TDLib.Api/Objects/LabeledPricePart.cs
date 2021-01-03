@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Portion of the price of a product (e.g., "delivery cost", "tax amount") 
+        /// Portion of the price of a product (e.g., "delivery cost", "tax amount")
         /// </summary>
-        public class LabeledPricePart : Object
+        public partial class LabeledPricePart : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,13 +20,13 @@ namespace TdLib
             public override string DataType { get; set; } = "labeledPricePart";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Label for this portion of the product price 
+            /// Label for this portion of the product price
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("label")]

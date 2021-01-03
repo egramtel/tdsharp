@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A message with a sticker 
-        /// </summary>
         public partial class PushMessageContent : Object
         {
             /// <summary>
-            /// A message with a sticker 
+            /// A message with a sticker
             /// </summary>
             public class PushMessageContentSticker : PushMessageContent
             {
@@ -31,14 +28,14 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Message content; may be null 
+                /// Message content; may be null
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("sticker")]
                 public Sticker Sticker { get; set; }
 
                 /// <summary>
-                /// Emoji corresponding to the sticker; may be empty 
+                /// Emoji corresponding to the sticker; may be empty
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("emoji")]

@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// Some data from userFullInfo has been changed 
-        /// </summary>
         public partial class Update : Object
         {
             /// <summary>
-            /// Some data from userFullInfo has been changed 
+            /// Some data from userFullInfo has been changed
             /// </summary>
             public class UpdateUserFullInfo : Update
             {
@@ -31,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// User identifier 
+                /// User identifier
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("user_id")]

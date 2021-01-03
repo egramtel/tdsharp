@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A basic group was upgraded to a supergroup and was deactivated as the result 
-        /// </summary>
         public partial class MessageContent : Object
         {
             /// <summary>
-            /// A basic group was upgraded to a supergroup and was deactivated as the result 
+            /// A basic group was upgraded to a supergroup and was deactivated as the result
             /// </summary>
             public class MessageChatUpgradeTo : MessageContent
             {

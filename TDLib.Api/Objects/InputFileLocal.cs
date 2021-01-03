@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A file defined by a local path 
-        /// </summary>
         public partial class InputFile : Object
         {
             /// <summary>
-            /// A file defined by a local path 
+            /// A file defined by a local path
             /// </summary>
             public class InputFileLocal : InputFile
             {

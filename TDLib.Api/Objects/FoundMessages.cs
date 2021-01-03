@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Contains a list of messages found by a search 
+        /// Contains a list of messages found by a search
         /// </summary>
-        public class FoundMessages : Object
+        public partial class FoundMessages : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,24 +20,31 @@ namespace TdLib
             public override string DataType { get; set; } = "foundMessages";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// List of messages 
+            /// Approximate total count of messages found; -1 if unknown
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("total_count")]
+            public int TotalCount { get; set; }
+
+            /// <summary>
+            /// List of messages
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("messages")]
             public Message[] Messages { get; set; }
 
             /// <summary>
-            /// Value to pass as from_search_id to get more results
+            /// The offset for the next request. If empty, there are no more results
             /// </summary>
-            [JsonConverter(typeof(Converter.Int64))]
-            [JsonProperty("next_from_search_id")]
-            public Int64 NextFromSearchId { get; set; }
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("next_offset")]
+            public string NextOffset { get; set; }
         }
     }
 }

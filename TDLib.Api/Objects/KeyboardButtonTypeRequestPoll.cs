@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A button that allows the user to create and send a poll when pressed; available only in private chats 
-        /// </summary>
         public partial class KeyboardButtonType : Object
         {
             /// <summary>
-            /// A button that allows the user to create and send a poll when pressed; available only in private chats 
+            /// A button that allows the user to create and send a poll when pressed; available only in private chats
             /// </summary>
             public class KeyboardButtonTypeRequestPoll : KeyboardButtonType
             {
@@ -31,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// If true, only regular polls must be allowed to create 
+                /// If true, only regular polls must be allowed to create
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("force_regular")]

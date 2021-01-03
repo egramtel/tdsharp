@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A token for web Push API 
-        /// </summary>
         public partial class DeviceToken : Object
         {
             /// <summary>
-            /// A token for web Push API 
+            /// A token for web Push API
             /// </summary>
             public class DeviceTokenWebPush : DeviceToken
             {
@@ -38,14 +35,14 @@ namespace TdLib
                 public string Endpoint { get; set; }
 
                 /// <summary>
-                /// 
+                /// Base64url-encoded P-256 elliptic curve Diffie-Hellman public key
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("p256dh_base64url")]
                 public string P256dhBase64url { get; set; }
 
                 /// <summary>
-                /// 
+                /// Base64url-encoded authentication secret
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("auth_base64url")]

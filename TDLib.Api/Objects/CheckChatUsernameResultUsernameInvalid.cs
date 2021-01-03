@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The username is invalid
-        /// </summary>
         public partial class CheckChatUsernameResult : Object
         {
             /// <summary>

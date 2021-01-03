@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns full information about a basic group by its identifier 
+        /// Returns full information about a basic group by its identifier
         /// </summary>
         public class GetBasicGroupFullInfo : Function<BasicGroupFullInfo>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "getBasicGroupFullInfo";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public int BasicGroupId { get; set; }
         }
 
-
         /// <summary>
-        /// Returns full information about a basic group by its identifier 
+        /// Returns full information about a basic group by its identifier
         /// </summary>
-        public static Task<BasicGroupFullInfo> GetBasicGroupFullInfoAsync(this Client client,
-            int basicGroupId = default(int))
+        public static Task<BasicGroupFullInfo> GetBasicGroupFullInfoAsync(
+            this Client client, int basicGroupId = default)
         {
             return client.ExecuteAsync(new GetBasicGroupFullInfo
             {
-                BasicGroupId = basicGroupId,
+                BasicGroupId = basicGroupId
             });
         }
     }

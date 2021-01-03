@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns information about a bank card 
+        /// Returns information about a bank card
         /// </summary>
         public class GetBankCardInfo : Function<BankCardInfo>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "getBankCardInfo";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public string BankCardNumber { get; set; }
         }
 
-
         /// <summary>
-        /// Returns information about a bank card 
+        /// Returns information about a bank card
         /// </summary>
-        public static Task<BankCardInfo> GetBankCardInfoAsync(this Client client,
-            string bankCardNumber = default(string))
+        public static Task<BankCardInfo> GetBankCardInfoAsync(
+            this Client client, string bankCardNumber = default)
         {
             return client.ExecuteAsync(new GetBankCardInfo
             {
-                BankCardNumber = bankCardNumber,
+                BankCardNumber = bankCardNumber
             });
         }
     }

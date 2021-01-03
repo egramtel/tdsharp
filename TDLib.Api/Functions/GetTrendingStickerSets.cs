@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns a list of trending sticker sets
+        /// Returns a list of trending sticker sets. For the optimal performance the number of returned sticker sets is chosen by the library
         /// </summary>
         public class GetTrendingStickerSets : Function<StickerSets>
         {
@@ -21,20 +21,35 @@ namespace TdLib
             public override string DataType { get; set; } = "getTrendingStickerSets";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
+
+            /// <summary>
+            /// The offset from which to return the sticker sets; must be non-negative
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("offset")]
+            public int Offset { get; set; }
+
+            /// <summary>
+            /// The maximum number of sticker sets to be returned; must be non-negative. Fewer sticker sets may be returned than specified by the limit, even if the end of the list has not been reached
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("limit")]
+            public int Limit { get; set; }
         }
 
-
         /// <summary>
-        /// Returns a list of trending sticker sets
+        /// Returns a list of trending sticker sets. For the optimal performance the number of returned sticker sets is chosen by the library
         /// </summary>
-        public static Task<StickerSets> GetTrendingStickerSetsAsync(this Client client)
+        public static Task<StickerSets> GetTrendingStickerSetsAsync(
+            this Client client, int offset = default, int limit = default)
         {
             return client.ExecuteAsync(new GetTrendingStickerSets
             {
+                Offset = offset, Limit = limit
             });
         }
     }

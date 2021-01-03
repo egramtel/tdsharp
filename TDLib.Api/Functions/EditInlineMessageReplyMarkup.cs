@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Edits the reply markup of an inline message sent via a bot; for bots only 
+        /// Edits the reply markup of an inline message sent via a bot; for bots only
         /// </summary>
         public class EditInlineMessageReplyMarkup : Function<Ok>
         {
@@ -21,13 +21,13 @@ namespace TdLib
             public override string DataType { get; set; } = "editInlineMessageReplyMarkup";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Inline message identifier 
+            /// Inline message identifier
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("inline_message_id")]
@@ -41,18 +41,15 @@ namespace TdLib
             public ReplyMarkup ReplyMarkup { get; set; }
         }
 
-
         /// <summary>
-        /// Edits the reply markup of an inline message sent via a bot; for bots only 
+        /// Edits the reply markup of an inline message sent via a bot; for bots only
         /// </summary>
-        public static Task<Ok> EditInlineMessageReplyMarkupAsync(this Client client,
-            string inlineMessageId = default(string),
-            ReplyMarkup replyMarkup = default(ReplyMarkup))
+        public static Task<Ok> EditInlineMessageReplyMarkupAsync(
+            this Client client, string inlineMessageId = default, ReplyMarkup replyMarkup = default)
         {
             return client.ExecuteAsync(new EditInlineMessageReplyMarkup
             {
-                InlineMessageId = inlineMessageId,
-                ReplyMarkup = replyMarkup,
+                InlineMessageId = inlineMessageId, ReplyMarkup = replyMarkup
             });
         }
     }

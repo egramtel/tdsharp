@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The network is not available
-        /// </summary>
         public partial class NetworkType : Object
         {
             /// <summary>
-            /// The network is not available
+            /// Represents the type of a network
             /// </summary>
             public class NetworkTypeNone : NetworkType
             {

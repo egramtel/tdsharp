@@ -21,20 +21,20 @@ namespace TdLib
             public override string DataType { get; set; } = "getLoginUrl";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Chat identifier of the message with the button 
+            /// Chat identifier of the message with the button
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_id")]
             public long ChatId { get; set; }
 
             /// <summary>
-            /// Message identifier of the message with the button 
+            /// Message identifier of the message with the button
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("message_id")]
@@ -55,22 +55,16 @@ namespace TdLib
             public bool AllowWriteAccess { get; set; }
         }
 
-
         /// <summary>
         /// Returns an HTTP URL which can be used to automatically authorize the user on a website after clicking an inline button of type inlineKeyboardButtonTypeLoginUrl.
         /// </summary>
-        public static Task<HttpUrl> GetLoginUrlAsync(this Client client,
-            long chatId = default(long),
-            long messageId = default(long),
-            int buttonId = default(int),
-            bool allowWriteAccess = default(bool))
+        public static Task<HttpUrl> GetLoginUrlAsync(
+            this Client client, long chatId = default, long messageId = default, int buttonId = default,
+            bool allowWriteAccess = default)
         {
             return client.ExecuteAsync(new GetLoginUrl
             {
-                ChatId = chatId,
-                MessageId = messageId,
-                ButtonId = buttonId,
-                AllowWriteAccess = allowWriteAccess,
+                ChatId = chatId, MessageId = messageId, ButtonId = buttonId, AllowWriteAccess = allowWriteAccess
             });
         }
     }

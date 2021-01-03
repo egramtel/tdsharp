@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Describes an audio file. Audio is usually in MP3 or M4A format 
+        /// Describes an audio file. Audio is usually in MP3 or M4A format
         /// </summary>
-        public class Audio : Object
+        public partial class Audio : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,20 +20,20 @@ namespace TdLib
             public override string DataType { get; set; } = "audio";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Duration of the audio, in seconds; as defined by the sender 
+            /// Duration of the audio, in seconds; as defined by the sender
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("duration")]
             public int Duration { get; set; }
 
             /// <summary>
-            /// Title of the audio; as defined by the sender 
+            /// Title of the audio; as defined by the sender
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("title")]
@@ -47,32 +47,32 @@ namespace TdLib
             public string Performer { get; set; }
 
             /// <summary>
-            /// Original name of the file; as defined by the sender 
+            /// Original name of the file; as defined by the sender
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("file_name")]
             public string FileName { get; set; }
 
             /// <summary>
-            /// The MIME type of the file; as defined by the sender 
+            /// The MIME type of the file; as defined by the sender
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("mime_type")]
             public string MimeType { get; set; }
 
             /// <summary>
-            /// The minithumbnail of the album cover; may be null 
+            /// The minithumbnail of the album cover; may be null
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("album_cover_minithumbnail")]
             public Minithumbnail AlbumCoverMinithumbnail { get; set; }
 
             /// <summary>
-            /// The thumbnail of the album cover; as defined by the sender. The full size thumbnail should be extracted from the downloaded file; may be null 
+            /// The thumbnail of the album cover in JPEG format; as defined by the sender. The full size thumbnail should be extracted from the downloaded file; may be null
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("album_cover_thumbnail")]
-            public PhotoSize AlbumCoverThumbnail { get; set; }
+            public Thumbnail AlbumCoverThumbnail { get; set; }
 
             /// <summary>
             /// File containing the audio

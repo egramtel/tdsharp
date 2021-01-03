@@ -21,17 +21,17 @@ namespace TdLib
             public override string DataType { get; set; } = "testUseUpdate";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
         }
 
-
         /// <summary>
         /// Does nothing and ensures that the Update object is used; for testing only. This is an offline method. Can be called before authorization
         /// </summary>
-        public static Task<Update> TestUseUpdateAsync(this Client client)
+        public static Task<Update> TestUseUpdateAsync(
+            this Client client)
         {
             return client.ExecuteAsync(new TestUseUpdate
             {

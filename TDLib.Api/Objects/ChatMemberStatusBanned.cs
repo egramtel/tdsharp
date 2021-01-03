@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The user was banned (and hence is not a member of the chat). Implies the user can't return to the chat or view messages
-        /// </summary>
         public partial class ChatMemberStatus : Object
         {
             /// <summary>

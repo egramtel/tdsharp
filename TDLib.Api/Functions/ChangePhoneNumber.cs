@@ -21,13 +21,13 @@ namespace TdLib
             public override string DataType { get; set; } = "changePhoneNumber";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// The new phone number of the user in international format 
+            /// The new phone number of the user in international format
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("phone_number")]
@@ -41,18 +41,15 @@ namespace TdLib
             public PhoneNumberAuthenticationSettings Settings { get; set; }
         }
 
-
         /// <summary>
         /// Changes the phone number of the user and sends an authentication code to the user's new phone number. On success, returns information about the sent code
         /// </summary>
-        public static Task<AuthenticationCodeInfo> ChangePhoneNumberAsync(this Client client,
-            string phoneNumber = default(string),
-            PhoneNumberAuthenticationSettings settings = default(PhoneNumberAuthenticationSettings))
+        public static Task<AuthenticationCodeInfo> ChangePhoneNumberAsync(
+            this Client client, string phoneNumber = default, PhoneNumberAuthenticationSettings settings = default)
         {
             return client.ExecuteAsync(new ChangePhoneNumber
             {
-                PhoneNumber = phoneNumber,
-                Settings = settings,
+                PhoneNumber = phoneNumber, Settings = settings
             });
         }
     }

@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// TDLib needs the user's authentication code to authorize 
-        /// </summary>
         public partial class AuthorizationState : Object
         {
             /// <summary>
-            /// TDLib needs the user's authentication code to authorize 
+            /// TDLib needs the user's authentication code to authorize
             /// </summary>
             public class AuthorizationStateWaitCode : AuthorizationState
             {

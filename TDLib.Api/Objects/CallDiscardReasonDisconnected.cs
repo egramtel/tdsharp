@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The call was ended during the conversation because the users were disconnected
-        /// </summary>
         public partial class CallDiscardReason : Object
         {
             /// <summary>

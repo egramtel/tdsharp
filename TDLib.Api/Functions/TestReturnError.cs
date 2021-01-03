@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns the specified error and ensures that the Error object is used; for testing only. This is an offline method. Can be called before authorization. Can be called synchronously 
+        /// Returns the specified error and ensures that the Error object is used; for testing only. Can be called synchronously
         /// </summary>
         public class TestReturnError : Function<Error>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "testReturnError";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public Error Error { get; set; }
         }
 
-
         /// <summary>
-        /// Returns the specified error and ensures that the Error object is used; for testing only. This is an offline method. Can be called before authorization. Can be called synchronously 
+        /// Returns the specified error and ensures that the Error object is used; for testing only. Can be called synchronously
         /// </summary>
-        public static Task<Error> TestReturnErrorAsync(this Client client,
-            Error error = default(Error))
+        public static Task<Error> TestReturnErrorAsync(
+            this Client client, Error error = default)
         {
             return client.ExecuteAsync(new TestReturnError
             {
-                Error = error,
+                Error = error
             });
         }
     }

@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The message failed to be sent 
-        /// </summary>
         public partial class MessageSendingState : Object
         {
             /// <summary>
-            /// The message failed to be sent 
+            /// The message failed to be sent
             /// </summary>
             public class MessageSendingStateFailed : MessageSendingState
             {
@@ -31,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// An error code; 0 if unknown 
+                /// An error code; 0 if unknown
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("error_code")]
@@ -45,7 +42,7 @@ namespace TdLib
                 public string ErrorMessage { get; set; }
 
                 /// <summary>
-                /// True, if the message can be re-sent 
+                /// True, if the message can be re-sent
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("can_retry")]

@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The list of saved animations was updated 
-        /// </summary>
         public partial class Update : Object
         {
             /// <summary>
-            /// The list of saved animations was updated 
+            /// The list of saved animations was updated
             /// </summary>
             public class UpdateSavedAnimations : Update
             {

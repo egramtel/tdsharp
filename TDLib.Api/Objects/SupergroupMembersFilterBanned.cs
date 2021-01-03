@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// Returns users banned from the supergroup or channel; can be used only by administrators 
-        /// </summary>
         public partial class SupergroupMembersFilter : Object
         {
             /// <summary>
-            /// Returns users banned from the supergroup or channel; can be used only by administrators 
+            /// Returns users banned from the supergroup or channel; can be used only by administrators
             /// </summary>
             public class SupergroupMembersFilterBanned : SupergroupMembersFilter
             {

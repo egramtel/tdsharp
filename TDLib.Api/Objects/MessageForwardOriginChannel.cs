@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The message was originally a post in a channel
-        /// </summary>
         public partial class MessageForwardOrigin : Object
         {
             /// <summary>
@@ -38,7 +35,7 @@ namespace TdLib
                 public long ChatId { get; set; }
 
                 /// <summary>
-                /// Message identifier of the original message; 0 if unknown
+                /// Message identifier of the original message
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("message_id")]

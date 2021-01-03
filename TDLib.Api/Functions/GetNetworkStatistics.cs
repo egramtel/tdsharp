@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns network data usage statistics. Can be called before authorization 
+        /// Returns network data usage statistics. Can be called before authorization
         /// </summary>
         public class GetNetworkStatistics : Function<NetworkStatistics>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "getNetworkStatistics";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public bool OnlyCurrent { get; set; }
         }
 
-
         /// <summary>
-        /// Returns network data usage statistics. Can be called before authorization 
+        /// Returns network data usage statistics. Can be called before authorization
         /// </summary>
-        public static Task<NetworkStatistics> GetNetworkStatisticsAsync(this Client client,
-            bool onlyCurrent = default(bool))
+        public static Task<NetworkStatistics> GetNetworkStatisticsAsync(
+            this Client client, bool onlyCurrent = default)
         {
             return client.ExecuteAsync(new GetNetworkStatistics
             {
-                OnlyCurrent = onlyCurrent,
+                OnlyCurrent = onlyCurrent
             });
         }
     }

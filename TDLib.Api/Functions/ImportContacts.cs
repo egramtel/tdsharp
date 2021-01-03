@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Adds new contacts or edits existing contacts by their phone numbers; contacts' user identifiers are ignored 
+        /// Adds new contacts or edits existing contacts by their phone numbers; contacts' user identifiers are ignored
         /// </summary>
         public class ImportContacts : Function<ImportedContacts>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "importContacts";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public Contact[] Contacts { get; set; }
         }
 
-
         /// <summary>
-        /// Adds new contacts or edits existing contacts by their phone numbers; contacts' user identifiers are ignored 
+        /// Adds new contacts or edits existing contacts by their phone numbers; contacts' user identifiers are ignored
         /// </summary>
-        public static Task<ImportedContacts> ImportContactsAsync(this Client client,
-            Contact[] contacts = default(Contact[]))
+        public static Task<ImportedContacts> ImportContactsAsync(
+            this Client client, Contact[] contacts = default)
         {
             return client.ExecuteAsync(new ImportContacts
             {
-                Contacts = contacts,
+                Contacts = contacts
             });
         }
     }

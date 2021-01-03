@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns a list of sticker sets attached to a file. Currently only photos and videos can have attached sticker sets 
+        /// Returns a list of sticker sets attached to a file. Currently only photos and videos can have attached sticker sets
         /// </summary>
         public class GetAttachedStickerSets : Function<StickerSets>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "getAttachedStickerSets";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public int FileId { get; set; }
         }
 
-
         /// <summary>
-        /// Returns a list of sticker sets attached to a file. Currently only photos and videos can have attached sticker sets 
+        /// Returns a list of sticker sets attached to a file. Currently only photos and videos can have attached sticker sets
         /// </summary>
-        public static Task<StickerSets> GetAttachedStickerSetsAsync(this Client client,
-            int fileId = default(int))
+        public static Task<StickerSets> GetAttachedStickerSetsAsync(
+            this Client client, int fileId = default)
         {
             return client.ExecuteAsync(new GetAttachedStickerSets
             {
-                FileId = fileId,
+                FileId = fileId
             });
         }
     }

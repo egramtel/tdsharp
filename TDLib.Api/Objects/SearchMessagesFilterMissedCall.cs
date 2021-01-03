@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// Returns only incoming call messages with missed/declined discard reasons
-        /// </summary>
         public partial class SearchMessagesFilter : Object
         {
             /// <summary>

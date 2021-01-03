@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A message with an invoice; can be used only by bots and only in private chats 
-        /// </summary>
         public partial class InputMessageContent : Object
         {
             /// <summary>
-            /// A message with an invoice; can be used only by bots and only in private chats 
+            /// A message with an invoice; can be used only by bots and only in private chats
             /// </summary>
             public class InputMessageInvoice : InputMessageContent
             {
@@ -31,42 +28,42 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Invoice 
+                /// Invoice
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("invoice")]
                 public Invoice Invoice { get; set; }
 
                 /// <summary>
-                /// Product title; 1-32 characters 
+                /// Product title; 1-32 characters
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("title")]
                 public string Title { get; set; }
 
                 /// <summary>
-                /// A message with an invoice; can be used only by bots and only in private chats 
+                /// 
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("description")]
                 public string Description { get; set; }
 
                 /// <summary>
-                /// Product photo URL; optional 
+                /// Product photo URL; optional
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("photo_url")]
                 public string PhotoUrl { get; set; }
 
                 /// <summary>
-                /// Product photo size 
+                /// Product photo size
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("photo_size")]
                 public int PhotoSize { get; set; }
 
                 /// <summary>
-                /// Product photo width 
+                /// Product photo width
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("photo_width")]
@@ -80,21 +77,21 @@ namespace TdLib
                 public int PhotoHeight { get; set; }
 
                 /// <summary>
-                /// The invoice payload 
+                /// The invoice payload
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("payload")]
                 public byte[] Payload { get; set; }
 
                 /// <summary>
-                /// Payment provider token 
+                /// Payment provider token
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("provider_token")]
                 public string ProviderToken { get; set; }
 
                 /// <summary>
-                /// JSON-encoded data about the invoice, which will be shared with the payment provider 
+                /// JSON-encoded data about the invoice, which will be shared with the payment provider
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("provider_data")]

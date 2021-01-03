@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The message was originally written by a known user 
-        /// </summary>
         public partial class MessageForwardOrigin : Object
         {
             /// <summary>
-            /// The message was originally written by a known user 
+            /// Contains information about the origin of a forwarded message
             /// </summary>
             public class MessageForwardOriginUser : MessageForwardOrigin
             {

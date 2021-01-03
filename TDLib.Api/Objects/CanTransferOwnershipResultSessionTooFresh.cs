@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The session was created recently, user needs to wait 
-        /// </summary>
         public partial class CanTransferOwnershipResult : Object
         {
             /// <summary>
-            /// The session was created recently, user needs to wait 
+            /// The session was created recently, user needs to wait
             /// </summary>
             public class CanTransferOwnershipResultSessionTooFresh : CanTransferOwnershipResult
             {

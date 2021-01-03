@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Sends an inline query to a bot and returns its results. Returns an error with code 502 if the bot fails to answer the query before the query timeout expires 
+        /// Sends an inline query to a bot and returns its results. Returns an error with code 502 if the bot fails to answer the query before the query timeout expires
         /// </summary>
         public class GetInlineQueryResults : Function<InlineQueryResults>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "getInlineQueryResults";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,21 +34,21 @@ namespace TdLib
             public int BotUserId { get; set; }
 
             /// <summary>
-            /// Identifier of the chat where the query was sent 
+            /// Identifier of the chat where the query was sent
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_id")]
             public long ChatId { get; set; }
 
             /// <summary>
-            /// Location of the user, only if needed 
+            /// Location of the user, only if needed
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("user_location")]
             public Location UserLocation { get; set; }
 
             /// <summary>
-            /// Text of the query 
+            /// Text of the query
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("query")]
@@ -62,24 +62,16 @@ namespace TdLib
             public string Offset { get; set; }
         }
 
-
         /// <summary>
-        /// Sends an inline query to a bot and returns its results. Returns an error with code 502 if the bot fails to answer the query before the query timeout expires 
+        /// Sends an inline query to a bot and returns its results. Returns an error with code 502 if the bot fails to answer the query before the query timeout expires
         /// </summary>
-        public static Task<InlineQueryResults> GetInlineQueryResultsAsync(this Client client,
-            int botUserId = default(int),
-            long chatId = default(long),
-            Location userLocation = default(Location),
-            string query = default(string),
-            string offset = default(string))
+        public static Task<InlineQueryResults> GetInlineQueryResultsAsync(
+            this Client client, int botUserId = default, long chatId = default, Location userLocation = default,
+            string query = default, string offset = default)
         {
             return client.ExecuteAsync(new GetInlineQueryResults
             {
-                BotUserId = botUserId,
-                ChatId = chatId,
-                UserLocation = userLocation,
-                Query = query,
-                Offset = offset,
+                BotUserId = botUserId, ChatId = chatId, UserLocation = userLocation, Query = query, Offset = offset
             });
         }
     }

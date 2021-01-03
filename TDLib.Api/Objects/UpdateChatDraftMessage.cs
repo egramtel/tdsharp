@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A chat draft has changed. Be aware that the update may come in the currently opened chat but with old content of the draft. If the user has changed the content of the draft, this update shouldn't be applied 
-        /// </summary>
         public partial class Update : Object
         {
             /// <summary>
-            /// A chat draft has changed. Be aware that the update may come in the currently opened chat but with old content of the draft. If the user has changed the content of the draft, this update shouldn't be applied 
+            /// A chat draft has changed. Be aware that the update may come in the currently opened chat but with old content of the draft. If the user has changed the content of the draft, this update shouldn't be applied
             /// </summary>
             public class UpdateChatDraftMessage : Update
             {
@@ -31,25 +28,25 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Chat identifier 
+                /// Chat identifier
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("chat_id")]
                 public long ChatId { get; set; }
 
                 /// <summary>
-                /// The new draft message; may be null 
+                /// The new draft message; may be null
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("draft_message")]
                 public DraftMessage DraftMessage { get; set; }
 
                 /// <summary>
-                /// New value of the chat order
+                /// The new chat positions in the chat lists
                 /// </summary>
-                [JsonConverter(typeof(Converter.Int64))]
-                [JsonProperty("order")]
-                public Int64 Order { get; set; }
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("positions")]
+                public ChatPosition[] Positions { get; set; }
             }
         }
     }

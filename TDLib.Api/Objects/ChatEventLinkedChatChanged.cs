@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The linked chat of a supergroup was changed 
-        /// </summary>
         public partial class ChatEventAction : Object
         {
             /// <summary>
-            /// The linked chat of a supergroup was changed 
+            /// The linked chat of a supergroup was changed
             /// </summary>
             public class ChatEventLinkedChatChanged : ChatEventAction
             {
@@ -31,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Previous supergroup linked chat identifier 
+                /// Previous supergroup linked chat identifier
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("old_linked_chat_id")]

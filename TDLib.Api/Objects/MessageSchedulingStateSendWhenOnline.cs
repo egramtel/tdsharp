@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The message will be sent when the peer will be online. Applicable to private chats only and when the exact online status of the peer is known
-        /// </summary>
         public partial class MessageSchedulingState : Object
         {
             /// <summary>

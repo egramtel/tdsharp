@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A video note message 
-        /// </summary>
         public partial class MessageContent : Object
         {
             /// <summary>
-            /// A video note message 
+            /// A video note message
             /// </summary>
             public class MessageVideoNote : MessageContent
             {
@@ -31,14 +28,14 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// The video note description 
+                /// The video note description
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("video_note")]
                 public VideoNote VideoNote { get; set; }
 
                 /// <summary>
-                /// True, if at least one of the recipients has viewed the video note 
+                /// True, if at least one of the recipients has viewed the video note
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_viewed")]

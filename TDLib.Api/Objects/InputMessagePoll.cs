@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A message with a poll. Polls can't be sent to secret chats. Polls can be sent only to a private chat with a bot 
-        /// </summary>
         public partial class InputMessageContent : Object
         {
             /// <summary>
-            /// A message with a poll. Polls can't be sent to secret chats. Polls can be sent only to a private chat with a bot 
+            /// A message with a poll. Polls can't be sent to secret chats. Polls can be sent only to a private chat with a bot
             /// </summary>
             public class InputMessagePoll : InputMessageContent
             {
@@ -31,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Poll question, 1-255 characters 
+                /// Poll question, 1-255 characters (up to 300 characters for bots)
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("question")]
@@ -45,18 +42,32 @@ namespace TdLib
                 public string[] Options { get; set; }
 
                 /// <summary>
-                /// True, if the poll voters are anonymous. Non-anonymous polls can't be sent or forwarded to channels 
+                /// True, if the poll voters are anonymous. Non-anonymous polls can't be sent or forwarded to channels
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_anonymous")]
                 public bool IsAnonymous { get; set; }
 
                 /// <summary>
-                /// Type of the poll 
+                /// Type of the poll
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("type")]
                 public PollType Type { get; set; }
+
+                /// <summary>
+                /// Amount of time the poll will be active after creation, in seconds; for bots only
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("open_period")]
+                public int OpenPeriod { get; set; }
+
+                /// <summary>
+                /// Point in time (Unix timestamp) when the poll will be automatically closed; for bots only
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("close_date")]
+                public int CloseDate { get; set; }
 
                 /// <summary>
                 /// True, if the poll needs to be sent already closed; for bots only

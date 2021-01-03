@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Describes one answer option of a poll 
+        /// Describes one answer option of a poll
         /// </summary>
-        public class PollOption : Object
+        public partial class PollOption : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,20 +20,20 @@ namespace TdLib
             public override string DataType { get; set; } = "pollOption";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Option text, 1-100 characters 
+            /// Option text, 1-100 characters
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("text")]
             public string Text { get; set; }
 
             /// <summary>
-            /// Number of voters for this option, available only for closed or voted polls 
+            /// Number of voters for this option, available only for closed or voted polls
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("voter_count")]
@@ -47,7 +47,7 @@ namespace TdLib
             public int VotePercentage { get; set; }
 
             /// <summary>
-            /// True, if the option was chosen by the user 
+            /// True, if the option was chosen by the user
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_chosen")]

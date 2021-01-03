@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A URL linking to a user 
-        /// </summary>
         public partial class TMeUrlType : Object
         {
             /// <summary>
-            /// A URL linking to a user 
+            /// Describes the type of a URL linking to an internal Telegram entity
             /// </summary>
             public class TMeUrlTypeUser : TMeUrlType
             {

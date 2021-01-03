@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "optimizeStorage";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -76,6 +76,13 @@ namespace TdLib
             public long[] ExcludeChatIds { get; set; }
 
             /// <summary>
+            /// Pass true if statistics about the files that were deleted must be returned instead of the whole storage usage statistics. Affects only returned statistics
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("return_deleted_file_statistics")]
+            public bool ReturnDeletedFileStatistics { get; set; }
+
+            /// <summary>
             /// Same as in getStorageStatistics. Affects only returned statistics
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -83,30 +90,19 @@ namespace TdLib
             public int ChatLimit { get; set; }
         }
 
-
         /// <summary>
         /// Optimizes storage usage, i.e. deletes some files and returns new storage usage statistics. Secret thumbnails can't be deleted
         /// </summary>
-        public static Task<StorageStatistics> OptimizeStorageAsync(this Client client,
-            long size = default(long),
-            int ttl = default(int),
-            int count = default(int),
-            int immunityDelay = default(int),
-            FileType[] fileTypes = default(FileType[]),
-            long[] chatIds = default(long[]),
-            long[] excludeChatIds = default(long[]),
-            int chatLimit = default(int))
+        public static Task<StorageStatistics> OptimizeStorageAsync(
+            this Client client, long size = default, int ttl = default, int count = default,
+            int immunityDelay = default, FileType[] fileTypes = default, long[] chatIds = default,
+            long[] excludeChatIds = default, bool returnDeletedFileStatistics = default, int chatLimit = default)
         {
             return client.ExecuteAsync(new OptimizeStorage
             {
-                Size = size,
-                Ttl = ttl,
-                Count = count,
-                ImmunityDelay = immunityDelay,
-                FileTypes = fileTypes,
-                ChatIds = chatIds,
-                ExcludeChatIds = excludeChatIds,
-                ChatLimit = chatLimit,
+                Size = size, Ttl = ttl, Count = count, ImmunityDelay = immunityDelay, FileTypes = fileTypes,
+                ChatIds = chatIds, ExcludeChatIds = excludeChatIds,
+                ReturnDeletedFileStatistics = returnDeletedFileStatistics, ChatLimit = chatLimit
             });
         }
     }

@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns information about a tg:// deep link. Use "tg://need_update_for_some_feature" or "tg:some_unsupported_feature" for testing. Returns a 404 error for unknown links. Can be called before authorization 
+        /// Returns information about a tg:// deep link. Use "tg://need_update_for_some_feature" or "tg:some_unsupported_feature" for testing. Returns a 404 error for unknown links. Can be called before authorization
         /// </summary>
         public class GetDeepLinkInfo : Function<DeepLinkInfo>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "getDeepLinkInfo";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public string Link { get; set; }
         }
 
-
         /// <summary>
-        /// Returns information about a tg:// deep link. Use "tg://need_update_for_some_feature" or "tg:some_unsupported_feature" for testing. Returns a 404 error for unknown links. Can be called before authorization 
+        /// Returns information about a tg:// deep link. Use "tg://need_update_for_some_feature" or "tg:some_unsupported_feature" for testing. Returns a 404 error for unknown links. Can be called before authorization
         /// </summary>
-        public static Task<DeepLinkInfo> GetDeepLinkInfoAsync(this Client client,
-            string link = default(string))
+        public static Task<DeepLinkInfo> GetDeepLinkInfoAsync(
+            this Client client, string link = default)
         {
             return client.ExecuteAsync(new GetDeepLinkInfo
             {
-                Link = link,
+                Link = link
             });
         }
     }

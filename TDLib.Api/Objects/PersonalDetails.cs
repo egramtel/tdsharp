@@ -11,7 +11,7 @@ namespace TdLib
         /// <summary>
         /// Contains the user's personal details
         /// </summary>
-        public class PersonalDetails : Object
+        public partial class PersonalDetails : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,20 +20,20 @@ namespace TdLib
             public override string DataType { get; set; } = "personalDetails";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// First name of the user written in English; 1-255 characters 
+            /// First name of the user written in English; 1-255 characters
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("first_name")]
             public string FirstName { get; set; }
 
             /// <summary>
-            /// Middle name of the user written in English; 0-255 characters 
+            /// Middle name of the user written in English; 0-255 characters
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("middle_name")]
@@ -47,14 +47,14 @@ namespace TdLib
             public string LastName { get; set; }
 
             /// <summary>
-            /// Native first name of the user; 1-255 characters 
+            /// Native first name of the user; 1-255 characters
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("native_first_name")]
             public string NativeFirstName { get; set; }
 
             /// <summary>
-            /// Native middle name of the user; 0-255 characters 
+            /// Native middle name of the user; 0-255 characters
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("native_middle_name")]
@@ -68,21 +68,21 @@ namespace TdLib
             public string NativeLastName { get; set; }
 
             /// <summary>
-            /// Birthdate of the user 
+            /// Birthdate of the user
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("birthdate")]
             public Date Birthdate { get; set; }
 
             /// <summary>
-            /// Gender of the user, "male" or "female" 
+            /// Gender of the user, "male" or "female"
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("gender")]
             public string Gender { get; set; }
 
             /// <summary>
-            /// A two-letter ISO 3166-1 alpha-2 country code of the user's country 
+            /// A two-letter ISO 3166-1 alpha-2 country code of the user's country
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("country_code")]

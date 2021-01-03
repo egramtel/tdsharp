@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Describes a document of any type 
+        /// Describes a document of any type
         /// </summary>
-        public class Document : Object
+        public partial class Document : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,13 +20,13 @@ namespace TdLib
             public override string DataType { get; set; } = "document";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Original name of the file; as defined by the sender 
+            /// Original name of the file; as defined by the sender
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("file_name")]
@@ -40,18 +40,18 @@ namespace TdLib
             public string MimeType { get; set; }
 
             /// <summary>
-            /// Document minithumbnail; may be null 
+            /// Document minithumbnail; may be null
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("minithumbnail")]
             public Minithumbnail Minithumbnail { get; set; }
 
             /// <summary>
-            /// Document thumbnail in JPEG or PNG format (PNG will be used only for background patterns); as defined by the sender; may be null 
+            /// Document thumbnail in JPEG or PNG format (PNG will be used only for background patterns); as defined by the sender; may be null
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("thumbnail")]
-            public PhotoSize Thumbnail { get; set; }
+            public Thumbnail Thumbnail { get; set; }
 
             /// <summary>
             /// File containing the document

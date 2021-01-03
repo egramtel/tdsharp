@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The user went online or offline 
-        /// </summary>
         public partial class Update : Object
         {
             /// <summary>
-            /// The user went online or offline 
+            /// The user went online or offline
             /// </summary>
             public class UpdateUserStatus : Update
             {
@@ -31,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// User identifier 
+                /// User identifier
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("user_id")]

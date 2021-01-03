@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Changes the pinned state of a chat. You can pin up to GetOption("pinned_chat_count_max")/GetOption("pinned_archived_chat_count_max") non-secret chats and the same number of secret chats in the main/archive chat list 
+        /// Changes the pinned state of a chat. There can be up to GetOption("pinned_chat_count_max")/GetOption("pinned_archived_chat_count_max") pinned non-secret chats and the same number of secret chats in the main/arhive chat list
         /// </summary>
         public class ToggleChatIsPinned : Function<Ok>
         {
@@ -21,38 +21,42 @@ namespace TdLib
             public override string DataType { get; set; } = "toggleChatIsPinned";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Chat identifier 
+            /// Chat list in which to change the pinned state of the chat
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("chat_list")]
+            public ChatList ChatList { get; set; }
+
+            /// <summary>
+            /// Chat identifier
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_id")]
             public long ChatId { get; set; }
 
             /// <summary>
-            /// New value of is_pinned
+            /// True, if the chat is pinned
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_pinned")]
             public bool IsPinned { get; set; }
         }
 
-
         /// <summary>
-        /// Changes the pinned state of a chat. You can pin up to GetOption("pinned_chat_count_max")/GetOption("pinned_archived_chat_count_max") non-secret chats and the same number of secret chats in the main/archive chat list 
+        /// Changes the pinned state of a chat. There can be up to GetOption("pinned_chat_count_max")/GetOption("pinned_archived_chat_count_max") pinned non-secret chats and the same number of secret chats in the main/arhive chat list
         /// </summary>
-        public static Task<Ok> ToggleChatIsPinnedAsync(this Client client,
-            long chatId = default(long),
-            bool isPinned = default(bool))
+        public static Task<Ok> ToggleChatIsPinnedAsync(
+            this Client client, ChatList chatList = default, long chatId = default, bool isPinned = default)
         {
             return client.ExecuteAsync(new ToggleChatIsPinned
             {
-                ChatId = chatId,
-                IsPinned = isPinned,
+                ChatList = chatList, ChatId = chatId, IsPinned = isPinned
             });
         }
     }

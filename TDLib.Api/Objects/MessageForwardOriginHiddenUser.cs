@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The message was originally written by a user, which is hidden by their privacy settings 
-        /// </summary>
         public partial class MessageForwardOrigin : Object
         {
             /// <summary>
-            /// The message was originally written by a user, which is hidden by their privacy settings 
+            /// The message was originally sent by a user, which is hidden by their privacy settings
             /// </summary>
             public class MessageForwardOriginHiddenUser : MessageForwardOrigin
             {

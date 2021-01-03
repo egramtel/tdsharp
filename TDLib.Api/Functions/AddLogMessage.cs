@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Adds a message to TDLib internal log. This is an offline method. Can be called before authorization. Can be called synchronously
+        /// Adds a message to TDLib internal log. Can be called synchronously
         /// </summary>
         public class AddLogMessage : Function<Ok>
         {
@@ -21,13 +21,13 @@ namespace TdLib
             public override string DataType { get; set; } = "addLogMessage";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// The minimum verbosity level needed for the message to be logged, 0-1023 
+            /// The minimum verbosity level needed for the message to be logged, 0-1023
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("verbosity_level")]
@@ -41,18 +41,15 @@ namespace TdLib
             public string Text { get; set; }
         }
 
-
         /// <summary>
-        /// Adds a message to TDLib internal log. This is an offline method. Can be called before authorization. Can be called synchronously
+        /// Adds a message to TDLib internal log. Can be called synchronously
         /// </summary>
-        public static Task<Ok> AddLogMessageAsync(this Client client,
-            int verbosityLevel = default(int),
-            string text = default(string))
+        public static Task<Ok> AddLogMessageAsync(
+            this Client client, int verbosityLevel = default, string text = default)
         {
             return client.ExecuteAsync(new AddLogMessage
             {
-                VerbosityLevel = verbosityLevel,
-                Text = text,
+                VerbosityLevel = verbosityLevel, Text = text
             });
         }
     }

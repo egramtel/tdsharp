@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The list of attached files contains an error. The error will be considered resolved when the list of files changes
-        /// </summary>
         public partial class PassportElementErrorSource : Object
         {
             /// <summary>

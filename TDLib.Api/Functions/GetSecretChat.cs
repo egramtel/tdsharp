@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns information about a secret chat by its identifier. This is an offline request 
+        /// Returns information about a secret chat by its identifier. This is an offline request
         /// </summary>
         public class GetSecretChat : Function<SecretChat>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "getSecretChat";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public int SecretChatId { get; set; }
         }
 
-
         /// <summary>
-        /// Returns information about a secret chat by its identifier. This is an offline request 
+        /// Returns information about a secret chat by its identifier. This is an offline request
         /// </summary>
-        public static Task<SecretChat> GetSecretChatAsync(this Client client,
-            int secretChatId = default(int))
+        public static Task<SecretChat> GetSecretChatAsync(
+            this Client client, int secretChatId = default)
         {
             return client.ExecuteAsync(new GetSecretChat
             {
-                SecretChatId = secretChatId,
+                SecretChatId = secretChatId
             });
         }
     }

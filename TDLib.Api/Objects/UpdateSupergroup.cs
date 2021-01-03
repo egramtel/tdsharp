@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// Some data of a supergroup or a channel has changed. This update is guaranteed to come before the supergroup identifier is returned to the client 
-        /// </summary>
         public partial class Update : Object
         {
             /// <summary>
-            /// Some data of a supergroup or a channel has changed. This update is guaranteed to come before the supergroup identifier is returned to the client 
+            /// Some data of a supergroup or a channel has changed. This update is guaranteed to come before the supergroup identifier is returned to the application
             /// </summary>
             public class UpdateSupergroup : Update
             {

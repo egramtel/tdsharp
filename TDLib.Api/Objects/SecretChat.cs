@@ -11,7 +11,7 @@ namespace TdLib
         /// <summary>
         /// Represents a secret chat
         /// </summary>
-        public class SecretChat : Object
+        public partial class SecretChat : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,7 +20,7 @@ namespace TdLib
             public override string DataType { get; set; } = "secretChat";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -68,7 +68,7 @@ namespace TdLib
             public byte[] KeyHash { get; set; }
 
             /// <summary>
-            /// Secret chat layer; determines features supported by the other client. Video notes are supported if the layer >= 66; nested text entities and underline and strikethrough entities are supported if the layer >= 101
+            /// Secret chat layer; determines features supported by the chat partner's application. Video notes are supported if the layer >= 66; nested text entities and underline and strikethrough entities are supported if the layer >= 101
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("layer")]

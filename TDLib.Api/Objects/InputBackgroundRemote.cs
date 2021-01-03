@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A background from the server 
-        /// </summary>
         public partial class InputBackground : Object
         {
             /// <summary>
-            /// A background from the server 
+            /// A background from the server
             /// </summary>
             public class InputBackgroundRemote : InputBackground
             {
@@ -35,7 +32,7 @@ namespace TdLib
                 /// </summary>
                 [JsonConverter(typeof(Converter.Int64))]
                 [JsonProperty("background_id")]
-                public Int64 BackgroundId { get; set; }
+                public long BackgroundId { get; set; }
             }
         }
     }

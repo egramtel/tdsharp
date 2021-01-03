@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// Instructs clients to remove the keyboard once this message has been received. This kind of keyboard can't be received in an incoming message; instead, UpdateChatReplyMarkup with message_id == 0 will be sent
-        /// </summary>
         public partial class ReplyMarkup : Object
         {
             /// <summary>
-            /// Instructs clients to remove the keyboard once this message has been received. This kind of keyboard can't be received in an incoming message; instead, UpdateChatReplyMarkup with message_id == 0 will be sent
+            /// Contains a description of a custom keyboard and actions that can be done with it to quickly reply to bots
             /// </summary>
             public class ReplyMarkupRemoveKeyboard : ReplyMarkup
             {

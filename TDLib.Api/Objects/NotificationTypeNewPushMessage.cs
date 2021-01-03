@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// New message was received through a push notification
-        /// </summary>
         public partial class NotificationType : Object
         {
             /// <summary>
@@ -31,18 +28,32 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// The message identifier. The message will not be available in the chat history, but the ID can be used in viewMessages and as reply_to_message_id
+                /// The message identifier. The message will not be available in the chat history, but the ID can be used in viewMessages, or as reply_to_message_id
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("message_id")]
                 public long MessageId { get; set; }
 
                 /// <summary>
-                /// Sender of the message. Corresponding user may be inaccessible 
+                /// The sender of the message. Corresponding user or chat may be inaccessible
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("sender_user_id")]
-                public int SenderUserId { get; set; }
+                [JsonProperty("sender")]
+                public MessageSender Sender { get; set; }
+
+                /// <summary>
+                /// Name of the sender
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("sender_name")]
+                public string SenderName { get; set; }
+
+                /// <summary>
+                /// True, if the message is outgoing
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("is_outgoing")]
+                public bool IsOutgoing { get; set; }
 
                 /// <summary>
                 /// Push message content

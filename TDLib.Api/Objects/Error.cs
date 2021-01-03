@@ -11,7 +11,7 @@ namespace TdLib
         /// <summary>
         /// An object of this type can be returned on every function call, in case of an error
         /// </summary>
-        public class Error : Object
+        public partial class Error : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,7 +20,7 @@ namespace TdLib
             public override string DataType { get; set; } = "error";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }

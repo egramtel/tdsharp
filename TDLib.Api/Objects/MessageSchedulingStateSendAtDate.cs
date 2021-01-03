@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The message will be sent at the specified date 
-        /// </summary>
         public partial class MessageSchedulingState : Object
         {
             /// <summary>
-            /// The message will be sent at the specified date 
+            /// Contains information about the time when a scheduled message will be sent
             /// </summary>
             public class MessageSchedulingStateSendAtDate : MessageSchedulingState
             {

@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns an HTTP URL which can be used to automatically log in to the translation platform and suggest new emoji replacements. The URL will be valid for 30 seconds after generation 
+        /// Returns an HTTP URL which can be used to automatically log in to the translation platform and suggest new emoji replacements. The URL will be valid for 30 seconds after generation
         /// </summary>
         public class GetEmojiSuggestionsUrl : Function<HttpUrl>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "getEmojiSuggestionsUrl";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public string LanguageCode { get; set; }
         }
 
-
         /// <summary>
-        /// Returns an HTTP URL which can be used to automatically log in to the translation platform and suggest new emoji replacements. The URL will be valid for 30 seconds after generation 
+        /// Returns an HTTP URL which can be used to automatically log in to the translation platform and suggest new emoji replacements. The URL will be valid for 30 seconds after generation
         /// </summary>
-        public static Task<HttpUrl> GetEmojiSuggestionsUrlAsync(this Client client,
-            string languageCode = default(string))
+        public static Task<HttpUrl> GetEmojiSuggestionsUrlAsync(
+            this Client client, string languageCode = default)
         {
             return client.ExecuteAsync(new GetEmojiSuggestionsUrl
             {
-                LanguageCode = languageCode,
+                LanguageCode = languageCode
             });
         }
     }

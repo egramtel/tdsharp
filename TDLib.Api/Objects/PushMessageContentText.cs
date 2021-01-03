@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A text message 
-        /// </summary>
         public partial class PushMessageContent : Object
         {
             /// <summary>
-            /// A text message 
+            /// A text message
             /// </summary>
             public class PushMessageContentText : PushMessageContent
             {
@@ -31,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Message text 
+                /// Message text
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("text")]

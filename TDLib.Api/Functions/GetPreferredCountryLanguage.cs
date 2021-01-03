@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns an IETF language tag of the language preferred in the country, which should be used to fill native fields in Telegram Passport personal details. Returns a 404 error if unknown 
+        /// Returns an IETF language tag of the language preferred in the country, which should be used to fill native fields in Telegram Passport personal details. Returns a 404 error if unknown
         /// </summary>
         public class GetPreferredCountryLanguage : Function<Text>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "getPreferredCountryLanguage";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public string CountryCode { get; set; }
         }
 
-
         /// <summary>
-        /// Returns an IETF language tag of the language preferred in the country, which should be used to fill native fields in Telegram Passport personal details. Returns a 404 error if unknown 
+        /// Returns an IETF language tag of the language preferred in the country, which should be used to fill native fields in Telegram Passport personal details. Returns a 404 error if unknown
         /// </summary>
-        public static Task<Text> GetPreferredCountryLanguageAsync(this Client client,
-            string countryCode = default(string))
+        public static Task<Text> GetPreferredCountryLanguageAsync(
+            this Client client, string countryCode = default)
         {
             return client.ExecuteAsync(new GetPreferredCountryLanguage
             {
-                CountryCode = countryCode,
+                CountryCode = countryCode
             });
         }
     }

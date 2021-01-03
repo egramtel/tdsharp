@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A new high score was achieved in a game 
-        /// </summary>
         public partial class MessageContent : Object
         {
             /// <summary>
-            /// A new high score was achieved in a game 
+            /// A new high score was achieved in a game
             /// </summary>
             public class MessageGameScore : MessageContent
             {
@@ -31,18 +28,18 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Identifier of the message with the game, can be an identifier of a deleted message 
+                /// Identifier of the message with the game, can be an identifier of a deleted message
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("game_message_id")]
                 public long GameMessageId { get; set; }
 
                 /// <summary>
-                /// Identifier of the game; may be different from the games presented in the message with the game 
+                /// Identifier of the game; may be different from the games presented in the message with the game
                 /// </summary>
                 [JsonConverter(typeof(Converter.Int64))]
                 [JsonProperty("game_id")]
-                public Int64 GameId { get; set; }
+                public long GameId { get; set; }
 
                 /// <summary>
                 /// New score

@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Changes the username of a supergroup or channel, requires owner privileges in the supergroup or channel 
+        /// Changes the username of a supergroup or channel, requires owner privileges in the supergroup or channel
         /// </summary>
         public class SetSupergroupUsername : Function<Ok>
         {
@@ -21,13 +21,13 @@ namespace TdLib
             public override string DataType { get; set; } = "setSupergroupUsername";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Identifier of the supergroup or channel 
+            /// Identifier of the supergroup or channel
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("supergroup_id")]
@@ -41,18 +41,15 @@ namespace TdLib
             public string Username { get; set; }
         }
 
-
         /// <summary>
-        /// Changes the username of a supergroup or channel, requires owner privileges in the supergroup or channel 
+        /// Changes the username of a supergroup or channel, requires owner privileges in the supergroup or channel
         /// </summary>
-        public static Task<Ok> SetSupergroupUsernameAsync(this Client client,
-            int supergroupId = default(int),
-            string username = default(string))
+        public static Task<Ok> SetSupergroupUsernameAsync(
+            this Client client, int supergroupId = default, string username = default)
         {
             return client.ExecuteAsync(new SetSupergroupUsername
             {
-                SupergroupId = supergroupId,
-                Username = username,
+                SupergroupId = supergroupId, Username = username
             });
         }
     }

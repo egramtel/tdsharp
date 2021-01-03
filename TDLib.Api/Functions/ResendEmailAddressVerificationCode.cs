@@ -21,12 +21,11 @@ namespace TdLib
             public override string DataType { get; set; } = "resendEmailAddressVerificationCode";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
         }
-
 
         /// <summary>
         /// Re-sends the code to verify an email address to be added to a user's Telegram Passport

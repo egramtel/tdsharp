@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns full information about a supergroup or a channel by its identifier, cached for up to 1 minute 
+        /// Returns full information about a supergroup or a channel by its identifier, cached for up to 1 minute
         /// </summary>
         public class GetSupergroupFullInfo : Function<SupergroupFullInfo>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "getSupergroupFullInfo";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public int SupergroupId { get; set; }
         }
 
-
         /// <summary>
-        /// Returns full information about a supergroup or a channel by its identifier, cached for up to 1 minute 
+        /// Returns full information about a supergroup or a channel by its identifier, cached for up to 1 minute
         /// </summary>
-        public static Task<SupergroupFullInfo> GetSupergroupFullInfoAsync(this Client client,
-            int supergroupId = default(int))
+        public static Task<SupergroupFullInfo> GetSupergroupFullInfoAsync(
+            this Client client, int supergroupId = default)
         {
             return client.ExecuteAsync(new GetSupergroupFullInfo
             {
-                SupergroupId = supergroupId,
+                SupergroupId = supergroupId
             });
         }
     }

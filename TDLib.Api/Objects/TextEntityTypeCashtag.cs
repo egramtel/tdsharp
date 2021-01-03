@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A cashtag text, beginning with "$" and consisting of capital english letters (i.e. "$USD")
-        /// </summary>
         public partial class TextEntityType : Object
         {
             /// <summary>

@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A subscript rich text 
-        /// </summary>
         public partial class RichText : Object
         {
             /// <summary>
-            /// A subscript rich text 
+            /// A subscript rich text
             /// </summary>
             public class RichTextSubscript : RichText
             {

@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A poll in quiz mode, which has exactly one correct answer option and can be answered only once 
-        /// </summary>
         public partial class PollType : Object
         {
             /// <summary>
-            /// A poll in quiz mode, which has exactly one correct answer option and can be answered only once 
+            /// A poll in quiz mode, which has exactly one correct answer option and can be answered only once
             /// </summary>
             public class PollTypeQuiz : PollType
             {
@@ -36,6 +33,13 @@ namespace TdLib
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("correct_option_id")]
                 public int CorrectOptionId { get; set; }
+
+                /// <summary>
+                /// Text that is shown when the user chooses an incorrect answer or taps on the lamp icon, 0-200 characters with at most 2 line feeds; empty for a yet unanswered poll
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("explanation")]
+                public FormattedText Explanation { get; set; }
             }
         }
     }

@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A token for Simple Push API for Firefox OS 
-        /// </summary>
         public partial class DeviceToken : Object
         {
             /// <summary>
-            /// A token for Simple Push API for Firefox OS 
+            /// A token for Simple Push API for Firefox OS
             /// </summary>
             public class DeviceTokenSimplePush : DeviceToken
             {

@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns the MIME type of a file, guessed by its extension. Returns an empty string on failure. This is an offline method. Can be called before authorization. Can be called synchronously 
+        /// Returns the MIME type of a file, guessed by its extension. Returns an empty string on failure. Can be called synchronously
         /// </summary>
         public class GetFileMimeType : Function<Text>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "getFileMimeType";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public string FileName { get; set; }
         }
 
-
         /// <summary>
-        /// Returns the MIME type of a file, guessed by its extension. Returns an empty string on failure. This is an offline method. Can be called before authorization. Can be called synchronously 
+        /// Returns the MIME type of a file, guessed by its extension. Returns an empty string on failure. Can be called synchronously
         /// </summary>
-        public static Task<Text> GetFileMimeTypeAsync(this Client client,
-            string fileName = default(string))
+        public static Task<Text> GetFileMimeTypeAsync(
+            this Client client, string fileName = default)
         {
             return client.ExecuteAsync(new GetFileMimeType
             {
-                FileName = fileName,
+                FileName = fileName
             });
         }
     }

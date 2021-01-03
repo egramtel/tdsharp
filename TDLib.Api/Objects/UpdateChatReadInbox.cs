@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// Incoming messages were read or number of unread messages has been changed 
-        /// </summary>
         public partial class Update : Object
         {
             /// <summary>
-            /// Incoming messages were read or number of unread messages has been changed 
+            /// Incoming messages were read or number of unread messages has been changed
             /// </summary>
             public class UpdateChatReadInbox : Update
             {
@@ -31,14 +28,14 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Chat identifier 
+                /// Chat identifier
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("chat_id")]
                 public long ChatId { get; set; }
 
                 /// <summary>
-                /// Identifier of the last read incoming message 
+                /// Identifier of the last read incoming message
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("last_read_inbox_message_id")]

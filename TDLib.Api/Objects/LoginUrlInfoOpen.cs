@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// An HTTP url needs to be open 
-        /// </summary>
         public partial class LoginUrlInfo : Object
         {
             /// <summary>
-            /// An HTTP url needs to be open 
+            /// Contains information about an inline button of type inlineKeyboardButtonTypeLoginUrl
             /// </summary>
             public class LoginUrlInfoOpen : LoginUrlInfo
             {
@@ -31,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// The URL to open 
+                /// The URL to open
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("url")]

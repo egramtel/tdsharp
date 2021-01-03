@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The list of installed sticker sets was updated 
-        /// </summary>
         public partial class Update : Object
         {
             /// <summary>
-            /// The list of installed sticker sets was updated 
+            /// The list of installed sticker sets was updated
             /// </summary>
             public class UpdateInstalledStickerSets : Update
             {
@@ -31,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// True, if the list of installed mask sticker sets was updated 
+                /// True, if the list of installed mask sticker sets was updated
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_masks")]
@@ -40,9 +37,9 @@ namespace TdLib
                 /// <summary>
                 /// The new list of installed ordinary sticker sets
                 /// </summary>
-                [JsonConverter(typeof(Converter.Int64))]
+                [JsonConverter(typeof(Converter))]
                 [JsonProperty("sticker_set_ids")]
-                public Int64[] StickerSetIds { get; set; }
+                public long[] StickerSetIds { get; set; }
             }
         }
     }

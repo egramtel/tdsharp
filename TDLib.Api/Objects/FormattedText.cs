@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// A text with some entities 
+        /// A text with some entities
         /// </summary>
-        public class FormattedText : Object
+        public partial class FormattedText : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,13 +20,13 @@ namespace TdLib
             public override string DataType { get; set; } = "formattedText";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// The text 
+            /// The text
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("text")]

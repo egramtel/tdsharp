@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// An embedded web page 
-        /// </summary>
         public partial class PageBlock : Object
         {
             /// <summary>
-            /// An embedded web page 
+            /// An embedded web page
             /// </summary>
             public class PageBlockEmbedded : PageBlock
             {
@@ -31,49 +28,49 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Web page URL, if available 
+                /// Web page URL, if available
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("url")]
                 public string Url { get; set; }
 
                 /// <summary>
-                /// HTML-markup of the embedded page 
+                /// HTML-markup of the embedded page
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("html")]
                 public string Html { get; set; }
 
                 /// <summary>
-                /// Poster photo, if available; may be null 
+                /// Poster photo, if available; may be null
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("poster_photo")]
                 public Photo PosterPhoto { get; set; }
 
                 /// <summary>
-                /// Block width; 0 if unknown 
+                /// Block width; 0 if unknown
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("width")]
                 public int Width { get; set; }
 
                 /// <summary>
-                /// Block height; 0 if unknown 
+                /// Block height; 0 if unknown
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("height")]
                 public int Height { get; set; }
 
                 /// <summary>
-                /// Block caption 
+                /// Block caption
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("caption")]
                 public PageBlockCaption Caption { get; set; }
 
                 /// <summary>
-                /// True, if the block should be full width 
+                /// True, if the block should be full width
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_full_width")]

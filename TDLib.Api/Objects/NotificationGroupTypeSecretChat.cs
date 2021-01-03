@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A group containing a notification of type notificationTypeNewSecretChat
-        /// </summary>
         public partial class NotificationGroupType : Object
         {
             /// <summary>

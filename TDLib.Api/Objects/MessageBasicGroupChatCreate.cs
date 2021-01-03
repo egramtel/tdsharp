@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A newly created basic group 
-        /// </summary>
         public partial class MessageContent : Object
         {
             /// <summary>
-            /// A newly created basic group 
+            /// A newly created basic group
             /// </summary>
             public class MessageBasicGroupChatCreate : MessageContent
             {
@@ -31,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Title of the basic group 
+                /// Title of the basic group
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("title")]

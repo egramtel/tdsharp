@@ -11,7 +11,7 @@ namespace TdLib
         /// <summary>
         /// Contains information about notification settings for a chat
         /// </summary>
-        public class ChatNotificationSettings : Object
+        public partial class ChatNotificationSettings : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,13 +20,13 @@ namespace TdLib
             public override string DataType { get; set; } = "chatNotificationSettings";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// If true, mute_for is ignored and the value for the relevant type of chat is used instead 
+            /// If true, mute_for is ignored and the value for the relevant type of chat is used instead
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("use_default_mute_for")]
@@ -40,7 +40,7 @@ namespace TdLib
             public int MuteFor { get; set; }
 
             /// <summary>
-            /// If true, sound is ignored and the value for the relevant type of chat is used instead 
+            /// If true, sound is ignored and the value for the relevant type of chat is used instead
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("use_default_sound")]
@@ -54,7 +54,7 @@ namespace TdLib
             public string Sound { get; set; }
 
             /// <summary>
-            /// If true, show_preview is ignored and the value for the relevant type of chat is used instead 
+            /// If true, show_preview is ignored and the value for the relevant type of chat is used instead
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("use_default_show_preview")]
@@ -68,7 +68,7 @@ namespace TdLib
             public bool ShowPreview { get; set; }
 
             /// <summary>
-            /// If true, disable_pinned_message_notifications is ignored and the value for the relevant type of chat is used instead 
+            /// If true, disable_pinned_message_notifications is ignored and the value for the relevant type of chat is used instead
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("use_default_disable_pinned_message_notifications")]
@@ -82,7 +82,7 @@ namespace TdLib
             public bool DisablePinnedMessageNotifications { get; set; }
 
             /// <summary>
-            /// If true, disable_mention_notifications is ignored and the value for the relevant type of chat is used instead 
+            /// If true, disable_mention_notifications is ignored and the value for the relevant type of chat is used instead
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("use_default_disable_mention_notifications")]

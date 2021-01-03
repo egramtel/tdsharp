@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A supergroup has been created from a basic group 
-        /// </summary>
         public partial class MessageContent : Object
         {
             /// <summary>
-            /// A supergroup has been created from a basic group 
+            /// A supergroup has been created from a basic group
             /// </summary>
             public class MessageChatUpgradeFrom : MessageContent
             {
@@ -31,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Title of the newly created supergroup 
+                /// Title of the newly created supergroup
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("title")]

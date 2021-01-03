@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Adds or changes a custom local language pack to the current localization target 
+        /// Adds or changes a custom local language pack to the current localization target
         /// </summary>
         public class SetCustomLanguagePack : Function<Ok>
         {
@@ -21,13 +21,13 @@ namespace TdLib
             public override string DataType { get; set; } = "setCustomLanguagePack";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Information about the language pack. Language pack ID must start with 'X', consist only of English letters, digits and hyphens, and must not exceed 64 characters. Can be called before authorization 
+            /// Information about the language pack. Language pack ID must start with 'X', consist only of English letters, digits and hyphens, and must not exceed 64 characters. Can be called before authorization
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("info")]
@@ -41,18 +41,15 @@ namespace TdLib
             public LanguagePackString[] Strings { get; set; }
         }
 
-
         /// <summary>
-        /// Adds or changes a custom local language pack to the current localization target 
+        /// Adds or changes a custom local language pack to the current localization target
         /// </summary>
-        public static Task<Ok> SetCustomLanguagePackAsync(this Client client,
-            LanguagePackInfo info = default(LanguagePackInfo),
-            LanguagePackString[] strings = default(LanguagePackString[]))
+        public static Task<Ok> SetCustomLanguagePackAsync(
+            this Client client, LanguagePackInfo info = default, LanguagePackString[] strings = default)
         {
             return client.ExecuteAsync(new SetCustomLanguagePack
             {
-                Info = info,
-                Strings = strings,
+                Info = info, Strings = strings
             });
         }
     }

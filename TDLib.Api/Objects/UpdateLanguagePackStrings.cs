@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// Some language pack strings have been updated 
-        /// </summary>
         public partial class Update : Object
         {
             /// <summary>
-            /// Some language pack strings have been updated 
+            /// Some language pack strings have been updated
             /// </summary>
             public class UpdateLanguagePackStrings : Update
             {
@@ -31,14 +28,14 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Localization target to which the language pack belongs 
+                /// Localization target to which the language pack belongs
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("localization_target")]
                 public string LocalizationTarget { get; set; }
 
                 /// <summary>
-                /// Identifier of the updated language pack 
+                /// Identifier of the updated language pack
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("language_pack_id")]

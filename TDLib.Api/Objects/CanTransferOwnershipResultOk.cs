@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The session can be used
-        /// </summary>
         public partial class CanTransferOwnershipResult : Object
         {
             /// <summary>
-            /// The session can be used
+            /// Represents result of checking whether the current session can be used to transfer a chat ownership to another user
             /// </summary>
             public class CanTransferOwnershipResultOk : CanTransferOwnershipResult
             {

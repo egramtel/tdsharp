@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The user authorization state has changed 
-        /// </summary>
         public partial class Update : Object
         {
             /// <summary>
-            /// The user authorization state has changed 
+            /// Contains notifications about data changes
             /// </summary>
             public class UpdateAuthorizationState : Update
             {

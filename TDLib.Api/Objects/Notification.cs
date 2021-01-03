@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Contains information about a notification 
+        /// Contains information about a notification
         /// </summary>
-        public class Notification : Object
+        public partial class Notification : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,13 +20,13 @@ namespace TdLib
             public override string DataType { get; set; } = "notification";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Unique persistent identifier of this notification 
+            /// Unique persistent identifier of this notification
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("id")]
@@ -40,7 +40,7 @@ namespace TdLib
             public int Date { get; set; }
 
             /// <summary>
-            /// True, if the notification was initially silent 
+            /// True, if the notification was initially silent
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_silent")]

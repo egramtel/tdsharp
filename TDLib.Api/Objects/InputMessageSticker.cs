@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A sticker message 
-        /// </summary>
         public partial class InputMessageContent : Object
         {
             /// <summary>
-            /// A sticker message 
+            /// A sticker message
             /// </summary>
             public class InputMessageSticker : InputMessageContent
             {
@@ -31,21 +28,21 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Sticker to be sent 
+                /// Sticker to be sent
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("sticker")]
                 public InputFile Sticker { get; set; }
 
                 /// <summary>
-                /// Sticker thumbnail, if available 
+                /// Sticker thumbnail, if available
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("thumbnail")]
                 public InputThumbnail Thumbnail { get; set; }
 
                 /// <summary>
-                /// Sticker width 
+                /// Sticker width
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("width")]
@@ -57,6 +54,13 @@ namespace TdLib
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("height")]
                 public int Height { get; set; }
+
+                /// <summary>
+                /// Emoji used to choose the sticker
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("emoji")]
+                public string Emoji { get; set; }
             }
         }
     }

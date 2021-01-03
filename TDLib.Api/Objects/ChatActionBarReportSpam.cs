@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The chat can be reported as spam using the method reportChat with the reason chatReportReasonSpam
-        /// </summary>
         public partial class ChatActionBar : Object
         {
             /// <summary>
-            /// The chat can be reported as spam using the method reportChat with the reason chatReportReasonSpam
+            /// Describes actions which should be possible to do through a chat action bar
             /// </summary>
             public class ChatActionBarReportSpam : ChatActionBar
             {
@@ -29,6 +26,13 @@ namespace TdLib
                 /// </summary>
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
+
+                /// <summary>
+                /// If true, the chat was automatically archived and can be moved back to the main chat list using addChatToList simultaneously with setting chat notification settings to default using setChatNotificationSettings
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("can_unarchive")]
+                public bool CanUnarchive { get; set; }
             }
         }
     }

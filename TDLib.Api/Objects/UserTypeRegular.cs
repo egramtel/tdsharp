@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A regular user
-        /// </summary>
         public partial class UserType : Object
         {
             /// <summary>
-            /// A regular user
+            /// Represents the type of a user. The following types are possible: regular users, deleted users and bots
             /// </summary>
             public class UserTypeRegular : UserType
             {

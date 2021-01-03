@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Represents a URL linking to an internal Telegram entity 
+        /// Represents a URL linking to an internal Telegram entity
         /// </summary>
-        public class TMeUrl : Object
+        public partial class TMeUrl : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,13 +20,13 @@ namespace TdLib
             public override string DataType { get; set; } = "tMeUrl";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// URL 
+            /// URL
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("url")]

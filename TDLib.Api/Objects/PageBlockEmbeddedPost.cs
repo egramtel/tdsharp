@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// An embedded post 
-        /// </summary>
         public partial class PageBlock : Object
         {
             /// <summary>
-            /// An embedded post 
+            /// An embedded post
             /// </summary>
             public class PageBlockEmbeddedPost : PageBlock
             {
@@ -31,35 +28,35 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Web page URL 
+                /// Web page URL
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("url")]
                 public string Url { get; set; }
 
                 /// <summary>
-                /// Post author 
+                /// Post author
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("author")]
                 public string Author { get; set; }
 
                 /// <summary>
-                /// Post author photo; may be null 
+                /// Post author photo; may be null
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("author_photo")]
                 public Photo AuthorPhoto { get; set; }
 
                 /// <summary>
-                /// Point in time (Unix timestamp) when the post was created; 0 if unknown 
+                /// Point in time (Unix timestamp) when the post was created; 0 if unknown
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("date")]
                 public int Date { get; set; }
 
                 /// <summary>
-                /// Post content 
+                /// Post content
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("page_blocks")]

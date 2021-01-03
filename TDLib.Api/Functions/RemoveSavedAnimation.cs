@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Removes an animation from the list of saved animations 
+        /// Removes an animation from the list of saved animations
         /// </summary>
         public class RemoveSavedAnimation : Function<Ok>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "removeSavedAnimation";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public InputFile Animation { get; set; }
         }
 
-
         /// <summary>
-        /// Removes an animation from the list of saved animations 
+        /// Removes an animation from the list of saved animations
         /// </summary>
-        public static Task<Ok> RemoveSavedAnimationAsync(this Client client,
-            InputFile animation = default(InputFile))
+        public static Task<Ok> RemoveSavedAnimationAsync(
+            this Client client, InputFile animation = default)
         {
             return client.ExecuteAsync(new RemoveSavedAnimation
             {
-                Animation = animation,
+                Animation = animation
             });
         }
     }

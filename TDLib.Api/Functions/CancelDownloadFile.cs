@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Stops the downloading of a file. If a file has already been downloaded, does nothing 
+        /// Stops the downloading of a file. If a file has already been downloaded, does nothing
         /// </summary>
         public class CancelDownloadFile : Function<Ok>
         {
@@ -21,13 +21,13 @@ namespace TdLib
             public override string DataType { get; set; } = "cancelDownloadFile";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Identifier of a file to stop downloading 
+            /// Identifier of a file to stop downloading
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("file_id")]
@@ -41,18 +41,15 @@ namespace TdLib
             public bool OnlyIfPending { get; set; }
         }
 
-
         /// <summary>
-        /// Stops the downloading of a file. If a file has already been downloaded, does nothing 
+        /// Stops the downloading of a file. If a file has already been downloaded, does nothing
         /// </summary>
-        public static Task<Ok> CancelDownloadFileAsync(this Client client,
-            int fileId = default(int),
-            bool onlyIfPending = default(bool))
+        public static Task<Ok> CancelDownloadFileAsync(
+            this Client client, int fileId = default, bool onlyIfPending = default)
         {
             return client.ExecuteAsync(new CancelDownloadFile
             {
-                FileId = fileId,
-                OnlyIfPending = onlyIfPending,
+                FileId = fileId, OnlyIfPending = onlyIfPending
             });
         }
     }

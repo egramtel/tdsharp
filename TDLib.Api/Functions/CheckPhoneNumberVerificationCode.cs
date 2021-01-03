@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Checks the phone number verification code for Telegram Passport 
+        /// Checks the phone number verification code for Telegram Passport
         /// </summary>
         public class CheckPhoneNumberVerificationCode : Function<Ok>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "checkPhoneNumberVerificationCode";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public string Code { get; set; }
         }
 
-
         /// <summary>
-        /// Checks the phone number verification code for Telegram Passport 
+        /// Checks the phone number verification code for Telegram Passport
         /// </summary>
-        public static Task<Ok> CheckPhoneNumberVerificationCodeAsync(this Client client,
-            string code = default(string))
+        public static Task<Ok> CheckPhoneNumberVerificationCodeAsync(
+            this Client client, string code = default)
         {
             return client.ExecuteAsync(new CheckPhoneNumberVerificationCode
             {
-                Code = code,
+                Code = code
             });
         }
     }

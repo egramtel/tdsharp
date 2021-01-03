@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Searches for ordinary sticker sets by looking for specified query in their title and name. Excludes installed sticker sets from the results 
+        /// Searches for ordinary sticker sets by looking for specified query in their title and name. Excludes installed sticker sets from the results
         /// </summary>
         public class SearchStickerSets : Function<StickerSets>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "searchStickerSets";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public string Query { get; set; }
         }
 
-
         /// <summary>
-        /// Searches for ordinary sticker sets by looking for specified query in their title and name. Excludes installed sticker sets from the results 
+        /// Searches for ordinary sticker sets by looking for specified query in their title and name. Excludes installed sticker sets from the results
         /// </summary>
-        public static Task<StickerSets> SearchStickerSetsAsync(this Client client,
-            string query = default(string))
+        public static Task<StickerSets> SearchStickerSetsAsync(
+            this Client client, string query = default)
         {
             return client.ExecuteAsync(new SearchStickerSets
             {
-                Query = query,
+                Query = query
             });
         }
     }

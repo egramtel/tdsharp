@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// An MTProto proxy server 
-        /// </summary>
         public partial class ProxyType : Object
         {
             /// <summary>
-            /// An MTProto proxy server 
+            /// An MTProto proxy server
             /// </summary>
             public class ProxyTypeMtproto : ProxyType
             {

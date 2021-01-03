@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "searchChatMessages";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -41,11 +41,11 @@ namespace TdLib
             public string Query { get; set; }
 
             /// <summary>
-            /// If not 0, only messages sent by the specified user will be returned. Not supported in secret chats
+            /// If not null, only messages sent by the specified sender will be returned. Not supported in secret chats
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("sender_user_id")]
-            public int SenderUserId { get; set; }
+            [JsonProperty("sender")]
+            public MessageSender Sender { get; set; }
 
             /// <summary>
             /// Identifier of the message starting from which history must be fetched; use 0 to get results from the last message
@@ -74,30 +74,27 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("filter")]
             public SearchMessagesFilter Filter { get; set; }
-        }
 
+            /// <summary>
+            /// If not 0, only messages in the specified thread will be returned; supergroups only
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("message_thread_id")]
+            public long MessageThreadId { get; set; }
+        }
 
         /// <summary>
         /// Searches for messages with given words in the chat. Returns the results in reverse chronological order, i.e. in order of decreasing message_id. Cannot be used in secret chats with a non-empty query
         /// </summary>
-        public static Task<Messages> SearchChatMessagesAsync(this Client client,
-            long chatId = default(long),
-            string query = default(string),
-            int senderUserId = default(int),
-            long fromMessageId = default(long),
-            int offset = default(int),
-            int limit = default(int),
-            SearchMessagesFilter filter = default(SearchMessagesFilter))
+        public static Task<Messages> SearchChatMessagesAsync(
+            this Client client, long chatId = default, string query = default, MessageSender sender = default,
+            long fromMessageId = default, int offset = default, int limit = default,
+            SearchMessagesFilter filter = default, long messageThreadId = default)
         {
             return client.ExecuteAsync(new SearchChatMessages
             {
-                ChatId = chatId,
-                Query = query,
-                SenderUserId = senderUserId,
-                FromMessageId = fromMessageId,
-                Offset = offset,
-                Limit = limit,
-                Filter = filter,
+                ChatId = chatId, Query = query, Sender = sender, FromMessageId = fromMessageId, Offset = offset,
+                Limit = limit, Filter = filter, MessageThreadId = messageThreadId
             });
         }
     }

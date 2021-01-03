@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// New call was received 
-        /// </summary>
         public partial class NotificationType : Object
         {
             /// <summary>
-            /// New call was received 
+            /// New call was received
             /// </summary>
             public class NotificationTypeNewCall : NotificationType
             {

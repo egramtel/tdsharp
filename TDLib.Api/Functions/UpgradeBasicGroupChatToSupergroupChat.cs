@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Creates a new supergroup from an existing basic group and sends a corresponding messageChatUpgradeTo and messageChatUpgradeFrom; requires creator privileges. Deactivates the original basic group 
+        /// Creates a new supergroup from an existing basic group and sends a corresponding messageChatUpgradeTo and messageChatUpgradeFrom; requires creator privileges. Deactivates the original basic group
         /// </summary>
         public class UpgradeBasicGroupChatToSupergroupChat : Function<Chat>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "upgradeBasicGroupChatToSupergroupChat";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public long ChatId { get; set; }
         }
 
-
         /// <summary>
-        /// Creates a new supergroup from an existing basic group and sends a corresponding messageChatUpgradeTo and messageChatUpgradeFrom; requires creator privileges. Deactivates the original basic group 
+        /// Creates a new supergroup from an existing basic group and sends a corresponding messageChatUpgradeTo and messageChatUpgradeFrom; requires creator privileges. Deactivates the original basic group
         /// </summary>
-        public static Task<Chat> UpgradeBasicGroupChatToSupergroupChatAsync(this Client client,
-            long chatId = default(long))
+        public static Task<Chat> UpgradeBasicGroupChatToSupergroupChatAsync(
+            this Client client, long chatId = default)
         {
             return client.ExecuteAsync(new UpgradeBasicGroupChatToSupergroupChat
             {
-                ChatId = chatId,
+                ChatId = chatId
             });
         }
     }

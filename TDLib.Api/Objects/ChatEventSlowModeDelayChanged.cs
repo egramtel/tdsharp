@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The slow_mode_delay setting of a supergroup was changed 
-        /// </summary>
         public partial class ChatEventAction : Object
         {
             /// <summary>
-            /// The slow_mode_delay setting of a supergroup was changed 
+            /// The slow_mode_delay setting of a supergroup was changed
             /// </summary>
             public class ChatEventSlowModeDelayChanged : ChatEventAction
             {
@@ -31,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Previous value of slow_mode_delay 
+                /// Previous value of slow_mode_delay
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("old_slow_mode_delay")]

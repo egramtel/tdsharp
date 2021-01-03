@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A contact has registered with Telegram
-        /// </summary>
         public partial class MessageContent : Object
         {
             /// <summary>

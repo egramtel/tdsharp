@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The content should be top-aligned
-        /// </summary>
         public partial class PageBlockVerticalAlignment : Object
         {
             /// <summary>
-            /// The content should be top-aligned
+            /// Describes a Vertical alignment of a table cell content
             /// </summary>
             public class PageBlockVerticalAlignmentTop : PageBlockVerticalAlignment
             {

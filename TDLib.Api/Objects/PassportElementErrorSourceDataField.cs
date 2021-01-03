@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// One of the data fields contains an error. The error will be considered resolved when the value of the field changes 
-        /// </summary>
         public partial class PassportElementErrorSource : Object
         {
             /// <summary>
-            /// One of the data fields contains an error. The error will be considered resolved when the value of the field changes 
+            /// One of the data fields contains an error. The error will be considered resolved when the value of the field changes
             /// </summary>
             public class PassportElementErrorSourceDataField : PassportElementErrorSource
             {

@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The call is hanging up after discardCall has been called
-        /// </summary>
         public partial class CallState : Object
         {
             /// <summary>

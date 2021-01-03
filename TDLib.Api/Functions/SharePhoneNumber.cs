@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Shares the phone number of the current user with a mutual contact. Supposed to be called when the user clicks on chatActionBarSharePhoneNumber 
+        /// Shares the phone number of the current user with a mutual contact. Supposed to be called when the user clicks on chatActionBarSharePhoneNumber
         /// </summary>
         public class SharePhoneNumber : Function<Ok>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "sharePhoneNumber";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public int UserId { get; set; }
         }
 
-
         /// <summary>
-        /// Shares the phone number of the current user with a mutual contact. Supposed to be called when the user clicks on chatActionBarSharePhoneNumber 
+        /// Shares the phone number of the current user with a mutual contact. Supposed to be called when the user clicks on chatActionBarSharePhoneNumber
         /// </summary>
-        public static Task<Ok> SharePhoneNumberAsync(this Client client,
-            int userId = default(int))
+        public static Task<Ok> SharePhoneNumberAsync(
+            this Client client, int userId = default)
         {
             return client.ExecuteAsync(new SharePhoneNumber
             {
-                UserId = userId,
+                UserId = userId
             });
         }
     }

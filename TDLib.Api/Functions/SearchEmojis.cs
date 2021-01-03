@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Searches for emojis by keywords. Supported only if the file database is enabled 
+        /// Searches for emojis by keywords. Supported only if the file database is enabled
         /// </summary>
         public class SearchEmojis : Function<Emojis>
         {
@@ -21,47 +21,42 @@ namespace TdLib
             public override string DataType { get; set; } = "searchEmojis";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Text to search for 
+            /// Text to search for
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("text")]
             public string Text { get; set; }
 
             /// <summary>
-            /// True, if only emojis, which exactly match text needs to be returned 
+            /// True, if only emojis, which exactly match text needs to be returned
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("exact_match")]
             public bool ExactMatch { get; set; }
 
             /// <summary>
-            /// IETF language tag of the user's input language; may be empty if unknown
+            /// List of possible IETF language tags of the user's input language; may be empty if unknown
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("input_language_code")]
-            public string InputLanguageCode { get; set; }
+            [JsonProperty("input_language_codes")]
+            public string[] InputLanguageCodes { get; set; }
         }
 
-
         /// <summary>
-        /// Searches for emojis by keywords. Supported only if the file database is enabled 
+        /// Searches for emojis by keywords. Supported only if the file database is enabled
         /// </summary>
-        public static Task<Emojis> SearchEmojisAsync(this Client client,
-            string text = default(string),
-            bool exactMatch = default(bool),
-            string inputLanguageCode = default(string))
+        public static Task<Emojis> SearchEmojisAsync(
+            this Client client, string text = default, bool exactMatch = default, string[] inputLanguageCodes = default)
         {
             return client.ExecuteAsync(new SearchEmojis
             {
-                Text = text,
-                ExactMatch = exactMatch,
-                InputLanguageCode = inputLanguageCode,
+                Text = text, ExactMatch = exactMatch, InputLanguageCodes = inputLanguageCodes
             });
         }
     }

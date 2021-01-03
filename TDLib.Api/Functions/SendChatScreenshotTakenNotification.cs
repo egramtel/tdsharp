@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Sends a notification about a screenshot taken in a chat. Supported only in private and secret chats 
+        /// Sends a notification about a screenshot taken in a chat. Supported only in private and secret chats
         /// </summary>
         public class SendChatScreenshotTakenNotification : Function<Ok>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "sendChatScreenshotTakenNotification";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public long ChatId { get; set; }
         }
 
-
         /// <summary>
-        /// Sends a notification about a screenshot taken in a chat. Supported only in private and secret chats 
+        /// Sends a notification about a screenshot taken in a chat. Supported only in private and secret chats
         /// </summary>
-        public static Task<Ok> SendChatScreenshotTakenNotificationAsync(this Client client,
-            long chatId = default(long))
+        public static Task<Ok> SendChatScreenshotTakenNotificationAsync(
+            this Client client, long chatId = default)
         {
             return client.ExecuteAsync(new SendChatScreenshotTakenNotification
             {
-                ChatId = chatId,
+                ChatId = chatId
             });
         }
     }

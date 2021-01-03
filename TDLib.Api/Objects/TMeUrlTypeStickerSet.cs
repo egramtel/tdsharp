@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A URL linking to a sticker set 
-        /// </summary>
         public partial class TMeUrlType : Object
         {
             /// <summary>
-            /// A URL linking to a sticker set 
+            /// A URL linking to a sticker set
             /// </summary>
             public class TMeUrlTypeStickerSet : TMeUrlType
             {
@@ -35,7 +32,7 @@ namespace TdLib
                 /// </summary>
                 [JsonConverter(typeof(Converter.Int64))]
                 [JsonProperty("sticker_set_id")]
-                public Int64 StickerSetId { get; set; }
+                public long StickerSetId { get; set; }
             }
         }
     }

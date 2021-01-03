@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// Some privacy setting rules have been changed 
-        /// </summary>
         public partial class Update : Object
         {
             /// <summary>
-            /// Some privacy setting rules have been changed 
+            /// Some privacy setting rules have been changed
             /// </summary>
             public class UpdateUserPrivacySettingRules : Update
             {
@@ -31,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// The privacy setting 
+                /// The privacy setting
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("setting")]

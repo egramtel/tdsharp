@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Changes notification settings for chats of a given type 
+        /// Changes notification settings for chats of a given type
         /// </summary>
         public class SetScopeNotificationSettings : Function<Ok>
         {
@@ -21,13 +21,13 @@ namespace TdLib
             public override string DataType { get; set; } = "setScopeNotificationSettings";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Types of chats for which to change the notification settings 
+            /// Types of chats for which to change the notification settings
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("scope")]
@@ -41,18 +41,16 @@ namespace TdLib
             public ScopeNotificationSettings NotificationSettings { get; set; }
         }
 
-
         /// <summary>
-        /// Changes notification settings for chats of a given type 
+        /// Changes notification settings for chats of a given type
         /// </summary>
-        public static Task<Ok> SetScopeNotificationSettingsAsync(this Client client,
-            NotificationSettingsScope scope = default(NotificationSettingsScope),
-            ScopeNotificationSettings notificationSettings = default(ScopeNotificationSettings))
+        public static Task<Ok> SetScopeNotificationSettingsAsync(
+            this Client client, NotificationSettingsScope scope = default,
+            ScopeNotificationSettings notificationSettings = default)
         {
             return client.ExecuteAsync(new SetScopeNotificationSettings
             {
-                Scope = scope,
-                NotificationSettings = notificationSettings,
+                Scope = scope, NotificationSettings = notificationSettings
             });
         }
     }

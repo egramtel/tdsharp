@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Reads a part of a file from the TDLib file cache and returns read bytes. This method is intended to be used only if the client has no direct access to TDLib's file system, because it is usually slower than a direct read from the file
+        /// Reads a part of a file from the TDLib file cache and returns read bytes. This method is intended to be used only if the application has no direct access to TDLib's file system, because it is usually slower than a direct read from the file
         /// </summary>
         public class ReadFilePart : Function<FilePart>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "readFilePart";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -48,20 +48,15 @@ namespace TdLib
             public int Count { get; set; }
         }
 
-
         /// <summary>
-        /// Reads a part of a file from the TDLib file cache and returns read bytes. This method is intended to be used only if the client has no direct access to TDLib's file system, because it is usually slower than a direct read from the file
+        /// Reads a part of a file from the TDLib file cache and returns read bytes. This method is intended to be used only if the application has no direct access to TDLib's file system, because it is usually slower than a direct read from the file
         /// </summary>
-        public static Task<FilePart> ReadFilePartAsync(this Client client,
-            int fileId = default(int),
-            int offset = default(int),
-            int count = default(int))
+        public static Task<FilePart> ReadFilePartAsync(
+            this Client client, int fileId = default, int offset = default, int count = default)
         {
             return client.ExecuteAsync(new ReadFilePart
             {
-                FileId = fileId,
-                Offset = offset,
-                Count = count,
+                FileId = fileId, Offset = offset, Count = count
             });
         }
     }

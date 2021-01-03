@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The TTL (Time To Live) setting messages in a secret chat has been changed 
-        /// </summary>
         public partial class MessageContent : Object
         {
             /// <summary>
-            /// The TTL (Time To Live) setting messages in a secret chat has been changed 
+            /// The TTL (Time To Live) setting messages in a secret chat has been changed
             /// </summary>
             public class MessageChatSetTtl : MessageContent
             {

@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns information about a file; this is an offline request 
+        /// Returns information about a file; this is an offline request
         /// </summary>
         public class GetFile : Function<File>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "getFile";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public int FileId { get; set; }
         }
 
-
         /// <summary>
-        /// Returns information about a file; this is an offline request 
+        /// Returns information about a file; this is an offline request
         /// </summary>
-        public static Task<File> GetFileAsync(this Client client,
-            int fileId = default(int))
+        public static Task<File> GetFileAsync(
+            this Client client, int fileId = default)
         {
             return client.ExecuteAsync(new GetFile
             {
-                FileId = fileId,
+                FileId = fileId
             });
         }
     }

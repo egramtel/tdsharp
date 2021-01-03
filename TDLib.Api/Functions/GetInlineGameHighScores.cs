@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns game high scores and some part of the high score table in the range of the specified user; for bots only 
+        /// Returns game high scores and some part of the high score table in the range of the specified user; for bots only
         /// </summary>
         public class GetInlineGameHighScores : Function<GameHighScores>
         {
@@ -21,13 +21,13 @@ namespace TdLib
             public override string DataType { get; set; } = "getInlineGameHighScores";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Inline message identifier 
+            /// Inline message identifier
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("inline_message_id")]
@@ -41,18 +41,15 @@ namespace TdLib
             public int UserId { get; set; }
         }
 
-
         /// <summary>
-        /// Returns game high scores and some part of the high score table in the range of the specified user; for bots only 
+        /// Returns game high scores and some part of the high score table in the range of the specified user; for bots only
         /// </summary>
-        public static Task<GameHighScores> GetInlineGameHighScoresAsync(this Client client,
-            string inlineMessageId = default(string),
-            int userId = default(int))
+        public static Task<GameHighScores> GetInlineGameHighScoresAsync(
+            this Client client, string inlineMessageId = default, int userId = default)
         {
             return client.ExecuteAsync(new GetInlineGameHighScores
             {
-                InlineMessageId = inlineMessageId,
-                UserId = userId,
+                InlineMessageId = inlineMessageId, UserId = userId
             });
         }
     }

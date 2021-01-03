@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns an HTTPS link, which can be used to add a proxy. Available only for SOCKS5 and MTProto proxies. Can be called before authorization 
+        /// Returns an HTTPS link, which can be used to add a proxy. Available only for SOCKS5 and MTProto proxies. Can be called before authorization
         /// </summary>
         public class GetProxyLink : Function<Text>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "getProxyLink";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public int ProxyId { get; set; }
         }
 
-
         /// <summary>
-        /// Returns an HTTPS link, which can be used to add a proxy. Available only for SOCKS5 and MTProto proxies. Can be called before authorization 
+        /// Returns an HTTPS link, which can be used to add a proxy. Available only for SOCKS5 and MTProto proxies. Can be called before authorization
         /// </summary>
-        public static Task<Text> GetProxyLinkAsync(this Client client,
-            int proxyId = default(int))
+        public static Task<Text> GetProxyLinkAsync(
+            this Client client, int proxyId = default)
         {
             return client.ExecuteAsync(new GetProxyLink
             {
-                ProxyId = proxyId,
+                ProxyId = proxyId
             });
         }
     }

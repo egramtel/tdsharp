@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A table 
-        /// </summary>
         public partial class PageBlock : Object
         {
             /// <summary>
-            /// A table 
+            /// A table
             /// </summary>
             public class PageBlockTable : PageBlock
             {
@@ -31,21 +28,21 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Table caption 
+                /// Table caption
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("caption")]
                 public RichText Caption { get; set; }
 
                 /// <summary>
-                /// Table cells 
+                /// Table cells
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("cells")]
                 public PageBlockTableCell[][] Cells { get; set; }
 
                 /// <summary>
-                /// True, if the table is bordered 
+                /// True, if the table is bordered
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_bordered")]

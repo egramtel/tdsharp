@@ -21,17 +21,17 @@ namespace TdLib
             public override string DataType { get; set; } = "terminateAllOtherSessions";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
         }
 
-
         /// <summary>
         /// Terminates all other sessions of the current user
         /// </summary>
-        public static Task<Ok> TerminateAllOtherSessionsAsync(this Client client)
+        public static Task<Ok> TerminateAllOtherSessionsAsync(
+            this Client client)
         {
             return client.ExecuteAsync(new TerminateAllOtherSessions
             {

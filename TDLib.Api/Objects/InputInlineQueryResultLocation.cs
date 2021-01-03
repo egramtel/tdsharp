@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// Represents a point on the map 
-        /// </summary>
         public partial class InputInlineQueryResult : Object
         {
             /// <summary>
-            /// Represents a point on the map 
+            /// Represents a point on the map
             /// </summary>
             public class InputInlineQueryResultLocation : InputInlineQueryResult
             {
@@ -31,42 +28,42 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Unique identifier of the query result 
+                /// Unique identifier of the query result
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("id")]
                 public string Id { get; set; }
 
                 /// <summary>
-                /// Location result 
+                /// Location result
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("location")]
                 public Location Location { get; set; }
 
                 /// <summary>
-                /// Amount of time relative to the message sent time until the location can be updated, in seconds 
+                /// Amount of time relative to the message sent time until the location can be updated, in seconds
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("live_period")]
                 public int LivePeriod { get; set; }
 
                 /// <summary>
-                /// Title of the result 
+                /// Title of the result
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("title")]
                 public string Title { get; set; }
 
                 /// <summary>
-                /// URL of the result thumbnail, if it exists 
+                /// URL of the result thumbnail, if it exists
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("thumbnail_url")]
                 public string ThumbnailUrl { get; set; }
 
                 /// <summary>
-                /// Thumbnail width, if known 
+                /// Thumbnail width, if known
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("thumbnail_width")]

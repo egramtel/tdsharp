@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The last message of a chat was changed. If last_message is null, then the last message in the chat became unknown. Some new unknown messages might be added to the chat in this case 
-        /// </summary>
         public partial class Update : Object
         {
             /// <summary>
-            /// The last message of a chat was changed. If last_message is null, then the last message in the chat became unknown. Some new unknown messages might be added to the chat in this case 
+            /// The last message of a chat was changed. If last_message is null, then the last message in the chat became unknown. Some new unknown messages might be added to the chat in this case
             /// </summary>
             public class UpdateChatLastMessage : Update
             {
@@ -31,25 +28,25 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Chat identifier 
+                /// Chat identifier
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("chat_id")]
                 public long ChatId { get; set; }
 
                 /// <summary>
-                /// The new last message in the chat; may be null 
+                /// The new last message in the chat; may be null
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("last_message")]
                 public Message LastMessage { get; set; }
 
                 /// <summary>
-                /// New value of the chat order
+                /// The new chat positions in the chat lists
                 /// </summary>
-                [JsonConverter(typeof(Converter.Int64))]
-                [JsonProperty("order")]
-                public Int64 Order { get; set; }
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("positions")]
+                public ChatPosition[] Positions { get; set; }
             }
         }
     }

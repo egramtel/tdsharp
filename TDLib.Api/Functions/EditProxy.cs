@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Edits an existing proxy server for network requests. Can be called before authorization 
+        /// Edits an existing proxy server for network requests. Can be called before authorization
         /// </summary>
         public class EditProxy : Function<Proxy>
         {
@@ -21,34 +21,34 @@ namespace TdLib
             public override string DataType { get; set; } = "editProxy";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Proxy identifier 
+            /// Proxy identifier
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("proxy_id")]
             public int ProxyId { get; set; }
 
             /// <summary>
-            /// Proxy server IP address 
+            /// Proxy server IP address
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("server")]
             public string Server { get; set; }
 
             /// <summary>
-            /// Proxy server port 
+            /// Proxy server port
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("port")]
             public int Port { get; set; }
 
             /// <summary>
-            /// True, if the proxy should be enabled 
+            /// True, if the proxy should be enabled
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("enable")]
@@ -62,24 +62,16 @@ namespace TdLib
             public ProxyType Type { get; set; }
         }
 
-
         /// <summary>
-        /// Edits an existing proxy server for network requests. Can be called before authorization 
+        /// Edits an existing proxy server for network requests. Can be called before authorization
         /// </summary>
-        public static Task<Proxy> EditProxyAsync(this Client client,
-            int proxyId = default(int),
-            string server = default(string),
-            int port = default(int),
-            bool enable = default(bool),
-            ProxyType type = default(ProxyType))
+        public static Task<Proxy> EditProxyAsync(
+            this Client client, int proxyId = default, string server = default, int port = default,
+            bool enable = default, ProxyType type = default)
         {
             return client.ExecuteAsync(new EditProxy
             {
-                ProxyId = proxyId,
-                Server = server,
-                Port = port,
-                Enable = enable,
-                Type = type,
+                ProxyId = proxyId, Server = server, Port = port, Enable = enable, Type = type
             });
         }
     }

@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Represents a cell of a table 
+        /// Represents a cell of a table
         /// </summary>
-        public class PageBlockTableCell : Object
+        public partial class PageBlockTableCell : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,13 +20,13 @@ namespace TdLib
             public override string DataType { get; set; } = "pageBlockTableCell";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Cell text; may be null. If the text is null, then the cell should be invisible 
+            /// Cell text; may be null. If the text is null, then the cell should be invisible
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("text")]
@@ -40,7 +40,7 @@ namespace TdLib
             public bool IsHeader { get; set; }
 
             /// <summary>
-            /// The number of columns the cell should span 
+            /// The number of columns the cell should span
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("colspan")]
@@ -54,7 +54,7 @@ namespace TdLib
             public int Rowspan { get; set; }
 
             /// <summary>
-            /// Horizontal cell content alignment 
+            /// Horizontal cell content alignment
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("align")]

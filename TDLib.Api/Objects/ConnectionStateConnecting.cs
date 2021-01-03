@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// Currently establishing a connection to the Telegram servers
-        /// </summary>
         public partial class ConnectionState : Object
         {
             /// <summary>

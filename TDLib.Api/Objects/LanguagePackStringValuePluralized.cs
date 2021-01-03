@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A language pack string which has different forms based on the number of some object it mentions. See https://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html for more info
-        /// </summary>
         public partial class LanguagePackStringValue : Object
         {
             /// <summary>
@@ -31,14 +28,14 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Value for zero objects 
+                /// Value for zero objects
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("zero_value")]
                 public string ZeroValue { get; set; }
 
                 /// <summary>
-                /// Value for one object 
+                /// Value for one object
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("one_value")]
@@ -52,14 +49,14 @@ namespace TdLib
                 public string TwoValue { get; set; }
 
                 /// <summary>
-                /// Value for few objects 
+                /// Value for few objects
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("few_value")]
                 public string FewValue { get; set; }
 
                 /// <summary>
-                /// Value for many objects 
+                /// Value for many objects
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("many_value")]

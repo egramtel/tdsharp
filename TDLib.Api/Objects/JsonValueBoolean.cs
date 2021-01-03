@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// Represents a boolean JSON value 
-        /// </summary>
         public partial class JsonValue : Object
         {
             /// <summary>
-            /// Represents a boolean JSON value 
+            /// Represents a boolean JSON value
             /// </summary>
             public class JsonValueBoolean : JsonValue
             {

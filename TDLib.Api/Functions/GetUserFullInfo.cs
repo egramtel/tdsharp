@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns full information about a user by their identifier 
+        /// Returns full information about a user by their identifier
         /// </summary>
         public class GetUserFullInfo : Function<UserFullInfo>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "getUserFullInfo";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public int UserId { get; set; }
         }
 
-
         /// <summary>
-        /// Returns full information about a user by their identifier 
+        /// Returns full information about a user by their identifier
         /// </summary>
-        public static Task<UserFullInfo> GetUserFullInfoAsync(this Client client,
-            int userId = default(int))
+        public static Task<UserFullInfo> GetUserFullInfoAsync(
+            this Client client, int userId = default)
         {
             return client.ExecuteAsync(new GetUserFullInfo
             {
-                UserId = userId,
+                UserId = userId
             });
         }
     }

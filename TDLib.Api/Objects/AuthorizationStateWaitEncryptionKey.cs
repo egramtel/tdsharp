@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// TDLib needs an encryption key to decrypt the local database 
-        /// </summary>
         public partial class AuthorizationState : Object
         {
             /// <summary>
-            /// TDLib needs an encryption key to decrypt the local database 
+            /// TDLib needs an encryption key to decrypt the local database
             /// </summary>
             public class AuthorizationStateWaitEncryptionKey : AuthorizationState
             {

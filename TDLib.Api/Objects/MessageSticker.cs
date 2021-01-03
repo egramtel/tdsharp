@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A sticker message 
-        /// </summary>
         public partial class MessageContent : Object
         {
             /// <summary>
-            /// A sticker message 
+            /// A sticker message
             /// </summary>
             public class MessageSticker : MessageContent
             {

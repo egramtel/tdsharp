@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns the received string; for testing only. This is an offline method. Can be called before authorization 
+        /// Returns the received string; for testing only. This is an offline method. Can be called before authorization
         /// </summary>
         public class TestCallString : Function<TestString>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "testCallString";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public string X { get; set; }
         }
 
-
         /// <summary>
-        /// Returns the received string; for testing only. This is an offline method. Can be called before authorization 
+        /// Returns the received string; for testing only. This is an offline method. Can be called before authorization
         /// </summary>
-        public static Task<TestString> TestCallStringAsync(this Client client,
-            string x = default(string))
+        public static Task<TestString> TestCallStringAsync(
+            this Client client, string x = default)
         {
             return client.ExecuteAsync(new TestCallString
             {
-                X = x,
+                X = x
             });
         }
     }

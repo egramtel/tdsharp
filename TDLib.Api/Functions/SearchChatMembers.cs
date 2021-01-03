@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Searches for a specified query in the first name, last name and username of the members of a specified chat. Requires administrator rights in channels 
+        /// Searches for a specified query in the first name, last name and username of the members of a specified chat. Requires administrator rights in channels
         /// </summary>
         public class SearchChatMembers : Function<ChatMembers>
         {
@@ -21,27 +21,27 @@ namespace TdLib
             public override string DataType { get; set; } = "searchChatMembers";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Chat identifier 
+            /// Chat identifier
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_id")]
             public long ChatId { get; set; }
 
             /// <summary>
-            /// Query to search for 
+            /// Query to search for
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("query")]
             public string Query { get; set; }
 
             /// <summary>
-            /// The maximum number of users to be returned 
+            /// The maximum number of users to be returned
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("limit")]
@@ -55,22 +55,16 @@ namespace TdLib
             public ChatMembersFilter Filter { get; set; }
         }
 
-
         /// <summary>
-        /// Searches for a specified query in the first name, last name and username of the members of a specified chat. Requires administrator rights in channels 
+        /// Searches for a specified query in the first name, last name and username of the members of a specified chat. Requires administrator rights in channels
         /// </summary>
-        public static Task<ChatMembers> SearchChatMembersAsync(this Client client,
-            long chatId = default(long),
-            string query = default(string),
-            int limit = default(int),
-            ChatMembersFilter filter = default(ChatMembersFilter))
+        public static Task<ChatMembers> SearchChatMembersAsync(
+            this Client client, long chatId = default, string query = default, int limit = default,
+            ChatMembersFilter filter = default)
         {
             return client.ExecuteAsync(new SearchChatMembers
             {
-                ChatId = chatId,
-                Query = query,
-                Limit = limit,
-                Filter = filter,
+                ChatId = chatId, Query = query, Limit = limit, Filter = filter
             });
         }
     }

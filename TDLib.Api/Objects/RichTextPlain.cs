@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A plain text 
-        /// </summary>
         public partial class RichText : Object
         {
             /// <summary>
-            /// A plain text 
+            /// Describes a text object inside an instant-view web page
             /// </summary>
             public class RichTextPlain : RichText
             {

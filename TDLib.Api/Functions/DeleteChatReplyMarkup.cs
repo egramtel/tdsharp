@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Deletes the default reply markup from a chat. Must be called after a one-time keyboard or a ForceReply reply markup has been used. UpdateChatReplyMarkup will be sent if the reply markup will be changed 
+        /// Deletes the default reply markup from a chat. Must be called after a one-time keyboard or a ForceReply reply markup has been used. UpdateChatReplyMarkup will be sent if the reply markup will be changed
         /// </summary>
         public class DeleteChatReplyMarkup : Function<Ok>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "deleteChatReplyMarkup";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -41,18 +41,15 @@ namespace TdLib
             public long MessageId { get; set; }
         }
 
-
         /// <summary>
-        /// Deletes the default reply markup from a chat. Must be called after a one-time keyboard or a ForceReply reply markup has been used. UpdateChatReplyMarkup will be sent if the reply markup will be changed 
+        /// Deletes the default reply markup from a chat. Must be called after a one-time keyboard or a ForceReply reply markup has been used. UpdateChatReplyMarkup will be sent if the reply markup will be changed
         /// </summary>
-        public static Task<Ok> DeleteChatReplyMarkupAsync(this Client client,
-            long chatId = default(long),
-            long messageId = default(long))
+        public static Task<Ok> DeleteChatReplyMarkupAsync(
+            this Client client, long chatId = default, long messageId = default)
         {
             return client.ExecuteAsync(new DeleteChatReplyMarkup
             {
-                ChatId = chatId,
-                MessageId = messageId,
+                ChatId = chatId, MessageId = messageId
             });
         }
     }

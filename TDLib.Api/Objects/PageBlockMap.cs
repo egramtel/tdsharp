@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A map 
-        /// </summary>
         public partial class PageBlock : Object
         {
             /// <summary>
-            /// A map 
+            /// A map
             /// </summary>
             public class PageBlockMap : PageBlock
             {
@@ -31,28 +28,28 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Location of the map center 
+                /// Location of the map center
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("location")]
                 public Location Location { get; set; }
 
                 /// <summary>
-                /// Map zoom level 
+                /// Map zoom level
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("zoom")]
                 public int Zoom { get; set; }
 
                 /// <summary>
-                /// Map width 
+                /// Map width
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("width")]
                 public int Width { get; set; }
 
                 /// <summary>
-                /// Map height 
+                /// Map height
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("height")]

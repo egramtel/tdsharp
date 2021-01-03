@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A mention of a user by their username
-        /// </summary>
         public partial class TextEntityType : Object
         {
             /// <summary>
-            /// A mention of a user by their username
+            /// Represents a part of the text which must be formatted differently
             /// </summary>
             public class TextEntityTypeMention : TextEntityType
             {

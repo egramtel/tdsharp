@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "searchCallMessages";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,7 +34,7 @@ namespace TdLib
             public long FromMessageId { get; set; }
 
             /// <summary>
-            /// The maximum number of messages to be returned; up to 100. Fewer messages may be returned than specified by the limit, even if the end of the message history has not been reached 
+            /// The maximum number of messages to be returned; up to 100. Fewer messages may be returned than specified by the limit, even if the end of the message history has not been reached
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("limit")]
@@ -48,20 +48,15 @@ namespace TdLib
             public bool OnlyMissed { get; set; }
         }
 
-
         /// <summary>
         /// Searches for call messages. Returns the results in reverse chronological order (i. e., in order of decreasing message_id). For optimal performance the number of returned messages is chosen by the library
         /// </summary>
-        public static Task<Messages> SearchCallMessagesAsync(this Client client,
-            long fromMessageId = default(long),
-            int limit = default(int),
-            bool onlyMissed = default(bool))
+        public static Task<Messages> SearchCallMessagesAsync(
+            this Client client, long fromMessageId = default, int limit = default, bool onlyMissed = default)
         {
             return client.ExecuteAsync(new SearchCallMessages
             {
-                FromMessageId = fromMessageId,
-                Limit = limit,
-                OnlyMissed = onlyMissed,
+                FromMessageId = fromMessageId, Limit = limit, OnlyMissed = onlyMissed
             });
         }
     }

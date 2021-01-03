@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A rule to allow all of a user's contacts to do something
-        /// </summary>
         public partial class UserPrivacySettingRule : Object
         {
             /// <summary>

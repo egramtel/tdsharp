@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A message with a user contact 
-        /// </summary>
         public partial class MessageContent : Object
         {
             /// <summary>
-            /// A message with a user contact 
+            /// A message with a user contact
             /// </summary>
             public class MessageContact : MessageContent
             {

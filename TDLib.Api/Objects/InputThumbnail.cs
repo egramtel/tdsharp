@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// A thumbnail to be sent along with a file; should be in JPEG or WEBP format for stickers, and less than 200 kB in size 
+        /// A thumbnail to be sent along with a file; must be in JPEG or WEBP format for stickers, and less than 200 KB in size
         /// </summary>
-        public class InputThumbnail : Object
+        public partial class InputThumbnail : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,7 +20,7 @@ namespace TdLib
             public override string DataType { get; set; } = "inputThumbnail";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -33,7 +33,7 @@ namespace TdLib
             public InputFile Thumbnail { get; set; }
 
             /// <summary>
-            /// Thumbnail width, usually shouldn't exceed 320. Use 0 if unknown 
+            /// Thumbnail width, usually shouldn't exceed 320. Use 0 if unknown
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("width")]

@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// New terms of service must be accepted by the user. If the terms of service are declined, then the deleteAccount method should be called with the reason "Decline ToS update" 
-        /// </summary>
         public partial class Update : Object
         {
             /// <summary>
-            /// New terms of service must be accepted by the user. If the terms of service are declined, then the deleteAccount method should be called with the reason "Decline ToS update" 
+            /// New terms of service must be accepted by the user. If the terms of service are declined, then the deleteAccount method should be called with the reason "Decline ToS update"
             /// </summary>
             public class UpdateTermsOfService : Update
             {
@@ -31,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Identifier of the terms of service 
+                /// Identifier of the terms of service
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("terms_of_service_id")]

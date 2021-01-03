@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Represents a chat event 
+        /// Represents a chat event
         /// </summary>
-        public class ChatEvent : Object
+        public partial class ChatEvent : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,27 +20,27 @@ namespace TdLib
             public override string DataType { get; set; } = "chatEvent";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Chat event identifier 
+            /// Chat event identifier
             /// </summary>
             [JsonConverter(typeof(Converter.Int64))]
             [JsonProperty("id")]
-            public Int64 Id { get; set; }
+            public long Id { get; set; }
 
             /// <summary>
-            /// Point in time (Unix timestamp) when the event happened 
+            /// Point in time (Unix timestamp) when the event happened
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("date")]
             public int Date { get; set; }
 
             /// <summary>
-            /// Identifier of the user who performed the action that triggered the event 
+            /// Identifier of the user who performed the action that triggered the event
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("user_id")]

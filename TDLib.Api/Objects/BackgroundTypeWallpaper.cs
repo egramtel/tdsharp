@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A wallpaper in JPEG format
-        /// </summary>
         public partial class BackgroundType : Object
         {
             /// <summary>
-            /// A wallpaper in JPEG format
+            /// Describes the type of a background
             /// </summary>
             public class BackgroundTypeWallpaper : BackgroundType
             {

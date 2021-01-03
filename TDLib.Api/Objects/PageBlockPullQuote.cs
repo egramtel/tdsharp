@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A pull quote 
-        /// </summary>
         public partial class PageBlock : Object
         {
             /// <summary>
-            /// A pull quote 
+            /// A pull quote
             /// </summary>
             public class PageBlockPullQuote : PageBlock
             {
@@ -31,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Quote text 
+                /// Quote text
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("text")]

@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// Returns users under certain restrictions in the chat; can be used only by administrators in a supergroup
-        /// </summary>
         public partial class ChatMembersFilter : Object
         {
             /// <summary>

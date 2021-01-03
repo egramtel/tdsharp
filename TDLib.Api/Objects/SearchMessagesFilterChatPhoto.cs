@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// Returns only messages containing chat photos
-        /// </summary>
         public partial class SearchMessagesFilter : Object
         {
             /// <summary>

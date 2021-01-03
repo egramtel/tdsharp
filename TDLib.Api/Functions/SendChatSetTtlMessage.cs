@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Changes the current TTL setting (sets a new self-destruct timer) in a secret chat and sends the corresponding message 
+        /// Changes the current TTL setting (sets a new self-destruct timer) in a secret chat and sends the corresponding message
         /// </summary>
         public class SendChatSetTtlMessage : Function<Message>
         {
@@ -21,13 +21,13 @@ namespace TdLib
             public override string DataType { get; set; } = "sendChatSetTtlMessage";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Chat identifier 
+            /// Chat identifier
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_id")]
@@ -41,18 +41,15 @@ namespace TdLib
             public int Ttl { get; set; }
         }
 
-
         /// <summary>
-        /// Changes the current TTL setting (sets a new self-destruct timer) in a secret chat and sends the corresponding message 
+        /// Changes the current TTL setting (sets a new self-destruct timer) in a secret chat and sends the corresponding message
         /// </summary>
-        public static Task<Message> SendChatSetTtlMessageAsync(this Client client,
-            long chatId = default(long),
-            int ttl = default(int))
+        public static Task<Message> SendChatSetTtlMessageAsync(
+            this Client client, long chatId = default, int ttl = default)
         {
             return client.ExecuteAsync(new SendChatSetTtlMessage
             {
-                ChatId = chatId,
-                Ttl = ttl,
+                ChatId = chatId, Ttl = ttl
             });
         }
     }

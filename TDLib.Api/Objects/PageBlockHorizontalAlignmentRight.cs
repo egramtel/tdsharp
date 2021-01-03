@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The content should be right-aligned
-        /// </summary>
         public partial class PageBlockHorizontalAlignment : Object
         {
             /// <summary>

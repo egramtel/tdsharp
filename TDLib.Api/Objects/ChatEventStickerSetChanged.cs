@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The supergroup sticker set was changed 
-        /// </summary>
         public partial class ChatEventAction : Object
         {
             /// <summary>
-            /// The supergroup sticker set was changed 
+            /// The supergroup sticker set was changed
             /// </summary>
             public class ChatEventStickerSetChanged : ChatEventAction
             {
@@ -31,18 +28,18 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Previous identifier of the chat sticker set; 0 if none 
+                /// Previous identifier of the chat sticker set; 0 if none
                 /// </summary>
                 [JsonConverter(typeof(Converter.Int64))]
                 [JsonProperty("old_sticker_set_id")]
-                public Int64 OldStickerSetId { get; set; }
+                public long OldStickerSetId { get; set; }
 
                 /// <summary>
                 /// New identifier of the chat sticker set; 0 if none
                 /// </summary>
                 [JsonConverter(typeof(Converter.Int64))]
                 [JsonProperty("new_sticker_set_id")]
-                public Int64 NewStickerSetId { get; set; }
+                public long NewStickerSetId { get; set; }
             }
         }
     }

@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Describes an action associated with a bank card number 
+        /// Describes an action associated with a bank card number
         /// </summary>
-        public class BankCardActionOpenUrl : Object
+        public partial class BankCardActionOpenUrl : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,13 +20,13 @@ namespace TdLib
             public override string DataType { get; set; } = "bankCardActionOpenUrl";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Action text 
+            /// Action text
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("text")]

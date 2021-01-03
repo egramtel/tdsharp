@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns file downloaded prefix size from a given offset 
+        /// Returns file downloaded prefix size from a given offset
         /// </summary>
         public class GetFileDownloadedPrefixSize : Function<Count>
         {
@@ -21,13 +21,13 @@ namespace TdLib
             public override string DataType { get; set; } = "getFileDownloadedPrefixSize";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Identifier of the file 
+            /// Identifier of the file
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("file_id")]
@@ -41,18 +41,15 @@ namespace TdLib
             public int Offset { get; set; }
         }
 
-
         /// <summary>
-        /// Returns file downloaded prefix size from a given offset 
+        /// Returns file downloaded prefix size from a given offset
         /// </summary>
-        public static Task<Count> GetFileDownloadedPrefixSizeAsync(this Client client,
-            int fileId = default(int),
-            int offset = default(int))
+        public static Task<Count> GetFileDownloadedPrefixSizeAsync(
+            this Client client, int fileId = default, int offset = default)
         {
             return client.ExecuteAsync(new GetFileDownloadedPrefixSize
             {
-                FileId = fileId,
-                Offset = offset,
+                FileId = fileId, Offset = offset
             });
         }
     }

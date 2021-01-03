@@ -21,17 +21,17 @@ namespace TdLib
             public override string DataType { get; set; } = "disableProxy";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
         }
 
-
         /// <summary>
         /// Disables the currently enabled proxy. Can be called before authorization
         /// </summary>
-        public static Task<Ok> DisableProxyAsync(this Client client)
+        public static Task<Ok> DisableProxyAsync(
+            this Client client)
         {
             return client.ExecuteAsync(new DisableProxy
             {

@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The front side of the document contains an error. The error is considered resolved when the file with the front side of the document changes 
-        /// </summary>
         public partial class InputPassportElementErrorSource : Object
         {
             /// <summary>
-            /// The front side of the document contains an error. The error is considered resolved when the file with the front side of the document changes 
+            /// The front side of the document contains an error. The error is considered resolved when the file with the front side of the document changes
             /// </summary>
             public class InputPassportElementErrorSourceFrontSide : InputPassportElementErrorSource
             {

@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The payload from a game callback button 
-        /// </summary>
         public partial class CallbackQueryPayload : Object
         {
             /// <summary>
-            /// The payload from a game callback button 
+            /// The payload for a game callback button
             /// </summary>
             public class CallbackQueryPayloadGame : CallbackQueryPayload
             {

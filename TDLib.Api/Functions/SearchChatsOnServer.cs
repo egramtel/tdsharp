@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Searches for the specified query in the title and username of already known chats via request to the server. Returns chats in the order seen in the chat list 
+        /// Searches for the specified query in the title and username of already known chats via request to the server. Returns chats in the order seen in the main chat list
         /// </summary>
         public class SearchChatsOnServer : Function<Chats>
         {
@@ -21,13 +21,13 @@ namespace TdLib
             public override string DataType { get; set; } = "searchChatsOnServer";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Query to search for 
+            /// Query to search for
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("query")]
@@ -41,18 +41,15 @@ namespace TdLib
             public int Limit { get; set; }
         }
 
-
         /// <summary>
-        /// Searches for the specified query in the title and username of already known chats via request to the server. Returns chats in the order seen in the chat list 
+        /// Searches for the specified query in the title and username of already known chats via request to the server. Returns chats in the order seen in the main chat list
         /// </summary>
-        public static Task<Chats> SearchChatsOnServerAsync(this Client client,
-            string query = default(string),
-            int limit = default(int))
+        public static Task<Chats> SearchChatsOnServerAsync(
+            this Client client, string query = default, int limit = default)
         {
             return client.ExecuteAsync(new SearchChatsOnServer
             {
-                Query = query,
-                Limit = limit,
+                Query = query, Limit = limit
             });
         }
     }

@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// Notification settings for some type of chats were updated 
-        /// </summary>
         public partial class Update : Object
         {
             /// <summary>
-            /// Notification settings for some type of chats were updated 
+            /// Notification settings for some type of chats were updated
             /// </summary>
             public class UpdateScopeNotificationSettings : Update
             {
@@ -31,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Types of chats for which notification settings were updated 
+                /// Types of chats for which notification settings were updated
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("scope")]

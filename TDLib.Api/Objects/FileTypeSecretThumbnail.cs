@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The file is a thumbnail of a file from a secret chat
-        /// </summary>
         public partial class FileType : Object
         {
             /// <summary>

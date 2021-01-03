@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// New chat members were added 
-        /// </summary>
         public partial class MessageContent : Object
         {
             /// <summary>
-            /// New chat members were added 
+            /// New chat members were added
             /// </summary>
             public class MessageChatAddMembers : MessageContent
             {

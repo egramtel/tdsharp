@@ -11,7 +11,7 @@ namespace TdLib
         /// <summary>
         /// Describes a message
         /// </summary>
-        public class Message : Object
+        public partial class Message : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,24 +20,24 @@ namespace TdLib
             public override string DataType { get; set; } = "message";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Message identifier, unique for the chat to which the message belongs
+            /// Message identifier; unique for the chat to which the message belongs
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("id")]
             public long Id { get; set; }
 
             /// <summary>
-            /// Identifier of the user who sent the message; 0 if unknown. Currently, it is unknown for channel posts and for channel posts automatically forwarded to discussion group
+            /// The sender of the message
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("sender_user_id")]
-            public int SenderUserId { get; set; }
+            [JsonProperty("sender")]
+            public MessageSender Sender { get; set; }
 
             /// <summary>
             /// Chat identifier
@@ -68,7 +68,14 @@ namespace TdLib
             public bool IsOutgoing { get; set; }
 
             /// <summary>
-            /// True, if the message can be edited. For live location and poll messages this fields shows whether editMessageLiveLocation or stopPoll can be used with this message by the client
+            /// True, if the message is pinned
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("is_pinned")]
+            public bool IsPinned { get; set; }
+
+            /// <summary>
+            /// True, if the message can be edited. For live location and poll messages this fields shows whether editMessageLiveLocation or stopPoll can be used with this message by the application
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("can_be_edited")]
@@ -94,6 +101,20 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("can_be_deleted_for_all_users")]
             public bool CanBeDeletedForAllUsers { get; set; }
+
+            /// <summary>
+            /// True, if the message statistics are available
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("can_get_statistics")]
+            public bool CanGetStatistics { get; set; }
+
+            /// <summary>
+            /// True, if the message thread info is available
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("can_get_message_thread")]
+            public bool CanGetMessageThread { get; set; }
 
             /// <summary>
             /// True, if the message is a channel post. All messages to channels are channel posts, all other messages are not channel posts
@@ -131,11 +152,32 @@ namespace TdLib
             public MessageForwardInfo ForwardInfo { get; set; }
 
             /// <summary>
+            /// Information about interactions with the message; may be null
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("interaction_info")]
+            public MessageInteractionInfo InteractionInfo { get; set; }
+
+            /// <summary>
+            /// If non-zero, the identifier of the chat to which the replied message belongs; Currently, only messages in the Replies chat can have different reply_in_chat_id and chat_id
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("reply_in_chat_id")]
+            public long ReplyInChatId { get; set; }
+
+            /// <summary>
             /// If non-zero, the identifier of the message this message is replying to; can be the identifier of a deleted message
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("reply_to_message_id")]
             public long ReplyToMessageId { get; set; }
+
+            /// <summary>
+            /// If non-zero, the identifier of the message thread the message belongs to; unique within the chat to which the message belongs
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("message_thread_id")]
+            public long MessageThreadId { get; set; }
 
             /// <summary>
             /// For self-destructing messages, the message's TTL (Time To Live), in seconds; 0 if none. TDLib will send updateDeleteMessages or updateMessageContent once the TTL expires
@@ -159,25 +201,18 @@ namespace TdLib
             public int ViaBotUserId { get; set; }
 
             /// <summary>
-            /// For channel posts, optional author signature
+            /// For channel posts and anonymous group messages, optional author signature
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("author_signature")]
             public string AuthorSignature { get; set; }
 
             /// <summary>
-            /// Number of times this message was viewed
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("views")]
-            public int Views { get; set; }
-
-            /// <summary>
-            /// Unique identifier of an album this message belongs to. Only photos and videos can be grouped together in albums
+            /// Unique identifier of an album this message belongs to. Only audios, documents, photos and videos can be grouped together in albums
             /// </summary>
             [JsonConverter(typeof(Converter.Int64))]
             [JsonProperty("media_album_id")]
-            public Int64 MediaAlbumId { get; set; }
+            public long MediaAlbumId { get; set; }
 
             /// <summary>
             /// If non-empty, contains a human-readable description of the reason why access to this message must be restricted

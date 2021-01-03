@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The footer of a page 
-        /// </summary>
         public partial class PageBlock : Object
         {
             /// <summary>
-            /// The footer of a page 
+            /// The footer of a page
             /// </summary>
             public class PageBlockFooter : PageBlock
             {

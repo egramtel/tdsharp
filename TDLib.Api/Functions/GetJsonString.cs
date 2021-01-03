@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Converts a JsonValue object to corresponding JSON-serialized string. This is an offline method. Can be called before authorization. Can be called synchronously 
+        /// Converts a JsonValue object to corresponding JSON-serialized string. Can be called synchronously
         /// </summary>
         public class GetJsonString : Function<Text>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "getJsonString";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public JsonValue JsonValue { get; set; }
         }
 
-
         /// <summary>
-        /// Converts a JsonValue object to corresponding JSON-serialized string. This is an offline method. Can be called before authorization. Can be called synchronously 
+        /// Converts a JsonValue object to corresponding JSON-serialized string. Can be called synchronously
         /// </summary>
-        public static Task<Text> GetJsonStringAsync(this Client client,
-            JsonValue jsonValue = default(JsonValue))
+        public static Task<Text> GetJsonStringAsync(
+            this Client client, JsonValue jsonValue = default)
         {
             return client.ExecuteAsync(new GetJsonString
             {
-                JsonValue = jsonValue,
+                JsonValue = jsonValue
             });
         }
     }

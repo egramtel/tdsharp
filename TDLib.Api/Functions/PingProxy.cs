@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Computes time needed to receive a response from a Telegram server through a proxy. Can be called before authorization 
+        /// Computes time needed to receive a response from a Telegram server through a proxy. Can be called before authorization
         /// </summary>
         public class PingProxy : Function<Seconds>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "pingProxy";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public int ProxyId { get; set; }
         }
 
-
         /// <summary>
-        /// Computes time needed to receive a response from a Telegram server through a proxy. Can be called before authorization 
+        /// Computes time needed to receive a response from a Telegram server through a proxy. Can be called before authorization
         /// </summary>
-        public static Task<Seconds> PingProxyAsync(this Client client,
-            int proxyId = default(int))
+        public static Task<Seconds> PingProxyAsync(
+            this Client client, int proxyId = default)
         {
             return client.ExecuteAsync(new PingProxy
             {
-                ProxyId = proxyId,
+                ProxyId = proxyId
             });
         }
     }

@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The sign_messages setting of a channel was toggled 
-        /// </summary>
         public partial class ChatEventAction : Object
         {
             /// <summary>
-            /// The sign_messages setting of a channel was toggled 
+            /// The sign_messages setting of a channel was toggled
             /// </summary>
             public class ChatEventSignMessagesToggled : ChatEventAction
             {

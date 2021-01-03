@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Describes a game 
+        /// Describes a game
         /// </summary>
-        public class Game : Object
+        public partial class Game : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,27 +20,27 @@ namespace TdLib
             public override string DataType { get; set; } = "game";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Game ID 
+            /// Game ID
             /// </summary>
             [JsonConverter(typeof(Converter.Int64))]
             [JsonProperty("id")]
-            public Int64 Id { get; set; }
+            public long Id { get; set; }
 
             /// <summary>
-            /// Game short name. To share a game use the URL https://t.me/{bot_username}?game={game_short_name} 
+            /// Game short name. To share a game use the URL https://t.me/{bot_username}?game={game_short_name}
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("short_name")]
             public string ShortName { get; set; }
 
             /// <summary>
-            /// Game title 
+            /// Game title
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("title")]
@@ -54,14 +54,14 @@ namespace TdLib
             public FormattedText Text { get; set; }
 
             /// <summary>
-            /// Describes a game 
+            /// 
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("description")]
             public string Description { get; set; }
 
             /// <summary>
-            /// Game photo 
+            /// Game photo
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("photo")]

@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Checks the 2-step verification recovery email address verification code 
+        /// Checks the 2-step verification recovery email address verification code
         /// </summary>
         public class CheckRecoveryEmailAddressCode : Function<PasswordState>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "checkRecoveryEmailAddressCode";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public string Code { get; set; }
         }
 
-
         /// <summary>
-        /// Checks the 2-step verification recovery email address verification code 
+        /// Checks the 2-step verification recovery email address verification code
         /// </summary>
-        public static Task<PasswordState> CheckRecoveryEmailAddressCodeAsync(this Client client,
-            string code = default(string))
+        public static Task<PasswordState> CheckRecoveryEmailAddressCodeAsync(
+            this Client client, string code = default)
         {
             return client.ExecuteAsync(new CheckRecoveryEmailAddressCode
             {
-                Code = code,
+                Code = code
             });
         }
     }

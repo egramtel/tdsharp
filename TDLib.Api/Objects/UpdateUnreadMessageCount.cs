@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// Number of unread messages in a chat list has changed. This update is sent only if the message database is used 
-        /// </summary>
         public partial class Update : Object
         {
             /// <summary>
-            /// Number of unread messages in a chat list has changed. This update is sent only if the message database is used 
+            /// Number of unread messages in a chat list has changed. This update is sent only if the message database is used
             /// </summary>
             public class UpdateUnreadMessageCount : Update
             {
@@ -38,7 +35,7 @@ namespace TdLib
                 public ChatList ChatList { get; set; }
 
                 /// <summary>
-                /// Total number of unread messages 
+                /// Total number of unread messages
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("unread_count")]

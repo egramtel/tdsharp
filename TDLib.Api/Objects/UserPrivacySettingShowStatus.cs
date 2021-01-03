@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A privacy setting for managing whether the user's online status is visible
-        /// </summary>
         public partial class UserPrivacySetting : Object
         {
             /// <summary>
-            /// A privacy setting for managing whether the user's online status is visible
+            /// Describes available user privacy settings
             /// </summary>
             public class UserPrivacySettingShowStatus : UserPrivacySetting
             {

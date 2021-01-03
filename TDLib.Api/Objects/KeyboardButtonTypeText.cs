@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A simple button, with text that should be sent when the button is pressed
-        /// </summary>
         public partial class KeyboardButtonType : Object
         {
             /// <summary>
-            /// A simple button, with text that should be sent when the button is pressed
+            /// Describes a keyboard button type
             /// </summary>
             public class KeyboardButtonTypeText : KeyboardButtonType
             {

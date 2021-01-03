@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Contains the storage usage statistics for a specific file type 
+        /// Contains the storage usage statistics for a specific file type
         /// </summary>
-        public class StorageStatisticsByFileType : Object
+        public partial class StorageStatisticsByFileType : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,20 +20,20 @@ namespace TdLib
             public override string DataType { get; set; } = "storageStatisticsByFileType";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// File type 
+            /// File type
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("file_type")]
             public FileType FileType { get; set; }
 
             /// <summary>
-            /// Total size of the files 
+            /// Total size of the files
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("size")]

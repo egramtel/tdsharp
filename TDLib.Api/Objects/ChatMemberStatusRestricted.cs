@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The user is under certain restrictions in the chat. Not supported in basic groups and channels
-        /// </summary>
         public partial class ChatMemberStatus : Object
         {
             /// <summary>

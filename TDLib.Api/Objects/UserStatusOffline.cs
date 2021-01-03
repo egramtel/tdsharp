@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The user is offline 
-        /// </summary>
         public partial class UserStatus : Object
         {
             /// <summary>
-            /// The user is offline 
+            /// The user is offline
             /// </summary>
             public class UserStatusOffline : UserStatus
             {

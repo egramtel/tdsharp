@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Writes a part of a generated file. This method is intended to be used only if the client has no direct access to TDLib's file system, because it is usually slower than a direct write to the destination file
+        /// Writes a part of a generated file. This method is intended to be used only if the application has no direct access to TDLib's file system, because it is usually slower than a direct write to the destination file
         /// </summary>
         public class WriteGeneratedFilePart : Function<Ok>
         {
@@ -21,20 +21,20 @@ namespace TdLib
             public override string DataType { get; set; } = "writeGeneratedFilePart";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// The identifier of the generation process 
+            /// The identifier of the generation process
             /// </summary>
             [JsonConverter(typeof(Converter.Int64))]
             [JsonProperty("generation_id")]
-            public Int64 GenerationId { get; set; }
+            public long GenerationId { get; set; }
 
             /// <summary>
-            /// The offset from which to write the data to the file 
+            /// The offset from which to write the data to the file
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("offset")]
@@ -48,20 +48,15 @@ namespace TdLib
             public byte[] Data { get; set; }
         }
 
-
         /// <summary>
-        /// Writes a part of a generated file. This method is intended to be used only if the client has no direct access to TDLib's file system, because it is usually slower than a direct write to the destination file
+        /// Writes a part of a generated file. This method is intended to be used only if the application has no direct access to TDLib's file system, because it is usually slower than a direct write to the destination file
         /// </summary>
-        public static Task<Ok> WriteGeneratedFilePartAsync(this Client client,
-            Int64 generationId = default(Int64),
-            int offset = default(int),
-            byte[] data = default(byte[]))
+        public static Task<Ok> WriteGeneratedFilePartAsync(
+            this Client client, long generationId = default, int offset = default, byte[] data = default)
         {
             return client.ExecuteAsync(new WriteGeneratedFilePart
             {
-                GenerationId = generationId,
-                Offset = offset,
-                Data = data,
+                GenerationId = generationId, Offset = offset, Data = data
             });
         }
     }

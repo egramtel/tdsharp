@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The user status was never changed
-        /// </summary>
         public partial class UserStatus : Object
         {
             /// <summary>
-            /// The user status was never changed
+            /// Describes the last time the user was online
             /// </summary>
             public class UserStatusEmpty : UserStatus
             {

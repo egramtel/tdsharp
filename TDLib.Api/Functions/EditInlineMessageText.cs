@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Edits the text of an inline text or game message sent via a bot; for bots only 
+        /// Edits the text of an inline text or game message sent via a bot; for bots only
         /// </summary>
         public class EditInlineMessageText : Function<Ok>
         {
@@ -21,20 +21,20 @@ namespace TdLib
             public override string DataType { get; set; } = "editInlineMessageText";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Inline message identifier 
+            /// Inline message identifier
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("inline_message_id")]
             public string InlineMessageId { get; set; }
 
             /// <summary>
-            /// The new message reply markup 
+            /// The new message reply markup
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("reply_markup")]
@@ -48,20 +48,16 @@ namespace TdLib
             public InputMessageContent InputMessageContent { get; set; }
         }
 
-
         /// <summary>
-        /// Edits the text of an inline text or game message sent via a bot; for bots only 
+        /// Edits the text of an inline text or game message sent via a bot; for bots only
         /// </summary>
-        public static Task<Ok> EditInlineMessageTextAsync(this Client client,
-            string inlineMessageId = default(string),
-            ReplyMarkup replyMarkup = default(ReplyMarkup),
-            InputMessageContent inputMessageContent = default(InputMessageContent))
+        public static Task<Ok> EditInlineMessageTextAsync(
+            this Client client, string inlineMessageId = default, ReplyMarkup replyMarkup = default,
+            InputMessageContent inputMessageContent = default)
         {
             return client.ExecuteAsync(new EditInlineMessageText
             {
-                InlineMessageId = inlineMessageId,
-                ReplyMarkup = replyMarkup,
-                InputMessageContent = inputMessageContent,
+                InlineMessageId = inlineMessageId, ReplyMarkup = replyMarkup, InputMessageContent = inputMessageContent
             });
         }
     }

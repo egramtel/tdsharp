@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The selected background has changed 
-        /// </summary>
         public partial class Update : Object
         {
             /// <summary>
-            /// The selected background has changed 
+            /// The selected background has changed
             /// </summary>
             public class UpdateSelectedBackground : Update
             {
@@ -31,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// True, if background for dark theme has changed 
+                /// True, if background for dark theme has changed
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("for_dark_theme")]

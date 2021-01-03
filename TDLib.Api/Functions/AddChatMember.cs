@@ -21,20 +21,20 @@ namespace TdLib
             public override string DataType { get; set; } = "addChatMember";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Chat identifier 
+            /// Chat identifier
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_id")]
             public long ChatId { get; set; }
 
             /// <summary>
-            /// Identifier of the user 
+            /// Identifier of the user
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("user_id")]
@@ -48,20 +48,15 @@ namespace TdLib
             public int ForwardLimit { get; set; }
         }
 
-
         /// <summary>
         /// Adds a new member to a chat. Members can't be added to private or secret chats. Members will not be added until the chat state has been synchronized with the server
         /// </summary>
-        public static Task<Ok> AddChatMemberAsync(this Client client,
-            long chatId = default(long),
-            int userId = default(int),
-            int forwardLimit = default(int))
+        public static Task<Ok> AddChatMemberAsync(
+            this Client client, long chatId = default, int userId = default, int forwardLimit = default)
         {
             return client.ExecuteAsync(new AddChatMember
             {
-                ChatId = chatId,
-                UserId = userId,
-                ForwardLimit = forwardLimit,
+                ChatId = chatId, UserId = userId, ForwardLimit = forwardLimit
             });
         }
     }

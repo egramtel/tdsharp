@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// Returns contacts of the user
-        /// </summary>
         public partial class ChatMembersFilter : Object
         {
             /// <summary>
-            /// Returns contacts of the user
+            /// Specifies the kind of chat members to return in searchChatMembers
             /// </summary>
             public class ChatMembersFilterContacts : ChatMembersFilter
             {

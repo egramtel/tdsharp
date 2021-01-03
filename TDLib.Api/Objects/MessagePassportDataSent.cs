@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// Telegram Passport data has been sent 
-        /// </summary>
         public partial class MessageContent : Object
         {
             /// <summary>
-            /// Telegram Passport data has been sent 
+            /// Telegram Passport data has been sent
             /// </summary>
             public class MessagePassportDataSent : MessageContent
             {

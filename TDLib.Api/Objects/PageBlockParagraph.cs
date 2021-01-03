@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A text paragraph 
-        /// </summary>
         public partial class PageBlock : Object
         {
             /// <summary>
-            /// A text paragraph 
+            /// A text paragraph
             /// </summary>
             public class PageBlockParagraph : PageBlock
             {

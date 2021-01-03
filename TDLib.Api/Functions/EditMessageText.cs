@@ -21,27 +21,27 @@ namespace TdLib
             public override string DataType { get; set; } = "editMessageText";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// The chat the message belongs to 
+            /// The chat the message belongs to
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_id")]
             public long ChatId { get; set; }
 
             /// <summary>
-            /// Identifier of the message 
+            /// Identifier of the message
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("message_id")]
             public long MessageId { get; set; }
 
             /// <summary>
-            /// The new message reply markup; for bots only 
+            /// The new message reply markup; for bots only
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("reply_markup")]
@@ -55,22 +55,17 @@ namespace TdLib
             public InputMessageContent InputMessageContent { get; set; }
         }
 
-
         /// <summary>
         /// Edits the text of a message (or a text of a game message). Returns the edited message after the edit is completed on the server side
         /// </summary>
-        public static Task<Message> EditMessageTextAsync(this Client client,
-            long chatId = default(long),
-            long messageId = default(long),
-            ReplyMarkup replyMarkup = default(ReplyMarkup),
-            InputMessageContent inputMessageContent = default(InputMessageContent))
+        public static Task<Message> EditMessageTextAsync(
+            this Client client, long chatId = default, long messageId = default, ReplyMarkup replyMarkup = default,
+            InputMessageContent inputMessageContent = default)
         {
             return client.ExecuteAsync(new EditMessageText
             {
-                ChatId = chatId,
-                MessageId = messageId,
-                ReplyMarkup = replyMarkup,
-                InputMessageContent = inputMessageContent,
+                ChatId = chatId, MessageId = messageId, ReplyMarkup = replyMarkup,
+                InputMessageContent = inputMessageContent
             });
         }
     }

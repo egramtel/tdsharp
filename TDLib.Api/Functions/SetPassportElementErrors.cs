@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Informs the user that some of the elements in their Telegram Passport contain errors; for bots only. The user will not be able to resend the elements, until the errors are fixed 
+        /// Informs the user that some of the elements in their Telegram Passport contain errors; for bots only. The user will not be able to resend the elements, until the errors are fixed
         /// </summary>
         public class SetPassportElementErrors : Function<Ok>
         {
@@ -21,13 +21,13 @@ namespace TdLib
             public override string DataType { get; set; } = "setPassportElementErrors";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// User identifier 
+            /// User identifier
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("user_id")]
@@ -41,18 +41,15 @@ namespace TdLib
             public InputPassportElementError[] Errors { get; set; }
         }
 
-
         /// <summary>
-        /// Informs the user that some of the elements in their Telegram Passport contain errors; for bots only. The user will not be able to resend the elements, until the errors are fixed 
+        /// Informs the user that some of the elements in their Telegram Passport contain errors; for bots only. The user will not be able to resend the elements, until the errors are fixed
         /// </summary>
-        public static Task<Ok> SetPassportElementErrorsAsync(this Client client,
-            int userId = default(int),
-            InputPassportElementError[] errors = default(InputPassportElementError[]))
+        public static Task<Ok> SetPassportElementErrorsAsync(
+            this Client client, int userId = default, InputPassportElementError[] errors = default)
         {
             return client.ExecuteAsync(new SetPassportElementErrors
             {
-                UserId = userId,
-                Errors = errors,
+                UserId = userId, Errors = errors
             });
         }
     }

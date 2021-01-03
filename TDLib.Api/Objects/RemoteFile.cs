@@ -11,7 +11,7 @@ namespace TdLib
         /// <summary>
         /// Represents a remote file
         /// </summary>
-        public class RemoteFile : Object
+        public partial class RemoteFile : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,13 +20,13 @@ namespace TdLib
             public override string DataType { get; set; } = "remoteFile";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Remote file identifier; may be empty. Can be used across application restarts or even from other devices for the current user. Uniquely identifies a file, but a file can have a lot of different valid identifiers.
+            /// Remote file identifier; may be empty. Can be used by the current user across application restarts or even from other devices. Uniquely identifies a file, but a file can have a lot of different valid identifiers.
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("id")]

@@ -11,7 +11,7 @@ namespace TdLib
         /// <summary>
         /// Represents short information about a sticker set
         /// </summary>
-        public class StickerSetInfo : Object
+        public partial class StickerSetInfo : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,41 +20,48 @@ namespace TdLib
             public override string DataType { get; set; } = "stickerSetInfo";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Identifier of the sticker set 
+            /// Identifier of the sticker set
             /// </summary>
             [JsonConverter(typeof(Converter.Int64))]
             [JsonProperty("id")]
-            public Int64 Id { get; set; }
+            public long Id { get; set; }
 
             /// <summary>
-            /// Title of the sticker set 
+            /// Title of the sticker set
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("title")]
             public string Title { get; set; }
 
             /// <summary>
-            /// Name of the sticker set 
+            /// Name of the sticker set
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("name")]
             public string Name { get; set; }
 
             /// <summary>
-            /// Sticker set thumbnail in WEBP format with width and height 100; may be null
+            /// Sticker set thumbnail in WEBP or TGS format with width and height 100; may be null
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("thumbnail")]
-            public PhotoSize Thumbnail { get; set; }
+            public Thumbnail Thumbnail { get; set; }
 
             /// <summary>
-            /// True, if the sticker set has been installed by current user 
+            /// Sticker set thumbnail's outline represented as a list of closed vector paths; may be empty. The coordinate system origin is in the upper-left corner
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("thumbnail_outline")]
+            public ClosedVectorPath[] ThumbnailOutline { get; set; }
+
+            /// <summary>
+            /// True, if the sticker set has been installed by the current user
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_installed")]
@@ -68,21 +75,21 @@ namespace TdLib
             public bool IsArchived { get; set; }
 
             /// <summary>
-            /// True, if the sticker set is official 
+            /// True, if the sticker set is official
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_official")]
             public bool IsOfficial { get; set; }
 
             /// <summary>
-            /// True, is the stickers in the set are animated 
+            /// True, is the stickers in the set are animated
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_animated")]
             public bool IsAnimated { get; set; }
 
             /// <summary>
-            /// True, if the stickers in the set are masks 
+            /// True, if the stickers in the set are masks
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_masks")]
@@ -96,14 +103,14 @@ namespace TdLib
             public bool IsViewed { get; set; }
 
             /// <summary>
-            /// Total number of stickers in the set 
+            /// Total number of stickers in the set
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("size")]
             public int Size { get; set; }
 
             /// <summary>
-            /// Contains up to the first 5 stickers from the set, depending on the context. If the client needs more stickers the full set should be requested
+            /// Contains up to the first 5 stickers from the set, depending on the context. If the application needs more stickers the full set should be requested
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("covers")]

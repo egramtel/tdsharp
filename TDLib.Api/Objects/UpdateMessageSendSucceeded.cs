@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A message has been successfully sent 
-        /// </summary>
         public partial class Update : Object
         {
             /// <summary>
-            /// A message has been successfully sent 
+            /// A message has been successfully sent
             /// </summary>
             public class UpdateMessageSendSucceeded : Update
             {
@@ -31,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Information about the sent message. Usually only the message identifier, date, and content are changed, but almost all other fields can also change 
+                /// Information about the sent message. Usually only the message identifier, date, and content are changed, but almost all other fields can also change
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("message")]

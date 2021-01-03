@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns information about a public or private message link 
+        /// Returns information about a public or private message link
         /// </summary>
         public class GetMessageLinkInfo : Function<MessageLinkInfo>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "getMessageLinkInfo";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public string Url { get; set; }
         }
 
-
         /// <summary>
-        /// Returns information about a public or private message link 
+        /// Returns information about a public or private message link
         /// </summary>
-        public static Task<MessageLinkInfo> GetMessageLinkInfoAsync(this Client client,
-            string url = default(string))
+        public static Task<MessageLinkInfo> GetMessageLinkInfoAsync(
+            this Client client, string url = default)
         {
             return client.ExecuteAsync(new GetMessageLinkInfo
             {
-                Url = url,
+                Url = url
             });
         }
     }

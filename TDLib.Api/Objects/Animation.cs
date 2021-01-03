@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Describes an animation file. The animation must be encoded in GIF or MPEG4 format 
+        /// Describes an animation file. The animation must be encoded in GIF or MPEG4 format
         /// </summary>
-        public class Animation : Object
+        public partial class Animation : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,20 +20,20 @@ namespace TdLib
             public override string DataType { get; set; } = "animation";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Duration of the animation, in seconds; as defined by the sender 
+            /// Duration of the animation, in seconds; as defined by the sender
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("duration")]
             public int Duration { get; set; }
 
             /// <summary>
-            /// Width of the animation 
+            /// Width of the animation
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("width")]
@@ -47,7 +47,7 @@ namespace TdLib
             public int Height { get; set; }
 
             /// <summary>
-            /// Original name of the file; as defined by the sender 
+            /// Original name of the file; as defined by the sender
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("file_name")]
@@ -61,18 +61,25 @@ namespace TdLib
             public string MimeType { get; set; }
 
             /// <summary>
-            /// Animation minithumbnail; may be null 
+            /// True, if stickers were added to the animation. The list of corresponding sticker set can be received using getAttachedStickerSets
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("has_stickers")]
+            public bool HasStickers { get; set; }
+
+            /// <summary>
+            /// Animation minithumbnail; may be null
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("minithumbnail")]
             public Minithumbnail Minithumbnail { get; set; }
 
             /// <summary>
-            /// Animation thumbnail; may be null 
+            /// Animation thumbnail in JPEG or MPEG4 format; may be null
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("thumbnail")]
-            public PhotoSize Thumbnail { get; set; }
+            public Thumbnail Thumbnail { get; set; }
 
             /// <summary>
             /// File containing the animation

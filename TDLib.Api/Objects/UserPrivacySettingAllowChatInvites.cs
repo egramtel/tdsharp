@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A privacy setting for managing whether the user can be invited to chats
-        /// </summary>
         public partial class UserPrivacySetting : Object
         {
             /// <summary>

@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A background from a local file
-        /// </summary>
         public partial class InputBackground : Object
         {
             /// <summary>
-            /// A background from a local file
+            /// Contains information about background to set
             /// </summary>
             public class InputBackgroundLocal : InputBackground
             {

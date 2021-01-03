@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A HTTP transparent proxy server 
-        /// </summary>
         public partial class ProxyType : Object
         {
             /// <summary>
-            /// A HTTP transparent proxy server 
+            /// A HTTP transparent proxy server
             /// </summary>
             public class ProxyTypeHttp : ProxyType
             {
@@ -31,21 +28,21 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Username for logging in; may be empty 
+                /// Username for logging in; may be empty
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("username")]
                 public string Username { get; set; }
 
                 /// <summary>
-                /// Password for logging in; may be empty 
+                /// Password for logging in; may be empty
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("password")]
                 public string Password { get; set; }
 
                 /// <summary>
-                /// Pass true, if the proxy supports only HTTP requests and doesn't support transparent TCP connections via HTTP CONNECT method
+                /// Pass true if the proxy supports only HTTP requests and doesn't support transparent TCP connections via HTTP CONNECT method
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("http_only")]

@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A message with a location 
-        /// </summary>
         public partial class InputMessageContent : Object
         {
             /// <summary>
-            /// A message with a location 
+            /// A message with a location
             /// </summary>
             public class InputMessageLocation : InputMessageContent
             {
@@ -31,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Location to be sent 
+                /// Location to be sent
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("location")]
@@ -43,6 +40,20 @@ namespace TdLib
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("live_period")]
                 public int LivePeriod { get; set; }
+
+                /// <summary>
+                /// For live locations, a direction in which the location moves, in degrees; 1-360. Pass 0 if unknown
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("heading")]
+                public int Heading { get; set; }
+
+                /// <summary>
+                /// For live locations, a maximum distance to another chat member for proximity alerts, in meters (0-100000). Pass 0 if the notification is disabled. Can't be enabled in channels and Saved Messages
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("proximity_alert_radius")]
+                public int ProximityAlertRadius { get; set; }
             }
         }
     }

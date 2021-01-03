@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The user heard their own voice
-        /// </summary>
         public partial class CallProblem : Object
         {
             /// <summary>
-            /// The user heard their own voice
+            /// Describes the exact type of a problem with a call
             /// </summary>
             public class CallProblemEcho : CallProblem
             {

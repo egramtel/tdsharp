@@ -21,20 +21,20 @@ namespace TdLib
             public override string DataType { get; set; } = "getLoginUrlInfo";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Chat identifier of the message with the button 
+            /// Chat identifier of the message with the button
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_id")]
             public long ChatId { get; set; }
 
             /// <summary>
-            /// Message identifier of the message with the button 
+            /// Message identifier of the message with the button
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("message_id")]
@@ -48,20 +48,15 @@ namespace TdLib
             public int ButtonId { get; set; }
         }
 
-
         /// <summary>
         /// Returns information about a button of type inlineKeyboardButtonTypeLoginUrl. The method needs to be called when the user presses the button
         /// </summary>
-        public static Task<LoginUrlInfo> GetLoginUrlInfoAsync(this Client client,
-            long chatId = default(long),
-            long messageId = default(long),
-            int buttonId = default(int))
+        public static Task<LoginUrlInfo> GetLoginUrlInfoAsync(
+            this Client client, long chatId = default, long messageId = default, int buttonId = default)
         {
             return client.ExecuteAsync(new GetLoginUrlInfo
             {
-                ChatId = chatId,
-                MessageId = messageId,
-                ButtonId = buttonId,
+                ChatId = chatId, MessageId = messageId, ButtonId = buttonId
             });
         }
     }

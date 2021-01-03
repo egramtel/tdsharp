@@ -21,17 +21,17 @@ namespace TdLib
             public override string DataType { get; set; } = "resetNetworkStatistics";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
         }
 
-
         /// <summary>
         /// Resets all network data usage statistics to zero. Can be called before authorization
         /// </summary>
-        public static Task<Ok> ResetNetworkStatisticsAsync(this Client client)
+        public static Task<Ok> ResetNetworkStatisticsAsync(
+            this Client client)
         {
             return client.ExecuteAsync(new ResetNetworkStatistics
             {

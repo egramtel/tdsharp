@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// File generation is no longer needed 
-        /// </summary>
         public partial class Update : Object
         {
             /// <summary>
-            /// File generation is no longer needed 
+            /// File generation is no longer needed
             /// </summary>
             public class UpdateFileGenerationStop : Update
             {
@@ -35,7 +32,7 @@ namespace TdLib
                 /// </summary>
                 [JsonConverter(typeof(Converter.Int64))]
                 [JsonProperty("generation_id")]
-                public Int64 GenerationId { get; set; }
+                public long GenerationId { get; set; }
             }
         }
     }

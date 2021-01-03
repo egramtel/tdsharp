@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The user can't be a member of a public supergroup
-        /// </summary>
         public partial class CheckChatUsernameResult : Object
         {
             /// <summary>

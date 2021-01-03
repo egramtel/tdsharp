@@ -21,20 +21,20 @@ namespace TdLib
             public override string DataType { get; set; } = "deleteChatHistory";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Chat identifier 
+            /// Chat identifier
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_id")]
             public long ChatId { get; set; }
 
             /// <summary>
-            /// Pass true if the chat should be removed from the chat list 
+            /// Pass true if the chat should be removed from the chat list
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("remove_from_chat_list")]
@@ -48,20 +48,15 @@ namespace TdLib
             public bool Revoke { get; set; }
         }
 
-
         /// <summary>
         /// Deletes all messages in the chat. Use Chat.can_be_deleted_only_for_self and Chat.can_be_deleted_for_all_users fields to find whether and how the method can be applied to the chat
         /// </summary>
-        public static Task<Ok> DeleteChatHistoryAsync(this Client client,
-            long chatId = default(long),
-            bool removeFromChatList = default(bool),
-            bool revoke = default(bool))
+        public static Task<Ok> DeleteChatHistoryAsync(
+            this Client client, long chatId = default, bool removeFromChatList = default, bool revoke = default)
         {
             return client.ExecuteAsync(new DeleteChatHistory
             {
-                ChatId = chatId,
-                RemoveFromChatList = removeFromChatList,
-                Revoke = revoke,
+                ChatId = chatId, RemoveFromChatList = removeFromChatList, Revoke = revoke
             });
         }
     }

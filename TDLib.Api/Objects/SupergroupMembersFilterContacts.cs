@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// Returns contacts of the user, which are members of the supergroup or channel 
-        /// </summary>
         public partial class SupergroupMembersFilter : Object
         {
             /// <summary>
-            /// Returns contacts of the user, which are members of the supergroup or channel 
+            /// Returns contacts of the user, which are members of the supergroup or channel
             /// </summary>
             public class SupergroupMembersFilterContacts : SupergroupMembersFilter
             {

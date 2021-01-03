@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The call has ended with an error 
-        /// </summary>
         public partial class CallState : Object
         {
             /// <summary>
-            /// The call has ended with an error 
+            /// The call has ended with an error
             /// </summary>
             public class CallStateError : CallState
             {

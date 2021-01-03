@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Describes a location on planet Earth 
+        /// Describes a location on planet Earth
         /// </summary>
-        public class Location : Object
+        public partial class Location : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,13 +20,13 @@ namespace TdLib
             public override string DataType { get; set; } = "location";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Latitude of the location in degrees; as defined by the sender 
+            /// Latitude of the location in degrees; as defined by the sender
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("latitude")]
@@ -38,6 +38,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("longitude")]
             public double? Longitude { get; set; }
+
+            /// <summary>
+            /// The estimated horizontal accuracy of the location, in meters; as defined by the sender. 0 if unknown
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("horizontal_accuracy")]
+            public double? HorizontalAccuracy { get; set; }
         }
     }
 }

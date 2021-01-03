@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Describes an address 
+        /// Describes an address
         /// </summary>
-        public class Address : Object
+        public partial class Address : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,41 +20,41 @@ namespace TdLib
             public override string DataType { get; set; } = "address";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// A two-letter ISO 3166-1 alpha-2 country code 
+            /// A two-letter ISO 3166-1 alpha-2 country code
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("country_code")]
             public string CountryCode { get; set; }
 
             /// <summary>
-            /// State, if applicable 
+            /// State, if applicable
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("state")]
             public string State { get; set; }
 
             /// <summary>
-            /// City 
+            /// City
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("city")]
             public string City { get; set; }
 
             /// <summary>
-            /// 
+            /// First line of the address
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("street_line1")]
             public string StreetLine1 { get; set; }
 
             /// <summary>
-            /// 
+            /// Second line of the address
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("street_line2")]

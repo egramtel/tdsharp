@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Deletes messages 
+        /// Deletes messages
         /// </summary>
         public class DeleteMessages : Function<Ok>
         {
@@ -21,20 +21,20 @@ namespace TdLib
             public override string DataType { get; set; } = "deleteMessages";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Chat identifier 
+            /// Chat identifier
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_id")]
             public long ChatId { get; set; }
 
             /// <summary>
-            /// Identifiers of the messages to be deleted 
+            /// Identifiers of the messages to be deleted
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("message_ids")]
@@ -48,20 +48,15 @@ namespace TdLib
             public bool Revoke { get; set; }
         }
 
-
         /// <summary>
-        /// Deletes messages 
+        /// Deletes messages
         /// </summary>
-        public static Task<Ok> DeleteMessagesAsync(this Client client,
-            long chatId = default(long),
-            long[] messageIds = default(long[]),
-            bool revoke = default(bool))
+        public static Task<Ok> DeleteMessagesAsync(
+            this Client client, long chatId = default, long[] messageIds = default, bool revoke = default)
         {
             return client.ExecuteAsync(new DeleteMessages
             {
-                ChatId = chatId,
-                MessageIds = messageIds,
-                Revoke = revoke,
+                ChatId = chatId, MessageIds = messageIds, Revoke = revoke
             });
         }
     }

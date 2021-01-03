@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The log is written nowhere
-        /// </summary>
         public partial class LogStream : Object
         {
             /// <summary>

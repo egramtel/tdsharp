@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A new incoming inline query; for bots only 
-        /// </summary>
         public partial class Update : Object
         {
             /// <summary>
-            /// A new incoming inline query; for bots only 
+            /// A new incoming inline query; for bots only
             /// </summary>
             public class UpdateNewInlineQuery : Update
             {
@@ -31,28 +28,35 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Unique query identifier 
+                /// Unique query identifier
                 /// </summary>
                 [JsonConverter(typeof(Converter.Int64))]
                 [JsonProperty("id")]
-                public Int64 Id { get; set; }
+                public long Id { get; set; }
 
                 /// <summary>
-                /// Identifier of the user who sent the query 
+                /// Identifier of the user who sent the query
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("sender_user_id")]
                 public int SenderUserId { get; set; }
 
                 /// <summary>
-                /// User location, provided by the client; may be null
+                /// User location; may be null
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("user_location")]
                 public Location UserLocation { get; set; }
 
                 /// <summary>
-                /// Text of the query 
+                /// Contains information about the type of the chat, from which the query originated; may be null if unknown
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("chat_type")]
+                public ChatType ChatType { get; set; }
+
+                /// <summary>
+                /// Text of the query
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("query")]

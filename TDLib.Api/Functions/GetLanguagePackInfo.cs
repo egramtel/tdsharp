@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns information about a language pack. Returned language pack identifier may be different from a provided one. Can be called before authorization 
+        /// Returns information about a language pack. Returned language pack identifier may be different from a provided one. Can be called before authorization
         /// </summary>
         public class GetLanguagePackInfo : Function<LanguagePackInfo>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "getLanguagePackInfo";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public string LanguagePackId { get; set; }
         }
 
-
         /// <summary>
-        /// Returns information about a language pack. Returned language pack identifier may be different from a provided one. Can be called before authorization 
+        /// Returns information about a language pack. Returned language pack identifier may be different from a provided one. Can be called before authorization
         /// </summary>
-        public static Task<LanguagePackInfo> GetLanguagePackInfoAsync(this Client client,
-            string languagePackId = default(string))
+        public static Task<LanguagePackInfo> GetLanguagePackInfoAsync(
+            this Client client, string languagePackId = default)
         {
             return client.ExecuteAsync(new GetLanguagePackInfo
             {
-                LanguagePackId = languagePackId,
+                LanguagePackId = languagePackId
             });
         }
     }

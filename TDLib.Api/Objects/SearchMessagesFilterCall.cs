@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// Returns only call messages
-        /// </summary>
         public partial class SearchMessagesFilter : Object
         {
             /// <summary>

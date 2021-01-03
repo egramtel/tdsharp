@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns an existing chat corresponding to a given user 
+        /// Returns an existing chat corresponding to a given user
         /// </summary>
         public class CreatePrivateChat : Function<Chat>
         {
@@ -21,13 +21,13 @@ namespace TdLib
             public override string DataType { get; set; } = "createPrivateChat";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// User identifier 
+            /// User identifier
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("user_id")]
@@ -41,18 +41,15 @@ namespace TdLib
             public bool Force { get; set; }
         }
 
-
         /// <summary>
-        /// Returns an existing chat corresponding to a given user 
+        /// Returns an existing chat corresponding to a given user
         /// </summary>
-        public static Task<Chat> CreatePrivateChatAsync(this Client client,
-            int userId = default(int),
-            bool force = default(bool))
+        public static Task<Chat> CreatePrivateChatAsync(
+            this Client client, int userId = default, bool force = default)
         {
             return client.ExecuteAsync(new CreatePrivateChat
             {
-                UserId = userId,
-                Force = force,
+                UserId = userId, Force = force
             });
         }
     }

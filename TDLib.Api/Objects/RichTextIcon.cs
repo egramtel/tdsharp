@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A small image inside the text 
-        /// </summary>
         public partial class RichText : Object
         {
             /// <summary>
-            /// A small image inside the text 
+            /// A small image inside the text
             /// </summary>
             public class RichTextIcon : RichText
             {

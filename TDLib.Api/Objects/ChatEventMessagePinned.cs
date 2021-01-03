@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A message was pinned 
-        /// </summary>
         public partial class ChatEventAction : Object
         {
             /// <summary>
-            /// A message was pinned 
+            /// A message was pinned
             /// </summary>
             public class ChatEventMessagePinned : ChatEventAction
             {

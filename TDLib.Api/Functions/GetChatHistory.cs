@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "getChatHistory";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -48,7 +48,7 @@ namespace TdLib
             public int Offset { get; set; }
 
             /// <summary>
-            /// The maximum number of messages to be returned; must be positive and can't be greater than 100. If the offset is negative, the limit must be greater or equal to -offset. Fewer messages may be returned than specified by the limit, even if the end of the message history has not been reached
+            /// The maximum number of messages to be returned; must be positive and can't be greater than 100. If the offset is negative, the limit must be greater than or equal to -offset. Fewer messages may be returned than specified by the limit, even if the end of the message history has not been reached
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("limit")]
@@ -62,24 +62,16 @@ namespace TdLib
             public bool OnlyLocal { get; set; }
         }
 
-
         /// <summary>
         /// Returns messages in a chat. The messages are returned in a reverse chronological order (i.e., in order of decreasing message_id).
         /// </summary>
-        public static Task<Messages> GetChatHistoryAsync(this Client client,
-            long chatId = default(long),
-            long fromMessageId = default(long),
-            int offset = default(int),
-            int limit = default(int),
-            bool onlyLocal = default(bool))
+        public static Task<Messages> GetChatHistoryAsync(
+            this Client client, long chatId = default, long fromMessageId = default, int offset = default,
+            int limit = default, bool onlyLocal = default)
         {
             return client.ExecuteAsync(new GetChatHistory
             {
-                ChatId = chatId,
-                FromMessageId = fromMessageId,
-                Offset = offset,
-                Limit = limit,
-                OnlyLocal = onlyLocal,
+                ChatId = chatId, FromMessageId = fromMessageId, Offset = offset, Limit = limit, OnlyLocal = onlyLocal
             });
         }
     }

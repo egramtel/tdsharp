@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A message with an invoice from a bot 
-        /// </summary>
         public partial class PushMessageContent : Object
         {
             /// <summary>
-            /// A message with an invoice from a bot 
+            /// A message with an invoice from a bot
             /// </summary>
             public class PushMessageContentInvoice : PushMessageContent
             {
@@ -31,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Product price 
+                /// Product price
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("price")]

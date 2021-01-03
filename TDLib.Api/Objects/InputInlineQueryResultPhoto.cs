@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// Represents link to a JPEG image 
-        /// </summary>
         public partial class InputInlineQueryResult : Object
         {
             /// <summary>
-            /// Represents link to a JPEG image 
+            /// Represents link to a JPEG image
             /// </summary>
             public class InputInlineQueryResultPhoto : InputInlineQueryResult
             {
@@ -31,21 +28,21 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Unique identifier of the query result 
+                /// Unique identifier of the query result
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("id")]
                 public string Id { get; set; }
 
                 /// <summary>
-                /// Title of the result, if known 
+                /// Title of the result, if known
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("title")]
                 public string Title { get; set; }
 
                 /// <summary>
-                /// Represents link to a JPEG image 
+                /// 
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("description")]
@@ -59,14 +56,14 @@ namespace TdLib
                 public string ThumbnailUrl { get; set; }
 
                 /// <summary>
-                /// The URL of the JPEG photo (photo size must not exceed 5MB) 
+                /// The URL of the JPEG photo (photo size must not exceed 5MB)
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("photo_url")]
                 public string PhotoUrl { get; set; }
 
                 /// <summary>
-                /// Width of the photo 
+                /// Width of the photo
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("photo_width")]

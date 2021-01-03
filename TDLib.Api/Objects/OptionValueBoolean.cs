@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// Represents a boolean option 
-        /// </summary>
         public partial class OptionValue : Object
         {
             /// <summary>
-            /// Represents a boolean option 
+            /// Represents the value of an option
             /// </summary>
             public class OptionValueBoolean : OptionValue
             {

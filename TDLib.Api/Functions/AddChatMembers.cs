@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Adds multiple new members to a chat. Currently this option is only available for supergroups and channels. This option can't be used to join a chat. Members can't be added to a channel if it has more than 200 members. Members will not be added until the chat state has been synchronized with the server
+        /// Adds multiple new members to a chat. Currently this method is only available for supergroups and channels. This method can't be used to join a chat. Members can't be added to a channel if it has more than 200 members. Members will not be added until the chat state has been synchronized with the server
         /// </summary>
         public class AddChatMembers : Function<Ok>
         {
@@ -21,38 +21,35 @@ namespace TdLib
             public override string DataType { get; set; } = "addChatMembers";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Chat identifier 
+            /// Chat identifier
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_id")]
             public long ChatId { get; set; }
 
             /// <summary>
-            /// Identifiers of the users to be added to the chat
+            /// Identifiers of the users to be added to the chat. The maximum number of added users is 20 for supergroups and 100 for channels
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("user_ids")]
             public int[] UserIds { get; set; }
         }
 
-
         /// <summary>
-        /// Adds multiple new members to a chat. Currently this option is only available for supergroups and channels. This option can't be used to join a chat. Members can't be added to a channel if it has more than 200 members. Members will not be added until the chat state has been synchronized with the server
+        /// Adds multiple new members to a chat. Currently this method is only available for supergroups and channels. This method can't be used to join a chat. Members can't be added to a channel if it has more than 200 members. Members will not be added until the chat state has been synchronized with the server
         /// </summary>
-        public static Task<Ok> AddChatMembersAsync(this Client client,
-            long chatId = default(long),
-            int[] userIds = default(int[]))
+        public static Task<Ok> AddChatMembersAsync(
+            this Client client, long chatId = default, int[] userIds = default)
         {
             return client.ExecuteAsync(new AddChatMembers
             {
-                ChatId = chatId,
-                UserIds = userIds,
+                ChatId = chatId, UserIds = userIds
             });
         }
     }

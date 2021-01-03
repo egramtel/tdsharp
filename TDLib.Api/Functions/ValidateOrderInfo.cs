@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Validates the order information provided by a user and returns the available shipping options for a flexible invoice 
+        /// Validates the order information provided by a user and returns the available shipping options for a flexible invoice
         /// </summary>
         public class ValidateOrderInfo : Function<ValidatedOrderInfo>
         {
@@ -21,27 +21,27 @@ namespace TdLib
             public override string DataType { get; set; } = "validateOrderInfo";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Chat identifier of the Invoice message 
+            /// Chat identifier of the Invoice message
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_id")]
             public long ChatId { get; set; }
 
             /// <summary>
-            /// Message identifier 
+            /// Message identifier
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("message_id")]
             public long MessageId { get; set; }
 
             /// <summary>
-            /// The order information, provided by the user 
+            /// The order information, provided by the user
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("order_info")]
@@ -55,22 +55,16 @@ namespace TdLib
             public bool AllowSave { get; set; }
         }
 
-
         /// <summary>
-        /// Validates the order information provided by a user and returns the available shipping options for a flexible invoice 
+        /// Validates the order information provided by a user and returns the available shipping options for a flexible invoice
         /// </summary>
-        public static Task<ValidatedOrderInfo> ValidateOrderInfoAsync(this Client client,
-            long chatId = default(long),
-            long messageId = default(long),
-            OrderInfo orderInfo = default(OrderInfo),
-            bool allowSave = default(bool))
+        public static Task<ValidatedOrderInfo> ValidateOrderInfoAsync(
+            this Client client, long chatId = default, long messageId = default, OrderInfo orderInfo = default,
+            bool allowSave = default)
         {
             return client.ExecuteAsync(new ValidateOrderInfo
             {
-                ChatId = chatId,
-                MessageId = messageId,
-                OrderInfo = orderInfo,
-                AllowSave = allowSave,
+                ChatId = chatId, MessageId = messageId, OrderInfo = orderInfo, AllowSave = allowSave
             });
         }
     }

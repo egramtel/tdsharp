@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns a list of administrators of the chat with their custom titles 
+        /// Returns a list of administrators of the chat with their custom titles
         /// </summary>
         public class GetChatAdministrators : Function<ChatAdministrators>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "getChatAdministrators";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public long ChatId { get; set; }
         }
 
-
         /// <summary>
-        /// Returns a list of administrators of the chat with their custom titles 
+        /// Returns a list of administrators of the chat with their custom titles
         /// </summary>
-        public static Task<ChatAdministrators> GetChatAdministratorsAsync(this Client client,
-            long chatId = default(long))
+        public static Task<ChatAdministrators> GetChatAdministratorsAsync(
+            this Client client, long chatId = default)
         {
             return client.ExecuteAsync(new GetChatAdministrators
             {
-                ChatId = chatId,
+                ChatId = chatId
             });
         }
     }

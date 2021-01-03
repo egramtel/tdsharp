@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns a list of recently used stickers 
+        /// Returns a list of recently used stickers
         /// </summary>
         public class GetRecentStickers : Function<Stickers>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "getRecentStickers";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public bool IsAttached { get; set; }
         }
 
-
         /// <summary>
-        /// Returns a list of recently used stickers 
+        /// Returns a list of recently used stickers
         /// </summary>
-        public static Task<Stickers> GetRecentStickersAsync(this Client client,
-            bool isAttached = default(bool))
+        public static Task<Stickers> GetRecentStickersAsync(
+            this Client client, bool isAttached = default)
         {
             return client.ExecuteAsync(new GetRecentStickers
             {
-                IsAttached = isAttached,
+                IsAttached = isAttached
             });
         }
     }

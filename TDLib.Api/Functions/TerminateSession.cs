@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Terminates a session of the current user 
+        /// Terminates a session of the current user
         /// </summary>
         public class TerminateSession : Function<Ok>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "terminateSession";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -31,19 +31,18 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter.Int64))]
             [JsonProperty("session_id")]
-            public Int64 SessionId { get; set; }
+            public long SessionId { get; set; }
         }
 
-
         /// <summary>
-        /// Terminates a session of the current user 
+        /// Terminates a session of the current user
         /// </summary>
-        public static Task<Ok> TerminateSessionAsync(this Client client,
-            Int64 sessionId = default(Int64))
+        public static Task<Ok> TerminateSessionAsync(
+            this Client client, long sessionId = default)
         {
             return client.ExecuteAsync(new TerminateSession
             {
-                SessionId = sessionId,
+                SessionId = sessionId
             });
         }
     }

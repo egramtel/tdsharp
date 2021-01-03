@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Information about the authentication code that was sent 
+        /// Information about the authentication code that was sent
         /// </summary>
-        public class AuthenticationCodeInfo : Object
+        public partial class AuthenticationCodeInfo : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,27 +20,27 @@ namespace TdLib
             public override string DataType { get; set; } = "authenticationCodeInfo";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// A phone number that is being authenticated 
+            /// A phone number that is being authenticated
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("phone_number")]
             public string PhoneNumber { get; set; }
 
             /// <summary>
-            /// Describes the way the code was sent to the user 
+            /// Describes the way the code was sent to the user
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("type")]
             public AuthenticationCodeType Type { get; set; }
 
             /// <summary>
-            /// Describes the way the next code will be sent to the user; may be null 
+            /// Describes the way the next code will be sent to the user; may be null
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("next_type")]

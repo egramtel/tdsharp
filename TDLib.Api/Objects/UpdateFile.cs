@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// Information about a file was updated 
-        /// </summary>
         public partial class Update : Object
         {
             /// <summary>
-            /// Information about a file was updated 
+            /// Information about a file was updated
             /// </summary>
             public class UpdateFile : Update
             {

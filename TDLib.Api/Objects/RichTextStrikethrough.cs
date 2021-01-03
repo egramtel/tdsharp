@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A strikethrough rich text 
-        /// </summary>
         public partial class RichText : Object
         {
             /// <summary>
-            /// A strikethrough rich text 
+            /// A strikethrough rich text
             /// </summary>
             public class RichTextStrikethrough : RichText
             {

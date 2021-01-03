@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Checks the authentication password for correctness. Works only when the current authorization state is authorizationStateWaitPassword 
+        /// Checks the authentication password for correctness. Works only when the current authorization state is authorizationStateWaitPassword
         /// </summary>
         public class CheckAuthenticationPassword : Function<Ok>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "checkAuthenticationPassword";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public string Password { get; set; }
         }
 
-
         /// <summary>
-        /// Checks the authentication password for correctness. Works only when the current authorization state is authorizationStateWaitPassword 
+        /// Checks the authentication password for correctness. Works only when the current authorization state is authorizationStateWaitPassword
         /// </summary>
-        public static Task<Ok> CheckAuthenticationPasswordAsync(this Client client,
-            string password = default(string))
+        public static Task<Ok> CheckAuthenticationPasswordAsync(
+            this Client client, string password = default)
         {
             return client.ExecuteAsync(new CheckAuthenticationPassword
             {
-                Password = password,
+                Password = password
             });
         }
     }

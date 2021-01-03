@@ -21,17 +21,17 @@ namespace TdLib
             public override string DataType { get; set; } = "clearImportedContacts";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
         }
 
-
         /// <summary>
         /// Clears all imported contacts, contact list remains unchanged
         /// </summary>
-        public static Task<Ok> ClearImportedContactsAsync(this Client client)
+        public static Task<Ok> ClearImportedContactsAsync(
+            this Client client)
         {
             return client.ExecuteAsync(new ClearImportedContacts
             {

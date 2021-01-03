@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Describes an item of a list page block 
+        /// Describes an item of a list page block
         /// </summary>
-        public class PageBlockListItem : Object
+        public partial class PageBlockListItem : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,13 +20,13 @@ namespace TdLib
             public override string DataType { get; set; } = "pageBlockListItem";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Item label 
+            /// Item label
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("label")]

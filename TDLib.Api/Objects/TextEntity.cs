@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Represents a part of the text that needs to be formatted in some unusual way 
+        /// Represents a part of the text that needs to be formatted in some unusual way
         /// </summary>
-        public class TextEntity : Object
+        public partial class TextEntity : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,20 +20,20 @@ namespace TdLib
             public override string DataType { get; set; } = "textEntity";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Offset of the entity in UTF-16 code units 
+            /// Offset of the entity, in UTF-16 code units
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("offset")]
             public int Offset { get; set; }
 
             /// <summary>
-            /// Length of the entity, in UTF-16 code units 
+            /// Length of the entity, in UTF-16 code units
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("length")]

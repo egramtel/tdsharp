@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A newly created supergroup or channel 
-        /// </summary>
         public partial class MessageContent : Object
         {
             /// <summary>
-            /// A newly created supergroup or channel 
+            /// A newly created supergroup or channel
             /// </summary>
             public class MessageSupergroupChatCreate : MessageContent
             {

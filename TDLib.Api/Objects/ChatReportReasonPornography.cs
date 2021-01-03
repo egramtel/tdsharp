@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The chat contains pornographic messages
-        /// </summary>
         public partial class ChatReportReason : Object
         {
             /// <summary>

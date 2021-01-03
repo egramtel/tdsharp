@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A new incoming callback query from a message sent via a bot; for bots only 
-        /// </summary>
         public partial class Update : Object
         {
             /// <summary>
-            /// A new incoming callback query from a message sent via a bot; for bots only 
+            /// A new incoming callback query from a message sent via a bot; for bots only
             /// </summary>
             public class UpdateNewInlineCallbackQuery : Update
             {
@@ -31,14 +28,14 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Unique query identifier 
+                /// Unique query identifier
                 /// </summary>
                 [JsonConverter(typeof(Converter.Int64))]
                 [JsonProperty("id")]
-                public Int64 Id { get; set; }
+                public long Id { get; set; }
 
                 /// <summary>
-                /// Identifier of the user who sent the query 
+                /// Identifier of the user who sent the query
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("sender_user_id")]
@@ -52,11 +49,11 @@ namespace TdLib
                 public string InlineMessageId { get; set; }
 
                 /// <summary>
-                /// An identifier uniquely corresponding to the chat a message was sent to 
+                /// An identifier uniquely corresponding to the chat a message was sent to
                 /// </summary>
                 [JsonConverter(typeof(Converter.Int64))]
                 [JsonProperty("chat_instance")]
-                public Int64 ChatInstance { get; set; }
+                public long ChatInstance { get; set; }
 
                 /// <summary>
                 /// Query payload

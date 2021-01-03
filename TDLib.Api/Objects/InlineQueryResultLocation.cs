@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// Represents a point on the map 
-        /// </summary>
         public partial class InlineQueryResult : Object
         {
             /// <summary>
-            /// Represents a point on the map 
+            /// Represents a point on the map
             /// </summary>
             public class InlineQueryResultLocation : InlineQueryResult
             {
@@ -31,32 +28,32 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Unique identifier of the query result 
+                /// Unique identifier of the query result
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("id")]
                 public string Id { get; set; }
 
                 /// <summary>
-                /// Location result 
+                /// Location result
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("location")]
                 public Location Location { get; set; }
 
                 /// <summary>
-                /// Title of the result 
+                /// Title of the result
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("title")]
                 public string Title { get; set; }
 
                 /// <summary>
-                /// Result thumbnail; may be null
+                /// Result thumbnail in JPEG format; may be null
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("thumbnail")]
-                public PhotoSize Thumbnail { get; set; }
+                public Thumbnail Thumbnail { get; set; }
             }
         }
     }

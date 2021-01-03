@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// Represents a link to a page containing an embedded video player or a video file 
-        /// </summary>
         public partial class InputInlineQueryResult : Object
         {
             /// <summary>
-            /// Represents a link to a page containing an embedded video player or a video file 
+            /// Represents a link to a page containing an embedded video player or a video file
             /// </summary>
             public class InputInlineQueryResultVideo : InputInlineQueryResult
             {
@@ -31,35 +28,35 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Unique identifier of the query result 
+                /// Unique identifier of the query result
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("id")]
                 public string Id { get; set; }
 
                 /// <summary>
-                /// Title of the result 
+                /// Title of the result
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("title")]
                 public string Title { get; set; }
 
                 /// <summary>
-                /// Represents a link to a page containing an embedded video player or a video file 
+                /// 
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("description")]
                 public string Description { get; set; }
 
                 /// <summary>
-                /// The URL of the video thumbnail (JPEG), if it exists 
+                /// The URL of the video thumbnail (JPEG), if it exists
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("thumbnail_url")]
                 public string ThumbnailUrl { get; set; }
 
                 /// <summary>
-                /// URL of the embedded video player or video file 
+                /// URL of the embedded video player or video file
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("video_url")]
@@ -73,14 +70,14 @@ namespace TdLib
                 public string MimeType { get; set; }
 
                 /// <summary>
-                /// Width of the video 
+                /// Width of the video
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("video_width")]
                 public int VideoWidth { get; set; }
 
                 /// <summary>
-                /// Height of the video 
+                /// Height of the video
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("video_height")]

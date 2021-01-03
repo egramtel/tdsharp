@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Represents a user 
+        /// Represents a user
         /// </summary>
-        public class User : Object
+        public partial class User : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,27 +20,27 @@ namespace TdLib
             public override string DataType { get; set; } = "user";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// User identifier 
+            /// User identifier
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("id")]
             public int Id { get; set; }
 
             /// <summary>
-            /// First name of the user 
+            /// First name of the user
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("first_name")]
             public string FirstName { get; set; }
 
             /// <summary>
-            /// Last name of the user 
+            /// Last name of the user
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("last_name")]
@@ -54,14 +54,14 @@ namespace TdLib
             public string Username { get; set; }
 
             /// <summary>
-            /// Phone number of the user 
+            /// Phone number of the user
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("phone_number")]
             public string PhoneNumber { get; set; }
 
             /// <summary>
-            /// Current online status of the user 
+            /// Current online status of the user
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("status")]
@@ -89,7 +89,7 @@ namespace TdLib
             public bool IsMutualContact { get; set; }
 
             /// <summary>
-            /// True, if the user is verified 
+            /// True, if the user is verified
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_verified")]
@@ -117,14 +117,14 @@ namespace TdLib
             public bool IsScam { get; set; }
 
             /// <summary>
-            /// If false, the user is inaccessible, and the only information known about the user is inside this class. It can't be passed to any method except GetUser 
+            /// If false, the user is inaccessible, and the only information known about the user is inside this class. It can't be passed to any method except GetUser
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("have_access")]
             public bool HaveAccess { get; set; }
 
             /// <summary>
-            /// Type of the user 
+            /// Type of the user
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("type")]

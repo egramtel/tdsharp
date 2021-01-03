@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// Applies if a user enters new credentials using Apple Pay 
-        /// </summary>
         public partial class InputCredentials : Object
         {
             /// <summary>
-            /// Applies if a user enters new credentials using Apple Pay 
+            /// Applies if a user enters new credentials using Apple Pay
             /// </summary>
             public class InputCredentialsApplePay : InputCredentials
             {

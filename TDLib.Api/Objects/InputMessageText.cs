@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A text message 
-        /// </summary>
         public partial class InputMessageContent : Object
         {
             /// <summary>
-            /// A text message 
+            /// The content of a message to send
             /// </summary>
             public class InputMessageText : InputMessageContent
             {
@@ -38,7 +35,7 @@ namespace TdLib
                 public FormattedText Text { get; set; }
 
                 /// <summary>
-                /// True, if rich web page previews for URLs in the message text should be disabled 
+                /// True, if rich web page previews for URLs in the message text should be disabled
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("disable_web_page_preview")]

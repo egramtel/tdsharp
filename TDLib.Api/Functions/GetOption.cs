@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "getOption";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public string Name { get; set; }
         }
 
-
         /// <summary>
         /// Returns the value of an option by its name. (Check the list of available options on https://core.telegram.org/tdlib/options.) Can be called before authorization
         /// </summary>
-        public static Task<OptionValue> GetOptionAsync(this Client client,
-            string name = default(string))
+        public static Task<OptionValue> GetOptionAsync(
+            this Client client, string name = default)
         {
             return client.ExecuteAsync(new GetOption
             {
-                Name = name,
+                Name = name
             });
         }
     }

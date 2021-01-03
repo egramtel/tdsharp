@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// Returns all found messages, no filter is applied
-        /// </summary>
         public partial class SearchMessagesFilter : Object
         {
             /// <summary>
-            /// Returns all found messages, no filter is applied
+            /// Represents a filter for message search results
             /// </summary>
             public class SearchMessagesFilterEmpty : SearchMessagesFilter
             {

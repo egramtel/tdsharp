@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// One shipping option 
+        /// One shipping option
         /// </summary>
-        public class ShippingOption : Object
+        public partial class ShippingOption : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,20 +20,20 @@ namespace TdLib
             public override string DataType { get; set; } = "shippingOption";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Shipping option identifier 
+            /// Shipping option identifier
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("id")]
             public string Id { get; set; }
 
             /// <summary>
-            /// Option title 
+            /// Option title
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("title")]

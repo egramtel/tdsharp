@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Removes a sticker from the list of favorite stickers 
+        /// Removes a sticker from the list of favorite stickers
         /// </summary>
         public class RemoveFavoriteSticker : Function<Ok>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "removeFavoriteSticker";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public InputFile Sticker { get; set; }
         }
 
-
         /// <summary>
-        /// Removes a sticker from the list of favorite stickers 
+        /// Removes a sticker from the list of favorite stickers
         /// </summary>
-        public static Task<Ok> RemoveFavoriteStickerAsync(this Client client,
-            InputFile sticker = default(InputFile))
+        public static Task<Ok> RemoveFavoriteStickerAsync(
+            this Client client, InputFile sticker = default)
         {
             return client.ExecuteAsync(new RemoveFavoriteSticker
             {
-                Sticker = sticker,
+                Sticker = sticker
             });
         }
     }

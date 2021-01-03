@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A token for Microsoft Push Notification Service VoIP channel 
-        /// </summary>
         public partial class DeviceToken : Object
         {
             /// <summary>
-            /// A token for Microsoft Push Notification Service VoIP channel 
+            /// A token for Microsoft Push Notification Service VoIP channel
             /// </summary>
             public class DeviceTokenMicrosoftPushVoIP : DeviceToken
             {

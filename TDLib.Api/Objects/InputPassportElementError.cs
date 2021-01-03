@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Contains the description of an error in a Telegram Passport element; for bots only 
+        /// Contains the description of an error in a Telegram Passport element; for bots only
         /// </summary>
-        public class InputPassportElementError : Object
+        public partial class InputPassportElementError : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,20 +20,20 @@ namespace TdLib
             public override string DataType { get; set; } = "inputPassportElementError";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Type of Telegram Passport element that has the error 
+            /// Type of Telegram Passport element that has the error
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("type")]
             public PassportElementType Type { get; set; }
 
             /// <summary>
-            /// Error message 
+            /// Error message
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("message")]

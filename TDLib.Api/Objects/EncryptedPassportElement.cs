@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Contains information about an encrypted Telegram Passport element; for bots only 
+        /// Contains information about an encrypted Telegram Passport element; for bots only
         /// </summary>
-        public class EncryptedPassportElement : Object
+        public partial class EncryptedPassportElement : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,62 +20,62 @@ namespace TdLib
             public override string DataType { get; set; } = "encryptedPassportElement";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Type of Telegram Passport element 
+            /// Type of Telegram Passport element
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("type")]
             public PassportElementType Type { get; set; }
 
             /// <summary>
-            /// Encrypted JSON-encoded data about the user 
+            /// Encrypted JSON-encoded data about the user
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("data")]
             public byte[] Data { get; set; }
 
             /// <summary>
-            /// The front side of an identity document 
+            /// The front side of an identity document
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("front_side")]
             public DatedFile FrontSide { get; set; }
 
             /// <summary>
-            /// The reverse side of an identity document; may be null 
+            /// The reverse side of an identity document; may be null
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("reverse_side")]
             public DatedFile ReverseSide { get; set; }
 
             /// <summary>
-            /// Selfie with the document; may be null 
+            /// Selfie with the document; may be null
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("selfie")]
             public DatedFile Selfie { get; set; }
 
             /// <summary>
-            /// List of files containing a certified English translation of the document 
+            /// List of files containing a certified English translation of the document
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("translation")]
             public DatedFile[] Translation { get; set; }
 
             /// <summary>
-            /// List of attached files 
+            /// List of attached files
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("files")]
             public DatedFile[] Files { get; set; }
 
             /// <summary>
-            /// Unencrypted data, phone number or email address 
+            /// Unencrypted data, phone number or email address
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("value")]

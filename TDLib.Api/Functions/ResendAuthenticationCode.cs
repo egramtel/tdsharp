@@ -21,17 +21,17 @@ namespace TdLib
             public override string DataType { get; set; } = "resendAuthenticationCode";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
         }
 
-
         /// <summary>
         /// Re-sends an authentication code to the user. Works only when the current authorization state is authorizationStateWaitCode and the next_code_type of the result is not null
         /// </summary>
-        public static Task<Ok> ResendAuthenticationCodeAsync(this Client client)
+        public static Task<Ok> ResendAuthenticationCodeAsync(
+            this Client client)
         {
             return client.ExecuteAsync(new ResendAuthenticationCode
             {

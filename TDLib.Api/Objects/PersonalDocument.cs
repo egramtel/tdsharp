@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// A personal document, containing some information about a user 
+        /// A personal document, containing some information about a user
         /// </summary>
-        public class PersonalDocument : Object
+        public partial class PersonalDocument : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,13 +20,13 @@ namespace TdLib
             public override string DataType { get; set; } = "personalDocument";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// List of files containing the pages of the document 
+            /// List of files containing the pages of the document
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("files")]

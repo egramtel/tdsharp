@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// Represents a link to an MP3 audio file 
-        /// </summary>
         public partial class InputInlineQueryResult : Object
         {
             /// <summary>
-            /// Represents a link to an MP3 audio file 
+            /// Represents a link to an MP3 audio file
             /// </summary>
             public class InputInlineQueryResultAudio : InputInlineQueryResult
             {
@@ -31,14 +28,14 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Unique identifier of the query result 
+                /// Unique identifier of the query result
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("id")]
                 public string Id { get; set; }
 
                 /// <summary>
-                /// Title of the audio file 
+                /// Title of the audio file
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("title")]
@@ -52,7 +49,7 @@ namespace TdLib
                 public string Performer { get; set; }
 
                 /// <summary>
-                /// The URL of the audio file 
+                /// The URL of the audio file
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("audio_url")]

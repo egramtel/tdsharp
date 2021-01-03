@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The call has ended successfully 
-        /// </summary>
         public partial class CallState : Object
         {
             /// <summary>
-            /// The call has ended successfully 
+            /// The call has ended successfully
             /// </summary>
             public class CallStateDiscarded : CallState
             {
@@ -31,14 +28,14 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// The reason, why the call has ended 
+                /// The reason, why the call has ended
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("reason")]
                 public CallDiscardReason Reason { get; set; }
 
                 /// <summary>
-                /// True, if the call rating should be sent to the server 
+                /// True, if the call rating should be sent to the server
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("need_rating")]

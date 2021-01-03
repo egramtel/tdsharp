@@ -21,17 +21,17 @@ namespace TdLib
             public override string DataType { get; set; } = "getDatabaseStatistics";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
         }
 
-
         /// <summary>
         /// Returns database statistics
         /// </summary>
-        public static Task<DatabaseStatistics> GetDatabaseStatisticsAsync(this Client client)
+        public static Task<DatabaseStatistics> GetDatabaseStatisticsAsync(
+            this Client client)
         {
             return client.ExecuteAsync(new GetDatabaseStatistics
             {

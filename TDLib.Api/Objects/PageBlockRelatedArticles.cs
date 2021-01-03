@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// Related articles 
-        /// </summary>
         public partial class PageBlock : Object
         {
             /// <summary>
-            /// Related articles 
+            /// Related articles
             /// </summary>
             public class PageBlockRelatedArticles : PageBlock
             {
@@ -31,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Block header 
+                /// Block header
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("header")]

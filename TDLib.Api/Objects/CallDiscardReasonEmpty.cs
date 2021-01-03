@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The call wasn't discarded, or the reason is unknown
-        /// </summary>
         public partial class CallDiscardReason : Object
         {
             /// <summary>
-            /// The call wasn't discarded, or the reason is unknown
+            /// Describes the reason why a call was discarded
             /// </summary>
             public class CallDiscardReasonEmpty : CallDiscardReason
             {

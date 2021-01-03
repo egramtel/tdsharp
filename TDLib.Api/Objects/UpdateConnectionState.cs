@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The connection state has changed 
-        /// </summary>
         public partial class Update : Object
         {
             /// <summary>
-            /// The connection state has changed 
+            /// The connection state has changed. This update must be used only to show a human-readable description of the connection state
             /// </summary>
             public class UpdateConnectionState : Update
             {

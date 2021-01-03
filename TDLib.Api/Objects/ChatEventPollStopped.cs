@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A poll in a message was stopped 
-        /// </summary>
         public partial class ChatEventAction : Object
         {
             /// <summary>
-            /// A poll in a message was stopped 
+            /// A poll in a message was stopped
             /// </summary>
             public class ChatEventPollStopped : ChatEventAction
             {

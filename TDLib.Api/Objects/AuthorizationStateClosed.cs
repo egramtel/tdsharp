@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// TDLib client is in its final state. All databases are closed and all resources are released. No other updates will be received after this. All queries will be responded to
-        /// </summary>
         public partial class AuthorizationState : Object
         {
             /// <summary>

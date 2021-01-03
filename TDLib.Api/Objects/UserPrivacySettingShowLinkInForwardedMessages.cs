@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A privacy setting for managing whether a link to the user's account is included in forwarded messages
-        /// </summary>
         public partial class UserPrivacySetting : Object
         {
             /// <summary>

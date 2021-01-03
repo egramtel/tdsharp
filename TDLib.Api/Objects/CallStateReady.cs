@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The call is ready to use 
-        /// </summary>
         public partial class CallState : Object
         {
             /// <summary>
-            /// The call is ready to use 
+            /// The call is ready to use
             /// </summary>
             public class CallStateReady : CallState
             {
@@ -31,42 +28,42 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Call protocols supported by the peer 
+                /// Call protocols supported by the peer
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("protocol")]
                 public CallProtocol Protocol { get; set; }
 
                 /// <summary>
-                /// Available UDP reflectors 
+                /// List of available call servers
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("connections")]
-                public CallConnection[] Connections { get; set; }
+                [JsonProperty("servers")]
+                public CallServer[] Servers { get; set; }
 
                 /// <summary>
-                /// A JSON-encoded call config 
+                /// A JSON-encoded call config
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("config")]
                 public string Config { get; set; }
 
                 /// <summary>
-                /// Call encryption key 
+                /// Call encryption key
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("encryption_key")]
                 public byte[] EncryptionKey { get; set; }
 
                 /// <summary>
-                /// Encryption key emojis fingerprint 
+                /// Encryption key emojis fingerprint
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("emojis")]
                 public string[] Emojis { get; set; }
 
                 /// <summary>
-                /// 
+                /// True, if peer-to-peer connection is allowed by users privacy settings
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("allow_p2p")]

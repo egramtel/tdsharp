@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Changes the order of pinned chats 
+        /// Changes the order of pinned chats
         /// </summary>
         public class SetPinnedChats : Function<Ok>
         {
@@ -21,13 +21,13 @@ namespace TdLib
             public override string DataType { get; set; } = "setPinnedChats";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Chat list in which to change the order of pinned chats 
+            /// Chat list in which to change the order of pinned chats
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_list")]
@@ -41,18 +41,15 @@ namespace TdLib
             public long[] ChatIds { get; set; }
         }
 
-
         /// <summary>
-        /// Changes the order of pinned chats 
+        /// Changes the order of pinned chats
         /// </summary>
-        public static Task<Ok> SetPinnedChatsAsync(this Client client,
-            ChatList chatList = default(ChatList),
-            long[] chatIds = default(long[]))
+        public static Task<Ok> SetPinnedChatsAsync(
+            this Client client, ChatList chatList = default, long[] chatIds = default)
         {
             return client.ExecuteAsync(new SetPinnedChats
             {
-                ChatList = chatList,
-                ChatIds = chatIds,
+                ChatList = chatList, ChatIds = chatIds
             });
         }
     }

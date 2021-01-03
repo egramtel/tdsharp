@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Sets the result of a shipping query; for bots only 
+        /// Sets the result of a shipping query; for bots only
         /// </summary>
         public class AnswerShippingQuery : Function<Ok>
         {
@@ -21,20 +21,20 @@ namespace TdLib
             public override string DataType { get; set; } = "answerShippingQuery";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Identifier of the shipping query 
+            /// Identifier of the shipping query
             /// </summary>
             [JsonConverter(typeof(Converter.Int64))]
             [JsonProperty("shipping_query_id")]
-            public Int64 ShippingQueryId { get; set; }
+            public long ShippingQueryId { get; set; }
 
             /// <summary>
-            /// Available shipping options 
+            /// Available shipping options
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("shipping_options")]
@@ -48,20 +48,16 @@ namespace TdLib
             public string ErrorMessage { get; set; }
         }
 
-
         /// <summary>
-        /// Sets the result of a shipping query; for bots only 
+        /// Sets the result of a shipping query; for bots only
         /// </summary>
-        public static Task<Ok> AnswerShippingQueryAsync(this Client client,
-            Int64 shippingQueryId = default(Int64),
-            ShippingOption[] shippingOptions = default(ShippingOption[]),
-            string errorMessage = default(string))
+        public static Task<Ok> AnswerShippingQueryAsync(
+            this Client client, long shippingQueryId = default, ShippingOption[] shippingOptions = default,
+            string errorMessage = default)
         {
             return client.ExecuteAsync(new AnswerShippingQuery
             {
-                ShippingQueryId = shippingQueryId,
-                ShippingOptions = shippingOptions,
-                ErrorMessage = errorMessage,
+                ShippingQueryId = shippingQueryId, ShippingOptions = shippingOptions, ErrorMessage = errorMessage
             });
         }
     }

@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The text should be parsed in markdown-style
-        /// </summary>
         public partial class TextParseMode : Object
         {
             /// <summary>
-            /// The text should be parsed in markdown-style
+            /// Describes the way the text should be parsed for TextEntities
             /// </summary>
             public class TextParseModeMarkdown : TextParseMode
             {
@@ -31,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Version of the parser: 0 or 1 - Bot API Markdown parse mode, 2 - Bot API MarkdownV2 parse mode
+                /// Version of the parser: 0 or 1 - Telegram Bot API "Markdown" parse mode, 2 - Telegram Bot API "MarkdownV2" parse mode
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("version")]

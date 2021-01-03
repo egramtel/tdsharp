@@ -21,17 +21,24 @@ namespace TdLib
             public override string DataType { get; set; } = "sendMessage";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Target chat 
+            /// Target chat
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_id")]
             public long ChatId { get; set; }
+
+            /// <summary>
+            /// If not 0, a message thread identifier in which the message will be sent
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("message_thread_id")]
+            public long MessageThreadId { get; set; }
 
             /// <summary>
             /// Identifier of the message to reply to or 0
@@ -45,10 +52,10 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("options")]
-            public SendMessageOptions Options { get; set; }
+            public MessageSendOptions Options { get; set; }
 
             /// <summary>
-            /// Markup for replying to the message; for bots only 
+            /// Markup for replying to the message; for bots only
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("reply_markup")]
@@ -62,24 +69,18 @@ namespace TdLib
             public InputMessageContent InputMessageContent { get; set; }
         }
 
-
         /// <summary>
         /// Sends a message. Returns the sent message
         /// </summary>
-        public static Task<Message> SendMessageAsync(this Client client,
-            long chatId = default(long),
-            long replyToMessageId = default(long),
-            SendMessageOptions options = default(SendMessageOptions),
-            ReplyMarkup replyMarkup = default(ReplyMarkup),
-            InputMessageContent inputMessageContent = default(InputMessageContent))
+        public static Task<Message> SendMessageAsync(
+            this Client client, long chatId = default, long messageThreadId = default, long replyToMessageId = default,
+            MessageSendOptions options = default, ReplyMarkup replyMarkup = default,
+            InputMessageContent inputMessageContent = default)
         {
             return client.ExecuteAsync(new SendMessage
             {
-                ChatId = chatId,
-                ReplyToMessageId = replyToMessageId,
-                Options = options,
-                ReplyMarkup = replyMarkup,
-                InputMessageContent = inputMessageContent,
+                ChatId = chatId, MessageThreadId = messageThreadId, ReplyToMessageId = replyToMessageId,
+                Options = options, ReplyMarkup = replyMarkup, InputMessageContent = inputMessageContent
             });
         }
     }

@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A basic group (i.e., a chat with 0-200 other users) 
-        /// </summary>
         public partial class ChatType : Object
         {
             /// <summary>
-            /// A basic group (i.e., a chat with 0-200 other users) 
+            /// A basic group (i.e., a chat with 0-200 other users)
             /// </summary>
             public class ChatTypeBasicGroup : ChatType
             {

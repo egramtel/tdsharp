@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Contains the result of a payment request 
+        /// Contains the result of a payment request
         /// </summary>
-        public class PaymentResult : Object
+        public partial class PaymentResult : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,13 +20,13 @@ namespace TdLib
             public override string DataType { get; set; } = "paymentResult";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// True, if the payment request was successful; otherwise the verification_url will be not empty 
+            /// True, if the payment request was successful; otherwise the verification_url will be not empty
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("success")]

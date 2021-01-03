@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns information about a sticker set by its identifier 
+        /// Returns information about a sticker set by its identifier
         /// </summary>
         public class GetStickerSet : Function<StickerSet>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "getStickerSet";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -31,19 +31,18 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter.Int64))]
             [JsonProperty("set_id")]
-            public Int64 SetId { get; set; }
+            public long SetId { get; set; }
         }
 
-
         /// <summary>
-        /// Returns information about a sticker set by its identifier 
+        /// Returns information about a sticker set by its identifier
         /// </summary>
-        public static Task<StickerSet> GetStickerSetAsync(this Client client,
-            Int64 setId = default(Int64))
+        public static Task<StickerSet> GetStickerSetAsync(
+            this Client client, long setId = default)
         {
             return client.ExecuteAsync(new GetStickerSet
             {
-                SetId = setId,
+                SetId = setId
             });
         }
     }

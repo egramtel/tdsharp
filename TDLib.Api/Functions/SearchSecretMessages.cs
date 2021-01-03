@@ -21,13 +21,13 @@ namespace TdLib
             public override string DataType { get; set; } = "searchSecretMessages";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Identifier of the chat in which to search. Specify 0 to search in all secret chats 
+            /// Identifier of the chat in which to search. Specify 0 to search in all secret chats
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_id")]
@@ -41,11 +41,11 @@ namespace TdLib
             public string Query { get; set; }
 
             /// <summary>
-            /// The identifier from the result of a previous request, use 0 to get results from the last message
+            /// Offset of the first entry to return as received from the previous request; use empty string to get first chunk of results
             /// </summary>
-            [JsonConverter(typeof(Converter.Int64))]
-            [JsonProperty("from_search_id")]
-            public Int64 FromSearchId { get; set; }
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("offset")]
+            public string Offset { get; set; }
 
             /// <summary>
             /// The maximum number of messages to be returned; up to 100. Fewer messages may be returned than specified by the limit, even if the end of the message history has not been reached
@@ -55,31 +55,23 @@ namespace TdLib
             public int Limit { get; set; }
 
             /// <summary>
-            /// A filter for the content of messages in the search results
+            /// A filter for message content in the search results
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("filter")]
             public SearchMessagesFilter Filter { get; set; }
         }
 
-
         /// <summary>
         /// Searches for messages in secret chats. Returns the results in reverse chronological order. For optimal performance the number of returned messages is chosen by the library
         /// </summary>
-        public static Task<FoundMessages> SearchSecretMessagesAsync(this Client client,
-            long chatId = default(long),
-            string query = default(string),
-            Int64 fromSearchId = default(Int64),
-            int limit = default(int),
-            SearchMessagesFilter filter = default(SearchMessagesFilter))
+        public static Task<FoundMessages> SearchSecretMessagesAsync(
+            this Client client, long chatId = default, string query = default, string offset = default,
+            int limit = default, SearchMessagesFilter filter = default)
         {
             return client.ExecuteAsync(new SearchSecretMessages
             {
-                ChatId = chatId,
-                Query = query,
-                FromSearchId = fromSearchId,
-                Limit = limit,
-                Filter = filter,
+                ChatId = chatId, Query = query, Offset = offset, Limit = limit, Filter = filter
             });
         }
     }

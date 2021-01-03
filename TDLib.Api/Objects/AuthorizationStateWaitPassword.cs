@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The user has been authorized, but needs to enter a password to start using the application 
-        /// </summary>
         public partial class AuthorizationState : Object
         {
             /// <summary>
-            /// The user has been authorized, but needs to enter a password to start using the application 
+            /// The user has been authorized, but needs to enter a password to start using the application
             /// </summary>
             public class AuthorizationStateWaitPassword : AuthorizationState
             {
@@ -31,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Hint for the password; may be empty 
+                /// Hint for the password; may be empty
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("password_hint")]

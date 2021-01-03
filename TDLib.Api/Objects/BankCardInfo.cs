@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Information about a bank card 
+        /// Information about a bank card
         /// </summary>
-        public class BankCardInfo : Object
+        public partial class BankCardInfo : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,13 +20,13 @@ namespace TdLib
             public override string DataType { get; set; } = "bankCardInfo";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Title of the bank card description 
+            /// Title of the bank card description
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("title")]

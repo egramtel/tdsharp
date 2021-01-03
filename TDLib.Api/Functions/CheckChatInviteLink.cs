@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Checks the validity of an invite link for a chat and returns information about the corresponding chat 
+        /// Checks the validity of an invite link for a chat and returns information about the corresponding chat
         /// </summary>
         public class CheckChatInviteLink : Function<ChatInviteLinkInfo>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "checkChatInviteLink";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public string InviteLink { get; set; }
         }
 
-
         /// <summary>
-        /// Checks the validity of an invite link for a chat and returns information about the corresponding chat 
+        /// Checks the validity of an invite link for a chat and returns information about the corresponding chat
         /// </summary>
-        public static Task<ChatInviteLinkInfo> CheckChatInviteLinkAsync(this Client client,
-            string inviteLink = default(string))
+        public static Task<ChatInviteLinkInfo> CheckChatInviteLinkAsync(
+            this Client client, string inviteLink = default)
         {
             return client.ExecuteAsync(new CheckChatInviteLink
             {
-                InviteLink = inviteLink,
+                InviteLink = inviteLink
             });
         }
     }

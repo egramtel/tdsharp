@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Removes an active notification from notification list. Needs to be called only if the notification is removed by the current user 
+        /// Removes an active notification from notification list. Needs to be called only if the notification is removed by the current user
         /// </summary>
         public class RemoveNotification : Function<Ok>
         {
@@ -21,13 +21,13 @@ namespace TdLib
             public override string DataType { get; set; } = "removeNotification";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Identifier of notification group to which the notification belongs 
+            /// Identifier of notification group to which the notification belongs
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("notification_group_id")]
@@ -41,18 +41,15 @@ namespace TdLib
             public int NotificationId { get; set; }
         }
 
-
         /// <summary>
-        /// Removes an active notification from notification list. Needs to be called only if the notification is removed by the current user 
+        /// Removes an active notification from notification list. Needs to be called only if the notification is removed by the current user
         /// </summary>
-        public static Task<Ok> RemoveNotificationAsync(this Client client,
-            int notificationGroupId = default(int),
-            int notificationId = default(int))
+        public static Task<Ok> RemoveNotificationAsync(
+            this Client client, int notificationGroupId = default, int notificationId = default)
         {
             return client.ExecuteAsync(new RemoveNotification
             {
-                NotificationGroupId = notificationGroupId,
-                NotificationId = notificationId,
+                NotificationGroupId = notificationGroupId, NotificationId = notificationId
             });
         }
     }

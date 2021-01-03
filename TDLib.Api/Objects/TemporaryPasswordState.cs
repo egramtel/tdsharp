@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns information about the availability of a temporary password, which can be used for payments 
+        /// Returns information about the availability of a temporary password, which can be used for payments
         /// </summary>
-        public class TemporaryPasswordState : Object
+        public partial class TemporaryPasswordState : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,13 +20,13 @@ namespace TdLib
             public override string DataType { get; set; } = "temporaryPasswordState";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// True, if a temporary password is available 
+            /// True, if a temporary password is available
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("has_password")]

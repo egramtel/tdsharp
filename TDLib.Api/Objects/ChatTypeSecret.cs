@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A secret chat with a user 
-        /// </summary>
         public partial class ChatType : Object
         {
             /// <summary>
-            /// A secret chat with a user 
+            /// A secret chat with a user
             /// </summary>
             public class ChatTypeSecret : ChatType
             {
@@ -31,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Secret chat identifier 
+                /// Secret chat identifier
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("secret_chat_id")]

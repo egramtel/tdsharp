@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Describes an instant view page for a web page 
+        /// Describes an instant view page for a web page
         /// </summary>
-        public class WebPageInstantView : Object
+        public partial class WebPageInstantView : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,7 +20,7 @@ namespace TdLib
             public override string DataType { get; set; } = "webPageInstantView";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -33,18 +33,18 @@ namespace TdLib
             public PageBlock[] PageBlocks { get; set; }
 
             /// <summary>
+            /// Number of the instant view views; 0 if unknown
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("view_count")]
+            public int ViewCount { get; set; }
+
+            /// <summary>
             /// Version of the instant view, currently can be 1 or 2
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("version")]
             public int Version { get; set; }
-
-            /// <summary>
-            /// Instant view URL; may be different from WebPage.url and must be used for the correct anchors handling
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("url")]
-            public string Url { get; set; }
 
             /// <summary>
             /// True, if the instant view must be shown from right to left

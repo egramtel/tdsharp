@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// New chat members were invited to a group 
-        /// </summary>
         public partial class PushMessageContent : Object
         {
             /// <summary>
-            /// New chat members were invited to a group 
+            /// New chat members were invited to a group
             /// </summary>
             public class PushMessageContentChatAddMembers : PushMessageContent
             {
@@ -31,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Name of the added member 
+                /// Name of the added member
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("member_name")]

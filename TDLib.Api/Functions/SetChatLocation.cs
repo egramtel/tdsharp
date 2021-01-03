@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Changes the location of a chat. Available only for some location-based supergroups, use supergroupFullInfo.can_set_location to check whether the method is allowed to use 
+        /// Changes the location of a chat. Available only for some location-based supergroups, use supergroupFullInfo.can_set_location to check whether the method is allowed to use
         /// </summary>
         public class SetChatLocation : Function<Ok>
         {
@@ -21,13 +21,13 @@ namespace TdLib
             public override string DataType { get; set; } = "setChatLocation";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Chat identifier 
+            /// Chat identifier
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_id")]
@@ -41,18 +41,15 @@ namespace TdLib
             public ChatLocation Location { get; set; }
         }
 
-
         /// <summary>
-        /// Changes the location of a chat. Available only for some location-based supergroups, use supergroupFullInfo.can_set_location to check whether the method is allowed to use 
+        /// Changes the location of a chat. Available only for some location-based supergroups, use supergroupFullInfo.can_set_location to check whether the method is allowed to use
         /// </summary>
-        public static Task<Ok> SetChatLocationAsync(this Client client,
-            long chatId = default(long),
-            ChatLocation location = default(ChatLocation))
+        public static Task<Ok> SetChatLocationAsync(
+            this Client client, long chatId = default, ChatLocation location = default)
         {
             return client.ExecuteAsync(new SetChatLocation
             {
-                ChatId = chatId,
-                Location = location,
+                ChatId = chatId, Location = location
             });
         }
     }

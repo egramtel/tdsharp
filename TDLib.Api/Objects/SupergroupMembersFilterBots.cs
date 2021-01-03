@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// Returns bot members of the supergroup or channel
-        /// </summary>
         public partial class SupergroupMembersFilter : Object
         {
             /// <summary>

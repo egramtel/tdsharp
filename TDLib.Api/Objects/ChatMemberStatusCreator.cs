@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The user is the owner of a chat and has all the administrator privileges
-        /// </summary>
         public partial class ChatMemberStatus : Object
         {
             /// <summary>
-            /// The user is the owner of a chat and has all the administrator privileges
+            /// Provides information about the status of a member in a chat
             /// </summary>
             public class ChatMemberStatusCreator : ChatMemberStatus
             {
@@ -36,6 +33,13 @@ namespace TdLib
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("custom_title")]
                 public string CustomTitle { get; set; }
+
+                /// <summary>
+                /// True, if the creator isn't shown in the chat member list and sends messages anonymously; applicable to supergroups only
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("is_anonymous")]
+                public bool IsAnonymous { get; set; }
 
                 /// <summary>
                 /// True, if the user is a member of the chat

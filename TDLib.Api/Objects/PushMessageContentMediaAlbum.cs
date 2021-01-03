@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A media album 
-        /// </summary>
         public partial class PushMessageContent : Object
         {
             /// <summary>
-            /// A media album 
+            /// A media album
             /// </summary>
             public class PushMessageContentMediaAlbum : PushMessageContent
             {
@@ -31,14 +28,14 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Number of messages in the album 
+                /// Number of messages in the album
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("total_count")]
                 public int TotalCount { get; set; }
 
                 /// <summary>
-                /// True, if the album has at least one photo 
+                /// True, if the album has at least one photo
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("has_photos")]
@@ -50,6 +47,20 @@ namespace TdLib
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("has_videos")]
                 public bool HasVideos { get; set; }
+
+                /// <summary>
+                /// True, if the album has at least one audio file
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("has_audios")]
+                public bool HasAudios { get; set; }
+
+                /// <summary>
+                /// True, if the album has at least one document
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("has_documents")]
+                public bool HasDocuments { get; set; }
             }
         }
     }

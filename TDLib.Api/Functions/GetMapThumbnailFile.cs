@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns information about a file with a map thumbnail in PNG format. Only map thumbnail files with size less than 1MB can be downloaded 
+        /// Returns information about a file with a map thumbnail in PNG format. Only map thumbnail files with size less than 1MB can be downloaded
         /// </summary>
         public class GetMapThumbnailFile : Function<File>
         {
@@ -21,41 +21,41 @@ namespace TdLib
             public override string DataType { get; set; } = "getMapThumbnailFile";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Location of the map center 
+            /// Location of the map center
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("location")]
             public Location Location { get; set; }
 
             /// <summary>
-            /// Map zoom level; 13-20 
+            /// Map zoom level; 13-20
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("zoom")]
             public int Zoom { get; set; }
 
             /// <summary>
-            /// Map width in pixels before applying scale; 16-1024 
+            /// Map width in pixels before applying scale; 16-1024
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("width")]
             public int Width { get; set; }
 
             /// <summary>
-            /// Map height in pixels before applying scale; 16-1024 
+            /// Map height in pixels before applying scale; 16-1024
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("height")]
             public int Height { get; set; }
 
             /// <summary>
-            /// Map scale; 1-3 
+            /// Map scale; 1-3
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("scale")]
@@ -69,26 +69,16 @@ namespace TdLib
             public long ChatId { get; set; }
         }
 
-
         /// <summary>
-        /// Returns information about a file with a map thumbnail in PNG format. Only map thumbnail files with size less than 1MB can be downloaded 
+        /// Returns information about a file with a map thumbnail in PNG format. Only map thumbnail files with size less than 1MB can be downloaded
         /// </summary>
-        public static Task<File> GetMapThumbnailFileAsync(this Client client,
-            Location location = default(Location),
-            int zoom = default(int),
-            int width = default(int),
-            int height = default(int),
-            int scale = default(int),
-            long chatId = default(long))
+        public static Task<File> GetMapThumbnailFileAsync(
+            this Client client, Location location = default, int zoom = default, int width = default,
+            int height = default, int scale = default, long chatId = default)
         {
             return client.ExecuteAsync(new GetMapThumbnailFile
             {
-                Location = location,
-                Zoom = zoom,
-                Width = width,
-                Height = height,
-                Scale = scale,
-                ChatId = chatId,
+                Location = location, Zoom = zoom, Width = width, Height = height, Scale = scale, ChatId = chatId
             });
         }
     }

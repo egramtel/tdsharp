@@ -21,20 +21,20 @@ namespace TdLib
             public override string DataType { get; set; } = "sendBotStartMessage";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Identifier of the bot 
+            /// Identifier of the bot
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("bot_user_id")]
             public int BotUserId { get; set; }
 
             /// <summary>
-            /// Identifier of the target chat 
+            /// Identifier of the target chat
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_id")]
@@ -48,20 +48,15 @@ namespace TdLib
             public string Parameter { get; set; }
         }
 
-
         /// <summary>
         /// Invites a bot to a chat (if it is not yet a member) and sends it the /start command. Bots can't be invited to a private chat other than the chat with the bot. Bots can't be invited to channels (although they can be added as admins) and secret chats. Returns the sent message
         /// </summary>
-        public static Task<Message> SendBotStartMessageAsync(this Client client,
-            int botUserId = default(int),
-            long chatId = default(long),
-            string parameter = default(string))
+        public static Task<Message> SendBotStartMessageAsync(
+            this Client client, int botUserId = default, long chatId = default, string parameter = default)
         {
             return client.ExecuteAsync(new SendBotStartMessage
             {
-                BotUserId = botUserId,
-                ChatId = chatId,
-                Parameter = parameter,
+                BotUserId = botUserId, ChatId = chatId, Parameter = parameter
             });
         }
     }

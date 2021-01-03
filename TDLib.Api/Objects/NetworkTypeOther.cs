@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A different network type (e.g., Ethernet network)
-        /// </summary>
         public partial class NetworkType : Object
         {
             /// <summary>

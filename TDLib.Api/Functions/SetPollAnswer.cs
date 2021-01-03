@@ -21,13 +21,13 @@ namespace TdLib
             public override string DataType { get; set; } = "setPollAnswer";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Identifier of the chat to which the poll belongs 
+            /// Identifier of the chat to which the poll belongs
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_id")]
@@ -48,20 +48,15 @@ namespace TdLib
             public int[] OptionIds { get; set; }
         }
 
-
         /// <summary>
         /// Changes the user answer to a poll. A poll in quiz mode can be answered only once
         /// </summary>
-        public static Task<Ok> SetPollAnswerAsync(this Client client,
-            long chatId = default(long),
-            long messageId = default(long),
-            int[] optionIds = default(int[]))
+        public static Task<Ok> SetPollAnswerAsync(
+            this Client client, long chatId = default, long messageId = default, int[] optionIds = default)
         {
             return client.ExecuteAsync(new SetPollAnswer
             {
-                ChatId = chatId,
-                MessageId = messageId,
-                OptionIds = optionIds,
+                ChatId = chatId, MessageId = messageId, OptionIds = optionIds
             });
         }
     }

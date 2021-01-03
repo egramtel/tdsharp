@@ -11,7 +11,7 @@ namespace TdLib
         /// <summary>
         /// Describes a web page preview
         /// </summary>
-        public class WebPage : Object
+        public partial class WebPage : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,7 +20,7 @@ namespace TdLib
             public override string DataType { get; set; } = "webPage";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -61,11 +61,11 @@ namespace TdLib
             public string Title { get; set; }
 
             /// <summary>
-            /// Describes a web page preview
+            /// 
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("description")]
-            public string Description { get; set; }
+            public FormattedText Description { get; set; }
 
             /// <summary>
             /// Image representing the content; may be null

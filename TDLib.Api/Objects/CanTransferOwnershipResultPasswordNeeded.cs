@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The 2-step verification needs to be enabled first
-        /// </summary>
         public partial class CanTransferOwnershipResult : Object
         {
             /// <summary>

@@ -11,7 +11,7 @@ namespace TdLib
         /// <summary>
         /// Contains parameters for TDLib initialization
         /// </summary>
-        public class TdlibParameters : Object
+        public partial class TdlibParameters : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,7 +20,7 @@ namespace TdLib
             public override string DataType { get; set; } = "tdlibParameters";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -103,7 +103,7 @@ namespace TdLib
             public string DeviceModel { get; set; }
 
             /// <summary>
-            /// Version of the operating system the application is being run on; must be non-empty
+            /// Version of the operating system the application is being run on. If empty, the version is automatically detected by TDLib
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("system_version")]

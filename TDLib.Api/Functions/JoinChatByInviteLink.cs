@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "joinChatByInviteLink";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public string InviteLink { get; set; }
         }
 
-
         /// <summary>
         /// Uses an invite link to add the current user to the chat if possible. The new member will not be added until the chat state has been synchronized with the server
         /// </summary>
-        public static Task<Chat> JoinChatByInviteLinkAsync(this Client client,
-            string inviteLink = default(string))
+        public static Task<Chat> JoinChatByInviteLinkAsync(
+            this Client client, string inviteLink = default)
         {
             return client.ExecuteAsync(new JoinChatByInviteLink
             {
-                InviteLink = inviteLink,
+                InviteLink = inviteLink
             });
         }
     }

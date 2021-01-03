@@ -21,17 +21,17 @@ namespace TdLib
             public override string DataType { get; set; } = "getFavoriteStickers";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
         }
 
-
         /// <summary>
         /// Returns favorite stickers
         /// </summary>
-        public static Task<Stickers> GetFavoriteStickersAsync(this Client client)
+        public static Task<Stickers> GetFavoriteStickersAsync(
+            this Client client)
         {
             return client.ExecuteAsync(new GetFavoriteStickers
             {

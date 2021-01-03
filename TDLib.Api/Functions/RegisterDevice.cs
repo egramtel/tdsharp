@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Registers the currently used device for receiving push notifications. Returns a globally unique identifier of the push notification subscription 
+        /// Registers the currently used device for receiving push notifications. Returns a globally unique identifier of the push notification subscription
         /// </summary>
         public class RegisterDevice : Function<PushReceiverId>
         {
@@ -21,38 +21,35 @@ namespace TdLib
             public override string DataType { get; set; } = "registerDevice";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Device token 
+            /// Device token
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("device_token")]
             public DeviceToken DeviceToken { get; set; }
 
             /// <summary>
-            /// List of user identifiers of other users currently using the client
+            /// List of user identifiers of other users currently using the application
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("other_user_ids")]
             public int[] OtherUserIds { get; set; }
         }
 
-
         /// <summary>
-        /// Registers the currently used device for receiving push notifications. Returns a globally unique identifier of the push notification subscription 
+        /// Registers the currently used device for receiving push notifications. Returns a globally unique identifier of the push notification subscription
         /// </summary>
-        public static Task<PushReceiverId> RegisterDeviceAsync(this Client client,
-            DeviceToken deviceToken = default(DeviceToken),
-            int[] otherUserIds = default(int[]))
+        public static Task<PushReceiverId> RegisterDeviceAsync(
+            this Client client, DeviceToken deviceToken = default, int[] otherUserIds = default)
         {
             return client.ExecuteAsync(new RegisterDevice
             {
-                DeviceToken = deviceToken,
-                OtherUserIds = otherUserIds,
+                DeviceToken = deviceToken, OtherUserIds = otherUserIds
             });
         }
     }

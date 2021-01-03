@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "downloadFile";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -62,24 +62,16 @@ namespace TdLib
             public bool Synchronous { get; set; }
         }
 
-
         /// <summary>
         /// Downloads a file from the cloud. Download progress and completion of the download will be notified through updateFile updates
         /// </summary>
-        public static Task<File> DownloadFileAsync(this Client client,
-            int fileId = default(int),
-            int priority = default(int),
-            int offset = default(int),
-            int limit = default(int),
-            bool synchronous = default(bool))
+        public static Task<File> DownloadFileAsync(
+            this Client client, int fileId = default, int priority = default, int offset = default, int limit = default,
+            bool synchronous = default)
         {
             return client.ExecuteAsync(new DownloadFile
             {
-                FileId = fileId,
-                Priority = priority,
-                Offset = offset,
-                Limit = limit,
-                Synchronous = synchronous,
+                FileId = fileId, Priority = priority, Offset = offset, Limit = limit, Synchronous = synchronous
             });
         }
     }

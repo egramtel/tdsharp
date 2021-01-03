@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The user has been successfully authorized. TDLib is now ready to answer queries
-        /// </summary>
         public partial class AuthorizationState : Object
         {
             /// <summary>

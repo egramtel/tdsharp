@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Contains full information about a basic group 
+        /// Contains full information about a basic group
         /// </summary>
-        public class BasicGroupFullInfo : Object
+        public partial class BasicGroupFullInfo : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,27 +20,34 @@ namespace TdLib
             public override string DataType { get; set; } = "basicGroupFullInfo";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Contains full information about a basic group 
+            /// Chat photo; may be null
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("photo")]
+            public ChatPhoto Photo { get; set; }
+
+            /// <summary>
+            /// 
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("description")]
             public string Description { get; set; }
 
             /// <summary>
-            /// User identifier of the creator of the group; 0 if unknown 
+            /// User identifier of the creator of the group; 0 if unknown
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("creator_user_id")]
             public int CreatorUserId { get; set; }
 
             /// <summary>
-            /// Group members 
+            /// Group members
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("members")]

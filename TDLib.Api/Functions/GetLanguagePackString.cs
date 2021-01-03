@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns a string stored in the local database from the specified localization target and language pack by its key. Returns a 404 error if the string is not found. This is an offline method. Can be called before authorization. Can be called synchronously
+        /// Returns a string stored in the local database from the specified localization target and language pack by its key. Returns a 404 error if the string is not found. Can be called synchronously
         /// </summary>
         public class GetLanguagePackString : Function<LanguagePackStringValue>
         {
@@ -21,27 +21,27 @@ namespace TdLib
             public override string DataType { get; set; } = "getLanguagePackString";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Path to the language pack database in which strings are stored 
+            /// Path to the language pack database in which strings are stored
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("language_pack_database_path")]
             public string LanguagePackDatabasePath { get; set; }
 
             /// <summary>
-            /// Localization target to which the language pack belongs 
+            /// Localization target to which the language pack belongs
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("localization_target")]
             public string LocalizationTarget { get; set; }
 
             /// <summary>
-            /// Language pack identifier 
+            /// Language pack identifier
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("language_pack_id")]
@@ -55,22 +55,17 @@ namespace TdLib
             public string Key { get; set; }
         }
 
-
         /// <summary>
-        /// Returns a string stored in the local database from the specified localization target and language pack by its key. Returns a 404 error if the string is not found. This is an offline method. Can be called before authorization. Can be called synchronously
+        /// Returns a string stored in the local database from the specified localization target and language pack by its key. Returns a 404 error if the string is not found. Can be called synchronously
         /// </summary>
-        public static Task<LanguagePackStringValue> GetLanguagePackStringAsync(this Client client,
-            string languagePackDatabasePath = default(string),
-            string localizationTarget = default(string),
-            string languagePackId = default(string),
-            string key = default(string))
+        public static Task<LanguagePackStringValue> GetLanguagePackStringAsync(
+            this Client client, string languagePackDatabasePath = default, string localizationTarget = default,
+            string languagePackId = default, string key = default)
         {
             return client.ExecuteAsync(new GetLanguagePackString
             {
-                LanguagePackDatabasePath = languagePackDatabasePath,
-                LocalizationTarget = localizationTarget,
-                LanguagePackId = languagePackId,
-                Key = key,
+                LanguagePackDatabasePath = languagePackDatabasePath, LocalizationTarget = localizationTarget,
+                LanguagePackId = languagePackId, Key = key
             });
         }
     }

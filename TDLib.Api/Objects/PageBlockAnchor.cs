@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// An invisible anchor on a page, which can be used in a URL to open the page from the specified anchor 
-        /// </summary>
         public partial class PageBlock : Object
         {
             /// <summary>
-            /// An invisible anchor on a page, which can be used in a URL to open the page from the specified anchor 
+            /// An invisible anchor on a page, which can be used in a URL to open the page from the specified anchor
             /// </summary>
             public class PageBlockAnchor : PageBlock
             {

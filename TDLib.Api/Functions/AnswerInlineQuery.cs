@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Sets the result of an inline query; for bots only 
+        /// Sets the result of an inline query; for bots only
         /// </summary>
         public class AnswerInlineQuery : Function<Ok>
         {
@@ -21,17 +21,17 @@ namespace TdLib
             public override string DataType { get; set; } = "answerInlineQuery";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Identifier of the inline query 
+            /// Identifier of the inline query
             /// </summary>
             [JsonConverter(typeof(Converter.Int64))]
             [JsonProperty("inline_query_id")]
-            public Int64 InlineQueryId { get; set; }
+            public long InlineQueryId { get; set; }
 
             /// <summary>
             /// True, if the result of the query can be cached for the specified user
@@ -41,14 +41,14 @@ namespace TdLib
             public bool IsPersonal { get; set; }
 
             /// <summary>
-            /// The results of the query 
+            /// The results of the query
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("results")]
             public InputInlineQueryResult[] Results { get; set; }
 
             /// <summary>
-            /// Allowed time to cache the results of the query, in seconds 
+            /// Allowed time to cache the results of the query, in seconds
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("cache_time")]
@@ -62,7 +62,7 @@ namespace TdLib
             public string NextOffset { get; set; }
 
             /// <summary>
-            /// If non-empty, this text should be shown on the button that opens a private chat with the bot and sends a start message to the bot with the parameter switch_pm_parameter 
+            /// If non-empty, this text should be shown on the button that opens a private chat with the bot and sends a start message to the bot with the parameter switch_pm_parameter
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("switch_pm_text")]
@@ -76,28 +76,18 @@ namespace TdLib
             public string SwitchPmParameter { get; set; }
         }
 
-
         /// <summary>
-        /// Sets the result of an inline query; for bots only 
+        /// Sets the result of an inline query; for bots only
         /// </summary>
-        public static Task<Ok> AnswerInlineQueryAsync(this Client client,
-            Int64 inlineQueryId = default(Int64),
-            bool isPersonal = default(bool),
-            InputInlineQueryResult[] results = default(InputInlineQueryResult[]),
-            int cacheTime = default(int),
-            string nextOffset = default(string),
-            string switchPmText = default(string),
-            string switchPmParameter = default(string))
+        public static Task<Ok> AnswerInlineQueryAsync(
+            this Client client, long inlineQueryId = default, bool isPersonal = default,
+            InputInlineQueryResult[] results = default, int cacheTime = default, string nextOffset = default,
+            string switchPmText = default, string switchPmParameter = default)
         {
             return client.ExecuteAsync(new AnswerInlineQuery
             {
-                InlineQueryId = inlineQueryId,
-                IsPersonal = isPersonal,
-                Results = results,
-                CacheTime = cacheTime,
-                NextOffset = nextOffset,
-                SwitchPmText = switchPmText,
-                SwitchPmParameter = switchPmParameter,
+                InlineQueryId = inlineQueryId, IsPersonal = isPersonal, Results = results, CacheTime = cacheTime,
+                NextOffset = nextOffset, SwitchPmText = switchPmText, SwitchPmParameter = switchPmParameter
             });
         }
     }

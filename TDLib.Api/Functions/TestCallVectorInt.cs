@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns the received vector of numbers; for testing only. This is an offline method. Can be called before authorization 
+        /// Returns the received vector of numbers; for testing only. This is an offline method. Can be called before authorization
         /// </summary>
         public class TestCallVectorInt : Function<TestVectorInt>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "testCallVectorInt";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public int[] X { get; set; }
         }
 
-
         /// <summary>
-        /// Returns the received vector of numbers; for testing only. This is an offline method. Can be called before authorization 
+        /// Returns the received vector of numbers; for testing only. This is an offline method. Can be called before authorization
         /// </summary>
-        public static Task<TestVectorInt> TestCallVectorIntAsync(this Client client,
-            int[] x = default(int[]))
+        public static Task<TestVectorInt> TestCallVectorIntAsync(
+            this Client client, int[] x = default)
         {
             return client.ExecuteAsync(new TestCallVectorInt
             {
-                X = x,
+                X = x
             });
         }
     }

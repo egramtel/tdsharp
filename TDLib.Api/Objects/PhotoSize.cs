@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Photo description 
+        /// Describes an image in JPEG format
         /// </summary>
-        public class PhotoSize : Object
+        public partial class PhotoSize : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,38 +20,45 @@ namespace TdLib
             public override string DataType { get; set; } = "photoSize";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Thumbnail type (see https://core.telegram.org/constructor/photoSize) 
+            /// Image type (see https://core.telegram.org/constructor/photoSize)
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("type")]
             public string Type { get; set; }
 
             /// <summary>
-            /// Information about the photo file 
+            /// Information about the image file
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("photo")]
             public File Photo { get; set; }
 
             /// <summary>
-            /// Photo width 
+            /// Image width
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("width")]
             public int Width { get; set; }
 
             /// <summary>
-            /// Photo height
+            /// Image height
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("height")]
             public int Height { get; set; }
+
+            /// <summary>
+            /// Sizes of progressive JPEG file prefixes, which can be used to preliminarily show the image
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("progressive_sizes")]
+            public int[] ProgressiveSizes { get; set; }
         }
     }
 }

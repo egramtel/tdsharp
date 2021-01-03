@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Edits the content of a live location in an inline message sent via a bot; for bots only 
+        /// Edits the content of a live location in an inline message sent via a bot; for bots only
         /// </summary>
         public class EditInlineMessageLiveLocation : Function<Ok>
         {
@@ -21,20 +21,20 @@ namespace TdLib
             public override string DataType { get; set; } = "editInlineMessageLiveLocation";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Inline message identifier 
+            /// Inline message identifier
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("inline_message_id")]
             public string InlineMessageId { get; set; }
 
             /// <summary>
-            /// The new message reply markup 
+            /// The new message reply markup
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("reply_markup")]
@@ -46,22 +46,33 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("location")]
             public Location Location { get; set; }
+
+            /// <summary>
+            /// The new direction in which the location moves, in degrees; 1-360. Pass 0 if unknown
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("heading")]
+            public int Heading { get; set; }
+
+            /// <summary>
+            /// The new maximum distance for proximity alerts, in meters (0-100000). Pass 0 if the notification is disabled
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("proximity_alert_radius")]
+            public int ProximityAlertRadius { get; set; }
         }
 
-
         /// <summary>
-        /// Edits the content of a live location in an inline message sent via a bot; for bots only 
+        /// Edits the content of a live location in an inline message sent via a bot; for bots only
         /// </summary>
-        public static Task<Ok> EditInlineMessageLiveLocationAsync(this Client client,
-            string inlineMessageId = default(string),
-            ReplyMarkup replyMarkup = default(ReplyMarkup),
-            Location location = default(Location))
+        public static Task<Ok> EditInlineMessageLiveLocationAsync(
+            this Client client, string inlineMessageId = default, ReplyMarkup replyMarkup = default,
+            Location location = default, int heading = default, int proximityAlertRadius = default)
         {
             return client.ExecuteAsync(new EditInlineMessageLiveLocation
             {
-                InlineMessageId = inlineMessageId,
-                ReplyMarkup = replyMarkup,
-                Location = location,
+                InlineMessageId = inlineMessageId, ReplyMarkup = replyMarkup, Location = location, Heading = heading,
+                ProximityAlertRadius = proximityAlertRadius
             });
         }
     }

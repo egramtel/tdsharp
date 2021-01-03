@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The text should be parsed in HTML-style
-        /// </summary>
         public partial class TextParseMode : Object
         {
             /// <summary>
-            /// The text should be parsed in HTML-style
+            /// The text uses HTML-style formatting. The same as Telegram Bot API "HTML" parse mode
             /// </summary>
             public class TextParseModeHTML : TextParseMode
             {

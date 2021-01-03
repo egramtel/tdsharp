@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Contains information about a Telegram Passport element that was requested by a service 
+        /// Contains information about a Telegram Passport element that was requested by a service
         /// </summary>
-        public class PassportSuitableElement : Object
+        public partial class PassportSuitableElement : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,13 +20,13 @@ namespace TdLib
             public override string DataType { get; set; } = "passportSuitableElement";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Type of the element 
+            /// Type of the element
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("type")]
@@ -40,7 +40,7 @@ namespace TdLib
             public bool IsSelfieRequired { get; set; }
 
             /// <summary>
-            /// True, if a certified English translation is required with the document 
+            /// True, if a certified English translation is required with the document
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_translation_required")]

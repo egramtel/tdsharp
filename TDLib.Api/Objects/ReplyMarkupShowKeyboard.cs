@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// Contains a custom keyboard layout to quickly reply to bots
-        /// </summary>
         public partial class ReplyMarkup : Object
         {
             /// <summary>
@@ -38,14 +35,14 @@ namespace TdLib
                 public KeyboardButton[][] Rows { get; set; }
 
                 /// <summary>
-                /// True, if the client needs to resize the keyboard vertically
+                /// True, if the application needs to resize the keyboard vertically
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("resize_keyboard")]
                 public bool ResizeKeyboard { get; set; }
 
                 /// <summary>
-                /// True, if the client needs to hide the keyboard after use
+                /// True, if the application needs to hide the keyboard after use
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("one_time")]

@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "addFavoriteSticker";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public InputFile Sticker { get; set; }
         }
 
-
         /// <summary>
         /// Adds a new sticker to the list of favorite stickers. The new sticker is added to the top of the list. If the sticker was already in the list, it is removed from the list first. Only stickers belonging to a sticker set can be added to this list
         /// </summary>
-        public static Task<Ok> AddFavoriteStickerAsync(this Client client,
-            InputFile sticker = default(InputFile))
+        public static Task<Ok> AddFavoriteStickerAsync(
+            this Client client, InputFile sticker = default)
         {
             return client.ExecuteAsync(new AddFavoriteSticker
             {
-                Sticker = sticker,
+                Sticker = sticker
             });
         }
     }

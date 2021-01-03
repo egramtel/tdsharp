@@ -21,17 +21,17 @@ namespace TdLib
             public override string DataType { get; set; } = "getActiveSessions";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
         }
 
-
         /// <summary>
         /// Returns all active sessions of the current user
         /// </summary>
-        public static Task<Sessions> GetActiveSessionsAsync(this Client client)
+        public static Task<Sessions> GetActiveSessionsAsync(
+            this Client client)
         {
             return client.ExecuteAsync(new GetActiveSessions
             {

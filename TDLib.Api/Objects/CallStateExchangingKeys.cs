@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The call has been answered and encryption keys are being exchanged
-        /// </summary>
         public partial class CallState : Object
         {
             /// <summary>

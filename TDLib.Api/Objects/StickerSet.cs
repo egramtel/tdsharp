@@ -11,7 +11,7 @@ namespace TdLib
         /// <summary>
         /// Represents a sticker set
         /// </summary>
-        public class StickerSet : Object
+        public partial class StickerSet : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,41 +20,48 @@ namespace TdLib
             public override string DataType { get; set; } = "stickerSet";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Identifier of the sticker set 
+            /// Identifier of the sticker set
             /// </summary>
             [JsonConverter(typeof(Converter.Int64))]
             [JsonProperty("id")]
-            public Int64 Id { get; set; }
+            public long Id { get; set; }
 
             /// <summary>
-            /// Title of the sticker set 
+            /// Title of the sticker set
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("title")]
             public string Title { get; set; }
 
             /// <summary>
-            /// Name of the sticker set 
+            /// Name of the sticker set
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("name")]
             public string Name { get; set; }
 
             /// <summary>
-            /// Sticker set thumbnail in WEBP format with width and height 100; may be null. The file can be downloaded only before the thumbnail is changed
+            /// Sticker set thumbnail in WEBP or TGS format with width and height 100; may be null. The file can be downloaded only before the thumbnail is changed
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("thumbnail")]
-            public PhotoSize Thumbnail { get; set; }
+            public Thumbnail Thumbnail { get; set; }
 
             /// <summary>
-            /// True, if the sticker set has been installed by the current user 
+            /// Sticker set thumbnail's outline represented as a list of closed vector paths; may be empty. The coordinate system origin is in the upper-left corner
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("thumbnail_outline")]
+            public ClosedVectorPath[] ThumbnailOutline { get; set; }
+
+            /// <summary>
+            /// True, if the sticker set has been installed by the current user
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_installed")]
@@ -68,21 +75,21 @@ namespace TdLib
             public bool IsArchived { get; set; }
 
             /// <summary>
-            /// True, if the sticker set is official 
+            /// True, if the sticker set is official
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_official")]
             public bool IsOfficial { get; set; }
 
             /// <summary>
-            /// True, is the stickers in the set are animated 
+            /// True, is the stickers in the set are animated
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_animated")]
             public bool IsAnimated { get; set; }
 
             /// <summary>
-            /// True, if the stickers in the set are masks 
+            /// True, if the stickers in the set are masks
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_masks")]
@@ -96,7 +103,7 @@ namespace TdLib
             public bool IsViewed { get; set; }
 
             /// <summary>
-            /// List of stickers in this set 
+            /// List of stickers in this set
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("stickers")]

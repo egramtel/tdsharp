@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A document message (a general file) 
-        /// </summary>
         public partial class PushMessageContent : Object
         {
             /// <summary>
-            /// A document message (a general file) 
+            /// A document message (a general file)
             /// </summary>
             public class PushMessageContentDocument : PushMessageContent
             {
@@ -31,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Message content; may be null 
+                /// Message content; may be null
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("document")]

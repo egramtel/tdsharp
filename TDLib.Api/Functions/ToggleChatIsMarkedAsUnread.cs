@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Changes the marked as unread state of a chat 
+        /// Changes the marked as unread state of a chat
         /// </summary>
         public class ToggleChatIsMarkedAsUnread : Function<Ok>
         {
@@ -21,13 +21,13 @@ namespace TdLib
             public override string DataType { get; set; } = "toggleChatIsMarkedAsUnread";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Chat identifier 
+            /// Chat identifier
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_id")]
@@ -41,18 +41,15 @@ namespace TdLib
             public bool IsMarkedAsUnread { get; set; }
         }
 
-
         /// <summary>
-        /// Changes the marked as unread state of a chat 
+        /// Changes the marked as unread state of a chat
         /// </summary>
-        public static Task<Ok> ToggleChatIsMarkedAsUnreadAsync(this Client client,
-            long chatId = default(long),
-            bool isMarkedAsUnread = default(bool))
+        public static Task<Ok> ToggleChatIsMarkedAsUnreadAsync(
+            this Client client, long chatId = default, bool isMarkedAsUnread = default)
         {
             return client.ExecuteAsync(new ToggleChatIsMarkedAsUnread
             {
-                ChatId = chatId,
-                IsMarkedAsUnread = isMarkedAsUnread,
+                ChatId = chatId, IsMarkedAsUnread = isMarkedAsUnread
             });
         }
     }

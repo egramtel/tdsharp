@@ -11,7 +11,7 @@ namespace TdLib
         /// <summary>
         /// Contains information about a chat invite link
         /// </summary>
-        public class ChatInviteLinkInfo : Object
+        public partial class ChatInviteLinkInfo : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,17 +20,24 @@ namespace TdLib
             public override string DataType { get; set; } = "chatInviteLinkInfo";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Chat identifier of the invite link; 0 if the user is not a member of this chat
+            /// Chat identifier of the invite link; 0 if the user has no access to the chat before joining
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_id")]
             public long ChatId { get; set; }
+
+            /// <summary>
+            /// If non-zero, the amount of time for which read access to the chat will remain available, in seconds
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("accessible_for")]
+            public int AccessibleFor { get; set; }
 
             /// <summary>
             /// Contains information about the type of the chat
@@ -51,10 +58,10 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("photo")]
-            public ChatPhoto Photo { get; set; }
+            public ChatPhotoInfo Photo { get; set; }
 
             /// <summary>
-            /// Number of members
+            /// Number of members in the chat
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("member_count")]

@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A chat invite link 
-        /// </summary>
         public partial class TMeUrlType : Object
         {
             /// <summary>
-            /// A chat invite link 
+            /// A chat invite link
             /// </summary>
             public class TMeUrlTypeChatInvite : TMeUrlType
             {

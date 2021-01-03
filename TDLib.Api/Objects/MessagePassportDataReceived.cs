@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// Telegram Passport data has been received; for bots only 
-        /// </summary>
         public partial class MessageContent : Object
         {
             /// <summary>
-            /// Telegram Passport data has been received; for bots only 
+            /// Telegram Passport data has been received; for bots only
             /// </summary>
             public class MessagePassportDataReceived : MessageContent
             {
@@ -31,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// List of received Telegram Passport elements 
+                /// List of received Telegram Passport elements
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("elements")]

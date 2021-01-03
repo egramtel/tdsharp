@@ -21,27 +21,27 @@ namespace TdLib
             public override string DataType { get; set; } = "editMessageLiveLocation";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// The chat the message belongs to 
+            /// The chat the message belongs to
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_id")]
             public long ChatId { get; set; }
 
             /// <summary>
-            /// Identifier of the message 
+            /// Identifier of the message
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("message_id")]
             public long MessageId { get; set; }
 
             /// <summary>
-            /// The new message reply markup; for bots only 
+            /// The new message reply markup; for bots only
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("reply_markup")]
@@ -53,24 +53,33 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("location")]
             public Location Location { get; set; }
-        }
 
+            /// <summary>
+            /// The new direction in which the location moves, in degrees; 1-360. Pass 0 if unknown
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("heading")]
+            public int Heading { get; set; }
+
+            /// <summary>
+            /// The new maximum distance for proximity alerts, in meters (0-100000). Pass 0 if the notification is disabled
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("proximity_alert_radius")]
+            public int ProximityAlertRadius { get; set; }
+        }
 
         /// <summary>
         /// Edits the message content of a live location. Messages can be edited for a limited period of time specified in the live location. Returns the edited message after the edit is completed on the server side
         /// </summary>
-        public static Task<Message> EditMessageLiveLocationAsync(this Client client,
-            long chatId = default(long),
-            long messageId = default(long),
-            ReplyMarkup replyMarkup = default(ReplyMarkup),
-            Location location = default(Location))
+        public static Task<Message> EditMessageLiveLocationAsync(
+            this Client client, long chatId = default, long messageId = default, ReplyMarkup replyMarkup = default,
+            Location location = default, int heading = default, int proximityAlertRadius = default)
         {
             return client.ExecuteAsync(new EditMessageLiveLocation
             {
-                ChatId = chatId,
-                MessageId = messageId,
-                ReplyMarkup = replyMarkup,
-                Location = location,
+                ChatId = chatId, MessageId = messageId, ReplyMarkup = replyMarkup, Location = location,
+                Heading = heading, ProximityAlertRadius = proximityAlertRadius
             });
         }
     }

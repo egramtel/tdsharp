@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A chat member was deleted 
-        /// </summary>
         public partial class PushMessageContent : Object
         {
             /// <summary>
-            /// A chat member was deleted 
+            /// A chat member was deleted
             /// </summary>
             public class PushMessageContentChatDeleteMember : PushMessageContent
             {
@@ -31,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Name of the deleted member 
+                /// Name of the deleted member
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("member_name")]

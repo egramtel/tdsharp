@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// A user with information about joining/leaving a chat 
+        /// A user with information about joining/leaving a chat
         /// </summary>
-        public class ChatMember : Object
+        public partial class ChatMember : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,13 +20,13 @@ namespace TdLib
             public override string DataType { get; set; } = "chatMember";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// User identifier of the chat member 
+            /// User identifier of the chat member
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("user_id")]
@@ -40,21 +40,21 @@ namespace TdLib
             public int InviterUserId { get; set; }
 
             /// <summary>
-            /// Point in time (Unix timestamp) when the user joined a chat 
+            /// Point in time (Unix timestamp) when the user joined the chat
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("joined_chat_date")]
             public int JoinedChatDate { get; set; }
 
             /// <summary>
-            /// Status of the member in the chat 
+            /// Status of the member in the chat
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("status")]
             public ChatMemberStatus Status { get; set; }
 
             /// <summary>
-            /// If the user is a bot, information about the bot; may be null. Can be null even for a bot if the bot is not a chat member
+            /// If the user is a bot, information about the bot; may be null. Can be null even for a bot if the bot is not the chat member
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("bot_info")]

@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Contains information about the period of inactivity after which the current user's account will automatically be deleted 
+        /// Contains information about the period of inactivity after which the current user's account will automatically be deleted
         /// </summary>
-        public class AccountTtl : Object
+        public partial class AccountTtl : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,7 +20,7 @@ namespace TdLib
             public override string DataType { get; set; } = "accountTtl";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }

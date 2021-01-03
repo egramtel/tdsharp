@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The user is a member of a chat and has some additional privileges. In basic groups, administrators can edit and delete messages sent by others, add new members, and ban unprivileged members. In supergroups and channels, there are more detailed options for administrator privileges
-        /// </summary>
         public partial class ChatMemberStatus : Object
         {
             /// <summary>
-            /// The user is a member of a chat and has some additional privileges. In basic groups, administrators can edit and delete messages sent by others, add new members, and ban unprivileged members. In supergroups and channels, there are more detailed options for administrator privileges
+            /// The user is a member of a chat and has some additional privileges. In basic groups, administrators can edit and delete messages sent by others, add new members, ban unprivileged members, and manage voice chats. In supergroups and channels, there are more detailed options for administrator privileges
             /// </summary>
             public class ChatMemberStatusAdministrator : ChatMemberStatus
             {
@@ -99,6 +96,20 @@ namespace TdLib
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("can_promote_members")]
                 public bool CanPromoteMembers { get; set; }
+
+                /// <summary>
+                /// True, if the administrator can manage voice chats; applicable to groups only
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("can_manage_voice_chats")]
+                public bool CanManageVoiceChats { get; set; }
+
+                /// <summary>
+                /// True, if the administrator isn't shown in the chat member list and sends messages anonymously; applicable to supergroups only
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("is_anonymous")]
+                public bool IsAnonymous { get; set; }
             }
         }
     }

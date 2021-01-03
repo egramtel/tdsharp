@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns a Telegram Passport authorization form for sharing data with a service 
+        /// Returns a Telegram Passport authorization form for sharing data with a service
         /// </summary>
         public class GetPassportAuthorizationForm : Function<PassportAuthorizationForm>
         {
@@ -21,27 +21,27 @@ namespace TdLib
             public override string DataType { get; set; } = "getPassportAuthorizationForm";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// User identifier of the service's bot 
+            /// User identifier of the service's bot
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("bot_user_id")]
             public int BotUserId { get; set; }
 
             /// <summary>
-            /// Telegram Passport element types requested by the service 
+            /// Telegram Passport element types requested by the service
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("scope")]
             public string Scope { get; set; }
 
             /// <summary>
-            /// Service's public_key 
+            /// Service's public_key
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("public_key")]
@@ -55,22 +55,16 @@ namespace TdLib
             public string Nonce { get; set; }
         }
 
-
         /// <summary>
-        /// Returns a Telegram Passport authorization form for sharing data with a service 
+        /// Returns a Telegram Passport authorization form for sharing data with a service
         /// </summary>
-        public static Task<PassportAuthorizationForm> GetPassportAuthorizationFormAsync(this Client client,
-            int botUserId = default(int),
-            string scope = default(string),
-            string publicKey = default(string),
-            string nonce = default(string))
+        public static Task<PassportAuthorizationForm> GetPassportAuthorizationFormAsync(
+            this Client client, int botUserId = default, string scope = default, string publicKey = default,
+            string nonce = default)
         {
             return client.ExecuteAsync(new GetPassportAuthorizationForm
             {
-                BotUserId = botUserId,
-                Scope = scope,
-                PublicKey = publicKey,
-                Nonce = nonce,
+                BotUserId = botUserId, Scope = scope, PublicKey = publicKey, Nonce = nonce
             });
         }
     }

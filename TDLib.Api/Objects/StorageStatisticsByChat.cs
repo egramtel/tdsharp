@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Contains the storage usage statistics for a specific chat 
+        /// Contains the storage usage statistics for a specific chat
         /// </summary>
-        public class StorageStatisticsByChat : Object
+        public partial class StorageStatisticsByChat : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,27 +20,27 @@ namespace TdLib
             public override string DataType { get; set; } = "storageStatisticsByChat";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Chat identifier; 0 if none 
+            /// Chat identifier; 0 if none
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_id")]
             public long ChatId { get; set; }
 
             /// <summary>
-            /// Total size of the files in the chat 
+            /// Total size of the files in the chat
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("size")]
             public long Size { get; set; }
 
             /// <summary>
-            /// Total number of files in the chat 
+            /// Total number of files in the chat
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("count")]

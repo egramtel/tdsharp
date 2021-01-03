@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The chat is public, because it has username
-        /// </summary>
         public partial class PublicChatType : Object
         {
             /// <summary>
-            /// The chat is public, because it has username
+            /// Describes a type of public chats
             /// </summary>
             public class PublicChatTypeHasUsername : PublicChatType
             {

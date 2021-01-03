@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A video message 
-        /// </summary>
         public partial class PushMessageContent : Object
         {
             /// <summary>
-            /// A video message 
+            /// A video message
             /// </summary>
             public class PushMessageContentVideo : PushMessageContent
             {
@@ -31,21 +28,21 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Message content; may be null 
+                /// Message content; may be null
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("video")]
                 public Video Video { get; set; }
 
                 /// <summary>
-                /// Video caption 
+                /// Video caption
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("caption")]
                 public string Caption { get; set; }
 
                 /// <summary>
-                /// True, if the video is secret 
+                /// True, if the video is secret
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_secret")]

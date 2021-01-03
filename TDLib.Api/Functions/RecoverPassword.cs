@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Recovers the password using a recovery code sent to an email address that was previously set up 
+        /// Recovers the password using a recovery code sent to an email address that was previously set up
         /// </summary>
         public class RecoverPassword : Function<PasswordState>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "recoverPassword";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public string RecoveryCode { get; set; }
         }
 
-
         /// <summary>
-        /// Recovers the password using a recovery code sent to an email address that was previously set up 
+        /// Recovers the password using a recovery code sent to an email address that was previously set up
         /// </summary>
-        public static Task<PasswordState> RecoverPasswordAsync(this Client client,
-            string recoveryCode = default(string))
+        public static Task<PasswordState> RecoverPasswordAsync(
+            this Client client, string recoveryCode = default)
         {
             return client.ExecuteAsync(new RecoverPassword
             {
-                RecoveryCode = recoveryCode,
+                RecoveryCode = recoveryCode
             });
         }
     }

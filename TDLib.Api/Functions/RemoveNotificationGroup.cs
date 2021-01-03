@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Removes a group of active notifications. Needs to be called only if the notification group is removed by the current user 
+        /// Removes a group of active notifications. Needs to be called only if the notification group is removed by the current user
         /// </summary>
         public class RemoveNotificationGroup : Function<Ok>
         {
@@ -21,13 +21,13 @@ namespace TdLib
             public override string DataType { get; set; } = "removeNotificationGroup";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Notification group identifier 
+            /// Notification group identifier
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("notification_group_id")]
@@ -41,18 +41,15 @@ namespace TdLib
             public int MaxNotificationId { get; set; }
         }
 
-
         /// <summary>
-        /// Removes a group of active notifications. Needs to be called only if the notification group is removed by the current user 
+        /// Removes a group of active notifications. Needs to be called only if the notification group is removed by the current user
         /// </summary>
-        public static Task<Ok> RemoveNotificationGroupAsync(this Client client,
-            int notificationGroupId = default(int),
-            int maxNotificationId = default(int))
+        public static Task<Ok> RemoveNotificationGroupAsync(
+            this Client client, int notificationGroupId = default, int maxNotificationId = default)
         {
             return client.ExecuteAsync(new RemoveNotificationGroup
             {
-                NotificationGroupId = notificationGroupId,
-                MaxNotificationId = maxNotificationId,
+                NotificationGroupId = notificationGroupId, MaxNotificationId = maxNotificationId
             });
         }
     }

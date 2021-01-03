@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns storage usage statistics. Can be called before authorization 
+        /// Returns storage usage statistics. Can be called before authorization
         /// </summary>
         public class GetStorageStatistics : Function<StorageStatistics>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "getStorageStatistics";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public int ChatLimit { get; set; }
         }
 
-
         /// <summary>
-        /// Returns storage usage statistics. Can be called before authorization 
+        /// Returns storage usage statistics. Can be called before authorization
         /// </summary>
-        public static Task<StorageStatistics> GetStorageStatisticsAsync(this Client client,
-            int chatLimit = default(int))
+        public static Task<StorageStatistics> GetStorageStatisticsAsync(
+            this Client client, int chatLimit = default)
         {
             return client.ExecuteAsync(new GetStorageStatistics
             {
-                ChatLimit = chatLimit,
+                ChatLimit = chatLimit
             });
         }
     }

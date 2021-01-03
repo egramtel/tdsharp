@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A bank card number. The getBankCardInfo method can be used to get information about the bank card
-        /// </summary>
         public partial class TextEntityType : Object
         {
             /// <summary>

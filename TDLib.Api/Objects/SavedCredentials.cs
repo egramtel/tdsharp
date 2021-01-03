@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Contains information about saved card credentials 
+        /// Contains information about saved card credentials
         /// </summary>
-        public class SavedCredentials : Object
+        public partial class SavedCredentials : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,13 +20,13 @@ namespace TdLib
             public override string DataType { get; set; } = "savedCredentials";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Unique identifier of the saved credentials 
+            /// Unique identifier of the saved credentials
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("id")]

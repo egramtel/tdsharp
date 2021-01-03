@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns an existing chat corresponding to a known supergroup or channel 
+        /// Returns an existing chat corresponding to a known supergroup or channel
         /// </summary>
         public class CreateSupergroupChat : Function<Chat>
         {
@@ -21,13 +21,13 @@ namespace TdLib
             public override string DataType { get; set; } = "createSupergroupChat";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Supergroup or channel identifier 
+            /// Supergroup or channel identifier
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("supergroup_id")]
@@ -41,18 +41,15 @@ namespace TdLib
             public bool Force { get; set; }
         }
 
-
         /// <summary>
-        /// Returns an existing chat corresponding to a known supergroup or channel 
+        /// Returns an existing chat corresponding to a known supergroup or channel
         /// </summary>
-        public static Task<Chat> CreateSupergroupChatAsync(this Client client,
-            int supergroupId = default(int),
-            bool force = default(bool))
+        public static Task<Chat> CreateSupergroupChatAsync(
+            this Client client, int supergroupId = default, bool force = default)
         {
             return client.ExecuteAsync(new CreateSupergroupChat
             {
-                SupergroupId = supergroupId,
-                Force = force,
+                SupergroupId = supergroupId, Force = force
             });
         }
     }

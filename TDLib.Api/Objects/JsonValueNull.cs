@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// Represents a null JSON value
-        /// </summary>
         public partial class JsonValue : Object
         {
             /// <summary>
-            /// Represents a null JSON value
+            /// Represents a JSON value
             /// </summary>
             public class JsonValueNull : JsonValue
             {

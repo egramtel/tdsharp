@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// Contains information about the total amount of data that was used to send and receive files 
-        /// </summary>
         public partial class NetworkStatisticsEntry : Object
         {
             /// <summary>
-            /// Contains information about the total amount of data that was used to send and receive files 
+            /// Contains statistics about network usage
             /// </summary>
             public class NetworkStatisticsEntryFile : NetworkStatisticsEntry
             {
@@ -31,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Type of the file the data is part of 
+                /// Type of the file the data is part of
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("file_type")]
@@ -45,7 +42,7 @@ namespace TdLib
                 public NetworkType NetworkType { get; set; }
 
                 /// <summary>
-                /// Total number of bytes sent 
+                /// Total number of bytes sent
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("sent_bytes")]

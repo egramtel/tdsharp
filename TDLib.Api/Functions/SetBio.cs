@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Changes the bio of the current user 
+        /// Changes the bio of the current user
         /// </summary>
         public class SetBio : Function<Ok>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "setBio";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public string Bio { get; set; }
         }
 
-
         /// <summary>
-        /// Changes the bio of the current user 
+        /// Changes the bio of the current user
         /// </summary>
-        public static Task<Ok> SetBioAsync(this Client client,
-            string bio = default(string))
+        public static Task<Ok> SetBioAsync(
+            this Client client, string bio = default)
         {
             return client.ExecuteAsync(new SetBio
             {
-                Bio = bio,
+                Bio = bio
             });
         }
     }

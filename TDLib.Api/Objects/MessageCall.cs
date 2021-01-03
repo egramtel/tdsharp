@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A message with information about an ended call 
-        /// </summary>
         public partial class MessageContent : Object
         {
             /// <summary>
-            /// A message with information about an ended call 
+            /// A message with information about an ended call
             /// </summary>
             public class MessageCall : MessageContent
             {
@@ -31,7 +28,14 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Reason why the call was discarded 
+                /// True, if the call was a video call
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("is_video")]
+                public bool IsVideo { get; set; }
+
+                /// <summary>
+                /// Reason why the call was discarded
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("discard_reason")]

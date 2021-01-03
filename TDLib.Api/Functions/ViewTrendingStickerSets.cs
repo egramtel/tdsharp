@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Informs the server that some trending sticker sets have been viewed by the user 
+        /// Informs the server that some trending sticker sets have been viewed by the user
         /// </summary>
         public class ViewTrendingStickerSets : Function<Ok>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "viewTrendingStickerSets";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -29,21 +29,20 @@ namespace TdLib
             /// <summary>
             /// Identifiers of viewed trending sticker sets
             /// </summary>
-            [JsonConverter(typeof(Converter.Int64))]
+            [JsonConverter(typeof(Converter))]
             [JsonProperty("sticker_set_ids")]
-            public Int64[] StickerSetIds { get; set; }
+            public long[] StickerSetIds { get; set; }
         }
 
-
         /// <summary>
-        /// Informs the server that some trending sticker sets have been viewed by the user 
+        /// Informs the server that some trending sticker sets have been viewed by the user
         /// </summary>
-        public static Task<Ok> ViewTrendingStickerSetsAsync(this Client client,
-            Int64[] stickerSetIds = default(Int64[]))
+        public static Task<Ok> ViewTrendingStickerSetsAsync(
+            this Client client, long[] stickerSetIds = default)
         {
             return client.ExecuteAsync(new ViewTrendingStickerSets
             {
-                StickerSetIds = stickerSetIds,
+                StickerSetIds = stickerSetIds
             });
         }
     }

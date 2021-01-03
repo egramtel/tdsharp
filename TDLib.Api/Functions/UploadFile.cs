@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Asynchronously uploads a file to the cloud without sending it in a message. updateFile will be used to notify about upload progress and successful completion of the upload. The file will not have a persistent remote identifier until it will be sent in a message 
+        /// Asynchronously uploads a file to the cloud without sending it in a message. updateFile will be used to notify about upload progress and successful completion of the upload. The file will not have a persistent remote identifier until it will be sent in a message
         /// </summary>
         public class UploadFile : Function<File>
         {
@@ -21,13 +21,13 @@ namespace TdLib
             public override string DataType { get; set; } = "uploadFile";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// File to upload 
+            /// File to upload
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("file")]
@@ -48,20 +48,15 @@ namespace TdLib
             public int Priority { get; set; }
         }
 
-
         /// <summary>
-        /// Asynchronously uploads a file to the cloud without sending it in a message. updateFile will be used to notify about upload progress and successful completion of the upload. The file will not have a persistent remote identifier until it will be sent in a message 
+        /// Asynchronously uploads a file to the cloud without sending it in a message. updateFile will be used to notify about upload progress and successful completion of the upload. The file will not have a persistent remote identifier until it will be sent in a message
         /// </summary>
-        public static Task<File> UploadFileAsync(this Client client,
-            InputFile file = default(InputFile),
-            FileType fileType = default(FileType),
-            int priority = default(int))
+        public static Task<File> UploadFileAsync(
+            this Client client, InputFile file = default, FileType fileType = default, int priority = default)
         {
             return client.ExecuteAsync(new UploadFile
             {
-                File = file,
-                FileType = fileType,
-                Priority = priority,
+                File = file, FileType = fileType, Priority = priority
             });
         }
     }

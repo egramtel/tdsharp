@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns the last message sent in a chat no later than the specified date 
+        /// Returns the last message sent in a chat no later than the specified date
         /// </summary>
         public class GetChatMessageByDate : Function<Message>
         {
@@ -21,13 +21,13 @@ namespace TdLib
             public override string DataType { get; set; } = "getChatMessageByDate";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Chat identifier 
+            /// Chat identifier
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_id")]
@@ -41,18 +41,15 @@ namespace TdLib
             public int Date { get; set; }
         }
 
-
         /// <summary>
-        /// Returns the last message sent in a chat no later than the specified date 
+        /// Returns the last message sent in a chat no later than the specified date
         /// </summary>
-        public static Task<Message> GetChatMessageByDateAsync(this Client client,
-            long chatId = default(long),
-            int date = default(int))
+        public static Task<Message> GetChatMessageByDateAsync(
+            this Client client, long chatId = default, int date = default)
         {
             return client.ExecuteAsync(new GetChatMessageByDate
             {
-                ChatId = chatId,
-                Date = date,
+                ChatId = chatId, Date = date
             });
         }
     }

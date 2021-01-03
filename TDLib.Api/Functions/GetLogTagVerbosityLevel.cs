@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns current verbosity level for a specified TDLib internal log tag. This is an offline method. Can be called before authorization. Can be called synchronously 
+        /// Returns current verbosity level for a specified TDLib internal log tag. Can be called synchronously
         /// </summary>
         public class GetLogTagVerbosityLevel : Function<LogVerbosityLevel>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "getLogTagVerbosityLevel";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public string Tag { get; set; }
         }
 
-
         /// <summary>
-        /// Returns current verbosity level for a specified TDLib internal log tag. This is an offline method. Can be called before authorization. Can be called synchronously 
+        /// Returns current verbosity level for a specified TDLib internal log tag. Can be called synchronously
         /// </summary>
-        public static Task<LogVerbosityLevel> GetLogTagVerbosityLevelAsync(this Client client,
-            string tag = default(string))
+        public static Task<LogVerbosityLevel> GetLogTagVerbosityLevelAsync(
+            this Client client, string tag = default)
         {
             return client.ExecuteAsync(new GetLogTagVerbosityLevel
             {
-                Tag = tag,
+                Tag = tag
             });
         }
     }

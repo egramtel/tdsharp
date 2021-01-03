@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// A simple object containing a vector of numbers; for testing only 
+        /// A simple object containing a vector of numbers; for testing only
         /// </summary>
-        public class TestVectorInt : Object
+        public partial class TestVectorInt : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,7 +20,7 @@ namespace TdLib
             public override string DataType { get; set; } = "testVectorInt";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }

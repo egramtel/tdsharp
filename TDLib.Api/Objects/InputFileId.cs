@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A file defined by its unique ID 
-        /// </summary>
         public partial class InputFile : Object
         {
             /// <summary>
-            /// A file defined by its unique ID 
+            /// Points to a file
             /// </summary>
             public class InputFileId : InputFile
             {

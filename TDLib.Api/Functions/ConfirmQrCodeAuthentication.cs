@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Confirms QR code authentication on another device. Returns created session on success 
+        /// Confirms QR code authentication on another device. Returns created session on success
         /// </summary>
         public class ConfirmQrCodeAuthentication : Function<Session>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "confirmQrCodeAuthentication";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public string Link { get; set; }
         }
 
-
         /// <summary>
-        /// Confirms QR code authentication on another device. Returns created session on success 
+        /// Confirms QR code authentication on another device. Returns created session on success
         /// </summary>
-        public static Task<Session> ConfirmQrCodeAuthenticationAsync(this Client client,
-            string link = default(string))
+        public static Task<Session> ConfirmQrCodeAuthenticationAsync(
+            this Client client, string link = default)
         {
             return client.ExecuteAsync(new ConfirmQrCodeAuthentication
             {
-                Link = link,
+                Link = link
             });
         }
     }

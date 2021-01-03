@@ -21,20 +21,20 @@ namespace TdLib
             public override string DataType { get; set; } = "stopPoll";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Identifier of the chat to which the poll belongs 
+            /// Identifier of the chat to which the poll belongs
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_id")]
             public long ChatId { get; set; }
 
             /// <summary>
-            /// Identifier of the message containing the poll 
+            /// Identifier of the message containing the poll
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("message_id")]
@@ -48,20 +48,15 @@ namespace TdLib
             public ReplyMarkup ReplyMarkup { get; set; }
         }
 
-
         /// <summary>
         /// Stops a poll. A poll in a message can be stopped when the message has can_be_edited flag set
         /// </summary>
-        public static Task<Ok> StopPollAsync(this Client client,
-            long chatId = default(long),
-            long messageId = default(long),
-            ReplyMarkup replyMarkup = default(ReplyMarkup))
+        public static Task<Ok> StopPollAsync(
+            this Client client, long chatId = default, long messageId = default, ReplyMarkup replyMarkup = default)
         {
             return client.ExecuteAsync(new StopPoll
             {
-                ChatId = chatId,
-                MessageId = messageId,
-                ReplyMarkup = replyMarkup,
+                ChatId = chatId, MessageId = messageId, ReplyMarkup = replyMarkup
             });
         }
     }

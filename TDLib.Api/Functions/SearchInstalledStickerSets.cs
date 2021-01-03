@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Searches for installed sticker sets by looking for specified query in their title and name 
+        /// Searches for installed sticker sets by looking for specified query in their title and name
         /// </summary>
         public class SearchInstalledStickerSets : Function<StickerSets>
         {
@@ -21,20 +21,20 @@ namespace TdLib
             public override string DataType { get; set; } = "searchInstalledStickerSets";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Pass true to return mask sticker sets; pass false to return ordinary sticker sets 
+            /// Pass true to return mask sticker sets; pass false to return ordinary sticker sets
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_masks")]
             public bool IsMasks { get; set; }
 
             /// <summary>
-            /// Query to search for 
+            /// Query to search for
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("query")]
@@ -48,20 +48,15 @@ namespace TdLib
             public int Limit { get; set; }
         }
 
-
         /// <summary>
-        /// Searches for installed sticker sets by looking for specified query in their title and name 
+        /// Searches for installed sticker sets by looking for specified query in their title and name
         /// </summary>
-        public static Task<StickerSets> SearchInstalledStickerSetsAsync(this Client client,
-            bool isMasks = default(bool),
-            string query = default(string),
-            int limit = default(int))
+        public static Task<StickerSets> SearchInstalledStickerSetsAsync(
+            this Client client, bool isMasks = default, string query = default, int limit = default)
         {
             return client.ExecuteAsync(new SearchInstalledStickerSets
             {
-                IsMasks = isMasks,
-                Query = query,
-                Limit = limit,
+                IsMasks = isMasks, Query = query, Limit = limit
             });
         }
     }

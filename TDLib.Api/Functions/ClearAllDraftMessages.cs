@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Clears draft messages in all chats 
+        /// Clears draft messages in all chats
         /// </summary>
         public class ClearAllDraftMessages : Function<Ok>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "clearAllDraftMessages";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public bool ExcludeSecretChats { get; set; }
         }
 
-
         /// <summary>
-        /// Clears draft messages in all chats 
+        /// Clears draft messages in all chats
         /// </summary>
-        public static Task<Ok> ClearAllDraftMessagesAsync(this Client client,
-            bool excludeSecretChats = default(bool))
+        public static Task<Ok> ClearAllDraftMessagesAsync(
+            this Client client, bool excludeSecretChats = default)
         {
             return client.ExecuteAsync(new ClearAllDraftMessages
             {
-                ExcludeSecretChats = excludeSecretChats,
+                ExcludeSecretChats = excludeSecretChats
             });
         }
     }

@@ -11,7 +11,7 @@ namespace TdLib
         /// <summary>
         /// Contains settings for the authentication of the user's phone number
         /// </summary>
-        public class PhoneNumberAuthenticationSettings : Object
+        public partial class PhoneNumberAuthenticationSettings : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,7 +20,7 @@ namespace TdLib
             public override string DataType { get; set; } = "phoneNumberAuthenticationSettings";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -40,7 +40,7 @@ namespace TdLib
             public bool IsCurrentPhoneNumber { get; set; }
 
             /// <summary>
-            /// For official applications only. True, if the app can use Android SMS Retriever API (requires Google Play Services >= 10.2) to automatically receive the authentication code from the SMS. See https://developers.google.com/identity/sms-retriever/ for more details
+            /// For official applications only. True, if the application can use Android SMS Retriever API (requires Google Play Services >= 10.2) to automatically receive the authentication code from the SMS. See https://developers.google.com/identity/sms-retriever/ for more details
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("allow_sms_retriever_api")]

@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// Represents an unknown option or an option which has a default value
-        /// </summary>
         public partial class OptionValue : Object
         {
             /// <summary>

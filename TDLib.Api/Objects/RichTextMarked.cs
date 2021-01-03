@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A marked rich text 
-        /// </summary>
         public partial class RichText : Object
         {
             /// <summary>
-            /// A marked rich text 
+            /// A marked rich text
             /// </summary>
             public class RichTextMarked : RichText
             {

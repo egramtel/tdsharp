@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "finishFileGeneration";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -31,7 +31,7 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter.Int64))]
             [JsonProperty("generation_id")]
-            public Int64 GenerationId { get; set; }
+            public long GenerationId { get; set; }
 
             /// <summary>
             /// If set, means that file generation has failed and should be terminated
@@ -41,18 +41,15 @@ namespace TdLib
             public Error Error { get; set; }
         }
 
-
         /// <summary>
         /// Finishes the file generation
         /// </summary>
-        public static Task<Ok> FinishFileGenerationAsync(this Client client,
-            Int64 generationId = default(Int64),
-            Error error = default(Error))
+        public static Task<Ok> FinishFileGenerationAsync(
+            this Client client, long generationId = default, Error error = default)
         {
             return client.ExecuteAsync(new FinishFileGeneration
             {
-                GenerationId = generationId,
-                Error = error,
+                GenerationId = generationId, Error = error
             });
         }
     }

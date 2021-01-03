@@ -21,34 +21,34 @@ namespace TdLib
             public override string DataType { get; set; } = "setPassword";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Previous password of the user 
+            /// Previous password of the user
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("old_password")]
             public string OldPassword { get; set; }
 
             /// <summary>
-            /// New password of the user; may be empty to remove the password 
+            /// New password of the user; may be empty to remove the password
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("new_password")]
             public string NewPassword { get; set; }
 
             /// <summary>
-            /// New password hint; may be empty 
+            /// New password hint; may be empty
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("new_hint")]
             public string NewHint { get; set; }
 
             /// <summary>
-            /// Pass true if the recovery email address should be changed 
+            /// Pass true if the recovery email address should be changed
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("set_recovery_email_address")]
@@ -62,24 +62,17 @@ namespace TdLib
             public string NewRecoveryEmailAddress { get; set; }
         }
 
-
         /// <summary>
         /// Changes the password for the user. If a new recovery email address is specified, then the change will not be applied until the new recovery email address is confirmed
         /// </summary>
-        public static Task<PasswordState> SetPasswordAsync(this Client client,
-            string oldPassword = default(string),
-            string newPassword = default(string),
-            string newHint = default(string),
-            bool setRecoveryEmailAddress = default(bool),
-            string newRecoveryEmailAddress = default(string))
+        public static Task<PasswordState> SetPasswordAsync(
+            this Client client, string oldPassword = default, string newPassword = default, string newHint = default,
+            bool setRecoveryEmailAddress = default, string newRecoveryEmailAddress = default)
         {
             return client.ExecuteAsync(new SetPassword
             {
-                OldPassword = oldPassword,
-                NewPassword = newPassword,
-                NewHint = newHint,
-                SetRecoveryEmailAddress = setRecoveryEmailAddress,
-                NewRecoveryEmailAddress = newRecoveryEmailAddress,
+                OldPassword = oldPassword, NewPassword = newPassword, NewHint = newHint,
+                SetRecoveryEmailAddress = setRecoveryEmailAddress, NewRecoveryEmailAddress = newRecoveryEmailAddress
             });
         }
     }

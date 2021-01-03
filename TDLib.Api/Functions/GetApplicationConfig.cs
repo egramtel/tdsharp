@@ -21,17 +21,17 @@ namespace TdLib
             public override string DataType { get; set; } = "getApplicationConfig";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
         }
 
-
         /// <summary>
         /// Returns application config, provided by the server. Can be called before authorization
         /// </summary>
-        public static Task<JsonValue> GetApplicationConfigAsync(this Client client)
+        public static Task<JsonValue> GetApplicationConfigAsync(
+            this Client client)
         {
             return client.ExecuteAsync(new GetApplicationConfig
             {

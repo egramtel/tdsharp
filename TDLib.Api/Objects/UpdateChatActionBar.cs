@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The chat action bar was changed 
-        /// </summary>
         public partial class Update : Object
         {
             /// <summary>
-            /// The chat action bar was changed 
+            /// The chat action bar was changed
             /// </summary>
             public class UpdateChatActionBar : Update
             {
@@ -31,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Chat identifier 
+                /// Chat identifier
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("chat_id")]

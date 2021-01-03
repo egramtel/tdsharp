@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Sets the result of a callback query; for bots only 
+        /// Sets the result of a callback query; for bots only
         /// </summary>
         public class AnswerCallbackQuery : Function<Ok>
         {
@@ -21,34 +21,34 @@ namespace TdLib
             public override string DataType { get; set; } = "answerCallbackQuery";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Identifier of the callback query 
+            /// Identifier of the callback query
             /// </summary>
             [JsonConverter(typeof(Converter.Int64))]
             [JsonProperty("callback_query_id")]
-            public Int64 CallbackQueryId { get; set; }
+            public long CallbackQueryId { get; set; }
 
             /// <summary>
-            /// Text of the answer 
+            /// Text of the answer
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("text")]
             public string Text { get; set; }
 
             /// <summary>
-            /// If true, an alert should be shown to the user instead of a toast notification 
+            /// If true, an alert should be shown to the user instead of a toast notification
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("show_alert")]
             public bool ShowAlert { get; set; }
 
             /// <summary>
-            /// URL to be opened 
+            /// URL to be opened
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("url")]
@@ -62,24 +62,16 @@ namespace TdLib
             public int CacheTime { get; set; }
         }
 
-
         /// <summary>
-        /// Sets the result of a callback query; for bots only 
+        /// Sets the result of a callback query; for bots only
         /// </summary>
-        public static Task<Ok> AnswerCallbackQueryAsync(this Client client,
-            Int64 callbackQueryId = default(Int64),
-            string text = default(string),
-            bool showAlert = default(bool),
-            string url = default(string),
-            int cacheTime = default(int))
+        public static Task<Ok> AnswerCallbackQueryAsync(
+            this Client client, long callbackQueryId = default, string text = default, bool showAlert = default,
+            string url = default, int cacheTime = default)
         {
             return client.ExecuteAsync(new AnswerCallbackQuery
             {
-                CallbackQueryId = callbackQueryId,
-                Text = text,
-                ShowAlert = showAlert,
-                Url = url,
-                CacheTime = cacheTime,
+                CallbackQueryId = callbackQueryId, Text = text, ShowAlert = showAlert, Url = url, CacheTime = cacheTime
             });
         }
     }

@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A general message with hidden content 
-        /// </summary>
         public partial class PushMessageContent : Object
         {
             /// <summary>
-            /// A general message with hidden content 
+            /// Contains content of a push message notification
             /// </summary>
             public class PushMessageContentHidden : PushMessageContent
             {

@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Searches for recently used hashtags by their prefix 
+        /// Searches for recently used hashtags by their prefix
         /// </summary>
         public class SearchHashtags : Function<Hashtags>
         {
@@ -21,13 +21,13 @@ namespace TdLib
             public override string DataType { get; set; } = "searchHashtags";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Hashtag prefix to search for 
+            /// Hashtag prefix to search for
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("prefix")]
@@ -41,18 +41,15 @@ namespace TdLib
             public int Limit { get; set; }
         }
 
-
         /// <summary>
-        /// Searches for recently used hashtags by their prefix 
+        /// Searches for recently used hashtags by their prefix
         /// </summary>
-        public static Task<Hashtags> SearchHashtagsAsync(this Client client,
-            string prefix = default(string),
-            int limit = default(int))
+        public static Task<Hashtags> SearchHashtagsAsync(
+            this Client client, string prefix = default, int limit = default)
         {
             return client.ExecuteAsync(new SearchHashtags
             {
-                Prefix = prefix,
-                Limit = limit,
+                Prefix = prefix, Limit = limit
             });
         }
     }

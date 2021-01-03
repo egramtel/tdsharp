@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The content should be middle-aligned
-        /// </summary>
         public partial class PageBlockVerticalAlignment : Object
         {
             /// <summary>

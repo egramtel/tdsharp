@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Installs/uninstalls or activates/archives a sticker set 
+        /// Installs/uninstalls or activates/archives a sticker set
         /// </summary>
         public class ChangeStickerSet : Function<Ok>
         {
@@ -21,20 +21,20 @@ namespace TdLib
             public override string DataType { get; set; } = "changeStickerSet";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Identifier of the sticker set 
+            /// Identifier of the sticker set
             /// </summary>
             [JsonConverter(typeof(Converter.Int64))]
             [JsonProperty("set_id")]
-            public Int64 SetId { get; set; }
+            public long SetId { get; set; }
 
             /// <summary>
-            /// The new value of is_installed 
+            /// The new value of is_installed
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_installed")]
@@ -48,20 +48,15 @@ namespace TdLib
             public bool IsArchived { get; set; }
         }
 
-
         /// <summary>
-        /// Installs/uninstalls or activates/archives a sticker set 
+        /// Installs/uninstalls or activates/archives a sticker set
         /// </summary>
-        public static Task<Ok> ChangeStickerSetAsync(this Client client,
-            Int64 setId = default(Int64),
-            bool isInstalled = default(bool),
-            bool isArchived = default(bool))
+        public static Task<Ok> ChangeStickerSetAsync(
+            this Client client, long setId = default, bool isInstalled = default, bool isArchived = default)
         {
             return client.ExecuteAsync(new ChangeStickerSet
             {
-                SetId = setId,
-                IsInstalled = isInstalled,
-                IsArchived = isArchived,
+                SetId = setId, IsInstalled = isInstalled, IsArchived = isArchived
             });
         }
     }

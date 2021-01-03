@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A token for Tizen Push Service 
-        /// </summary>
         public partial class DeviceToken : Object
         {
             /// <summary>
-            /// A token for Tizen Push Service 
+            /// A token for Tizen Push Service
             /// </summary>
             public class DeviceTokenTizenPush : DeviceToken
             {

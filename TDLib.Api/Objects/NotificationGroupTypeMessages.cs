@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A group containing notifications of type notificationTypeNewMessage and notificationTypeNewPushMessage with ordinary unread messages
-        /// </summary>
         public partial class NotificationGroupType : Object
         {
             /// <summary>
-            /// A group containing notifications of type notificationTypeNewMessage and notificationTypeNewPushMessage with ordinary unread messages
+            /// Describes the type of notifications in a notification group
             /// </summary>
             public class NotificationGroupTypeMessages : NotificationGroupType
             {

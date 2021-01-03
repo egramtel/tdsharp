@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// Number of unread chats, i.e. with unread messages or marked as unread, has changed. This update is sent only if the message database is used
-        /// </summary>
         public partial class Update : Object
         {
             /// <summary>
@@ -45,7 +42,7 @@ namespace TdLib
                 public int TotalCount { get; set; }
 
                 /// <summary>
-                /// Total number of unread chats 
+                /// Total number of unread chats
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("unread_count")]
@@ -59,7 +56,7 @@ namespace TdLib
                 public int UnreadUnmutedCount { get; set; }
 
                 /// <summary>
-                /// Total number of chats marked as unread 
+                /// Total number of chats marked as unread
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("marked_as_unread_count")]

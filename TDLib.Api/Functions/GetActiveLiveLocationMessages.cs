@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns all active live locations that should be updated by the client. The list is persistent across application restarts only if the message database is used
+        /// Returns all active live locations that should be updated by the application. The list is persistent across application restarts only if the message database is used
         /// </summary>
         public class GetActiveLiveLocationMessages : Function<Messages>
         {
@@ -21,17 +21,17 @@ namespace TdLib
             public override string DataType { get; set; } = "getActiveLiveLocationMessages";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
         }
 
-
         /// <summary>
-        /// Returns all active live locations that should be updated by the client. The list is persistent across application restarts only if the message database is used
+        /// Returns all active live locations that should be updated by the application. The list is persistent across application restarts only if the message database is used
         /// </summary>
-        public static Task<Messages> GetActiveLiveLocationMessagesAsync(this Client client)
+        public static Task<Messages> GetActiveLiveLocationMessagesAsync(
+            this Client client)
         {
             return client.ExecuteAsync(new GetActiveLiveLocationMessages
             {

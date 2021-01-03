@@ -21,17 +21,17 @@ namespace TdLib
             public override string DataType { get; set; } = "getInactiveSupergroupChats";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
         }
 
-
         /// <summary>
         /// Returns a list of recently inactive supergroups and channels. Can be used when user reaches limit on the number of joined supergroups and channels and receives CHANNELS_TOO_MUCH error
         /// </summary>
-        public static Task<Chats> GetInactiveSupergroupChatsAsync(this Client client)
+        public static Task<Chats> GetInactiveSupergroupChatsAsync(
+            this Client client)
         {
             return client.ExecuteAsync(new GetInactiveSupergroupChats
             {

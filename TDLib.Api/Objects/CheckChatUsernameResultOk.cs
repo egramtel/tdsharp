@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The username can be set
-        /// </summary>
         public partial class CheckChatUsernameResult : Object
         {
             /// <summary>
-            /// The username can be set
+            /// Represents result of checking whether a username can be set for a chat
             /// </summary>
             public class CheckChatUsernameResultOk : CheckChatUsernameResult
             {

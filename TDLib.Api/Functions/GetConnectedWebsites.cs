@@ -21,17 +21,17 @@ namespace TdLib
             public override string DataType { get; set; } = "getConnectedWebsites";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
         }
 
-
         /// <summary>
         /// Returns all website where the current user used Telegram to log in
         /// </summary>
-        public static Task<ConnectedWebsites> GetConnectedWebsitesAsync(this Client client)
+        public static Task<ConnectedWebsites> GetConnectedWebsitesAsync(
+            this Client client)
         {
             return client.ExecuteAsync(new GetConnectedWebsites
             {

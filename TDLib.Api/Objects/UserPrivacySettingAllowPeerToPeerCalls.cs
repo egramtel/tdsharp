@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A privacy setting for managing whether peer-to-peer connections can be used for calls
-        /// </summary>
         public partial class UserPrivacySetting : Object
         {
             /// <summary>

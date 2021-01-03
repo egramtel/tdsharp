@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A message with a poll 
-        /// </summary>
         public partial class MessageContent : Object
         {
             /// <summary>
-            /// A message with a poll 
+            /// A message with a poll
             /// </summary>
             public class MessagePoll : MessageContent
             {

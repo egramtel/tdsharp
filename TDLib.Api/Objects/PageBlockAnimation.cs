@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// An animation 
-        /// </summary>
         public partial class PageBlock : Object
         {
             /// <summary>
-            /// An animation 
+            /// An animation
             /// </summary>
             public class PageBlockAnimation : PageBlock
             {
@@ -31,14 +28,14 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Animation file; may be null 
+                /// Animation file; may be null
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("animation")]
                 public Animation Animation { get; set; }
 
                 /// <summary>
-                /// Animation caption 
+                /// Animation caption
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("caption")]

@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns strings from a language pack in the current localization target by their keys. Can be called before authorization 
+        /// Returns strings from a language pack in the current localization target by their keys. Can be called before authorization
         /// </summary>
         public class GetLanguagePackStrings : Function<LanguagePackStrings>
         {
@@ -21,13 +21,13 @@ namespace TdLib
             public override string DataType { get; set; } = "getLanguagePackStrings";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Language pack identifier of the strings to be returned 
+            /// Language pack identifier of the strings to be returned
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("language_pack_id")]
@@ -41,18 +41,15 @@ namespace TdLib
             public string[] Keys { get; set; }
         }
 
-
         /// <summary>
-        /// Returns strings from a language pack in the current localization target by their keys. Can be called before authorization 
+        /// Returns strings from a language pack in the current localization target by their keys. Can be called before authorization
         /// </summary>
-        public static Task<LanguagePackStrings> GetLanguagePackStringsAsync(this Client client,
-            string languagePackId = default(string),
-            string[] keys = default(string[]))
+        public static Task<LanguagePackStrings> GetLanguagePackStringsAsync(
+            this Client client, string languagePackId = default, string[] keys = default)
         {
             return client.ExecuteAsync(new GetLanguagePackStrings
             {
-                LanguagePackId = languagePackId,
-                Keys = keys,
+                LanguagePackId = languagePackId, Keys = keys
             });
         }
     }

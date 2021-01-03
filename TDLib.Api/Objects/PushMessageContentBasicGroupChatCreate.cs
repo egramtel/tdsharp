@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A newly created basic group
-        /// </summary>
         public partial class PushMessageContent : Object
         {
             /// <summary>

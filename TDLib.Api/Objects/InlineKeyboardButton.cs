@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Represents a single button in an inline keyboard 
+        /// Represents a single button in an inline keyboard
         /// </summary>
-        public class InlineKeyboardButton : Object
+        public partial class InlineKeyboardButton : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,13 +20,13 @@ namespace TdLib
             public override string DataType { get; set; } = "inlineKeyboardButton";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Text of the button 
+            /// Text of the button
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("text")]

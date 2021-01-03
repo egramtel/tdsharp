@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The message content has changed 
-        /// </summary>
         public partial class Update : Object
         {
             /// <summary>
-            /// The message content has changed 
+            /// The message content has changed
             /// </summary>
             public class UpdateMessageContent : Update
             {
@@ -31,14 +28,14 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Chat identifier 
+                /// Chat identifier
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("chat_id")]
                 public long ChatId { get; set; }
 
                 /// <summary>
-                /// Message identifier 
+                /// Message identifier
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("message_id")]

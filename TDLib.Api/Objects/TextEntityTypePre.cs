@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// Text that must be formatted as if inside a pre HTML tag
-        /// </summary>
         public partial class TextEntityType : Object
         {
             /// <summary>

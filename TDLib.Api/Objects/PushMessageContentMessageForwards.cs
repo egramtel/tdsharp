@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A forwarded messages 
-        /// </summary>
         public partial class PushMessageContent : Object
         {
             /// <summary>
-            /// A forwarded messages 
+            /// A forwarded messages
             /// </summary>
             public class PushMessageContentMessageForwards : PushMessageContent
             {

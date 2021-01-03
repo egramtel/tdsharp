@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The log is written to stderr or an OS specific log
-        /// </summary>
         public partial class LogStream : Object
         {
             /// <summary>
-            /// The log is written to stderr or an OS specific log
+            /// Describes a stream to which TDLib internal log is written
             /// </summary>
             public class LogStreamDefault : LogStream
             {

@@ -21,17 +21,17 @@ namespace TdLib
             public override string DataType { get; set; } = "clearRecentlyFoundChats";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
         }
 
-
         /// <summary>
         /// Clears the list of recently found chats
         /// </summary>
-        public static Task<Ok> ClearRecentlyFoundChatsAsync(this Client client)
+        public static Task<Ok> ClearRecentlyFoundChatsAsync(
+            this Client client)
         {
             return client.ExecuteAsync(new ClearRecentlyFoundChats
             {

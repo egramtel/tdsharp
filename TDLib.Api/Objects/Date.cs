@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Represents a date according to the Gregorian calendar 
+        /// Represents a date according to the Gregorian calendar
         /// </summary>
-        public class Date : Object
+        public partial class Date : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,20 +20,20 @@ namespace TdLib
             public override string DataType { get; set; } = "date";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Day of the month, 1-31 
+            /// Day of the month, 1-31
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("day")]
             public int Day { get; set; }
 
             /// <summary>
-            /// Month, 1-12 
+            /// Month, 1-12
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("month")]

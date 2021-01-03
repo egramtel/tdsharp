@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Sends a filled-out payment form to the bot for final verification 
+        /// Sends a filled-out payment form to the bot for final verification
         /// </summary>
         public class SendPaymentForm : Function<PaymentResult>
         {
@@ -21,27 +21,27 @@ namespace TdLib
             public override string DataType { get; set; } = "sendPaymentForm";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Chat identifier of the Invoice message 
+            /// Chat identifier of the Invoice message
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_id")]
             public long ChatId { get; set; }
 
             /// <summary>
-            /// Message identifier 
+            /// Message identifier
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("message_id")]
             public long MessageId { get; set; }
 
             /// <summary>
-            /// Identifier returned by ValidateOrderInfo, or an empty string 
+            /// Identifier returned by ValidateOrderInfo, or an empty string
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("order_info_id")]
@@ -62,24 +62,17 @@ namespace TdLib
             public InputCredentials Credentials { get; set; }
         }
 
-
         /// <summary>
-        /// Sends a filled-out payment form to the bot for final verification 
+        /// Sends a filled-out payment form to the bot for final verification
         /// </summary>
-        public static Task<PaymentResult> SendPaymentFormAsync(this Client client,
-            long chatId = default(long),
-            long messageId = default(long),
-            string orderInfoId = default(string),
-            string shippingOptionId = default(string),
-            InputCredentials credentials = default(InputCredentials))
+        public static Task<PaymentResult> SendPaymentFormAsync(
+            this Client client, long chatId = default, long messageId = default, string orderInfoId = default,
+            string shippingOptionId = default, InputCredentials credentials = default)
         {
             return client.ExecuteAsync(new SendPaymentForm
             {
-                ChatId = chatId,
-                MessageId = messageId,
-                OrderInfoId = orderInfoId,
-                ShippingOptionId = shippingOptionId,
-                Credentials = credentials,
+                ChatId = chatId, MessageId = messageId, OrderInfoId = orderInfoId, ShippingOptionId = shippingOptionId,
+                Credentials = credentials
             });
         }
     }

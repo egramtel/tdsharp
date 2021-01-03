@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A button that sends the user's location when pressed; available only in private chats
-        /// </summary>
         public partial class KeyboardButtonType : Object
         {
             /// <summary>

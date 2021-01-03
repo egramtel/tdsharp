@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// An authentication code is delivered via a phone call to the specified phone number 
-        /// </summary>
         public partial class AuthenticationCodeType : Object
         {
             /// <summary>
-            /// An authentication code is delivered via a phone call to the specified phone number 
+            /// An authentication code is delivered via a phone call to the specified phone number
             /// </summary>
             public class AuthenticationCodeTypeCall : AuthenticationCodeType
             {

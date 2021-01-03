@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns an existing chat corresponding to a known basic group 
+        /// Returns an existing chat corresponding to a known basic group
         /// </summary>
         public class CreateBasicGroupChat : Function<Chat>
         {
@@ -21,13 +21,13 @@ namespace TdLib
             public override string DataType { get; set; } = "createBasicGroupChat";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Basic group identifier 
+            /// Basic group identifier
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("basic_group_id")]
@@ -41,18 +41,15 @@ namespace TdLib
             public bool Force { get; set; }
         }
 
-
         /// <summary>
-        /// Returns an existing chat corresponding to a known basic group 
+        /// Returns an existing chat corresponding to a known basic group
         /// </summary>
-        public static Task<Chat> CreateBasicGroupChatAsync(this Client client,
-            int basicGroupId = default(int),
-            bool force = default(bool))
+        public static Task<Chat> CreateBasicGroupChatAsync(
+            this Client client, int basicGroupId = default, bool force = default)
         {
             return client.ExecuteAsync(new CreateBasicGroupChat
             {
-                BasicGroupId = basicGroupId,
-                Force = force,
+                BasicGroupId = basicGroupId, Force = force
             });
         }
     }

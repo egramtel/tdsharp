@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A message with a poll 
-        /// </summary>
         public partial class PushMessageContent : Object
         {
             /// <summary>
-            /// A message with a poll 
+            /// A message with a poll
             /// </summary>
             public class PushMessageContentPoll : PushMessageContent
             {
@@ -31,14 +28,14 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Poll question 
+                /// Poll question
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("question")]
                 public string Question { get; set; }
 
                 /// <summary>
-                /// True, if the poll is regular and not in quiz mode 
+                /// True, if the poll is regular and not in quiz mode
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_regular")]

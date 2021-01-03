@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// New call was created or information about a call was updated 
-        /// </summary>
         public partial class Update : Object
         {
             /// <summary>
-            /// New call was created or information about a call was updated 
+            /// New call was created or information about a call was updated
             /// </summary>
             public class UpdateCall : Update
             {

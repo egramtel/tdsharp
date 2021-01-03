@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// An updated chat photo 
-        /// </summary>
         public partial class MessageContent : Object
         {
             /// <summary>
-            /// An updated chat photo 
+            /// An updated chat photo
             /// </summary>
             public class MessageChatChangePhoto : MessageContent
             {
@@ -35,7 +32,7 @@ namespace TdLib
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("photo")]
-                public Photo Photo { get; set; }
+                public ChatPhoto Photo { get; set; }
             }
         }
     }

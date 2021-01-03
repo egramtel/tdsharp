@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A fixed-width rich text 
-        /// </summary>
         public partial class RichText : Object
         {
             /// <summary>
-            /// A fixed-width rich text 
+            /// A fixed-width rich text
             /// </summary>
             public class RichTextFixed : RichText
             {

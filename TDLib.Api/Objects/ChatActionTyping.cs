@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The user has cancelled the previous action
-        /// </summary>
         public partial class ChatAction : Object
         {
             /// <summary>
-            /// The user has cancelled the previous action
+            /// Describes the different types of activity in a chat
             /// </summary>
             public class ChatActionTyping : ChatAction
             {

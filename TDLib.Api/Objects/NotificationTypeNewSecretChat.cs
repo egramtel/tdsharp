@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// New secret chat was created
-        /// </summary>
         public partial class NotificationType : Object
         {
             /// <summary>

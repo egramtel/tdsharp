@@ -21,13 +21,13 @@ namespace TdLib
             public override string DataType { get; set; } = "registerUser";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// The first name of the user; 1-64 characters 
+            /// The first name of the user; 1-64 characters
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("first_name")]
@@ -41,18 +41,15 @@ namespace TdLib
             public string LastName { get; set; }
         }
 
-
         /// <summary>
         /// Finishes user registration. Works only when the current authorization state is authorizationStateWaitRegistration
         /// </summary>
-        public static Task<Ok> RegisterUserAsync(this Client client,
-            string firstName = default(string),
-            string lastName = default(string))
+        public static Task<Ok> RegisterUserAsync(
+            this Client client, string firstName = default, string lastName = default)
         {
             return client.ExecuteAsync(new RegisterUser
             {
-                FirstName = firstName,
-                LastName = lastName,
+                FirstName = firstName, LastName = lastName
             });
         }
     }

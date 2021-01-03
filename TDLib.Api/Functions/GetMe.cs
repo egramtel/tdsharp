@@ -21,17 +21,17 @@ namespace TdLib
             public override string DataType { get; set; } = "getMe";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
         }
 
-
         /// <summary>
         /// Returns the current user
         /// </summary>
-        public static Task<User> GetMeAsync(this Client client)
+        public static Task<User> GetMeAsync(
+            this Client client)
         {
             return client.ExecuteAsync(new GetMe
             {

@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// An ordinary chat with a user 
-        /// </summary>
         public partial class ChatType : Object
         {
             /// <summary>
-            /// An ordinary chat with a user 
+            /// Describes the type of a chat
             /// </summary>
             public class ChatTypePrivate : ChatType
             {

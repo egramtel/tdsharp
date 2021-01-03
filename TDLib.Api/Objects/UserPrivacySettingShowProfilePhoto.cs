@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A privacy setting for managing whether the user's profile photo is visible
-        /// </summary>
         public partial class UserPrivacySetting : Object
         {
             /// <summary>

@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Removes the pinned message from a chat; requires can_pin_messages rights in the group or channel 
+        /// Removes a pinned message from a chat; requires can_pin_messages rights in the group or can_edit_messages rights in the channel
         /// </summary>
         public class UnpinChatMessage : Function<Ok>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "unpinChatMessage";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -32,18 +32,24 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_id")]
             public long ChatId { get; set; }
+
+            /// <summary>
+            /// Identifier of the removed pinned message
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("message_id")]
+            public long MessageId { get; set; }
         }
 
-
         /// <summary>
-        /// Removes the pinned message from a chat; requires can_pin_messages rights in the group or channel 
+        /// Removes a pinned message from a chat; requires can_pin_messages rights in the group or can_edit_messages rights in the channel
         /// </summary>
-        public static Task<Ok> UnpinChatMessageAsync(this Client client,
-            long chatId = default(long))
+        public static Task<Ok> UnpinChatMessageAsync(
+            this Client client, long chatId = default, long messageId = default)
         {
             return client.ExecuteAsync(new UnpinChatMessage
             {
-                ChatId = chatId,
+                ChatId = chatId, MessageId = messageId
             });
         }
     }

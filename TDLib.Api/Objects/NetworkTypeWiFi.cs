@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A Wi-Fi network
-        /// </summary>
         public partial class NetworkType : Object
         {
             /// <summary>

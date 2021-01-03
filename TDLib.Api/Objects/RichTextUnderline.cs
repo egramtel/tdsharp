@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// An underlined rich text 
-        /// </summary>
         public partial class RichText : Object
         {
             /// <summary>
-            /// An underlined rich text 
+            /// An underlined rich text
             /// </summary>
             public class RichTextUnderline : RichText
             {

@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Checks the authentication code sent to confirm a new phone number of the user 
+        /// Checks the authentication code sent to confirm a new phone number of the user
         /// </summary>
         public class CheckChangePhoneNumberCode : Function<Ok>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "checkChangePhoneNumberCode";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public string Code { get; set; }
         }
 
-
         /// <summary>
-        /// Checks the authentication code sent to confirm a new phone number of the user 
+        /// Checks the authentication code sent to confirm a new phone number of the user
         /// </summary>
-        public static Task<Ok> CheckChangePhoneNumberCodeAsync(this Client client,
-            string code = default(string))
+        public static Task<Ok> CheckChangePhoneNumberCodeAsync(
+            this Client client, string code = default)
         {
             return client.ExecuteAsync(new CheckChangePhoneNumberCode
             {
-                Code = code,
+                Code = code
             });
         }
     }

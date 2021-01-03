@@ -21,17 +21,17 @@ namespace TdLib
             public override string DataType { get; set; } = "getPasswordState";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
         }
 
-
         /// <summary>
         /// Returns the current state of 2-step verification
         /// </summary>
-        public static Task<PasswordState> GetPasswordStateAsync(this Client client)
+        public static Task<PasswordState> GetPasswordStateAsync(
+            this Client client)
         {
             return client.ExecuteAsync(new GetPasswordState
             {

@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns a list of public chats of the specified type, owned by the user 
+        /// Returns a list of public chats of the specified type, owned by the user
         /// </summary>
         public class GetCreatedPublicChats : Function<Chats>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "getCreatedPublicChats";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public PublicChatType Type { get; set; }
         }
 
-
         /// <summary>
-        /// Returns a list of public chats of the specified type, owned by the user 
+        /// Returns a list of public chats of the specified type, owned by the user
         /// </summary>
-        public static Task<Chats> GetCreatedPublicChatsAsync(this Client client,
-            PublicChatType type = default(PublicChatType))
+        public static Task<Chats> GetCreatedPublicChatsAsync(
+            this Client client, PublicChatType type = default)
         {
             return client.ExecuteAsync(new GetCreatedPublicChats
             {
-                Type = type,
+                Type = type
             });
         }
     }

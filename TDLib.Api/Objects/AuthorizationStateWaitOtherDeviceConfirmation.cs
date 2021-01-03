@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The user needs to confirm authorization on another logged in device by scanning a QR code with the provided link 
-        /// </summary>
         public partial class AuthorizationState : Object
         {
             /// <summary>
-            /// The user needs to confirm authorization on another logged in device by scanning a QR code with the provided link 
+            /// The user needs to confirm authorization on another logged in device by scanning a QR code with the provided link
             /// </summary>
             public class AuthorizationStateWaitOtherDeviceConfirmation : AuthorizationState
             {

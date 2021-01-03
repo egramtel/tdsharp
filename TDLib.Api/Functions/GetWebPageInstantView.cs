@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns an instant view version of a web page if available. Returns a 404 error if the web page has no instant view page 
+        /// Returns an instant view version of a web page if available. Returns a 404 error if the web page has no instant view page
         /// </summary>
         public class GetWebPageInstantView : Function<WebPageInstantView>
         {
@@ -21,13 +21,13 @@ namespace TdLib
             public override string DataType { get; set; } = "getWebPageInstantView";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// The web page URL 
+            /// The web page URL
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("url")]
@@ -41,18 +41,15 @@ namespace TdLib
             public bool ForceFull { get; set; }
         }
 
-
         /// <summary>
-        /// Returns an instant view version of a web page if available. Returns a 404 error if the web page has no instant view page 
+        /// Returns an instant view version of a web page if available. Returns a 404 error if the web page has no instant view page
         /// </summary>
-        public static Task<WebPageInstantView> GetWebPageInstantViewAsync(this Client client,
-            string url = default(string),
-            bool forceFull = default(bool))
+        public static Task<WebPageInstantView> GetWebPageInstantViewAsync(
+            this Client client, string url = default, bool forceFull = default)
         {
             return client.ExecuteAsync(new GetWebPageInstantView
             {
-                Url = url,
-                ForceFull = forceFull,
+                Url = url, ForceFull = forceFull
             });
         }
     }

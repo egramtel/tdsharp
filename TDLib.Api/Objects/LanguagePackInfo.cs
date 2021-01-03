@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Contains information about a language pack 
+        /// Contains information about a language pack
         /// </summary>
-        public class LanguagePackInfo : Object
+        public partial class LanguagePackInfo : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,7 +20,7 @@ namespace TdLib
             public override string DataType { get; set; } = "languagePackInfo";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -40,7 +40,7 @@ namespace TdLib
             public string BaseLanguagePackId { get; set; }
 
             /// <summary>
-            /// Language name 
+            /// Language name
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("name")]
@@ -61,14 +61,14 @@ namespace TdLib
             public string PluralCode { get; set; }
 
             /// <summary>
-            /// True, if the language pack is official 
+            /// True, if the language pack is official
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_official")]
             public bool IsOfficial { get; set; }
 
             /// <summary>
-            /// True, if the language pack strings are RTL 
+            /// True, if the language pack strings are RTL
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_rtl")]
@@ -89,7 +89,7 @@ namespace TdLib
             public bool IsInstalled { get; set; }
 
             /// <summary>
-            /// Total number of non-deleted strings from the language pack 
+            /// Total number of non-deleted strings from the language pack
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("total_string_count")]
@@ -103,7 +103,7 @@ namespace TdLib
             public int TranslatedStringCount { get; set; }
 
             /// <summary>
-            /// Total number of non-deleted strings from the language pack available locally 
+            /// Total number of non-deleted strings from the language pack available locally
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("local_string_count")]

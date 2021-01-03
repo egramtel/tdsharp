@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Informs TDLib that the chat is closed by the user. Many useful activities depend on the chat being opened or closed 
+        /// Informs TDLib that the chat is closed by the user. Many useful activities depend on the chat being opened or closed
         /// </summary>
         public class CloseChat : Function<Ok>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "closeChat";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public long ChatId { get; set; }
         }
 
-
         /// <summary>
-        /// Informs TDLib that the chat is closed by the user. Many useful activities depend on the chat being opened or closed 
+        /// Informs TDLib that the chat is closed by the user. Many useful activities depend on the chat being opened or closed
         /// </summary>
-        public static Task<Ok> CloseChatAsync(this Client client,
-            long chatId = default(long))
+        public static Task<Ok> CloseChatAsync(
+            this Client client, long chatId = default)
         {
             return client.ExecuteAsync(new CloseChat
             {
-                ChatId = chatId,
+                ChatId = chatId
             });
         }
     }

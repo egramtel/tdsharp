@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// An empty block separating a page
-        /// </summary>
         public partial class PageBlock : Object
         {
             /// <summary>

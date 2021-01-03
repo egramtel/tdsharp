@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The call is pending, waiting to be accepted by a user 
-        /// </summary>
         public partial class CallState : Object
         {
             /// <summary>
-            /// The call is pending, waiting to be accepted by a user 
+            /// Describes the current call state
             /// </summary>
             public class CallStatePending : CallState
             {
@@ -31,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// True, if the call has already been created by the server 
+                /// True, if the call has already been created by the server
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_created")]

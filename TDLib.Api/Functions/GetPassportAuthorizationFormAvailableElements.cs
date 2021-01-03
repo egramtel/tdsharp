@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns already available Telegram Passport elements suitable for completing a Telegram Passport authorization form. Result can be received only once for each authorization form 
+        /// Returns already available Telegram Passport elements suitable for completing a Telegram Passport authorization form. Result can be received only once for each authorization form
         /// </summary>
         public class GetPassportAuthorizationFormAvailableElements : Function<PassportElementsWithErrors>
         {
@@ -21,13 +21,13 @@ namespace TdLib
             public override string DataType { get; set; } = "getPassportAuthorizationFormAvailableElements";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Authorization form identifier 
+            /// Authorization form identifier
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("autorization_form_id")]
@@ -41,19 +41,15 @@ namespace TdLib
             public string Password { get; set; }
         }
 
-
         /// <summary>
-        /// Returns already available Telegram Passport elements suitable for completing a Telegram Passport authorization form. Result can be received only once for each authorization form 
+        /// Returns already available Telegram Passport elements suitable for completing a Telegram Passport authorization form. Result can be received only once for each authorization form
         /// </summary>
         public static Task<PassportElementsWithErrors> GetPassportAuthorizationFormAvailableElementsAsync(
-            this Client client,
-            int autorizationFormId = default(int),
-            string password = default(string))
+            this Client client, int autorizationFormId = default, string password = default)
         {
             return client.ExecuteAsync(new GetPassportAuthorizationFormAvailableElements
             {
-                AutorizationFormId = autorizationFormId,
-                Password = password,
+                AutorizationFormId = autorizationFormId, Password = password
             });
         }
     }

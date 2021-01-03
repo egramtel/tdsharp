@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A regular poll 
-        /// </summary>
         public partial class PollType : Object
         {
             /// <summary>
-            /// A regular poll 
+            /// Describes the type of a poll
             /// </summary>
             public class PollTypeRegular : PollType
             {

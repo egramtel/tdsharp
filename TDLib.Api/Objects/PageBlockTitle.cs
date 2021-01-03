@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The title of a page 
-        /// </summary>
         public partial class PageBlock : Object
         {
             /// <summary>
-            /// The title of a page 
+            /// Describes a block of an instant view web page
             /// </summary>
             public class PageBlockTitle : PageBlock
             {

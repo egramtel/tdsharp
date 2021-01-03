@@ -21,20 +21,20 @@ namespace TdLib
             public override string DataType { get; set; } = "transferChatOwnership";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Chat identifier 
+            /// Chat identifier
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_id")]
             public long ChatId { get; set; }
 
             /// <summary>
-            /// Identifier of the user to which transfer the ownership. The ownership can't be transferred to a bot or to a deleted user 
+            /// Identifier of the user to which transfer the ownership. The ownership can't be transferred to a bot or to a deleted user
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("user_id")]
@@ -48,20 +48,15 @@ namespace TdLib
             public string Password { get; set; }
         }
 
-
         /// <summary>
         /// Changes the owner of a chat. The current user must be a current owner of the chat. Use the method canTransferOwnership to check whether the ownership can be transferred from the current session. Available only for supergroups and channel chats
         /// </summary>
-        public static Task<Ok> TransferChatOwnershipAsync(this Client client,
-            long chatId = default(long),
-            int userId = default(int),
-            string password = default(string))
+        public static Task<Ok> TransferChatOwnershipAsync(
+            this Client client, long chatId = default, int userId = default, string password = default)
         {
             return client.ExecuteAsync(new TransferChatOwnership
             {
-                ChatId = chatId,
-                UserId = userId,
-                Password = password,
+                ChatId = chatId, UserId = userId, Password = password
             });
         }
     }

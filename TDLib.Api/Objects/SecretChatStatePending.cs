@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The secret chat is not yet created; waiting for the other user to get online
-        /// </summary>
         public partial class SecretChatState : Object
         {
             /// <summary>
-            /// The secret chat is not yet created; waiting for the other user to get online
+            /// Describes the current secret chat state
             /// </summary>
             public class SecretChatStatePending : SecretChatState
             {

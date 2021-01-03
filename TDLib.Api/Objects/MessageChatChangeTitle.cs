@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// An updated chat title 
-        /// </summary>
         public partial class MessageContent : Object
         {
             /// <summary>
-            /// An updated chat title 
+            /// An updated chat title
             /// </summary>
             public class MessageChatChangeTitle : MessageContent
             {

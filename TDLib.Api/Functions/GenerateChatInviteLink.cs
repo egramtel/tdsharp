@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Generates a new invite link for a chat; the previously generated link is revoked. Available for basic groups, supergroups, and channels. Requires administrator privileges and can_invite_users right 
+        /// Generates a new invite link for a chat; the previously generated link is revoked. Available for basic groups, supergroups, and channels. Requires administrator privileges and can_invite_users right
         /// </summary>
         public class GenerateChatInviteLink : Function<ChatInviteLink>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "generateChatInviteLink";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public long ChatId { get; set; }
         }
 
-
         /// <summary>
-        /// Generates a new invite link for a chat; the previously generated link is revoked. Available for basic groups, supergroups, and channels. Requires administrator privileges and can_invite_users right 
+        /// Generates a new invite link for a chat; the previously generated link is revoked. Available for basic groups, supergroups, and channels. Requires administrator privileges and can_invite_users right
         /// </summary>
-        public static Task<ChatInviteLink> GenerateChatInviteLinkAsync(this Client client,
-            long chatId = default(long))
+        public static Task<ChatInviteLink> GenerateChatInviteLinkAsync(
+            this Client client, long chatId = default)
         {
             return client.ExecuteAsync(new GenerateChatInviteLink
             {
-                ChatId = chatId,
+                ChatId = chatId
             });
         }
     }

@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// Represents a link to an opus-encoded audio file within an OGG container, single channel audio 
-        /// </summary>
         public partial class InputInlineQueryResult : Object
         {
             /// <summary>
-            /// Represents a link to an opus-encoded audio file within an OGG container, single channel audio 
+            /// Represents a link to an opus-encoded audio file within an OGG container, single channel audio
             /// </summary>
             public class InputInlineQueryResultVoiceNote : InputInlineQueryResult
             {
@@ -31,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Unique identifier of the query result 
+                /// Unique identifier of the query result
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("id")]
@@ -45,7 +42,7 @@ namespace TdLib
                 public string Title { get; set; }
 
                 /// <summary>
-                /// The URL of the voice note file 
+                /// The URL of the voice note file
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("voice_note_url")]

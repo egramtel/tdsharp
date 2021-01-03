@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// Represents a link to a WEBP or TGS sticker 
-        /// </summary>
         public partial class InputInlineQueryResult : Object
         {
             /// <summary>
-            /// Represents a link to a WEBP or TGS sticker 
+            /// Represents a link to a WEBP or TGS sticker
             /// </summary>
             public class InputInlineQueryResultSticker : InputInlineQueryResult
             {
@@ -31,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Unique identifier of the query result 
+                /// Unique identifier of the query result
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("id")]
@@ -45,14 +42,14 @@ namespace TdLib
                 public string ThumbnailUrl { get; set; }
 
                 /// <summary>
-                /// The URL of the WEBP or TGS sticker (sticker file size must not exceed 5MB) 
+                /// The URL of the WEBP or TGS sticker (sticker file size must not exceed 5MB)
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("sticker_url")]
                 public string StickerUrl { get; set; }
 
                 /// <summary>
-                /// Width of the sticker 
+                /// Width of the sticker
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("sticker_width")]

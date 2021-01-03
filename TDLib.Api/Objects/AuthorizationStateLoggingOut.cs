@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The user is currently logging out
-        /// </summary>
         public partial class AuthorizationState : Object
         {
             /// <summary>

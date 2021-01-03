@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A list of active notifications in a notification group has changed
-        /// </summary>
         public partial class Update : Object
         {
             /// <summary>
@@ -73,7 +70,7 @@ namespace TdLib
                 public int TotalCount { get; set; }
 
                 /// <summary>
-                /// List of added group notifications, sorted by notification ID 
+                /// List of added group notifications, sorted by notification ID
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("added_notifications")]

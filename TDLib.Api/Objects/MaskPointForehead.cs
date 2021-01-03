@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A mask should be placed relatively to the forehead
-        /// </summary>
         public partial class MaskPoint : Object
         {
             /// <summary>
-            /// A mask should be placed relatively to the forehead
+            /// Part of the face, relative to which a mask should be placed
             /// </summary>
             public class MaskPointForehead : MaskPoint
             {

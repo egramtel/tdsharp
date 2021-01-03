@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// Describes a gradient fill of a background 
-        /// </summary>
         public partial class BackgroundFill : Object
         {
             /// <summary>
-            /// Describes a gradient fill of a background 
+            /// Describes a gradient fill of a background
             /// </summary>
             public class BackgroundFillGradient : BackgroundFill
             {
@@ -31,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// A top color of the background in the RGB24 format 
+                /// A top color of the background in the RGB24 format
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("top_color")]

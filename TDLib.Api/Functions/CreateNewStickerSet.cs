@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Creates a new sticker set; for bots only. Returns the newly created sticker set 
+        /// Creates a new sticker set; for bots only. Returns the newly created sticker set
         /// </summary>
         public class CreateNewStickerSet : Function<StickerSet>
         {
@@ -21,20 +21,20 @@ namespace TdLib
             public override string DataType { get; set; } = "createNewStickerSet";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Sticker set owner 
+            /// Sticker set owner
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("user_id")]
             public int UserId { get; set; }
 
             /// <summary>
-            /// Sticker set title; 1-64 characters 
+            /// Sticker set title; 1-64 characters
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("title")]
@@ -48,38 +48,30 @@ namespace TdLib
             public string Name { get; set; }
 
             /// <summary>
-            /// True, if stickers are masks 
+            /// True, if stickers are masks. Animated stickers can't be masks
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_masks")]
             public bool IsMasks { get; set; }
 
             /// <summary>
-            /// List of stickers to be added to the set
+            /// List of stickers to be added to the set; must be non-empty. All stickers must be of the same type
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("stickers")]
             public InputSticker[] Stickers { get; set; }
         }
 
-
         /// <summary>
-        /// Creates a new sticker set; for bots only. Returns the newly created sticker set 
+        /// Creates a new sticker set; for bots only. Returns the newly created sticker set
         /// </summary>
-        public static Task<StickerSet> CreateNewStickerSetAsync(this Client client,
-            int userId = default(int),
-            string title = default(string),
-            string name = default(string),
-            bool isMasks = default(bool),
-            InputSticker[] stickers = default(InputSticker[]))
+        public static Task<StickerSet> CreateNewStickerSetAsync(
+            this Client client, int userId = default, string title = default, string name = default,
+            bool isMasks = default, InputSticker[] stickers = default)
         {
             return client.ExecuteAsync(new CreateNewStickerSet
             {
-                UserId = userId,
-                Title = title,
-                Name = name,
-                IsMasks = isMasks,
-                Stickers = stickers,
+                UserId = userId, Title = title, Name = name, IsMasks = isMasks, Stickers = stickers
             });
         }
     }

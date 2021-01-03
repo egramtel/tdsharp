@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A new member joined the chat
-        /// </summary>
         public partial class ChatEventAction : Object
         {
             /// <summary>

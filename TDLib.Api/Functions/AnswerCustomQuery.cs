@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Answers a custom query; for bots only 
+        /// Answers a custom query; for bots only
         /// </summary>
         public class AnswerCustomQuery : Function<Ok>
         {
@@ -21,17 +21,17 @@ namespace TdLib
             public override string DataType { get; set; } = "answerCustomQuery";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Identifier of a custom query 
+            /// Identifier of a custom query
             /// </summary>
             [JsonConverter(typeof(Converter.Int64))]
             [JsonProperty("custom_query_id")]
-            public Int64 CustomQueryId { get; set; }
+            public long CustomQueryId { get; set; }
 
             /// <summary>
             /// JSON-serialized answer to the query
@@ -41,18 +41,15 @@ namespace TdLib
             public string Data { get; set; }
         }
 
-
         /// <summary>
-        /// Answers a custom query; for bots only 
+        /// Answers a custom query; for bots only
         /// </summary>
-        public static Task<Ok> AnswerCustomQueryAsync(this Client client,
-            Int64 customQueryId = default(Int64),
-            string data = default(string))
+        public static Task<Ok> AnswerCustomQueryAsync(
+            this Client client, long customQueryId = default, string data = default)
         {
             return client.ExecuteAsync(new AnswerCustomQuery
             {
-                CustomQueryId = customQueryId,
-                Data = data,
+                CustomQueryId = customQueryId, Data = data
             });
         }
     }

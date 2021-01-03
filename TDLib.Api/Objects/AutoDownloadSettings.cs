@@ -11,7 +11,7 @@ namespace TdLib
         /// <summary>
         /// Contains auto-download settings
         /// </summary>
-        public class AutoDownloadSettings : Object
+        public partial class AutoDownloadSettings : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,7 +20,7 @@ namespace TdLib
             public override string DataType { get; set; } = "autoDownloadSettings";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -61,7 +61,7 @@ namespace TdLib
             public int VideoUploadBitrate { get; set; }
 
             /// <summary>
-            /// True, if the beginning of videos needs to be preloaded for instant playback
+            /// True, if the beginning of video files needs to be preloaded for instant playback
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("preload_large_videos")]

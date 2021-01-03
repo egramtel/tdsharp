@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Checks the authentication code. Works only when the current authorization state is authorizationStateWaitCode 
+        /// Checks the authentication code. Works only when the current authorization state is authorizationStateWaitCode
         /// </summary>
         public class CheckAuthenticationCode : Function<Ok>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "checkAuthenticationCode";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public string Code { get; set; }
         }
 
-
         /// <summary>
-        /// Checks the authentication code. Works only when the current authorization state is authorizationStateWaitCode 
+        /// Checks the authentication code. Works only when the current authorization state is authorizationStateWaitCode
         /// </summary>
-        public static Task<Ok> CheckAuthenticationCodeAsync(this Client client,
-            string code = default(string))
+        public static Task<Ok> CheckAuthenticationCodeAsync(
+            this Client client, string code = default)
         {
             return client.ExecuteAsync(new CheckAuthenticationCode
             {
-                Code = code,
+                Code = code
             });
         }
     }

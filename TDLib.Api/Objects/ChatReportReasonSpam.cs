@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The chat contains spam messages
-        /// </summary>
         public partial class ChatReportReason : Object
         {
             /// <summary>
-            /// The chat contains spam messages
+            /// Describes the reason why a chat is reported
             /// </summary>
             public class ChatReportReasonSpam : ChatReportReason
             {

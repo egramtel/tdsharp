@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Represents one language pack string 
+        /// Represents one language pack string
         /// </summary>
-        public class LanguagePackString : Object
+        public partial class LanguagePackString : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,13 +20,13 @@ namespace TdLib
             public override string DataType { get; set; } = "languagePackString";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// String key 
+            /// String key
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("key")]

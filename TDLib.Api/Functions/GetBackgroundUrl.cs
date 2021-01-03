@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Constructs a persistent HTTP URL for a background 
+        /// Constructs a persistent HTTP URL for a background
         /// </summary>
         public class GetBackgroundUrl : Function<HttpUrl>
         {
@@ -21,13 +21,13 @@ namespace TdLib
             public override string DataType { get; set; } = "getBackgroundUrl";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Background name 
+            /// Background name
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("name")]
@@ -41,18 +41,15 @@ namespace TdLib
             public BackgroundType Type { get; set; }
         }
 
-
         /// <summary>
-        /// Constructs a persistent HTTP URL for a background 
+        /// Constructs a persistent HTTP URL for a background
         /// </summary>
-        public static Task<HttpUrl> GetBackgroundUrlAsync(this Client client,
-            string name = default(string),
-            BackgroundType type = default(BackgroundType))
+        public static Task<HttpUrl> GetBackgroundUrlAsync(
+            this Client client, string name = default, BackgroundType type = default)
         {
             return client.ExecuteAsync(new GetBackgroundUrl
             {
-                Name = name,
-                Type = type,
+                Name = name, Type = type
             });
         }
     }

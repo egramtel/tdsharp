@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The chat is public, because it is a location-based supergroup
-        /// </summary>
         public partial class PublicChatType : Object
         {
             /// <summary>

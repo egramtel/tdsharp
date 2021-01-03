@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Contains information about a successful payment 
+        /// Contains information about a successful payment
         /// </summary>
-        public class PaymentReceipt : Object
+        public partial class PaymentReceipt : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,20 +20,20 @@ namespace TdLib
             public override string DataType { get; set; } = "paymentReceipt";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Point in time (Unix timestamp) when the payment was made 
+            /// Point in time (Unix timestamp) when the payment was made
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("date")]
             public int Date { get; set; }
 
             /// <summary>
-            /// User identifier of the payment provider bot 
+            /// User identifier of the payment provider bot
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("payments_provider_user_id")]
@@ -47,14 +47,14 @@ namespace TdLib
             public Invoice Invoice { get; set; }
 
             /// <summary>
-            /// Contains order information; may be null 
+            /// Contains order information; may be null
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("order_info")]
             public OrderInfo OrderInfo { get; set; }
 
             /// <summary>
-            /// Chosen shipping option; may be null 
+            /// Chosen shipping option; may be null
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("shipping_option")]

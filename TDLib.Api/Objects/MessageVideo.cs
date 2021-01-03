@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A video message 
-        /// </summary>
         public partial class MessageContent : Object
         {
             /// <summary>
-            /// A video message 
+            /// A video message
             /// </summary>
             public class MessageVideo : MessageContent
             {
@@ -31,14 +28,14 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// The video description 
+                /// The video description
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("video")]
                 public Video Video { get; set; }
 
                 /// <summary>
-                /// Video caption 
+                /// Video caption
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("caption")]

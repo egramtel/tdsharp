@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// Message content that is not supported by the client
-        /// </summary>
         public partial class MessageContent : Object
         {
             /// <summary>
-            /// Message content that is not supported by the client
+            /// Message content that is not supported in the current TDLib version
             /// </summary>
             public class MessageUnsupported : MessageContent
             {

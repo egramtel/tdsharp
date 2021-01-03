@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A token for Ubuntu Push Client service 
-        /// </summary>
         public partial class DeviceToken : Object
         {
             /// <summary>
-            /// A token for Ubuntu Push Client service 
+            /// A token for Ubuntu Push Client service
             /// </summary>
             public class DeviceTokenUbuntuPush : DeviceToken
             {

@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Sends debug information for a call 
+        /// Sends debug information for a call
         /// </summary>
         public class SendCallDebugInformation : Function<Ok>
         {
@@ -21,13 +21,13 @@ namespace TdLib
             public override string DataType { get; set; } = "sendCallDebugInformation";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Call identifier 
+            /// Call identifier
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("call_id")]
@@ -41,18 +41,15 @@ namespace TdLib
             public string DebugInformation { get; set; }
         }
 
-
         /// <summary>
-        /// Sends debug information for a call 
+        /// Sends debug information for a call
         /// </summary>
-        public static Task<Ok> SendCallDebugInformationAsync(this Client client,
-            int callId = default(int),
-            string debugInformation = default(string))
+        public static Task<Ok> SendCallDebugInformationAsync(
+            this Client client, int callId = default, string debugInformation = default)
         {
             return client.ExecuteAsync(new SendCallDebugInformation
             {
-                CallId = callId,
-                DebugInformation = debugInformation,
+                CallId = callId, DebugInformation = debugInformation
             });
         }
     }

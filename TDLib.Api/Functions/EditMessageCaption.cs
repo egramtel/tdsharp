@@ -21,27 +21,27 @@ namespace TdLib
             public override string DataType { get; set; } = "editMessageCaption";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// The chat the message belongs to 
+            /// The chat the message belongs to
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_id")]
             public long ChatId { get; set; }
 
             /// <summary>
-            /// Identifier of the message 
+            /// Identifier of the message
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("message_id")]
             public long MessageId { get; set; }
 
             /// <summary>
-            /// The new message reply markup; for bots only 
+            /// The new message reply markup; for bots only
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("reply_markup")]
@@ -55,22 +55,16 @@ namespace TdLib
             public FormattedText Caption { get; set; }
         }
 
-
         /// <summary>
         /// Edits the message content caption. Returns the edited message after the edit is completed on the server side
         /// </summary>
-        public static Task<Message> EditMessageCaptionAsync(this Client client,
-            long chatId = default(long),
-            long messageId = default(long),
-            ReplyMarkup replyMarkup = default(ReplyMarkup),
-            FormattedText caption = default(FormattedText))
+        public static Task<Message> EditMessageCaptionAsync(
+            this Client client, long chatId = default, long messageId = default, ReplyMarkup replyMarkup = default,
+            FormattedText caption = default)
         {
             return client.ExecuteAsync(new EditMessageCaption
             {
-                ChatId = chatId,
-                MessageId = messageId,
-                ReplyMarkup = replyMarkup,
-                Caption = caption,
+                ChatId = chatId, MessageId = messageId, ReplyMarkup = replyMarkup, Caption = caption
             });
         }
     }

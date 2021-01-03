@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The can_invite_users permission of a supergroup chat was toggled 
-        /// </summary>
         public partial class ChatEventAction : Object
         {
             /// <summary>
-            /// The can_invite_users permission of a supergroup chat was toggled 
+            /// The can_invite_users permission of a supergroup chat was toggled
             /// </summary>
             public class ChatEventInvitesToggled : ChatEventAction
             {

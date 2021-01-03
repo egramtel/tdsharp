@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A preformatted text paragraph 
-        /// </summary>
         public partial class PageBlock : Object
         {
             /// <summary>
-            /// A preformatted text paragraph 
+            /// A preformatted text paragraph
             /// </summary>
             public class PageBlockPreformatted : PageBlock
             {
@@ -31,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Paragraph text 
+                /// Paragraph text
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("text")]

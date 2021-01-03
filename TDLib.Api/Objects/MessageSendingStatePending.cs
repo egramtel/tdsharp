@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The message is being sent now, but has not yet been delivered to the server
-        /// </summary>
         public partial class MessageSendingState : Object
         {
             /// <summary>
-            /// The message is being sent now, but has not yet been delivered to the server
+            /// Contains information about the sending state of the message
             /// </summary>
             public class MessageSendingStatePending : MessageSendingState
             {

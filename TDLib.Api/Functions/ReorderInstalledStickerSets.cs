@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Changes the order of installed sticker sets 
+        /// Changes the order of installed sticker sets
         /// </summary>
         public class ReorderInstalledStickerSets : Function<Ok>
         {
@@ -21,13 +21,13 @@ namespace TdLib
             public override string DataType { get; set; } = "reorderInstalledStickerSets";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Pass true to change the order of mask sticker sets; pass false to change the order of ordinary sticker sets 
+            /// Pass true to change the order of mask sticker sets; pass false to change the order of ordinary sticker sets
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_masks")]
@@ -36,23 +36,20 @@ namespace TdLib
             /// <summary>
             /// Identifiers of installed sticker sets in the new correct order
             /// </summary>
-            [JsonConverter(typeof(Converter.Int64))]
+            [JsonConverter(typeof(Converter))]
             [JsonProperty("sticker_set_ids")]
-            public Int64[] StickerSetIds { get; set; }
+            public long[] StickerSetIds { get; set; }
         }
 
-
         /// <summary>
-        /// Changes the order of installed sticker sets 
+        /// Changes the order of installed sticker sets
         /// </summary>
-        public static Task<Ok> ReorderInstalledStickerSetsAsync(this Client client,
-            bool isMasks = default(bool),
-            Int64[] stickerSetIds = default(Int64[]))
+        public static Task<Ok> ReorderInstalledStickerSetsAsync(
+            this Client client, bool isMasks = default, long[] stickerSetIds = default)
         {
             return client.ExecuteAsync(new ReorderInstalledStickerSets
             {
-                IsMasks = isMasks,
-                StickerSetIds = stickerSetIds,
+                IsMasks = isMasks, StickerSetIds = stickerSetIds
             });
         }
     }

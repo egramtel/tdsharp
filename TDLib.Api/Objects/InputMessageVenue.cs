@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A message with information about a venue 
-        /// </summary>
         public partial class InputMessageContent : Object
         {
             /// <summary>
-            /// A message with information about a venue 
+            /// A message with information about a venue
             /// </summary>
             public class InputMessageVenue : InputMessageContent
             {

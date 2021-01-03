@@ -21,20 +21,20 @@ namespace TdLib
             public override string DataType { get; set; } = "setChatMemberStatus";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Chat identifier 
+            /// Chat identifier
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_id")]
             public long ChatId { get; set; }
 
             /// <summary>
-            /// User identifier 
+            /// User identifier
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("user_id")]
@@ -48,20 +48,15 @@ namespace TdLib
             public ChatMemberStatus Status { get; set; }
         }
 
-
         /// <summary>
         /// Changes the status of a chat member, needs appropriate privileges. This function is currently not suitable for adding new members to the chat and transferring chat ownership; instead, use addChatMember or transferChatOwnership. The chat member status will not be changed until it has been synchronized with the server
         /// </summary>
-        public static Task<Ok> SetChatMemberStatusAsync(this Client client,
-            long chatId = default(long),
-            int userId = default(int),
-            ChatMemberStatus status = default(ChatMemberStatus))
+        public static Task<Ok> SetChatMemberStatusAsync(
+            this Client client, long chatId = default, int userId = default, ChatMemberStatus status = default)
         {
             return client.ExecuteAsync(new SetChatMemberStatus
             {
-                ChatId = chatId,
-                UserId = userId,
-                Status = status,
+                ChatId = chatId, UserId = userId, Status = status
             });
         }
     }

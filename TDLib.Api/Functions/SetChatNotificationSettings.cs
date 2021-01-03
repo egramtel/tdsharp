@@ -21,13 +21,13 @@ namespace TdLib
             public override string DataType { get; set; } = "setChatNotificationSettings";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Chat identifier 
+            /// Chat identifier
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_id")]
@@ -41,18 +41,15 @@ namespace TdLib
             public ChatNotificationSettings NotificationSettings { get; set; }
         }
 
-
         /// <summary>
         /// Changes the notification settings of a chat. Notification settings of a chat with the current user (Saved Messages) can't be changed
         /// </summary>
-        public static Task<Ok> SetChatNotificationSettingsAsync(this Client client,
-            long chatId = default(long),
-            ChatNotificationSettings notificationSettings = default(ChatNotificationSettings))
+        public static Task<Ok> SetChatNotificationSettingsAsync(
+            this Client client, long chatId = default, ChatNotificationSettings notificationSettings = default)
         {
             return client.ExecuteAsync(new SetChatNotificationSettings
             {
-                ChatId = chatId,
-                NotificationSettings = notificationSettings,
+                ChatId = chatId, NotificationSettings = notificationSettings
             });
         }
     }

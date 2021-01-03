@@ -21,17 +21,17 @@ namespace TdLib
             public override string DataType { get; set; } = "getRecentInlineBots";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
         }
 
-
         /// <summary>
         /// Returns up to 20 recently used inline bots in the order of their last usage
         /// </summary>
-        public static Task<Users> GetRecentInlineBotsAsync(this Client client)
+        public static Task<Users> GetRecentInlineBotsAsync(
+            this Client client)
         {
             return client.ExecuteAsync(new GetRecentInlineBots
             {

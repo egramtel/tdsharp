@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Sets the parameters for TDLib initialization. Works only when the current authorization state is authorizationStateWaitTdlibParameters 
+        /// Sets the parameters for TDLib initialization. Works only when the current authorization state is authorizationStateWaitTdlibParameters
         /// </summary>
         public class SetTdlibParameters : Function<Ok>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "setTdlibParameters";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public TdlibParameters Parameters { get; set; }
         }
 
-
         /// <summary>
-        /// Sets the parameters for TDLib initialization. Works only when the current authorization state is authorizationStateWaitTdlibParameters 
+        /// Sets the parameters for TDLib initialization. Works only when the current authorization state is authorizationStateWaitTdlibParameters
         /// </summary>
-        public static Task<Ok> SetTdlibParametersAsync(this Client client,
-            TdlibParameters parameters = default(TdlibParameters))
+        public static Task<Ok> SetTdlibParametersAsync(
+            this Client client, TdlibParameters parameters = default)
         {
             return client.ExecuteAsync(new SetTdlibParameters
             {
-                Parameters = parameters,
+                Parameters = parameters
             });
         }
     }

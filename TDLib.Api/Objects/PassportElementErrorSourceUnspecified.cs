@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The element contains an error in an unspecified place. The error will be considered resolved when new data is added
-        /// </summary>
         public partial class PassportElementErrorSource : Object
         {
             /// <summary>
-            /// The element contains an error in an unspecified place. The error will be considered resolved when new data is added
+            /// Contains the description of an error in a Telegram Passport element
             /// </summary>
             public class PassportElementErrorSourceUnspecified : PassportElementErrorSource
             {

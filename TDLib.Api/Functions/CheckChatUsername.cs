@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Checks whether a username can be set for a chat 
+        /// Checks whether a username can be set for a chat
         /// </summary>
         public class CheckChatUsername : Function<CheckChatUsernameResult>
         {
@@ -21,13 +21,13 @@ namespace TdLib
             public override string DataType { get; set; } = "checkChatUsername";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Chat identifier; should be identifier of a supergroup chat, or a channel chat, or a private chat with self, or zero if chat is being created 
+            /// Chat identifier; should be identifier of a supergroup chat, or a channel chat, or a private chat with self, or zero if chat is being created
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_id")]
@@ -41,18 +41,15 @@ namespace TdLib
             public string Username { get; set; }
         }
 
-
         /// <summary>
-        /// Checks whether a username can be set for a chat 
+        /// Checks whether a username can be set for a chat
         /// </summary>
-        public static Task<CheckChatUsernameResult> CheckChatUsernameAsync(this Client client,
-            long chatId = default(long),
-            string username = default(string))
+        public static Task<CheckChatUsernameResult> CheckChatUsernameAsync(
+            this Client client, long chatId = default, string username = default)
         {
             return client.ExecuteAsync(new CheckChatUsername
             {
-                ChatId = chatId,
-                Username = username,
+                ChatId = chatId, Username = username
             });
         }
     }

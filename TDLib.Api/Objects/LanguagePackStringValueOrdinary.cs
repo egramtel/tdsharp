@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// An ordinary language pack string 
-        /// </summary>
         public partial class LanguagePackStringValue : Object
         {
             /// <summary>
-            /// An ordinary language pack string 
+            /// Represents the value of a string in a language pack
             /// </summary>
             public class LanguagePackStringValueOrdinary : LanguagePackStringValue
             {

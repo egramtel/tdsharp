@@ -21,13 +21,13 @@ namespace TdLib
             public override string DataType { get; set; } = "resendMessages";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Identifier of the chat to send messages 
+            /// Identifier of the chat to send messages
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_id")]
@@ -41,18 +41,15 @@ namespace TdLib
             public long[] MessageIds { get; set; }
         }
 
-
         /// <summary>
         /// Resends messages which failed to send. Can be called only for messages for which messageSendingStateFailed.can_retry is true and after specified in messageSendingStateFailed.retry_after time passed.
         /// </summary>
-        public static Task<Messages> ResendMessagesAsync(this Client client,
-            long chatId = default(long),
-            long[] messageIds = default(long[]))
+        public static Task<Messages> ResendMessagesAsync(
+            this Client client, long chatId = default, long[] messageIds = default)
         {
             return client.ExecuteAsync(new ResendMessages
             {
-                ChatId = chatId,
-                MessageIds = messageIds,
+                ChatId = chatId, MessageIds = messageIds
             });
         }
     }

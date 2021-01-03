@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A text description shown instead of a raw URL 
-        /// </summary>
         public partial class TextEntityType : Object
         {
             /// <summary>
-            /// A text description shown instead of a raw URL 
+            /// A text description shown instead of a raw URL
             /// </summary>
             public class TextEntityTypeTextUrl : TextEntityType
             {

@@ -10,9 +10,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns the profile photos of a user. The result of this query may be outdated: some photos might have been deleted already 
+        /// Returns the profile photos of a user. The result of this query may be outdated: some photos might have been deleted already
         /// </summary>
-        public class GetUserProfilePhotos : Function<UserProfilePhotos>
+        public class GetUserProfilePhotos : Function<ChatPhotos>
         {
             /// <summary>
             /// Data type for serialization
@@ -21,20 +21,20 @@ namespace TdLib
             public override string DataType { get; set; } = "getUserProfilePhotos";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// User identifier 
+            /// User identifier
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("user_id")]
             public int UserId { get; set; }
 
             /// <summary>
-            /// The number of photos to skip; must be non-negative 
+            /// The number of photos to skip; must be non-negative
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("offset")]
@@ -48,20 +48,15 @@ namespace TdLib
             public int Limit { get; set; }
         }
 
-
         /// <summary>
-        /// Returns the profile photos of a user. The result of this query may be outdated: some photos might have been deleted already 
+        /// Returns the profile photos of a user. The result of this query may be outdated: some photos might have been deleted already
         /// </summary>
-        public static Task<UserProfilePhotos> GetUserProfilePhotosAsync(this Client client,
-            int userId = default(int),
-            int offset = default(int),
-            int limit = default(int))
+        public static Task<ChatPhotos> GetUserProfilePhotosAsync(
+            this Client client, int userId = default, int offset = default, int limit = default)
         {
             return client.ExecuteAsync(new GetUserProfilePhotos
             {
-                UserId = userId,
-                Offset = offset,
-                Limit = limit,
+                UserId = userId, Offset = offset, Limit = limit
             });
         }
     }

@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Changes the slow mode delay of a chat. Available only for supergroups; requires can_restrict_members rights 
+        /// Changes the slow mode delay of a chat. Available only for supergroups; requires can_restrict_members rights
         /// </summary>
         public class SetChatSlowModeDelay : Function<Ok>
         {
@@ -21,13 +21,13 @@ namespace TdLib
             public override string DataType { get; set; } = "setChatSlowModeDelay";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Chat identifier 
+            /// Chat identifier
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_id")]
@@ -41,18 +41,15 @@ namespace TdLib
             public int SlowModeDelay { get; set; }
         }
 
-
         /// <summary>
-        /// Changes the slow mode delay of a chat. Available only for supergroups; requires can_restrict_members rights 
+        /// Changes the slow mode delay of a chat. Available only for supergroups; requires can_restrict_members rights
         /// </summary>
-        public static Task<Ok> SetChatSlowModeDelayAsync(this Client client,
-            long chatId = default(long),
-            int slowModeDelay = default(int))
+        public static Task<Ok> SetChatSlowModeDelayAsync(
+            this Client client, long chatId = default, int slowModeDelay = default)
         {
             return client.ExecuteAsync(new SetChatSlowModeDelay
             {
-                ChatId = chatId,
-                SlowModeDelay = slowModeDelay,
+                ChatId = chatId, SlowModeDelay = slowModeDelay
             });
         }
     }

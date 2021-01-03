@@ -11,7 +11,7 @@ namespace TdLib
         /// <summary>
         /// Contains information about one session in a Telegram application used by the current user. Sessions should be shown to the user in the returned order
         /// </summary>
-        public class Session : Object
+        public partial class Session : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,17 +20,17 @@ namespace TdLib
             public override string DataType { get; set; } = "session";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Session identifier 
+            /// Session identifier
             /// </summary>
             [JsonConverter(typeof(Converter.Int64))]
             [JsonProperty("id")]
-            public Int64 Id { get; set; }
+            public long Id { get; set; }
 
             /// <summary>
             /// True, if this session is the current session
@@ -47,7 +47,7 @@ namespace TdLib
             public bool IsPasswordPending { get; set; }
 
             /// <summary>
-            /// Telegram API identifier, as provided by the application 
+            /// Telegram API identifier, as provided by the application
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("api_id")]
@@ -61,7 +61,7 @@ namespace TdLib
             public string ApplicationName { get; set; }
 
             /// <summary>
-            /// The version of the application, as provided by the application 
+            /// The version of the application, as provided by the application
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("application_version")]
@@ -75,7 +75,7 @@ namespace TdLib
             public bool IsOfficialApplication { get; set; }
 
             /// <summary>
-            /// Model of the device the application has been run or is running on, as provided by the application 
+            /// Model of the device the application has been run or is running on, as provided by the application
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("device_model")]
@@ -89,7 +89,7 @@ namespace TdLib
             public string Platform { get; set; }
 
             /// <summary>
-            /// Version of the operating system the application has been run or is running on, as provided by the application 
+            /// Version of the operating system the application has been run or is running on, as provided by the application
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("system_version")]
@@ -103,7 +103,7 @@ namespace TdLib
             public int LogInDate { get; set; }
 
             /// <summary>
-            /// Point in time (Unix timestamp) when the session was last used 
+            /// Point in time (Unix timestamp) when the session was last used
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("last_active_date")]
@@ -117,7 +117,7 @@ namespace TdLib
             public string Ip { get; set; }
 
             /// <summary>
-            /// A two-letter country code for the country from which the session was created, based on the IP address 
+            /// A two-letter country code for the country from which the session was created, based on the IP address
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("country")]

@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Marks all mentions in a chat as read 
+        /// Marks all mentions in a chat as read
         /// </summary>
         public class ReadAllChatMentions : Function<Ok>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "readAllChatMentions";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public long ChatId { get; set; }
         }
 
-
         /// <summary>
-        /// Marks all mentions in a chat as read 
+        /// Marks all mentions in a chat as read
         /// </summary>
-        public static Task<Ok> ReadAllChatMentionsAsync(this Client client,
-            long chatId = default(long))
+        public static Task<Ok> ReadAllChatMentionsAsync(
+            this Client client, long chatId = default)
         {
             return client.ExecuteAsync(new ReadAllChatMentions
             {
-                ChatId = chatId,
+                ChatId = chatId
             });
         }
     }

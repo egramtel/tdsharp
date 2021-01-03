@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns a list of frequently used chats. Supported only if the chat info database is enabled 
+        /// Returns a list of frequently used chats. Supported only if the chat info database is enabled
         /// </summary>
         public class GetTopChats : Function<Chats>
         {
@@ -21,13 +21,13 @@ namespace TdLib
             public override string DataType { get; set; } = "getTopChats";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Category of chats to be returned 
+            /// Category of chats to be returned
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("category")]
@@ -41,18 +41,15 @@ namespace TdLib
             public int Limit { get; set; }
         }
 
-
         /// <summary>
-        /// Returns a list of frequently used chats. Supported only if the chat info database is enabled 
+        /// Returns a list of frequently used chats. Supported only if the chat info database is enabled
         /// </summary>
-        public static Task<Chats> GetTopChatsAsync(this Client client,
-            TopChatCategory category = default(TopChatCategory),
-            int limit = default(int))
+        public static Task<Chats> GetTopChatsAsync(
+            this Client client, TopChatCategory category = default, int limit = default)
         {
             return client.ExecuteAsync(new GetTopChats
             {
-                Category = category,
-                Limit = limit,
+                Category = category, Limit = limit
             });
         }
     }

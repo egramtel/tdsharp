@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Adds the specified data to data usage statistics. Can be called before authorization 
+        /// Adds the specified data to data usage statistics. Can be called before authorization
         /// </summary>
         public class AddNetworkStatistics : Function<Ok>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "addNetworkStatistics";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public NetworkStatisticsEntry Entry { get; set; }
         }
 
-
         /// <summary>
-        /// Adds the specified data to data usage statistics. Can be called before authorization 
+        /// Adds the specified data to data usage statistics. Can be called before authorization
         /// </summary>
-        public static Task<Ok> AddNetworkStatisticsAsync(this Client client,
-            NetworkStatisticsEntry entry = default(NetworkStatisticsEntry))
+        public static Task<Ok> AddNetworkStatisticsAsync(
+            this Client client, NetworkStatisticsEntry entry = default)
         {
             return client.ExecuteAsync(new AddNetworkStatistics
             {
-                Entry = entry,
+                Entry = entry
             });
         }
     }

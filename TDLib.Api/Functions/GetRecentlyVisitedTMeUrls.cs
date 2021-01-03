@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns t.me URLs recently visited by a newly registered user 
+        /// Returns t.me URLs recently visited by a newly registered user
         /// </summary>
         public class GetRecentlyVisitedTMeUrls : Function<TMeUrls>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "getRecentlyVisitedTMeUrls";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public string Referrer { get; set; }
         }
 
-
         /// <summary>
-        /// Returns t.me URLs recently visited by a newly registered user 
+        /// Returns t.me URLs recently visited by a newly registered user
         /// </summary>
-        public static Task<TMeUrls> GetRecentlyVisitedTMeUrlsAsync(this Client client,
-            string referrer = default(string))
+        public static Task<TMeUrls> GetRecentlyVisitedTMeUrlsAsync(
+            this Client client, string referrer = default)
         {
             return client.ExecuteAsync(new GetRecentlyVisitedTMeUrls
             {
-                Referrer = referrer,
+                Referrer = referrer
             });
         }
     }

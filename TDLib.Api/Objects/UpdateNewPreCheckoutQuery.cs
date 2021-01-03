@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A new incoming pre-checkout query; for bots only. Contains full information about a checkout 
-        /// </summary>
         public partial class Update : Object
         {
             /// <summary>
-            /// A new incoming pre-checkout query; for bots only. Contains full information about a checkout 
+            /// A new incoming pre-checkout query; for bots only. Contains full information about a checkout
             /// </summary>
             public class UpdateNewPreCheckoutQuery : Update
             {
@@ -31,21 +28,21 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Unique query identifier 
+                /// Unique query identifier
                 /// </summary>
                 [JsonConverter(typeof(Converter.Int64))]
                 [JsonProperty("id")]
-                public Int64 Id { get; set; }
+                public long Id { get; set; }
 
                 /// <summary>
-                /// Identifier of the user who sent the query 
+                /// Identifier of the user who sent the query
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("sender_user_id")]
                 public int SenderUserId { get; set; }
 
                 /// <summary>
-                /// Currency for the product price 
+                /// Currency for the product price
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("currency")]
@@ -59,14 +56,14 @@ namespace TdLib
                 public long TotalAmount { get; set; }
 
                 /// <summary>
-                /// Invoice payload 
+                /// Invoice payload
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("invoice_payload")]
                 public byte[] InvoicePayload { get; set; }
 
                 /// <summary>
-                /// Identifier of a shipping option chosen by the user; may be empty if not applicable 
+                /// Identifier of a shipping option chosen by the user; may be empty if not applicable
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("shipping_option_id")]

@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Contains information about a chat administrator 
+        /// Contains information about a chat administrator
         /// </summary>
-        public class ChatAdministrator : Object
+        public partial class ChatAdministrator : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,20 +20,20 @@ namespace TdLib
             public override string DataType { get; set; } = "chatAdministrator";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// User identifier of the administrator 
+            /// User identifier of the administrator
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("user_id")]
             public int UserId { get; set; }
 
             /// <summary>
-            /// Custom title of the administrator 
+            /// Custom title of the administrator
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("custom_title")]

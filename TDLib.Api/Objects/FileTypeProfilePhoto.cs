@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The file is a profile photo
-        /// </summary>
         public partial class FileType : Object
         {
             /// <summary>

@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Changes the photo of a chat. Supported only for basic groups, supergroups and channels. Requires can_change_info rights. The photo will not be changed before request to the server has been completed
+        /// Changes the photo of a chat. Supported only for basic groups, supergroups and channels. Requires can_change_info rights
         /// </summary>
         public class SetChatPhoto : Function<Ok>
         {
@@ -21,38 +21,35 @@ namespace TdLib
             public override string DataType { get; set; } = "setChatPhoto";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Chat identifier 
+            /// Chat identifier
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_id")]
             public long ChatId { get; set; }
 
             /// <summary>
-            /// New chat photo. You can use a zero InputFileId to delete the chat photo. Files that are accessible only by HTTP URL are not acceptable
+            /// New chat photo. Pass null to delete the chat photo
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("photo")]
-            public InputFile Photo { get; set; }
+            public InputChatPhoto Photo { get; set; }
         }
 
-
         /// <summary>
-        /// Changes the photo of a chat. Supported only for basic groups, supergroups and channels. Requires can_change_info rights. The photo will not be changed before request to the server has been completed
+        /// Changes the photo of a chat. Supported only for basic groups, supergroups and channels. Requires can_change_info rights
         /// </summary>
-        public static Task<Ok> SetChatPhotoAsync(this Client client,
-            long chatId = default(long),
-            InputFile photo = default(InputFile))
+        public static Task<Ok> SetChatPhotoAsync(
+            this Client client, long chatId = default, InputChatPhoto photo = default)
         {
             return client.ExecuteAsync(new SetChatPhoto
             {
-                ChatId = chatId,
-                Photo = photo,
+                ChatId = chatId, Photo = photo
             });
         }
     }

@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// An animation message (GIF-style). 
-        /// </summary>
         public partial class PushMessageContent : Object
         {
             /// <summary>
-            /// An animation message (GIF-style). 
+            /// An animation message (GIF-style).
             /// </summary>
             public class PushMessageContentAnimation : PushMessageContent
             {
@@ -31,14 +28,14 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Message content; may be null 
+                /// Message content; may be null
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("animation")]
                 public Animation Animation { get; set; }
 
                 /// <summary>
-                /// Animation caption 
+                /// Animation caption
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("caption")]

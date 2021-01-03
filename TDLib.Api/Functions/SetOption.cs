@@ -21,13 +21,13 @@ namespace TdLib
             public override string DataType { get; set; } = "setOption";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// The name of the option 
+            /// The name of the option
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("name")]
@@ -41,18 +41,15 @@ namespace TdLib
             public OptionValue Value { get; set; }
         }
 
-
         /// <summary>
         /// Sets the value of an option. (Check the list of available options on https://core.telegram.org/tdlib/options.) Only writable options can be set. Can be called before authorization
         /// </summary>
-        public static Task<Ok> SetOptionAsync(this Client client,
-            string name = default(string),
-            OptionValue value = default(OptionValue))
+        public static Task<Ok> SetOptionAsync(
+            this Client client, string name = default, OptionValue value = default)
         {
             return client.ExecuteAsync(new SetOption
             {
-                Name = name,
-                Value = value,
+                Name = name, Value = value
             });
         }
     }

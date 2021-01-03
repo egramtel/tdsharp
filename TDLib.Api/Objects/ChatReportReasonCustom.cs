@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A custom reason provided by the user 
-        /// </summary>
         public partial class ChatReportReason : Object
         {
             /// <summary>
-            /// A custom reason provided by the user 
+            /// A custom reason provided by the user
             /// </summary>
             public class ChatReportReasonCustom : ChatReportReason
             {

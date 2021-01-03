@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Describes a user profile photo 
+        /// Describes a user profile photo
         /// </summary>
-        public class ProfilePhoto : Object
+        public partial class ProfilePhoto : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,20 +20,20 @@ namespace TdLib
             public override string DataType { get; set; } = "profilePhoto";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Photo identifier; 0 for an empty photo. Can be used to find a photo in a list of userProfilePhotos
+            /// Photo identifier; 0 for an empty photo. Can be used to find a photo in a list of user profile photos
             /// </summary>
             [JsonConverter(typeof(Converter.Int64))]
             [JsonProperty("id")]
-            public Int64 Id { get; set; }
+            public long Id { get; set; }
 
             /// <summary>
-            /// A small (160x160) user profile photo. The file can be downloaded only before the photo is changed 
+            /// A small (160x160) user profile photo. The file can be downloaded only before the photo is changed
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("small")]
@@ -45,6 +45,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("big")]
             public File Big { get; set; }
+
+            /// <summary>
+            /// True, if the photo has animated variant
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("has_animation")]
+            public bool HasAnimation { get; set; }
         }
     }
 }

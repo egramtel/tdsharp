@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Sets new log stream for internal logging of TDLib. This is an offline method. Can be called before authorization. Can be called synchronously 
+        /// Sets new log stream for internal logging of TDLib. Can be called synchronously
         /// </summary>
         public class SetLogStream : Function<Ok>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "setLogStream";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public LogStream LogStream { get; set; }
         }
 
-
         /// <summary>
-        /// Sets new log stream for internal logging of TDLib. This is an offline method. Can be called before authorization. Can be called synchronously 
+        /// Sets new log stream for internal logging of TDLib. Can be called synchronously
         /// </summary>
-        public static Task<Ok> SetLogStreamAsync(this Client client,
-            LogStream logStream = default(LogStream))
+        public static Task<Ok> SetLogStreamAsync(
+            this Client client, LogStream logStream = default)
         {
             return client.ExecuteAsync(new SetLogStream
             {
-                LogStream = logStream,
+                LogStream = logStream
             });
         }
     }

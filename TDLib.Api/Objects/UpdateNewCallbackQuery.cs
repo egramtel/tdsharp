@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A new incoming callback query; for bots only 
-        /// </summary>
         public partial class Update : Object
         {
             /// <summary>
-            /// A new incoming callback query; for bots only 
+            /// A new incoming callback query; for bots only
             /// </summary>
             public class UpdateNewCallbackQuery : Update
             {
@@ -31,11 +28,11 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Unique query identifier 
+                /// Unique query identifier
                 /// </summary>
                 [JsonConverter(typeof(Converter.Int64))]
                 [JsonProperty("id")]
-                public Int64 Id { get; set; }
+                public long Id { get; set; }
 
                 /// <summary>
                 /// Identifier of the user who sent the query
@@ -45,7 +42,7 @@ namespace TdLib
                 public int SenderUserId { get; set; }
 
                 /// <summary>
-                /// Identifier of the chat where the query was sent 
+                /// Identifier of the chat where the query was sent
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("chat_id")]
@@ -59,11 +56,11 @@ namespace TdLib
                 public long MessageId { get; set; }
 
                 /// <summary>
-                /// Identifier that uniquely corresponds to the chat to which the message was sent 
+                /// Identifier that uniquely corresponds to the chat to which the message was sent
                 /// </summary>
                 [JsonConverter(typeof(Converter.Int64))]
                 [JsonProperty("chat_instance")]
-                public Int64 ChatInstance { get; set; }
+                public long ChatInstance { get; set; }
 
                 /// <summary>
                 /// Query payload

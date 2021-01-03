@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A chat photo was edited
-        /// </summary>
         public partial class PushMessageContent : Object
         {
             /// <summary>

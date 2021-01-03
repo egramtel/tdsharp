@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A document message (general file) 
-        /// </summary>
         public partial class InputMessageContent : Object
         {
             /// <summary>
-            /// A document message (general file) 
+            /// A document message (general file)
             /// </summary>
             public class InputMessageDocument : InputMessageContent
             {
@@ -31,18 +28,25 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Document to be sent 
+                /// Document to be sent
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("document")]
                 public InputFile Document { get; set; }
 
                 /// <summary>
-                /// Document thumbnail, if available 
+                /// Document thumbnail, if available
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("thumbnail")]
                 public InputThumbnail Thumbnail { get; set; }
+
+                /// <summary>
+                /// If true, automatic file type detection will be disabled and the document will be always sent as file. Always true for files sent to secret chats
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("disable_content_type_detection")]
+                public bool DisableContentTypeDetection { get; set; }
 
                 /// <summary>
                 /// Document caption; 0-GetOption("message_caption_length_max") characters

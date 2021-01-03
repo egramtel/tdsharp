@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// User activity in the chat has changed 
-        /// </summary>
         public partial class Update : Object
         {
             /// <summary>
-            /// User activity in the chat has changed 
+            /// User activity in the chat has changed
             /// </summary>
             public class UpdateUserChatAction : Update
             {
@@ -31,14 +28,21 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Chat identifier 
+                /// Chat identifier
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("chat_id")]
                 public long ChatId { get; set; }
 
                 /// <summary>
-                /// Identifier of a user performing an action 
+                /// If not 0, a message thread identifier in which the action was performed
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("message_thread_id")]
+                public long MessageThreadId { get; set; }
+
+                /// <summary>
+                /// Identifier of a user performing an action
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("user_id")]

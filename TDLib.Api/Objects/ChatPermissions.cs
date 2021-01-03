@@ -11,7 +11,7 @@ namespace TdLib
         /// <summary>
         /// Describes actions that a user is allowed to take in a chat
         /// </summary>
-        public class ChatPermissions : Object
+        public partial class ChatPermissions : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,7 +20,7 @@ namespace TdLib
             public override string DataType { get; set; } = "chatPermissions";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -47,7 +47,7 @@ namespace TdLib
             public bool CanSendPolls { get; set; }
 
             /// <summary>
-            /// True, if the user can send animations, games, and stickers and use inline bots. Implies can_send_messages permissions
+            /// True, if the user can send animations, games, stickers, and dice and use inline bots. Implies can_send_messages permissions
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("can_send_other_messages")]

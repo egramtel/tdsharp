@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Parses Bold, Italic, Underline, Strikethrough, Code, Pre, PreCode, TextUrl and MentionName entities contained in the text. This is an offline method. Can be called before authorization. Can be called synchronously 
+        /// Parses Bold, Italic, Underline, Strikethrough, Code, Pre, PreCode, TextUrl and MentionName entities contained in the text. Can be called synchronously
         /// </summary>
         public class ParseTextEntities : Function<FormattedText>
         {
@@ -21,13 +21,13 @@ namespace TdLib
             public override string DataType { get; set; } = "parseTextEntities";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// The text which should be parsed 
+            /// The text to parse
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("text")]
@@ -41,18 +41,15 @@ namespace TdLib
             public TextParseMode ParseMode { get; set; }
         }
 
-
         /// <summary>
-        /// Parses Bold, Italic, Underline, Strikethrough, Code, Pre, PreCode, TextUrl and MentionName entities contained in the text. This is an offline method. Can be called before authorization. Can be called synchronously 
+        /// Parses Bold, Italic, Underline, Strikethrough, Code, Pre, PreCode, TextUrl and MentionName entities contained in the text. Can be called synchronously
         /// </summary>
-        public static Task<FormattedText> ParseTextEntitiesAsync(this Client client,
-            string text = default(string),
-            TextParseMode parseMode = default(TextParseMode))
+        public static Task<FormattedText> ParseTextEntitiesAsync(
+            this Client client, string text = default, TextParseMode parseMode = default)
         {
             return client.ExecuteAsync(new ParseTextEntities
             {
-                Text = text,
-                ParseMode = parseMode,
+                Text = text, ParseMode = parseMode
             });
         }
     }

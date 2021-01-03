@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A button that forces an inline query to the bot to be inserted in the input field 
-        /// </summary>
         public partial class InlineKeyboardButtonType : Object
         {
             /// <summary>
-            /// A button that forces an inline query to the bot to be inserted in the input field 
+            /// A button that forces an inline query to the bot to be inserted in the input field
             /// </summary>
             public class InlineKeyboardButtonTypeSwitchInline : InlineKeyboardButtonType
             {
@@ -31,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Inline query to be sent to the bot 
+                /// Inline query to be sent to the bot
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("query")]

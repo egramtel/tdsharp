@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A chat member was restricted/unrestricted or banned/unbanned, or the list of their restrictions has changed 
-        /// </summary>
         public partial class ChatEventAction : Object
         {
             /// <summary>
-            /// A chat member was restricted/unrestricted or banned/unbanned, or the list of their restrictions has changed 
+            /// A chat member was restricted/unrestricted or banned/unbanned, or the list of their restrictions has changed
             /// </summary>
             public class ChatEventMemberRestricted : ChatEventAction
             {
@@ -31,14 +28,14 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Chat member user identifier 
+                /// Chat member user identifier
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("user_id")]
                 public int UserId { get; set; }
 
                 /// <summary>
-                /// Previous status of the chat member 
+                /// Previous status of the chat member
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("old_status")]

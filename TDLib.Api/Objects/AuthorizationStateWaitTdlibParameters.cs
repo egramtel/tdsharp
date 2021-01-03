@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// TDLib needs TdlibParameters for initialization
-        /// </summary>
         public partial class AuthorizationState : Object
         {
             /// <summary>
-            /// TDLib needs TdlibParameters for initialization
+            /// Represents the current authorization state of the TDLib client
             /// </summary>
             public class AuthorizationStateWaitTdlibParameters : AuthorizationState
             {

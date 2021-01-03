@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A button that opens a specified URL 
-        /// </summary>
         public partial class InlineKeyboardButtonType : Object
         {
             /// <summary>
-            /// A button that opens a specified URL 
+            /// Describes the type of an inline keyboard button
             /// </summary>
             public class InlineKeyboardButtonTypeUrl : InlineKeyboardButtonType
             {

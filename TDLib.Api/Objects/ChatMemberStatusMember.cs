@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The user is a member of a chat, without any additional privileges or restrictions
-        /// </summary>
         public partial class ChatMemberStatus : Object
         {
             /// <summary>

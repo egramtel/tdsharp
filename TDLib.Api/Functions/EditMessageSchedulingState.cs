@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Edits the time when a scheduled message will be sent. Scheduling state of all messages in the same album or forwarded together with the message will be also changed 
+        /// Edits the time when a scheduled message will be sent. Scheduling state of all messages in the same album or forwarded together with the message will be also changed
         /// </summary>
         public class EditMessageSchedulingState : Function<Ok>
         {
@@ -21,20 +21,20 @@ namespace TdLib
             public override string DataType { get; set; } = "editMessageSchedulingState";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// The chat the message belongs to 
+            /// The chat the message belongs to
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_id")]
             public long ChatId { get; set; }
 
             /// <summary>
-            /// Identifier of the message 
+            /// Identifier of the message
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("message_id")]
@@ -48,20 +48,16 @@ namespace TdLib
             public MessageSchedulingState SchedulingState { get; set; }
         }
 
-
         /// <summary>
-        /// Edits the time when a scheduled message will be sent. Scheduling state of all messages in the same album or forwarded together with the message will be also changed 
+        /// Edits the time when a scheduled message will be sent. Scheduling state of all messages in the same album or forwarded together with the message will be also changed
         /// </summary>
-        public static Task<Ok> EditMessageSchedulingStateAsync(this Client client,
-            long chatId = default(long),
-            long messageId = default(long),
-            MessageSchedulingState schedulingState = default(MessageSchedulingState))
+        public static Task<Ok> EditMessageSchedulingStateAsync(
+            this Client client, long chatId = default, long messageId = default,
+            MessageSchedulingState schedulingState = default)
         {
             return client.ExecuteAsync(new EditMessageSchedulingState
             {
-                ChatId = chatId,
-                MessageId = messageId,
-                SchedulingState = schedulingState,
+                ChatId = chatId, MessageId = messageId, SchedulingState = schedulingState
             });
         }
     }

@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A message with a live location was viewed. When the update is received, the client is supposed to update the live location
-        /// </summary>
         public partial class Update : Object
         {
             /// <summary>
-            /// A message with a live location was viewed. When the update is received, the client is supposed to update the live location
+            /// A message with a live location was viewed. When the update is received, the application is supposed to update the live location
             /// </summary>
             public class UpdateMessageLiveLocationViewed : Update
             {
@@ -31,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Identifier of the chat with the live location message 
+                /// Identifier of the chat with the live location message
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("chat_id")]

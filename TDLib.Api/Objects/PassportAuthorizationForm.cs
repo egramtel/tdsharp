@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Contains information about a Telegram Passport authorization form that was requested 
+        /// Contains information about a Telegram Passport authorization form that was requested
         /// </summary>
-        public class PassportAuthorizationForm : Object
+        public partial class PassportAuthorizationForm : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,7 +20,7 @@ namespace TdLib
             public override string DataType { get; set; } = "passportAuthorizationForm";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -33,7 +33,7 @@ namespace TdLib
             public int Id { get; set; }
 
             /// <summary>
-            /// Information about the Telegram Passport elements that need to be provided to complete the form
+            /// Information about the Telegram Passport elements that must be provided to complete the form
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("required_elements")]

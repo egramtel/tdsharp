@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A superscript rich text 
-        /// </summary>
         public partial class RichText : Object
         {
             /// <summary>
-            /// A superscript rich text 
+            /// A superscript rich text
             /// </summary>
             public class RichTextSuperscript : RichText
             {

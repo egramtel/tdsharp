@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A rule to allow certain specified users to do something 
-        /// </summary>
         public partial class UserPrivacySettingRule : Object
         {
             /// <summary>
-            /// A rule to allow certain specified users to do something 
+            /// A rule to allow certain specified users to do something
             /// </summary>
             public class UserPrivacySettingRuleAllowUsers : UserPrivacySettingRule
             {

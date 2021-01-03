@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A button that sends a special callback query to a bot 
-        /// </summary>
         public partial class InlineKeyboardButtonType : Object
         {
             /// <summary>
-            /// A button that sends a special callback query to a bot 
+            /// A button that sends a callback query to a bot
             /// </summary>
             public class InlineKeyboardButtonTypeCallback : InlineKeyboardButtonType
             {

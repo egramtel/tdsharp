@@ -21,13 +21,13 @@ namespace TdLib
             public override string DataType { get; set; } = "addRecentSticker";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Pass true to add the sticker to the list of stickers recently attached to photo or video files; pass false to add the sticker to the list of recently sent stickers 
+            /// Pass true to add the sticker to the list of stickers recently attached to photo or video files; pass false to add the sticker to the list of recently sent stickers
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_attached")]
@@ -41,18 +41,15 @@ namespace TdLib
             public InputFile Sticker { get; set; }
         }
 
-
         /// <summary>
         /// Manually adds a new sticker to the list of recently used stickers. The new sticker is added to the top of the list. If the sticker was already in the list, it is removed from the list first. Only stickers belonging to a sticker set can be added to this list
         /// </summary>
-        public static Task<Stickers> AddRecentStickerAsync(this Client client,
-            bool isAttached = default(bool),
-            InputFile sticker = default(InputFile))
+        public static Task<Stickers> AddRecentStickerAsync(
+            this Client client, bool isAttached = default, InputFile sticker = default)
         {
             return client.ExecuteAsync(new AddRecentSticker
             {
-                IsAttached = isAttached,
-                Sticker = sticker,
+                IsAttached = isAttached, Sticker = sticker
             });
         }
     }

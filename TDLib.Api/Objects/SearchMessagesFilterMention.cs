@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// Returns only messages with mentions of the current user, or messages that are replies to their messages
-        /// </summary>
         public partial class SearchMessagesFilter : Object
         {
             /// <summary>

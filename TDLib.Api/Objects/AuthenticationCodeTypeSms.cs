@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// An authentication code is delivered via an SMS message to the specified phone number 
-        /// </summary>
         public partial class AuthenticationCodeType : Object
         {
             /// <summary>
-            /// An authentication code is delivered via an SMS message to the specified phone number 
+            /// An authentication code is delivered via an SMS message to the specified phone number
             /// </summary>
             public class AuthenticationCodeTypeSms : AuthenticationCodeType
             {

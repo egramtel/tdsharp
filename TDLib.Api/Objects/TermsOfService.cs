@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Contains Telegram terms of service 
+        /// Contains Telegram terms of service
         /// </summary>
-        public class TermsOfService : Object
+        public partial class TermsOfService : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,20 +20,20 @@ namespace TdLib
             public override string DataType { get; set; } = "termsOfService";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Text of the terms of service 
+            /// Text of the terms of service
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("text")]
             public FormattedText Text { get; set; }
 
             /// <summary>
-            /// The minimum age of a user to be able to accept the terms; 0 if any 
+            /// The minimum age of a user to be able to accept the terms; 0 if any
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("min_user_age")]

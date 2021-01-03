@@ -11,7 +11,7 @@ namespace TdLib
         /// <summary>
         /// Contains information about a link to a message in a chat
         /// </summary>
-        public class MessageLinkInfo : Object
+        public partial class MessageLinkInfo : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,7 +20,7 @@ namespace TdLib
             public override string DataType { get; set; } = "messageLinkInfo";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -52,6 +52,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("for_album")]
             public bool ForAlbum { get; set; }
+
+            /// <summary>
+            /// True, if the message is linked as a channel post comment or from a message thread
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("for_comment")]
+            public bool ForComment { get; set; }
         }
     }
 }

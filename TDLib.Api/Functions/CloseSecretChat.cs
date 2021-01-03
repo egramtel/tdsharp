@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Closes a secret chat, effectively transferring its state to secretChatStateClosed 
+        /// Closes a secret chat, effectively transferring its state to secretChatStateClosed
         /// </summary>
         public class CloseSecretChat : Function<Ok>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "closeSecretChat";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public int SecretChatId { get; set; }
         }
 
-
         /// <summary>
-        /// Closes a secret chat, effectively transferring its state to secretChatStateClosed 
+        /// Closes a secret chat, effectively transferring its state to secretChatStateClosed
         /// </summary>
-        public static Task<Ok> CloseSecretChatAsync(this Client client,
-            int secretChatId = default(int))
+        public static Task<Ok> CloseSecretChatAsync(
+            this Client client, int secretChatId = default)
         {
             return client.ExecuteAsync(new CloseSecretChat
             {
-                SecretChatId = secretChatId,
+                SecretChatId = secretChatId
             });
         }
     }

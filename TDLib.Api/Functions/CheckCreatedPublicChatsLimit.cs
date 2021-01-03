@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Checks whether the maximum number of owned public chats has been reached. Returns corresponding error if the limit was reached 
+        /// Checks whether the maximum number of owned public chats has been reached. Returns corresponding error if the limit was reached
         /// </summary>
         public class CheckCreatedPublicChatsLimit : Function<Ok>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "checkCreatedPublicChatsLimit";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public PublicChatType Type { get; set; }
         }
 
-
         /// <summary>
-        /// Checks whether the maximum number of owned public chats has been reached. Returns corresponding error if the limit was reached 
+        /// Checks whether the maximum number of owned public chats has been reached. Returns corresponding error if the limit was reached
         /// </summary>
-        public static Task<Ok> CheckCreatedPublicChatsLimitAsync(this Client client,
-            PublicChatType type = default(PublicChatType))
+        public static Task<Ok> CheckCreatedPublicChatsLimitAsync(
+            this Client client, PublicChatType type = default)
         {
             return client.ExecuteAsync(new CheckCreatedPublicChatsLimit
             {
-                Type = type,
+                Type = type
             });
         }
     }

@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Requests QR code authentication by scanning a QR code on another logged in device. Works only when the current authorization state is authorizationStateWaitPhoneNumber 
+        /// Requests QR code authentication by scanning a QR code on another logged in device. Works only when the current authorization state is authorizationStateWaitPhoneNumber,
         /// </summary>
         public class RequestQrCodeAuthentication : Function<Ok>
         {
@@ -21,29 +21,28 @@ namespace TdLib
             public override string DataType { get; set; } = "requestQrCodeAuthentication";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// List of user identifiers of other users currently using the client
+            /// List of user identifiers of other users currently using the application
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("other_user_ids")]
             public int[] OtherUserIds { get; set; }
         }
 
-
         /// <summary>
-        /// Requests QR code authentication by scanning a QR code on another logged in device. Works only when the current authorization state is authorizationStateWaitPhoneNumber 
+        /// Requests QR code authentication by scanning a QR code on another logged in device. Works only when the current authorization state is authorizationStateWaitPhoneNumber,
         /// </summary>
-        public static Task<Ok> RequestQrCodeAuthenticationAsync(this Client client,
-            int[] otherUserIds = default(int[]))
+        public static Task<Ok> RequestQrCodeAuthenticationAsync(
+            this Client client, int[] otherUserIds = default)
         {
             return client.ExecuteAsync(new RequestQrCodeAuthentication
             {
-                OtherUserIds = otherUserIds,
+                OtherUserIds = otherUserIds
             });
         }
     }

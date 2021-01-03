@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The author and publishing date of a page 
-        /// </summary>
         public partial class PageBlock : Object
         {
             /// <summary>
-            /// The author and publishing date of a page 
+            /// The author and publishing date of a page
             /// </summary>
             public class PageBlockAuthorDate : PageBlock
             {
@@ -31,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Author 
+                /// Author
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("author")]

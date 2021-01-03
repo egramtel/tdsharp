@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Changes the first and last name of the current user. If something changes, updateUser will be sent 
+        /// Changes the first and last name of the current user
         /// </summary>
         public class SetName : Function<Ok>
         {
@@ -21,13 +21,13 @@ namespace TdLib
             public override string DataType { get; set; } = "setName";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// The new value of the first name for the user; 1-64 characters 
+            /// The new value of the first name for the user; 1-64 characters
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("first_name")]
@@ -41,18 +41,15 @@ namespace TdLib
             public string LastName { get; set; }
         }
 
-
         /// <summary>
-        /// Changes the first and last name of the current user. If something changes, updateUser will be sent 
+        /// Changes the first and last name of the current user
         /// </summary>
-        public static Task<Ok> SetNameAsync(this Client client,
-            string firstName = default(string),
-            string lastName = default(string))
+        public static Task<Ok> SetNameAsync(
+            this Client client, string firstName = default, string lastName = default)
         {
             return client.ExecuteAsync(new SetName
             {
-                FirstName = firstName,
-                LastName = lastName,
+                FirstName = firstName, LastName = lastName
             });
         }
     }

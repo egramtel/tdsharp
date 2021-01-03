@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Deletes a file from the TDLib file cache 
+        /// Deletes a file from the TDLib file cache
         /// </summary>
         public class DeleteFile : Function<Ok>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "deleteFile";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public int FileId { get; set; }
         }
 
-
         /// <summary>
-        /// Deletes a file from the TDLib file cache 
+        /// Deletes a file from the TDLib file cache
         /// </summary>
-        public static Task<Ok> DeleteFileAsync(this Client client,
-            int fileId = default(int))
+        public static Task<Ok> DeleteFileAsync(
+            this Client client, int fileId = default)
         {
             return client.ExecuteAsync(new DeleteFile
             {
-                FileId = fileId,
+                FileId = fileId
             });
         }
     }

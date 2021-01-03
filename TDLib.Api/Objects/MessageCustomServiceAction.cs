@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A non-standard action has happened in the chat 
-        /// </summary>
         public partial class MessageContent : Object
         {
             /// <summary>
-            /// A non-standard action has happened in the chat 
+            /// A non-standard action has happened in the chat
             /// </summary>
             public class MessageCustomServiceAction : MessageContent
             {

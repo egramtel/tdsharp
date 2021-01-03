@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// Represents a string option 
-        /// </summary>
         public partial class OptionValue : Object
         {
             /// <summary>
-            /// Represents a string option 
+            /// Represents a string option
             /// </summary>
             public class OptionValueString : OptionValue
             {

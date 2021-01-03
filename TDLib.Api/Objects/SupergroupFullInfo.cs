@@ -11,7 +11,7 @@ namespace TdLib
         /// <summary>
         /// Contains full information about a supergroup or channel
         /// </summary>
-        public class SupergroupFullInfo : Object
+        public partial class SupergroupFullInfo : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,13 +20,20 @@ namespace TdLib
             public override string DataType { get; set; } = "supergroupFullInfo";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Contains full information about a supergroup or channel
+            /// Chat photo; may be null
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("photo")]
+            public ChatPhoto Photo { get; set; }
+
+            /// <summary>
+            /// 
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("description")]
@@ -110,11 +117,11 @@ namespace TdLib
             public bool CanSetLocation { get; set; }
 
             /// <summary>
-            /// True, if the channel statistics is available through getChatStatisticsUrl
+            /// True, if the supergroup or channel statistics are available
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("can_view_statistics")]
-            public bool CanViewStatistics { get; set; }
+            [JsonProperty("can_get_statistics")]
+            public bool CanGetStatistics { get; set; }
 
             /// <summary>
             /// True, if new chat members will have access to old messages. In public or discussion groups and both public and private channels, old messages are always available, so this option affects only private supergroups without a linked chat. The value of this field is only available for chat administrators
@@ -128,7 +135,7 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter.Int64))]
             [JsonProperty("sticker_set_id")]
-            public Int64 StickerSetId { get; set; }
+            public long StickerSetId { get; set; }
 
             /// <summary>
             /// Location to which the supergroup is connected; may be null

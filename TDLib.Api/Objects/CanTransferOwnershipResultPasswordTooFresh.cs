@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The 2-step verification was enabled recently, user needs to wait 
-        /// </summary>
         public partial class CanTransferOwnershipResult : Object
         {
             /// <summary>
-            /// The 2-step verification was enabled recently, user needs to wait 
+            /// The 2-step verification was enabled recently, user needs to wait
             /// </summary>
             public class CanTransferOwnershipResultPasswordTooFresh : CanTransferOwnershipResult
             {

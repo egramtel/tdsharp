@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The selfie contains an error. The error is considered resolved when the file with the selfie changes 
-        /// </summary>
         public partial class InputPassportElementErrorSource : Object
         {
             /// <summary>
-            /// The selfie contains an error. The error is considered resolved when the file with the selfie changes 
+            /// The selfie contains an error. The error is considered resolved when the file with the selfie changes
             /// </summary>
             public class InputPassportElementErrorSourceSelfie : InputPassportElementErrorSource
             {

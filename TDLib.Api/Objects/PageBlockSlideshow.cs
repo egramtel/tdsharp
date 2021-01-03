@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A slideshow 
-        /// </summary>
         public partial class PageBlock : Object
         {
             /// <summary>
-            /// A slideshow 
+            /// A slideshow
             /// </summary>
             public class PageBlockSlideshow : PageBlock
             {
@@ -31,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Slideshow item contents 
+                /// Slideshow item contents
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("page_blocks")]

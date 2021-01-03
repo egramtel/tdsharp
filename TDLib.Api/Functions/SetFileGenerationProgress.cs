@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "setFileGenerationProgress";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -31,7 +31,7 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter.Int64))]
             [JsonProperty("generation_id")]
-            public Int64 GenerationId { get; set; }
+            public long GenerationId { get; set; }
 
             /// <summary>
             /// Expected size of the generated file, in bytes; 0 if unknown
@@ -48,20 +48,15 @@ namespace TdLib
             public int LocalPrefixSize { get; set; }
         }
 
-
         /// <summary>
         /// Informs TDLib on a file generation progress
         /// </summary>
-        public static Task<Ok> SetFileGenerationProgressAsync(this Client client,
-            Int64 generationId = default(Int64),
-            int expectedSize = default(int),
-            int localPrefixSize = default(int))
+        public static Task<Ok> SetFileGenerationProgressAsync(
+            this Client client, long generationId = default, int expectedSize = default, int localPrefixSize = default)
         {
             return client.ExecuteAsync(new SetFileGenerationProgress
             {
-                GenerationId = generationId,
-                ExpectedSize = expectedSize,
-                LocalPrefixSize = localPrefixSize,
+                GenerationId = generationId, ExpectedSize = expectedSize, LocalPrefixSize = localPrefixSize
             });
         }
     }

@@ -21,17 +21,17 @@ namespace TdLib
             public override string DataType { get; set; } = "getTemporaryPasswordState";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
         }
 
-
         /// <summary>
         /// Returns information about the current temporary password
         /// </summary>
-        public static Task<TemporaryPasswordState> GetTemporaryPasswordStateAsync(this Client client)
+        public static Task<TemporaryPasswordState> GetTemporaryPasswordStateAsync(
+            this Client client)
         {
             return client.ExecuteAsync(new GetTemporaryPasswordState
             {

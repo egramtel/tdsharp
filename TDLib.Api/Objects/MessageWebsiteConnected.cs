@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The current user has connected a website by logging in using Telegram Login Widget on it 
-        /// </summary>
         public partial class MessageContent : Object
         {
             /// <summary>
-            /// The current user has connected a website by logging in using Telegram Login Widget on it 
+            /// The current user has connected a website by logging in using Telegram Login Widget on it
             /// </summary>
             public class MessageWebsiteConnected : MessageContent
             {

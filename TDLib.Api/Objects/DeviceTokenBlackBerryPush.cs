@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A token for BlackBerry Push Service 
-        /// </summary>
         public partial class DeviceToken : Object
         {
             /// <summary>
-            /// A token for BlackBerry Push Service 
+            /// A token for BlackBerry Push Service
             /// </summary>
             public class DeviceTokenBlackBerryPush : DeviceToken
             {

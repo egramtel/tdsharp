@@ -21,17 +21,17 @@ namespace TdLib
             public override string DataType { get; set; } = "resetBackgrounds";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
         }
 
-
         /// <summary>
         /// Resets list of installed backgrounds to its default value
         /// </summary>
-        public static Task<Ok> ResetBackgroundsAsync(this Client client)
+        public static Task<Ok> ResetBackgroundsAsync(
+            this Client client)
         {
             return client.ExecuteAsync(new ResetBackgrounds
             {

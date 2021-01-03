@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Changes imported contacts using the list of current user contacts saved on the device. Imports newly added contacts and, if at least the file database is enabled, deletes recently deleted contacts.
+        /// Changes imported contacts using the list of contacts saved on the device. Imports newly added contacts and, if at least the file database is enabled, deletes recently deleted contacts.
         /// </summary>
         public class ChangeImportedContacts : Function<ImportedContacts>
         {
@@ -21,29 +21,28 @@ namespace TdLib
             public override string DataType { get; set; } = "changeImportedContacts";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// The new list of contacts, contact's vCard are ignored and are not imported
+            /// 
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("contacts")]
             public Contact[] Contacts { get; set; }
         }
 
-
         /// <summary>
-        /// Changes imported contacts using the list of current user contacts saved on the device. Imports newly added contacts and, if at least the file database is enabled, deletes recently deleted contacts.
+        /// Changes imported contacts using the list of contacts saved on the device. Imports newly added contacts and, if at least the file database is enabled, deletes recently deleted contacts.
         /// </summary>
-        public static Task<ImportedContacts> ChangeImportedContactsAsync(this Client client,
-            Contact[] contacts = default(Contact[]))
+        public static Task<ImportedContacts> ChangeImportedContactsAsync(
+            this Client client, Contact[] contacts = default)
         {
             return client.ExecuteAsync(new ChangeImportedContacts
             {
-                Contacts = contacts,
+                Contacts = contacts
             });
         }
     }

@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns all entities (mentions, hashtags, cashtags, bot commands, bank card numbers, URLs, and email addresses) contained in the text. This is an offline method. Can be called before authorization. Can be called synchronously 
+        /// Returns all entities (mentions, hashtags, cashtags, bot commands, bank card numbers, URLs, and email addresses) contained in the text. Can be called synchronously
         /// </summary>
         public class GetTextEntities : Function<TextEntities>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "getTextEntities";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public string Text { get; set; }
         }
 
-
         /// <summary>
-        /// Returns all entities (mentions, hashtags, cashtags, bot commands, bank card numbers, URLs, and email addresses) contained in the text. This is an offline method. Can be called before authorization. Can be called synchronously 
+        /// Returns all entities (mentions, hashtags, cashtags, bot commands, bank card numbers, URLs, and email addresses) contained in the text. Can be called synchronously
         /// </summary>
-        public static Task<TextEntities> GetTextEntitiesAsync(this Client client,
-            string text = default(string))
+        public static Task<TextEntities> GetTextEntitiesAsync(
+            this Client client, string text = default)
         {
             return client.ExecuteAsync(new GetTextEntities
             {
-                Text = text,
+                Text = text
             });
         }
     }

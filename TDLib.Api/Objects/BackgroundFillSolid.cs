@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// Describes a solid fill of a background 
-        /// </summary>
         public partial class BackgroundFill : Object
         {
             /// <summary>
-            /// Describes a solid fill of a background 
+            /// Describes a fill of a background
             /// </summary>
             public class BackgroundFillSolid : BackgroundFill
             {

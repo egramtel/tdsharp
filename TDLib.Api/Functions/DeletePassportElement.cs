@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Deletes a Telegram Passport element 
+        /// Deletes a Telegram Passport element
         /// </summary>
         public class DeletePassportElement : Function<Ok>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "deletePassportElement";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public PassportElementType Type { get; set; }
         }
 
-
         /// <summary>
-        /// Deletes a Telegram Passport element 
+        /// Deletes a Telegram Passport element
         /// </summary>
-        public static Task<Ok> DeletePassportElementAsync(this Client client,
-            PassportElementType type = default(PassportElementType))
+        public static Task<Ok> DeletePassportElementAsync(
+            this Client client, PassportElementType type = default)
         {
             return client.ExecuteAsync(new DeletePassportElement
             {
-                Type = type,
+                Type = type
             });
         }
     }

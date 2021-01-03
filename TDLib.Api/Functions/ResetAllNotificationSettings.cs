@@ -21,17 +21,17 @@ namespace TdLib
             public override string DataType { get; set; } = "resetAllNotificationSettings";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
         }
 
-
         /// <summary>
         /// Resets all notification settings to their default values. By default, all chats are unmuted, the sound is set to "default" and message previews are shown
         /// </summary>
-        public static Task<Ok> ResetAllNotificationSettingsAsync(this Client client)
+        public static Task<Ok> ResetAllNotificationSettingsAsync(
+            this Client client)
         {
             return client.ExecuteAsync(new ResetAllNotificationSettings
             {

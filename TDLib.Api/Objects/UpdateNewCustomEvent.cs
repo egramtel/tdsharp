@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A new incoming event; for bots only 
-        /// </summary>
         public partial class Update : Object
         {
             /// <summary>
-            /// A new incoming event; for bots only 
+            /// A new incoming event; for bots only
             /// </summary>
             public class UpdateNewCustomEvent : Update
             {

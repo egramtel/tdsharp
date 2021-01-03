@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A message with a game 
-        /// </summary>
         public partial class PushMessageContent : Object
         {
             /// <summary>
-            /// A message with a game 
+            /// A message with a game
             /// </summary>
             public class PushMessageContentGame : PushMessageContent
             {
@@ -31,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Game title, empty for pinned game message 
+                /// Game title, empty for pinned game message
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("title")]

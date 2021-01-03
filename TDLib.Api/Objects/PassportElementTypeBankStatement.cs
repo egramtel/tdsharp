@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A Telegram Passport element containing the user's bank statement
-        /// </summary>
         public partial class PassportElementType : Object
         {
             /// <summary>

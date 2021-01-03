@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// Some data from basicGroupFullInfo has been changed 
-        /// </summary>
         public partial class Update : Object
         {
             /// <summary>
-            /// Some data from basicGroupFullInfo has been changed 
+            /// Some data from basicGroupFullInfo has been changed
             /// </summary>
             public class UpdateBasicGroupFullInfo : Update
             {
@@ -31,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Identifier of a basic group 
+                /// Identifier of a basic group
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("basic_group_id")]

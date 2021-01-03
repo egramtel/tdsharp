@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Adds a user to the contact list or edits an existing contact by their user identifier 
+        /// Adds a user to the contact list or edits an existing contact by their user identifier
         /// </summary>
         public class AddContact : Function<Ok>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "addContact";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -41,18 +41,15 @@ namespace TdLib
             public bool SharePhoneNumber { get; set; }
         }
 
-
         /// <summary>
-        /// Adds a user to the contact list or edits an existing contact by their user identifier 
+        /// Adds a user to the contact list or edits an existing contact by their user identifier
         /// </summary>
-        public static Task<Ok> AddContactAsync(this Client client,
-            Contact contact = default(Contact),
-            bool sharePhoneNumber = default(bool))
+        public static Task<Ok> AddContactAsync(
+            this Client client, Contact contact = default, bool sharePhoneNumber = default)
         {
             return client.ExecuteAsync(new AddContact
             {
-                Contact = contact,
-                SharePhoneNumber = sharePhoneNumber,
+                Contact = contact, SharePhoneNumber = sharePhoneNumber
             });
         }
     }

@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns information about members or banned users in a supergroup or channel. Can be used only if SupergroupFullInfo.can_get_members == true; additionally, administrator privileges may be required for some filters 
+        /// Returns information about members or banned users in a supergroup or channel. Can be used only if SupergroupFullInfo.can_get_members == true; additionally, administrator privileges may be required for some filters
         /// </summary>
         public class GetSupergroupMembers : Function<ChatMembers>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "getSupergroupMembers";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,14 +34,14 @@ namespace TdLib
             public int SupergroupId { get; set; }
 
             /// <summary>
-            /// The type of users to return. By default, supergroupMembersRecent 
+            /// The type of users to return. By default, supergroupMembersFilterRecent
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("filter")]
             public SupergroupMembersFilter Filter { get; set; }
 
             /// <summary>
-            /// Number of users to skip 
+            /// Number of users to skip
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("offset")]
@@ -55,22 +55,16 @@ namespace TdLib
             public int Limit { get; set; }
         }
 
-
         /// <summary>
-        /// Returns information about members or banned users in a supergroup or channel. Can be used only if SupergroupFullInfo.can_get_members == true; additionally, administrator privileges may be required for some filters 
+        /// Returns information about members or banned users in a supergroup or channel. Can be used only if SupergroupFullInfo.can_get_members == true; additionally, administrator privileges may be required for some filters
         /// </summary>
-        public static Task<ChatMembers> GetSupergroupMembersAsync(this Client client,
-            int supergroupId = default(int),
-            SupergroupMembersFilter filter = default(SupergroupMembersFilter),
-            int offset = default(int),
-            int limit = default(int))
+        public static Task<ChatMembers> GetSupergroupMembersAsync(
+            this Client client, int supergroupId = default, SupergroupMembersFilter filter = default,
+            int offset = default, int limit = default)
         {
             return client.ExecuteAsync(new GetSupergroupMembers
             {
-                SupergroupId = supergroupId,
-                Filter = filter,
-                Offset = offset,
-                Limit = limit,
+                SupergroupId = supergroupId, Filter = filter, Offset = offset, Limit = limit
             });
         }
     }

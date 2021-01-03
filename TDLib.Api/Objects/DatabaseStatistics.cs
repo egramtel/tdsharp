@@ -11,7 +11,7 @@ namespace TdLib
         /// <summary>
         /// Contains database statistics
         /// </summary>
-        public class DatabaseStatistics : Object
+        public partial class DatabaseStatistics : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,7 +20,7 @@ namespace TdLib
             public override string DataType { get; set; } = "databaseStatistics";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }

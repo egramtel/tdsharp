@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns a list of common group chats with a given user. Chats are sorted by their type and creation date 
+        /// Returns a list of common group chats with a given user. Chats are sorted by their type and creation date
         /// </summary>
         public class GetGroupsInCommon : Function<Chats>
         {
@@ -21,20 +21,20 @@ namespace TdLib
             public override string DataType { get; set; } = "getGroupsInCommon";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// User identifier 
+            /// User identifier
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("user_id")]
             public int UserId { get; set; }
 
             /// <summary>
-            /// Chat identifier starting from which to return chats; use 0 for the first request 
+            /// Chat identifier starting from which to return chats; use 0 for the first request
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("offset_chat_id")]
@@ -48,20 +48,15 @@ namespace TdLib
             public int Limit { get; set; }
         }
 
-
         /// <summary>
-        /// Returns a list of common group chats with a given user. Chats are sorted by their type and creation date 
+        /// Returns a list of common group chats with a given user. Chats are sorted by their type and creation date
         /// </summary>
-        public static Task<Chats> GetGroupsInCommonAsync(this Client client,
-            int userId = default(int),
-            long offsetChatId = default(long),
-            int limit = default(int))
+        public static Task<Chats> GetGroupsInCommonAsync(
+            this Client client, int userId = default, long offsetChatId = default, int limit = default)
         {
             return client.ExecuteAsync(new GetGroupsInCommon
             {
-                UserId = userId,
-                OffsetChatId = offsetChatId,
-                Limit = limit,
+                UserId = userId, OffsetChatId = offsetChatId, Limit = limit
             });
         }
     }

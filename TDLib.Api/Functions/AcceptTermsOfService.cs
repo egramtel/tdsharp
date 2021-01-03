@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Accepts Telegram terms of services 
+        /// Accepts Telegram terms of services
         /// </summary>
         public class AcceptTermsOfService : Function<Ok>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "acceptTermsOfService";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public string TermsOfServiceId { get; set; }
         }
 
-
         /// <summary>
-        /// Accepts Telegram terms of services 
+        /// Accepts Telegram terms of services
         /// </summary>
-        public static Task<Ok> AcceptTermsOfServiceAsync(this Client client,
-            string termsOfServiceId = default(string))
+        public static Task<Ok> AcceptTermsOfServiceAsync(
+            this Client client, string termsOfServiceId = default)
         {
             return client.ExecuteAsync(new AcceptTermsOfService
             {
-                TermsOfServiceId = termsOfServiceId,
+                TermsOfServiceId = termsOfServiceId
             });
         }
     }

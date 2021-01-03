@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A Telegram Passport element to be saved containing the user's passport 
-        /// </summary>
         public partial class InputPassportElement : Object
         {
             /// <summary>
-            /// A Telegram Passport element to be saved containing the user's passport 
+            /// A Telegram Passport element to be saved containing the user's passport
             /// </summary>
             public class InputPassportElementPassport : InputPassportElement
             {

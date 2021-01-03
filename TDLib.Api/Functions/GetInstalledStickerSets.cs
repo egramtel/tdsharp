@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns a list of installed sticker sets 
+        /// Returns a list of installed sticker sets
         /// </summary>
         public class GetInstalledStickerSets : Function<StickerSets>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "getInstalledStickerSets";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public bool IsMasks { get; set; }
         }
 
-
         /// <summary>
-        /// Returns a list of installed sticker sets 
+        /// Returns a list of installed sticker sets
         /// </summary>
-        public static Task<StickerSets> GetInstalledStickerSetsAsync(this Client client,
-            bool isMasks = default(bool))
+        public static Task<StickerSets> GetInstalledStickerSetsAsync(
+            this Client client, bool isMasks = default)
         {
             return client.ExecuteAsync(new GetInstalledStickerSets
             {
-                IsMasks = isMasks,
+                IsMasks = isMasks
             });
         }
     }

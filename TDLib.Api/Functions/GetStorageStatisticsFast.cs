@@ -21,17 +21,17 @@ namespace TdLib
             public override string DataType { get; set; } = "getStorageStatisticsFast";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
         }
 
-
         /// <summary>
         /// Quickly returns approximate storage usage statistics. Can be called before authorization
         /// </summary>
-        public static Task<StorageStatisticsFast> GetStorageStatisticsFastAsync(this Client client)
+        public static Task<StorageStatisticsFast> GetStorageStatisticsFastAsync(
+            this Client client)
         {
             return client.ExecuteAsync(new GetStorageStatisticsFast
             {

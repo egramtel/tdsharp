@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Edits the caption of an inline message sent via a bot; for bots only 
+        /// Edits the caption of an inline message sent via a bot; for bots only
         /// </summary>
         public class EditInlineMessageCaption : Function<Ok>
         {
@@ -21,20 +21,20 @@ namespace TdLib
             public override string DataType { get; set; } = "editInlineMessageCaption";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Inline message identifier 
+            /// Inline message identifier
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("inline_message_id")]
             public string InlineMessageId { get; set; }
 
             /// <summary>
-            /// The new message reply markup 
+            /// The new message reply markup
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("reply_markup")]
@@ -48,20 +48,16 @@ namespace TdLib
             public FormattedText Caption { get; set; }
         }
 
-
         /// <summary>
-        /// Edits the caption of an inline message sent via a bot; for bots only 
+        /// Edits the caption of an inline message sent via a bot; for bots only
         /// </summary>
-        public static Task<Ok> EditInlineMessageCaptionAsync(this Client client,
-            string inlineMessageId = default(string),
-            ReplyMarkup replyMarkup = default(ReplyMarkup),
-            FormattedText caption = default(FormattedText))
+        public static Task<Ok> EditInlineMessageCaptionAsync(
+            this Client client, string inlineMessageId = default, ReplyMarkup replyMarkup = default,
+            FormattedText caption = default)
         {
             return client.ExecuteAsync(new EditInlineMessageCaption
             {
-                InlineMessageId = inlineMessageId,
-                ReplyMarkup = replyMarkup,
-                Caption = caption,
+                InlineMessageId = inlineMessageId, ReplyMarkup = replyMarkup, Caption = caption
             });
         }
     }

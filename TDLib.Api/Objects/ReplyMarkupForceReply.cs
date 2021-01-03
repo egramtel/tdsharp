@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// Instructs clients to force a reply to this message
-        /// </summary>
         public partial class ReplyMarkup : Object
         {
             /// <summary>
-            /// Instructs clients to force a reply to this message
+            /// Instructs application to force a reply to this message
             /// </summary>
             public class ReplyMarkupForceReply : ReplyMarkup
             {

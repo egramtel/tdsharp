@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// Applies if a user enters new credentials on a payment provider website 
-        /// </summary>
         public partial class InputCredentials : Object
         {
             /// <summary>
-            /// Applies if a user enters new credentials on a payment provider website 
+            /// Applies if a user enters new credentials on a payment provider website
             /// </summary>
             public class InputCredentialsNew : InputCredentials
             {
@@ -31,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Contains JSON-encoded data with a credential identifier from the payment provider 
+                /// Contains JSON-encoded data with a credential identifier from the payment provider
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("data")]

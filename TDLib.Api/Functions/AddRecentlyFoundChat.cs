@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Adds a chat to the list of recently found chats. The chat is added to the beginning of the list. If the chat is already in the list, it will be removed from the list first 
+        /// Adds a chat to the list of recently found chats. The chat is added to the beginning of the list. If the chat is already in the list, it will be removed from the list first
         /// </summary>
         public class AddRecentlyFoundChat : Function<Ok>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "addRecentlyFoundChat";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public long ChatId { get; set; }
         }
 
-
         /// <summary>
-        /// Adds a chat to the list of recently found chats. The chat is added to the beginning of the list. If the chat is already in the list, it will be removed from the list first 
+        /// Adds a chat to the list of recently found chats. The chat is added to the beginning of the list. If the chat is already in the list, it will be removed from the list first
         /// </summary>
-        public static Task<Ok> AddRecentlyFoundChatAsync(this Client client,
-            long chatId = default(long))
+        public static Task<Ok> AddRecentlyFoundChatAsync(
+            this Client client, long chatId = default)
         {
             return client.ExecuteAsync(new AddRecentlyFoundChat
             {
-                ChatId = chatId,
+                ChatId = chatId
             });
         }
     }

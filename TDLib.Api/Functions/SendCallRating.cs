@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Sends a call rating 
+        /// Sends a call rating
         /// </summary>
         public class SendCallRating : Function<Ok>
         {
@@ -21,27 +21,27 @@ namespace TdLib
             public override string DataType { get; set; } = "sendCallRating";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Call identifier 
+            /// Call identifier
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("call_id")]
             public int CallId { get; set; }
 
             /// <summary>
-            /// Call rating; 1-5 
+            /// Call rating; 1-5
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("rating")]
             public int Rating { get; set; }
 
             /// <summary>
-            /// An optional user comment if the rating is less than 5 
+            /// An optional user comment if the rating is less than 5
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("comment")]
@@ -55,22 +55,16 @@ namespace TdLib
             public CallProblem[] Problems { get; set; }
         }
 
-
         /// <summary>
-        /// Sends a call rating 
+        /// Sends a call rating
         /// </summary>
-        public static Task<Ok> SendCallRatingAsync(this Client client,
-            int callId = default(int),
-            int rating = default(int),
-            string comment = default(string),
-            CallProblem[] problems = default(CallProblem[]))
+        public static Task<Ok> SendCallRatingAsync(
+            this Client client, int callId = default, int rating = default, string comment = default,
+            CallProblem[] problems = default)
         {
             return client.ExecuteAsync(new SendCallRating
             {
-                CallId = callId,
-                Rating = rating,
-                Comment = comment,
-                Problems = problems,
+                CallId = callId, Rating = rating, Comment = comment, Problems = problems
             });
         }
     }

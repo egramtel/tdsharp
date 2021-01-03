@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The chat permissions was changed 
-        /// </summary>
         public partial class ChatEventAction : Object
         {
             /// <summary>
-            /// The chat permissions was changed 
+            /// The chat permissions was changed
             /// </summary>
             public class ChatEventPermissionsChanged : ChatEventAction
             {
@@ -31,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Previous chat permissions 
+                /// Previous chat permissions
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("old_permissions")]

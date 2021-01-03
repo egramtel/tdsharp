@@ -21,13 +21,13 @@ namespace TdLib
             public override string DataType { get; set; } = "getRemoteFile";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Remote identifier of the file to get 
+            /// Remote identifier of the file to get
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("remote_file_id")]
@@ -41,18 +41,15 @@ namespace TdLib
             public FileType FileType { get; set; }
         }
 
-
         /// <summary>
         /// Returns information about a file by its remote ID; this is an offline request. Can be used to register a URL as a file for further uploading, or sending as a message. Even the request succeeds, the file can be used only if it is still accessible to the user.
         /// </summary>
-        public static Task<File> GetRemoteFileAsync(this Client client,
-            string remoteFileId = default(string),
-            FileType fileType = default(FileType))
+        public static Task<File> GetRemoteFileAsync(
+            this Client client, string remoteFileId = default, FileType fileType = default)
         {
             return client.ExecuteAsync(new GetRemoteFile
             {
-                RemoteFileId = remoteFileId,
-                FileType = fileType,
+                RemoteFileId = remoteFileId, FileType = fileType
             });
         }
     }

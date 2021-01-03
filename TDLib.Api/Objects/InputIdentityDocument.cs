@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// An identity document to be saved to Telegram Passport 
+        /// An identity document to be saved to Telegram Passport
         /// </summary>
-        public class InputIdentityDocument : Object
+        public partial class InputIdentityDocument : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,20 +20,20 @@ namespace TdLib
             public override string DataType { get; set; } = "inputIdentityDocument";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Document number; 1-24 characters 
+            /// Document number; 1-24 characters
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("number")]
             public string Number { get; set; }
 
             /// <summary>
-            /// Document expiry date, if available 
+            /// Document expiry date, if available
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("expiry_date")]
@@ -47,14 +47,14 @@ namespace TdLib
             public InputFile FrontSide { get; set; }
 
             /// <summary>
-            /// Reverse side of the document; only for driver license and identity card 
+            /// Reverse side of the document; only for driver license and identity card
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("reverse_side")]
             public InputFile ReverseSide { get; set; }
 
             /// <summary>
-            /// Selfie with the document, if available 
+            /// Selfie with the document, if available
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("selfie")]

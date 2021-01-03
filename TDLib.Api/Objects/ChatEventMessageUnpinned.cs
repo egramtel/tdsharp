@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A message was unpinned
-        /// </summary>
         public partial class ChatEventAction : Object
         {
             /// <summary>
@@ -29,6 +26,13 @@ namespace TdLib
                 /// </summary>
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
+
+                /// <summary>
+                /// Unpinned message
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("message")]
+                public Message Message { get; set; }
             }
         }
     }

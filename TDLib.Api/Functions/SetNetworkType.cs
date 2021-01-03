@@ -21,29 +21,28 @@ namespace TdLib
             public override string DataType { get; set; } = "setNetworkType";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// The new network type. By default, networkTypeOther
+            /// 
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("type")]
             public NetworkType Type { get; set; }
         }
 
-
         /// <summary>
         /// Sets the current network type. Can be called before authorization. Calling this method forces all network connections to reopen, mitigating the delay in switching between different networks, so it should be called whenever the network is changed, even if the network type remains the same.
         /// </summary>
-        public static Task<Ok> SetNetworkTypeAsync(this Client client,
-            NetworkType type = default(NetworkType))
+        public static Task<Ok> SetNetworkTypeAsync(
+            this Client client, NetworkType type = default)
         {
             return client.ExecuteAsync(new SetNetworkType
             {
-                Type = type,
+                Type = type
             });
         }
     }

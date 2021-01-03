@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns information about a message 
+        /// Returns information about a message
         /// </summary>
         public class GetMessage : Function<Message>
         {
@@ -21,13 +21,13 @@ namespace TdLib
             public override string DataType { get; set; } = "getMessage";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Identifier of the chat the message belongs to 
+            /// Identifier of the chat the message belongs to
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_id")]
@@ -41,18 +41,15 @@ namespace TdLib
             public long MessageId { get; set; }
         }
 
-
         /// <summary>
-        /// Returns information about a message 
+        /// Returns information about a message
         /// </summary>
-        public static Task<Message> GetMessageAsync(this Client client,
-            long chatId = default(long),
-            long messageId = default(long))
+        public static Task<Message> GetMessageAsync(
+            this Client client, long chatId = default, long messageId = default)
         {
             return client.ExecuteAsync(new GetMessage
             {
-                ChatId = chatId,
-                MessageId = messageId,
+                ChatId = chatId, MessageId = messageId
             });
         }
     }

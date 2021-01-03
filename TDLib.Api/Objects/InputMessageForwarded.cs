@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A forwarded message 
-        /// </summary>
         public partial class InputMessageContent : Object
         {
             /// <summary>
-            /// A forwarded message 
+            /// A forwarded message
             /// </summary>
             public class InputMessageForwarded : InputMessageContent
             {
@@ -31,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Identifier for the chat this forwarded message came from 
+                /// Identifier for the chat this forwarded message came from
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("from_chat_id")]
@@ -52,18 +49,11 @@ namespace TdLib
                 public bool InGameShare { get; set; }
 
                 /// <summary>
-                /// True, if content of the message needs to be copied without a link to the original message. Always true if the message is forwarded to a secret chat
+                /// Options to be used to copy content of the message without a link to the original message
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("send_copy")]
-                public bool SendCopy { get; set; }
-
-                /// <summary>
-                /// True, if media caption of the message copy needs to be removed. Ignored if send_copy is false
-                /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("remove_caption")]
-                public bool RemoveCaption { get; set; }
+                [JsonProperty("copy_options")]
+                public MessageCopyOptions CopyOptions { get; set; }
             }
         }
     }

@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Specifies the supported call protocols 
+        /// Specifies the supported call protocols
         /// </summary>
-        public class CallProtocol : Object
+        public partial class CallProtocol : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,27 +20,27 @@ namespace TdLib
             public override string DataType { get; set; } = "callProtocol";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// 
+            /// True, if UDP peer-to-peer connections are supported
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("udp_p2p")]
             public bool UdpP2p { get; set; }
 
             /// <summary>
-            /// True, if connection through UDP reflectors is supported 
+            /// True, if connection through UDP reflectors is supported
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("udp_reflector")]
             public bool UdpReflector { get; set; }
 
             /// <summary>
-            /// The minimum supported API layer; use 65 
+            /// The minimum supported API layer; use 65
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("min_layer")]
@@ -52,6 +52,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("max_layer")]
             public int MaxLayer { get; set; }
+
+            /// <summary>
+            /// List of supported tgcalls versions
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("library_versions")]
+            public string[] LibraryVersions { get; set; }
         }
     }
 }

@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// An italic text
-        /// </summary>
         public partial class TextEntityType : Object
         {
             /// <summary>

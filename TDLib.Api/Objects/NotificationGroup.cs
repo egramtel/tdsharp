@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Describes a group of notifications 
+        /// Describes a group of notifications
         /// </summary>
-        public class NotificationGroup : Object
+        public partial class NotificationGroup : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,13 +20,13 @@ namespace TdLib
             public override string DataType { get; set; } = "notificationGroup";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Unique persistent auto-incremented from 1 identifier of the notification group 
+            /// Unique persistent auto-incremented from 1 identifier of the notification group
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("id")]
@@ -47,7 +47,7 @@ namespace TdLib
             public long ChatId { get; set; }
 
             /// <summary>
-            /// Total number of active notifications in the group 
+            /// Total number of active notifications in the group
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("total_count")]

@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A category containing frequently used private chats with non-bot users
-        /// </summary>
         public partial class TopChatCategory : Object
         {
             /// <summary>
-            /// A category containing frequently used private chats with non-bot users
+            /// Represents the categories of chats for which a list of frequently used chats can be retrieved
             /// </summary>
             public class TopChatCategoryUsers : TopChatCategory
             {

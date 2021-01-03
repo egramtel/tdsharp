@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Describes a chat located nearby 
+        /// Describes a chat located nearby
         /// </summary>
-        public class ChatNearby : Object
+        public partial class ChatNearby : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,20 +20,20 @@ namespace TdLib
             public override string DataType { get; set; } = "chatNearby";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Chat identifier 
+            /// Chat identifier
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_id")]
             public long ChatId { get; set; }
 
             /// <summary>
-            /// Distance to the chat location in meters
+            /// Distance to the chat location, in meters
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("distance")]

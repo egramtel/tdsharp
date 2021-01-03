@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The value of the default disable_notification parameter, used when a message is sent to the chat, was changed 
-        /// </summary>
         public partial class Update : Object
         {
             /// <summary>
-            /// The value of the default disable_notification parameter, used when a message is sent to the chat, was changed 
+            /// The value of the default disable_notification parameter, used when a message is sent to the chat, was changed
             /// </summary>
             public class UpdateChatDefaultDisableNotification : Update
             {
@@ -31,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Chat identifier 
+                /// Chat identifier
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("chat_id")]

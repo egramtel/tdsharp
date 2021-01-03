@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Order information 
+        /// Order information
         /// </summary>
-        public class OrderInfo : Object
+        public partial class OrderInfo : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,27 +20,27 @@ namespace TdLib
             public override string DataType { get; set; } = "orderInfo";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Name of the user 
+            /// Name of the user
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("name")]
             public string Name { get; set; }
 
             /// <summary>
-            /// Phone number of the user 
+            /// Phone number of the user
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("phone_number")]
             public string PhoneNumber { get; set; }
 
             /// <summary>
-            /// Email address of the user 
+            /// Email address of the user
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("email_address")]

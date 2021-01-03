@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Sends a Telegram Passport authorization form, effectively sharing data with the service. This method must be called after getPassportAuthorizationFormAvailableElements if some previously available elements need to be used
+        /// Sends a Telegram Passport authorization form, effectively sharing data with the service. This method must be called after getPassportAuthorizationFormAvailableElements if some previously available elements are going to be reused
         /// </summary>
         public class SendPassportAuthorizationForm : Function<Ok>
         {
@@ -21,13 +21,13 @@ namespace TdLib
             public override string DataType { get; set; } = "sendPassportAuthorizationForm";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Authorization form identifier 
+            /// Authorization form identifier
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("autorization_form_id")]
@@ -41,18 +41,15 @@ namespace TdLib
             public PassportElementType[] Types { get; set; }
         }
 
-
         /// <summary>
-        /// Sends a Telegram Passport authorization form, effectively sharing data with the service. This method must be called after getPassportAuthorizationFormAvailableElements if some previously available elements need to be used
+        /// Sends a Telegram Passport authorization form, effectively sharing data with the service. This method must be called after getPassportAuthorizationFormAvailableElements if some previously available elements are going to be reused
         /// </summary>
-        public static Task<Ok> SendPassportAuthorizationFormAsync(this Client client,
-            int autorizationFormId = default(int),
-            PassportElementType[] types = default(PassportElementType[]))
+        public static Task<Ok> SendPassportAuthorizationFormAsync(
+            this Client client, int autorizationFormId = default, PassportElementType[] types = default)
         {
             return client.ExecuteAsync(new SendPassportAuthorizationForm
             {
-                AutorizationFormId = autorizationFormId,
-                Types = types,
+                AutorizationFormId = autorizationFormId, Types = types
             });
         }
     }

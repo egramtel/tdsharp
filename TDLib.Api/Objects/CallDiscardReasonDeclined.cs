@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The call was ended before the conversation started. It was declined by the other party
-        /// </summary>
         public partial class CallDiscardReason : Object
         {
             /// <summary>

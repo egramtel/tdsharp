@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Contains information about a message draft 
+        /// Contains information about a message draft
         /// </summary>
-        public class DraftMessage : Object
+        public partial class DraftMessage : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,17 +20,24 @@ namespace TdLib
             public override string DataType { get; set; } = "draftMessage";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Identifier of the message to reply to; 0 if none 
+            /// Identifier of the message to reply to; 0 if none
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("reply_to_message_id")]
             public long ReplyToMessageId { get; set; }
+
+            /// <summary>
+            /// Point in time (Unix timestamp) when the draft was created
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("date")]
+            public int Date { get; set; }
 
             /// <summary>
             /// Content of the message draft; this should always be of type inputMessageText

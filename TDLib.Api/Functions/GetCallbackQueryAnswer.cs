@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Sends a callback query to a bot and returns an answer. Returns an error with code 502 if the bot fails to answer the query before the query timeout expires 
+        /// Sends a callback query to a bot and returns an answer. Returns an error with code 502 if the bot fails to answer the query before the query timeout expires
         /// </summary>
         public class GetCallbackQueryAnswer : Function<CallbackQueryAnswer>
         {
@@ -21,20 +21,20 @@ namespace TdLib
             public override string DataType { get; set; } = "getCallbackQueryAnswer";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Identifier of the chat with the message 
+            /// Identifier of the chat with the message
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_id")]
             public long ChatId { get; set; }
 
             /// <summary>
-            /// Identifier of the message from which the query originated 
+            /// Identifier of the message from which the query originated
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("message_id")]
@@ -48,20 +48,15 @@ namespace TdLib
             public CallbackQueryPayload Payload { get; set; }
         }
 
-
         /// <summary>
-        /// Sends a callback query to a bot and returns an answer. Returns an error with code 502 if the bot fails to answer the query before the query timeout expires 
+        /// Sends a callback query to a bot and returns an answer. Returns an error with code 502 if the bot fails to answer the query before the query timeout expires
         /// </summary>
-        public static Task<CallbackQueryAnswer> GetCallbackQueryAnswerAsync(this Client client,
-            long chatId = default(long),
-            long messageId = default(long),
-            CallbackQueryPayload payload = default(CallbackQueryPayload))
+        public static Task<CallbackQueryAnswer> GetCallbackQueryAnswerAsync(
+            this Client client, long chatId = default, long messageId = default, CallbackQueryPayload payload = default)
         {
             return client.ExecuteAsync(new GetCallbackQueryAnswer
             {
-                ChatId = chatId,
-                MessageId = messageId,
-                Payload = payload,
+                ChatId = chatId, MessageId = messageId, Payload = payload
             });
         }
     }

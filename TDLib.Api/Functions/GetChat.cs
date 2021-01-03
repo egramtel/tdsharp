@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns information about a chat by its identifier, this is an offline request if the current user is not a bot 
+        /// Returns information about a chat by its identifier, this is an offline request if the current user is not a bot
         /// </summary>
         public class GetChat : Function<Chat>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "getChat";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public long ChatId { get; set; }
         }
 
-
         /// <summary>
-        /// Returns information about a chat by its identifier, this is an offline request if the current user is not a bot 
+        /// Returns information about a chat by its identifier, this is an offline request if the current user is not a bot
         /// </summary>
-        public static Task<Chat> GetChatAsync(this Client client,
-            long chatId = default(long))
+        public static Task<Chat> GetChatAsync(
+            this Client client, long chatId = default)
         {
             return client.ExecuteAsync(new GetChat
             {
-                ChatId = chatId,
+                ChatId = chatId
             });
         }
     }

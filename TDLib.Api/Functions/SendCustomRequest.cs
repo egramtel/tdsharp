@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Sends a custom request; for bots only 
+        /// Sends a custom request; for bots only
         /// </summary>
         public class SendCustomRequest : Function<CustomRequestResult>
         {
@@ -21,13 +21,13 @@ namespace TdLib
             public override string DataType { get; set; } = "sendCustomRequest";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// The method name 
+            /// The method name
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("method")]
@@ -41,18 +41,15 @@ namespace TdLib
             public string Parameters { get; set; }
         }
 
-
         /// <summary>
-        /// Sends a custom request; for bots only 
+        /// Sends a custom request; for bots only
         /// </summary>
-        public static Task<CustomRequestResult> SendCustomRequestAsync(this Client client,
-            string method = default(string),
-            string parameters = default(string))
+        public static Task<CustomRequestResult> SendCustomRequestAsync(
+            this Client client, string method = default, string parameters = default)
         {
             return client.ExecuteAsync(new SendCustomRequest
             {
-                Method = method,
-                Parameters = parameters,
+                Method = method, Parameters = parameters
             });
         }
     }

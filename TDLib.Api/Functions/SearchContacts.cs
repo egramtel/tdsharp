@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Searches for the specified query in the first names, last names and usernames of the known user contacts 
+        /// Searches for the specified query in the first names, last names and usernames of the known user contacts
         /// </summary>
         public class SearchContacts : Function<Users>
         {
@@ -21,13 +21,13 @@ namespace TdLib
             public override string DataType { get; set; } = "searchContacts";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Query to search for; may be empty to return all contacts 
+            /// Query to search for; may be empty to return all contacts
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("query")]
@@ -41,18 +41,15 @@ namespace TdLib
             public int Limit { get; set; }
         }
 
-
         /// <summary>
-        /// Searches for the specified query in the first names, last names and usernames of the known user contacts 
+        /// Searches for the specified query in the first names, last names and usernames of the known user contacts
         /// </summary>
-        public static Task<Users> SearchContactsAsync(this Client client,
-            string query = default(string),
-            int limit = default(int))
+        public static Task<Users> SearchContactsAsync(
+            this Client client, string query = default, int limit = default)
         {
             return client.ExecuteAsync(new SearchContacts
             {
-                Query = query,
-                Limit = limit,
+                Query = query, Limit = limit
             });
         }
     }

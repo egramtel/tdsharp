@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Removes a hashtag from the list of recently used hashtags 
+        /// Removes a hashtag from the list of recently used hashtags
         /// </summary>
         public class RemoveRecentHashtag : Function<Ok>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "removeRecentHashtag";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public string Hashtag { get; set; }
         }
 
-
         /// <summary>
-        /// Removes a hashtag from the list of recently used hashtags 
+        /// Removes a hashtag from the list of recently used hashtags
         /// </summary>
-        public static Task<Ok> RemoveRecentHashtagAsync(this Client client,
-            string hashtag = default(string))
+        public static Task<Ok> RemoveRecentHashtagAsync(
+            this Client client, string hashtag = default)
         {
             return client.ExecuteAsync(new RemoveRecentHashtag
             {
-                Hashtag = hashtag,
+                Hashtag = hashtag
             });
         }
     }

@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Edits the content of a message with an animation, an audio, a document, a photo or a video in an inline message sent via a bot; for bots only 
+        /// Edits the content of a message with an animation, an audio, a document, a photo or a video in an inline message sent via a bot; for bots only
         /// </summary>
         public class EditInlineMessageMedia : Function<Ok>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "editInlineMessageMedia";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,7 +34,7 @@ namespace TdLib
             public string InlineMessageId { get; set; }
 
             /// <summary>
-            /// The new message reply markup; for bots only 
+            /// The new message reply markup; for bots only
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("reply_markup")]
@@ -48,20 +48,16 @@ namespace TdLib
             public InputMessageContent InputMessageContent { get; set; }
         }
 
-
         /// <summary>
-        /// Edits the content of a message with an animation, an audio, a document, a photo or a video in an inline message sent via a bot; for bots only 
+        /// Edits the content of a message with an animation, an audio, a document, a photo or a video in an inline message sent via a bot; for bots only
         /// </summary>
-        public static Task<Ok> EditInlineMessageMediaAsync(this Client client,
-            string inlineMessageId = default(string),
-            ReplyMarkup replyMarkup = default(ReplyMarkup),
-            InputMessageContent inputMessageContent = default(InputMessageContent))
+        public static Task<Ok> EditInlineMessageMediaAsync(
+            this Client client, string inlineMessageId = default, ReplyMarkup replyMarkup = default,
+            InputMessageContent inputMessageContent = default)
         {
             return client.ExecuteAsync(new EditInlineMessageMedia
             {
-                InlineMessageId = inlineMessageId,
-                ReplyMarkup = replyMarkup,
-                InputMessageContent = inputMessageContent,
+                InlineMessageId = inlineMessageId, ReplyMarkup = replyMarkup, InputMessageContent = inputMessageContent
             });
         }
     }

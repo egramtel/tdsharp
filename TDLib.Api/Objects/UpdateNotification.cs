@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A notification was changed 
-        /// </summary>
         public partial class Update : Object
         {
             /// <summary>
-            /// A notification was changed 
+            /// A notification was changed
             /// </summary>
             public class UpdateNotification : Update
             {
@@ -31,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Unique notification group identifier 
+                /// Unique notification group identifier
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("notification_group_id")]

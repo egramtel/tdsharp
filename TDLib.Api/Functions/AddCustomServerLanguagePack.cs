@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Adds a custom server language pack to the list of installed language packs in current localization target. Can be called before authorization 
+        /// Adds a custom server language pack to the list of installed language packs in current localization target. Can be called before authorization
         /// </summary>
         public class AddCustomServerLanguagePack : Function<Ok>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "addCustomServerLanguagePack";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public string LanguagePackId { get; set; }
         }
 
-
         /// <summary>
-        /// Adds a custom server language pack to the list of installed language packs in current localization target. Can be called before authorization 
+        /// Adds a custom server language pack to the list of installed language packs in current localization target. Can be called before authorization
         /// </summary>
-        public static Task<Ok> AddCustomServerLanguagePackAsync(this Client client,
-            string languagePackId = default(string))
+        public static Task<Ok> AddCustomServerLanguagePackAsync(
+            this Client client, string languagePackId = default)
         {
             return client.ExecuteAsync(new AddCustomServerLanguagePack
             {
-                LanguagePackId = languagePackId,
+                LanguagePackId = languagePackId
             });
         }
     }

@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A poll was updated; for bots only 
-        /// </summary>
         public partial class Update : Object
         {
             /// <summary>
-            /// A poll was updated; for bots only 
+            /// A poll was updated; for bots only
             /// </summary>
             public class UpdatePoll : Update
             {

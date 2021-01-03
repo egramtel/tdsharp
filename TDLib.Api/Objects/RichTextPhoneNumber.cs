@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A rich text phone number 
-        /// </summary>
         public partial class RichText : Object
         {
             /// <summary>
-            /// A rich text phone number 
+            /// A rich text phone number
             /// </summary>
             public class RichTextPhoneNumber : RichText
             {
@@ -31,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Text 
+                /// Text
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("text")]

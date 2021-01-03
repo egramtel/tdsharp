@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// An authentication code is delivered via a private Telegram message, which can be viewed in another client 
-        /// </summary>
         public partial class AuthenticationCodeType : Object
         {
             /// <summary>
-            /// An authentication code is delivered via a private Telegram message, which can be viewed in another client 
+            /// Provides information about the method by which an authentication code is delivered to the user
             /// </summary>
             public class AuthenticationCodeTypeTelegramMessage : AuthenticationCodeType
             {

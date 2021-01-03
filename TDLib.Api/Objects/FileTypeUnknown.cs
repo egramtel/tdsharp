@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The file type is not yet known
-        /// </summary>
         public partial class FileType : Object
         {
             /// <summary>

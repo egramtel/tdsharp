@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A video message 
-        /// </summary>
         public partial class InputMessageContent : Object
         {
             /// <summary>
-            /// A video message 
+            /// A video message
             /// </summary>
             public class InputMessageVideo : InputMessageContent
             {
@@ -31,14 +28,14 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Video to be sent 
+                /// Video to be sent
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("video")]
                 public InputFile Video { get; set; }
 
                 /// <summary>
-                /// Video thumbnail, if available 
+                /// Video thumbnail, if available
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("thumbnail")]
@@ -52,21 +49,21 @@ namespace TdLib
                 public int[] AddedStickerFileIds { get; set; }
 
                 /// <summary>
-                /// Duration of the video, in seconds 
+                /// Duration of the video, in seconds
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("duration")]
                 public int Duration { get; set; }
 
                 /// <summary>
-                /// Video width 
+                /// Video width
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("width")]
                 public int Width { get; set; }
 
                 /// <summary>
-                /// Video height 
+                /// Video height
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("height")]
@@ -80,7 +77,7 @@ namespace TdLib
                 public bool SupportsStreaming { get; set; }
 
                 /// <summary>
-                /// Video caption; 0-GetOption("message_caption_length_max") characters 
+                /// Video caption; 0-GetOption("message_caption_length_max") characters
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("caption")]

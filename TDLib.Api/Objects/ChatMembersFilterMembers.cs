@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// Returns all chat members, including restricted chat members
-        /// </summary>
         public partial class ChatMembersFilter : Object
         {
             /// <summary>

@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns an existing chat corresponding to a known secret chat 
+        /// Returns an existing chat corresponding to a known secret chat
         /// </summary>
         public class CreateSecretChat : Function<Chat>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "createSecretChat";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public int SecretChatId { get; set; }
         }
 
-
         /// <summary>
-        /// Returns an existing chat corresponding to a known secret chat 
+        /// Returns an existing chat corresponding to a known secret chat
         /// </summary>
-        public static Task<Chat> CreateSecretChatAsync(this Client client,
-            int secretChatId = default(int))
+        public static Task<Chat> CreateSecretChatAsync(
+            this Client client, int secretChatId = default)
         {
             return client.ExecuteAsync(new CreateSecretChat
             {
-                SecretChatId = secretChatId,
+                SecretChatId = secretChatId
             });
         }
     }

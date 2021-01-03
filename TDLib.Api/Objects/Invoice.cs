@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Product invoice 
+        /// Product invoice
         /// </summary>
-        public class Invoice : Object
+        public partial class Invoice : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,20 +20,20 @@ namespace TdLib
             public override string DataType { get; set; } = "invoice";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// ISO 4217 currency code 
+            /// ISO 4217 currency code
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("currency")]
             public string Currency { get; set; }
 
             /// <summary>
-            /// A list of objects used to calculate the total price of the product 
+            /// A list of objects used to calculate the total price of the product
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("price_parts")]
@@ -47,14 +47,14 @@ namespace TdLib
             public bool IsTest { get; set; }
 
             /// <summary>
-            /// True, if the user's name is needed for payment 
+            /// True, if the user's name is needed for payment
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("need_name")]
             public bool NeedName { get; set; }
 
             /// <summary>
-            /// True, if the user's phone number is needed for payment 
+            /// True, if the user's phone number is needed for payment
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("need_phone_number")]
@@ -68,7 +68,7 @@ namespace TdLib
             public bool NeedEmailAddress { get; set; }
 
             /// <summary>
-            /// True, if the user's shipping address is needed for payment 
+            /// True, if the user's shipping address is needed for payment
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("need_shipping_address")]
@@ -82,7 +82,7 @@ namespace TdLib
             public bool SendPhoneNumberToProvider { get; set; }
 
             /// <summary>
-            /// True, if the user's email address will be sent to the provider 
+            /// True, if the user's email address will be sent to the provider
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("send_email_address_to_provider")]

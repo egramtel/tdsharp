@@ -21,17 +21,17 @@ namespace TdLib
             public override string DataType { get; set; } = "getSavedAnimations";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
         }
 
-
         /// <summary>
         /// Returns saved animations
         /// </summary>
-        public static Task<Animations> GetSavedAnimationsAsync(this Client client)
+        public static Task<Animations> GetSavedAnimationsAsync(
+            this Client client)
         {
             return client.ExecuteAsync(new GetSavedAnimations
             {

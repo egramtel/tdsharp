@@ -11,7 +11,7 @@ namespace TdLib
         /// <summary>
         /// Represents a set of filters used to obtain a chat event log
         /// </summary>
-        public class ChatEventLogFilters : Object
+        public partial class ChatEventLogFilters : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,7 +20,7 @@ namespace TdLib
             public override string DataType { get; set; } = "chatEventLogFilters";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -94,6 +94,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("setting_changes")]
             public bool SettingChanges { get; set; }
+
+            /// <summary>
+            /// True, if voice chat actions should be returned
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("voice_chat_changes")]
+            public bool VoiceChatChanges { get; set; }
         }
     }
 }

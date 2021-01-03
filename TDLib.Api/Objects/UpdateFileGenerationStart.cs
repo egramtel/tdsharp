@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The file generation process needs to be started by the client
-        /// </summary>
         public partial class Update : Object
         {
             /// <summary>
-            /// The file generation process needs to be started by the client
+            /// The file generation process needs to be started by the application
             /// </summary>
             public class UpdateFileGenerationStart : Update
             {
@@ -35,7 +32,7 @@ namespace TdLib
                 /// </summary>
                 [JsonConverter(typeof(Converter.Int64))]
                 [JsonProperty("generation_id")]
-                public Int64 GenerationId { get; set; }
+                public long GenerationId { get; set; }
 
                 /// <summary>
                 /// The path to a file from which a new file is generated; may be empty
@@ -52,7 +49,7 @@ namespace TdLib
                 public string DestinationPath { get; set; }
 
                 /// <summary>
-                /// String specifying the conversion applied to the original file. If conversion is "#url#" than original_path contains an HTTP/HTTPS URL of a file, which should be downloaded by the client
+                /// String specifying the conversion applied to the original file. If conversion is "#url#" than original_path contains an HTTP/HTTPS URL of a file, which should be downloaded by the application
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("conversion")]

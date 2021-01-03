@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A bot (see https://core.telegram.org/bots) 
-        /// </summary>
         public partial class UserType : Object
         {
             /// <summary>
-            /// A bot (see https://core.telegram.org/bots) 
+            /// A bot (see https://core.telegram.org/bots)
             /// </summary>
             public class UserTypeBot : UserType
             {
@@ -45,14 +42,14 @@ namespace TdLib
                 public bool CanReadAllGroupMessages { get; set; }
 
                 /// <summary>
-                /// True, if the bot supports inline queries 
+                /// True, if the bot supports inline queries
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_inline")]
                 public bool IsInline { get; set; }
 
                 /// <summary>
-                /// Placeholder for inline queries (displayed on the client input field) 
+                /// Placeholder for inline queries (displayed on the application input field)
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("inline_query_placeholder")]

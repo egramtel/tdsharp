@@ -21,17 +21,17 @@ namespace TdLib
             public override string DataType { get; set; } = "deleteSavedCredentials";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
         }
 
-
         /// <summary>
         /// Deletes saved credentials for all payment provider bots
         /// </summary>
-        public static Task<Ok> DeleteSavedCredentialsAsync(this Client client)
+        public static Task<Ok> DeleteSavedCredentialsAsync(
+            this Client client)
         {
             return client.ExecuteAsync(new DeleteSavedCredentials
             {

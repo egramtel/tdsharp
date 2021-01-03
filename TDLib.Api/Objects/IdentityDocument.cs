@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// An identity document 
+        /// An identity document
         /// </summary>
-        public class IdentityDocument : Object
+        public partial class IdentityDocument : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,20 +20,20 @@ namespace TdLib
             public override string DataType { get; set; } = "identityDocument";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Document number; 1-24 characters 
+            /// Document number; 1-24 characters
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("number")]
             public string Number { get; set; }
 
             /// <summary>
-            /// Document expiry date; may be null 
+            /// Document expiry date; may be null
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("expiry_date")]
@@ -47,14 +47,14 @@ namespace TdLib
             public DatedFile FrontSide { get; set; }
 
             /// <summary>
-            /// Reverse side of the document; only for driver license and identity card 
+            /// Reverse side of the document; only for driver license and identity card
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("reverse_side")]
             public DatedFile ReverseSide { get; set; }
 
             /// <summary>
-            /// Selfie with the document; may be null 
+            /// Selfie with the document; may be null
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("selfie")]

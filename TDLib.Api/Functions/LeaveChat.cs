@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Removes current user from chat members. Private and secret chats can't be left using this method 
+        /// Removes the current user from chat members. Private and secret chats can't be left using this method
         /// </summary>
         public class LeaveChat : Function<Ok>
         {
@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "leaveChat";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -34,16 +34,15 @@ namespace TdLib
             public long ChatId { get; set; }
         }
 
-
         /// <summary>
-        /// Removes current user from chat members. Private and secret chats can't be left using this method 
+        /// Removes the current user from chat members. Private and secret chats can't be left using this method
         /// </summary>
-        public static Task<Ok> LeaveChatAsync(this Client client,
-            long chatId = default(long))
+        public static Task<Ok> LeaveChatAsync(
+            this Client client, long chatId = default)
         {
             return client.ExecuteAsync(new LeaveChat
             {
-                ChatId = chatId,
+                ChatId = chatId
             });
         }
     }

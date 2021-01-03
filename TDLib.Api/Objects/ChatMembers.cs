@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Contains a list of chat members 
+        /// Contains a list of chat members
         /// </summary>
-        public class ChatMembers : Object
+        public partial class ChatMembers : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,13 +20,13 @@ namespace TdLib
             public override string DataType { get; set; } = "chatMembers";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Approximate total count of chat members found 
+            /// Approximate total count of chat members found
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("total_count")]

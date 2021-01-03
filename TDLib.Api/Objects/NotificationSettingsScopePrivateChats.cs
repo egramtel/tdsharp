@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// Notification settings applied to all private and secret chats when the corresponding chat setting has a default value
-        /// </summary>
         public partial class NotificationSettingsScope : Object
         {
             /// <summary>
-            /// Notification settings applied to all private and secret chats when the corresponding chat setting has a default value
+            /// Describes the types of chats to which notification settings are applied
             /// </summary>
             public class NotificationSettingsScopePrivateChats : NotificationSettingsScope
             {

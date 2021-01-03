@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A chat's has_scheduled_messages field has changed 
-        /// </summary>
         public partial class Update : Object
         {
             /// <summary>
-            /// A chat's has_scheduled_messages field has changed 
+            /// A chat's has_scheduled_messages field has changed
             /// </summary>
             public class UpdateChatHasScheduledMessages : Update
             {
@@ -31,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Chat identifier 
+                /// Chat identifier
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("chat_id")]

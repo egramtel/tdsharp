@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// Contains an inline keyboard layout
-        /// </summary>
         public partial class ReplyMarkup : Object
         {
             /// <summary>

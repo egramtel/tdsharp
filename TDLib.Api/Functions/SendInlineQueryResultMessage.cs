@@ -21,17 +21,24 @@ namespace TdLib
             public override string DataType { get; set; } = "sendInlineQueryResultMessage";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Target chat 
+            /// Target chat
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_id")]
             public long ChatId { get; set; }
+
+            /// <summary>
+            /// If not 0, a message thread identifier in which the message will be sent
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("message_thread_id")]
+            public long MessageThreadId { get; set; }
 
             /// <summary>
             /// Identifier of a message to reply to or 0
@@ -45,14 +52,14 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("options")]
-            public SendMessageOptions Options { get; set; }
+            public MessageSendOptions Options { get; set; }
 
             /// <summary>
-            /// Identifier of the inline query 
+            /// Identifier of the inline query
             /// </summary>
             [JsonConverter(typeof(Converter.Int64))]
             [JsonProperty("query_id")]
-            public Int64 QueryId { get; set; }
+            public long QueryId { get; set; }
 
             /// <summary>
             /// Identifier of the inline result
@@ -69,26 +76,18 @@ namespace TdLib
             public bool HideViaBot { get; set; }
         }
 
-
         /// <summary>
         /// Sends the result of an inline query as a message. Returns the sent message. Always clears a chat draft message
         /// </summary>
-        public static Task<Message> SendInlineQueryResultMessageAsync(this Client client,
-            long chatId = default(long),
-            long replyToMessageId = default(long),
-            SendMessageOptions options = default(SendMessageOptions),
-            Int64 queryId = default(Int64),
-            string resultId = default(string),
-            bool hideViaBot = default(bool))
+        public static Task<Message> SendInlineQueryResultMessageAsync(
+            this Client client, long chatId = default, long messageThreadId = default, long replyToMessageId = default,
+            MessageSendOptions options = default, long queryId = default, string resultId = default,
+            bool hideViaBot = default)
         {
             return client.ExecuteAsync(new SendInlineQueryResultMessage
             {
-                ChatId = chatId,
-                ReplyToMessageId = replyToMessageId,
-                Options = options,
-                QueryId = queryId,
-                ResultId = resultId,
-                HideViaBot = hideViaBot,
+                ChatId = chatId, MessageThreadId = messageThreadId, ReplyToMessageId = replyToMessageId,
+                Options = options, QueryId = queryId, ResultId = resultId, HideViaBot = hideViaBot
             });
         }
     }

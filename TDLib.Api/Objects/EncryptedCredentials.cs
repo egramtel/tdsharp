@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Contains encrypted Telegram Passport data credentials 
+        /// Contains encrypted Telegram Passport data credentials
         /// </summary>
-        public class EncryptedCredentials : Object
+        public partial class EncryptedCredentials : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,20 +20,20 @@ namespace TdLib
             public override string DataType { get; set; } = "encryptedCredentials";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// The encrypted credentials 
+            /// The encrypted credentials
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("data")]
             public byte[] Data { get; set; }
 
             /// <summary>
-            /// The decrypted data hash 
+            /// The decrypted data hash
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("hash")]

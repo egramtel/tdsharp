@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// The data is not a file
-        /// </summary>
         public partial class FileType : Object
         {
             /// <summary>
-            /// The data is not a file
+            /// Represents the type of a file
             /// </summary>
             public class FileTypeNone : FileType
             {

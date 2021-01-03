@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns an HTTP URL with the chat statistics. Currently this method can be used only for channels. Can be used only if SupergroupFullInfo.can_view_statistics == true 
+        /// Returns an HTTP URL with the chat statistics. Currently this method of getting the statistics are disabled and can be deleted in the future
         /// </summary>
         public class GetChatStatisticsUrl : Function<HttpUrl>
         {
@@ -21,20 +21,20 @@ namespace TdLib
             public override string DataType { get; set; } = "getChatStatisticsUrl";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Chat identifier 
+            /// Chat identifier
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_id")]
             public long ChatId { get; set; }
 
             /// <summary>
-            /// Parameters from "tg://statsrefresh?params=******" link 
+            /// Parameters from "tg://statsrefresh?params=******" link
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("parameters")]
@@ -48,20 +48,15 @@ namespace TdLib
             public bool IsDark { get; set; }
         }
 
-
         /// <summary>
-        /// Returns an HTTP URL with the chat statistics. Currently this method can be used only for channels. Can be used only if SupergroupFullInfo.can_view_statistics == true 
+        /// Returns an HTTP URL with the chat statistics. Currently this method of getting the statistics are disabled and can be deleted in the future
         /// </summary>
-        public static Task<HttpUrl> GetChatStatisticsUrlAsync(this Client client,
-            long chatId = default(long),
-            string parameters = default(string),
-            bool isDark = default(bool))
+        public static Task<HttpUrl> GetChatStatisticsUrlAsync(
+            this Client client, long chatId = default, string parameters = default, bool isDark = default)
         {
             return client.ExecuteAsync(new GetChatStatisticsUrl
             {
-                ChatId = chatId,
-                Parameters = parameters,
-                IsDark = isDark,
+                ChatId = chatId, Parameters = parameters, IsDark = isDark
             });
         }
     }

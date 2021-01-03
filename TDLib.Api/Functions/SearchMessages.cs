@@ -21,7 +21,7 @@ namespace TdLib
             public override string DataType { get; set; } = "searchMessages";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the function
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -62,33 +62,46 @@ namespace TdLib
             public long OffsetMessageId { get; set; }
 
             /// <summary>
-            /// The maximum number of messages to be returned, up to 100. Fewer messages may be returned than specified by the limit, even if the end of the message history has not been reached
+            /// The maximum number of messages to be returned; up to 100. Fewer messages may be returned than specified by the limit, even if the end of the message history has not been reached
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("limit")]
             public int Limit { get; set; }
-        }
 
+            /// <summary>
+            /// Filter for message content in the search results; searchMessagesFilterCall, searchMessagesFilterMissedCall, searchMessagesFilterMention, searchMessagesFilterUnreadMention, searchMessagesFilterFailedToSend and searchMessagesFilterPinned are unsupported in this function
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("filter")]
+            public SearchMessagesFilter Filter { get; set; }
+
+            /// <summary>
+            /// If not 0, the minimum date of the messages to return
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("min_date")]
+            public int MinDate { get; set; }
+
+            /// <summary>
+            /// If not 0, the maximum date of the messages to return
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("max_date")]
+            public int MaxDate { get; set; }
+        }
 
         /// <summary>
         /// Searches for messages in all chats except secret chats. Returns the results in reverse chronological order (i.e., in order of decreasing (date, chat_id, message_id)).
         /// </summary>
-        public static Task<Messages> SearchMessagesAsync(this Client client,
-            ChatList chatList = default(ChatList),
-            string query = default(string),
-            int offsetDate = default(int),
-            long offsetChatId = default(long),
-            long offsetMessageId = default(long),
-            int limit = default(int))
+        public static Task<Messages> SearchMessagesAsync(
+            this Client client, ChatList chatList = default, string query = default, int offsetDate = default,
+            long offsetChatId = default, long offsetMessageId = default, int limit = default,
+            SearchMessagesFilter filter = default, int minDate = default, int maxDate = default)
         {
             return client.ExecuteAsync(new SearchMessages
             {
-                ChatList = chatList,
-                Query = query,
-                OffsetDate = offsetDate,
-                OffsetChatId = offsetChatId,
-                OffsetMessageId = offsetMessageId,
-                Limit = limit,
+                ChatList = chatList, Query = query, OffsetDate = offsetDate, OffsetChatId = offsetChatId,
+                OffsetMessageId = offsetMessageId, Limit = limit, Filter = filter, MinDate = minDate, MaxDate = maxDate
             });
         }
     }

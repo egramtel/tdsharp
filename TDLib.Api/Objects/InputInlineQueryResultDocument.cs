@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// Represents a link to a file 
-        /// </summary>
         public partial class InputInlineQueryResult : Object
         {
             /// <summary>
-            /// Represents a link to a file 
+            /// Represents a link to a file
             /// </summary>
             public class InputInlineQueryResultDocument : InputInlineQueryResult
             {
@@ -31,28 +28,28 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Unique identifier of the query result 
+                /// Unique identifier of the query result
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("id")]
                 public string Id { get; set; }
 
                 /// <summary>
-                /// Title of the resulting file 
+                /// Title of the resulting file
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("title")]
                 public string Title { get; set; }
 
                 /// <summary>
-                /// Represents a link to a file 
+                /// 
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("description")]
                 public string Description { get; set; }
 
                 /// <summary>
-                /// URL of the file 
+                /// URL of the file
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("document_url")]
@@ -66,14 +63,14 @@ namespace TdLib
                 public string MimeType { get; set; }
 
                 /// <summary>
-                /// The URL of the file thumbnail, if it exists 
+                /// The URL of the file thumbnail, if it exists
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("thumbnail_url")]
                 public string ThumbnailUrl { get; set; }
 
                 /// <summary>
-                /// Width of the thumbnail 
+                /// Width of the thumbnail
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("thumbnail_width")]

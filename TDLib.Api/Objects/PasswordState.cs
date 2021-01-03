@@ -9,9 +9,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Represents the current state of 2-step verification 
+        /// Represents the current state of 2-step verification
         /// </summary>
-        public class PasswordState : Object
+        public partial class PasswordState : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,13 +20,13 @@ namespace TdLib
             public override string DataType { get; set; } = "passwordState";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
             /// <summary>
-            /// True, if a 2-step verification password is set 
+            /// True, if a 2-step verification password is set
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("has_password")]
@@ -40,7 +40,7 @@ namespace TdLib
             public string PasswordHint { get; set; }
 
             /// <summary>
-            /// True, if a recovery email is set 
+            /// True, if a recovery email is set
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("has_recovery_email_address")]

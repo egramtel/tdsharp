@@ -11,7 +11,7 @@ namespace TdLib
         /// <summary>
         /// A chat. (Can be a private chat, basic group, supergroup, or secret chat)
         /// </summary>
-        public class Chat : Object
+        public partial class Chat : Object
         {
             /// <summary>
             /// Data type for serialization
@@ -20,7 +20,7 @@ namespace TdLib
             public override string DataType { get; set; } = "chat";
 
             /// <summary>
-            /// Extra data attached to the message
+            /// Extra data attached to the object
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
@@ -40,13 +40,6 @@ namespace TdLib
             public ChatType Type { get; set; }
 
             /// <summary>
-            /// A chat list to which the chat belongs; may be null
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("chat_list")]
-            public ChatList ChatList { get; set; }
-
-            /// <summary>
             /// Chat title
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -58,7 +51,7 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("photo")]
-            public ChatPhoto Photo { get; set; }
+            public ChatPhotoInfo Photo { get; set; }
 
             /// <summary>
             /// Actions that non-administrator chat members are allowed to take in the chat
@@ -75,18 +68,11 @@ namespace TdLib
             public Message LastMessage { get; set; }
 
             /// <summary>
-            /// Descending parameter by which chats are sorted in the main chat list. If the order number of two chats is the same, they must be sorted in descending order by ID. If 0, the position of the chat in the list is undetermined
-            /// </summary>
-            [JsonConverter(typeof(Converter.Int64))]
-            [JsonProperty("order")]
-            public Int64 Order { get; set; }
-
-            /// <summary>
-            /// True, if the chat is pinned
+            /// Positions of the chat in chat lists
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("is_pinned")]
-            public bool IsPinned { get; set; }
+            [JsonProperty("positions")]
+            public ChatPosition[] Positions { get; set; }
 
             /// <summary>
             /// True, if the chat is marked as unread
@@ -96,11 +82,11 @@ namespace TdLib
             public bool IsMarkedAsUnread { get; set; }
 
             /// <summary>
-            /// True, if the chat is sponsored by the user's MTProxy server
+            /// True, if the chat is blocked by the current user and private messages from the chat can't be received
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("is_sponsored")]
-            public bool IsSponsored { get; set; }
+            [JsonProperty("is_blocked")]
+            public bool IsBlocked { get; set; }
 
             /// <summary>
             /// True, if the chat has scheduled messages
@@ -180,11 +166,18 @@ namespace TdLib
             public ChatActionBar ActionBar { get; set; }
 
             /// <summary>
-            /// Identifier of the pinned message in the chat; 0 if none
+            /// Group call identifier of an active voice chat; 0 if none or unknown. The voice chat can be received through the method getGroupCall
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("pinned_message_id")]
-            public long PinnedMessageId { get; set; }
+            [JsonProperty("voice_chat_group_call_id")]
+            public int VoiceChatGroupCallId { get; set; }
+
+            /// <summary>
+            /// True, if an active voice chat is empty
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("is_voice_chat_empty")]
+            public bool IsVoiceChatEmpty { get; set; }
 
             /// <summary>
             /// Identifier of the message from which reply markup needs to be used; 0 if there is no default custom reply markup in the chat
@@ -201,7 +194,7 @@ namespace TdLib
             public DraftMessage DraftMessage { get; set; }
 
             /// <summary>
-            /// Contains client-specific data associated with the chat. (For example, the chat position or local chat notification settings can be stored here.) Persistent if the message database is used
+            /// Contains application-specific data associated with the chat. (For example, the chat scroll position or local chat notification settings can be stored here.) Persistent if the message database is used
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("client_data")]

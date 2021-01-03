@@ -8,9 +8,6 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A message failed to send. Be aware that some messages being sent can be irrecoverably deleted, in which case updateDeleteMessages will be received instead of this update
-        /// </summary>
         public partial class Update : Object
         {
             /// <summary>
@@ -31,21 +28,21 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Contains information about the message which failed to send 
+                /// Contains information about the message which failed to send
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("message")]
                 public Message Message { get; set; }
 
                 /// <summary>
-                /// The previous temporary message identifier 
+                /// The previous temporary message identifier
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("old_message_id")]
                 public long OldMessageId { get; set; }
 
                 /// <summary>
-                /// An error code 
+                /// An error code
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("error_code")]

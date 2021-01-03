@@ -8,13 +8,10 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        /// <summary>
-        /// A rich text anchor 
-        /// </summary>
         public partial class RichText : Object
         {
             /// <summary>
-            /// A rich text anchor 
+            /// An anchor
             /// </summary>
             public class RichTextAnchor : RichText
             {
@@ -29,13 +26,6 @@ namespace TdLib
                 /// </summary>
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
-
-                /// <summary>
-                /// Text 
-                /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("text")]
-                public RichText Text { get; set; }
 
                 /// <summary>
                 /// Anchor name
