@@ -65,12 +65,28 @@ namespace TdLib
             {
                 throw new ObjectDisposedException("TDLib JSON client was disposed");
             }
-            
+
+            return Execute(Bindings, _handle, data);
+        }
+
+        /// <summary>
+        /// Synchronously send JSON string to TDLib and get response
+        /// </summary>
+        public static string GlobalExecute(string data)
+            => GlobalExecute(Interop.AutoDetectBindings(), data);
+        /// <summary>
+        /// Synchronously send JSON string to TDLib and get response
+        /// </summary>
+        public static string GlobalExecute(ITdLibBindings bindings, string data) 
+            => Execute(bindings, IntPtr.Zero, data);
+
+        private static string Execute(ITdLibBindings bindings, IntPtr handle, string data) 
+        {
             var ptr = Interop.StringToIntPtr(data);
 
             try
             {
-                var res = Bindings.ClientExecute(_handle, ptr);
+                var res = bindings.ClientExecute(handle, ptr);
                 return Interop.IntPtrToString(res);
             }
             finally
