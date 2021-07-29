@@ -29,7 +29,7 @@ namespace TdLib
             /// User identifier of the chat member
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("user_id")]
+            [JsonProperty("member_id")]
             public int UserId { get; set; }
 
             /// <summary>
