@@ -29,8 +29,8 @@ namespace TdLib
             /// User identifier of the chat member
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("user_id")]
-            public int UserId { get; set; }
+            [JsonProperty("member_id")]
+            public MessageSender Sender { get; set; }
 
             /// <summary>
             /// Identifier of a user that invited/promoted/banned this member in the chat; 0 if unknown
