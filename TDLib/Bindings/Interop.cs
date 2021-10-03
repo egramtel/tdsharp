@@ -6,9 +6,9 @@ using TDLib.Bindings;
 
 namespace TdLib.Bindings
 {
-    internal static class Interop
+    public static class Interop
     {
-        internal static ITdLibBindings AutoDetectBindings()
+        public static ITdLibBindings AutoDetectBindings()
         {
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
