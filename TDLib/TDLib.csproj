@@ -6,6 +6,10 @@
     <Version>1.7.0</Version>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="Meziantou.Analyzer" Version="1.0.675">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Newtonsoft.Json" Version="11.0.1" />
   </ItemGroup>
   <ItemGroup>
