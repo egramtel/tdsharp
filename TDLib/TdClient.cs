@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Concurrent;
+using System.Globalization;
 using System.Threading;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
@@ -73,7 +74,8 @@ namespace TdLib
 
         private void OnReceived(object _, TdApi.Object obj)
         {
-            if (int.TryParse(obj.Extra, out int id) && _tasks.TryRemove(id, out var action))
+            if (int.TryParse(obj.Extra, NumberStyles.Integer, CultureInfo.InvariantCulture, out int id)
+                && _tasks.TryRemove(id, out var action))
             {
                 action(obj);
             }
@@ -150,7 +152,7 @@ namespace TdLib
             var id = Interlocked.Increment(ref _taskId);
             var tcs = new TaskCompletionSource<TResult>(TaskCreationOptions.RunContinuationsAsynchronously);
 
-            function.Extra = id.ToString();
+            function.Extra = id.ToString(CultureInfo.InvariantCulture);
             _tasks.TryAdd(id, structure =>
             {
                 if (structure is TdApi.Error error)
@@ -197,7 +199,7 @@ namespace TdLib
         {
             var tcs = new TaskCompletionSource<TdApi.AuthorizationState>(TaskCreationOptions.RunContinuationsAsynchronously);
 
-            EventHandler<TdApi.AuthorizationState> handler = (sender, state) =>
+            EventHandler<TdApi.AuthorizationState> handler = (_, state) =>
             {
                 if (state is TdApi.AuthorizationState.AuthorizationStateClosed)
                 {
@@ -214,8 +216,8 @@ namespace TdLib
                     return;
                 }
                 
-                await ExecuteAsync(new TdApi.Close());
-                await Task.WhenAny(tcs.Task, Task.Delay(TimeoutToClose));
+                await ExecuteAsync(new TdApi.Close()).ConfigureAwait(false);
+                await Task.WhenAny(tcs.Task, Task.Delay(TimeoutToClose)).ConfigureAwait(false);
             }
             finally
             {
