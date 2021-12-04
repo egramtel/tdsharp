@@ -70,14 +70,14 @@ namespace TdLib
                 public PageBlockCaption Caption { get; set; }
 
                 /// <summary>
-                /// True, if the block should be full width
+                /// True, if the block must be full width
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_full_width")]
                 public bool IsFullWidth { get; set; }
 
                 /// <summary>
-                /// True, if scrolling should be allowed
+                /// True, if scrolling needs to be allowed
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("allow_scrolling")]

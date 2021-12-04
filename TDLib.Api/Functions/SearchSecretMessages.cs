@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Searches for messages in secret chats. Returns the results in reverse chronological order. For optimal performance the number of returned messages is chosen by the library
+        /// Searches for messages in secret chats. Returns the results in reverse chronological order. For optimal performance, the number of returned messages is chosen by TDLib
         /// </summary>
         public class SearchSecretMessages : Function<FoundMessages>
         {
@@ -34,7 +34,7 @@ namespace TdLib
             public long ChatId { get; set; }
 
             /// <summary>
-            /// Query to search for. If empty, searchChatMessages should be used instead
+            /// Query to search for. If empty, searchChatMessages must be used instead
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("query")]
@@ -48,14 +48,14 @@ namespace TdLib
             public string Offset { get; set; }
 
             /// <summary>
-            /// The maximum number of messages to be returned; up to 100. Fewer messages may be returned than specified by the limit, even if the end of the message history has not been reached
+            /// The maximum number of messages to be returned; up to 100. For optimal performance, the number of returned messages is chosen by TDLib and can be smaller than the specified limit
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("limit")]
             public int Limit { get; set; }
 
             /// <summary>
-            /// A filter for message content in the search results
+            /// Additional filter for messages to search; pass null to search for all messages
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("filter")]
@@ -63,7 +63,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Searches for messages in secret chats. Returns the results in reverse chronological order. For optimal performance the number of returned messages is chosen by the library
+        /// Searches for messages in secret chats. Returns the results in reverse chronological order. For optimal performance, the number of returned messages is chosen by TDLib
         /// </summary>
         public static Task<FoundMessages> SearchSecretMessagesAsync(
             this Client client, long chatId = default, string query = default, string offset = default,

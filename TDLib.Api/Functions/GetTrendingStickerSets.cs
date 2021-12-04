@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns a list of trending sticker sets. For the optimal performance the number of returned sticker sets is chosen by the library
+        /// Returns a list of trending sticker sets. For optimal performance, the number of returned sticker sets is chosen by TDLib
         /// </summary>
         public class GetTrendingStickerSets : Function<StickerSets>
         {
@@ -34,7 +34,7 @@ namespace TdLib
             public int Offset { get; set; }
 
             /// <summary>
-            /// The maximum number of sticker sets to be returned; must be non-negative. Fewer sticker sets may be returned than specified by the limit, even if the end of the list has not been reached
+            /// The maximum number of sticker sets to be returned; up to 100. For optimal performance, the number of returned sticker sets is chosen by TDLib and can be smaller than the specified limit, even if the end of the list has not been reached
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("limit")]
@@ -42,7 +42,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Returns a list of trending sticker sets. For the optimal performance the number of returned sticker sets is chosen by the library
+        /// Returns a list of trending sticker sets. For optimal performance, the number of returned sticker sets is chosen by TDLib
         /// </summary>
         public static Task<StickerSets> GetTrendingStickerSetsAsync(
             this Client client, int offset = default, int limit = default)

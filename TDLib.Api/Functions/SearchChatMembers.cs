@@ -41,14 +41,14 @@ namespace TdLib
             public string Query { get; set; }
 
             /// <summary>
-            /// The maximum number of users to be returned
+            /// The maximum number of users to be returned; up to 200
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("limit")]
             public int Limit { get; set; }
 
             /// <summary>
-            /// The type of users to return. By default, chatMembersFilterMembers
+            /// The type of users to search for; pass null to search among all chat members
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("filter")]

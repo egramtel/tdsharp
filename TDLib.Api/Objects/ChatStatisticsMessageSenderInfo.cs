@@ -30,7 +30,7 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("user_id")]
-            public int UserId { get; set; }
+            public long UserId { get; set; }
 
             /// <summary>
             /// Number of sent messages
@@ -40,7 +40,7 @@ namespace TdLib
             public int SentMessageCount { get; set; }
 
             /// <summary>
-            /// Average number of characters in sent messages
+            /// Average number of characters in sent messages; 0 if unknown
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("average_character_count")]

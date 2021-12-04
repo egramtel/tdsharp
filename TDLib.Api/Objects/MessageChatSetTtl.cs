@@ -11,7 +11,7 @@ namespace TdLib
         public partial class MessageContent : Object
         {
             /// <summary>
-            /// The TTL (Time To Live) setting messages in a secret chat has been changed
+            /// The TTL (Time To Live) setting for messages in the chat has been changed
             /// </summary>
             public class MessageChatSetTtl : MessageContent
             {
@@ -28,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// New TTL
+                /// New message TTL setting
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("ttl")]

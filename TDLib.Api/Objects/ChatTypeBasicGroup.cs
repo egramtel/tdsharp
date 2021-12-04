@@ -11,7 +11,7 @@ namespace TdLib
         public partial class ChatType : Object
         {
             /// <summary>
-            /// A basic group (i.e., a chat with 0-200 other users)
+            /// A basic group (a chat with 0-200 other users)
             /// </summary>
             public class ChatTypeBasicGroup : ChatType
             {
@@ -32,7 +32,7 @@ namespace TdLib
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("basic_group_id")]
-                public int BasicGroupId { get; set; }
+                public long BasicGroupId { get; set; }
             }
         }
     }

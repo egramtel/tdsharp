@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Deletes all messages in the chat. Use Chat.can_be_deleted_only_for_self and Chat.can_be_deleted_for_all_users fields to find whether and how the method can be applied to the chat
+        /// Deletes all messages in the chat. Use chat.can_be_deleted_only_for_self and chat.can_be_deleted_for_all_users fields to find whether and how the method can be applied to the chat
         /// </summary>
         public class DeleteChatHistory : Function<Ok>
         {
@@ -34,7 +34,7 @@ namespace TdLib
             public long ChatId { get; set; }
 
             /// <summary>
-            /// Pass true if the chat should be removed from the chat list
+            /// Pass true if the chat needs to be removed from the chat list
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("remove_from_chat_list")]
@@ -49,7 +49,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Deletes all messages in the chat. Use Chat.can_be_deleted_only_for_self and Chat.can_be_deleted_for_all_users fields to find whether and how the method can be applied to the chat
+        /// Deletes all messages in the chat. Use chat.can_be_deleted_only_for_self and chat.can_be_deleted_for_all_users fields to find whether and how the method can be applied to the chat
         /// </summary>
         public static Task<Ok> DeleteChatHistoryAsync(
             this Client client, long chatId = default, bool removeFromChatList = default, bool revoke = default)

@@ -54,7 +54,7 @@ namespace TdLib
             public bool IsUploadingCompleted { get; set; }
 
             /// <summary>
-            /// Size of the remote available part of the file; 0 if unknown
+            /// Size of the remote available part of the file, in bytes; 0 if unknown
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("uploaded_size")]

@@ -35,14 +35,14 @@ namespace TdLib
                 public FormattedText Text { get; set; }
 
                 /// <summary>
-                /// True, if rich web page previews for URLs in the message text should be disabled
+                /// True, if rich web page previews for URLs in the message text must be disabled
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("disable_web_page_preview")]
                 public bool DisableWebPagePreview { get; set; }
 
                 /// <summary>
-                /// True, if a chat message draft should be deleted
+                /// True, if a chat message draft must be deleted
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("clear_draft")]

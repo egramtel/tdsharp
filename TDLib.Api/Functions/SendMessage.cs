@@ -48,14 +48,14 @@ namespace TdLib
             public long ReplyToMessageId { get; set; }
 
             /// <summary>
-            /// Options to be used to send the message
+            /// Options to be used to send the message; pass null to use default options
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("options")]
             public MessageSendOptions Options { get; set; }
 
             /// <summary>
-            /// Markup for replying to the message; for bots only
+            /// Markup for replying to the message; pass null if none; for bots only
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("reply_markup")]

@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns information about members or banned users in a supergroup or channel. Can be used only if SupergroupFullInfo.can_get_members == true; additionally, administrator privileges may be required for some filters
+        /// Returns information about members or banned users in a supergroup or channel. Can be used only if supergroupFullInfo.can_get_members == true; additionally, administrator privileges may be required for some filters
         /// </summary>
         public class GetSupergroupMembers : Function<ChatMembers>
         {
@@ -31,10 +31,10 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("supergroup_id")]
-            public int SupergroupId { get; set; }
+            public long SupergroupId { get; set; }
 
             /// <summary>
-            /// The type of users to return. By default, supergroupMembersFilterRecent
+            /// The type of users to return; pass null to use supergroupMembersFilterRecent
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("filter")]
@@ -56,10 +56,10 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Returns information about members or banned users in a supergroup or channel. Can be used only if SupergroupFullInfo.can_get_members == true; additionally, administrator privileges may be required for some filters
+        /// Returns information about members or banned users in a supergroup or channel. Can be used only if supergroupFullInfo.can_get_members == true; additionally, administrator privileges may be required for some filters
         /// </summary>
         public static Task<ChatMembers> GetSupergroupMembersAsync(
-            this Client client, int supergroupId = default, SupergroupMembersFilter filter = default,
+            this Client client, long supergroupId = default, SupergroupMembersFilter filter = default,
             int offset = default, int limit = default)
         {
             return client.ExecuteAsync(new GetSupergroupMembers

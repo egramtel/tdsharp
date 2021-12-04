@@ -41,7 +41,7 @@ namespace TdLib
             public long MessageId { get; set; }
 
             /// <summary>
-            /// The new message reply markup
+            /// The new message reply markup; pass null if none
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("reply_markup")]

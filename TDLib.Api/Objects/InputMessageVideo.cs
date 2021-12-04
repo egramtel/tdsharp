@@ -35,7 +35,7 @@ namespace TdLib
                 public InputFile Video { get; set; }
 
                 /// <summary>
-                /// Video thumbnail, if available
+                /// Video thumbnail; pass null to skip thumbnail uploading
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("thumbnail")]
@@ -70,14 +70,14 @@ namespace TdLib
                 public int Height { get; set; }
 
                 /// <summary>
-                /// True, if the video should be tried to be streamed
+                /// True, if the video is supposed to be streamed
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("supports_streaming")]
                 public bool SupportsStreaming { get; set; }
 
                 /// <summary>
-                /// Video caption; 0-GetOption("message_caption_length_max") characters
+                /// Video caption; pass null to use an empty caption; 0-GetOption("message_caption_length_max") characters
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("caption")]

@@ -41,7 +41,7 @@ namespace TdLib
             public string Query { get; set; }
 
             /// <summary>
-            /// If not null, only messages sent by the specified sender will be returned. Not supported in secret chats
+            /// Sender of messages to search for; pass null to search for messages from any sender. Not supported in secret chats
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("sender")]
@@ -62,14 +62,14 @@ namespace TdLib
             public int Offset { get; set; }
 
             /// <summary>
-            /// The maximum number of messages to be returned; must be positive and can't be greater than 100. If the offset is negative, the limit must be greater than -offset. Fewer messages may be returned than specified by the limit, even if the end of the message history has not been reached
+            /// The maximum number of messages to be returned; must be positive and can't be greater than 100. If the offset is negative, the limit must be greater than -offset. For optimal performance, the number of returned messages is chosen by TDLib and can be smaller than the specified limit
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("limit")]
             public int Limit { get; set; }
 
             /// <summary>
-            /// Filter for message content in the search results
+            /// Additional filter for messages to search; pass null to search for all messages
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("filter")]

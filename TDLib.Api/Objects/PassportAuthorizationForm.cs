@@ -33,7 +33,7 @@ namespace TdLib
             public int Id { get; set; }
 
             /// <summary>
-            /// Information about the Telegram Passport elements that must be provided to complete the form
+            /// Telegram Passport elements that must be provided to complete the form
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("required_elements")]

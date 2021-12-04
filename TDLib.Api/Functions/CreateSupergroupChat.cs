@@ -31,7 +31,7 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("supergroup_id")]
-            public int SupergroupId { get; set; }
+            public long SupergroupId { get; set; }
 
             /// <summary>
             /// If true, the chat will be created without network request. In this case all information about the chat except its type, title and photo can be incorrect
@@ -45,7 +45,7 @@ namespace TdLib
         /// Returns an existing chat corresponding to a known supergroup or channel
         /// </summary>
         public static Task<Chat> CreateSupergroupChatAsync(
-            this Client client, int supergroupId = default, bool force = default)
+            this Client client, long supergroupId = default, bool force = default)
         {
             return client.ExecuteAsync(new CreateSupergroupChat
             {

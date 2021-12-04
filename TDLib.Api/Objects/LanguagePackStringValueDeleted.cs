@@ -11,7 +11,7 @@ namespace TdLib
         public partial class LanguagePackStringValue : Object
         {
             /// <summary>
-            /// A deleted language pack string, the value should be taken from the built-in english language pack
+            /// A deleted language pack string, the value must be taken from the built-in English language pack
             /// </summary>
             public class LanguagePackStringValueDeleted : LanguagePackStringValue
             {

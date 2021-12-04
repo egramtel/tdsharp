@@ -38,14 +38,14 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("user_id")]
-            public int UserId { get; set; }
+            public long UserId { get; set; }
         }
 
         /// <summary>
         /// Deletes all messages sent by the specified user to a chat. Supported only for supergroups; requires can_delete_messages administrator privileges
         /// </summary>
         public static Task<Ok> DeleteChatMessagesFromUserAsync(
-            this Client client, long chatId = default, int userId = default)
+            this Client client, long chatId = default, long userId = default)
         {
             return client.ExecuteAsync(new DeleteChatMessagesFromUser
             {

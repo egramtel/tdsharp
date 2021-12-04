@@ -48,7 +48,7 @@ namespace TdLib
             public long ReplyToMessageId { get; set; }
 
             /// <summary>
-            /// Options to be used to send the message
+            /// Options to be used to send the message; pass null to use default options
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("options")]

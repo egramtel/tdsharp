@@ -39,7 +39,7 @@ namespace TdLib
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("user_id")]
-                public int UserId { get; set; }
+                public long UserId { get; set; }
 
                 /// <summary>
                 /// 0-based identifiers of answer options, chosen by the user

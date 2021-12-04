@@ -31,7 +31,7 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("user_id")]
-            public int UserId { get; set; }
+            public long UserId { get; set; }
 
             /// <summary>
             /// If true, the chat will be created without network request. In this case all information about the chat except its type, title and photo can be incorrect
@@ -45,7 +45,7 @@ namespace TdLib
         /// Returns an existing chat corresponding to a given user
         /// </summary>
         public static Task<Chat> CreatePrivateChatAsync(
-            this Client client, int userId = default, bool force = default)
+            this Client client, long userId = default, bool force = default)
         {
             return client.ExecuteAsync(new CreatePrivateChat
             {

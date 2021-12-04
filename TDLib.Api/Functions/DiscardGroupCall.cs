@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Discards a group call. Requires can_manage_voice_chats rights in the corresponding chat
+        /// Discards a group call. Requires groupCall.can_be_managed
         /// </summary>
         public class DiscardGroupCall : Function<Ok>
         {
@@ -35,7 +35,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Discards a group call. Requires can_manage_voice_chats rights in the corresponding chat
+        /// Discards a group call. Requires groupCall.can_be_managed
         /// </summary>
         public static Task<Ok> DiscardGroupCallAsync(
             this Client client, int groupCallId = default)

@@ -54,7 +54,7 @@ namespace TdLib
             public int Height { get; set; }
 
             /// <summary>
-            /// Sizes of progressive JPEG file prefixes, which can be used to preliminarily show the image
+            /// Sizes of progressive JPEG file prefixes, which can be used to preliminarily show the image; in bytes
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("progressive_sizes")]

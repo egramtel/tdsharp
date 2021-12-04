@@ -34,7 +34,7 @@ namespace TdLib
             public long ChatId { get; set; }
 
             /// <summary>
-            /// The sender sender of the message
+            /// The sender of the message
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("sender")]

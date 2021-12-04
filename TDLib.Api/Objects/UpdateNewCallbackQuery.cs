@@ -39,7 +39,7 @@ namespace TdLib
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("sender_user_id")]
-                public int SenderUserId { get; set; }
+                public long SenderUserId { get; set; }
 
                 /// <summary>
                 /// Identifier of the chat where the query was sent

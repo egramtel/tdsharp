@@ -27,7 +27,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// The minimum verbosity level needed for the message to be logged, 0-1023
+            /// The minimum verbosity level needed for the message to be logged; 0-1023
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("verbosity_level")]

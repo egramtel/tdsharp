@@ -68,7 +68,7 @@ namespace TdLib
             public bool HasStickers { get; set; }
 
             /// <summary>
-            /// True, if the video should be tried to be streamed
+            /// True, if the video is supposed to be streamed
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("supports_streaming")]

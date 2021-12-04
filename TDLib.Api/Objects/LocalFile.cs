@@ -68,14 +68,14 @@ namespace TdLib
             public int DownloadOffset { get; set; }
 
             /// <summary>
-            /// If is_downloading_completed is false, then only some prefix of the file starting from download_offset is ready to be read. downloaded_prefix_size is the size of that prefix
+            /// If is_downloading_completed is false, then only some prefix of the file starting from download_offset is ready to be read. downloaded_prefix_size is the size of that prefix in bytes
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("downloaded_prefix_size")]
             public int DownloadedPrefixSize { get; set; }
 
             /// <summary>
-            /// Total downloaded file bytes. Should be used only for calculating download progress. The actual file size may be bigger, and some parts of it may contain garbage
+            /// Total downloaded file size, in bytes. Can be used only for calculating download progress. The actual file size may be bigger, and some parts of it may contain garbage
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("downloaded_size")]

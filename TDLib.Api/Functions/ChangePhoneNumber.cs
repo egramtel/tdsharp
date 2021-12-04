@@ -34,7 +34,7 @@ namespace TdLib
             public string PhoneNumber { get; set; }
 
             /// <summary>
-            /// Settings for the authentication of the user's phone number
+            /// Settings for the authentication of the user's phone number; pass null to use default settings
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("settings")]

@@ -27,7 +27,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Query to search for. If the query is empty, returns up to 20 recently found chats
+            /// Query to search for. If the query is empty, returns up to 50 recently found chats
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("query")]

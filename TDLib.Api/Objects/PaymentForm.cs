@@ -26,6 +26,13 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
+            /// The payment form identifier
+            /// </summary>
+            [JsonConverter(typeof(Converter.Int64))]
+            [JsonProperty("id")]
+            public long Id { get; set; }
+
+            /// <summary>
             /// Full information of the invoice
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -40,7 +47,21 @@ namespace TdLib
             public string Url { get; set; }
 
             /// <summary>
-            /// Contains information about the payment provider, if available, to support it natively without the need for opening the URL; may be null
+            /// User identifier of the seller bot
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("seller_bot_user_id")]
+            public long SellerBotUserId { get; set; }
+
+            /// <summary>
+            /// User identifier of the payment provider bot
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("payments_provider_user_id")]
+            public long PaymentsProviderUserId { get; set; }
+
+            /// <summary>
+            /// Information about the payment provider, if available, to support it natively without the need for opening the URL; may be null
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("payments_provider")]
@@ -54,7 +75,7 @@ namespace TdLib
             public OrderInfo SavedOrderInfo { get; set; }
 
             /// <summary>
-            /// Contains information about saved card credentials; may be null
+            /// Information about saved card credentials; may be null
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("saved_credentials")]

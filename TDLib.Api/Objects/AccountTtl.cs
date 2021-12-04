@@ -26,7 +26,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Number of days of inactivity before the account will be flagged for deletion; should range from 30-366 days
+            /// Number of days of inactivity before the account will be flagged for deletion; 30-366 days
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("days")]

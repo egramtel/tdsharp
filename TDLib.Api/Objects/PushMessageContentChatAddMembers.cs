@@ -42,7 +42,7 @@ namespace TdLib
                 public bool IsCurrentUser { get; set; }
 
                 /// <summary>
-                /// True, if the user has returned to the group themself
+                /// True, if the user has returned to the group themselves
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_returned")]

@@ -27,14 +27,14 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// The new value of the first name for the user; 1-64 characters
+            /// The new value of the first name for the current user; 1-64 characters
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("first_name")]
             public string FirstName { get; set; }
 
             /// <summary>
-            /// The new value of the optional last name for the user; 0-64 characters
+            /// The new value of the optional last name for the current user; 0-64 characters
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("last_name")]

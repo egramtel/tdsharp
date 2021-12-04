@@ -40,7 +40,7 @@ namespace TdLib
             public string CountryCallingCode { get; set; }
 
             /// <summary>
-            /// The phone number without country calling code formatted accordingly to local rules
+            /// The phone number without country calling code formatted accordingly to local rules. Expected digits are returned as '-', but even more digits might be entered by the user
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("formatted_phone_number")]

@@ -44,7 +44,7 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("user_id")]
-            public int UserId { get; set; }
+            public long UserId { get; set; }
 
             /// <summary>
             /// Action performed by the user

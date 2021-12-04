@@ -49,7 +49,7 @@ namespace TdLib
                 public byte[] Waveform { get; set; }
 
                 /// <summary>
-                /// Voice note caption; 0-GetOption("message_caption_length_max") characters
+                /// Voice note caption; pass null to use an empty caption; 0-GetOption("message_caption_length_max") characters
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("caption")]

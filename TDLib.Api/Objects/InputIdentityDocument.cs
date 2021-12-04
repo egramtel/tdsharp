@@ -33,7 +33,7 @@ namespace TdLib
             public string Number { get; set; }
 
             /// <summary>
-            /// Document expiry date, if available
+            /// Document expiry date; pass null if not applicable
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("expiry_date")]
@@ -47,14 +47,14 @@ namespace TdLib
             public InputFile FrontSide { get; set; }
 
             /// <summary>
-            /// Reverse side of the document; only for driver license and identity card
+            /// Reverse side of the document; only for driver license and identity card; pass null otherwise
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("reverse_side")]
             public InputFile ReverseSide { get; set; }
 
             /// <summary>
-            /// Selfie with the document, if available
+            /// Selfie with the document; pass null if unavailable
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("selfie")]

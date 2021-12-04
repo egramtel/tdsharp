@@ -28,18 +28,25 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Description of the background fill
+                /// Fill of the background
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("fill")]
                 public BackgroundFill Fill { get; set; }
 
                 /// <summary>
-                /// Intensity of the pattern when it is shown above the filled background, 0-100
+                /// Intensity of the pattern when it is shown above the filled background; 0-100.
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("intensity")]
                 public int Intensity { get; set; }
+
+                /// <summary>
+                /// True, if the background fill must be applied only to the pattern itself. All other pixels are black in this case. For dark themes only
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("is_inverted")]
+                public bool IsInverted { get; set; }
 
                 /// <summary>
                 /// True, if the background needs to be slightly moved when device is tilted

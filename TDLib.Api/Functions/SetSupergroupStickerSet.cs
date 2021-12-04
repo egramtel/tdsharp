@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Changes the sticker set of a supergroup; requires can_change_info rights
+        /// Changes the sticker set of a supergroup; requires can_change_info administrator right
         /// </summary>
         public class SetSupergroupStickerSet : Function<Ok>
         {
@@ -31,7 +31,7 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("supergroup_id")]
-            public int SupergroupId { get; set; }
+            public long SupergroupId { get; set; }
 
             /// <summary>
             /// New value of the supergroup sticker set identifier. Use 0 to remove the supergroup sticker set
@@ -42,10 +42,10 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Changes the sticker set of a supergroup; requires can_change_info rights
+        /// Changes the sticker set of a supergroup; requires can_change_info administrator right
         /// </summary>
         public static Task<Ok> SetSupergroupStickerSetAsync(
-            this Client client, int supergroupId = default, long stickerSetId = default)
+            this Client client, long supergroupId = default, long stickerSetId = default)
         {
             return client.ExecuteAsync(new SetSupergroupStickerSet
             {

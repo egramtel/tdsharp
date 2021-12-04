@@ -40,7 +40,7 @@ namespace TdLib
             public int Date { get; set; }
 
             /// <summary>
-            /// Content of the message draft; this should always be of type inputMessageText
+            /// Content of the message draft; must be of the type inputMessageText
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("input_message_text")]

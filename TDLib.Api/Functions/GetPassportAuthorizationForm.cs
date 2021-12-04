@@ -31,7 +31,7 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("bot_user_id")]
-            public int BotUserId { get; set; }
+            public long BotUserId { get; set; }
 
             /// <summary>
             /// Telegram Passport element types requested by the service
@@ -41,14 +41,14 @@ namespace TdLib
             public string Scope { get; set; }
 
             /// <summary>
-            /// Service's public_key
+            /// Service's public key
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("public_key")]
             public string PublicKey { get; set; }
 
             /// <summary>
-            /// Authorization form nonce provided by the service
+            /// Unique request identifier provided by the service
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("nonce")]
@@ -59,7 +59,7 @@ namespace TdLib
         /// Returns a Telegram Passport authorization form for sharing data with a service
         /// </summary>
         public static Task<PassportAuthorizationForm> GetPassportAuthorizationFormAsync(
-            this Client client, int botUserId = default, string scope = default, string publicKey = default,
+            this Client client, long botUserId = default, string scope = default, string publicKey = default,
             string nonce = default)
         {
             return client.ExecuteAsync(new GetPassportAuthorizationForm

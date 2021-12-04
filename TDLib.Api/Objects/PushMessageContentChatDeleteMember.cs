@@ -42,7 +42,7 @@ namespace TdLib
                 public bool IsCurrentUser { get; set; }
 
                 /// <summary>
-                /// True, if the user has left the group themself
+                /// True, if the user has left the group themselves
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_left")]

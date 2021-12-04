@@ -11,7 +11,7 @@ namespace TdLib
         public partial class ChatActionBar : Object
         {
             /// <summary>
-            /// Describes actions which should be possible to do through a chat action bar
+            /// Describes actions which must be possible to do through a chat action bar
             /// </summary>
             public class ChatActionBarReportSpam : ChatActionBar
             {

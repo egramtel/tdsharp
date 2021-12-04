@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Sends phone number confirmation code. Should be called when user presses "https://t.me/confirmphone?phone=*******&hash=**********" or "tg://confirmphone?phone=*******&hash=**********" link
+        /// Sends phone number confirmation code to handle links of the type internalLinkTypePhoneNumberConfirmation
         /// </summary>
         public class SendPhoneNumberConfirmationCode : Function<AuthenticationCodeInfo>
         {
@@ -27,21 +27,21 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Value of the "hash" parameter from the link
+            /// Hash value from the link
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("hash")]
             public string Hash { get; set; }
 
             /// <summary>
-            /// Value of the "phone" parameter from the link
+            /// Phone number value from the link
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("phone_number")]
             public string PhoneNumber { get; set; }
 
             /// <summary>
-            /// Settings for the authentication of the user's phone number
+            /// Settings for the authentication of the user's phone number; pass null to use default settings
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("settings")]
@@ -49,7 +49,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Sends phone number confirmation code. Should be called when user presses "https://t.me/confirmphone?phone=*******&hash=**********" or "tg://confirmphone?phone=*******&hash=**********" link
+        /// Sends phone number confirmation code to handle links of the type internalLinkTypePhoneNumberConfirmation
         /// </summary>
         public static Task<AuthenticationCodeInfo> SendPhoneNumberConfirmationCodeAsync(
             this Client client, string hash = default, string phoneNumber = default,

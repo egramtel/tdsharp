@@ -11,7 +11,7 @@ namespace TdLib
         public partial class ChatAction : Object
         {
             /// <summary>
-            /// The user has cancelled the previous action
+            /// The user has canceled the previous action
             /// </summary>
             public class ChatActionCancel : ChatAction
             {

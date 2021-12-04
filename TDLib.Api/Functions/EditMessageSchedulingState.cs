@@ -41,7 +41,7 @@ namespace TdLib
             public long MessageId { get; set; }
 
             /// <summary>
-            /// The new message scheduling state. Pass null to send the message immediately
+            /// The new message scheduling state; pass null to send the message immediately
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("scheduling_state")]

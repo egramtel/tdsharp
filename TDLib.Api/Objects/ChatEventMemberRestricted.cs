@@ -28,11 +28,11 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Chat member user identifier
+                /// Affected chat member identifier
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("user_id")]
-                public int UserId { get; set; }
+                [JsonProperty("member_id")]
+                public MessageSender MemberId { get; set; }
 
                 /// <summary>
                 /// Previous status of the chat member

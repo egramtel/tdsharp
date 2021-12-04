@@ -34,7 +34,7 @@ namespace TdLib
             public string RemoteFileId { get; set; }
 
             /// <summary>
-            /// File type, if known
+            /// File type; pass null if unknown
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("file_type")]

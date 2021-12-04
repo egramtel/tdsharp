@@ -59,6 +59,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("recovery_email_address_code_info")]
             public EmailAddressAuthenticationCodeInfo RecoveryEmailAddressCodeInfo { get; set; }
+
+            /// <summary>
+            /// If not 0, point in time (Unix timestamp) after which the password can be reset immediately using resetPassword
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("pending_reset_date")]
+            public int PendingResetDate { get; set; }
         }
     }
 }

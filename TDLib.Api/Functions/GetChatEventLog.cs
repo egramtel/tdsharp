@@ -55,7 +55,7 @@ namespace TdLib
             public int Limit { get; set; }
 
             /// <summary>
-            /// The types of events to return. By default, all types will be returned
+            /// The types of events to return; pass null to get chat events of all types
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("filters")]
@@ -66,7 +66,7 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("user_ids")]
-            public int[] UserIds { get; set; }
+            public long[] UserIds { get; set; }
         }
 
         /// <summary>
@@ -74,7 +74,7 @@ namespace TdLib
         /// </summary>
         public static Task<ChatEvents> GetChatEventLogAsync(
             this Client client, long chatId = default, string query = default, long fromEventId = default,
-            int limit = default, ChatEventLogFilters filters = default, int[] userIds = default)
+            int limit = default, ChatEventLogFilters filters = default, long[] userIds = default)
         {
             return client.ExecuteAsync(new GetChatEventLog
             {

@@ -110,7 +110,7 @@ namespace TdLib
             public int Size { get; set; }
 
             /// <summary>
-            /// Contains up to the first 5 stickers from the set, depending on the context. If the application needs more stickers the full set should be requested
+            /// Up to the first 5 stickers from the set, depending on the context. If the application needs more stickers the full sticker set needs to be requested
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("covers")]

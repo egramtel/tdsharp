@@ -42,7 +42,7 @@ namespace TdLib
                 public string GameShortName { get; set; }
 
                 /// <summary>
-                /// Message reply markup. Must be of type replyMarkupInlineKeyboard or null
+                /// The message reply markup; pass null if none. Must be of type replyMarkupInlineKeyboard or null
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("reply_markup")]

@@ -31,14 +31,14 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("user_ids")]
-            public int[] UserIds { get; set; }
+            public long[] UserIds { get; set; }
         }
 
         /// <summary>
         /// Removes users from the contact list
         /// </summary>
         public static Task<Ok> RemoveContactsAsync(
-            this Client client, int[] userIds = default)
+            this Client client, long[] userIds = default)
         {
             return client.ExecuteAsync(new RemoveContacts
             {

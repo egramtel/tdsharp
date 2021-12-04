@@ -27,7 +27,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// The animation file to be added. Only animations known to the server (i.e. successfully sent via a message) can be added to the list
+            /// The animation file to be added. Only animations known to the server (i.e., successfully sent via a message) can be added to the list
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("animation")]

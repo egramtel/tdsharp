@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns forwarded copies of a channel message to different public channels. For optimal performance the number of returned messages is chosen by the library
+        /// Returns forwarded copies of a channel message to different public channels. For optimal performance, the number of returned messages is chosen by TDLib
         /// </summary>
         public class GetMessagePublicForwards : Function<FoundMessages>
         {
@@ -48,7 +48,7 @@ namespace TdLib
             public string Offset { get; set; }
 
             /// <summary>
-            /// The maximum number of messages to be returned; must be positive and can't be greater than 100. Fewer messages may be returned than specified by the limit, even if the end of the list has not been reached
+            /// The maximum number of messages to be returned; must be positive and can't be greater than 100. For optimal performance, the number of returned messages is chosen by TDLib and can be smaller than the specified limit
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("limit")]
@@ -56,7 +56,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Returns forwarded copies of a channel message to different public channels. For optimal performance the number of returned messages is chosen by the library
+        /// Returns forwarded copies of a channel message to different public channels. For optimal performance, the number of returned messages is chosen by TDLib
         /// </summary>
         public static Task<FoundMessages> GetMessagePublicForwardsAsync(
             this Client client, long chatId = default, long messageId = default, string offset = default,

@@ -31,14 +31,14 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("supergroup_id")]
-            public int SupergroupId { get; set; }
+            public long SupergroupId { get; set; }
 
             /// <summary>
             /// User identifier
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("user_id")]
-            public int UserId { get; set; }
+            public long UserId { get; set; }
 
             /// <summary>
             /// Identifiers of messages sent in the supergroup by the user. This list must be non-empty
@@ -52,7 +52,7 @@ namespace TdLib
         /// Reports some messages from a user in a supergroup as spam; requires administrator rights in the supergroup
         /// </summary>
         public static Task<Ok> ReportSupergroupSpamAsync(
-            this Client client, int supergroupId = default, int userId = default, long[] messageIds = default)
+            this Client client, long supergroupId = default, long userId = default, long[] messageIds = default)
         {
             return client.ExecuteAsync(new ReportSupergroupSpam
             {

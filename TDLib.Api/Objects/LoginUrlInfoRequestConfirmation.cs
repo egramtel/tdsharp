@@ -46,7 +46,7 @@ namespace TdLib
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("bot_user_id")]
-                public int BotUserId { get; set; }
+                public long BotUserId { get; set; }
 
                 /// <summary>
                 /// True, if the user needs to be requested to give the permission to the bot to send them messages

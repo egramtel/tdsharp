@@ -35,7 +35,7 @@ namespace TdLib
                 public InputFile Document { get; set; }
 
                 /// <summary>
-                /// Document thumbnail, if available
+                /// Document thumbnail; pass null to skip thumbnail uploading
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("thumbnail")]
@@ -49,7 +49,7 @@ namespace TdLib
                 public bool DisableContentTypeDetection { get; set; }
 
                 /// <summary>
-                /// Document caption; 0-GetOption("message_caption_length_max") characters
+                /// Document caption; pass null to use an empty caption; 0-GetOption("message_caption_length_max") characters
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("caption")]

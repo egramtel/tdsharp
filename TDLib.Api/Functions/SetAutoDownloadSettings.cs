@@ -34,7 +34,7 @@ namespace TdLib
             public AutoDownloadSettings Settings { get; set; }
 
             /// <summary>
-            /// Type of the network for which the new settings are applied
+            /// Type of the network for which the new settings are relevant
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("type")]

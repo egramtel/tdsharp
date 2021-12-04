@@ -42,14 +42,14 @@ namespace TdLib
                 public long MessageId { get; set; }
 
                 /// <summary>
-                /// True, if a game message should be shared within a launched game; applies only to game messages
+                /// True, if a game message is being shared from a launched game; applies only to game messages
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("in_game_share")]
                 public bool InGameShare { get; set; }
 
                 /// <summary>
-                /// Options to be used to copy content of the message without a link to the original message
+                /// Options to be used to copy content of the message without reference to the original sender; pass null to try to forward the message as usual
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("copy_options")]

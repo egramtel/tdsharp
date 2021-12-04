@@ -41,7 +41,7 @@ namespace TdLib
             public long MessageId { get; set; }
 
             /// <summary>
-            /// The order information, provided by the user
+            /// The order information, provided by the user; pass null if empty
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("order_info")]

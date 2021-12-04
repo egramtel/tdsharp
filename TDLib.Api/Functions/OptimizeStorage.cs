@@ -27,7 +27,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Limit on the total size of files after deletion. Pass -1 to use the default limit
+            /// Limit on the total size of files after deletion, in bytes. Pass -1 to use the default limit
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("size")]
@@ -55,21 +55,21 @@ namespace TdLib
             public int ImmunityDelay { get; set; }
 
             /// <summary>
-            /// If not empty, only files with the given type(s) are considered. By default, all types except thumbnails, profile photos, stickers and wallpapers are deleted
+            /// If non-empty, only files with the given types are considered. By default, all types except thumbnails, profile photos, stickers and wallpapers are deleted
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("file_types")]
             public FileType[] FileTypes { get; set; }
 
             /// <summary>
-            /// If not empty, only files from the given chats are considered. Use 0 as chat identifier to delete files not belonging to any chat (e.g., profile photos)
+            /// If non-empty, only files from the given chats are considered. Use 0 as chat identifier to delete files not belonging to any chat (e.g., profile photos)
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_ids")]
             public long[] ChatIds { get; set; }
 
             /// <summary>
-            /// If not empty, files from the given chats are excluded. Use 0 as chat identifier to exclude all files not belonging to any chat (e.g., profile photos)
+            /// If non-empty, files from the given chats are excluded. Use 0 as chat identifier to exclude all files not belonging to any chat (e.g., profile photos)
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("exclude_chat_ids")]

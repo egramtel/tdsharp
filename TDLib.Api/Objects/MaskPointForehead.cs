@@ -11,7 +11,7 @@ namespace TdLib
         public partial class MaskPoint : Object
         {
             /// <summary>
-            /// Part of the face, relative to which a mask should be placed
+            /// Part of the face, relative to which a mask is placed
             /// </summary>
             public class MaskPointForehead : MaskPoint
             {

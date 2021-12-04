@@ -31,14 +31,14 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("user_id")]
-            public int UserId { get; set; }
+            public long UserId { get; set; }
         }
 
         /// <summary>
         /// Returns full information about a user by their identifier
         /// </summary>
         public static Task<UserFullInfo> GetUserFullInfoAsync(
-            this Client client, int userId = default)
+            this Client client, long userId = default)
         {
             return client.ExecuteAsync(new GetUserFullInfo
             {

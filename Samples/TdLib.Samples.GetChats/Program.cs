@@ -93,9 +93,9 @@ namespace TdLib.Samples.GetChats
             Console.ReadLine();
         }
 
-        public static async IAsyncEnumerable<TdApi.Chat> GetChannels(long offsetOrder = long.MaxValue, long offsetId = 0, int limit = 1000)
+        public static async IAsyncEnumerable<TdApi.Chat> GetChannels(int limit = 1000)
         {
-            var chats = await _client.ExecuteAsync(new TdApi.GetChats { OffsetOrder = offsetOrder, Limit = limit, OffsetChatId = offsetId });
+            var chats = await _client.ExecuteAsync(new TdApi.GetChats { Limit = limit });
             foreach (var chatId in chats.ChatIds)
             {
                 var chat = await _client.ExecuteAsync(new TdApi.GetChat { ChatId = chatId });

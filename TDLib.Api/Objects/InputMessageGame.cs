@@ -32,7 +32,7 @@ namespace TdLib
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("bot_user_id")]
-                public int BotUserId { get; set; }
+                public long BotUserId { get; set; }
 
                 /// <summary>
                 /// Short name of the game

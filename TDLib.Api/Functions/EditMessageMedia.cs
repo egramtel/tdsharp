@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Edits the content of a message with an animation, an audio, a document, a photo or a video. The media in the message can't be replaced if the message was set to self-destruct. Media can't be replaced by self-destructing media. Media in an album can be edited only to contain a photo or a video. Returns the edited message after the edit is completed on the server side
+        /// Edits the content of a message with an animation, an audio, a document, a photo or a video, including message caption. If only the caption needs to be edited, use editMessageCaption instead.
         /// </summary>
         public class EditMessageMedia : Function<Message>
         {
@@ -41,14 +41,14 @@ namespace TdLib
             public long MessageId { get; set; }
 
             /// <summary>
-            /// The new message reply markup; for bots only
+            /// The new message reply markup; pass null if none; for bots only
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("reply_markup")]
             public ReplyMarkup ReplyMarkup { get; set; }
 
             /// <summary>
-            /// New content of the message. Must be one of the following types: InputMessageAnimation, InputMessageAudio, InputMessageDocument, InputMessagePhoto or InputMessageVideo
+            /// New content of the message. Must be one of the following types: inputMessageAnimation, inputMessageAudio, inputMessageDocument, inputMessagePhoto or inputMessageVideo
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("input_message_content")]
@@ -56,7 +56,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Edits the content of a message with an animation, an audio, a document, a photo or a video. The media in the message can't be replaced if the message was set to self-destruct. Media can't be replaced by self-destructing media. Media in an album can be edited only to contain a photo or a video. Returns the edited message after the edit is completed on the server side
+        /// Edits the content of a message with an animation, an audio, a document, a photo or a video, including message caption. If only the caption needs to be edited, use editMessageCaption instead.
         /// </summary>
         public static Task<Message> EditMessageMediaAsync(
             this Client client, long chatId = default, long messageId = default, ReplyMarkup replyMarkup = default,

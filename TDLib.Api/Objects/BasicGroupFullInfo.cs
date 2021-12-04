@@ -44,7 +44,7 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("creator_user_id")]
-            public int CreatorUserId { get; set; }
+            public long CreatorUserId { get; set; }
 
             /// <summary>
             /// Group members
@@ -54,11 +54,18 @@ namespace TdLib
             public ChatMember[] Members { get; set; }
 
             /// <summary>
-            /// Invite link for this group; available only after it has been generated at least once and only for the group creator
+            /// Primary invite link for this group; may be null. For chat administrators with can_invite_users right only. Updated only after the basic group is opened
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("invite_link")]
-            public string InviteLink { get; set; }
+            public ChatInviteLink InviteLink { get; set; }
+
+            /// <summary>
+            /// List of commands of bots in the group
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("bot_commands")]
+            public BotCommands[] BotCommands { get; set; }
         }
     }
 }

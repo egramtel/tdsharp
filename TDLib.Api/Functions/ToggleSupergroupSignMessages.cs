@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Toggles sender signatures messages sent in a channel; requires can_change_info rights
+        /// Toggles sender signatures messages sent in a channel; requires can_change_info administrator right
         /// </summary>
         public class ToggleSupergroupSignMessages : Function<Ok>
         {
@@ -31,7 +31,7 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("supergroup_id")]
-            public int SupergroupId { get; set; }
+            public long SupergroupId { get; set; }
 
             /// <summary>
             /// New value of sign_messages
@@ -42,10 +42,10 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Toggles sender signatures messages sent in a channel; requires can_change_info rights
+        /// Toggles sender signatures messages sent in a channel; requires can_change_info administrator right
         /// </summary>
         public static Task<Ok> ToggleSupergroupSignMessagesAsync(
-            this Client client, int supergroupId = default, bool signMessages = default)
+            this Client client, long supergroupId = default, bool signMessages = default)
         {
             return client.ExecuteAsync(new ToggleSupergroupSignMessages
             {

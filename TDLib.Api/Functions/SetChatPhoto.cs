@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Changes the photo of a chat. Supported only for basic groups, supergroups and channels. Requires can_change_info rights
+        /// Changes the photo of a chat. Supported only for basic groups, supergroups and channels. Requires can_change_info administrator right
         /// </summary>
         public class SetChatPhoto : Function<Ok>
         {
@@ -34,7 +34,7 @@ namespace TdLib
             public long ChatId { get; set; }
 
             /// <summary>
-            /// New chat photo. Pass null to delete the chat photo
+            /// New chat photo; pass null to delete the chat photo
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("photo")]
@@ -42,7 +42,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Changes the photo of a chat. Supported only for basic groups, supergroups and channels. Requires can_change_info rights
+        /// Changes the photo of a chat. Supported only for basic groups, supergroups and channels. Requires can_change_info administrator right
         /// </summary>
         public static Task<Ok> SetChatPhotoAsync(
             this Client client, long chatId = default, InputChatPhoto photo = default)

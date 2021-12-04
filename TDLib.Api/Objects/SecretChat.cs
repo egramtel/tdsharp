@@ -37,7 +37,7 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("user_id")]
-            public int UserId { get; set; }
+            public long UserId { get; set; }
 
             /// <summary>
             /// State of the secret chat
@@ -54,13 +54,6 @@ namespace TdLib
             public bool IsOutbound { get; set; }
 
             /// <summary>
-            /// Current message Time To Live setting (self-destruct timer) for the chat, in seconds
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("ttl")]
-            public int Ttl { get; set; }
-
-            /// <summary>
             /// Hash of the currently used key for comparison with the hash of the chat partner's key. This is a string of 36 little-endian bytes, which must be split into groups of 2 bits, each denoting a pixel of one of 4 colors FFFFFF, D5E6F3, 2D5775, and 2F99C9.
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -68,7 +61,7 @@ namespace TdLib
             public byte[] KeyHash { get; set; }
 
             /// <summary>
-            /// Secret chat layer; determines features supported by the chat partner's application. Video notes are supported if the layer >= 66; nested text entities and underline and strikethrough entities are supported if the layer >= 101
+            /// Secret chat layer; determines features supported by the chat partner's application. Nested text entities and underline and strikethrough entities are supported if the layer >= 101
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("layer")]

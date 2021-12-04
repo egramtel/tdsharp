@@ -11,7 +11,7 @@ namespace TdLib
         public partial class ChatType : Object
         {
             /// <summary>
-            /// A supergroup (i.e. a chat with up to GetOption("supergroup_max_size") other users), or channel (with unlimited members)
+            /// A supergroup or channel (with unlimited members)
             /// </summary>
             public class ChatTypeSupergroup : ChatType
             {
@@ -32,7 +32,7 @@ namespace TdLib
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("supergroup_id")]
-                public int SupergroupId { get; set; }
+                public long SupergroupId { get; set; }
 
                 /// <summary>
                 /// True, if the supergroup is a channel

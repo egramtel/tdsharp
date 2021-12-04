@@ -59,6 +59,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_full")]
             public bool IsFull { get; set; }
+
+            /// <summary>
+            /// An internal link to be opened to leave feedback about the instant view
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("feedback_link")]
+            public InternalLinkType FeedbackLink { get; set; }
         }
     }
 }

@@ -33,28 +33,28 @@ namespace TdLib
             public bool IsAutoDownloadEnabled { get; set; }
 
             /// <summary>
-            /// The maximum size of a photo file to be auto-downloaded
+            /// The maximum size of a photo file to be auto-downloaded, in bytes
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("max_photo_file_size")]
             public int MaxPhotoFileSize { get; set; }
 
             /// <summary>
-            /// The maximum size of a video file to be auto-downloaded
+            /// The maximum size of a video file to be auto-downloaded, in bytes
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("max_video_file_size")]
             public int MaxVideoFileSize { get; set; }
 
             /// <summary>
-            /// The maximum size of other file types to be auto-downloaded
+            /// The maximum size of other file types to be auto-downloaded, in bytes
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("max_other_file_size")]
             public int MaxOtherFileSize { get; set; }
 
             /// <summary>
-            /// The maximum suggested bitrate for uploaded videos
+            /// The maximum suggested bitrate for uploaded videos, in kbit/s
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("video_upload_bitrate")]

@@ -35,14 +35,14 @@ namespace TdLib
                 public CallDiscardReason Reason { get; set; }
 
                 /// <summary>
-                /// True, if the call rating should be sent to the server
+                /// True, if the call rating must be sent to the server
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("need_rating")]
                 public bool NeedRating { get; set; }
 
                 /// <summary>
-                /// True, if the call debug information should be sent to the server
+                /// True, if the call debug information must be sent to the server
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("need_debug_information")]

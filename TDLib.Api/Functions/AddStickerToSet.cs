@@ -31,7 +31,7 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("user_id")]
-            public int UserId { get; set; }
+            public long UserId { get; set; }
 
             /// <summary>
             /// Sticker set name
@@ -52,7 +52,7 @@ namespace TdLib
         /// Adds a new sticker to a set; for bots only. Returns the sticker set
         /// </summary>
         public static Task<StickerSet> AddStickerToSetAsync(
-            this Client client, int userId = default, string name = default, InputSticker sticker = default)
+            this Client client, long userId = default, string name = default, InputSticker sticker = default)
         {
             return client.ExecuteAsync(new AddStickerToSet
             {

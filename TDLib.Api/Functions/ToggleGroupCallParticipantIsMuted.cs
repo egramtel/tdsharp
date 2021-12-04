@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Toggles whether a group call participant is muted, unmuted, or allowed to unmute themself
+        /// Toggles whether a participant of an active group call is muted, unmuted, or allowed to unmute themselves
         /// </summary>
         public class ToggleGroupCallParticipantIsMuted : Function<Ok>
         {
@@ -34,11 +34,11 @@ namespace TdLib
             public int GroupCallId { get; set; }
 
             /// <summary>
-            /// User identifier
+            /// Participant identifier
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("user_id")]
-            public int UserId { get; set; }
+            [JsonProperty("participant_id")]
+            public MessageSender ParticipantId { get; set; }
 
             /// <summary>
             /// Pass true if the user must be muted and false otherwise
@@ -49,14 +49,15 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Toggles whether a group call participant is muted, unmuted, or allowed to unmute themself
+        /// Toggles whether a participant of an active group call is muted, unmuted, or allowed to unmute themselves
         /// </summary>
         public static Task<Ok> ToggleGroupCallParticipantIsMutedAsync(
-            this Client client, int groupCallId = default, int userId = default, bool isMuted = default)
+            this Client client, int groupCallId = default, MessageSender participantId = default,
+            bool isMuted = default)
         {
             return client.ExecuteAsync(new ToggleGroupCallParticipantIsMuted
             {
-                GroupCallId = groupCallId, UserId = userId, IsMuted = isMuted
+                GroupCallId = groupCallId, ParticipantId = participantId, IsMuted = isMuted
             });
         }
     }

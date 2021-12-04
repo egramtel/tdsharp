@@ -39,7 +39,7 @@ namespace TdLib
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("sender_user_id")]
-                public int SenderUserId { get; set; }
+                public long SenderUserId { get; set; }
 
                 /// <summary>
                 /// User location; may be null
@@ -49,7 +49,7 @@ namespace TdLib
                 public Location UserLocation { get; set; }
 
                 /// <summary>
-                /// Contains information about the type of the chat, from which the query originated; may be null if unknown
+                /// The type of the chat, from which the query originated; may be null if unknown
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("chat_type")]

@@ -31,14 +31,14 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("user_id")]
-            public int UserId { get; set; }
+            public long UserId { get; set; }
         }
 
         /// <summary>
         /// Creates a new secret chat. Returns the newly created chat
         /// </summary>
         public static Task<Chat> CreateNewSecretChatAsync(
-            this Client client, int userId = default)
+            this Client client, long userId = default)
         {
             return client.ExecuteAsync(new CreateNewSecretChat
             {

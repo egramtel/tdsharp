@@ -28,6 +28,13 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
+                /// Identifier of the chat, containing the corresponding invoice message; 0 if unknown
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("invoice_chat_id")]
+                public long InvoiceChatId { get; set; }
+
+                /// <summary>
                 /// Identifier of the message with the corresponding invoice; can be an identifier of a deleted message
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
@@ -42,7 +49,7 @@ namespace TdLib
                 public string Currency { get; set; }
 
                 /// <summary>
-                /// Total price for the product, in the minimal quantity of the currency
+                /// Total price for the product, in the smallest units of the currency
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("total_amount")]

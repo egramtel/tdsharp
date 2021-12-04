@@ -31,7 +31,7 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("user_id")]
-            public int UserId { get; set; }
+            public long UserId { get; set; }
 
             /// <summary>
             /// The number of photos to skip; must be non-negative
@@ -52,7 +52,7 @@ namespace TdLib
         /// Returns the profile photos of a user. The result of this query may be outdated: some photos might have been deleted already
         /// </summary>
         public static Task<ChatPhotos> GetUserProfilePhotosAsync(
-            this Client client, int userId = default, int offset = default, int limit = default)
+            this Client client, long userId = default, int offset = default, int limit = default)
         {
             return client.ExecuteAsync(new GetUserProfilePhotos
             {

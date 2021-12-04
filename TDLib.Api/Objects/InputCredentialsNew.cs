@@ -28,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Contains JSON-encoded data with a credential identifier from the payment provider
+                /// JSON-encoded data with the credential identifier from the payment provider
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("data")]

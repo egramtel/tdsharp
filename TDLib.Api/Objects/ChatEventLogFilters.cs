@@ -26,81 +26,88 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// True, if message edits should be returned
+            /// True, if message edits need to be returned
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("message_edits")]
             public bool MessageEdits { get; set; }
 
             /// <summary>
-            /// True, if message deletions should be returned
+            /// True, if message deletions need to be returned
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("message_deletions")]
             public bool MessageDeletions { get; set; }
 
             /// <summary>
-            /// True, if pin/unpin events should be returned
+            /// True, if pin/unpin events need to be returned
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("message_pins")]
             public bool MessagePins { get; set; }
 
             /// <summary>
-            /// True, if members joining events should be returned
+            /// True, if members joining events need to be returned
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("member_joins")]
             public bool MemberJoins { get; set; }
 
             /// <summary>
-            /// True, if members leaving events should be returned
+            /// True, if members leaving events need to be returned
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("member_leaves")]
             public bool MemberLeaves { get; set; }
 
             /// <summary>
-            /// True, if invited member events should be returned
+            /// True, if invited member events need to be returned
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("member_invites")]
             public bool MemberInvites { get; set; }
 
             /// <summary>
-            /// True, if member promotion/demotion events should be returned
+            /// True, if member promotion/demotion events need to be returned
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("member_promotions")]
             public bool MemberPromotions { get; set; }
 
             /// <summary>
-            /// True, if member restricted/unrestricted/banned/unbanned events should be returned
+            /// True, if member restricted/unrestricted/banned/unbanned events need to be returned
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("member_restrictions")]
             public bool MemberRestrictions { get; set; }
 
             /// <summary>
-            /// True, if changes in chat information should be returned
+            /// True, if changes in chat information need to be returned
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("info_changes")]
             public bool InfoChanges { get; set; }
 
             /// <summary>
-            /// True, if changes in chat settings should be returned
+            /// True, if changes in chat settings need to be returned
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("setting_changes")]
             public bool SettingChanges { get; set; }
 
             /// <summary>
-            /// True, if voice chat actions should be returned
+            /// True, if changes to invite links need to be returned
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("voice_chat_changes")]
-            public bool VoiceChatChanges { get; set; }
+            [JsonProperty("invite_link_changes")]
+            public bool InviteLinkChanges { get; set; }
+
+            /// <summary>
+            /// True, if video chat actions need to be returned
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("video_chat_changes")]
+            public bool VideoChatChanges { get; set; }
         }
     }
 }

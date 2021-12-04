@@ -35,7 +35,7 @@ namespace TdLib
                 public RichText Text { get; set; }
 
                 /// <summary>
-                /// Programming language for which the text should be formatted
+                /// Programming language for which the text needs to be formatted
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("language")]

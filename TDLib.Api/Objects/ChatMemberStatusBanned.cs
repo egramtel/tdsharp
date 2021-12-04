@@ -11,7 +11,7 @@ namespace TdLib
         public partial class ChatMemberStatus : Object
         {
             /// <summary>
-            /// The user was banned (and hence is not a member of the chat). Implies the user can't return to the chat or view messages
+            /// The user or the chat was banned (and hence is not a member of the chat). Implies the user can't return to the chat, view messages, or be used as a participant identifier to join a video chat of the chat
             /// </summary>
             public class ChatMemberStatusBanned : ChatMemberStatus
             {
@@ -28,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Point in time (Unix timestamp) when the user will be unbanned; 0 if never. If the user is banned for more than 366 days or for less than 30 seconds from the current time, the user is considered to be banned forever
+                /// Point in time (Unix timestamp) when the user will be unbanned; 0 if never. If the user is banned for more than 366 days or for less than 30 seconds from the current time, the user is considered to be banned forever. Always 0 in basic groups
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("banned_until_date")]

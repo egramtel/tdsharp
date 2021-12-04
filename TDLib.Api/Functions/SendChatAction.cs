@@ -41,7 +41,7 @@ namespace TdLib
             public long MessageThreadId { get; set; }
 
             /// <summary>
-            /// The action description
+            /// The action description; pass null to cancel the currently active action
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("action")]

@@ -41,7 +41,7 @@ namespace TdLib
             public long OffsetStickerSetId { get; set; }
 
             /// <summary>
-            /// The maximum number of sticker sets to return
+            /// The maximum number of sticker sets to return; up to 100
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("limit")]

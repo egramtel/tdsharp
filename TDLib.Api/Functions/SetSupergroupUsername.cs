@@ -31,7 +31,7 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("supergroup_id")]
-            public int SupergroupId { get; set; }
+            public long SupergroupId { get; set; }
 
             /// <summary>
             /// New value of the username. Use an empty string to remove the username
@@ -45,7 +45,7 @@ namespace TdLib
         /// Changes the username of a supergroup or channel, requires owner privileges in the supergroup or channel
         /// </summary>
         public static Task<Ok> SetSupergroupUsernameAsync(
-            this Client client, int supergroupId = default, string username = default)
+            this Client client, long supergroupId = default, string username = default)
         {
             return client.ExecuteAsync(new SetSupergroupUsername
             {

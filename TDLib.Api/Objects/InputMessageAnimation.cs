@@ -35,7 +35,7 @@ namespace TdLib
                 public InputFile Animation { get; set; }
 
                 /// <summary>
-                /// Animation thumbnail, if available
+                /// Animation thumbnail; pass null to skip thumbnail uploading
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("thumbnail")]
@@ -70,7 +70,7 @@ namespace TdLib
                 public int Height { get; set; }
 
                 /// <summary>
-                /// Animation caption; 0-GetOption("message_caption_length_max") characters
+                /// Animation caption; pass null to use an empty caption; 0-GetOption("message_caption_length_max") characters
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("caption")]

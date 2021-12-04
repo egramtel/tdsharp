@@ -56,7 +56,7 @@ namespace TdLib
                 public string Currency { get; set; }
 
                 /// <summary>
-                /// Product total price in the minimal quantity of the currency
+                /// Product total price in the smallest units of the currency
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("total_amount")]
@@ -77,7 +77,7 @@ namespace TdLib
                 public bool IsTest { get; set; }
 
                 /// <summary>
-                /// True, if the shipping address should be specified
+                /// True, if the shipping address must be specified
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("need_shipping_address")]

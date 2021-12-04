@@ -31,7 +31,7 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("user_ids")]
-            public int[] UserIds { get; set; }
+            public long[] UserIds { get; set; }
 
             /// <summary>
             /// Title of the new basic group; 1-128 characters
@@ -45,7 +45,7 @@ namespace TdLib
         /// Creates a new basic group and sends a corresponding messageBasicGroupChatCreate. Returns the newly created chat
         /// </summary>
         public static Task<Chat> CreateNewBasicGroupChatAsync(
-            this Client client, int[] userIds = default, string title = default)
+            this Client client, long[] userIds = default, string title = default)
         {
             return client.ExecuteAsync(new CreateNewBasicGroupChat
             {

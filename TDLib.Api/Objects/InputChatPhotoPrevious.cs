@@ -28,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Identifier of the profile photo to reuse
+                /// Identifier of the current user's profile photo to reuse
                 /// </summary>
                 [JsonConverter(typeof(Converter.Int64))]
                 [JsonProperty("chat_photo_id")]

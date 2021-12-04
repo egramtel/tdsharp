@@ -11,7 +11,7 @@ namespace TdLib
         public partial class PageBlockHorizontalAlignment : Object
         {
             /// <summary>
-            /// The content should be center-aligned
+            /// The content must be center-aligned
             /// </summary>
             public class PageBlockHorizontalAlignmentCenter : PageBlockHorizontalAlignment
             {

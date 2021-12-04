@@ -42,14 +42,14 @@ namespace TdLib
                 public string OriginalPath { get; set; }
 
                 /// <summary>
-                /// The path to a file that should be created and where the new file should be generated
+                /// The path to a file that must be created and where the new file is generated
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("destination_path")]
                 public string DestinationPath { get; set; }
 
                 /// <summary>
-                /// String specifying the conversion applied to the original file. If conversion is "#url#" than original_path contains an HTTP/HTTPS URL of a file, which should be downloaded by the application
+                /// String specifying the conversion applied to the original file. If conversion is "#url#" than original_path contains an HTTP/HTTPS URL of a file, which must be downloaded by the application
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("conversion")]

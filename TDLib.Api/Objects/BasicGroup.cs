@@ -30,7 +30,7 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("id")]
-            public int Id { get; set; }
+            public long Id { get; set; }
 
             /// <summary>
             /// Number of members in the group
@@ -58,7 +58,7 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("upgraded_to_supergroup_id")]
-            public int UpgradedToSupergroupId { get; set; }
+            public long UpgradedToSupergroupId { get; set; }
         }
     }
 }

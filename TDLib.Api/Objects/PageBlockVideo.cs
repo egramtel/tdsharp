@@ -42,14 +42,14 @@ namespace TdLib
                 public PageBlockCaption Caption { get; set; }
 
                 /// <summary>
-                /// True, if the video should be played automatically
+                /// True, if the video must be played automatically
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("need_autoplay")]
                 public bool NeedAutoplay { get; set; }
 
                 /// <summary>
-                /// True, if the video should be looped
+                /// True, if the video must be looped
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_looped")]

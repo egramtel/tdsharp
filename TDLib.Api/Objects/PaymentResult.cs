@@ -26,7 +26,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// True, if the payment request was successful; otherwise the verification_url will be not empty
+            /// True, if the payment request was successful; otherwise the verification_url will be non-empty
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("success")]

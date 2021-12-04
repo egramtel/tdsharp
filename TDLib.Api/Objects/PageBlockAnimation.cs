@@ -42,7 +42,7 @@ namespace TdLib
                 public PageBlockCaption Caption { get; set; }
 
                 /// <summary>
-                /// True, if the animation should be played automatically
+                /// True, if the animation must be played automatically
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("need_autoplay")]

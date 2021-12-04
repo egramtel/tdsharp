@@ -31,14 +31,14 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("user_id")]
-            public int UserId { get; set; }
+            public long UserId { get; set; }
         }
 
         /// <summary>
         /// Shares the phone number of the current user with a mutual contact. Supposed to be called when the user clicks on chatActionBarSharePhoneNumber
         /// </summary>
         public static Task<Ok> SharePhoneNumberAsync(
-            this Client client, int userId = default)
+            this Client client, long userId = default)
         {
             return client.ExecuteAsync(new SharePhoneNumber
             {

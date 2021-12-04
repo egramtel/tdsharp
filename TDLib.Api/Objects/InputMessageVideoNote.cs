@@ -35,7 +35,7 @@ namespace TdLib
                 public InputFile VideoNote { get; set; }
 
                 /// <summary>
-                /// Video thumbnail, if available
+                /// Video thumbnail; pass null to skip thumbnail uploading
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("thumbnail")]

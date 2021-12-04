@@ -26,13 +26,6 @@ namespace TdLib
                 /// </summary>
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
-
-                /// <summary>
-                /// Report text
-                /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("text")]
-                public string Text { get; set; }
             }
         }
     }

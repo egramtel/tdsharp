@@ -34,7 +34,7 @@ namespace TdLib
             public long GenerationId { get; set; }
 
             /// <summary>
-            /// If set, means that file generation has failed and should be terminated
+            /// If passed, the file generation has failed and must be terminated; pass null if the file generation succeeded
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("error")]

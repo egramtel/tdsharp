@@ -27,7 +27,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// If specified, only chats from the specified scope will be returned
+            /// If specified, only chats from the scope will be returned; pass null to return chats from all scopes
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("scope")]

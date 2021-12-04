@@ -42,7 +42,7 @@ namespace TdLib
                 public bool IsAppSandbox { get; set; }
 
                 /// <summary>
-                /// True, if push notifications should be additionally encrypted
+                /// True, if push notifications must be additionally encrypted
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("encrypt")]

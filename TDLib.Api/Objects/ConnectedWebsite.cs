@@ -44,7 +44,7 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("bot_user_id")]
-            public int BotUserId { get; set; }
+            public long BotUserId { get; set; }
 
             /// <summary>
             /// The version of a browser used to log in

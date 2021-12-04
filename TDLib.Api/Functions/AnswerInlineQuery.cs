@@ -62,7 +62,7 @@ namespace TdLib
             public string NextOffset { get; set; }
 
             /// <summary>
-            /// If non-empty, this text should be shown on the button that opens a private chat with the bot and sends a start message to the bot with the parameter switch_pm_parameter
+            /// If non-empty, this text must be shown on the button that opens a private chat with the bot and sends a start message to the bot with the parameter switch_pm_parameter
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("switch_pm_text")]

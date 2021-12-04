@@ -34,7 +34,7 @@ namespace TdLib
             public int CallId { get; set; }
 
             /// <summary>
-            /// Description of the call protocols supported by the application
+            /// The call protocols supported by the application
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("protocol")]

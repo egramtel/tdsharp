@@ -26,7 +26,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Option text, 1-100 characters
+            /// Option text; 1-100 characters
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("text")]
@@ -40,7 +40,7 @@ namespace TdLib
             public int VoterCount { get; set; }
 
             /// <summary>
-            /// The percentage of votes for this option, 0-100
+            /// The percentage of votes for this option; 0-100
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("vote_percentage")]

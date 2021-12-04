@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Changes the password for the user. If a new recovery email address is specified, then the change will not be applied until the new recovery email address is confirmed
+        /// Changes the password for the current user. If a new recovery email address is specified, then the change will not be applied until the new recovery email address is confirmed
         /// </summary>
         public class SetPassword : Function<PasswordState>
         {
@@ -48,7 +48,7 @@ namespace TdLib
             public string NewHint { get; set; }
 
             /// <summary>
-            /// Pass true if the recovery email address should be changed
+            /// Pass true if the recovery email address must be changed
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("set_recovery_email_address")]
@@ -63,7 +63,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Changes the password for the user. If a new recovery email address is specified, then the change will not be applied until the new recovery email address is confirmed
+        /// Changes the password for the current user. If a new recovery email address is specified, then the change will not be applied until the new recovery email address is confirmed
         /// </summary>
         public static Task<PasswordState> SetPasswordAsync(
             this Client client, string oldPassword = default, string newPassword = default, string newHint = default,

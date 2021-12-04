@@ -45,14 +45,14 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("user_id")]
-            public int UserId { get; set; }
+            public long UserId { get; set; }
         }
 
         /// <summary>
         /// Returns the high scores for a game and some part of the high score table in the range of the specified user; for bots only
         /// </summary>
         public static Task<GameHighScores> GetGameHighScoresAsync(
-            this Client client, long chatId = default, long messageId = default, int userId = default)
+            this Client client, long chatId = default, long messageId = default, long userId = default)
         {
             return client.ExecuteAsync(new GetGameHighScores
             {

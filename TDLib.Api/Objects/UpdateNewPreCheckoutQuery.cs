@@ -39,7 +39,7 @@ namespace TdLib
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("sender_user_id")]
-                public int SenderUserId { get; set; }
+                public long SenderUserId { get; set; }
 
                 /// <summary>
                 /// Currency for the product price
@@ -49,7 +49,7 @@ namespace TdLib
                 public string Currency { get; set; }
 
                 /// <summary>
-                /// Total price for the product, in the minimal quantity of the currency
+                /// Total price for the product, in the smallest units of the currency
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("total_amount")]

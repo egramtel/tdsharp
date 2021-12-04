@@ -33,7 +33,7 @@ namespace TdLib
             public string Label { get; set; }
 
             /// <summary>
-            /// Currency amount in minimal quantity of the currency
+            /// Currency amount in the smallest units of the currency
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("amount")]

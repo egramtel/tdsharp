@@ -12,7 +12,7 @@ namespace TdLib
         /// <summary>
         /// Returns an HTTPS link, which can be used to add a proxy. Available only for SOCKS5 and MTProto proxies. Can be called before authorization
         /// </summary>
-        public class GetProxyLink : Function<Text>
+        public class GetProxyLink : Function<HttpUrl>
         {
             /// <summary>
             /// Data type for serialization
@@ -37,7 +37,7 @@ namespace TdLib
         /// <summary>
         /// Returns an HTTPS link, which can be used to add a proxy. Available only for SOCKS5 and MTProto proxies. Can be called before authorization
         /// </summary>
-        public static Task<Text> GetProxyLinkAsync(
+        public static Task<HttpUrl> GetProxyLinkAsync(
             this Client client, int proxyId = default)
         {
             return client.ExecuteAsync(new GetProxyLink

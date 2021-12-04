@@ -47,7 +47,7 @@ namespace TdLib
             public string EnglishName { get; set; }
 
             /// <summary>
-            /// True, if the country should be hidden from the list of all countries
+            /// True, if the country must be hidden from the list of all countries
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_hidden")]

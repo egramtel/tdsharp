@@ -28,14 +28,14 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Previous value of slow_mode_delay
+                /// Previous value of slow_mode_delay, in seconds
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("old_slow_mode_delay")]
                 public int OldSlowModeDelay { get; set; }
 
                 /// <summary>
-                /// New value of slow_mode_delay
+                /// New value of slow_mode_delay, in seconds
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("new_slow_mode_delay")]

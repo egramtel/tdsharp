@@ -39,7 +39,7 @@ namespace TdLib
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("member_user_ids")]
-                public int[] MemberUserIds { get; set; }
+                public long[] MemberUserIds { get; set; }
             }
         }
     }
