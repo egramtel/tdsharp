@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Sets the list of commands supported by the bot; for bots only
+        /// Sets the list of commands supported by the bot for the given user scope and language; for bots only
         /// </summary>
         public class SetCommands : Function<Ok>
         {
@@ -27,6 +27,20 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
+            /// The scope to which the commands are relevant; pass null to change commands in the default bot command scope
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("scope")]
+            public BotCommandScope Scope { get; set; }
+
+            /// <summary>
+            /// A two-letter ISO 639-1 country code. If empty, the commands will be applied to all users from the given scope, for which language there are no dedicated commands
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("language_code")]
+            public string LanguageCode { get; set; }
+
+            /// <summary>
             /// List of the bot's commands
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -35,14 +49,15 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Sets the list of commands supported by the bot; for bots only
+        /// Sets the list of commands supported by the bot for the given user scope and language; for bots only
         /// </summary>
         public static Task<Ok> SetCommandsAsync(
-            this Client client, BotCommand[] commands = default)
+            this Client client, BotCommandScope scope = default, string languageCode = default,
+            BotCommand[] commands = default)
         {
             return client.ExecuteAsync(new SetCommands
             {
-                Commands = commands
+                Scope = scope, LanguageCode = languageCode, Commands = commands
             });
         }
     }

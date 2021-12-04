@@ -41,7 +41,14 @@ namespace TdLib
             public long MessageId { get; set; }
 
             /// <summary>
-            /// Identifier returned by ValidateOrderInfo, or an empty string
+            /// Payment form identifier returned by getPaymentForm
+            /// </summary>
+            [JsonConverter(typeof(Converter.Int64))]
+            [JsonProperty("payment_form_id")]
+            public long PaymentFormId { get; set; }
+
+            /// <summary>
+            /// Identifier returned by validateOrderInfo, or an empty string
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("order_info_id")]
@@ -60,19 +67,27 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("credentials")]
             public InputCredentials Credentials { get; set; }
+
+            /// <summary>
+            /// Chosen by the user amount of tip in the smallest units of the currency
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("tip_amount")]
+            public long TipAmount { get; set; }
         }
 
         /// <summary>
         /// Sends a filled-out payment form to the bot for final verification
         /// </summary>
         public static Task<PaymentResult> SendPaymentFormAsync(
-            this Client client, long chatId = default, long messageId = default, string orderInfoId = default,
-            string shippingOptionId = default, InputCredentials credentials = default)
+            this Client client, long chatId = default, long messageId = default, long paymentFormId = default,
+            string orderInfoId = default, string shippingOptionId = default, InputCredentials credentials = default,
+            long tipAmount = default)
         {
             return client.ExecuteAsync(new SendPaymentForm
             {
-                ChatId = chatId, MessageId = messageId, OrderInfoId = orderInfoId, ShippingOptionId = shippingOptionId,
-                Credentials = credentials
+                ChatId = chatId, MessageId = messageId, PaymentFormId = paymentFormId, OrderInfoId = orderInfoId,
+                ShippingOptionId = shippingOptionId, Credentials = credentials, TipAmount = tipAmount
             });
         }
     }

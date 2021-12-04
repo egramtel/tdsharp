@@ -9,7 +9,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Contains auto-download settings presets for the user
+        /// Contains auto-download settings presets for the current user
         /// </summary>
         public partial class AutoDownloadSettingsPresets : Object
         {

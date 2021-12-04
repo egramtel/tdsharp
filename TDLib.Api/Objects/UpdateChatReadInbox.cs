@@ -11,7 +11,7 @@ namespace TdLib
         public partial class Update : Object
         {
             /// <summary>
-            /// Incoming messages were read or number of unread messages has been changed
+            /// Incoming messages were read or the number of unread messages has been changed
             /// </summary>
             public class UpdateChatReadInbox : Update
             {

@@ -28,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Type of the file the data is part of
+                /// Type of the file the data is part of; pass null if the data isn't related to files
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("file_type")]

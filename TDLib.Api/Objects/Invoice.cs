@@ -40,6 +40,20 @@ namespace TdLib
             public LabeledPricePart[] PriceParts { get; set; }
 
             /// <summary>
+            /// The maximum allowed amount of tip in the smallest units of the currency
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("max_tip_amount")]
+            public long MaxTipAmount { get; set; }
+
+            /// <summary>
+            /// Suggested amounts of tip in the smallest units of the currency
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("suggested_tip_amounts")]
+            public long[] SuggestedTipAmounts { get; set; }
+
+            /// <summary>
             /// True, if the payment is a test payment
             /// </summary>
             [JsonConverter(typeof(Converter))]

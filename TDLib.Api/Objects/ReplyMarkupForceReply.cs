@@ -33,6 +33,13 @@ namespace TdLib
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_personal")]
                 public bool IsPersonal { get; set; }
+
+                /// <summary>
+                /// If non-empty, the placeholder to be shown in the input field when the reply is active; 0-64 characters
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("input_field_placeholder")]
+                public string InputFieldPlaceholder { get; set; }
             }
         }
     }

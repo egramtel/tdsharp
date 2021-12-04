@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns an ordered list of chats in a chat list. Chats are sorted by the pair (chat.position.order, chat.id) in descending order. (For example, to get a list of chats from the beginning, the offset_order should be equal to a biggest signed 64-bit number 9223372036854775807 == 2^63 - 1).
+        /// Returns an ordered list of chats from the beginning of a chat list. For informational purposes only. Use loadChats and updates processing instead to maintain chat lists in a consistent state
         /// </summary>
         public class GetChats : Function<Chats>
         {
@@ -27,28 +27,14 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// The chat list in which to return chats
+            /// The chat list in which to return chats; pass null to get chats from the main chat list
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_list")]
             public ChatList ChatList { get; set; }
 
             /// <summary>
-            /// Chat order to return chats from
-            /// </summary>
-            [JsonConverter(typeof(Converter.Int64))]
-            [JsonProperty("offset_order")]
-            public long OffsetOrder { get; set; }
-
-            /// <summary>
-            /// Chat identifier to return chats from
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("offset_chat_id")]
-            public long OffsetChatId { get; set; }
-
-            /// <summary>
-            /// The maximum number of chats to be returned. It is possible that fewer chats than the limit are returned even if the end of the list is not reached
+            /// The maximum number of chats to be returned
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("limit")]
@@ -56,15 +42,14 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Returns an ordered list of chats in a chat list. Chats are sorted by the pair (chat.position.order, chat.id) in descending order. (For example, to get a list of chats from the beginning, the offset_order should be equal to a biggest signed 64-bit number 9223372036854775807 == 2^63 - 1).
+        /// Returns an ordered list of chats from the beginning of a chat list. For informational purposes only. Use loadChats and updates processing instead to maintain chat lists in a consistent state
         /// </summary>
         public static Task<Chats> GetChatsAsync(
-            this Client client, ChatList chatList = default, long offsetOrder = default, long offsetChatId = default,
-            int limit = default)
+            this Client client, ChatList chatList = default, int limit = default)
         {
             return client.ExecuteAsync(new GetChats
             {
-                ChatList = chatList, OffsetOrder = offsetOrder, OffsetChatId = offsetChatId, Limit = limit
+                ChatList = chatList, Limit = limit
             });
         }
     }

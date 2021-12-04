@@ -33,14 +33,14 @@ namespace TdLib
             public int Id { get; set; }
 
             /// <summary>
-            /// File size; 0 if unknown
+            /// File size, in bytes; 0 if unknown
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("size")]
             public int Size { get; set; }
 
             /// <summary>
-            /// Expected file size in case the exact file size is unknown, but an approximate size is known. Can be used to show download/upload progress
+            /// Approximate file size in bytes in case the exact file size is unknown. Can be used to show download/upload progress
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("expected_size")]

@@ -28,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Information about the sent message. Usually only the message identifier, date, and content are changed, but almost all other fields can also change
+                /// The sent message. Usually only the message identifier, date, and content are changed, but almost all other fields can also change
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("message")]

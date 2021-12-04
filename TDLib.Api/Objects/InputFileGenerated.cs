@@ -35,14 +35,14 @@ namespace TdLib
                 public string OriginalPath { get; set; }
 
                 /// <summary>
-                /// String specifying the conversion applied to the original file; should be persistent across application restarts. Conversions beginning with '#' are reserved for internal TDLib usage
+                /// String specifying the conversion applied to the original file; must be persistent across application restarts. Conversions beginning with '#' are reserved for internal TDLib usage
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("conversion")]
                 public string Conversion { get; set; }
 
                 /// <summary>
-                /// Expected size of the generated file; 0 if unknown
+                /// Expected size of the generated file, in bytes; 0 if unknown
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("expected_size")]

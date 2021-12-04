@@ -56,7 +56,7 @@ namespace TdLib
                 public long NotificationSettingsChatId { get; set; }
 
                 /// <summary>
-                /// True, if the notifications should be shown without sound
+                /// True, if the notifications must be shown without sound
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_silent")]

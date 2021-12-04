@@ -11,7 +11,7 @@ namespace TdLib
         public partial class PageBlockVerticalAlignment : Object
         {
             /// <summary>
-            /// The content should be middle-aligned
+            /// The content must be middle-aligned
             /// </summary>
             public class PageBlockVerticalAlignmentMiddle : PageBlockVerticalAlignment
             {

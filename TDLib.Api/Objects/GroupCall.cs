@@ -33,6 +33,27 @@ namespace TdLib
             public int Id { get; set; }
 
             /// <summary>
+            /// Group call title
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("title")]
+            public string Title { get; set; }
+
+            /// <summary>
+            /// Point in time (Unix timestamp) when the group call is supposed to be started by an administrator; 0 if it is already active or was ended
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("scheduled_start_date")]
+            public int ScheduledStartDate { get; set; }
+
+            /// <summary>
+            /// True, if the group call is scheduled and the current user will receive a notification when the group call will start
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("enabled_start_notification")]
+            public bool EnabledStartNotification { get; set; }
+
+            /// <summary>
             /// True, if the call is active
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -52,13 +73,6 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("need_rejoin")]
             public bool NeedRejoin { get; set; }
-
-            /// <summary>
-            /// True, if the current user can unmute themself
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("can_unmute_self")]
-            public bool CanUnmuteSelf { get; set; }
 
             /// <summary>
             /// True, if the current user can manage the group call
@@ -89,6 +103,27 @@ namespace TdLib
             public GroupCallRecentSpeaker[] RecentSpeakers { get; set; }
 
             /// <summary>
+            /// True, if the current user's video is enabled
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("is_my_video_enabled")]
+            public bool IsMyVideoEnabled { get; set; }
+
+            /// <summary>
+            /// True, if the current user's video is paused
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("is_my_video_paused")]
+            public bool IsMyVideoPaused { get; set; }
+
+            /// <summary>
+            /// True, if the current user can broadcast video or share screen
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("can_enable_video")]
+            public bool CanEnableVideo { get; set; }
+
+            /// <summary>
             /// True, if only group call administrators can unmute new participants
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -96,14 +131,28 @@ namespace TdLib
             public bool MuteNewParticipants { get; set; }
 
             /// <summary>
-            /// True, if group call administrators can enable or disable mute_new_participants setting
+            /// True, if the current user can enable or disable mute_new_participants setting
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("allowed_change_mute_new_participants")]
-            public bool AllowedChangeMuteNewParticipants { get; set; }
+            [JsonProperty("can_toggle_mute_new_participants")]
+            public bool CanToggleMuteNewParticipants { get; set; }
 
             /// <summary>
-            /// Call duration; for ended calls only
+            /// Duration of the ongoing group call recording, in seconds; 0 if none. An updateGroupCall update is not triggered when value of this field changes, but the same recording goes on
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("record_duration")]
+            public int RecordDuration { get; set; }
+
+            /// <summary>
+            /// True, if a video file is being recorded for the call
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("is_video_recorded")]
+            public bool IsVideoRecorded { get; set; }
+
+            /// <summary>
+            /// Call duration, in seconds; for ended calls only
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("duration")]

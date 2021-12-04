@@ -35,7 +35,7 @@ namespace TdLib
                 public InputFile Sticker { get; set; }
 
                 /// <summary>
-                /// Sticker thumbnail, if available
+                /// Sticker thumbnail; pass null to skip thumbnail uploading
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("thumbnail")]

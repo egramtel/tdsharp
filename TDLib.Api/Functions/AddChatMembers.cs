@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Adds multiple new members to a chat. Currently this method is only available for supergroups and channels. This method can't be used to join a chat. Members can't be added to a channel if it has more than 200 members. Members will not be added until the chat state has been synchronized with the server
+        /// Adds multiple new members to a chat. Currently this method is only available for supergroups and channels. This method can't be used to join a chat. Members can't be added to a channel if it has more than 200 members
         /// </summary>
         public class AddChatMembers : Function<Ok>
         {
@@ -38,14 +38,14 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("user_ids")]
-            public int[] UserIds { get; set; }
+            public long[] UserIds { get; set; }
         }
 
         /// <summary>
-        /// Adds multiple new members to a chat. Currently this method is only available for supergroups and channels. This method can't be used to join a chat. Members can't be added to a channel if it has more than 200 members. Members will not be added until the chat state has been synchronized with the server
+        /// Adds multiple new members to a chat. Currently this method is only available for supergroups and channels. This method can't be used to join a chat. Members can't be added to a channel if it has more than 200 members
         /// </summary>
         public static Task<Ok> AddChatMembersAsync(
-            this Client client, long chatId = default, int[] userIds = default)
+            this Client client, long chatId = default, long[] userIds = default)
         {
             return client.ExecuteAsync(new AddChatMembers
             {

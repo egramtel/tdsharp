@@ -35,7 +35,7 @@ namespace TdLib
                 public InputFile Photo { get; set; }
 
                 /// <summary>
-                /// Photo thumbnail to be sent, this is sent to the other party in secret chats only
+                /// Photo thumbnail to be sent; pass null to skip thumbnail uploading. The thumbnail is sent to the other party only in secret chats
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("thumbnail")]
@@ -63,7 +63,7 @@ namespace TdLib
                 public int Height { get; set; }
 
                 /// <summary>
-                /// Photo caption; 0-GetOption("message_caption_length_max") characters
+                /// Photo caption; pass null to use an empty caption; 0-GetOption("message_caption_length_max") characters
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("caption")]

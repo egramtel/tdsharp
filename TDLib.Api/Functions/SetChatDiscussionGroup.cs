@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Changes the discussion group of a channel chat; requires can_change_info rights in the channel if it is specified
+        /// Changes the discussion group of a channel chat; requires can_change_info administrator right in the channel if it is specified
         /// </summary>
         public class SetChatDiscussionGroup : Function<Ok>
         {
@@ -42,7 +42,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Changes the discussion group of a channel chat; requires can_change_info rights in the channel if it is specified
+        /// Changes the discussion group of a channel chat; requires can_change_info administrator right in the channel if it is specified
         /// </summary>
         public static Task<Ok> SetChatDiscussionGroupAsync(
             this Client client, long chatId = default, long discussionChatId = default)

@@ -32,7 +32,7 @@ namespace TdLib
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("basic_group_id")]
-                public int BasicGroupId { get; set; }
+                public long BasicGroupId { get; set; }
 
                 /// <summary>
                 /// New full information about the group

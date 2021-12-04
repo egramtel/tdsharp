@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Requests to send a password recovery code to an email address that was previously set up
+        /// Requests to send a 2-step verification password recovery code to an email address that was previously set up
         /// </summary>
         public class RequestPasswordRecovery : Function<EmailAddressAuthenticationCodeInfo>
         {
@@ -28,7 +28,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Requests to send a password recovery code to an email address that was previously set up
+        /// Requests to send a 2-step verification password recovery code to an email address that was previously set up
         /// </summary>
         public static Task<EmailAddressAuthenticationCodeInfo> RequestPasswordRecoveryAsync(
             this Client client)

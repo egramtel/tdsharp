@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Uses an invite link to add the current user to the chat if possible. The new member will not be added until the chat state has been synchronized with the server
+        /// Uses an invite link to add the current user to the chat if possible
         /// </summary>
         public class JoinChatByInviteLink : Function<Chat>
         {
@@ -27,7 +27,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Invite link to import; should begin with "https://t.me/joinchat/", "https://telegram.me/joinchat/", or "https://telegram.dog/joinchat/"
+            /// Invite link to use
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("invite_link")]
@@ -35,7 +35,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Uses an invite link to add the current user to the chat if possible. The new member will not be added until the chat state has been synchronized with the server
+        /// Uses an invite link to add the current user to the chat if possible
         /// </summary>
         public static Task<Chat> JoinChatByInviteLinkAsync(
             this Client client, string inviteLink = default)

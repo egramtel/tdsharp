@@ -31,7 +31,7 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("bot_user_id")]
-            public int BotUserId { get; set; }
+            public long BotUserId { get; set; }
 
             /// <summary>
             /// Identifier of the chat where the query was sent
@@ -41,7 +41,7 @@ namespace TdLib
             public long ChatId { get; set; }
 
             /// <summary>
-            /// Location of the user, only if needed
+            /// Location of the user; pass null if unknown or the bot doesn't need user's location
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("user_location")]
@@ -66,7 +66,7 @@ namespace TdLib
         /// Sends an inline query to a bot and returns its results. Returns an error with code 502 if the bot fails to answer the query before the query timeout expires
         /// </summary>
         public static Task<InlineQueryResults> GetInlineQueryResultsAsync(
-            this Client client, int botUserId = default, long chatId = default, Location userLocation = default,
+            this Client client, long botUserId = default, long chatId = default, Location userLocation = default,
             string query = default, string offset = default)
         {
             return client.ExecuteAsync(new GetInlineQueryResults

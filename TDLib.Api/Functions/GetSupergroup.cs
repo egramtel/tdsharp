@@ -31,14 +31,14 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("supergroup_id")]
-            public int SupergroupId { get; set; }
+            public long SupergroupId { get; set; }
         }
 
         /// <summary>
         /// Returns information about a supergroup or a channel by its identifier. This is an offline request if the current user is not a bot
         /// </summary>
         public static Task<Supergroup> GetSupergroupAsync(
-            this Client client, int supergroupId = default)
+            this Client client, long supergroupId = default)
         {
             return client.ExecuteAsync(new GetSupergroup
             {

@@ -39,7 +39,7 @@ namespace TdLib
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("id")]
-                public int Id { get; set; }
+                public long Id { get; set; }
 
                 /// <summary>
                 /// If non-empty, new text of the button in forwarded messages

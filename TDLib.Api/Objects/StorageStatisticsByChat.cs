@@ -33,7 +33,7 @@ namespace TdLib
             public long ChatId { get; set; }
 
             /// <summary>
-            /// Total size of the files in the chat
+            /// Total size of the files in the chat, in bytes
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("size")]

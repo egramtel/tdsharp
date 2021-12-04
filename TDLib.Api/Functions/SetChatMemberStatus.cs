@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Changes the status of a chat member, needs appropriate privileges. This function is currently not suitable for adding new members to the chat and transferring chat ownership; instead, use addChatMember or transferChatOwnership. The chat member status will not be changed until it has been synchronized with the server
+        /// Changes the status of a chat member, needs appropriate privileges. This function is currently not suitable for transferring chat ownership; use transferChatOwnership instead. Use addChatMember or banChatMember if some additional parameters needs to be passed
         /// </summary>
         public class SetChatMemberStatus : Function<Ok>
         {
@@ -34,11 +34,11 @@ namespace TdLib
             public long ChatId { get; set; }
 
             /// <summary>
-            /// User identifier
+            /// Member identifier. Chats can be only banned and unbanned in supergroups and channels
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("user_id")]
-            public int UserId { get; set; }
+            [JsonProperty("member_id")]
+            public MessageSender MemberId { get; set; }
 
             /// <summary>
             /// The new status of the member in the chat
@@ -49,14 +49,15 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Changes the status of a chat member, needs appropriate privileges. This function is currently not suitable for adding new members to the chat and transferring chat ownership; instead, use addChatMember or transferChatOwnership. The chat member status will not be changed until it has been synchronized with the server
+        /// Changes the status of a chat member, needs appropriate privileges. This function is currently not suitable for transferring chat ownership; use transferChatOwnership instead. Use addChatMember or banChatMember if some additional parameters needs to be passed
         /// </summary>
         public static Task<Ok> SetChatMemberStatusAsync(
-            this Client client, long chatId = default, int userId = default, ChatMemberStatus status = default)
+            this Client client, long chatId = default, MessageSender memberId = default,
+            ChatMemberStatus status = default)
         {
             return client.ExecuteAsync(new SetChatMemberStatus
             {
-                ChatId = chatId, UserId = userId, Status = status
+                ChatId = chatId, MemberId = memberId, Status = status
             });
         }
     }

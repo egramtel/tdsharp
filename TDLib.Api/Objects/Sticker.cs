@@ -68,7 +68,7 @@ namespace TdLib
             public bool IsMask { get; set; }
 
             /// <summary>
-            /// Position where the mask should be placed; may be null
+            /// Position where the mask is placed; may be null
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("mask_position")]

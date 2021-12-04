@@ -9,7 +9,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Contains information about one session in a Telegram application used by the current user. Sessions should be shown to the user in the returned order
+        /// Contains information about one session in a Telegram application used by the current user. Sessions must be shown to the user in the returned order
         /// </summary>
         public partial class Session : Object
         {

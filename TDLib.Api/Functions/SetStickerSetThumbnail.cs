@@ -31,7 +31,7 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("user_id")]
-            public int UserId { get; set; }
+            public long UserId { get; set; }
 
             /// <summary>
             /// Sticker set name
@@ -41,7 +41,7 @@ namespace TdLib
             public string Name { get; set; }
 
             /// <summary>
-            /// Thumbnail to set in PNG or TGS format. Animated thumbnail must be set for animated sticker sets and only for them. Pass a zero InputFileId to delete the thumbnail
+            /// Thumbnail to set in PNG or TGS format; pass null to remove the sticker set thumbnail. Animated thumbnail must be set for animated sticker sets and only for them
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("thumbnail")]
@@ -52,7 +52,7 @@ namespace TdLib
         /// Sets a sticker set thumbnail; for bots only. Returns the sticker set
         /// </summary>
         public static Task<StickerSet> SetStickerSetThumbnailAsync(
-            this Client client, int userId = default, string name = default, InputFile thumbnail = default)
+            this Client client, long userId = default, string name = default, InputFile thumbnail = default)
         {
             return client.ExecuteAsync(new SetStickerSetThumbnail
             {

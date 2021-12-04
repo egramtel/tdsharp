@@ -42,7 +42,7 @@ namespace TdLib
                 public string Emojis { get; set; }
 
                 /// <summary>
-                /// For masks, position where the mask should be placed; may be null
+                /// For masks, position where the mask is placed; pass null if unspecified
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("mask_position")]

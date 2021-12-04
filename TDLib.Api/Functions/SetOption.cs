@@ -34,7 +34,7 @@ namespace TdLib
             public string Name { get; set; }
 
             /// <summary>
-            /// The new value of the option
+            /// The new value of the option; pass null to reset option value to a default value
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("value")]

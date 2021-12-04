@@ -35,7 +35,7 @@ namespace TdLib
                 public InputFile Audio { get; set; }
 
                 /// <summary>
-                /// Thumbnail of the cover for the album, if available
+                /// Thumbnail of the cover for the album; pass null to skip thumbnail uploading
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("album_cover_thumbnail")]
@@ -63,7 +63,7 @@ namespace TdLib
                 public string Performer { get; set; }
 
                 /// <summary>
-                /// Audio caption; 0-GetOption("message_caption_length_max") characters
+                /// Audio caption; pass null to use an empty caption; 0-GetOption("message_caption_length_max") characters
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("caption")]

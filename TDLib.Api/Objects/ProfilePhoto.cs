@@ -47,6 +47,13 @@ namespace TdLib
             public File Big { get; set; }
 
             /// <summary>
+            /// User profile photo minithumbnail; may be null
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("minithumbnail")]
+            public Minithumbnail Minithumbnail { get; set; }
+
+            /// <summary>
             /// True, if the photo has animated variant
             /// </summary>
             [JsonConverter(typeof(Converter))]

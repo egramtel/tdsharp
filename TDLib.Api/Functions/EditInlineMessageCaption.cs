@@ -34,14 +34,14 @@ namespace TdLib
             public string InlineMessageId { get; set; }
 
             /// <summary>
-            /// The new message reply markup
+            /// The new message reply markup; pass null if none
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("reply_markup")]
             public ReplyMarkup ReplyMarkup { get; set; }
 
             /// <summary>
-            /// New message content caption; 0-GetOption("message_caption_length_max") characters
+            /// New message content caption; pass null to remove caption; 0-GetOption("message_caption_length_max") characters
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("caption")]

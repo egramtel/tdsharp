@@ -34,14 +34,14 @@ namespace TdLib
             public string InlineMessageId { get; set; }
 
             /// <summary>
-            /// The new message reply markup
+            /// The new message reply markup; pass null if none
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("reply_markup")]
             public ReplyMarkup ReplyMarkup { get; set; }
 
             /// <summary>
-            /// New text content of the message. Should be of type InputMessageText
+            /// New text content of the message. Must be of type inputMessageText
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("input_message_content")]

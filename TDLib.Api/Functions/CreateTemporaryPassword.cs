@@ -34,7 +34,7 @@ namespace TdLib
             public string Password { get; set; }
 
             /// <summary>
-            /// Time during which the temporary password will be valid, in seconds; should be between 60 and 86400
+            /// Time during which the temporary password will be valid, in seconds; must be between 60 and 86400
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("valid_for")]

@@ -34,7 +34,7 @@ namespace TdLib
             public long ChatId { get; set; }
 
             /// <summary>
-            /// New slow mode delay for the chat; must be one of 0, 10, 30, 60, 300, 900, 3600
+            /// New slow mode delay for the chat, in seconds; must be one of 0, 10, 30, 60, 300, 900, 3600
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("slow_mode_delay")]

@@ -41,7 +41,7 @@ namespace TdLib
             public long MessageId { get; set; }
 
             /// <summary>
-            /// True, if the message should be edited
+            /// True, if the message needs to be edited
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("edit_message")]
@@ -52,7 +52,7 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("user_id")]
-            public int UserId { get; set; }
+            public long UserId { get; set; }
 
             /// <summary>
             /// The new score
@@ -74,7 +74,7 @@ namespace TdLib
         /// </summary>
         public static Task<Message> SetGameScoreAsync(
             this Client client, long chatId = default, long messageId = default, bool editMessage = default,
-            int userId = default, int score = default, bool force = default)
+            long userId = default, int score = default, bool force = default)
         {
             return client.ExecuteAsync(new SetGameScore
             {

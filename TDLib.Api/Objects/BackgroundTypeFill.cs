@@ -28,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Description of the background fill
+                /// The background fill
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("fill")]

@@ -34,14 +34,14 @@ namespace TdLib
             public string InlineMessageId { get; set; }
 
             /// <summary>
-            /// The new message reply markup
+            /// The new message reply markup; pass null if none
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("reply_markup")]
             public ReplyMarkup ReplyMarkup { get; set; }
 
             /// <summary>
-            /// New location content of the message; may be null. Pass null to stop sharing the live location
+            /// New location content of the message; pass null to stop sharing the live location
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("location")]

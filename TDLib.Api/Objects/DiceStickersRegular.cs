@@ -11,7 +11,7 @@ namespace TdLib
         public partial class DiceStickers : Object
         {
             /// <summary>
-            /// Contains animated stickers which should be used for dice animation rendering
+            /// Contains animated stickers which must be used for dice animation rendering
             /// </summary>
             public class DiceStickersRegular : DiceStickers
             {

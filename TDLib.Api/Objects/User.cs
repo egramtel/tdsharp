@@ -30,7 +30,7 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("id")]
-            public int Id { get; set; }
+            public long Id { get; set; }
 
             /// <summary>
             /// First name of the user
@@ -115,6 +115,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_scam")]
             public bool IsScam { get; set; }
+
+            /// <summary>
+            /// True, if many users reported this user as a fake account
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("is_fake")]
+            public bool IsFake { get; set; }
 
             /// <summary>
             /// If false, the user is inaccessible, and the only information known about the user is inside this class. It can't be passed to any method except GetUser

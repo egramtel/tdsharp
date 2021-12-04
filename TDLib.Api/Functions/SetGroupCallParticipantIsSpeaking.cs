@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Informs TDLib that a group call participant speaking state has changed
+        /// Informs TDLib that speaking state of a participant of an active group has changed
         /// </summary>
         public class SetGroupCallParticipantIsSpeaking : Function<Ok>
         {
@@ -34,11 +34,11 @@ namespace TdLib
             public int GroupCallId { get; set; }
 
             /// <summary>
-            /// Group call participant's synchronization source identifier, or 0 for the current user
+            /// Group call participant's synchronization audio source identifier, or 0 for the current user
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("source")]
-            public int Source { get; set; }
+            [JsonProperty("audio_source")]
+            public int AudioSource { get; set; }
 
             /// <summary>
             /// True, if the user is speaking
@@ -49,14 +49,14 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Informs TDLib that a group call participant speaking state has changed
+        /// Informs TDLib that speaking state of a participant of an active group has changed
         /// </summary>
         public static Task<Ok> SetGroupCallParticipantIsSpeakingAsync(
-            this Client client, int groupCallId = default, int source = default, bool isSpeaking = default)
+            this Client client, int groupCallId = default, int audioSource = default, bool isSpeaking = default)
         {
             return client.ExecuteAsync(new SetGroupCallParticipantIsSpeaking
             {
-                GroupCallId = groupCallId, Source = source, IsSpeaking = isSpeaking
+                GroupCallId = groupCallId, AudioSource = audioSource, IsSpeaking = isSpeaking
             });
         }
     }

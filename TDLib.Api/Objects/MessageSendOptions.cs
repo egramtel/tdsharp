@@ -40,7 +40,7 @@ namespace TdLib
             public bool FromBackground { get; set; }
 
             /// <summary>
-            /// Message scheduling state. Messages sent to a secret chat, live location messages and self-destructing messages can't be scheduled
+            /// Message scheduling state; pass null to send message immediately. Messages sent to a secret chat, live location messages and self-destructing messages can't be scheduled
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("scheduling_state")]

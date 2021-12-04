@@ -41,7 +41,7 @@ namespace TdLib
             public long MessageThreadId { get; set; }
 
             /// <summary>
-            /// New draft message; may be null
+            /// New draft message; pass null to remove the draft
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("draft_message")]

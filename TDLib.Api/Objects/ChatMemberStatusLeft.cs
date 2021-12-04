@@ -11,7 +11,7 @@ namespace TdLib
         public partial class ChatMemberStatus : Object
         {
             /// <summary>
-            /// The user is not a chat member
+            /// The user or the chat is not a chat member
             /// </summary>
             public class ChatMemberStatusLeft : ChatMemberStatus
             {

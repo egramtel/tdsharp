@@ -110,7 +110,7 @@ namespace TdLib
             public bool CanBeDeletedForAllUsers { get; set; }
 
             /// <summary>
-            /// True, if the chat can be reported to Telegram moderators through reportChat
+            /// True, if the chat can be reported to Telegram moderators through reportChat or reportChatPhoto
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("can_be_reported")]
@@ -159,25 +159,39 @@ namespace TdLib
             public ChatNotificationSettings NotificationSettings { get; set; }
 
             /// <summary>
-            /// Describes actions which should be possible to do through a chat action bar; may be null
+            /// Current message Time To Live setting (self-destruct timer) for the chat; 0 if not defined. TTL is counted from the time message or its content is viewed in secret chats and from the send date in other chats
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("message_ttl_setting")]
+            public int MessageTtlSetting { get; set; }
+
+            /// <summary>
+            /// If non-empty, name of a theme, set for the chat
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("theme_name")]
+            public string ThemeName { get; set; }
+
+            /// <summary>
+            /// Information about actions which must be possible to do through the chat action bar; may be null
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("action_bar")]
             public ChatActionBar ActionBar { get; set; }
 
             /// <summary>
-            /// Group call identifier of an active voice chat; 0 if none or unknown. The voice chat can be received through the method getGroupCall
+            /// Information about video chat of the chat
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("voice_chat_group_call_id")]
-            public int VoiceChatGroupCallId { get; set; }
+            [JsonProperty("video_chat")]
+            public VideoChat VideoChat { get; set; }
 
             /// <summary>
-            /// True, if an active voice chat is empty
+            /// Information about pending join requests; may be null
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("is_voice_chat_empty")]
-            public bool IsVoiceChatEmpty { get; set; }
+            [JsonProperty("pending_join_requests")]
+            public ChatJoinRequestsInfo PendingJoinRequests { get; set; }
 
             /// <summary>
             /// Identifier of the message from which reply markup needs to be used; 0 if there is no default custom reply markup in the chat
@@ -194,7 +208,7 @@ namespace TdLib
             public DraftMessage DraftMessage { get; set; }
 
             /// <summary>
-            /// Contains application-specific data associated with the chat. (For example, the chat scroll position or local chat notification settings can be stored here.) Persistent if the message database is used
+            /// Application-specific data associated with the chat. (For example, the chat scroll position or local chat notification settings can be stored here.) Persistent if the message database is used
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("client_data")]

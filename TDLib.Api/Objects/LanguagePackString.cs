@@ -33,7 +33,7 @@ namespace TdLib
             public string Key { get; set; }
 
             /// <summary>
-            /// String value
+            /// String value; pass null if the string needs to be taken from the built-in English language pack
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("value")]

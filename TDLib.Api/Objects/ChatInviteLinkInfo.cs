@@ -40,7 +40,7 @@ namespace TdLib
             public int AccessibleFor { get; set; }
 
             /// <summary>
-            /// Contains information about the type of the chat
+            /// Type of the chat
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("type")]
@@ -61,6 +61,13 @@ namespace TdLib
             public ChatPhotoInfo Photo { get; set; }
 
             /// <summary>
+            /// 
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("description")]
+            public string Description { get; set; }
+
+            /// <summary>
             /// Number of members in the chat
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -72,7 +79,14 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("member_user_ids")]
-            public int[] MemberUserIds { get; set; }
+            public long[] MemberUserIds { get; set; }
+
+            /// <summary>
+            /// True, if the link only creates join request
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("creates_join_request")]
+            public bool CreatesJoinRequest { get; set; }
 
             /// <summary>
             /// True, if the chat is a public supergroup or channel, i.e. it has a username or it is a location-based supergroup

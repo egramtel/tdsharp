@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Reports a chat to the Telegram moderators. A chat can be reported only from the chat action bar, or if this is a private chats with a bot, a private chat with a user sharing their location, a supergroup, or a channel, since other chats can't be checked by moderators
+        /// Reports a chat to the Telegram moderators. A chat can be reported only from the chat action bar, or if this is a private chat with a bot, a private chat with a user sharing their location, a supergroup, or a channel, since other chats can't be checked by moderators
         /// </summary>
         public class ReportChat : Function<Ok>
         {
@@ -34,6 +34,13 @@ namespace TdLib
             public long ChatId { get; set; }
 
             /// <summary>
+            /// Identifiers of reported messages, if any
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("message_ids")]
+            public long[] MessageIds { get; set; }
+
+            /// <summary>
             /// The reason for reporting the chat
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -41,22 +48,23 @@ namespace TdLib
             public ChatReportReason Reason { get; set; }
 
             /// <summary>
-            /// Identifiers of reported messages, if any
+            /// Additional report details; 0-1024 characters
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("message_ids")]
-            public long[] MessageIds { get; set; }
+            [JsonProperty("text")]
+            public string Text { get; set; }
         }
 
         /// <summary>
-        /// Reports a chat to the Telegram moderators. A chat can be reported only from the chat action bar, or if this is a private chats with a bot, a private chat with a user sharing their location, a supergroup, or a channel, since other chats can't be checked by moderators
+        /// Reports a chat to the Telegram moderators. A chat can be reported only from the chat action bar, or if this is a private chat with a bot, a private chat with a user sharing their location, a supergroup, or a channel, since other chats can't be checked by moderators
         /// </summary>
         public static Task<Ok> ReportChatAsync(
-            this Client client, long chatId = default, ChatReportReason reason = default, long[] messageIds = default)
+            this Client client, long chatId = default, long[] messageIds = default, ChatReportReason reason = default,
+            string text = default)
         {
             return client.ExecuteAsync(new ReportChat
             {
-                ChatId = chatId, Reason = reason, MessageIds = messageIds
+                ChatId = chatId, MessageIds = messageIds, Reason = reason, Text = text
             });
         }
     }

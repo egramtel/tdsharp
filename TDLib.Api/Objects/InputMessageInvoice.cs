@@ -11,7 +11,7 @@ namespace TdLib
         public partial class InputMessageContent : Object
         {
             /// <summary>
-            /// A message with an invoice; can be used only by bots and only in private chats
+            /// A message with an invoice; can be used only by bots
             /// </summary>
             public class InputMessageInvoice : InputMessageContent
             {
@@ -98,7 +98,7 @@ namespace TdLib
                 public string ProviderData { get; set; }
 
                 /// <summary>
-                /// Unique invoice bot start_parameter for the generation of this invoice
+                /// Unique invoice bot deep link parameter for the generation of this invoice. If empty, it would be possible to pay directly from forwards of the invoice message
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("start_parameter")]

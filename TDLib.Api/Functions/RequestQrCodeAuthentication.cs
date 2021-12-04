@@ -31,14 +31,14 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("other_user_ids")]
-            public int[] OtherUserIds { get; set; }
+            public long[] OtherUserIds { get; set; }
         }
 
         /// <summary>
         /// Requests QR code authentication by scanning a QR code on another logged in device. Works only when the current authorization state is authorizationStateWaitPhoneNumber,
         /// </summary>
         public static Task<Ok> RequestQrCodeAuthenticationAsync(
-            this Client client, int[] otherUserIds = default)
+            this Client client, long[] otherUserIds = default)
         {
             return client.ExecuteAsync(new RequestQrCodeAuthentication
             {

@@ -41,14 +41,14 @@ namespace TdLib
             public long MessageId { get; set; }
 
             /// <summary>
-            /// The new message reply markup; for bots only
+            /// The new message reply markup; pass null if none; for bots only
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("reply_markup")]
             public ReplyMarkup ReplyMarkup { get; set; }
 
             /// <summary>
-            /// New location content of the message; may be null. Pass null to stop sharing the live location
+            /// New location content of the message; pass null to stop sharing the live location
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("location")]

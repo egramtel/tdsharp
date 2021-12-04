@@ -9,7 +9,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// A user with information about joining/leaving a chat
+        /// Describes a user or a chat as a member of another chat
         /// </summary>
         public partial class ChatMember : Object
         {
@@ -26,18 +26,18 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// User identifier of the chat member
+            /// Identifier of the chat member. Currently, other chats can be only Left or Banned. Only supergroups and channels can have other chats as Left or Banned members and these chats must be supergroups or channels
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("user_id")]
-            public int UserId { get; set; }
+            [JsonProperty("member_id")]
+            public MessageSender MemberId { get; set; }
 
             /// <summary>
             /// Identifier of a user that invited/promoted/banned this member in the chat; 0 if unknown
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("inviter_user_id")]
-            public int InviterUserId { get; set; }
+            public long InviterUserId { get; set; }
 
             /// <summary>
             /// Point in time (Unix timestamp) when the user joined the chat
@@ -52,13 +52,6 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("status")]
             public ChatMemberStatus Status { get; set; }
-
-            /// <summary>
-            /// If the user is a bot, information about the bot; may be null. Can be null even for a bot if the bot is not the chat member
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("bot_info")]
-            public BotInfo BotInfo { get; set; }
         }
     }
 }

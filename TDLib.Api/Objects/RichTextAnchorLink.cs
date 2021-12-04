@@ -35,7 +35,7 @@ namespace TdLib
                 public RichText Text { get; set; }
 
                 /// <summary>
-                /// The anchor name. If the name is empty, the link should bring back to top
+                /// The anchor name. If the name is empty, the link must bring back to top
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("anchor_name")]

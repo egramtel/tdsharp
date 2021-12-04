@@ -48,7 +48,7 @@ namespace TdLib
             public long[] MessageIds { get; set; }
 
             /// <summary>
-            /// True, if messages in closed chats should be marked as read by the request
+            /// True, if messages in closed chats must be marked as read by the request
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("force_read")]

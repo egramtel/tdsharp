@@ -11,7 +11,7 @@ namespace TdLib
         public partial class PageBlockHorizontalAlignment : Object
         {
             /// <summary>
-            /// The content should be right-aligned
+            /// The content must be right-aligned
             /// </summary>
             public class PageBlockHorizontalAlignmentRight : PageBlockHorizontalAlignment
             {

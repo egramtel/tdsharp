@@ -75,11 +75,18 @@ namespace TdLib
             public string Bio { get; set; }
 
             /// <summary>
-            /// For bots, the text that is included with the link when users share the bot
+            /// For bots, the text that is shown on the bot's profile page and is sent together with the link when users share the bot
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("share_text")]
             public string ShareText { get; set; }
+
+            /// <summary>
+            /// 
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("description")]
+            public string Description { get; set; }
 
             /// <summary>
             /// Number of group chats where both the other user and the current user are a member; 0 for the current user
@@ -89,11 +96,11 @@ namespace TdLib
             public int GroupInCommonCount { get; set; }
 
             /// <summary>
-            /// If the user is a bot, information about the bot; may be null
+            /// For bots, list of the bot commands
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("bot_info")]
-            public BotInfo BotInfo { get; set; }
+            [JsonProperty("commands")]
+            public BotCommand[] Commands { get; set; }
         }
     }
 }

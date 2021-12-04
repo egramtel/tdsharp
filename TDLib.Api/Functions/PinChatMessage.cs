@@ -41,7 +41,7 @@ namespace TdLib
             public long MessageId { get; set; }
 
             /// <summary>
-            /// True, if there should be no notification about the pinned message. Notifications are always disabled in channels and private chats
+            /// True, if there must be no notification about the pinned message. Notifications are always disabled in channels and private chats
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("disable_notification")]

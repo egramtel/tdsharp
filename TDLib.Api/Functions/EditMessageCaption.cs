@@ -41,14 +41,14 @@ namespace TdLib
             public long MessageId { get; set; }
 
             /// <summary>
-            /// The new message reply markup; for bots only
+            /// The new message reply markup; pass null if none; for bots only
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("reply_markup")]
             public ReplyMarkup ReplyMarkup { get; set; }
 
             /// <summary>
-            /// New message content caption; 0-GetOption("message_caption_length_max") characters
+            /// New message content caption; 0-GetOption("message_caption_length_max") characters; pass null to remove caption
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("caption")]

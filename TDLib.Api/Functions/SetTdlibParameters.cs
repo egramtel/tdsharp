@@ -27,7 +27,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Parameters
+            /// Parameters for TDLib initialization
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("parameters")]

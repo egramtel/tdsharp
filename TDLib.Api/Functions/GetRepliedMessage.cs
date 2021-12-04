@@ -34,7 +34,7 @@ namespace TdLib
             public long ChatId { get; set; }
 
             /// <summary>
-            /// Identifier of the message reply to which to get
+            /// Identifier of the reply message
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("message_id")]

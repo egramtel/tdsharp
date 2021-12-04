@@ -48,25 +48,32 @@ namespace TdLib
             public long[] MessageIds { get; set; }
 
             /// <summary>
-            /// Options to be used to send the messages
+            /// Options to be used to send the messages; pass null to use default options
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("options")]
             public MessageSendOptions Options { get; set; }
 
             /// <summary>
-            /// True, if content of the messages needs to be copied without links to the original messages. Always true if the messages are forwarded to a secret chat
+            /// If true, content of the messages will be copied without reference to the original sender. Always true if the messages are forwarded to a secret chat or are local
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("send_copy")]
             public bool SendCopy { get; set; }
 
             /// <summary>
-            /// True, if media caption of message copies needs to be removed. Ignored if send_copy is false
+            /// If true, media caption of message copies will be removed. Ignored if send_copy is false
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("remove_caption")]
             public bool RemoveCaption { get; set; }
+
+            /// <summary>
+            /// If true, messages will not be forwarded and instead fake messages will be returned
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("only_preview")]
+            public bool OnlyPreview { get; set; }
         }
 
         /// <summary>
@@ -74,12 +81,13 @@ namespace TdLib
         /// </summary>
         public static Task<Messages> ForwardMessagesAsync(
             this Client client, long chatId = default, long fromChatId = default, long[] messageIds = default,
-            MessageSendOptions options = default, bool sendCopy = default, bool removeCaption = default)
+            MessageSendOptions options = default, bool sendCopy = default, bool removeCaption = default,
+            bool onlyPreview = default)
         {
             return client.ExecuteAsync(new ForwardMessages
             {
                 ChatId = chatId, FromChatId = fromChatId, MessageIds = messageIds, Options = options,
-                SendCopy = sendCopy, RemoveCaption = removeCaption
+                SendCopy = sendCopy, RemoveCaption = removeCaption, OnlyPreview = onlyPreview
             });
         }
     }

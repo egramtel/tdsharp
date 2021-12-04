@@ -41,7 +41,7 @@ namespace TdLib
             public int Port { get; set; }
 
             /// <summary>
-            /// True, if the proxy should be enabled
+            /// True, if the proxy needs to be enabled
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("enable")]

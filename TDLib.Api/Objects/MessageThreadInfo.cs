@@ -40,11 +40,18 @@ namespace TdLib
             public long MessageThreadId { get; set; }
 
             /// <summary>
-            /// Contains information about the message thread
+            /// Information about the message thread
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("reply_info")]
             public MessageReplyInfo ReplyInfo { get; set; }
+
+            /// <summary>
+            /// Approximate number of unread messages in the message thread
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("unread_message_count")]
+            public int UnreadMessageCount { get; set; }
 
             /// <summary>
             /// The messages from which the thread starts. The messages are returned in a reverse chronological order (i.e., in order of decreasing message_id)

@@ -34,7 +34,7 @@ namespace TdLib
             public InputFile File { get; set; }
 
             /// <summary>
-            /// File type
+            /// File type; pass null if unknown
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("file_type")]

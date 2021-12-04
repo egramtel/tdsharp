@@ -31,10 +31,10 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("user_id")]
-            public int UserId { get; set; }
+            public long UserId { get; set; }
 
             /// <summary>
-            /// Description of the call protocols supported by the application
+            /// The call protocols supported by the application
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("protocol")]
@@ -52,7 +52,7 @@ namespace TdLib
         /// Creates a new call
         /// </summary>
         public static Task<CallId> CreateCallAsync(
-            this Client client, int userId = default, CallProtocol protocol = default, bool isVideo = default)
+            this Client client, long userId = default, CallProtocol protocol = default, bool isVideo = default)
         {
             return client.ExecuteAsync(new CreateCall
             {

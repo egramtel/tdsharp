@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Invites users to a group call. Sends a service message of type messageInviteToGroupCall for voice chats
+        /// Invites users to an active group call. Sends a service message of type messageInviteToGroupCall for video chats
         /// </summary>
         public class InviteGroupCallParticipants : Function<Ok>
         {
@@ -38,14 +38,14 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("user_ids")]
-            public int[] UserIds { get; set; }
+            public long[] UserIds { get; set; }
         }
 
         /// <summary>
-        /// Invites users to a group call. Sends a service message of type messageInviteToGroupCall for voice chats
+        /// Invites users to an active group call. Sends a service message of type messageInviteToGroupCall for video chats
         /// </summary>
         public static Task<Ok> InviteGroupCallParticipantsAsync(
-            this Client client, int groupCallId = default, int[] userIds = default)
+            this Client client, int groupCallId = default, long[] userIds = default)
         {
             return client.ExecuteAsync(new InviteGroupCallParticipants
             {

@@ -47,14 +47,14 @@ namespace TdLib
             public long ChatId { get; set; }
 
             /// <summary>
-            /// Information about the sending state of the message; may be null
+            /// The sending state of the message; may be null
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("sending_state")]
             public MessageSendingState SendingState { get; set; }
 
             /// <summary>
-            /// Information about the scheduling state of the message; may be null
+            /// The scheduling state of the message; may be null
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("scheduling_state")]
@@ -115,6 +115,27 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("can_get_message_thread")]
             public bool CanGetMessageThread { get; set; }
+
+            /// <summary>
+            /// True, if chat members already viewed the message can be received through getMessageViewers
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("can_get_viewers")]
+            public bool CanGetViewers { get; set; }
+
+            /// <summary>
+            /// True, if media timestamp links can be generated for media timestamp entities in the message text, caption or web page description
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("can_get_media_timestamp_links")]
+            public bool CanGetMediaTimestampLinks { get; set; }
+
+            /// <summary>
+            /// True, if media timestamp entities refers to a media in this message as opposed to a media in the replied message
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("has_timestamped_media")]
+            public bool HasTimestampedMedia { get; set; }
 
             /// <summary>
             /// True, if the message is a channel post. All messages to channels are channel posts, all other messages are not channel posts
@@ -187,7 +208,7 @@ namespace TdLib
             public int Ttl { get; set; }
 
             /// <summary>
-            /// Time left before the message expires, in seconds
+            /// Time left before the message expires, in seconds. If the TTL timer isn't started yet, equals to the value of the ttl field
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("ttl_expires_in")]
@@ -198,7 +219,7 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("via_bot_user_id")]
-            public int ViaBotUserId { get; set; }
+            public long ViaBotUserId { get; set; }
 
             /// <summary>
             /// For channel posts and anonymous group messages, optional author signature

@@ -27,7 +27,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Invite link to be checked; should begin with "https://t.me/joinchat/", "https://telegram.me/joinchat/", or "https://telegram.dog/joinchat/"
+            /// Invite link to be checked
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("invite_link")]

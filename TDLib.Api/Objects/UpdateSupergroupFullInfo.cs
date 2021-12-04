@@ -32,7 +32,7 @@ namespace TdLib
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("supergroup_id")]
-                public int SupergroupId { get; set; }
+                public long SupergroupId { get; set; }
 
                 /// <summary>
                 /// New full information about the supergroup

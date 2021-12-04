@@ -26,7 +26,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Approximate total size of files
+            /// Approximate total size of files, in bytes
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("files_size")]

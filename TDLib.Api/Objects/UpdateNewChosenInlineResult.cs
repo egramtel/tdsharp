@@ -32,7 +32,7 @@ namespace TdLib
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("sender_user_id")]
-                public int SenderUserId { get; set; }
+                public long SenderUserId { get; set; }
 
                 /// <summary>
                 /// User location; may be null

@@ -26,6 +26,27 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
+            /// Product title
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("title")]
+            public string Title { get; set; }
+
+            /// <summary>
+            /// 
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("description")]
+            public string Description { get; set; }
+
+            /// <summary>
+            /// Product photo; may be null
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("photo")]
+            public Photo Photo { get; set; }
+
+            /// <summary>
             /// Point in time (Unix timestamp) when the payment was made
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -33,21 +54,28 @@ namespace TdLib
             public int Date { get; set; }
 
             /// <summary>
+            /// User identifier of the seller bot
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("seller_bot_user_id")]
+            public long SellerBotUserId { get; set; }
+
+            /// <summary>
             /// User identifier of the payment provider bot
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("payments_provider_user_id")]
-            public int PaymentsProviderUserId { get; set; }
+            public long PaymentsProviderUserId { get; set; }
 
             /// <summary>
-            /// Contains information about the invoice
+            /// Information about the invoice
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("invoice")]
             public Invoice Invoice { get; set; }
 
             /// <summary>
-            /// Contains order information; may be null
+            /// Order information; may be null
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("order_info")]
@@ -61,11 +89,18 @@ namespace TdLib
             public ShippingOption ShippingOption { get; set; }
 
             /// <summary>
-            /// Title of the saved credentials
+            /// Title of the saved credentials chosen by the buyer
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("credentials_title")]
             public string CredentialsTitle { get; set; }
+
+            /// <summary>
+            /// The amount of tip chosen by the buyer in the smallest units of the currency
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("tip_amount")]
+            public long TipAmount { get; set; }
         }
     }
 }

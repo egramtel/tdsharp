@@ -34,22 +34,22 @@ namespace TdLib
             public long ChatId { get; set; }
 
             /// <summary>
-            /// User identifier
+            /// Member identifier
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("user_id")]
-            public int UserId { get; set; }
+            [JsonProperty("member_id")]
+            public MessageSender MemberId { get; set; }
         }
 
         /// <summary>
         /// Returns information about a single member of a chat
         /// </summary>
         public static Task<ChatMember> GetChatMemberAsync(
-            this Client client, long chatId = default, int userId = default)
+            this Client client, long chatId = default, MessageSender memberId = default)
         {
             return client.ExecuteAsync(new GetChatMember
             {
-                ChatId = chatId, UserId = userId
+                ChatId = chatId, MemberId = memberId
             });
         }
     }

@@ -9,7 +9,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Position on a photo where a mask should be placed
+        /// Position on a photo where a mask is placed
         /// </summary>
         public partial class MaskPosition : Object
         {
@@ -26,7 +26,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Part of the face, relative to which the mask should be placed
+            /// Part of the face, relative to which the mask is placed
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("point")]

@@ -28,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Poll question, 1-255 characters (up to 300 characters for bots)
+                /// Poll question; 1-255 characters (up to 300 characters for bots)
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("question")]

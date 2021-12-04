@@ -9,7 +9,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Describes a recently speaking user in a group call
+        /// Describes a recently speaking participant in a group call
         /// </summary>
         public partial class GroupCallRecentSpeaker : Object
         {
@@ -26,11 +26,11 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// User identifier
+            /// Group call participant identifier
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("user_id")]
-            public int UserId { get; set; }
+            [JsonProperty("participant_id")]
+            public MessageSender ParticipantId { get; set; }
 
             /// <summary>
             /// True, is the user has spoken recently

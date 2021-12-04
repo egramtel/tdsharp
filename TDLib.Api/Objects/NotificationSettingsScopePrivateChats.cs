@@ -11,7 +11,7 @@ namespace TdLib
         public partial class NotificationSettingsScope : Object
         {
             /// <summary>
-            /// Describes the types of chats to which notification settings are applied
+            /// Describes the types of chats to which notification settings are relevant
             /// </summary>
             public class NotificationSettingsScopePrivateChats : NotificationSettingsScope
             {

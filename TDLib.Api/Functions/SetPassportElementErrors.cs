@@ -31,7 +31,7 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("user_id")]
-            public int UserId { get; set; }
+            public long UserId { get; set; }
 
             /// <summary>
             /// The errors
@@ -45,7 +45,7 @@ namespace TdLib
         /// Informs the user that some of the elements in their Telegram Passport contain errors; for bots only. The user will not be able to resend the elements, until the errors are fixed
         /// </summary>
         public static Task<Ok> SetPassportElementErrorsAsync(
-            this Client client, int userId = default, InputPassportElementError[] errors = default)
+            this Client client, long userId = default, InputPassportElementError[] errors = default)
         {
             return client.ExecuteAsync(new SetPassportElementErrors
             {

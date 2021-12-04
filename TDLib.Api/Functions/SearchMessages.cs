@@ -27,7 +27,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Chat list in which to search messages; pass null to search in all chats regardless of their chat list
+            /// Chat list in which to search messages; pass null to search in all chats regardless of their chat list. Only Main and Archive chat lists are supported
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_list")]
@@ -41,7 +41,7 @@ namespace TdLib
             public string Query { get; set; }
 
             /// <summary>
-            /// The date of the message starting from which the results should be fetched. Use 0 or any date in the future to get results from the last message
+            /// The date of the message starting from which the results need to be fetched. Use 0 or any date in the future to get results from the last message
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("offset_date")]
@@ -62,14 +62,14 @@ namespace TdLib
             public long OffsetMessageId { get; set; }
 
             /// <summary>
-            /// The maximum number of messages to be returned; up to 100. Fewer messages may be returned than specified by the limit, even if the end of the message history has not been reached
+            /// The maximum number of messages to be returned; up to 100. For optimal performance, the number of returned messages is chosen by TDLib and can be smaller than the specified limit
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("limit")]
             public int Limit { get; set; }
 
             /// <summary>
-            /// Filter for message content in the search results; searchMessagesFilterCall, searchMessagesFilterMissedCall, searchMessagesFilterMention, searchMessagesFilterUnreadMention, searchMessagesFilterFailedToSend and searchMessagesFilterPinned are unsupported in this function
+            /// Additional filter for messages to search; pass null to search for all messages. Filters searchMessagesFilterCall, searchMessagesFilterMissedCall, searchMessagesFilterMention, searchMessagesFilterUnreadMention, searchMessagesFilterFailedToSend and searchMessagesFilterPinned are unsupported in this function
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("filter")]

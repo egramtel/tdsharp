@@ -26,7 +26,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Cell text; may be null. If the text is null, then the cell should be invisible
+            /// Cell text; may be null. If the text is null, then the cell must be invisible
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("text")]
@@ -40,14 +40,14 @@ namespace TdLib
             public bool IsHeader { get; set; }
 
             /// <summary>
-            /// The number of columns the cell should span
+            /// The number of columns the cell spans
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("colspan")]
             public int Colspan { get; set; }
 
             /// <summary>
-            /// The number of rows the cell should span
+            /// The number of rows the cell spans
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("rowspan")]

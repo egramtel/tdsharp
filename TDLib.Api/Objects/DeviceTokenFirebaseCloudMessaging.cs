@@ -35,7 +35,7 @@ namespace TdLib
                 public string Token { get; set; }
 
                 /// <summary>
-                /// True, if push notifications should be additionally encrypted
+                /// True, if push notifications must be additionally encrypted
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("encrypt")]

@@ -31,7 +31,7 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("user_id")]
-            public int UserId { get; set; }
+            public long UserId { get; set; }
 
             /// <summary>
             /// Chat identifier starting from which to return chats; use 0 for the first request
@@ -52,7 +52,7 @@ namespace TdLib
         /// Returns a list of common group chats with a given user. Chats are sorted by their type and creation date
         /// </summary>
         public static Task<Chats> GetGroupsInCommonAsync(
-            this Client client, int userId = default, long offsetChatId = default, int limit = default)
+            this Client client, long userId = default, long offsetChatId = default, int limit = default)
         {
             return client.ExecuteAsync(new GetGroupsInCommon
             {

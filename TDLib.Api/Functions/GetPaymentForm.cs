@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns an invoice payment form. This method should be called when the user presses inlineKeyboardButtonBuy
+        /// Returns an invoice payment form. This method must be called when the user presses inlineKeyboardButtonBuy
         /// </summary>
         public class GetPaymentForm : Function<PaymentForm>
         {
@@ -39,17 +39,24 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("message_id")]
             public long MessageId { get; set; }
+
+            /// <summary>
+            /// Preferred payment form theme; pass null to use the default theme
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("theme")]
+            public PaymentFormTheme Theme { get; set; }
         }
 
         /// <summary>
-        /// Returns an invoice payment form. This method should be called when the user presses inlineKeyboardButtonBuy
+        /// Returns an invoice payment form. This method must be called when the user presses inlineKeyboardButtonBuy
         /// </summary>
         public static Task<PaymentForm> GetPaymentFormAsync(
-            this Client client, long chatId = default, long messageId = default)
+            this Client client, long chatId = default, long messageId = default, PaymentFormTheme theme = default)
         {
             return client.ExecuteAsync(new GetPaymentForm
             {
-                ChatId = chatId, MessageId = messageId
+                ChatId = chatId, MessageId = messageId, Theme = theme
             });
         }
     }

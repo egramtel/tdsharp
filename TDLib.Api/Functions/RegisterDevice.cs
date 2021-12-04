@@ -38,14 +38,14 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("other_user_ids")]
-            public int[] OtherUserIds { get; set; }
+            public long[] OtherUserIds { get; set; }
         }
 
         /// <summary>
         /// Registers the currently used device for receiving push notifications. Returns a globally unique identifier of the push notification subscription
         /// </summary>
         public static Task<PushReceiverId> RegisterDeviceAsync(
-            this Client client, DeviceToken deviceToken = default, int[] otherUserIds = default)
+            this Client client, DeviceToken deviceToken = default, long[] otherUserIds = default)
         {
             return client.ExecuteAsync(new RegisterDevice
             {

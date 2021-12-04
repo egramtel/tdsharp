@@ -31,14 +31,14 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("user_id")]
-            public int UserId { get; set; }
+            public long UserId { get; set; }
         }
 
         /// <summary>
         /// Returns information about a user by their identifier. This is an offline request if the current user is not a bot
         /// </summary>
         public static Task<User> GetUserAsync(
-            this Client client, int userId = default)
+            this Client client, long userId = default)
         {
             return client.ExecuteAsync(new GetUser
             {

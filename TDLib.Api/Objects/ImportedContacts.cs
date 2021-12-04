@@ -30,7 +30,7 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("user_ids")]
-            public int[] UserIds { get; set; }
+            public long[] UserIds { get; set; }
 
             /// <summary>
             /// The number of users that imported the corresponding contact; 0 for already registered users or if unavailable

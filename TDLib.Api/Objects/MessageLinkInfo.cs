@@ -47,6 +47,13 @@ namespace TdLib
             public Message Message { get; set; }
 
             /// <summary>
+            /// Timestamp from which the video/audio/video note/voice note playing must start, in seconds; 0 if not specified. The media can be in the message content or in its web page preview
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("media_timestamp")]
+            public int MediaTimestamp { get; set; }
+
+            /// <summary>
             /// True, if the whole media album to which the message belongs is linked
             /// </summary>
             [JsonConverter(typeof(Converter))]

@@ -33,7 +33,7 @@ namespace TdLib
             public FileType FileType { get; set; }
 
             /// <summary>
-            /// Total size of the files
+            /// Total size of the files, in bytes
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("size")]

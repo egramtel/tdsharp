@@ -40,7 +40,7 @@ namespace TdLib
             public string Sound { get; set; }
 
             /// <summary>
-            /// True, if message content should be displayed in notifications
+            /// True, if message content must be displayed in notifications
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("show_preview")]

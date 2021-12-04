@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Loads more group call participants. The loaded participants will be received through updates. Use the field groupCall.loaded_all_participants to check whether all participants has already been loaded
+        /// Loads more participants of a group call. The loaded participants will be received through updates. Use the field groupCall.loaded_all_participants to check whether all participants have already been loaded
         /// </summary>
         public class LoadGroupCallParticipants : Function<Ok>
         {
@@ -34,7 +34,7 @@ namespace TdLib
             public int GroupCallId { get; set; }
 
             /// <summary>
-            /// Maximum number of participants to load
+            /// The maximum number of participants to load; up to 100
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("limit")]
@@ -42,7 +42,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Loads more group call participants. The loaded participants will be received through updates. Use the field groupCall.loaded_all_participants to check whether all participants has already been loaded
+        /// Loads more participants of a group call. The loaded participants will be received through updates. Use the field groupCall.loaded_all_participants to check whether all participants have already been loaded
         /// </summary>
         public static Task<Ok> LoadGroupCallParticipantsAsync(
             this Client client, int groupCallId = default, int limit = default)

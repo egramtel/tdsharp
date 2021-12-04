@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns information about a public or private message link
+        /// Returns information about a public or private message link. Can be called for any internal link of the type internalLinkTypeMessage
         /// </summary>
         public class GetMessageLinkInfo : Function<MessageLinkInfo>
         {
@@ -27,7 +27,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// The message link in the format "https://t.me/c/...", or "tg://privatepost?...", or "https://t.me/username/...", or "tg://resolve?..."
+            /// The message link
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("url")]
@@ -35,7 +35,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Returns information about a public or private message link
+        /// Returns information about a public or private message link. Can be called for any internal link of the type internalLinkTypeMessage
         /// </summary>
         public static Task<MessageLinkInfo> GetMessageLinkInfoAsync(
             this Client client, string url = default)

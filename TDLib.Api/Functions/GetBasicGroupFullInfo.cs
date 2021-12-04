@@ -31,14 +31,14 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("basic_group_id")]
-            public int BasicGroupId { get; set; }
+            public long BasicGroupId { get; set; }
         }
 
         /// <summary>
         /// Returns full information about a basic group by its identifier
         /// </summary>
         public static Task<BasicGroupFullInfo> GetBasicGroupFullInfoAsync(
-            this Client client, int basicGroupId = default)
+            this Client client, long basicGroupId = default)
         {
             return client.ExecuteAsync(new GetBasicGroupFullInfo
             {
