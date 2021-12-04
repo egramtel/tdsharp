@@ -3,7 +3,7 @@
         <TargetFramework>netstandard2.0</TargetFramework>
         <LangVersion>latest</LangVersion>
         <PackageId>TDLib.Api</PackageId>
-        <Version>1.7.0.2</Version>
+        <Version>1.7.9</Version>
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="Newtonsoft.Json" Version="11.0.1" />
