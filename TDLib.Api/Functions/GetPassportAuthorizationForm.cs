@@ -59,8 +59,7 @@ namespace TdLib
         /// Returns a Telegram Passport authorization form for sharing data with a service
         /// </summary>
         public static Task<PassportAuthorizationForm> GetPassportAuthorizationFormAsync(
-            this Client client, long botUserId = default, string scope = default, string publicKey = default,
-            string nonce = default)
+            this Client client, long botUserId = default, string scope = default, string publicKey = default, string nonce = default)
         {
             return client.ExecuteAsync(new GetPassportAuthorizationForm
             {

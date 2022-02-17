@@ -66,8 +66,7 @@ namespace TdLib
         /// Sends an inline query to a bot and returns its results. Returns an error with code 502 if the bot fails to answer the query before the query timeout expires
         /// </summary>
         public static Task<InlineQueryResults> GetInlineQueryResultsAsync(
-            this Client client, long botUserId = default, long chatId = default, Location userLocation = default,
-            string query = default, string offset = default)
+            this Client client, long botUserId = default, long chatId = default, Location userLocation = default, string query = default, string offset = default)
         {
             return client.ExecuteAsync(new GetInlineQueryResults
             {

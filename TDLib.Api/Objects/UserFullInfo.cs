@@ -61,6 +61,13 @@ namespace TdLib
             public bool HasPrivateCalls { get; set; }
 
             /// <summary>
+            /// True, if the user can't be linked in forwarded messages due to their privacy settings
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("has_private_forwards")]
+            public bool HasPrivateForwards { get; set; }
+
+            /// <summary>
             /// True, if the current user needs to explicitly allow to share their phone number with the user when the method addContact is used
             /// </summary>
             [JsonConverter(typeof(Converter))]

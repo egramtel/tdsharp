@@ -11,7 +11,7 @@ namespace TdLib
         public partial class ChatActionBar : Object
         {
             /// <summary>
-            /// The chat is a recently created group chat, to which new members can be invited
+            /// The chat is a recently created group chat to which new members can be invited
             /// </summary>
             public class ChatActionBarInviteMembers : ChatActionBar
             {
@@ -26,6 +26,8 @@ namespace TdLib
                 /// </summary>
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
+
+
             }
         }
     }

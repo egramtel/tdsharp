@@ -10,15 +10,15 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Changes the message TTL setting (sets a new self-destruct timer) in a chat. Requires can_delete_messages administrator right in basic groups, supergroups and channels
+        /// Changes the message TTL in a chat. Requires can_delete_messages administrator right in basic groups, supergroups and channels
         /// </summary>
-        public class SetChatMessageTtlSetting : Function<Ok>
+        public class SetChatMessageTtl : Function<Ok>
         {
             /// <summary>
             /// Data type for serialization
             /// </summary>
             [JsonProperty("@type")]
-            public override string DataType { get; set; } = "setChatMessageTtlSetting";
+            public override string DataType { get; set; } = "setChatMessageTtl";
 
             /// <summary>
             /// Extra data attached to the function
@@ -42,12 +42,12 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Changes the message TTL setting (sets a new self-destruct timer) in a chat. Requires can_delete_messages administrator right in basic groups, supergroups and channels
+        /// Changes the message TTL in a chat. Requires can_delete_messages administrator right in basic groups, supergroups and channels
         /// </summary>
-        public static Task<Ok> SetChatMessageTtlSettingAsync(
+        public static Task<Ok> SetChatMessageTtlAsync(
             this Client client, long chatId = default, int ttl = default)
         {
-            return client.ExecuteAsync(new SetChatMessageTtlSetting
+            return client.ExecuteAsync(new SetChatMessageTtl
             {
                 ChatId = chatId, Ttl = ttl
             });

@@ -48,7 +48,7 @@ namespace TdLib
             public int Offset { get; set; }
 
             /// <summary>
-            /// Number of bytes which need to be downloaded starting from the "offset" position before the download will be automatically canceled; use 0 to download without a limit
+            /// Number of bytes which need to be downloaded starting from the "offset" position before the download will automatically be canceled; use 0 to download without a limit
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("limit")]
@@ -66,8 +66,7 @@ namespace TdLib
         /// Downloads a file from the cloud. Download progress and completion of the download will be notified through updateFile updates
         /// </summary>
         public static Task<File> DownloadFileAsync(
-            this Client client, int fileId = default, int priority = default, int offset = default, int limit = default,
-            bool synchronous = default)
+            this Client client, int fileId = default, int priority = default, int offset = default, int limit = default, bool synchronous = default)
         {
             return client.ExecuteAsync(new DownloadFile
             {

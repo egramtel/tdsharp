@@ -48,14 +48,7 @@ namespace TdLib
             public string Name { get; set; }
 
             /// <summary>
-            /// True, if stickers are masks. Animated stickers can't be masks
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("is_masks")]
-            public bool IsMasks { get; set; }
-
-            /// <summary>
-            /// List of stickers to be added to the set; must be non-empty. All stickers must be of the same type. For animated stickers, uploadStickerFile must be used before the sticker is shown
+            /// List of stickers to be added to the set; must be non-empty. All stickers must have the same format. For TGS stickers, uploadStickerFile must be used before the sticker is shown
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("stickers")]
@@ -73,12 +66,11 @@ namespace TdLib
         /// Creates a new sticker set. Returns the newly created sticker set
         /// </summary>
         public static Task<StickerSet> CreateNewStickerSetAsync(
-            this Client client, long userId = default, string title = default, string name = default,
-            bool isMasks = default, InputSticker[] stickers = default, string source = default)
+            this Client client, long userId = default, string title = default, string name = default, InputSticker[] stickers = default, string source = default)
         {
             return client.ExecuteAsync(new CreateNewStickerSet
             {
-                UserId = userId, Title = title, Name = name, IsMasks = isMasks, Stickers = stickers, Source = source
+                UserId = userId, Title = title, Name = name, Stickers = stickers, Source = source
             });
         }
     }

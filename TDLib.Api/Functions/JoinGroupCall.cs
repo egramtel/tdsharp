@@ -80,14 +80,11 @@ namespace TdLib
         /// Joins an active group call. Returns join response payload for tgcalls
         /// </summary>
         public static Task<Text> JoinGroupCallAsync(
-            this Client client, int groupCallId = default, MessageSender participantId = default,
-            int audioSourceId = default, string payload = default, bool isMuted = default,
-            bool isMyVideoEnabled = default, string inviteHash = default)
+            this Client client, int groupCallId = default, MessageSender participantId = default, int audioSourceId = default, string payload = default, bool isMuted = default, bool isMyVideoEnabled = default, string inviteHash = default)
         {
             return client.ExecuteAsync(new JoinGroupCall
             {
-                GroupCallId = groupCallId, ParticipantId = participantId, AudioSourceId = audioSourceId,
-                Payload = payload, IsMuted = isMuted, IsMyVideoEnabled = isMyVideoEnabled, InviteHash = inviteHash
+                GroupCallId = groupCallId, ParticipantId = participantId, AudioSourceId = audioSourceId, Payload = payload, IsMuted = isMuted, IsMyVideoEnabled = isMyVideoEnabled, InviteHash = inviteHash
             });
         }
     }

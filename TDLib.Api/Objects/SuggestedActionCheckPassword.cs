@@ -11,7 +11,7 @@ namespace TdLib
         public partial class SuggestedAction : Object
         {
             /// <summary>
-            /// Suggests the user to check whether 2-step verification password is still remembered
+            /// Suggests the user to check whether they still remember their 2-step verification password
             /// </summary>
             public class SuggestedActionCheckPassword : SuggestedAction
             {
@@ -26,6 +26,8 @@ namespace TdLib
                 /// </summary>
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
+
+
             }
         }
     }

@@ -28,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Token; may be empty to de-register a device
+                /// Token; may be empty to deregister a device
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("token")]

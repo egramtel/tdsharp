@@ -52,8 +52,7 @@ namespace TdLib
         /// Sends phone number confirmation code to handle links of the type internalLinkTypePhoneNumberConfirmation
         /// </summary>
         public static Task<AuthenticationCodeInfo> SendPhoneNumberConfirmationCodeAsync(
-            this Client client, string hash = default, string phoneNumber = default,
-            PhoneNumberAuthenticationSettings settings = default)
+            this Client client, string hash = default, string phoneNumber = default, PhoneNumberAuthenticationSettings settings = default)
         {
             return client.ExecuteAsync(new SendPhoneNumberConfirmationCode
             {

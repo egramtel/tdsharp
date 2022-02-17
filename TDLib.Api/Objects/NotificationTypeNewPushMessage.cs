@@ -35,11 +35,11 @@ namespace TdLib
                 public long MessageId { get; set; }
 
                 /// <summary>
-                /// The sender of the message. Corresponding user or chat may be inaccessible
+                /// Identifier of the sender of the message. Corresponding user or chat may be inaccessible
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("sender")]
-                public MessageSender Sender { get; set; }
+                [JsonProperty("sender_id")]
+                public MessageSender SenderId { get; set; }
 
                 /// <summary>
                 /// Name of the sender

@@ -49,6 +49,13 @@ namespace TdLib
                 public bool CanRetry { get; set; }
 
                 /// <summary>
+                /// True, if the message can be re-sent only on behalf of a different sender
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("need_another_sender")]
+                public bool NeedAnotherSender { get; set; }
+
+                /// <summary>
                 /// Time left before the message can be re-sent, in seconds. No update is sent when this field changes
                 /// </summary>
                 [JsonConverter(typeof(Converter))]

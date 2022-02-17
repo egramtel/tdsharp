@@ -40,14 +40,14 @@ namespace TdLib
             public int Date { get; set; }
 
             /// <summary>
-            /// Identifier of the user who performed the action that triggered the event
+            /// Identifier of the user or chat who performed the action
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("user_id")]
-            public long UserId { get; set; }
+            [JsonProperty("member_id")]
+            public MessageSender MemberId { get; set; }
 
             /// <summary>
-            /// Action performed by the user
+            /// The action
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("action")]

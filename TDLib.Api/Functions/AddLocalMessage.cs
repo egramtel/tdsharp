@@ -34,11 +34,11 @@ namespace TdLib
             public long ChatId { get; set; }
 
             /// <summary>
-            /// The sender of the message
+            /// Identifier of the sender of the message
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("sender")]
-            public MessageSender Sender { get; set; }
+            [JsonProperty("sender_id")]
+            public MessageSender SenderId { get; set; }
 
             /// <summary>
             /// Identifier of the message to reply to or 0
@@ -66,13 +66,11 @@ namespace TdLib
         /// Adds a local message to a chat. The message is persistent across application restarts only if the message database is used. Returns the added message
         /// </summary>
         public static Task<Message> AddLocalMessageAsync(
-            this Client client, long chatId = default, MessageSender sender = default, long replyToMessageId = default,
-            bool disableNotification = default, InputMessageContent inputMessageContent = default)
+            this Client client, long chatId = default, MessageSender senderId = default, long replyToMessageId = default, bool disableNotification = default, InputMessageContent inputMessageContent = default)
         {
             return client.ExecuteAsync(new AddLocalMessage
             {
-                ChatId = chatId, Sender = sender, ReplyToMessageId = replyToMessageId,
-                DisableNotification = disableNotification, InputMessageContent = inputMessageContent
+                ChatId = chatId, SenderId = senderId, ReplyToMessageId = replyToMessageId, DisableNotification = disableNotification, InputMessageContent = inputMessageContent
             });
         }
     }

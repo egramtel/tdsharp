@@ -54,25 +54,11 @@ namespace TdLib
             public string Emoji { get; set; }
 
             /// <summary>
-            /// True, if the sticker is an animated sticker in TGS format
+            /// Sticker type
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("is_animated")]
-            public bool IsAnimated { get; set; }
-
-            /// <summary>
-            /// True, if the sticker is a mask
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("is_mask")]
-            public bool IsMask { get; set; }
-
-            /// <summary>
-            /// Position where the mask is placed; may be null
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("mask_position")]
-            public MaskPosition MaskPosition { get; set; }
+            [JsonProperty("type")]
+            public StickerType Type { get; set; }
 
             /// <summary>
             /// Sticker's outline represented as a list of closed vector paths; may be empty. The coordinate system origin is in the upper-left corner

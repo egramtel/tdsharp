@@ -52,8 +52,7 @@ namespace TdLib
         /// Returns approximate number of messages of the specified type in the chat
         /// </summary>
         public static Task<Count> GetChatMessageCountAsync(
-            this Client client, long chatId = default, SearchMessagesFilter filter = default,
-            bool returnLocal = default)
+            this Client client, long chatId = default, SearchMessagesFilter filter = default, bool returnLocal = default)
         {
             return client.ExecuteAsync(new GetChatMessageCount
             {

@@ -27,7 +27,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Verification code
+            /// Verification code to check
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("code")]

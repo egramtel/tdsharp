@@ -47,7 +47,7 @@ namespace TdLib
             public string Name { get; set; }
 
             /// <summary>
-            /// Sticker set thumbnail in WEBP or TGS format with width and height 100; may be null
+            /// Sticker set thumbnail in WEBP, TGS, or WEBM format with width and height 100; may be null
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("thumbnail")]
@@ -82,18 +82,11 @@ namespace TdLib
             public bool IsOfficial { get; set; }
 
             /// <summary>
-            /// True, is the stickers in the set are animated
+            /// Type of the stickers in the set
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("is_animated")]
-            public bool IsAnimated { get; set; }
-
-            /// <summary>
-            /// True, if the stickers in the set are masks
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("is_masks")]
-            public bool IsMasks { get; set; }
+            [JsonProperty("sticker_type")]
+            public StickerType StickerType { get; set; }
 
             /// <summary>
             /// True for already viewed trending sticker sets

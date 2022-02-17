@@ -52,8 +52,7 @@ namespace TdLib
         /// Changes the status of a chat member, needs appropriate privileges. This function is currently not suitable for transferring chat ownership; use transferChatOwnership instead. Use addChatMember or banChatMember if some additional parameters needs to be passed
         /// </summary>
         public static Task<Ok> SetChatMemberStatusAsync(
-            this Client client, long chatId = default, MessageSender memberId = default,
-            ChatMemberStatus status = default)
+            this Client client, long chatId = default, MessageSender memberId = default, ChatMemberStatus status = default)
         {
             return client.ExecuteAsync(new SetChatMemberStatus
             {

@@ -59,8 +59,7 @@ namespace TdLib
         /// Returns an HTTP URL which can be used to automatically authorize the user on a website after clicking an inline button of type inlineKeyboardButtonTypeLoginUrl.
         /// </summary>
         public static Task<HttpUrl> GetLoginUrlAsync(
-            this Client client, long chatId = default, long messageId = default, long buttonId = default,
-            bool allowWriteAccess = default)
+            this Client client, long chatId = default, long messageId = default, long buttonId = default, bool allowWriteAccess = default)
         {
             return client.ExecuteAsync(new GetLoginUrl
             {

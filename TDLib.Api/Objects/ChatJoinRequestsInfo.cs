@@ -9,7 +9,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Contains information about pending chat join requests
+        /// Contains information about pending join requests for a chat
         /// </summary>
         public partial class ChatJoinRequestsInfo : Object
         {
@@ -33,7 +33,7 @@ namespace TdLib
             public int TotalCount { get; set; }
 
             /// <summary>
-            /// Identifiers of users sent the newest pending join requests
+            /// Identifiers of at most 3 users sent the newest pending join requests
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("user_ids")]

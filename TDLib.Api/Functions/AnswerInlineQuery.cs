@@ -80,14 +80,11 @@ namespace TdLib
         /// Sets the result of an inline query; for bots only
         /// </summary>
         public static Task<Ok> AnswerInlineQueryAsync(
-            this Client client, long inlineQueryId = default, bool isPersonal = default,
-            InputInlineQueryResult[] results = default, int cacheTime = default, string nextOffset = default,
-            string switchPmText = default, string switchPmParameter = default)
+            this Client client, long inlineQueryId = default, bool isPersonal = default, InputInlineQueryResult[] results = default, int cacheTime = default, string nextOffset = default, string switchPmText = default, string switchPmParameter = default)
         {
             return client.ExecuteAsync(new AnswerInlineQuery
             {
-                InlineQueryId = inlineQueryId, IsPersonal = isPersonal, Results = results, CacheTime = cacheTime,
-                NextOffset = nextOffset, SwitchPmText = switchPmText, SwitchPmParameter = switchPmParameter
+                InlineQueryId = inlineQueryId, IsPersonal = isPersonal, Results = results, CacheTime = cacheTime, NextOffset = nextOffset, SwitchPmText = switchPmText, SwitchPmParameter = switchPmParameter
             });
         }
     }

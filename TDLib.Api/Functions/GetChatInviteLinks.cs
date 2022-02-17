@@ -73,13 +73,11 @@ namespace TdLib
         /// Returns invite links for a chat created by specified administrator. Requires administrator privileges and can_invite_users right in the chat to get own links and owner privileges to get other links
         /// </summary>
         public static Task<ChatInviteLinks> GetChatInviteLinksAsync(
-            this Client client, long chatId = default, long creatorUserId = default, bool isRevoked = default,
-            int offsetDate = default, string offsetInviteLink = default, int limit = default)
+            this Client client, long chatId = default, long creatorUserId = default, bool isRevoked = default, int offsetDate = default, string offsetInviteLink = default, int limit = default)
         {
             return client.ExecuteAsync(new GetChatInviteLinks
             {
-                ChatId = chatId, CreatorUserId = creatorUserId, IsRevoked = isRevoked, OffsetDate = offsetDate,
-                OffsetInviteLink = offsetInviteLink, Limit = limit
+                ChatId = chatId, CreatorUserId = creatorUserId, IsRevoked = isRevoked, OffsetDate = offsetDate, OffsetInviteLink = offsetInviteLink, Limit = limit
             });
         }
     }

@@ -11,15 +11,15 @@ namespace TdLib
         public partial class Update : Object
         {
             /// <summary>
-            /// User activity in the chat has changed
+            /// The chat available reactions were changed
             /// </summary>
-            public class UpdateUserChatAction : Update
+            public class UpdateChatAvailableReactions : Update
             {
                 /// <summary>
                 /// Data type for serialization
                 /// </summary>
                 [JsonProperty("@type")]
-                public override string DataType { get; set; } = "updateUserChatAction";
+                public override string DataType { get; set; } = "updateChatAvailableReactions";
 
                 /// <summary>
                 /// Extra data attached to the message
@@ -35,25 +35,11 @@ namespace TdLib
                 public long ChatId { get; set; }
 
                 /// <summary>
-                /// If not 0, a message thread identifier in which the action was performed
+                /// The new list of reactions, available in the chat
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("message_thread_id")]
-                public long MessageThreadId { get; set; }
-
-                /// <summary>
-                /// Identifier of a user performing an action
-                /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("user_id")]
-                public long UserId { get; set; }
-
-                /// <summary>
-                /// The action description
-                /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("action")]
-                public ChatAction Action { get; set; }
+                [JsonProperty("available_reactions")]
+                public string[] AvailableReactions { get; set; }
             }
         }
     }

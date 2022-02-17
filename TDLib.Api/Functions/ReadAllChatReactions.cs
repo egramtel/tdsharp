@@ -10,15 +10,15 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns sponsored messages to be shown in a chat; for channel chats only
+        /// Marks all reactions in a chat as read
         /// </summary>
-        public class GetChatSponsoredMessages : Function<SponsoredMessages>
+        public class ReadAllChatReactions : Function<Ok>
         {
             /// <summary>
             /// Data type for serialization
             /// </summary>
             [JsonProperty("@type")]
-            public override string DataType { get; set; } = "getChatSponsoredMessages";
+            public override string DataType { get; set; } = "readAllChatReactions";
 
             /// <summary>
             /// Extra data attached to the function
@@ -27,7 +27,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Identifier of the chat
+            /// Chat identifier
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_id")]
@@ -35,12 +35,12 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Returns sponsored messages to be shown in a chat; for channel chats only
+        /// Marks all reactions in a chat as read
         /// </summary>
-        public static Task<SponsoredMessages> GetChatSponsoredMessagesAsync(
+        public static Task<Ok> ReadAllChatReactionsAsync(
             this Client client, long chatId = default)
         {
-            return client.ExecuteAsync(new GetChatSponsoredMessages
+            return client.ExecuteAsync(new ReadAllChatReactions
             {
                 ChatId = chatId
             });

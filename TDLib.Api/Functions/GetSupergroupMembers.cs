@@ -59,8 +59,7 @@ namespace TdLib
         /// Returns information about members or banned users in a supergroup or channel. Can be used only if supergroupFullInfo.can_get_members == true; additionally, administrator privileges may be required for some filters
         /// </summary>
         public static Task<ChatMembers> GetSupergroupMembersAsync(
-            this Client client, long supergroupId = default, SupergroupMembersFilter filter = default,
-            int offset = default, int limit = default)
+            this Client client, long supergroupId = default, SupergroupMembersFilter filter = default, int offset = default, int limit = default)
         {
             return client.ExecuteAsync(new GetSupergroupMembers
             {

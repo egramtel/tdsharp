@@ -8,24 +8,26 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        public partial class SearchMessagesFilter : Object
+        public partial class StickerType : Object
         {
             /// <summary>
-            /// Returns only call messages
+            /// Describes type of a sticker
             /// </summary>
-            public class SearchMessagesFilterCall : SearchMessagesFilter
+            public class StickerTypeStatic : StickerType
             {
                 /// <summary>
                 /// Data type for serialization
                 /// </summary>
                 [JsonProperty("@type")]
-                public override string DataType { get; set; } = "searchMessagesFilterCall";
+                public override string DataType { get; set; } = "stickerTypeStatic";
 
                 /// <summary>
                 /// Extra data attached to the message
                 /// </summary>
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
+
+
             }
         }
     }

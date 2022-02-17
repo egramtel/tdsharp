@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Sends 2-10 messages grouped together into an album. Currently only audio, document, photo and video messages can be grouped into an album. Documents and audio files can be only grouped in an album with messages of the same type. Returns sent messages
+        /// Sends 2-10 messages grouped together into an album. Currently, only audio, document, photo and video messages can be grouped into an album. Documents and audio files can be only grouped in an album with messages of the same type. Returns sent messages
         /// </summary>
         public class SendMessageAlbum : Function<Messages>
         {
@@ -63,16 +63,14 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Sends 2-10 messages grouped together into an album. Currently only audio, document, photo and video messages can be grouped into an album. Documents and audio files can be only grouped in an album with messages of the same type. Returns sent messages
+        /// Sends 2-10 messages grouped together into an album. Currently, only audio, document, photo and video messages can be grouped into an album. Documents and audio files can be only grouped in an album with messages of the same type. Returns sent messages
         /// </summary>
         public static Task<Messages> SendMessageAlbumAsync(
-            this Client client, long chatId = default, long messageThreadId = default, long replyToMessageId = default,
-            MessageSendOptions options = default, InputMessageContent[] inputMessageContents = default)
+            this Client client, long chatId = default, long messageThreadId = default, long replyToMessageId = default, MessageSendOptions options = default, InputMessageContent[] inputMessageContents = default)
         {
             return client.ExecuteAsync(new SendMessageAlbum
             {
-                ChatId = chatId, MessageThreadId = messageThreadId, ReplyToMessageId = replyToMessageId,
-                Options = options, InputMessageContents = inputMessageContents
+                ChatId = chatId, MessageThreadId = messageThreadId, ReplyToMessageId = replyToMessageId, Options = options, InputMessageContents = inputMessageContents
             });
         }
     }

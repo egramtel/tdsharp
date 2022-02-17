@@ -28,18 +28,18 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// The user or chat, which triggered the proximity alert
+                /// The identifier of a user or chat that triggered the proximity alert
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("traveler")]
-                public MessageSender Traveler { get; set; }
+                [JsonProperty("traveler_id")]
+                public MessageSender TravelerId { get; set; }
 
                 /// <summary>
-                /// The user or chat, which subscribed for the proximity alert
+                /// The identifier of a user or chat that subscribed for the proximity alert
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("watcher")]
-                public MessageSender Watcher { get; set; }
+                [JsonProperty("watcher_id")]
+                public MessageSender WatcherId { get; set; }
 
                 /// <summary>
                 /// The distance between the users

@@ -49,7 +49,7 @@ namespace TdLib
                 public bool InGameShare { get; set; }
 
                 /// <summary>
-                /// Options to be used to copy content of the message without reference to the original sender; pass null to try to forward the message as usual
+                /// Options to be used to copy content of the message without reference to the original sender; pass null to forward the message as usual
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("copy_options")]

@@ -45,6 +45,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("reply_info")]
             public MessageReplyInfo ReplyInfo { get; set; }
+
+            /// <summary>
+            /// The list of reactions added to the message
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("reactions")]
+            public MessageReaction[] Reactions { get; set; }
         }
     }
 }

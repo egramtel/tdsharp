@@ -28,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Absolute URL exposed by the push service where the application server can send push messages; may be empty to de-register a device
+                /// Absolute URL exposed by the push service where the application server can send push messages; may be empty to deregister a device
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("endpoint")]

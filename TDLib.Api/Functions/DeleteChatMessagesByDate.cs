@@ -48,7 +48,7 @@ namespace TdLib
             public int MaxDate { get; set; }
 
             /// <summary>
-            /// Pass true to try to delete chat messages for all users; private chats only
+            /// Pass true to delete chat messages for all users; private chats only
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("revoke")]
@@ -59,8 +59,7 @@ namespace TdLib
         /// Deletes all messages between the specified dates in a chat. Supported only for private chats and basic groups. Messages sent in the last 30 seconds will not be deleted
         /// </summary>
         public static Task<Ok> DeleteChatMessagesByDateAsync(
-            this Client client, long chatId = default, int minDate = default, int maxDate = default,
-            bool revoke = default)
+            this Client client, long chatId = default, int minDate = default, int maxDate = default, bool revoke = default)
         {
             return client.ExecuteAsync(new DeleteChatMessagesByDate
             {

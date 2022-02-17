@@ -52,8 +52,7 @@ namespace TdLib
         /// Changes the draft message in a chat
         /// </summary>
         public static Task<Ok> SetChatDraftMessageAsync(
-            this Client client, long chatId = default, long messageThreadId = default,
-            DraftMessage draftMessage = default)
+            this Client client, long chatId = default, long messageThreadId = default, DraftMessage draftMessage = default)
         {
             return client.ExecuteAsync(new SetChatDraftMessage
             {

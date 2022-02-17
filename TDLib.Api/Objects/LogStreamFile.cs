@@ -35,7 +35,7 @@ namespace TdLib
                 public string Path { get; set; }
 
                 /// <summary>
-                /// The maximum size of the file to where the internal TDLib log is written before the file will be auto-rotated, in bytes
+                /// The maximum size of the file to where the internal TDLib log is written before the file will automatically be rotated, in bytes
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("max_file_size")]

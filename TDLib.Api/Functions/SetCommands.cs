@@ -34,7 +34,7 @@ namespace TdLib
             public BotCommandScope Scope { get; set; }
 
             /// <summary>
-            /// A two-letter ISO 639-1 country code. If empty, the commands will be applied to all users from the given scope, for which language there are no dedicated commands
+            /// A two-letter ISO 639-1 language code. If empty, the commands will be applied to all users from the given scope, for which language there are no dedicated commands
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("language_code")]
@@ -52,8 +52,7 @@ namespace TdLib
         /// Sets the list of commands supported by the bot for the given user scope and language; for bots only
         /// </summary>
         public static Task<Ok> SetCommandsAsync(
-            this Client client, BotCommandScope scope = default, string languageCode = default,
-            BotCommand[] commands = default)
+            this Client client, BotCommandScope scope = default, string languageCode = default, BotCommand[] commands = default)
         {
             return client.ExecuteAsync(new SetCommands
             {

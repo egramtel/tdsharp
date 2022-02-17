@@ -8,18 +8,18 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        public partial class ChatEventAction : Object
+        public partial class Update : Object
         {
             /// <summary>
-            /// A video chat was discarded
+            /// A chat content was allowed or restricted for saving
             /// </summary>
-            public class ChatEventVideoChatDiscarded : ChatEventAction
+            public class UpdateChatHasProtectedContent : Update
             {
                 /// <summary>
                 /// Data type for serialization
                 /// </summary>
                 [JsonProperty("@type")]
-                public override string DataType { get; set; } = "chatEventVideoChatDiscarded";
+                public override string DataType { get; set; } = "updateChatHasProtectedContent";
 
                 /// <summary>
                 /// Extra data attached to the message
@@ -28,11 +28,18 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Identifier of the video chat. The video chat can be received through the method getGroupCall
+                /// Chat identifier
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("group_call_id")]
-                public int GroupCallId { get; set; }
+                [JsonProperty("chat_id")]
+                public long ChatId { get; set; }
+
+                /// <summary>
+                /// New value of has_protected_content
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("has_protected_content")]
+                public bool HasProtectedContent { get; set; }
             }
         }
     }

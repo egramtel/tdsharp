@@ -28,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Push service registration identifier; may be empty to de-register a device
+                /// Push service registration identifier; may be empty to deregister a device
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("reg_id")]

@@ -8,18 +8,18 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        public partial class Update : Object
+        public partial class AuthenticationCodeType : Object
         {
             /// <summary>
-            /// The message Time To Live setting for a chat was changed
+            /// An authentication code is delivered by an immediately canceled call to the specified phone number. The last digits of the phone number that calls are the code that must be entered manually by the user
             /// </summary>
-            public class UpdateChatMessageTtlSetting : Update
+            public class AuthenticationCodeTypeMissedCall : AuthenticationCodeType
             {
                 /// <summary>
                 /// Data type for serialization
                 /// </summary>
                 [JsonProperty("@type")]
-                public override string DataType { get; set; } = "updateChatMessageTtlSetting";
+                public override string DataType { get; set; } = "authenticationCodeTypeMissedCall";
 
                 /// <summary>
                 /// Extra data attached to the message
@@ -28,18 +28,18 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Chat identifier
+                /// Prefix of the phone number from which the call will be made
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("chat_id")]
-                public long ChatId { get; set; }
+                [JsonProperty("phone_number_prefix")]
+                public string PhoneNumberPrefix { get; set; }
 
                 /// <summary>
-                /// New value of message_ttl_setting
+                /// Number of digits in the code, excluding the prefix
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("message_ttl_setting")]
-                public int MessageTtlSetting { get; set; }
+                [JsonProperty("length")]
+                public int Length { get; set; }
             }
         }
     }

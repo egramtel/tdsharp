@@ -8,18 +8,18 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        public partial class InputSticker : Object
+        public partial class Update : Object
         {
             /// <summary>
-            /// An animated sticker in TGS format
+            /// The message Time To Live setting for a chat was changed
             /// </summary>
-            public class InputStickerAnimated : InputSticker
+            public class UpdateChatMessageTtl : Update
             {
                 /// <summary>
                 /// Data type for serialization
                 /// </summary>
                 [JsonProperty("@type")]
-                public override string DataType { get; set; } = "inputStickerAnimated";
+                public override string DataType { get; set; } = "updateChatMessageTtl";
 
                 /// <summary>
                 /// Extra data attached to the message
@@ -28,18 +28,18 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// File with the animated sticker. Only local or uploaded within a week files are supported. See https://core.telegram.org/animated_stickers#technical-requirements for technical requirements
+                /// Chat identifier
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("sticker")]
-                public InputFile Sticker { get; set; }
+                [JsonProperty("chat_id")]
+                public long ChatId { get; set; }
 
                 /// <summary>
-                /// Emojis corresponding to the sticker
+                /// New value of message_ttl
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("emojis")]
-                public string Emojis { get; set; }
+                [JsonProperty("message_ttl")]
+                public int MessageTtl { get; set; }
             }
         }
     }

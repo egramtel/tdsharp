@@ -69,7 +69,7 @@ namespace TdLib
             public int Limit { get; set; }
 
             /// <summary>
-            /// Additional filter for messages to search; pass null to search for all messages. Filters searchMessagesFilterCall, searchMessagesFilterMissedCall, searchMessagesFilterMention, searchMessagesFilterUnreadMention, searchMessagesFilterFailedToSend and searchMessagesFilterPinned are unsupported in this function
+            /// Additional filter for messages to search; pass null to search for all messages. Filters searchMessagesFilterMention, searchMessagesFilterUnreadMention, searchMessagesFilterUnreadReaction, searchMessagesFilterFailedToSend, and searchMessagesFilterPinned are unsupported in this function
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("filter")]
@@ -94,14 +94,11 @@ namespace TdLib
         /// Searches for messages in all chats except secret chats. Returns the results in reverse chronological order (i.e., in order of decreasing (date, chat_id, message_id)).
         /// </summary>
         public static Task<Messages> SearchMessagesAsync(
-            this Client client, ChatList chatList = default, string query = default, int offsetDate = default,
-            long offsetChatId = default, long offsetMessageId = default, int limit = default,
-            SearchMessagesFilter filter = default, int minDate = default, int maxDate = default)
+            this Client client, ChatList chatList = default, string query = default, int offsetDate = default, long offsetChatId = default, long offsetMessageId = default, int limit = default, SearchMessagesFilter filter = default, int minDate = default, int maxDate = default)
         {
             return client.ExecuteAsync(new SearchMessages
             {
-                ChatList = chatList, Query = query, OffsetDate = offsetDate, OffsetChatId = offsetChatId,
-                OffsetMessageId = offsetMessageId, Limit = limit, Filter = filter, MinDate = minDate, MaxDate = maxDate
+                ChatList = chatList, Query = query, OffsetDate = offsetDate, OffsetChatId = offsetChatId, OffsetMessageId = offsetMessageId, Limit = limit, Filter = filter, MinDate = minDate, MaxDate = maxDate
             });
         }
     }

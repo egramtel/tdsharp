@@ -28,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// The access token that will be used to send notifications; may be empty to de-register a device
+                /// The access token that will be used to send notifications; may be empty to deregister a device
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("access_token")]

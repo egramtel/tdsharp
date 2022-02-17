@@ -31,6 +31,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("sessions")]
             public Session[] Sessions_ { get; set; }
+
+            /// <summary>
+            /// Number of days of inactivity before sessions will automatically be terminated; 1-366 days
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("inactive_session_ttl_days")]
+            public int InactiveSessionTtlDays { get; set; }
         }
     }
 }

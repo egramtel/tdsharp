@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Reports a chat to the Telegram moderators. A chat can be reported only from the chat action bar, or if this is a private chat with a bot, a private chat with a user sharing their location, a supergroup, or a channel, since other chats can't be checked by moderators
+        /// Reports a chat to the Telegram moderators. A chat can be reported only from the chat action bar, or if chat.can_be_reported
         /// </summary>
         public class ReportChat : Function<Ok>
         {
@@ -56,11 +56,10 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Reports a chat to the Telegram moderators. A chat can be reported only from the chat action bar, or if this is a private chat with a bot, a private chat with a user sharing their location, a supergroup, or a channel, since other chats can't be checked by moderators
+        /// Reports a chat to the Telegram moderators. A chat can be reported only from the chat action bar, or if chat.can_be_reported
         /// </summary>
         public static Task<Ok> ReportChatAsync(
-            this Client client, long chatId = default, long[] messageIds = default, ChatReportReason reason = default,
-            string text = default)
+            this Client client, long chatId = default, long[] messageIds = default, ChatReportReason reason = default, string text = default)
         {
             return client.ExecuteAsync(new ReportChat
             {

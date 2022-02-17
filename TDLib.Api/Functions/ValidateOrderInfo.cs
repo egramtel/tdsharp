@@ -59,8 +59,7 @@ namespace TdLib
         /// Validates the order information provided by a user and returns the available shipping options for a flexible invoice
         /// </summary>
         public static Task<ValidatedOrderInfo> ValidateOrderInfoAsync(
-            this Client client, long chatId = default, long messageId = default, OrderInfo orderInfo = default,
-            bool allowSave = default)
+            this Client client, long chatId = default, long messageId = default, OrderInfo orderInfo = default, bool allowSave = default)
         {
             return client.ExecuteAsync(new ValidateOrderInfo
             {

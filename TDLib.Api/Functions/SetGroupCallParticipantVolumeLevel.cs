@@ -52,8 +52,7 @@ namespace TdLib
         /// Changes volume level of a participant of an active group call. If the current user can manage the group call, then the participant's volume level will be changed for all users with the default volume level
         /// </summary>
         public static Task<Ok> SetGroupCallParticipantVolumeLevelAsync(
-            this Client client, int groupCallId = default, MessageSender participantId = default,
-            int volumeLevel = default)
+            this Client client, int groupCallId = default, MessageSender participantId = default, int volumeLevel = default)
         {
             return client.ExecuteAsync(new SetGroupCallParticipantVolumeLevel
             {

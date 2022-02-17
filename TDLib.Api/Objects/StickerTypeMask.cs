@@ -8,24 +8,31 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        public partial class SearchMessagesFilter : Object
+        public partial class StickerType : Object
         {
             /// <summary>
-            /// Returns only incoming call messages with missed/declined discard reasons
+            /// The sticker is a mask in WEBP format to be placed on photos or videos
             /// </summary>
-            public class SearchMessagesFilterMissedCall : SearchMessagesFilter
+            public class StickerTypeMask : StickerType
             {
                 /// <summary>
                 /// Data type for serialization
                 /// </summary>
                 [JsonProperty("@type")]
-                public override string DataType { get; set; } = "searchMessagesFilterMissedCall";
+                public override string DataType { get; set; } = "stickerTypeMask";
 
                 /// <summary>
                 /// Extra data attached to the message
                 /// </summary>
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
+
+                /// <summary>
+                /// Position where the mask is placed; may be null
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("mask_position")]
+                public MaskPosition MaskPosition { get; set; }
             }
         }
     }

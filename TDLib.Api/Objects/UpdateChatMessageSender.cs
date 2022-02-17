@@ -8,18 +8,18 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        public partial class ChatEventAction : Object
+        public partial class Update : Object
         {
             /// <summary>
-            /// The message TTL setting was changed
+            /// The message sender that is selected to send messages in a chat has changed
             /// </summary>
-            public class ChatEventMessageTtlSettingChanged : ChatEventAction
+            public class UpdateChatMessageSender : Update
             {
                 /// <summary>
                 /// Data type for serialization
                 /// </summary>
                 [JsonProperty("@type")]
-                public override string DataType { get; set; } = "chatEventMessageTtlSettingChanged";
+                public override string DataType { get; set; } = "updateChatMessageSender";
 
                 /// <summary>
                 /// Extra data attached to the message
@@ -28,18 +28,18 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Previous value of message_ttl_setting
+                /// Chat identifier
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("old_message_ttl_setting")]
-                public int OldMessageTtlSetting { get; set; }
+                [JsonProperty("chat_id")]
+                public long ChatId { get; set; }
 
                 /// <summary>
-                /// New value of message_ttl_setting
+                /// New value of message_sender_id; may be null if the user can't change message sender
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("new_message_ttl_setting")]
-                public int NewMessageTtlSetting { get; set; }
+                [JsonProperty("message_sender_id")]
+                public MessageSender MessageSenderId { get; set; }
             }
         }
     }

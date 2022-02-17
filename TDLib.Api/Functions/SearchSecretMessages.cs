@@ -41,7 +41,7 @@ namespace TdLib
             public string Query { get; set; }
 
             /// <summary>
-            /// Offset of the first entry to return as received from the previous request; use empty string to get first chunk of results
+            /// Offset of the first entry to return as received from the previous request; use empty string to get the first chunk of results
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("offset")]
@@ -66,8 +66,7 @@ namespace TdLib
         /// Searches for messages in secret chats. Returns the results in reverse chronological order. For optimal performance, the number of returned messages is chosen by TDLib
         /// </summary>
         public static Task<FoundMessages> SearchSecretMessagesAsync(
-            this Client client, long chatId = default, string query = default, string offset = default,
-            int limit = default, SearchMessagesFilter filter = default)
+            this Client client, long chatId = default, string query = default, string offset = default, int limit = default, SearchMessagesFilter filter = default)
         {
             return client.ExecuteAsync(new SearchSecretMessages
             {

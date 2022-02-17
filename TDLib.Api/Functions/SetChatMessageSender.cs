@@ -10,15 +10,15 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Informs TDLib that a sponsored message was viewed by the user
+        /// Selects a message sender to send messages in a chat
         /// </summary>
-        public class ViewSponsoredMessage : Function<Ok>
+        public class SetChatMessageSender : Function<Ok>
         {
             /// <summary>
             /// Data type for serialization
             /// </summary>
             [JsonProperty("@type")]
-            public override string DataType { get; set; } = "viewSponsoredMessage";
+            public override string DataType { get; set; } = "setChatMessageSender";
 
             /// <summary>
             /// Extra data attached to the function
@@ -27,29 +27,29 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Identifier of the chat with the sponsored message
+            /// Chat identifier
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_id")]
             public long ChatId { get; set; }
 
             /// <summary>
-            /// The identifier of the sponsored message being viewed
+            /// New message sender for the chat
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("sponsored_message_id")]
-            public int SponsoredMessageId { get; set; }
+            [JsonProperty("message_sender_id")]
+            public MessageSender MessageSenderId { get; set; }
         }
 
         /// <summary>
-        /// Informs TDLib that a sponsored message was viewed by the user
+        /// Selects a message sender to send messages in a chat
         /// </summary>
-        public static Task<Ok> ViewSponsoredMessageAsync(
-            this Client client, long chatId = default, int sponsoredMessageId = default)
+        public static Task<Ok> SetChatMessageSenderAsync(
+            this Client client, long chatId = default, MessageSender messageSenderId = default)
         {
-            return client.ExecuteAsync(new ViewSponsoredMessage
+            return client.ExecuteAsync(new SetChatMessageSender
             {
-                ChatId = chatId, SponsoredMessageId = sponsoredMessageId
+                ChatId = chatId, MessageSenderId = messageSenderId
             });
         }
     }

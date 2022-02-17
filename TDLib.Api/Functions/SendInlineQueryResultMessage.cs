@@ -80,14 +80,11 @@ namespace TdLib
         /// Sends the result of an inline query as a message. Returns the sent message. Always clears a chat draft message
         /// </summary>
         public static Task<Message> SendInlineQueryResultMessageAsync(
-            this Client client, long chatId = default, long messageThreadId = default, long replyToMessageId = default,
-            MessageSendOptions options = default, long queryId = default, string resultId = default,
-            bool hideViaBot = default)
+            this Client client, long chatId = default, long messageThreadId = default, long replyToMessageId = default, MessageSendOptions options = default, long queryId = default, string resultId = default, bool hideViaBot = default)
         {
             return client.ExecuteAsync(new SendInlineQueryResultMessage
             {
-                ChatId = chatId, MessageThreadId = messageThreadId, ReplyToMessageId = replyToMessageId,
-                Options = options, QueryId = queryId, ResultId = resultId, HideViaBot = hideViaBot
+                ChatId = chatId, MessageThreadId = messageThreadId, ReplyToMessageId = replyToMessageId, Options = options, QueryId = queryId, ResultId = resultId, HideViaBot = hideViaBot
             });
         }
     }

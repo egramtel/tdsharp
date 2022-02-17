@@ -96,7 +96,7 @@ namespace TdLib
             public bool LoadedAllParticipants { get; set; }
 
             /// <summary>
-            /// Recently speaking users in the group call
+            /// At most 3 recently speaking users in the group call
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("recent_speakers")]

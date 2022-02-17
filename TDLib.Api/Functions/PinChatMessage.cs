@@ -59,13 +59,11 @@ namespace TdLib
         /// Pins a message in a chat; requires can_pin_messages rights or can_edit_messages rights in the channel
         /// </summary>
         public static Task<Ok> PinChatMessageAsync(
-            this Client client, long chatId = default, long messageId = default, bool disableNotification = default,
-            bool onlyForSelf = default)
+            this Client client, long chatId = default, long messageId = default, bool disableNotification = default, bool onlyForSelf = default)
         {
             return client.ExecuteAsync(new PinChatMessage
             {
-                ChatId = chatId, MessageId = messageId, DisableNotification = disableNotification,
-                OnlyForSelf = onlyForSelf
+                ChatId = chatId, MessageId = messageId, DisableNotification = disableNotification, OnlyForSelf = onlyForSelf
             });
         }
     }

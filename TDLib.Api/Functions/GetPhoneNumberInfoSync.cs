@@ -27,7 +27,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// A two-letter ISO 639-1 country code for country information localization
+            /// A two-letter ISO 639-1 language code for country information localization
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("language_code")]

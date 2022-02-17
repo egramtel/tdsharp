@@ -8,18 +8,18 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        public partial class InputSticker : Object
+        public partial class ChatActionBar : Object
         {
             /// <summary>
-            /// Describes a sticker that needs to be added to a sticker set
+            /// The chat is a private chat with an administrator of a chat to which the user sent join request
             /// </summary>
-            public class InputStickerStatic : InputSticker
+            public class ChatActionBarJoinRequest : ChatActionBar
             {
                 /// <summary>
                 /// Data type for serialization
                 /// </summary>
                 [JsonProperty("@type")]
-                public override string DataType { get; set; } = "inputStickerStatic";
+                public override string DataType { get; set; } = "chatActionBarJoinRequest";
 
                 /// <summary>
                 /// Extra data attached to the message
@@ -28,25 +28,25 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// PNG image with the sticker; must be up to 512 KB in size and fit in a 512x512 square
+                /// Title of the chat to which the join request was sent
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("sticker")]
-                public InputFile Sticker { get; set; }
+                [JsonProperty("title")]
+                public string Title { get; set; }
 
                 /// <summary>
-                /// Emojis corresponding to the sticker
+                /// True, if the join request was sent to a channel chat
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("emojis")]
-                public string Emojis { get; set; }
+                [JsonProperty("is_channel")]
+                public bool IsChannel { get; set; }
 
                 /// <summary>
-                /// For masks, position where the mask is placed; pass null if unspecified
+                /// Point in time (Unix timestamp) when the join request was sent
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("mask_position")]
-                public MaskPosition MaskPosition { get; set; }
+                [JsonProperty("request_date")]
+                public int RequestDate { get; set; }
             }
         }
     }

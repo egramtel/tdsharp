@@ -41,11 +41,11 @@ namespace TdLib
             public string Query { get; set; }
 
             /// <summary>
-            /// Sender of messages to search for; pass null to search for messages from any sender. Not supported in secret chats
+            /// Identifier of the sender of messages to search for; pass null to search for messages from any sender. Not supported in secret chats
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("sender")]
-            public MessageSender Sender { get; set; }
+            [JsonProperty("sender_id")]
+            public MessageSender SenderId { get; set; }
 
             /// <summary>
             /// Identifier of the message starting from which history must be fetched; use 0 to get results from the last message
@@ -87,14 +87,11 @@ namespace TdLib
         /// Searches for messages with given words in the chat. Returns the results in reverse chronological order, i.e. in order of decreasing message_id. Cannot be used in secret chats with a non-empty query
         /// </summary>
         public static Task<Messages> SearchChatMessagesAsync(
-            this Client client, long chatId = default, string query = default, MessageSender sender = default,
-            long fromMessageId = default, int offset = default, int limit = default,
-            SearchMessagesFilter filter = default, long messageThreadId = default)
+            this Client client, long chatId = default, string query = default, MessageSender senderId = default, long fromMessageId = default, int offset = default, int limit = default, SearchMessagesFilter filter = default, long messageThreadId = default)
         {
             return client.ExecuteAsync(new SearchChatMessages
             {
-                ChatId = chatId, Query = query, Sender = sender, FromMessageId = fromMessageId, Offset = offset,
-                Limit = limit, Filter = filter, MessageThreadId = messageThreadId
+                ChatId = chatId, Query = query, SenderId = senderId, FromMessageId = fromMessageId, Offset = offset, Limit = limit, Filter = filter, MessageThreadId = messageThreadId
             });
         }
     }

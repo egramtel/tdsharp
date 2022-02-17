@@ -33,11 +33,11 @@ namespace TdLib
             public int ReplyCount { get; set; }
 
             /// <summary>
-            /// Recent repliers to the message; available in channels with a discussion supergroup
+            /// Identifiers of at most 3 recent repliers to the message; available in channels with a discussion supergroup. The users and chats are expected to be inaccessible: only their photo and name will be available
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("recent_repliers")]
-            public MessageSender[] RecentRepliers { get; set; }
+            [JsonProperty("recent_replier_ids")]
+            public MessageSender[] RecentReplierIds { get; set; }
 
             /// <summary>
             /// Identifier of the last read incoming reply to the message

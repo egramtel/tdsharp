@@ -10,15 +10,15 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Approves pending join request in a chat
+        /// Deletes all messages sent by the specified message sender in a chat. Supported only for supergroups; requires can_delete_messages administrator privileges
         /// </summary>
-        public class ApproveChatJoinRequest : Function<Ok>
+        public class DeleteChatMessagesBySender : Function<Ok>
         {
             /// <summary>
             /// Data type for serialization
             /// </summary>
             [JsonProperty("@type")]
-            public override string DataType { get; set; } = "approveChatJoinRequest";
+            public override string DataType { get; set; } = "deleteChatMessagesBySender";
 
             /// <summary>
             /// Extra data attached to the function
@@ -34,22 +34,22 @@ namespace TdLib
             public long ChatId { get; set; }
 
             /// <summary>
-            /// Identifier of the user, which request will be approved
+            /// Identifier of the sender of messages to delete
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("user_id")]
-            public long UserId { get; set; }
+            [JsonProperty("sender_id")]
+            public MessageSender SenderId { get; set; }
         }
 
         /// <summary>
-        /// Approves pending join request in a chat
+        /// Deletes all messages sent by the specified message sender in a chat. Supported only for supergroups; requires can_delete_messages administrator privileges
         /// </summary>
-        public static Task<Ok> ApproveChatJoinRequestAsync(
-            this Client client, long chatId = default, long userId = default)
+        public static Task<Ok> DeleteChatMessagesBySenderAsync(
+            this Client client, long chatId = default, MessageSender senderId = default)
         {
-            return client.ExecuteAsync(new ApproveChatJoinRequest
+            return client.ExecuteAsync(new DeleteChatMessagesBySender
             {
-                ChatId = chatId, UserId = userId
+                ChatId = chatId, SenderId = senderId
             });
         }
     }

@@ -66,8 +66,7 @@ namespace TdLib
         /// Returns messages in a message thread of a message. Can be used only if message.can_get_message_thread == true. Message thread of a channel message is in the channel's linked supergroup.
         /// </summary>
         public static Task<Messages> GetMessageThreadHistoryAsync(
-            this Client client, long chatId = default, long messageId = default, long fromMessageId = default,
-            int offset = default, int limit = default)
+            this Client client, long chatId = default, long messageId = default, long fromMessageId = default, int offset = default, int limit = default)
         {
             return client.ExecuteAsync(new GetMessageThreadHistory
             {

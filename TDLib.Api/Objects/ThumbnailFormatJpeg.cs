@@ -11,7 +11,7 @@ namespace TdLib
         public partial class ThumbnailFormat : Object
         {
             /// <summary>
-            /// Describes format of the thumbnail
+            /// Describes format of a thumbnail
             /// </summary>
             public class ThumbnailFormatJpeg : ThumbnailFormat
             {
@@ -26,6 +26,8 @@ namespace TdLib
                 /// </summary>
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
+
+
             }
         }
     }

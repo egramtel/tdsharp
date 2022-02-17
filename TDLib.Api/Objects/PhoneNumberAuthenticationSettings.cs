@@ -26,11 +26,18 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Pass true if the authentication code may be sent via flash call to the specified phone number
+            /// Pass true if the authentication code may be sent via a flash call to the specified phone number
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("allow_flash_call")]
             public bool AllowFlashCall { get; set; }
+
+            /// <summary>
+            /// Pass true if the authentication code may be sent via a missed call to the specified phone number
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("allow_missed_call")]
+            public bool AllowMissedCall { get; set; }
 
             /// <summary>
             /// Pass true if the authenticated phone number is used on the current device
@@ -45,6 +52,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("allow_sms_retriever_api")]
             public bool AllowSmsRetrieverApi { get; set; }
+
+            /// <summary>
+            /// List of up to 20 authentication tokens, recently received in updateOption("authentication_token") in previously logged out sessions
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("authentication_tokens")]
+            public string[] AuthenticationTokens { get; set; }
         }
     }
 }

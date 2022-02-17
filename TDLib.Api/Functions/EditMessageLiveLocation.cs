@@ -73,13 +73,11 @@ namespace TdLib
         /// Edits the message content of a live location. Messages can be edited for a limited period of time specified in the live location. Returns the edited message after the edit is completed on the server side
         /// </summary>
         public static Task<Message> EditMessageLiveLocationAsync(
-            this Client client, long chatId = default, long messageId = default, ReplyMarkup replyMarkup = default,
-            Location location = default, int heading = default, int proximityAlertRadius = default)
+            this Client client, long chatId = default, long messageId = default, ReplyMarkup replyMarkup = default, Location location = default, int heading = default, int proximityAlertRadius = default)
         {
             return client.ExecuteAsync(new EditMessageLiveLocation
             {
-                ChatId = chatId, MessageId = messageId, ReplyMarkup = replyMarkup, Location = location,
-                Heading = heading, ProximityAlertRadius = proximityAlertRadius
+                ChatId = chatId, MessageId = messageId, ReplyMarkup = replyMarkup, Location = location, Heading = heading, ProximityAlertRadius = proximityAlertRadius
             });
         }
     }

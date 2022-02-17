@@ -47,6 +47,20 @@ namespace TdLib
             public bool IsPasswordPending { get; set; }
 
             /// <summary>
+            /// True, if incoming secret chats can be accepted by the session
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("can_accept_secret_chats")]
+            public bool CanAcceptSecretChats { get; set; }
+
+            /// <summary>
+            /// True, if incoming calls can be accepted by the session
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("can_accept_calls")]
+            public bool CanAcceptCalls { get; set; }
+
+            /// <summary>
             /// Telegram API identifier, as provided by the application
             /// </summary>
             [JsonConverter(typeof(Converter))]

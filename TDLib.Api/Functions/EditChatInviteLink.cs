@@ -51,11 +51,11 @@ namespace TdLib
             /// Point in time (Unix timestamp) when the link will expire; pass 0 if never
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("expire_date")]
-            public int ExpireDate { get; set; }
+            [JsonProperty("expiration_date")]
+            public int ExpirationDate { get; set; }
 
             /// <summary>
-            /// The maximum number of chat members that can join the chat by the link simultaneously; 0-99999; pass 0 if not limited
+            /// The maximum number of chat members that can join the chat via the link simultaneously; 0-99999; pass 0 if not limited
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("member_limit")]
@@ -73,13 +73,11 @@ namespace TdLib
         /// Edits a non-primary invite link for a chat. Available for basic groups, supergroups, and channels. Requires administrator privileges and can_invite_users right in the chat for own links and owner privileges for other links
         /// </summary>
         public static Task<ChatInviteLink> EditChatInviteLinkAsync(
-            this Client client, long chatId = default, string inviteLink = default, string name = default,
-            int expireDate = default, int memberLimit = default, bool createsJoinRequest = default)
+            this Client client, long chatId = default, string inviteLink = default, string name = default, int expirationDate = default, int memberLimit = default, bool createsJoinRequest = default)
         {
             return client.ExecuteAsync(new EditChatInviteLink
             {
-                ChatId = chatId, InviteLink = inviteLink, Name = name, ExpireDate = expireDate,
-                MemberLimit = memberLimit, CreatesJoinRequest = createsJoinRequest
+                ChatId = chatId, InviteLink = inviteLink, Name = name, ExpirationDate = expirationDate, MemberLimit = memberLimit, CreatesJoinRequest = createsJoinRequest
             });
         }
     }

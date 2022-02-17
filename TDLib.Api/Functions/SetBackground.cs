@@ -52,8 +52,7 @@ namespace TdLib
         /// Changes the background selected by the user; adds background to the list of installed backgrounds
         /// </summary>
         public static Task<Background> SetBackgroundAsync(
-            this Client client, InputBackground background = default, BackgroundType type = default,
-            bool forDarkTheme = default)
+            this Client client, InputBackground background = default, BackgroundType type = default, bool forDarkTheme = default)
         {
             return client.ExecuteAsync(new SetBackground
             {

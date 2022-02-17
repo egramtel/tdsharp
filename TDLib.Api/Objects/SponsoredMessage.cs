@@ -26,18 +26,25 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Unique sponsored message identifier
+            /// Message identifier; unique for the chat to which the sponsored message belongs among both ordinary and sponsored messages
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("id")]
-            public int Id { get; set; }
+            [JsonProperty("message_id")]
+            public long MessageId { get; set; }
 
             /// <summary>
-            /// Chat identifier
+            /// Sponsor chat identifier; 0 if the sponsor chat is accessible through an invite link
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("sponsor_chat_id")]
             public long SponsorChatId { get; set; }
+
+            /// <summary>
+            /// Information about the sponsor chat; may be null unless sponsor_chat_id == 0
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("sponsor_chat_info")]
+            public ChatInviteLinkInfo SponsorChatInfo { get; set; }
 
             /// <summary>
             /// An internal link to be opened when the sponsored message is clicked; may be null. If null, the sponsor chat needs to be opened instead
@@ -47,7 +54,7 @@ namespace TdLib
             public InternalLinkType Link { get; set; }
 
             /// <summary>
-            /// Content of the message
+            /// Content of the message. Currently, can be only of the type messageText
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("content")]

@@ -41,7 +41,7 @@ namespace TdLib
             public bool RemoveFromChatList { get; set; }
 
             /// <summary>
-            /// Pass true to try to delete chat history for all users
+            /// Pass true to delete chat history for all users
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("revoke")]

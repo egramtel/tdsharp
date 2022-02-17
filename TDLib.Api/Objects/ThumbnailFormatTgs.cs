@@ -11,7 +11,7 @@ namespace TdLib
         public partial class ThumbnailFormat : Object
         {
             /// <summary>
-            /// The thumbnail is in TGS format. It will be used only for animated sticker sets
+            /// The thumbnail is in TGS format. It will be used only for TGS sticker sets
             /// </summary>
             public class ThumbnailFormatTgs : ThumbnailFormat
             {
@@ -26,6 +26,8 @@ namespace TdLib
                 /// </summary>
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
+
+
             }
         }
     }

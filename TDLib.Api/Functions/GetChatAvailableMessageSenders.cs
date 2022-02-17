@@ -10,15 +10,15 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Discards a group call. Requires groupCall.can_be_managed
+        /// Returns list of message sender identifiers, which can be used to send messages in a chat
         /// </summary>
-        public class DiscardGroupCall : Function<Ok>
+        public class GetChatAvailableMessageSenders : Function<MessageSenders>
         {
             /// <summary>
             /// Data type for serialization
             /// </summary>
             [JsonProperty("@type")]
-            public override string DataType { get; set; } = "discardGroupCall";
+            public override string DataType { get; set; } = "getChatAvailableMessageSenders";
 
             /// <summary>
             /// Extra data attached to the function
@@ -27,22 +27,22 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Group call identifier
+            /// Chat identifier
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("group_call_id")]
-            public int GroupCallId { get; set; }
+            [JsonProperty("chat_id")]
+            public long ChatId { get; set; }
         }
 
         /// <summary>
-        /// Discards a group call. Requires groupCall.can_be_managed
+        /// Returns list of message sender identifiers, which can be used to send messages in a chat
         /// </summary>
-        public static Task<Ok> DiscardGroupCallAsync(
-            this Client client, int groupCallId = default)
+        public static Task<MessageSenders> GetChatAvailableMessageSendersAsync(
+            this Client client, long chatId = default)
         {
-            return client.ExecuteAsync(new DiscardGroupCall
+            return client.ExecuteAsync(new GetChatAvailableMessageSenders
             {
-                GroupCallId = groupCallId
+                ChatId = chatId
             });
         }
     }

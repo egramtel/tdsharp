@@ -11,7 +11,7 @@ namespace TdLib
         public partial class Update : Object
         {
             /// <summary>
-            /// Service notification from the server. Upon receiving this the application must show a popup with the content of the notification
+            /// A service notification from the server was received. Upon receiving this the application must show a popup with the content of the notification
             /// </summary>
             public class UpdateServiceNotification : Update
             {

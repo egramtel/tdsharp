@@ -9,7 +9,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Contains a list of chat join requests
+        /// Contains a list of requests to join a chat
         /// </summary>
         public partial class ChatJoinRequests : Object
         {

@@ -34,7 +34,7 @@ namespace TdLib
             public long ChatId { get; set; }
 
             /// <summary>
-            /// Filter for message content. Filters searchMessagesFilterEmpty, searchMessagesFilterCall, searchMessagesFilterMissedCall, searchMessagesFilterMention and searchMessagesFilterUnreadMention are unsupported in this function
+            /// Filter for message content. Filters searchMessagesFilterEmpty, searchMessagesFilterMention, searchMessagesFilterUnreadMention, and searchMessagesFilterUnreadReaction are unsupported in this function
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("filter")]
@@ -59,8 +59,7 @@ namespace TdLib
         /// Returns sparse positions of messages of the specified type in the chat to be used for shared media scroll implementation. Returns the results in reverse chronological order (i.e., in order of decreasing message_id).
         /// </summary>
         public static Task<MessagePositions> GetChatSparseMessagePositionsAsync(
-            this Client client, long chatId = default, SearchMessagesFilter filter = default,
-            long fromMessageId = default, int limit = default)
+            this Client client, long chatId = default, SearchMessagesFilter filter = default, long fromMessageId = default, int limit = default)
         {
             return client.ExecuteAsync(new GetChatSparseMessagePositions
             {

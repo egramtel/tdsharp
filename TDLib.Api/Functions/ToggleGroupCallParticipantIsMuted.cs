@@ -52,8 +52,7 @@ namespace TdLib
         /// Toggles whether a participant of an active group call is muted, unmuted, or allowed to unmute themselves
         /// </summary>
         public static Task<Ok> ToggleGroupCallParticipantIsMutedAsync(
-            this Client client, int groupCallId = default, MessageSender participantId = default,
-            bool isMuted = default)
+            this Client client, int groupCallId = default, MessageSender participantId = default, bool isMuted = default)
         {
             return client.ExecuteAsync(new ToggleGroupCallParticipantIsMuted
             {

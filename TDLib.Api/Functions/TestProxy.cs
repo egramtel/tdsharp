@@ -66,8 +66,7 @@ namespace TdLib
         /// Sends a simple network request to the Telegram servers via proxy; for testing only. Can be called before authorization
         /// </summary>
         public static Task<Ok> TestProxyAsync(
-            this Client client, string server = default, int port = default, ProxyType type = default,
-            int dcId = default, double? timeout = default)
+            this Client client, string server = default, int port = default, ProxyType type = default, int dcId = default, double? timeout = default)
         {
             return client.ExecuteAsync(new TestProxy
             {

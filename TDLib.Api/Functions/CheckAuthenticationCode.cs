@@ -27,7 +27,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// The verification code received via SMS, Telegram message, phone call, or flash call
+            /// Authentication code to check
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("code")]

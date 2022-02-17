@@ -40,7 +40,7 @@ namespace TdLib
             public int ViewCount { get; set; }
 
             /// <summary>
-            /// Version of the instant view, currently can be 1 or 2
+            /// Version of the instant view; currently, can be 1 or 2
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("version")]

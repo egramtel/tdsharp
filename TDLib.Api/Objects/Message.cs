@@ -33,11 +33,11 @@ namespace TdLib
             public long Id { get; set; }
 
             /// <summary>
-            /// The sender of the message
+            /// Identifier of the sender of the message
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("sender")]
-            public MessageSender Sender { get; set; }
+            [JsonProperty("sender_id")]
+            public MessageSender SenderId { get; set; }
 
             /// <summary>
             /// Chat identifier
@@ -89,6 +89,13 @@ namespace TdLib
             public bool CanBeForwarded { get; set; }
 
             /// <summary>
+            /// True, if content of the message can be saved locally or copied
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("can_be_saved")]
+            public bool CanBeSaved { get; set; }
+
+            /// <summary>
             /// True, if the message can be deleted only for the current user while other users will continue to see it
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -103,14 +110,21 @@ namespace TdLib
             public bool CanBeDeletedForAllUsers { get; set; }
 
             /// <summary>
-            /// True, if the message statistics are available
+            /// True, if the list of added reactions is available through getMessageAddedReactions
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("can_get_added_reactions")]
+            public bool CanGetAddedReactions { get; set; }
+
+            /// <summary>
+            /// True, if the message statistics are available through getMessageStatistics
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("can_get_statistics")]
             public bool CanGetStatistics { get; set; }
 
             /// <summary>
-            /// True, if the message thread info is available
+            /// True, if the message thread info is available through getMessageThread
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("can_get_message_thread")]
@@ -124,7 +138,7 @@ namespace TdLib
             public bool CanGetViewers { get; set; }
 
             /// <summary>
-            /// True, if media timestamp links can be generated for media timestamp entities in the message text, caption or web page description
+            /// True, if media timestamp links can be generated for media timestamp entities in the message text, caption or web page description through getMessageLink
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("can_get_media_timestamp_links")]
@@ -178,6 +192,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("interaction_info")]
             public MessageInteractionInfo InteractionInfo { get; set; }
+
+            /// <summary>
+            /// Information about unread reactions added to the message
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("unread_reactions")]
+            public UnreadReaction[] UnreadReactions { get; set; }
 
             /// <summary>
             /// If non-zero, the identifier of the chat to which the replied message belongs; Currently, only messages in the Replies chat can have different reply_in_chat_id and chat_id

@@ -59,8 +59,7 @@ namespace TdLib
         /// Sends a call rating
         /// </summary>
         public static Task<Ok> SendCallRatingAsync(
-            this Client client, int callId = default, int rating = default, string comment = default,
-            CallProblem[] problems = default)
+            this Client client, int callId = default, int rating = default, string comment = default, CallProblem[] problems = default)
         {
             return client.ExecuteAsync(new SendCallRating
             {

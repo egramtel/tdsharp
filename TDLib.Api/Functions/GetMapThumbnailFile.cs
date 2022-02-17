@@ -73,8 +73,7 @@ namespace TdLib
         /// Returns information about a file with a map thumbnail in PNG format. Only map thumbnail files with size less than 1MB can be downloaded
         /// </summary>
         public static Task<File> GetMapThumbnailFileAsync(
-            this Client client, Location location = default, int zoom = default, int width = default,
-            int height = default, int scale = default, long chatId = default)
+            this Client client, Location location = default, int zoom = default, int width = default, int height = default, int scale = default, long chatId = default)
         {
             return client.ExecuteAsync(new GetMapThumbnailFile
             {

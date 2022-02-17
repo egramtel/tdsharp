@@ -9,7 +9,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Contains information about found messages sent in a specific day
+        /// Contains information about found messages sent on a specific day
         /// </summary>
         public partial class MessageCalendarDay : Object
         {
@@ -26,14 +26,14 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Total number of found messages sent in the day
+            /// Total number of found messages sent on the day
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("total_count")]
             public int TotalCount { get; set; }
 
             /// <summary>
-            /// First message sent in the day
+            /// First message sent on the day
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("message")]

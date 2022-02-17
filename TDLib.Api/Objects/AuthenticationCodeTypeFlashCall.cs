@@ -11,7 +11,7 @@ namespace TdLib
         public partial class AuthenticationCodeType : Object
         {
             /// <summary>
-            /// An authentication code is delivered by an immediately canceled call to the specified phone number. The number from which the call was made is the code
+            /// An authentication code is delivered by an immediately canceled call to the specified phone number. The phone number that calls is the code that must be entered automatically
             /// </summary>
             public class AuthenticationCodeTypeFlashCall : AuthenticationCodeType
             {

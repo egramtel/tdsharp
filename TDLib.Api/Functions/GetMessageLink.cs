@@ -66,13 +66,11 @@ namespace TdLib
         /// Returns an HTTPS link to a message in a chat. Available only for already sent messages in supergroups and channels, or if message.can_get_media_timestamp_links and a media timestamp link is generated. This is an offline request
         /// </summary>
         public static Task<MessageLink> GetMessageLinkAsync(
-            this Client client, long chatId = default, long messageId = default, int mediaTimestamp = default,
-            bool forAlbum = default, bool forComment = default)
+            this Client client, long chatId = default, long messageId = default, int mediaTimestamp = default, bool forAlbum = default, bool forComment = default)
         {
             return client.ExecuteAsync(new GetMessageLink
             {
-                ChatId = chatId, MessageId = messageId, MediaTimestamp = mediaTimestamp, ForAlbum = forAlbum,
-                ForComment = forComment
+                ChatId = chatId, MessageId = messageId, MediaTimestamp = mediaTimestamp, ForAlbum = forAlbum, ForComment = forComment
             });
         }
     }

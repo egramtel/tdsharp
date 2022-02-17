@@ -66,13 +66,11 @@ namespace TdLib
         /// Returns a file with a segment of a group call stream in a modified OGG format for audio or MPEG-4 format for video
         /// </summary>
         public static Task<FilePart> GetGroupCallStreamSegmentAsync(
-            this Client client, int groupCallId = default, long timeOffset = default, int scale = default,
-            int channelId = default, GroupCallVideoQuality videoQuality = default)
+            this Client client, int groupCallId = default, long timeOffset = default, int scale = default, int channelId = default, GroupCallVideoQuality videoQuality = default)
         {
             return client.ExecuteAsync(new GetGroupCallStreamSegment
             {
-                GroupCallId = groupCallId, TimeOffset = timeOffset, Scale = scale, ChannelId = channelId,
-                VideoQuality = videoQuality
+                GroupCallId = groupCallId, TimeOffset = timeOffset, Scale = scale, ChannelId = channelId, VideoQuality = videoQuality
             });
         }
     }

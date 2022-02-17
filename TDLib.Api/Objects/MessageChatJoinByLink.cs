@@ -11,7 +11,7 @@ namespace TdLib
         public partial class MessageContent : Object
         {
             /// <summary>
-            /// A new member joined the chat by invite link
+            /// A new member joined the chat via an invite link
             /// </summary>
             public class MessageChatJoinByLink : MessageContent
             {
@@ -26,6 +26,8 @@ namespace TdLib
                 /// </summary>
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
+
+
             }
         }
     }

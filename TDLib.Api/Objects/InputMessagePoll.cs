@@ -63,7 +63,7 @@ namespace TdLib
                 public int OpenPeriod { get; set; }
 
                 /// <summary>
-                /// Point in time (Unix timestamp) when the poll will be automatically closed; for bots only
+                /// Point in time (Unix timestamp) when the poll will automatically be closed; for bots only
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("close_date")]

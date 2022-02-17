@@ -33,7 +33,7 @@ namespace TdLib
             public string Path { get; set; }
 
             /// <summary>
-            /// True, if it is possible to try to download or generate the file
+            /// True, if it is possible to download or generate the file
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("can_be_downloaded")]

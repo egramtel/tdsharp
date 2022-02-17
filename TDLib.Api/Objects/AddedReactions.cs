@@ -9,15 +9,15 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Describes a color replacement for animated emoji
+        /// Represents a list of reactions added to a message
         /// </summary>
-        public partial class ColorReplacement : Object
+        public partial class AddedReactions : Object
         {
             /// <summary>
             /// Data type for serialization
             /// </summary>
             [JsonProperty("@type")]
-            public override string DataType { get; set; } = "colorReplacement";
+            public override string DataType { get; set; } = "addedReactions";
 
             /// <summary>
             /// Extra data attached to the object
@@ -26,18 +26,25 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Original animated emoji color in the RGB24 format
+            /// The total count of found reactions
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("old_color")]
-            public int OldColor { get; set; }
+            [JsonProperty("total_count")]
+            public int TotalCount { get; set; }
 
             /// <summary>
-            /// Replacement animated emoji color in the RGB24 format
+            /// The list of added reactions
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("new_color")]
-            public int NewColor { get; set; }
+            [JsonProperty("reactions")]
+            public AddedReaction[] Reactions { get; set; }
+
+            /// <summary>
+            /// The offset for the next request. If empty, there are no more results
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("next_offset")]
+            public string NextOffset { get; set; }
         }
     }
 }

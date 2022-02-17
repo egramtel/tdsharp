@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Changes default participant identifier, which can be used to join video chats in a chat
+        /// Changes default participant identifier, on whose behalf a video chat in the chat will be joined
         /// </summary>
         public class SetVideoChatDefaultParticipant : Function<Ok>
         {
@@ -42,7 +42,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Changes default participant identifier, which can be used to join video chats in a chat
+        /// Changes default participant identifier, on whose behalf a video chat in the chat will be joined
         /// </summary>
         public static Task<Ok> SetVideoChatDefaultParticipantAsync(
             this Client client, long chatId = default, MessageSender defaultParticipantId = default)

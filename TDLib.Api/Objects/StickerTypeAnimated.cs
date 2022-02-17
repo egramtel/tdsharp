@@ -8,24 +8,26 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        public partial class SuggestedAction : Object
+        public partial class StickerType : Object
         {
             /// <summary>
-            /// Suggests the user to see a hint about meaning of one and two ticks on sent message
+            /// The sticker is an animation in TGS format
             /// </summary>
-            public class SuggestedActionSeeTicksHint : SuggestedAction
+            public class StickerTypeAnimated : StickerType
             {
                 /// <summary>
                 /// Data type for serialization
                 /// </summary>
                 [JsonProperty("@type")]
-                public override string DataType { get; set; } = "suggestedActionSeeTicksHint";
+                public override string DataType { get; set; } = "stickerTypeAnimated";
 
                 /// <summary>
                 /// Extra data attached to the message
                 /// </summary>
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
+
+
             }
         }
     }

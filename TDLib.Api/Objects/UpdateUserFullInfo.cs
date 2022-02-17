@@ -11,7 +11,7 @@ namespace TdLib
         public partial class Update : Object
         {
             /// <summary>
-            /// Some data from userFullInfo has been changed
+            /// Some data in userFullInfo has been changed
             /// </summary>
             public class UpdateUserFullInfo : Update
             {

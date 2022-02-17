@@ -59,13 +59,11 @@ namespace TdLib
         /// Returns a string stored in the local database from the specified localization target and language pack by its key. Returns a 404 error if the string is not found. Can be called synchronously
         /// </summary>
         public static Task<LanguagePackStringValue> GetLanguagePackStringAsync(
-            this Client client, string languagePackDatabasePath = default, string localizationTarget = default,
-            string languagePackId = default, string key = default)
+            this Client client, string languagePackDatabasePath = default, string localizationTarget = default, string languagePackId = default, string key = default)
         {
             return client.ExecuteAsync(new GetLanguagePackString
             {
-                LanguagePackDatabasePath = languagePackDatabasePath, LocalizationTarget = localizationTarget,
-                LanguagePackId = languagePackId, Key = key
+                LanguagePackDatabasePath = languagePackDatabasePath, LocalizationTarget = localizationTarget, LanguagePackId = languagePackId, Key = key
             });
         }
     }

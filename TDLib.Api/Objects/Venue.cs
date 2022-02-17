@@ -47,7 +47,7 @@ namespace TdLib
             public string Address { get; set; }
 
             /// <summary>
-            /// Provider of the venue database; as defined by the sender. Currently only "foursquare" and "gplaces" (Google Places) need to be supported
+            /// Provider of the venue database; as defined by the sender. Currently, only "foursquare" and "gplaces" (Google Places) need to be supported
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("provider")]

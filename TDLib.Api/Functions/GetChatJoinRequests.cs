@@ -55,7 +55,7 @@ namespace TdLib
             public ChatJoinRequest OffsetRequest { get; set; }
 
             /// <summary>
-            /// The maximum number of chat join requests to return
+            /// The maximum number of requests to join the chat to return
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("limit")]
@@ -66,8 +66,7 @@ namespace TdLib
         /// Returns pending join requests in a chat
         /// </summary>
         public static Task<ChatJoinRequests> GetChatJoinRequestsAsync(
-            this Client client, long chatId = default, string inviteLink = default, string query = default,
-            ChatJoinRequest offsetRequest = default, int limit = default)
+            this Client client, long chatId = default, string inviteLink = default, string query = default, ChatJoinRequest offsetRequest = default, int limit = default)
         {
             return client.ExecuteAsync(new GetChatJoinRequests
             {

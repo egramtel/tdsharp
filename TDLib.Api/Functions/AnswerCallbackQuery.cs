@@ -66,8 +66,7 @@ namespace TdLib
         /// Sets the result of a callback query; for bots only
         /// </summary>
         public static Task<Ok> AnswerCallbackQueryAsync(
-            this Client client, long callbackQueryId = default, string text = default, bool showAlert = default,
-            string url = default, int cacheTime = default)
+            this Client client, long callbackQueryId = default, string text = default, bool showAlert = default, string url = default, int cacheTime = default)
         {
             return client.ExecuteAsync(new AnswerCallbackQuery
             {

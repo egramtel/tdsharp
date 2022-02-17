@@ -28,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// New message TTL setting
+                /// New message TTL
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("ttl")]

@@ -41,7 +41,7 @@ namespace TdLib
             public long[] MessageIds { get; set; }
 
             /// <summary>
-            /// Pass true to try to delete messages for all chat members. Always true for supergroups, channels and secret chats
+            /// Pass true to delete messages for all chat members. Always true for supergroups, channels and secret chats
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("revoke")]

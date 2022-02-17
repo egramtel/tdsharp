@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Uploads a PNG image with a sticker; returns the uploaded file
+        /// Uploads a file with a sticker; returns the uploaded file
         /// </summary>
         public class UploadStickerFile : Function<File>
         {
@@ -42,7 +42,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Uploads a PNG image with a sticker; returns the uploaded file
+        /// Uploads a file with a sticker; returns the uploaded file
         /// </summary>
         public static Task<File> UploadStickerFileAsync(
             this Client client, long userId = default, InputSticker sticker = default)

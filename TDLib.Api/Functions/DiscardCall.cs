@@ -66,13 +66,11 @@ namespace TdLib
         /// Discards a call
         /// </summary>
         public static Task<Ok> DiscardCallAsync(
-            this Client client, int callId = default, bool isDisconnected = default, int duration = default,
-            bool isVideo = default, long connectionId = default)
+            this Client client, int callId = default, bool isDisconnected = default, int duration = default, bool isVideo = default, long connectionId = default)
         {
             return client.ExecuteAsync(new DiscardCall
             {
-                CallId = callId, IsDisconnected = isDisconnected, Duration = duration, IsVideo = isVideo,
-                ConnectionId = connectionId
+                CallId = callId, IsDisconnected = isDisconnected, Duration = duration, IsVideo = isVideo, ConnectionId = connectionId
             });
         }
     }

@@ -11,7 +11,7 @@ namespace TdLib
         public partial class MessageForwardOrigin : Object
         {
             /// <summary>
-            /// The message was originally sent by an anonymous chat administrator on behalf of the chat
+            /// The message was originally sent on behalf of a chat
             /// </summary>
             public class MessageForwardOriginChat : MessageForwardOrigin
             {
@@ -35,7 +35,7 @@ namespace TdLib
                 public long SenderChatId { get; set; }
 
                 /// <summary>
-                /// Original message author signature
+                /// For messages originally sent by an anonymous chat administrator, original message author signature
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("author_signature")]

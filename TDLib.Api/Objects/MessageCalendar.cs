@@ -9,7 +9,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Contains information about found messages, splitted by days according to the option "utc_time_offset"
+        /// Contains information about found messages, split by days according to the option "utc_time_offset"
         /// </summary>
         public partial class MessageCalendar : Object
         {

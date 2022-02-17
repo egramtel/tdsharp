@@ -145,7 +145,7 @@ namespace TdLib
             public ChatLocation Location { get; set; }
 
             /// <summary>
-            /// Primary invite link for this chat; may be null. For chat administrators with can_invite_users right only
+            /// Primary invite link for the chat; may be null. For chat administrators with can_invite_users right only
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("invite_link")]

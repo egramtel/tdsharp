@@ -25,6 +25,8 @@ namespace TdLib
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
+
+
         }
 
         /// <summary>
@@ -35,6 +37,7 @@ namespace TdLib
         {
             return client.ExecuteAsync(new GetAccountTtl
             {
+                
             });
         }
     }

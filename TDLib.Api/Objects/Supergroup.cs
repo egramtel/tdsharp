@@ -54,7 +54,7 @@ namespace TdLib
             public ChatMemberStatus Status { get; set; }
 
             /// <summary>
-            /// Number of members in the supergroup or channel; 0 if unknown. Currently it is guaranteed to be known only if the supergroup or channel was received through searchPublicChats, searchChatsNearby, getInactiveSupergroupChats, getSuitableDiscussionChats, getGroupsInCommon, or getUserPrivacySettingRules
+            /// Number of members in the supergroup or channel; 0 if unknown. Currently, it is guaranteed to be known only if the supergroup or channel was received through searchPublicChats, searchChatsNearby, getInactiveSupergroupChats, getSuitableDiscussionChats, getGroupsInCommon, or getUserPrivacySettingRules
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("member_count")]
@@ -96,7 +96,7 @@ namespace TdLib
             public bool IsChannel { get; set; }
 
             /// <summary>
-            /// True, if the supergroup is a broadcast group, i.e. only administrators can send messages and there is no limit on number of members
+            /// True, if the supergroup is a broadcast group, i.e. only administrators can send messages and there is no limit on the number of members
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_broadcast_group")]

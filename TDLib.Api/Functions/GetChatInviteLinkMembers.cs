@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns chat members joined a chat by an invite link. Requires administrator privileges and can_invite_users right in the chat for own links and owner privileges for other links
+        /// Returns chat members joined a chat via an invite link. Requires administrator privileges and can_invite_users right in the chat for own links and owner privileges for other links
         /// </summary>
         public class GetChatInviteLinkMembers : Function<ChatInviteLinkMembers>
         {
@@ -56,11 +56,10 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Returns chat members joined a chat by an invite link. Requires administrator privileges and can_invite_users right in the chat for own links and owner privileges for other links
+        /// Returns chat members joined a chat via an invite link. Requires administrator privileges and can_invite_users right in the chat for own links and owner privileges for other links
         /// </summary>
         public static Task<ChatInviteLinkMembers> GetChatInviteLinkMembersAsync(
-            this Client client, long chatId = default, string inviteLink = default,
-            ChatInviteLinkMember offsetMember = default, int limit = default)
+            this Client client, long chatId = default, string inviteLink = default, ChatInviteLinkMember offsetMember = default, int limit = default)
         {
             return client.ExecuteAsync(new GetChatInviteLinkMembers
             {

@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns information about the next messages of the specified type in the chat splitted by days. Returns the results in reverse chronological order. Can return partial result for the last returned day. Behavior of this method depends on the value of the option "utc_time_offset"
+        /// Returns information about the next messages of the specified type in the chat split by days. Returns the results in reverse chronological order. Can return partial result for the last returned day. Behavior of this method depends on the value of the option "utc_time_offset"
         /// </summary>
         public class GetChatMessageCalendar : Function<MessageCalendar>
         {
@@ -34,7 +34,7 @@ namespace TdLib
             public long ChatId { get; set; }
 
             /// <summary>
-            /// Filter for message content. Filters searchMessagesFilterEmpty, searchMessagesFilterCall, searchMessagesFilterMissedCall, searchMessagesFilterMention and searchMessagesFilterUnreadMention are unsupported in this function
+            /// Filter for message content. Filters searchMessagesFilterEmpty, searchMessagesFilterMention, searchMessagesFilterUnreadMention, and searchMessagesFilterUnreadReaction are unsupported in this function
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("filter")]
@@ -49,11 +49,10 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Returns information about the next messages of the specified type in the chat splitted by days. Returns the results in reverse chronological order. Can return partial result for the last returned day. Behavior of this method depends on the value of the option "utc_time_offset"
+        /// Returns information about the next messages of the specified type in the chat split by days. Returns the results in reverse chronological order. Can return partial result for the last returned day. Behavior of this method depends on the value of the option "utc_time_offset"
         /// </summary>
         public static Task<MessageCalendar> GetChatMessageCalendarAsync(
-            this Client client, long chatId = default, SearchMessagesFilter filter = default,
-            long fromMessageId = default)
+            this Client client, long chatId = default, SearchMessagesFilter filter = default, long fromMessageId = default)
         {
             return client.ExecuteAsync(new GetChatMessageCalendar
             {

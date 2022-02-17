@@ -27,11 +27,11 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Message Sender
+            /// Identifier of a message sender to block/unblock
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("sender")]
-            public MessageSender Sender { get; set; }
+            [JsonProperty("sender_id")]
+            public MessageSender SenderId { get; set; }
 
             /// <summary>
             /// New value of is_blocked
@@ -45,11 +45,11 @@ namespace TdLib
         /// Changes the block state of a message sender. Currently, only users and supergroup chats can be blocked
         /// </summary>
         public static Task<Ok> ToggleMessageSenderIsBlockedAsync(
-            this Client client, MessageSender sender = default, bool isBlocked = default)
+            this Client client, MessageSender senderId = default, bool isBlocked = default)
         {
             return client.ExecuteAsync(new ToggleMessageSenderIsBlocked
             {
-                Sender = sender, IsBlocked = isBlocked
+                SenderId = senderId, IsBlocked = isBlocked
             });
         }
     }

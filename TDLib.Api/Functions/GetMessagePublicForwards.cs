@@ -41,7 +41,7 @@ namespace TdLib
             public long MessageId { get; set; }
 
             /// <summary>
-            /// Offset of the first entry to return as received from the previous request; use empty string to get first chunk of results
+            /// Offset of the first entry to return as received from the previous request; use empty string to get the first chunk of results
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("offset")]
@@ -59,8 +59,7 @@ namespace TdLib
         /// Returns forwarded copies of a channel message to different public channels. For optimal performance, the number of returned messages is chosen by TDLib
         /// </summary>
         public static Task<FoundMessages> GetMessagePublicForwardsAsync(
-            this Client client, long chatId = default, long messageId = default, string offset = default,
-            int limit = default)
+            this Client client, long chatId = default, long messageId = default, string offset = default, int limit = default)
         {
             return client.ExecuteAsync(new GetMessagePublicForwards
             {

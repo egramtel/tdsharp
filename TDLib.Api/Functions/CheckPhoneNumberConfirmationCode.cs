@@ -27,7 +27,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// The phone number confirmation code
+            /// Confirmation code to check
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("code")]

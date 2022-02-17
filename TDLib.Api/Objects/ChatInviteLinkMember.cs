@@ -9,7 +9,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Describes a chat member joined a chat by an invite link
+        /// Describes a chat member joined a chat via an invite link
         /// </summary>
         public partial class ChatInviteLinkMember : Object
         {

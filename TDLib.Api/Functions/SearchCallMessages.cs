@@ -41,7 +41,7 @@ namespace TdLib
             public int Limit { get; set; }
 
             /// <summary>
-            /// If true, returns only messages with missed calls
+            /// If true, returns only messages with missed/declined calls
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("only_missed")]

@@ -64,8 +64,8 @@ namespace TdLib
             /// Point in time (Unix timestamp) when the link will expire; 0 if never
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("expire_date")]
-            public int ExpireDate { get; set; }
+            [JsonProperty("expiration_date")]
+            public int ExpirationDate { get; set; }
 
             /// <summary>
             /// The maximum number of members, which can join the chat using the link simultaneously; 0 if not limited. Always 0 if the link requires approval
@@ -96,7 +96,7 @@ namespace TdLib
             public bool CreatesJoinRequest { get; set; }
 
             /// <summary>
-            /// True, if the link is primary. Primary invite link can't have name, expire date or usage limit. There is exactly one primary invite link for each administrator with can_invite_users right at a given time
+            /// True, if the link is primary. Primary invite link can't have name, expiration date, or usage limit. There is exactly one primary invite link for each administrator with can_invite_users right at a given time
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_primary")]

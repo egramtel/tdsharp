@@ -66,13 +66,11 @@ namespace TdLib
         /// Changes the password for the current user. If a new recovery email address is specified, then the change will not be applied until the new recovery email address is confirmed
         /// </summary>
         public static Task<PasswordState> SetPasswordAsync(
-            this Client client, string oldPassword = default, string newPassword = default, string newHint = default,
-            bool setRecoveryEmailAddress = default, string newRecoveryEmailAddress = default)
+            this Client client, string oldPassword = default, string newPassword = default, string newHint = default, bool setRecoveryEmailAddress = default, string newRecoveryEmailAddress = default)
         {
             return client.ExecuteAsync(new SetPassword
             {
-                OldPassword = oldPassword, NewPassword = newPassword, NewHint = newHint,
-                SetRecoveryEmailAddress = setRecoveryEmailAddress, NewRecoveryEmailAddress = newRecoveryEmailAddress
+                OldPassword = oldPassword, NewPassword = newPassword, NewHint = newHint, SetRecoveryEmailAddress = setRecoveryEmailAddress, NewRecoveryEmailAddress = newRecoveryEmailAddress
             });
         }
     }

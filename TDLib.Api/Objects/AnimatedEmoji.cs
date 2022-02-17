@@ -33,11 +33,11 @@ namespace TdLib
             public Sticker Sticker { get; set; }
 
             /// <summary>
-            /// List of colors to be replaced while the sticker is rendered
+            /// Emoji modifier fitzpatrick type; 0-6; 0 if none
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("color_replacements")]
-            public ColorReplacement[] ColorReplacements { get; set; }
+            [JsonProperty("fitzpatrick_type")]
+            public int FitzpatrickType { get; set; }
 
             /// <summary>
             /// File containing the sound to be played when the animated emoji is clicked if any; may be null. The sound is encoded with the Opus codec, and stored inside an OGG container

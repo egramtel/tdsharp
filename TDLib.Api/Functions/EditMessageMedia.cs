@@ -59,13 +59,11 @@ namespace TdLib
         /// Edits the content of a message with an animation, an audio, a document, a photo or a video, including message caption. If only the caption needs to be edited, use editMessageCaption instead.
         /// </summary>
         public static Task<Message> EditMessageMediaAsync(
-            this Client client, long chatId = default, long messageId = default, ReplyMarkup replyMarkup = default,
-            InputMessageContent inputMessageContent = default)
+            this Client client, long chatId = default, long messageId = default, ReplyMarkup replyMarkup = default, InputMessageContent inputMessageContent = default)
         {
             return client.ExecuteAsync(new EditMessageMedia
             {
-                ChatId = chatId, MessageId = messageId, ReplyMarkup = replyMarkup,
-                InputMessageContent = inputMessageContent
+                ChatId = chatId, MessageId = messageId, ReplyMarkup = replyMarkup, InputMessageContent = inputMessageContent
             });
         }
     }

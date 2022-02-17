@@ -10,15 +10,15 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Deletes all messages sent by the specified user to a chat. Supported only for supergroups; requires can_delete_messages administrator privileges
+        /// Changes the ability of users to save, forward, or copy chat content. Supported only for basic groups, supergroups and channels. Requires owner privileges
         /// </summary>
-        public class DeleteChatMessagesFromUser : Function<Ok>
+        public class ToggleChatHasProtectedContent : Function<Ok>
         {
             /// <summary>
             /// Data type for serialization
             /// </summary>
             [JsonProperty("@type")]
-            public override string DataType { get; set; } = "deleteChatMessagesFromUser";
+            public override string DataType { get; set; } = "toggleChatHasProtectedContent";
 
             /// <summary>
             /// Extra data attached to the function
@@ -34,22 +34,22 @@ namespace TdLib
             public long ChatId { get; set; }
 
             /// <summary>
-            /// User identifier
+            /// True, if chat content can't be saved locally, forwarded, or copied
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("user_id")]
-            public long UserId { get; set; }
+            [JsonProperty("has_protected_content")]
+            public bool HasProtectedContent { get; set; }
         }
 
         /// <summary>
-        /// Deletes all messages sent by the specified user to a chat. Supported only for supergroups; requires can_delete_messages administrator privileges
+        /// Changes the ability of users to save, forward, or copy chat content. Supported only for basic groups, supergroups and channels. Requires owner privileges
         /// </summary>
-        public static Task<Ok> DeleteChatMessagesFromUserAsync(
-            this Client client, long chatId = default, long userId = default)
+        public static Task<Ok> ToggleChatHasProtectedContentAsync(
+            this Client client, long chatId = default, bool hasProtectedContent = default)
         {
-            return client.ExecuteAsync(new DeleteChatMessagesFromUser
+            return client.ExecuteAsync(new ToggleChatHasProtectedContent
             {
-                ChatId = chatId, UserId = userId
+                ChatId = chatId, HasProtectedContent = hasProtectedContent
             });
         }
     }

@@ -10,15 +10,15 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Declines pending join request in a chat
+        /// Handles a pending join request in a chat
         /// </summary>
-        public class DeclineChatJoinRequest : Function<Ok>
+        public class ProcessChatJoinRequest : Function<Ok>
         {
             /// <summary>
             /// Data type for serialization
             /// </summary>
             [JsonProperty("@type")]
-            public override string DataType { get; set; } = "declineChatJoinRequest";
+            public override string DataType { get; set; } = "processChatJoinRequest";
 
             /// <summary>
             /// Extra data attached to the function
@@ -34,22 +34,29 @@ namespace TdLib
             public long ChatId { get; set; }
 
             /// <summary>
-            /// Identifier of the user, which request will be declined
+            /// Identifier of the user that sent the request
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("user_id")]
             public long UserId { get; set; }
+
+            /// <summary>
+            /// True, if the request is approved. Otherwise the request is declined
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("approve")]
+            public bool Approve { get; set; }
         }
 
         /// <summary>
-        /// Declines pending join request in a chat
+        /// Handles a pending join request in a chat
         /// </summary>
-        public static Task<Ok> DeclineChatJoinRequestAsync(
-            this Client client, long chatId = default, long userId = default)
+        public static Task<Ok> ProcessChatJoinRequestAsync(
+            this Client client, long chatId = default, long userId = default, bool approve = default)
         {
-            return client.ExecuteAsync(new DeclineChatJoinRequest
+            return client.ExecuteAsync(new ProcessChatJoinRequest
             {
-                ChatId = chatId, UserId = userId
+                ChatId = chatId, UserId = userId, Approve = approve
             });
         }
     }

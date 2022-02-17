@@ -131,7 +131,7 @@ namespace TdLib
             public Audio Audio { get; set; }
 
             /// <summary>
-            /// Preview of the content as a document, if available (currently only available for small PDF files and ZIP archives); may be null
+            /// Preview of the content as a document, if available; may be null
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("document")]
@@ -166,7 +166,7 @@ namespace TdLib
             public VoiceNote VoiceNote { get; set; }
 
             /// <summary>
-            /// Version of instant view, available for the web page (currently can be 1 or 2), 0 if none
+            /// Version of instant view, available for the web page (currently, can be 1 or 2), 0 if none
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("instant_view_version")]

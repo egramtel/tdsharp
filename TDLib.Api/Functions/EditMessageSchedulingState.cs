@@ -52,8 +52,7 @@ namespace TdLib
         /// Edits the time when a scheduled message will be sent. Scheduling state of all messages in the same album or forwarded together with the message will be also changed
         /// </summary>
         public static Task<Ok> EditMessageSchedulingStateAsync(
-            this Client client, long chatId = default, long messageId = default,
-            MessageSchedulingState schedulingState = default)
+            this Client client, long chatId = default, long messageId = default, MessageSchedulingState schedulingState = default)
         {
             return client.ExecuteAsync(new EditMessageSchedulingState
             {

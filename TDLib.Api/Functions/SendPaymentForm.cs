@@ -80,14 +80,11 @@ namespace TdLib
         /// Sends a filled-out payment form to the bot for final verification
         /// </summary>
         public static Task<PaymentResult> SendPaymentFormAsync(
-            this Client client, long chatId = default, long messageId = default, long paymentFormId = default,
-            string orderInfoId = default, string shippingOptionId = default, InputCredentials credentials = default,
-            long tipAmount = default)
+            this Client client, long chatId = default, long messageId = default, long paymentFormId = default, string orderInfoId = default, string shippingOptionId = default, InputCredentials credentials = default, long tipAmount = default)
         {
             return client.ExecuteAsync(new SendPaymentForm
             {
-                ChatId = chatId, MessageId = messageId, PaymentFormId = paymentFormId, OrderInfoId = orderInfoId,
-                ShippingOptionId = shippingOptionId, Credentials = credentials, TipAmount = tipAmount
+                ChatId = chatId, MessageId = messageId, PaymentFormId = paymentFormId, OrderInfoId = orderInfoId, ShippingOptionId = shippingOptionId, Credentials = credentials, TipAmount = tipAmount
             });
         }
     }

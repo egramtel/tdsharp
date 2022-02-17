@@ -52,8 +52,7 @@ namespace TdLib
         /// Sets the result of a shipping query; for bots only
         /// </summary>
         public static Task<Ok> AnswerShippingQueryAsync(
-            this Client client, long shippingQueryId = default, ShippingOption[] shippingOptions = default,
-            string errorMessage = default)
+            this Client client, long shippingQueryId = default, ShippingOption[] shippingOptions = default, string errorMessage = default)
         {
             return client.ExecuteAsync(new AnswerShippingQuery
             {

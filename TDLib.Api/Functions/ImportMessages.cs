@@ -52,8 +52,7 @@ namespace TdLib
         /// Imports messages exported from another app
         /// </summary>
         public static Task<Ok> ImportMessagesAsync(
-            this Client client, long chatId = default, InputFile messageFile = default,
-            InputFile[] attachedFiles = default)
+            this Client client, long chatId = default, InputFile messageFile = default, InputFile[] attachedFiles = default)
         {
             return client.ExecuteAsync(new ImportMessages
             {

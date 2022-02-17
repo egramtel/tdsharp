@@ -75,6 +75,20 @@ namespace TdLib
             public ChatPosition[] Positions { get; set; }
 
             /// <summary>
+            /// Identifier of a user or chat that is selected to send messages in the chat; may be null if the user can't change message sender
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("message_sender_id")]
+            public MessageSender MessageSenderId { get; set; }
+
+            /// <summary>
+            /// True, if chat content can't be saved locally, forwarded, or copied
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("has_protected_content")]
+            public bool HasProtectedContent { get; set; }
+
+            /// <summary>
             /// True, if the chat is marked as unread
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -152,18 +166,32 @@ namespace TdLib
             public int UnreadMentionCount { get; set; }
 
             /// <summary>
-            /// Notification settings for this chat
+            /// Number of messages with unread reactions in the chat
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("unread_reaction_count")]
+            public int UnreadReactionCount { get; set; }
+
+            /// <summary>
+            /// Notification settings for the chat
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("notification_settings")]
             public ChatNotificationSettings NotificationSettings { get; set; }
 
             /// <summary>
+            /// List of reactions, available in the chat
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("available_reactions")]
+            public string[] AvailableReactions { get; set; }
+
+            /// <summary>
             /// Current message Time To Live setting (self-destruct timer) for the chat; 0 if not defined. TTL is counted from the time message or its content is viewed in secret chats and from the send date in other chats
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("message_ttl_setting")]
-            public int MessageTtlSetting { get; set; }
+            [JsonProperty("message_ttl")]
+            public int MessageTtl { get; set; }
 
             /// <summary>
             /// If non-empty, name of a theme, set for the chat

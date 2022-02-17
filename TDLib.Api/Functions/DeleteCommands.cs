@@ -34,7 +34,7 @@ namespace TdLib
             public BotCommandScope Scope { get; set; }
 
             /// <summary>
-            /// A two-letter ISO 639-1 country code or an empty string
+            /// A two-letter ISO 639-1 language code or an empty string
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("language_code")]

@@ -9,15 +9,15 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Contains a list of sponsored messages
+        /// Represents a list of available reactions
         /// </summary>
-        public partial class SponsoredMessages : Object
+        public partial class AvailableReactions : Object
         {
             /// <summary>
             /// Data type for serialization
             /// </summary>
             [JsonProperty("@type")]
-            public override string DataType { get; set; } = "sponsoredMessages";
+            public override string DataType { get; set; } = "availableReactions";
 
             /// <summary>
             /// Extra data attached to the object
@@ -26,11 +26,11 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// List of sponsored messages
+            /// List of reactions
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("messages")]
-            public SponsoredMessage[] Messages { get; set; }
+            [JsonProperty("reactions")]
+            public string[] Reactions { get; set; }
         }
     }
 }
