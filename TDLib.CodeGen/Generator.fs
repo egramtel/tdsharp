@@ -31,7 +31,7 @@ let getNamedAnnotationText (annotations: Parser.TlAnnotation list) fieldName =
                 None
         | _ -> None) |> List.tryHead
 
-let generateField (def: Parser.TlDef) (field: Parser.TlField) (annotations: Parser.TlAnnotation list) =
+let generateField (def: Parser.TlDef) (field: Parser.TlField) (annotations: Parser.TlAnnotation list) (tabulation: string) =
     let converter =
             match field.TypeName with
             | Parser.TlInt64 -> "Converter.Int64"
@@ -55,12 +55,12 @@ let generateField (def: Parser.TlDef) (field: Parser.TlField) (annotations: Pars
     
     let lines = Utils.readResource "Field.tpl"
     lines |> Seq.map (fun line ->
-        line.Replace("$FIELD_DESCRIPTION", description)
+        tabulation + line.Replace("$FIELD_DESCRIPTION", description)
             .Replace("$FIELD_CONVERTER", converter)
             .Replace("$TL_FIELD_NAME", tlFieldName)
             .Replace("$FIELD_TYPE", fieldType)
             .Replace("$FIELD_NAME", fieldName))
-        |> Seq.fold (fun acc line -> acc + line + "\n") ""
+        |> String.concat "\n"
     
 let generateType (def: Parser.TlDef) (annotations: Parser.TlAnnotation list) =
     let (objectTypeName, fields, baseTypeName) =
@@ -69,24 +69,27 @@ let generateType (def: Parser.TlDef) (annotations: Parser.TlAnnotation list) =
         | _ -> failwith "Generating types only supported for type definitions"
         
     let tlTypeName = Utils.toCamelCase objectTypeName Utils.LowerCase
+    let isObjectType = objectTypeName = baseTypeName
+    let tabulation = if isObjectType then "            " else "                " // the easiest way to do it, but not the prettiest
+    
     let objectFields =
         fields
-        |> List.map (fun field -> generateField def field annotations)
-        |> List.fold (fun acc content -> acc + content + "\n") ""
+        |> List.map (fun field -> generateField def field annotations tabulation)
+        |> String.concat "\n\n"
     
     let description =
         match getTypeAnnotationText annotations with
         | Some(text) -> text
         | None -> ""
     
-    let lines = Utils.readResource (if objectTypeName = baseTypeName then "Object.tpl" else "Union.tpl")
+    let lines = Utils.readResource (if isObjectType then "Object.tpl" else "Union.tpl")
     lines |> Seq.map (fun line ->
         line.Replace("$TYPE_DESCRIPTION", description)
             .Replace("$TYPE_NAME", objectTypeName)
             .Replace("$TL_TYPE_NAME", tlTypeName)
             .Replace("$BASE_TYPE_NAME", baseTypeName)
             .Replace("$TYPE_FIELDS", objectFields))
-        |> Seq.fold (fun acc line -> acc + line + "\n") ""
+        |> String.concat "\n"
         
 let generateFunc (def: Parser.TlDef) (annotations: Parser.TlAnnotation list) =
     let (funcTypeName, fields, returnTypeName) =
@@ -101,8 +104,8 @@ let generateFunc (def: Parser.TlDef) (annotations: Parser.TlAnnotation list) =
         
     let funcFields =
         fields
-        |> List.map (fun field -> generateField def field annotations)
-        |> List.fold (fun acc content -> acc + content + "\n") ""
+        |> List.map (fun field -> generateField def field annotations "            ")
+        |> String.concat "\n\n"
         
     let funcParams =
         fields
@@ -127,7 +130,7 @@ let generateFunc (def: Parser.TlDef) (annotations: Parser.TlAnnotation list) =
             .Replace("$FUNC_FIELDS", funcFields)
             .Replace("$FUNC_PARAMS", funcParams)
             .Replace("$FUNC_ARGS", funcArgs))
-        |> Seq.fold (fun acc line -> acc + line + "\n") ""
+        |> String.concat "\n"
 
 let generateAllTypes() = seq {
     let lines = Utils.readResource "Types.tl"
