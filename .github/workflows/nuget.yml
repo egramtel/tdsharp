@@ -1,0 +1,85 @@
+name: NuGet
+on:
+  push:
+    branches:
+      - master
+    tags:
+      - 'v*'
+  pull_request:
+    branches:
+      - master
+  schedule:
+    - cron: '0 0 * * 6' # every Saturday
+
+jobs:
+  nuget-pack:
+    runs-on: ubuntu-latest
+    env:
+      DOTNET_NOLOGO: 1
+      DOTNET_CLI_TELEMETRY_OPTOUT: 1
+      NUGET_PACKAGES: ${{ github.workspace }}/.github/nuget-packages
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Read version from ref
+        id: version
+        shell: pwsh
+        run: ./Scripts/Get-Version.ps1 -RefName $env:GITHUB_REF
+
+      - name: NuGet cache
+        uses: actions/cache@v2
+        with:
+          path: ${{ env.NUGET_PACKAGES }}
+          key: ${{ runner.os }}.nuget.${{ hashFiles('**/*.csproj', '**/*.fsproj') }}
+      - name: Set up .NET SDK
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 6.0.x
+
+      - name: Prepare a NuGet package
+        run: dotnet pack --configuration Release -p:Version=${{ steps.version.outputs.version }}
+      - name: Read the changelog
+        id: changelog
+        uses: ForNeVeR/ChangelogAutomation.action@v1
+        with:
+          output: ./release-notes.md
+
+      - name: Create release
+        id: release
+        uses: actions/create-release@v1
+        if: github.event_name == 'push' && contains(github.ref, 'refs/tags/')
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: tdsharp v${{ steps.version.outputs.version }}
+          body_path: ./release-notes.md
+
+      - name: Upload TDLib .nupkg
+        uses: actions/upload-release-asset@v1
+        if: github.event_name == 'push' && contains(github.ref, 'refs/tags/')
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.release.outputs.upload_url }}
+          asset_name: TDLib.${{ steps.version.outputs.version }}.nupkg
+          asset_path: ./TDLib/bin/Release/TDLib.${{ steps.version.outputs.version }}.nupkg
+          asset_content_type: application/zip
+      - name: Upload TDLib.Api .nupkg
+        uses: actions/upload-release-asset@v1
+        if: github.event_name == 'push' && contains(github.ref, 'refs/tags/')
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.release.outputs.upload_url }}
+          asset_name: TDLib.Api.${{ steps.version.outputs.version }}.nupkg
+          asset_path: ./TDLib.Api/bin/Release/TDLib.Api.${{ steps.version.outputs.version }}.nupkg
+          asset_content_type: application/zip
+
+      - name: Push TDLib to NuGet
+        if: github.event_name == 'push' && contains(github.ref, 'refs/tags/')
+        run: dotnet nuget push ./TDLib/bin/Release/TDLib.${{ steps.version.outputs.version }}.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_TOKEN }}
+      - name: Push TDLib.Api to NuGet
+        if: github.event_name == 'push' && contains(github.ref, 'refs/tags/')
+        run: dotnet nuget push ./TDLib.Api/bin/Release/TDLib.Api.${{ steps.version.outputs.version }}.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_TOKEN }}

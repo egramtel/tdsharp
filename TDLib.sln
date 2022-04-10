@@ -29,6 +29,12 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{F650AF94-4F77-4291-BA80-4D0EF9CEE756}"
 	ProjectSection(SolutionItems) = preProject
 		.github\workflows\main.yml = .github\workflows\main.yml
+		.github\workflows\nuget.yml = .github\workflows\nuget.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{08FD319D-352A-413F-8B5B-AE9388316FD5}"
+	ProjectSection(SolutionItems) = preProject
+		Scripts\Get-Version.ps1 = Scripts\Get-Version.ps1
 	EndProjectSection
 EndProject
 Global
