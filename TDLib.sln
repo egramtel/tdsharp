@@ -15,6 +15,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{B25E
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "TDLib.CodeGen", "TDLib.CodeGen\TDLib.CodeGen.fsproj", "{9A7D484C-DAA6-4F5B-8690-2A1BB6E2E63C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{178D86BC-A6CA-4A4D-AE1A-B9DC926D77CB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{F650AF94-4F77-4291-BA80-4D0EF9CEE756}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\main.yml = .github\workflows\main.yml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +54,7 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{E5D00251-CD3E-4736-B9A3-FF5A0996E9E3} = {B25EBBCB-983A-42DF-8EEF-2158ECE297AE}
+		{F650AF94-4F77-4291-BA80-4D0EF9CEE756} = {178D86BC-A6CA-4A4D-AE1A-B9DC926D77CB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {46AB197A-DFB5-4F3A-97C7-65193A741D19}
