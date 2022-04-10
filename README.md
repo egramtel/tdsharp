@@ -77,8 +77,10 @@ By default, TdSharp will try to detect the platform and use the corresponding bi
 
 ### Documentation
 
+- [Changelog][docs.changelog]
 - [License (MIT)][docs.license]
 - [Instructions for Maintainers][docs.maintainership]
 
+[docs.changelog]: ./CHANGELOG.md
 [docs.license]: ./LICENSE
 [docs.maintainership]: ./MAINTAINERSHIP.md
