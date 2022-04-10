@@ -3,17 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29418.71
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TDLib", "TDLib\TDLib.csproj", "{2D4466D1-02F4-4983-B4B7-101FB4D76D91}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TdLib", "TdLib\TdLib.csproj", "{2D4466D1-02F4-4983-B4B7-101FB4D76D91}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TDLib.Api", "TDLib.Api\TDLib.Api.csproj", "{DF52A2FE-0464-40EE-AACC-42781FA5FBDB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TdLib.Api", "TdLib.Api\TdLib.Api.csproj", "{DF52A2FE-0464-40EE-AACC-42781FA5FBDB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TDLib.Tests", "TDLib.Tests\TDLib.Tests.csproj", "{6707D62C-5FCB-472E-8F46-6B7EDAE56453}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TdLib.Tests", "TdLib.Tests\TdLib.Tests.csproj", "{6707D62C-5FCB-472E-8F46-6B7EDAE56453}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TDLib.Samples.GetChats", "Samples\TdLib.Samples.GetChats\TDLib.Samples.GetChats.csproj", "{E5D00251-CD3E-4736-B9A3-FF5A0996E9E3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TdLib.Samples.GetChats", "Samples\TdLib.Samples.GetChats\TdLib.Samples.GetChats.csproj", "{E5D00251-CD3E-4736-B9A3-FF5A0996E9E3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{B25EBBCB-983A-42DF-8EEF-2158ECE297AE}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "TDLib.CodeGen", "TDLib.CodeGen\TDLib.CodeGen.fsproj", "{9A7D484C-DAA6-4F5B-8690-2A1BB6E2E63C}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "TdLib.CodeGen", "TdLib.CodeGen\TdLib.CodeGen.fsproj", "{9A7D484C-DAA6-4F5B-8690-2A1BB6E2E63C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BE5164C6-6BA2-4624-905A-F744E9668820}"
 	ProjectSection(SolutionItems) = preProject

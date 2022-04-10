@@ -3,6 +3,7 @@
         <TargetFramework>netstandard2.0</TargetFramework>
         <LangVersion>latest</LangVersion>
         <PackageId>TDLib.Api</PackageId>
+        <RootNamespace>TdLib</RootNamespace>
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="ChangelogAutomation.MSBuild" Version="1.0.1" PrivateAssets="All" />

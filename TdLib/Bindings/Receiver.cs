@@ -1,32 +1,30 @@
 ﻿using System;
-using System.Collections.Concurrent;
 using System.Threading;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
-using TdLib;
 
-namespace TDLib.Bindings
+namespace TdLib.Bindings
 {
     internal class Receiver : IDisposable
     {
         private readonly Converter _converter;
         private readonly TdJsonClient _tdJsonClient;
-        
+
         private readonly CancellationTokenSource _cts = new CancellationTokenSource();
         private readonly ManualResetEventSlim _stopped = new ManualResetEventSlim(false);
-        
+
         internal event EventHandler<TdApi.Object> Received;
         internal event EventHandler<TdApi.AuthorizationState> AuthorizationStateChanged;
         internal event EventHandler<Exception> ExceptionThrown;
-        
+
         internal Receiver(TdJsonClient tdJsonClient)
         {
             _converter = new Converter();
             _tdJsonClient = tdJsonClient;
         }
-        
+
         internal void Start()
-        {   
+        {
             Task.Factory.StartNew(async () =>
                 {
                     try
@@ -76,7 +74,7 @@ namespace TDLib.Bindings
             {
                 _cts.Cancel();
             }
-            
+
             _stopped.Wait();
         }
     }

@@ -1,6 +1,4 @@
-using TdLib.Bindings;
-
-namespace TDLib.Bindings
+namespace TdLib.Bindings
 {
     public static class TdLibBindingsExtensions
     {

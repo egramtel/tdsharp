@@ -1,4 +1,4 @@
-﻿module TDLib.CodeGen.Generator
+﻿module TdLib.CodeGen.Generator
 
 open System
 open FParsec
@@ -52,7 +52,7 @@ let generateField (def: Parser.TlDef) (field: Parser.TlField) (annotations: Pars
         match getNamedAnnotationText annotations tlFieldName with
         | Some(text) -> text
         | None -> ""
-    
+
     let lines = Utils.readResource "Field.tpl"
     lines |> Seq.map (fun line ->
         tabulation + line.Replace("$FIELD_DESCRIPTION", description)
@@ -61,27 +61,27 @@ let generateField (def: Parser.TlDef) (field: Parser.TlField) (annotations: Pars
             .Replace("$FIELD_TYPE", fieldType)
             .Replace("$FIELD_NAME", fieldName))
         |> String.concat "\n"
-    
+
 let generateType (def: Parser.TlDef) (annotations: Parser.TlAnnotation list) =
     let (objectTypeName, fields, baseTypeName) =
         match def with
         | Parser.TlTypeDef (typeDef, fields, baseTypeDef) -> (getDotNetType typeDef, fields, getDotNetType baseTypeDef)
         | _ -> failwith "Generating types only supported for type definitions"
-        
+
     let tlTypeName = Utils.toCamelCase objectTypeName Utils.LowerCase
     let isObjectType = objectTypeName = baseTypeName
     let tabulation = if isObjectType then "            " else "                " // the easiest way to do it, but not the prettiest
-    
+
     let objectFields =
         fields
         |> List.map (fun field -> generateField def field annotations tabulation)
         |> String.concat "\n\n"
-    
+
     let description =
         match getTypeAnnotationText annotations with
         | Some(text) -> text
         | None -> ""
-    
+
     let lines = Utils.readResource (if isObjectType then "Object.tpl" else "Union.tpl")
     lines |> Seq.map (fun line ->
         line.Replace("$TYPE_DESCRIPTION", description)
@@ -90,7 +90,7 @@ let generateType (def: Parser.TlDef) (annotations: Parser.TlAnnotation list) =
             .Replace("$BASE_TYPE_NAME", baseTypeName)
             .Replace("$TYPE_FIELDS", objectFields))
         |> String.concat "\n"
-        
+
 let generateFunc (def: Parser.TlDef) (annotations: Parser.TlAnnotation list) =
     let (funcTypeName, fields, returnTypeName) =
         match def with
@@ -101,26 +101,26 @@ let generateFunc (def: Parser.TlDef) (annotations: Parser.TlAnnotation list) =
         match getTypeAnnotationText annotations with
         | Some(text) -> text
         | None -> ""
-        
+
     let funcFields =
         fields
         |> List.map (fun field -> generateField def field annotations "            ")
         |> String.concat "\n\n"
-        
+
     let funcParams =
         fields
         |> List.map (fun field -> (getDotNetType field.TypeName,
                                    Utils.toCamelCase field.FieldName Utils.LowerCase))
         |> List.map (fun (t, n) -> sprintf "%s %s = default" t n)
         |> List.fold (fun acc a -> acc + ", " + a) ""
-        
+
     let funcArgs =
         fields
         |> List.map (fun field -> (Utils.toCamelCase field.FieldName Utils.UpperCase,
                                    Utils.toCamelCase field.FieldName Utils.LowerCase))
         |> List.map (fun (f, a) -> sprintf "%s = %s" f a)
         |> fun arr -> String.Join(", ", arr)
-        
+
     let lines = Utils.readResource "Function.tpl"
     lines |> Seq.map (fun line ->
         line.Replace("$FUNC_DESCRIPTION", description)
@@ -134,9 +134,9 @@ let generateFunc (def: Parser.TlDef) (annotations: Parser.TlAnnotation list) =
 
 let generateAllTypes() = seq {
     let lines = Utils.readResource "Types.tl"
-    
+
     let mutable annotations = []
-    
+
     for line in lines do
         if String.IsNullOrWhiteSpace(line) then
             ()
@@ -160,9 +160,9 @@ let generateAllTypes() = seq {
 
 let generateAllFuncs() = seq {
     let lines = Utils.readResource "Methods.tl"
-    
+
     let mutable annotations = []
-    
+
     for line in lines do
         if String.IsNullOrWhiteSpace(line) then
             ()

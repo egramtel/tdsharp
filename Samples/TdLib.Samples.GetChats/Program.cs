@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using TDLib.Bindings;
+using TdLib.Bindings;
 
 namespace TdLib.Samples.GetChats;
 
@@ -14,7 +14,7 @@ internal static class Program
 
     private static TdClient _client;
     private static readonly ManualResetEventSlim ReadyToAuthenticate = new();
-    
+
     private static bool _authNeeded;
     private static bool _passwordNeeded;
 
@@ -29,7 +29,7 @@ internal static class Program
 
         // Waiting until we get enough events to be in 'authentication ready' state
         ReadyToAuthenticate.Wait();
-        
+
         // We may not need to authenticate since TdLib persists session in 'td.binlog' file.
         // See 'TdlibParameters' class for more information, or:
         // https://core.telegram.org/tdlib/docs/classtd_1_1td__api_1_1tdlib_parameters.html
@@ -54,7 +54,7 @@ internal static class Program
         {
             Console.WriteLine($"[{channel.Id}] -> [{channel.Title}] ({channel.UnreadCount} messages unread)");
         }
-        
+
         Console.ReadLine();
     }
 
@@ -65,18 +65,18 @@ internal static class Program
         {
             PhoneNumber = PhoneNumber
         });
-        
+
         // Telegram servers will send code to us
         Console.Write("Insert the login code: ");
         var code = Console.ReadLine();
-        
+
         await _client.ExecuteAsync(new TdApi.CheckAuthenticationCode
         {
             Code = code
         });
-        
+
         if(!_passwordNeeded) { return; }
-        
+
         // 2FA may be enabled. Cloud password is required in that case.
         Console.Write("Insert the password: ");
         var password = Console.ReadLine();
@@ -92,7 +92,7 @@ internal static class Program
         // Since Tdlib was made to be used in GUI application we need to struggle a bit and catch required events to determine our state.
         // Below you can find example of simple authentication handling.
         // Please note that AuthorizationStateWaitOtherDeviceConfirmation is not implemented.
-        
+
         switch (update)
         {
             case TdApi.Update.UpdateAuthorizationState { AuthorizationState: TdApi.AuthorizationState.AuthorizationStateWaitTdlibParameters }:
@@ -108,27 +108,27 @@ internal static class Program
                     }
                 });
                 break;
-            
+
             case TdApi.Update.UpdateAuthorizationState { AuthorizationState: TdApi.AuthorizationState.AuthorizationStateWaitEncryptionKey }:
                 await _client.ExecuteAsync(new TdApi.CheckDatabaseEncryptionKey());
                 break;
-            
+
             case TdApi.Update.UpdateAuthorizationState { AuthorizationState: TdApi.AuthorizationState.AuthorizationStateWaitPhoneNumber }:
             case TdApi.Update.UpdateAuthorizationState { AuthorizationState: TdApi.AuthorizationState.AuthorizationStateWaitCode }:
                 _authNeeded = true;
                 ReadyToAuthenticate.Set();
                 break;
-            
+
             case TdApi.Update.UpdateAuthorizationState { AuthorizationState: TdApi.AuthorizationState.AuthorizationStateWaitPassword }:
                 _authNeeded = true;
                 _passwordNeeded = true;
                 ReadyToAuthenticate.Set();
                 break;
-            
+
             case TdApi.Update.UpdateUser:
                 ReadyToAuthenticate.Set();
                 break;
-            
+
             case TdApi.Update.UpdateConnectionState { State: TdApi.ConnectionState.ConnectionStateReady }:
                 // You may trigger additional event on connection state change
                 break;
@@ -145,21 +145,21 @@ internal static class Program
     {
         return await _client.ExecuteAsync(new TdApi.GetMe());
     }
-    
+
     private static async IAsyncEnumerable<TdApi.Chat> GetChannels(int limit)
     {
         var chats = await _client.ExecuteAsync(new TdApi.GetChats
         {
             Limit = limit
         });
-        
+
         foreach (var chatId in chats.ChatIds)
         {
             var chat = await _client.ExecuteAsync(new TdApi.GetChat
             {
                 ChatId = chatId
             });
-            
+
             if (chat.Type is TdApi.ChatType.ChatTypeSupergroup or TdApi.ChatType.ChatTypeBasicGroup or TdApi.ChatType.ChatTypePrivate)
             {
                 yield return chat;

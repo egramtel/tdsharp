@@ -5,7 +5,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using TdLib.Bindings;
-using TDLib.Bindings;
 
 namespace TdLib
 {

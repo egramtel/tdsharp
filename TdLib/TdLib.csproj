@@ -13,6 +13,6 @@
     <PackageReference Include="Newtonsoft.Json" Version="11.0.1" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TDLib.Api\TDLib.Api.csproj" />
+    <ProjectReference Include="..\TdLib.Api\TdLib.Api.csproj" />
   </ItemGroup>
 </Project>

@@ -1,7 +1,6 @@
 ﻿using System;
-using TdLib.Bindings;
 
-namespace TDLib.Bindings
+namespace TdLib.Bindings
 {
     public interface ITdLibBindings
     {

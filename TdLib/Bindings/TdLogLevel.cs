@@ -1,4 +1,4 @@
-﻿namespace TDLib.Bindings
+﻿namespace TdLib.Bindings
 {
     public enum TdLogLevel
     {

@@ -1,9 +1,7 @@
-using System;
 using System.Threading.Tasks;
-using TdLib;
 using Xunit;
 
-namespace TDLib.Tests
+namespace TdLib.Tests
 {
     public class TdClientErrorTests
     {

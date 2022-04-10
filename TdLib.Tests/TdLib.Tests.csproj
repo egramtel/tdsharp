@@ -16,7 +16,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\TDLib\TDLib.csproj" />
+      <ProjectReference Include="..\TdLib\TdLib.csproj" />
     </ItemGroup>
 
 </Project>

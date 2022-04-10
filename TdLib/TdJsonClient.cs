@@ -1,6 +1,5 @@
 ﻿using System;
 using TdLib.Bindings;
-using TDLib.Bindings;
 
 namespace TdLib
 {

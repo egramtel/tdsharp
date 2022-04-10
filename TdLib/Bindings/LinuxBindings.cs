@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Runtime.InteropServices;
-using TDLib.Bindings;
 
 namespace TdLib.Bindings
 {
