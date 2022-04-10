@@ -3,7 +3,6 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <LangVersion>latest</LangVersion>
     <PackageId>TDLib</PackageId>
-    <Version>1.7.9</Version>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Meziantou.Analyzer" Version="1.0.675">
