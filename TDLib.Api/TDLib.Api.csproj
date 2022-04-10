@@ -5,6 +5,7 @@
         <PackageId>TDLib.Api</PackageId>
     </PropertyGroup>
     <ItemGroup>
+        <PackageReference Include="ChangelogAutomation.MSBuild" Version="1.0.1" PrivateAssets="All" />
         <PackageReference Include="Newtonsoft.Json" Version="11.0.1" />
     </ItemGroup>
 </Project>

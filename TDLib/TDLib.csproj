@@ -5,6 +5,7 @@
     <PackageId>TDLib</PackageId>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="ChangelogAutomation.MSBuild" Version="1.0.1" PrivateAssets="All" />
     <PackageReference Include="Meziantou.Analyzer" Version="1.0.675">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
