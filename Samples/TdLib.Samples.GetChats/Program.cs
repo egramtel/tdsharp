@@ -1,8 +1,10 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using TdLib.Bindings;
+using TdLib;
 
 namespace TdLib.Samples.GetChats;
 
@@ -10,7 +12,10 @@ internal static class Program
 {
     private const int ApiId = 0;
     private const string ApiHash = "";
-    private const string PhoneNumber = ""; // must contain prefix
+    // PhoneNumber must contain international phone with (+) prefix.
+    // For example +16171234567
+    private const string PhoneNumber = "";
+    private const string ApplicationVersion = "1.0.0";
 
     private static TdClient _client;
     private static readonly ManualResetEventSlim ReadyToAuthenticate = new();
@@ -55,6 +60,7 @@ internal static class Program
             Console.WriteLine($"[{channel.Id}] -> [{channel.Title}] ({channel.UnreadCount} messages unread)");
         }
 
+        Console.WriteLine("Press ENTER to exit from application");
         Console.ReadLine();
     }
 
@@ -96,6 +102,9 @@ internal static class Program
         switch (update)
         {
             case TdApi.Update.UpdateAuthorizationState { AuthorizationState: TdApi.AuthorizationState.AuthorizationStateWaitTdlibParameters }:
+                // TdLib creates database in the current directory.
+                // so create separate directory and switch to that dir.
+                var filesLocation = Path.Combine(AppContext.BaseDirectory, "db");
                 await _client.ExecuteAsync(new TdApi.SetTdlibParameters
                 {
                     Parameters = new TdApi.TdlibParameters
@@ -103,7 +112,10 @@ internal static class Program
                         ApiId = ApiId,
                         ApiHash = ApiHash,
                         DeviceModel = "PC",
-                        SystemLanguageCode = "en"
+                        SystemLanguageCode = "en",
+                        ApplicationVersion = ApplicationVersion,
+                        DatabaseDirectory = filesLocation,
+                        FilesDirectory = filesLocation,
                         // More parameters available!
                     }
                 });
