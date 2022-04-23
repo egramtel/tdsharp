@@ -1,8 +1,8 @@
 # TDLib
 
-.NET bindings for TDLib (Telegram Database Library): https://github.com/tdlib/td
+.NET bindings for **TDLib** (Telegram Database Library): https://github.com/tdlib/td
 * Generated API bindings
-* .NET Core and .NET Standard support
+* Supports .NET Standard 2.0 and later
 
 ### Installation
 
@@ -22,6 +22,12 @@ To do that, [build TDLib](https://core.telegram.org/tdlib/docs/index.html#buildi
 * tdjson.dll (Windows) (optionally accompanied by other DLL files from the build directory if you want to bundle OpenSSL and ZLib dependencies as well)
 * libtdjson.dylib (MacOS)
 * libtdjson.so (Linux)
+
+### Have a question?
+
+Report bugs to the [issue tracker][issues].
+
+Ask questions at [the discussion section on GitHub][discussions].
 
 ### Using json client
 
@@ -81,6 +87,8 @@ By default, TdSharp will try to detect the platform and use the corresponding bi
 - [License (MIT)][docs.license]
 - [Instructions for Maintainers][docs.maintainership]
 
+[discussions]: https://github.com/egramtel/tdsharp/discussions
 [docs.changelog]: ./CHANGELOG.md
 [docs.license]: ./LICENSE
 [docs.maintainership]: ./MAINTAINERSHIP.md
+[issues]: https://github.com/egramtel/tdsharp/issues
