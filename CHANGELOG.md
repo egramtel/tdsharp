@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
-## [Unreleased]
+## [1.8.1.1] - 2022-06-26
 ### Changed
 - `ITdLibBindings`, `TdLibBindingsExtensions` and `TdLogLevel` were moved from `TDLib.Bindings` to `TdLib.Bindings` (case-only change in the namespace), since the old namespace was created in an error. A compatibility layer is created to keep the old types.
 - Upgraded the Newtonsoft.Json dependency to 13.0.1
@@ -72,4 +72,5 @@ Initial release to support TDLib pre-1.2.
 [1.7.0.2]: https://github.com/egramtel/tdsharp/compare/v1.7.0.1...v1.7.0.2
 [1.7.9]: https://github.com/egramtel/tdsharp/compare/v1.7.0.2...v1.7.9
 [1.8.1]: https://github.com/egramtel/tdsharp/compare/v1.7.9...v1.8.1
-[Unreleased]: https://github.com/egramtel/tdsharp/compare/v1.8.1...HEAD
+[1.8.1.1]: https://github.com/egramtel/tdsharp/compare/v1.8.1...v1.8.1.1
+[Unreleased]: https://github.com/egramtel/tdsharp/compare/v1.8.1.1...HEAD
