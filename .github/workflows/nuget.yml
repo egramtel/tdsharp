@@ -79,7 +79,7 @@ jobs:
 
       - name: Push TDLib to NuGet
         if: github.event_name == 'push' && contains(github.ref, 'refs/tags/')
-        run: dotnet nuget push ./TDLib/bin/Release/TDLib.${{ steps.version.outputs.version }}.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_KEY_TDLIB }}
+        run: dotnet nuget push ./TdLib/bin/Release/TDLib.${{ steps.version.outputs.version }}.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_KEY_TDLIB }}
       - name: Push TDLib.Api to NuGet
         if: github.event_name == 'push' && contains(github.ref, 'refs/tags/')
-        run: dotnet nuget push ./TDLib.Api/bin/Release/TDLib.Api.${{ steps.version.outputs.version }}.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_KEY_TDLIB_API }}
+        run: dotnet nuget push ./TdLib.Api/bin/Release/TDLib.Api.${{ steps.version.outputs.version }}.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_KEY_TDLIB_API }}
