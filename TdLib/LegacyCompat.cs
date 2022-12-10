@@ -3,12 +3,12 @@
 // ReSharper disable once CheckNamespace
 namespace TDLib.Bindings;
 
-// TODO[#114]: Mark these types as "error: true" in the next update.
+// TODO[#114]: Delete these obsolete types in the next update.
 
-[Obsolete("Use TdLib.Bindings.ITdLibBindings instead (check the namespace case)")]
+[Obsolete("Use TdLib.Bindings.ITdLibBindings instead (check the namespace case)", error: true)]
 public interface ITdLibBindings : TdLib.Bindings.ITdLibBindings {}
 
-[Obsolete("Use TdLib.Bindings.TdLibBindingsExtensions instead (check the namespace case)")]
+[Obsolete("Use TdLib.Bindings.TdLibBindingsExtensions instead (check the namespace case)", error: true)]
 public static class TdLibBindingsExtensions
 {
     public static void SetLogFilePath(this ITdLibBindings bindings, string path)
@@ -22,7 +22,7 @@ public static class TdLibBindingsExtensions
     }
 }
 
-[Obsolete("Use TdLib.Bindings.TdLogLevel instead (check the namespace case)")]
+[Obsolete("Use TdLib.Bindings.TdLogLevel instead (check the namespace case)", error: true)]
 public enum TdLogLevel
 {
     Fatal = 0,

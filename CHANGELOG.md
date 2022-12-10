@@ -9,6 +9,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Fixed
 - Array items are now deserialized to their actual types ([#146](https://github.com/egramtel/tdsharp/issues/146)).
 
+### Changed
+- All the items in `TDLib.Bindings` namespace (the previously mentioned case-only issue) were marked as `Obsolete(error: true)`. Basic API compatibility is preserved, source compatibility is not.
+
 ## [1.8.1.1] - 2022-06-26
 ### Changed
 - `ITdLibBindings`, `TdLibBindingsExtensions` and `TdLogLevel` were moved from `TDLib.Bindings` to `TdLib.Bindings` (case-only change in the namespace), since the old namespace was created in an error. A compatibility layer is created to keep the old types available.
