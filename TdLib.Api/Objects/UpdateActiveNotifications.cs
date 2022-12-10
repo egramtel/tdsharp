@@ -30,8 +30,7 @@ namespace TdLib
                 /// <summary>
                 /// Lists of active notification groups
                 /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("groups")]
+                [JsonProperty("groups", ItemConverterType = typeof(Converter))]
                 public NotificationGroup[] Groups { get; set; }
             }
         }

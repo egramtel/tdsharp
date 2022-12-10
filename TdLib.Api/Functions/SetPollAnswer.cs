@@ -43,8 +43,7 @@ namespace TdLib
             /// <summary>
             /// 0-based identifiers of answer options, chosen by the user. User can choose more than 1 answer option only is the poll allows multiple answers
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("option_ids")]
+            [JsonProperty("option_ids", ItemConverterType = typeof(Converter))]
             public int[] OptionIds { get; set; }
         }
 

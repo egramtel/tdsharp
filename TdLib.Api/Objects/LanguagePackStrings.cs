@@ -28,8 +28,7 @@ namespace TdLib
             /// <summary>
             /// A list of language pack strings
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("strings")]
+            [JsonProperty("strings", ItemConverterType = typeof(Converter))]
             public LanguagePackString[] Strings { get; set; }
         }
     }

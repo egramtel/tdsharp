@@ -36,8 +36,7 @@ namespace TdLib
             /// <summary>
             /// Identifiers of installed sticker sets in the new correct order
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("sticker_set_ids")]
+            [JsonProperty("sticker_set_ids", ItemConverterType = typeof(Converter))]
             public long[] StickerSetIds { get; set; }
         }
 

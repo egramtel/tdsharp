@@ -35,8 +35,7 @@ namespace TdLib
             /// <summary>
             /// List of sticker sets
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("sets")]
+            [JsonProperty("sets", ItemConverterType = typeof(Converter))]
             public StickerSetInfo[] Sets { get; set; }
         }
     }

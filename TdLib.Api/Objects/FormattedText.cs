@@ -35,8 +35,7 @@ namespace TdLib
             /// <summary>
             /// Entities contained in the text. Entities can be nested, but must not mutually intersect with each other.
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("entities")]
+            [JsonProperty("entities", ItemConverterType = typeof(Converter))]
             public TextEntity[] Entities { get; set; }
         }
     }

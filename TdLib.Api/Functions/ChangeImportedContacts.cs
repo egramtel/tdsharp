@@ -29,8 +29,7 @@ namespace TdLib
             /// <summary>
             /// 
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("contacts")]
+            [JsonProperty("contacts", ItemConverterType = typeof(Converter))]
             public Contact[] Contacts { get; set; }
         }
 

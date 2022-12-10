@@ -37,8 +37,7 @@ namespace TdLib
                 /// <summary>
                 /// User identifiers of members in the basic group
                 /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("member_user_ids")]
+                [JsonProperty("member_user_ids", ItemConverterType = typeof(Converter))]
                 public long[] MemberUserIds { get; set; }
             }
         }

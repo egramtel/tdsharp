@@ -35,8 +35,7 @@ namespace TdLib
             /// <summary>
             /// List of messages; messages may be null
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("messages")]
+            [JsonProperty("messages", ItemConverterType = typeof(Converter))]
             public Message[] Messages_ { get; set; }
         }
     }

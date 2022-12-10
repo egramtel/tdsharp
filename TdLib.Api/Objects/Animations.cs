@@ -28,8 +28,7 @@ namespace TdLib
             /// <summary>
             /// List of animations
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("animations")]
+            [JsonProperty("animations", ItemConverterType = typeof(Converter))]
             public Animation[] Animations_ { get; set; }
         }
     }

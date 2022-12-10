@@ -28,8 +28,7 @@ namespace TdLib
             /// <summary>
             /// List of URLs
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("urls")]
+            [JsonProperty("urls", ItemConverterType = typeof(Converter))]
             public TMeUrl[] Urls { get; set; }
         }
     }

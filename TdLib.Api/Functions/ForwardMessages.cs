@@ -43,8 +43,7 @@ namespace TdLib
             /// <summary>
             /// Identifiers of the messages to forward. Message identifiers must be in a strictly increasing order. At most 100 messages can be forwarded simultaneously
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("message_ids")]
+            [JsonProperty("message_ids", ItemConverterType = typeof(Converter))]
             public long[] MessageIds { get; set; }
 
             /// <summary>

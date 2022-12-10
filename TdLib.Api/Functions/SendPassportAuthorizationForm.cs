@@ -36,8 +36,7 @@ namespace TdLib
             /// <summary>
             /// Types of Telegram Passport elements chosen by user to complete the authorization form
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("types")]
+            [JsonProperty("types", ItemConverterType = typeof(Converter))]
             public PassportElementType[] Types { get; set; }
         }
 

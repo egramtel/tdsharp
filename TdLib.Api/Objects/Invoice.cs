@@ -35,8 +35,7 @@ namespace TdLib
             /// <summary>
             /// A list of objects used to calculate the total price of the product
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("price_parts")]
+            [JsonProperty("price_parts", ItemConverterType = typeof(Converter))]
             public LabeledPricePart[] PriceParts { get; set; }
 
             /// <summary>
@@ -49,8 +48,7 @@ namespace TdLib
             /// <summary>
             /// Suggested amounts of tip in the smallest units of the currency
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("suggested_tip_amounts")]
+            [JsonProperty("suggested_tip_amounts", ItemConverterType = typeof(Converter))]
             public long[] SuggestedTipAmounts { get; set; }
 
             /// <summary>

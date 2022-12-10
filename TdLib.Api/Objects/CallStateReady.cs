@@ -37,8 +37,7 @@ namespace TdLib
                 /// <summary>
                 /// List of available call servers
                 /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("servers")]
+                [JsonProperty("servers", ItemConverterType = typeof(Converter))]
                 public CallServer[] Servers { get; set; }
 
                 /// <summary>
@@ -58,8 +57,7 @@ namespace TdLib
                 /// <summary>
                 /// Encryption key emojis fingerprint
                 /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("emojis")]
+                [JsonProperty("emojis", ItemConverterType = typeof(Converter))]
                 public string[] Emojis { get; set; }
 
                 /// <summary>

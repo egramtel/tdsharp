@@ -37,8 +37,7 @@ namespace TdLib
                 /// <summary>
                 /// List of related articles
                 /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("articles")]
+                [JsonProperty("articles", ItemConverterType = typeof(Converter))]
                 public PageBlockRelatedArticle[] Articles { get; set; }
             }
         }

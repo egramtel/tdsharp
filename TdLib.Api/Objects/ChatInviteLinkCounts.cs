@@ -28,8 +28,7 @@ namespace TdLib
             /// <summary>
             /// List of invite link counts
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("invite_link_counts")]
+            [JsonProperty("invite_link_counts", ItemConverterType = typeof(Converter))]
             public ChatInviteLinkCount[] InviteLinkCounts { get; set; }
         }
     }

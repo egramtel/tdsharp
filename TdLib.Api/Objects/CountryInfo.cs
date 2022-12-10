@@ -56,8 +56,7 @@ namespace TdLib
             /// <summary>
             /// List of country calling codes
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("calling_codes")]
+            [JsonProperty("calling_codes", ItemConverterType = typeof(Converter))]
             public string[] CallingCodes { get; set; }
         }
     }

@@ -36,8 +36,7 @@ namespace TdLib
             /// <summary>
             /// The errors
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("errors")]
+            [JsonProperty("errors", ItemConverterType = typeof(Converter))]
             public InputPassportElementError[] Errors { get; set; }
         }
 

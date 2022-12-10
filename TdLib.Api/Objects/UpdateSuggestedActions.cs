@@ -30,15 +30,13 @@ namespace TdLib
                 /// <summary>
                 /// Added suggested actions
                 /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("added_actions")]
+                [JsonProperty("added_actions", ItemConverterType = typeof(Converter))]
                 public SuggestedAction[] AddedActions { get; set; }
 
                 /// <summary>
                 /// Removed suggested actions
                 /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("removed_actions")]
+                [JsonProperty("removed_actions", ItemConverterType = typeof(Converter))]
                 public SuggestedAction[] RemovedActions { get; set; }
             }
         }

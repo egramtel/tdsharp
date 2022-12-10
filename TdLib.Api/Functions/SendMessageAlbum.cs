@@ -57,8 +57,7 @@ namespace TdLib
             /// <summary>
             /// Contents of messages to be sent. At most 10 messages can be added to an album
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("input_message_contents")]
+            [JsonProperty("input_message_contents", ItemConverterType = typeof(Converter))]
             public InputMessageContent[] InputMessageContents { get; set; }
         }
 

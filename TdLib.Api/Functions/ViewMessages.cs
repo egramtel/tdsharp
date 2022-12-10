@@ -43,8 +43,7 @@ namespace TdLib
             /// <summary>
             /// The identifiers of the messages being viewed
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("message_ids")]
+            [JsonProperty("message_ids", ItemConverterType = typeof(Converter))]
             public long[] MessageIds { get; set; }
 
             /// <summary>

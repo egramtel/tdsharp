@@ -42,8 +42,7 @@ namespace TdLib
             /// <summary>
             /// List of poll answer options
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("options")]
+            [JsonProperty("options", ItemConverterType = typeof(Converter))]
             public PollOption[] Options { get; set; }
 
             /// <summary>
@@ -56,8 +55,7 @@ namespace TdLib
             /// <summary>
             /// User identifiers of recent voters, if the poll is non-anonymous
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("recent_voter_user_ids")]
+            [JsonProperty("recent_voter_user_ids", ItemConverterType = typeof(Converter))]
             public long[] RecentVoterUserIds { get; set; }
 
             /// <summary>

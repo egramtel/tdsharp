@@ -56,8 +56,7 @@ namespace TdLib
             /// <summary>
             /// The messages from which the thread starts. The messages are returned in a reverse chronological order (i.e., in order of decreasing message_id)
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("messages")]
+            [JsonProperty("messages", ItemConverterType = typeof(Converter))]
             public Message[] Messages { get; set; }
 
             /// <summary>

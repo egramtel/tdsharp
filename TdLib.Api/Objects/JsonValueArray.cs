@@ -30,8 +30,7 @@ namespace TdLib
                 /// <summary>
                 /// The list of array elements
                 /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("values")]
+                [JsonProperty("values", ItemConverterType = typeof(Converter))]
                 public JsonValue[] Values { get; set; }
             }
         }

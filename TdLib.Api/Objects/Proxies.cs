@@ -28,8 +28,7 @@ namespace TdLib
             /// <summary>
             /// List of proxy servers
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("proxies")]
+            [JsonProperty("proxies", ItemConverterType = typeof(Converter))]
             public Proxy[] Proxies_ { get; set; }
         }
     }

@@ -28,15 +28,13 @@ namespace TdLib
             /// <summary>
             /// User identifiers of the imported contacts in the same order as they were specified in the request; 0 if the contact is not yet a registered user
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("user_ids")]
+            [JsonProperty("user_ids", ItemConverterType = typeof(Converter))]
             public long[] UserIds { get; set; }
 
             /// <summary>
             /// The number of users that imported the corresponding contact; 0 for already registered users or if unavailable
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("importer_count")]
+            [JsonProperty("importer_count", ItemConverterType = typeof(Converter))]
             public int[] ImporterCount { get; set; }
         }
     }

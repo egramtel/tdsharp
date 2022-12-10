@@ -30,8 +30,7 @@ namespace TdLib
                 /// <summary>
                 /// The list of object members
                 /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("members")]
+                [JsonProperty("members", ItemConverterType = typeof(Converter))]
                 public JsonObjectMember[] Members { get; set; }
             }
         }

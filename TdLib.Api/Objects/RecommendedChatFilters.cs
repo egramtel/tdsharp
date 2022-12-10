@@ -28,8 +28,7 @@ namespace TdLib
             /// <summary>
             /// List of recommended chat filters
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("chat_filters")]
+            [JsonProperty("chat_filters", ItemConverterType = typeof(Converter))]
             public RecommendedChatFilter[] ChatFilters { get; set; }
         }
     }

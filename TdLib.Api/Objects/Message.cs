@@ -196,8 +196,7 @@ namespace TdLib
             /// <summary>
             /// Information about unread reactions added to the message
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("unread_reactions")]
+            [JsonProperty("unread_reactions", ItemConverterType = typeof(Converter))]
             public UnreadReaction[] UnreadReactions { get; set; }
 
             /// <summary>

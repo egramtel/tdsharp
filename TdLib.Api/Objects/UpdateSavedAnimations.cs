@@ -30,8 +30,7 @@ namespace TdLib
                 /// <summary>
                 /// The new list of file identifiers of saved animations
                 /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("animation_ids")]
+                [JsonProperty("animation_ids", ItemConverterType = typeof(Converter))]
                 public int[] AnimationIds { get; set; }
             }
         }

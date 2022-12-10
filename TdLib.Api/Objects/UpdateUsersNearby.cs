@@ -30,8 +30,7 @@ namespace TdLib
                 /// <summary>
                 /// The new list of users nearby
                 /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("users_nearby")]
+                [JsonProperty("users_nearby", ItemConverterType = typeof(Converter))]
                 public ChatNearby[] UsersNearby { get; set; }
             }
         }

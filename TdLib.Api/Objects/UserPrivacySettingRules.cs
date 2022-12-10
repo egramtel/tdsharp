@@ -28,8 +28,7 @@ namespace TdLib
             /// <summary>
             /// A list of rules
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("rules")]
+            [JsonProperty("rules", ItemConverterType = typeof(Converter))]
             public UserPrivacySettingRule[] Rules { get; set; }
         }
     }

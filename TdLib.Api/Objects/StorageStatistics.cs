@@ -42,8 +42,7 @@ namespace TdLib
             /// <summary>
             /// Statistics split by chats
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("by_chat")]
+            [JsonProperty("by_chat", ItemConverterType = typeof(Converter))]
             public StorageStatisticsByChat[] ByChat { get; set; }
         }
     }

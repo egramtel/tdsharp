@@ -28,8 +28,7 @@ namespace TdLib
             /// <summary>
             /// A list of hashtags
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("hashtags")]
+            [JsonProperty("hashtags", ItemConverterType = typeof(Converter))]
             public string[] Hashtags_ { get; set; }
         }
     }

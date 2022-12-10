@@ -35,8 +35,7 @@ namespace TdLib
             /// <summary>
             /// Information about messages sent
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("days")]
+            [JsonProperty("days", ItemConverterType = typeof(Converter))]
             public MessageCalendarDay[] Days { get; set; }
         }
     }

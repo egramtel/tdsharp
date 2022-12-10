@@ -35,8 +35,7 @@ namespace TdLib
             /// <summary>
             /// Network statistics entries
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("entries")]
+            [JsonProperty("entries", ItemConverterType = typeof(Converter))]
             public NetworkStatisticsEntry[] Entries { get; set; }
         }
     }

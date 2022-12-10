@@ -43,8 +43,7 @@ namespace TdLib
             /// <summary>
             /// List of possible IETF language tags of the user's input language; may be empty if unknown
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("input_language_codes")]
+            [JsonProperty("input_language_codes", ItemConverterType = typeof(Converter))]
             public string[] InputLanguageCodes { get; set; }
         }
 

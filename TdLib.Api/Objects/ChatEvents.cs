@@ -28,8 +28,7 @@ namespace TdLib
             /// <summary>
             /// List of events
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("events")]
+            [JsonProperty("events", ItemConverterType = typeof(Converter))]
             public ChatEvent[] Events { get; set; }
         }
     }

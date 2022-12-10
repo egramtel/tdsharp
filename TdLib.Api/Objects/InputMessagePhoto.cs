@@ -44,8 +44,7 @@ namespace TdLib
                 /// <summary>
                 /// File identifiers of the stickers added to the photo, if applicable
                 /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("added_sticker_file_ids")]
+                [JsonProperty("added_sticker_file_ids", ItemConverterType = typeof(Converter))]
                 public int[] AddedStickerFileIds { get; set; }
 
                 /// <summary>

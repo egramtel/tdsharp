@@ -28,15 +28,13 @@ namespace TdLib
             /// <summary>
             /// List of users nearby
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("users_nearby")]
+            [JsonProperty("users_nearby", ItemConverterType = typeof(Converter))]
             public ChatNearby[] UsersNearby { get; set; }
 
             /// <summary>
             /// List of location-based supergroups nearby
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("supergroups_nearby")]
+            [JsonProperty("supergroups_nearby", ItemConverterType = typeof(Converter))]
             public ChatNearby[] SupergroupsNearby { get; set; }
         }
     }

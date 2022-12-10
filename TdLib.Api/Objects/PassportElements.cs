@@ -28,8 +28,7 @@ namespace TdLib
             /// <summary>
             /// Telegram Passport elements
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("elements")]
+            [JsonProperty("elements", ItemConverterType = typeof(Converter))]
             public PassportElement[] Elements { get; set; }
         }
     }

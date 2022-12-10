@@ -28,8 +28,7 @@ namespace TdLib
             /// <summary>
             /// List of sessions
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("sessions")]
+            [JsonProperty("sessions", ItemConverterType = typeof(Converter))]
             public Session[] Sessions_ { get; set; }
 
             /// <summary>

@@ -28,8 +28,7 @@ namespace TdLib
             /// <summary>
             /// List of text entities
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("entities")]
+            [JsonProperty("entities", ItemConverterType = typeof(Converter))]
             public TextEntity[] Entities { get; set; }
         }
     }

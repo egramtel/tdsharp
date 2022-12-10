@@ -56,8 +56,7 @@ namespace TdLib
             /// <summary>
             /// Sticker set thumbnail's outline represented as a list of closed vector paths; may be empty. The coordinate system origin is in the upper-left corner
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("thumbnail_outline")]
+            [JsonProperty("thumbnail_outline", ItemConverterType = typeof(Converter))]
             public ClosedVectorPath[] ThumbnailOutline { get; set; }
 
             /// <summary>
@@ -105,8 +104,7 @@ namespace TdLib
             /// <summary>
             /// Up to the first 5 stickers from the set, depending on the context. If the application needs more stickers the full sticker set needs to be requested
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("covers")]
+            [JsonProperty("covers", ItemConverterType = typeof(Converter))]
             public Sticker[] Covers { get; set; }
         }
     }

@@ -29,8 +29,7 @@ namespace TdLib
             /// <summary>
             /// Identifiers of chat filters in the new correct order
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("chat_filter_ids")]
+            [JsonProperty("chat_filter_ids", ItemConverterType = typeof(Converter))]
             public int[] ChatFilterIds { get; set; }
         }
 

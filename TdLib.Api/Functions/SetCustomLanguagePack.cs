@@ -36,8 +36,7 @@ namespace TdLib
             /// <summary>
             /// Strings of the new language pack
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("strings")]
+            [JsonProperty("strings", ItemConverterType = typeof(Converter))]
             public LanguagePackString[] Strings { get; set; }
         }
 

@@ -30,8 +30,7 @@ namespace TdLib
                 /// <summary>
                 /// The new list of chat themes
                 /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("chat_themes")]
+                [JsonProperty("chat_themes", ItemConverterType = typeof(Converter))]
                 public ChatTheme[] ChatThemes { get; set; }
             }
         }

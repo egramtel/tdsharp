@@ -28,8 +28,7 @@ namespace TdLib
             /// <summary>
             /// A list of backgrounds
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("backgrounds")]
+            [JsonProperty("backgrounds", ItemConverterType = typeof(Converter))]
             public Background[] Backgrounds_ { get; set; }
         }
     }

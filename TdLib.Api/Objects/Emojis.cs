@@ -28,8 +28,7 @@ namespace TdLib
             /// <summary>
             /// List of emojis
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("emojis")]
+            [JsonProperty("emojis", ItemConverterType = typeof(Converter))]
             public string[] Emojis_ { get; set; }
         }
     }

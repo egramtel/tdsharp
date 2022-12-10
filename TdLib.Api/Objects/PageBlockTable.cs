@@ -37,8 +37,7 @@ namespace TdLib
                 /// <summary>
                 /// Table cells
                 /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("cells")]
+                [JsonProperty("cells", ItemConverterType = typeof(Converter))]
                 public PageBlockTableCell[][] Cells { get; set; }
 
                 /// <summary>

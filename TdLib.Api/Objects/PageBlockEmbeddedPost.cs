@@ -58,8 +58,7 @@ namespace TdLib
                 /// <summary>
                 /// Post content
                 /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("page_blocks")]
+                [JsonProperty("page_blocks", ItemConverterType = typeof(Converter))]
                 public PageBlock[] PageBlocks { get; set; }
 
                 /// <summary>

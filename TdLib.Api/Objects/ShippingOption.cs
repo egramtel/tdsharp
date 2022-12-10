@@ -42,8 +42,7 @@ namespace TdLib
             /// <summary>
             /// A list of objects used to calculate the total shipping costs
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("price_parts")]
+            [JsonProperty("price_parts", ItemConverterType = typeof(Converter))]
             public LabeledPricePart[] PriceParts { get; set; }
         }
     }

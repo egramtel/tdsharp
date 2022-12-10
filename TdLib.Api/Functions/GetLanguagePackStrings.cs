@@ -36,8 +36,7 @@ namespace TdLib
             /// <summary>
             /// Language pack keys of the strings to be returned; leave empty to request all available strings
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("keys")]
+            [JsonProperty("keys", ItemConverterType = typeof(Converter))]
             public string[] Keys { get; set; }
         }
 

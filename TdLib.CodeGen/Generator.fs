@@ -32,11 +32,21 @@ let getNamedAnnotationText (annotations: Parser.TlAnnotation list) fieldName =
         | _ -> None) |> List.tryHead
 
 let generateField (def: Parser.TlDef) (field: Parser.TlField) (annotations: Parser.TlAnnotation list) (tabulation: string) =
-    let converter =
-            match field.TypeName with
-            | Parser.TlInt64 -> "Converter.Int64"
-            | _ -> "Converter"
     let tlFieldName = field.FieldName
+
+    let jsonConverterAttribute converterName = $"[JsonConverter(typeof({converterName}))]"
+    let jsonPropertyAttribute additionalParams = $"[JsonProperty(\"{tlFieldName}\"{additionalParams})]"
+
+    let converter =
+        match field.TypeName with
+        | Parser.TlInt64 -> "Converter.Int64"
+        | _ -> "Converter"
+
+    let fieldAttributes =
+        match field.TypeName with
+        | Parser.TlVector _ -> jsonPropertyAttribute $", ItemConverterType = typeof({converter})"
+        | _ -> $"{jsonConverterAttribute converter}\n{tabulation}{jsonPropertyAttribute String.Empty}"
+
     let fieldType = getDotNetType field.TypeName
     let enclosingType =
         match def with
@@ -56,8 +66,7 @@ let generateField (def: Parser.TlDef) (field: Parser.TlField) (annotations: Pars
     let lines = Utils.readResource "Field.tpl"
     lines |> Seq.map (fun line ->
         tabulation + line.Replace("$FIELD_DESCRIPTION", description)
-            .Replace("$FIELD_CONVERTER", converter)
-            .Replace("$TL_FIELD_NAME", tlFieldName)
+            .Replace("$FIELD_ATTRIBUTES", fieldAttributes)
             .Replace("$FIELD_TYPE", fieldType)
             .Replace("$FIELD_NAME", fieldName))
         |> String.concat "\n"

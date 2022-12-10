@@ -30,8 +30,7 @@ namespace TdLib
                 /// <summary>
                 /// A list of rows of inline keyboard buttons
                 /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("rows")]
+                [JsonProperty("rows", ItemConverterType = typeof(Converter))]
                 public InlineKeyboardButton[][] Rows { get; set; }
             }
         }

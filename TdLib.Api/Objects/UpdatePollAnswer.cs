@@ -44,8 +44,7 @@ namespace TdLib
                 /// <summary>
                 /// 0-based identifiers of answer options, chosen by the user
                 /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("option_ids")]
+                [JsonProperty("option_ids", ItemConverterType = typeof(Converter))]
                 public int[] OptionIds { get; set; }
             }
         }

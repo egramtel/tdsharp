@@ -49,8 +49,7 @@ namespace TdLib
             /// <summary>
             /// The list of reactions added to the message
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("reactions")]
+            [JsonProperty("reactions", ItemConverterType = typeof(Converter))]
             public MessageReaction[] Reactions { get; set; }
         }
     }

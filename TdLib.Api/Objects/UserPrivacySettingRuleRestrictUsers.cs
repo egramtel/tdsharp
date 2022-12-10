@@ -30,8 +30,7 @@ namespace TdLib
                 /// <summary>
                 /// The user identifiers, total number of users in all rules must not exceed 1000
                 /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("user_ids")]
+                [JsonProperty("user_ids", ItemConverterType = typeof(Converter))]
                 public long[] UserIds { get; set; }
             }
         }

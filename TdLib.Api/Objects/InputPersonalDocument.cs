@@ -28,15 +28,13 @@ namespace TdLib
             /// <summary>
             /// List of files containing the pages of the document
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("files")]
+            [JsonProperty("files", ItemConverterType = typeof(Converter))]
             public InputFile[] Files { get; set; }
 
             /// <summary>
             /// List of files containing a certified English translation of the document
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("translation")]
+            [JsonProperty("translation", ItemConverterType = typeof(Converter))]
             public InputFile[] Translation { get; set; }
         }
     }

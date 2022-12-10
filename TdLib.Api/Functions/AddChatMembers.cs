@@ -36,8 +36,7 @@ namespace TdLib
             /// <summary>
             /// Identifiers of the users to be added to the chat. The maximum number of added users is 20 for supergroups and 100 for channels
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("user_ids")]
+            [JsonProperty("user_ids", ItemConverterType = typeof(Converter))]
             public long[] UserIds { get; set; }
         }
 

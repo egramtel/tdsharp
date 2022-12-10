@@ -35,8 +35,7 @@ namespace TdLib
             /// <summary>
             /// Actions that can be done with the bank card number
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("actions")]
+            [JsonProperty("actions", ItemConverterType = typeof(Converter))]
             public BankCardActionOpenUrl[] Actions { get; set; }
         }
     }

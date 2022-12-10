@@ -29,8 +29,7 @@ namespace TdLib
             /// <summary>
             /// The list of contacts to import or edit; contacts' vCard are ignored and are not imported
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("contacts")]
+            [JsonProperty("contacts", ItemConverterType = typeof(Converter))]
             public Contact[] Contacts { get; set; }
         }
 

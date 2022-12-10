@@ -30,8 +30,7 @@ namespace TdLib
                 /// <summary>
                 /// Texts
                 /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("texts")]
+                [JsonProperty("texts", ItemConverterType = typeof(Converter))]
                 public RichText[] Texts { get; set; }
             }
         }

@@ -43,8 +43,7 @@ namespace TdLib
             /// <summary>
             /// List of the bot's commands
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("commands")]
+            [JsonProperty("commands", ItemConverterType = typeof(Converter))]
             public BotCommand[] Commands { get; set; }
         }
 

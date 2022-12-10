@@ -49,8 +49,7 @@ namespace TdLib
             /// <summary>
             /// Available variants of the photo in JPEG format, in different size
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("sizes")]
+            [JsonProperty("sizes", ItemConverterType = typeof(Converter))]
             public PhotoSize[] Sizes { get; set; }
 
             /// <summary>

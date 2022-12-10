@@ -63,8 +63,7 @@ namespace TdLib
             /// <summary>
             /// List of files containing a certified English translation of the document
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("translation")]
+            [JsonProperty("translation", ItemConverterType = typeof(Converter))]
             public InputFile[] Translation { get; set; }
         }
     }

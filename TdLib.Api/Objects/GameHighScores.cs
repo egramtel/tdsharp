@@ -28,8 +28,7 @@ namespace TdLib
             /// <summary>
             /// A list of game high scores
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("scores")]
+            [JsonProperty("scores", ItemConverterType = typeof(Converter))]
             public GameHighScore[] Scores { get; set; }
         }
     }

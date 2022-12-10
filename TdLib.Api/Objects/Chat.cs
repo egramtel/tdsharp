@@ -70,8 +70,7 @@ namespace TdLib
             /// <summary>
             /// Positions of the chat in chat lists
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("positions")]
+            [JsonProperty("positions", ItemConverterType = typeof(Converter))]
             public ChatPosition[] Positions { get; set; }
 
             /// <summary>
@@ -182,8 +181,7 @@ namespace TdLib
             /// <summary>
             /// List of reactions, available in the chat
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("available_reactions")]
+            [JsonProperty("available_reactions", ItemConverterType = typeof(Converter))]
             public string[] AvailableReactions { get; set; }
 
             /// <summary>

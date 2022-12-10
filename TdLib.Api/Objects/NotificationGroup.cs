@@ -56,8 +56,7 @@ namespace TdLib
             /// <summary>
             /// The list of active notifications
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("notifications")]
+            [JsonProperty("notifications", ItemConverterType = typeof(Converter))]
             public Notification[] Notifications { get; set; }
         }
     }

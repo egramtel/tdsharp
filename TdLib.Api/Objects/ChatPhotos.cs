@@ -35,8 +35,7 @@ namespace TdLib
             /// <summary>
             /// List of photos
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("photos")]
+            [JsonProperty("photos", ItemConverterType = typeof(Converter))]
             public ChatPhoto[] Photos { get; set; }
         }
     }

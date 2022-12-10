@@ -35,8 +35,7 @@ namespace TdLib
             /// <summary>
             /// A list of user identifiers
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("user_ids")]
+            [JsonProperty("user_ids", ItemConverterType = typeof(Converter))]
             public long[] UserIds { get; set; }
         }
     }

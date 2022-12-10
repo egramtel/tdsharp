@@ -42,22 +42,19 @@ namespace TdLib
             /// <summary>
             /// The chat identifiers of pinned chats in the filtered chat list
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("pinned_chat_ids")]
+            [JsonProperty("pinned_chat_ids", ItemConverterType = typeof(Converter))]
             public long[] PinnedChatIds { get; set; }
 
             /// <summary>
             /// The chat identifiers of always included chats in the filtered chat list
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("included_chat_ids")]
+            [JsonProperty("included_chat_ids", ItemConverterType = typeof(Converter))]
             public long[] IncludedChatIds { get; set; }
 
             /// <summary>
             /// The chat identifiers of always excluded chats in the filtered chat list
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("excluded_chat_ids")]
+            [JsonProperty("excluded_chat_ids", ItemConverterType = typeof(Converter))]
             public long[] ExcludedChatIds { get; set; }
 
             /// <summary>

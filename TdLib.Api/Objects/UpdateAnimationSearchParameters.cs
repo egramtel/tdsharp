@@ -37,8 +37,7 @@ namespace TdLib
                 /// <summary>
                 /// The new list of emojis suggested for searching
                 /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("emojis")]
+                [JsonProperty("emojis", ItemConverterType = typeof(Converter))]
                 public string[] Emojis { get; set; }
             }
         }

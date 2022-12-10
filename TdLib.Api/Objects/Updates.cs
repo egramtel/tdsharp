@@ -28,8 +28,7 @@ namespace TdLib
             /// <summary>
             /// List of updates
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("updates")]
+            [JsonProperty("updates", ItemConverterType = typeof(Converter))]
             public Update[] Updates_ { get; set; }
         }
     }

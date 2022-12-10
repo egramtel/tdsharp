@@ -56,8 +56,7 @@ namespace TdLib
             /// <summary>
             /// Sticker set thumbnail's outline represented as a list of closed vector paths; may be empty. The coordinate system origin is in the upper-left corner
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("thumbnail_outline")]
+            [JsonProperty("thumbnail_outline", ItemConverterType = typeof(Converter))]
             public ClosedVectorPath[] ThumbnailOutline { get; set; }
 
             /// <summary>
@@ -98,15 +97,13 @@ namespace TdLib
             /// <summary>
             /// List of stickers in this set
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("stickers")]
+            [JsonProperty("stickers", ItemConverterType = typeof(Converter))]
             public Sticker[] Stickers { get; set; }
 
             /// <summary>
             /// A list of emoji corresponding to the stickers in the same order. The list is only for informational purposes, because a sticker is always sent with a fixed emoji from the corresponding Sticker object
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("emojis")]
+            [JsonProperty("emojis", ItemConverterType = typeof(Converter))]
             public Emojis[] Emojis { get; set; }
         }
     }

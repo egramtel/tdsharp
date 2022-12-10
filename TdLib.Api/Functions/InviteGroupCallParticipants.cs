@@ -36,8 +36,7 @@ namespace TdLib
             /// <summary>
             /// User identifiers. At most 10 users can be invited simultaneously
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("user_ids")]
+            [JsonProperty("user_ids", ItemConverterType = typeof(Converter))]
             public long[] UserIds { get; set; }
         }
 

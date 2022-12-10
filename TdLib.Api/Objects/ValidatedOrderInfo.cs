@@ -35,8 +35,7 @@ namespace TdLib
             /// <summary>
             /// Available shipping options
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("shipping_options")]
+            [JsonProperty("shipping_options", ItemConverterType = typeof(Converter))]
             public ShippingOption[] ShippingOptions { get; set; }
         }
     }

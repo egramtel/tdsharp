@@ -30,8 +30,7 @@ namespace TdLib
                 /// <summary>
                 /// The items of the list
                 /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("items")]
+                [JsonProperty("items", ItemConverterType = typeof(Converter))]
                 public PageBlockListItem[] Items { get; set; }
             }
         }

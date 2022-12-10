@@ -28,8 +28,7 @@ namespace TdLib
             /// <summary>
             /// List of reactions
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("reactions")]
+            [JsonProperty("reactions", ItemConverterType = typeof(Converter))]
             public string[] Reactions { get; set; }
         }
     }

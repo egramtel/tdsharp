@@ -28,8 +28,7 @@ namespace TdLib
             /// <summary>
             /// List of chat lists
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("chat_lists")]
+            [JsonProperty("chat_lists", ItemConverterType = typeof(Converter))]
             public ChatList[] ChatLists_ { get; set; }
         }
     }

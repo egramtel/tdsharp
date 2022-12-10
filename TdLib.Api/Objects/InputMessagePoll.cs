@@ -37,8 +37,7 @@ namespace TdLib
                 /// <summary>
                 /// List of poll answer options, 2-10 strings 1-100 characters each
                 /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("options")]
+                [JsonProperty("options", ItemConverterType = typeof(Converter))]
                 public string[] Options { get; set; }
 
                 /// <summary>

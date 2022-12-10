@@ -36,8 +36,7 @@ namespace TdLib
             /// <summary>
             /// The new list of pinned chats
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("chat_ids")]
+            [JsonProperty("chat_ids", ItemConverterType = typeof(Converter))]
             public long[] ChatIds { get; set; }
         }
 

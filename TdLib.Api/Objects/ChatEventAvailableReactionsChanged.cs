@@ -30,15 +30,13 @@ namespace TdLib
                 /// <summary>
                 /// Previous chat available reactions
                 /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("old_available_reactions")]
+                [JsonProperty("old_available_reactions", ItemConverterType = typeof(Converter))]
                 public string[] OldAvailableReactions { get; set; }
 
                 /// <summary>
                 /// New chat available reactions
                 /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("new_available_reactions")]
+                [JsonProperty("new_available_reactions", ItemConverterType = typeof(Converter))]
                 public string[] NewAvailableReactions { get; set; }
             }
         }

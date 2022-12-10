@@ -28,8 +28,7 @@ namespace TdLib
             /// <summary>
             /// List of connected websites
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("websites")]
+            [JsonProperty("websites", ItemConverterType = typeof(Converter))]
             public ConnectedWebsite[] Websites { get; set; }
         }
     }

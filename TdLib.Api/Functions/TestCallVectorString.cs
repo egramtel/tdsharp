@@ -29,8 +29,7 @@ namespace TdLib
             /// <summary>
             /// Vector of strings to return
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("x")]
+            [JsonProperty("x", ItemConverterType = typeof(Converter))]
             public string[] X { get; set; }
         }
 

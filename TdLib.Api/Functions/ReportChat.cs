@@ -36,8 +36,7 @@ namespace TdLib
             /// <summary>
             /// Identifiers of reported messages, if any
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("message_ids")]
+            [JsonProperty("message_ids", ItemConverterType = typeof(Converter))]
             public long[] MessageIds { get; set; }
 
             /// <summary>

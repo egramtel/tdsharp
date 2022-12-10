@@ -30,8 +30,7 @@ namespace TdLib
                 /// <summary>
                 /// The new list of file identifiers of favorite stickers
                 /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("sticker_ids")]
+                [JsonProperty("sticker_ids", ItemConverterType = typeof(Converter))]
                 public int[] StickerIds { get; set; }
             }
         }

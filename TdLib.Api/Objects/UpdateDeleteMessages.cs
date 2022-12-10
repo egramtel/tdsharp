@@ -37,8 +37,7 @@ namespace TdLib
                 /// <summary>
                 /// Identifiers of the deleted messages
                 /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("message_ids")]
+                [JsonProperty("message_ids", ItemConverterType = typeof(Converter))]
                 public long[] MessageIds { get; set; }
 
                 /// <summary>

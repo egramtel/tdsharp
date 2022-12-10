@@ -28,8 +28,7 @@ namespace TdLib
             /// <summary>
             /// List of available language packs for this application
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("language_packs")]
+            [JsonProperty("language_packs", ItemConverterType = typeof(Converter))]
             public LanguagePackInfo[] LanguagePacks { get; set; }
         }
     }

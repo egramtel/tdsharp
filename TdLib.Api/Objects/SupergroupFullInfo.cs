@@ -154,8 +154,7 @@ namespace TdLib
             /// <summary>
             /// List of commands of bots in the group
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("bot_commands")]
+            [JsonProperty("bot_commands", ItemConverterType = typeof(Converter))]
             public BotCommands[] BotCommands { get; set; }
 
             /// <summary>

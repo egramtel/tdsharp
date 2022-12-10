@@ -35,8 +35,7 @@ namespace TdLib
             /// <summary>
             /// List of message senders
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("senders")]
+            [JsonProperty("senders", ItemConverterType = typeof(Converter))]
             public MessageSender[] Senders { get; set; }
         }
     }

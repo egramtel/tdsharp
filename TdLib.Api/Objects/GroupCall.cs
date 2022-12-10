@@ -98,8 +98,7 @@ namespace TdLib
             /// <summary>
             /// At most 3 recently speaking users in the group call
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("recent_speakers")]
+            [JsonProperty("recent_speakers", ItemConverterType = typeof(Converter))]
             public GroupCallRecentSpeaker[] RecentSpeakers { get; set; }
 
             /// <summary>

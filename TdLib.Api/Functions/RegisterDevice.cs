@@ -36,8 +36,7 @@ namespace TdLib
             /// <summary>
             /// List of user identifiers of other users currently using the application
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("other_user_ids")]
+            [JsonProperty("other_user_ids", ItemConverterType = typeof(Converter))]
             public long[] OtherUserIds { get; set; }
         }
 

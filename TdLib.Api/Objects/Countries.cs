@@ -28,8 +28,7 @@ namespace TdLib
             /// <summary>
             /// The list of countries
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("countries")]
+            [JsonProperty("countries", ItemConverterType = typeof(Converter))]
             public CountryInfo[] Countries_ { get; set; }
         }
     }

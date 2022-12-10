@@ -57,22 +57,19 @@ namespace TdLib
             /// <summary>
             /// If non-empty, only files with the given types are considered. By default, all types except thumbnails, profile photos, stickers and wallpapers are deleted
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("file_types")]
+            [JsonProperty("file_types", ItemConverterType = typeof(Converter))]
             public FileType[] FileTypes { get; set; }
 
             /// <summary>
             /// If non-empty, only files from the given chats are considered. Use 0 as chat identifier to delete files not belonging to any chat (e.g., profile photos)
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("chat_ids")]
+            [JsonProperty("chat_ids", ItemConverterType = typeof(Converter))]
             public long[] ChatIds { get; set; }
 
             /// <summary>
             /// If non-empty, files from the given chats are excluded. Use 0 as chat identifier to exclude all files not belonging to any chat (e.g., profile photos)
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("exclude_chat_ids")]
+            [JsonProperty("exclude_chat_ids", ItemConverterType = typeof(Converter))]
             public long[] ExcludeChatIds { get; set; }
 
             /// <summary>

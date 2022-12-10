@@ -49,8 +49,7 @@ namespace TdLib
             /// <summary>
             /// Statistics split by file types
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("by_file_type")]
+            [JsonProperty("by_file_type", ItemConverterType = typeof(Converter))]
             public StorageStatisticsByFileType[] ByFileType { get; set; }
         }
     }

@@ -35,8 +35,7 @@ namespace TdLib
             /// <summary>
             /// List of the requests
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("requests")]
+            [JsonProperty("requests", ItemConverterType = typeof(Converter))]
             public ChatJoinRequest[] Requests { get; set; }
         }
     }

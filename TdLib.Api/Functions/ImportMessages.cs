@@ -43,8 +43,7 @@ namespace TdLib
             /// <summary>
             /// Files used in the imported messages. Only inputFileLocal and inputFileGenerated are supported. The files must not be previously uploaded
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("attached_files")]
+            [JsonProperty("attached_files", ItemConverterType = typeof(Converter))]
             public InputFile[] AttachedFiles { get; set; }
         }
 

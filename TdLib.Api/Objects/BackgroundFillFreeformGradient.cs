@@ -30,8 +30,7 @@ namespace TdLib
                 /// <summary>
                 /// A list of 3 or 4 colors of the freeform gradients in the RGB24 format
                 /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("colors")]
+                [JsonProperty("colors", ItemConverterType = typeof(Converter))]
                 public int[] Colors { get; set; }
             }
         }

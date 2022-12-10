@@ -35,8 +35,7 @@ namespace TdLib
             /// <summary>
             /// Telegram Passport elements that must be provided to complete the form
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("required_elements")]
+            [JsonProperty("required_elements", ItemConverterType = typeof(Converter))]
             public PassportRequiredElement[] RequiredElements { get; set; }
 
             /// <summary>

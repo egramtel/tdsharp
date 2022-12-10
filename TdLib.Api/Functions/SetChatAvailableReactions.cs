@@ -36,8 +36,7 @@ namespace TdLib
             /// <summary>
             /// New list of reactions, available in the chat. All reactions must be active and order of the reactions must be the same as in updateReactions
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("available_reactions")]
+            [JsonProperty("available_reactions", ItemConverterType = typeof(Converter))]
             public string[] AvailableReactions { get; set; }
         }
 

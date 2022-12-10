@@ -30,8 +30,7 @@ namespace TdLib
                 /// <summary>
                 /// The chat identifiers, total number of chats in all rules must not exceed 20
                 /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("chat_ids")]
+                [JsonProperty("chat_ids", ItemConverterType = typeof(Converter))]
                 public long[] ChatIds { get; set; }
             }
         }

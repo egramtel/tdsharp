@@ -42,8 +42,7 @@ namespace TdLib
             /// <summary>
             /// Results of the query
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("results")]
+            [JsonProperty("results", ItemConverterType = typeof(Converter))]
             public InlineQueryResult[] Results { get; set; }
 
             /// <summary>

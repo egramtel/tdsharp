@@ -28,8 +28,7 @@ namespace TdLib
             /// <summary>
             /// List of vector path commands
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("commands")]
+            [JsonProperty("commands", ItemConverterType = typeof(Converter))]
             public VectorPathCommand[] Commands { get; set; }
         }
     }

@@ -28,8 +28,7 @@ namespace TdLib
             /// <summary>
             /// A list of chat administrators
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("administrators")]
+            [JsonProperty("administrators", ItemConverterType = typeof(Converter))]
             public ChatAdministrator[] Administrators { get; set; }
         }
     }

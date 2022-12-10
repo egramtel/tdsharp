@@ -30,8 +30,7 @@ namespace TdLib
                 /// <summary>
                 /// List of received Telegram Passport elements
                 /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("elements")]
+                [JsonProperty("elements", ItemConverterType = typeof(Converter))]
                 public EncryptedPassportElement[] Elements { get; set; }
 
                 /// <summary>

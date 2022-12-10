@@ -121,22 +121,19 @@ namespace TdLib
                 /// <summary>
                 /// List of users sent most messages in the last week
                 /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("top_senders")]
+                [JsonProperty("top_senders", ItemConverterType = typeof(Converter))]
                 public ChatStatisticsMessageSenderInfo[] TopSenders { get; set; }
 
                 /// <summary>
                 /// List of most active administrators in the last week
                 /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("top_administrators")]
+                [JsonProperty("top_administrators", ItemConverterType = typeof(Converter))]
                 public ChatStatisticsAdministratorActionsInfo[] TopAdministrators { get; set; }
 
                 /// <summary>
                 /// List of most active inviters of new members in the last week
                 /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("top_inviters")]
+                [JsonProperty("top_inviters", ItemConverterType = typeof(Converter))]
                 public ChatStatisticsInviterInfo[] TopInviters { get; set; }
             }
         }

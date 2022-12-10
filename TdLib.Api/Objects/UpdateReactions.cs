@@ -30,8 +30,7 @@ namespace TdLib
                 /// <summary>
                 /// The new list of supported reactions
                 /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("reactions")]
+                [JsonProperty("reactions", ItemConverterType = typeof(Converter))]
                 public Reaction[] Reactions { get; set; }
             }
         }

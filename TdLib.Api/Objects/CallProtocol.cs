@@ -56,8 +56,7 @@ namespace TdLib
             /// <summary>
             /// List of supported tgcalls versions
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("library_versions")]
+            [JsonProperty("library_versions", ItemConverterType = typeof(Converter))]
             public string[] LibraryVersions { get; set; }
         }
     }

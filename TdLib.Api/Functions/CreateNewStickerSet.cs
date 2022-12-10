@@ -50,8 +50,7 @@ namespace TdLib
             /// <summary>
             /// List of stickers to be added to the set; must be non-empty. All stickers must have the same format. For TGS stickers, uploadStickerFile must be used before the sticker is shown
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("stickers")]
+            [JsonProperty("stickers", ItemConverterType = typeof(Converter))]
             public InputSticker[] Stickers { get; set; }
 
             /// <summary>

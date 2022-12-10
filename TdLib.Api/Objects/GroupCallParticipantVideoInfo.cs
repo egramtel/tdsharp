@@ -28,8 +28,7 @@ namespace TdLib
             /// <summary>
             /// List of synchronization source groups of the video
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("source_groups")]
+            [JsonProperty("source_groups", ItemConverterType = typeof(Converter))]
             public GroupCallVideoSourceGroup[] SourceGroups { get; set; }
 
             /// <summary>

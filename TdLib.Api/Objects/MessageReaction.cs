@@ -49,8 +49,7 @@ namespace TdLib
             /// <summary>
             /// Identifiers of at most 3 recent message senders, added the reaction; available in private chats, basic groups and supergroups
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("recent_sender_ids")]
+            [JsonProperty("recent_sender_ids", ItemConverterType = typeof(Converter))]
             public MessageSender[] RecentSenderIds { get; set; }
         }
     }

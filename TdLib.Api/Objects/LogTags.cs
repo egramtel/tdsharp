@@ -28,8 +28,7 @@ namespace TdLib
             /// <summary>
             /// List of log tags
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("tags")]
+            [JsonProperty("tags", ItemConverterType = typeof(Converter))]
             public string[] Tags { get; set; }
         }
     }

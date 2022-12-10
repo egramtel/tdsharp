@@ -35,8 +35,7 @@ namespace TdLib
             /// <summary>
             /// List of message positions
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("positions")]
+            [JsonProperty("positions", ItemConverterType = typeof(Converter))]
             public MessagePosition[] Positions { get; set; }
         }
     }

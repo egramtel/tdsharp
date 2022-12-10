@@ -37,8 +37,7 @@ namespace TdLib
                 /// <summary>
                 /// The new list of reactions, available in the chat
                 /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("available_reactions")]
+                [JsonProperty("available_reactions", ItemConverterType = typeof(Converter))]
                 public string[] AvailableReactions { get; set; }
             }
         }

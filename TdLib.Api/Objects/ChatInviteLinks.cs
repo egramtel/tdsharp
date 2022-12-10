@@ -35,8 +35,7 @@ namespace TdLib
             /// <summary>
             /// List of invite links
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("invite_links")]
+            [JsonProperty("invite_links", ItemConverterType = typeof(Converter))]
             public ChatInviteLink[] InviteLinks { get; set; }
         }
     }

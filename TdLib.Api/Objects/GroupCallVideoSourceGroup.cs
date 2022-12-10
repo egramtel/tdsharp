@@ -35,8 +35,7 @@ namespace TdLib
             /// <summary>
             /// The list of synchronization source identifiers
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("source_ids")]
+            [JsonProperty("source_ids", ItemConverterType = typeof(Converter))]
             public int[] SourceIds { get; set; }
         }
     }

@@ -35,8 +35,7 @@ namespace TdLib
             /// <summary>
             /// Identifiers of at most 3 recent repliers to the message; available in channels with a discussion supergroup. The users and chats are expected to be inaccessible: only their photo and name will be available
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("recent_replier_ids")]
+            [JsonProperty("recent_replier_ids", ItemConverterType = typeof(Converter))]
             public MessageSender[] RecentReplierIds { get; set; }
 
             /// <summary>

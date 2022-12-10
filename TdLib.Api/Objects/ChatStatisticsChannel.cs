@@ -128,8 +128,7 @@ namespace TdLib
                 /// <summary>
                 /// Detailed statistics about number of views and shares of recently sent messages
                 /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("recent_message_interactions")]
+                [JsonProperty("recent_message_interactions", ItemConverterType = typeof(Converter))]
                 public ChatStatisticsMessageInteractionInfo[] RecentMessageInteractions { get; set; }
             }
         }

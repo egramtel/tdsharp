@@ -28,8 +28,7 @@ namespace TdLib
             /// <summary>
             /// Vector of objects
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("value")]
+            [JsonProperty("value", ItemConverterType = typeof(Converter))]
             public TestInt[] Value { get; set; }
         }
     }

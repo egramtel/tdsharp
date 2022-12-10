@@ -64,8 +64,7 @@ namespace TdLib
             /// <summary>
             /// User identifiers by which to filter events. By default, events relating to all users will be returned
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("user_ids")]
+            [JsonProperty("user_ids", ItemConverterType = typeof(Converter))]
             public long[] UserIds { get; set; }
         }
 

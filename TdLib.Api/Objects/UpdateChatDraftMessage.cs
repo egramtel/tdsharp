@@ -44,8 +44,7 @@ namespace TdLib
                 /// <summary>
                 /// The new chat positions in the chat lists
                 /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("positions")]
+                [JsonProperty("positions", ItemConverterType = typeof(Converter))]
                 public ChatPosition[] Positions { get; set; }
             }
         }

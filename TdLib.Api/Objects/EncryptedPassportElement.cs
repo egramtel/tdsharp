@@ -63,15 +63,13 @@ namespace TdLib
             /// <summary>
             /// List of files containing a certified English translation of the document
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("translation")]
+            [JsonProperty("translation", ItemConverterType = typeof(Converter))]
             public DatedFile[] Translation { get; set; }
 
             /// <summary>
             /// List of attached files
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("files")]
+            [JsonProperty("files", ItemConverterType = typeof(Converter))]
             public DatedFile[] Files { get; set; }
 
             /// <summary>

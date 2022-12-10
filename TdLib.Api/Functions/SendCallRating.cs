@@ -50,8 +50,7 @@ namespace TdLib
             /// <summary>
             /// List of the exact types of problems with the call, specified by the user
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("problems")]
+            [JsonProperty("problems", ItemConverterType = typeof(Converter))]
             public CallProblem[] Problems { get; set; }
         }
 

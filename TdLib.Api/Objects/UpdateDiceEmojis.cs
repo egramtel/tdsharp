@@ -30,8 +30,7 @@ namespace TdLib
                 /// <summary>
                 /// The new list of supported dice emojis
                 /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("emojis")]
+                [JsonProperty("emojis", ItemConverterType = typeof(Converter))]
                 public string[] Emojis { get; set; }
             }
         }

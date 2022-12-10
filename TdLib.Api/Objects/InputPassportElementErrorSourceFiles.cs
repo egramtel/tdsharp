@@ -30,8 +30,7 @@ namespace TdLib
                 /// <summary>
                 /// Current hashes of all attached files
                 /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("file_hashes")]
+                [JsonProperty("file_hashes", ItemConverterType = typeof(Converter))]
                 public byte[][] FileHashes { get; set; }
             }
         }
