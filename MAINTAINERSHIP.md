@@ -25,6 +25,16 @@ To update the key:
 4. Create a new key with same permission and only allowed to publish **TDLib.Api** package.
 5. Paste the generated API keys to the [action secrets][github.secrets] section on GitHub settings (update the `NUGET_KEY_TDLIB` and `NUGET_KEY_TDLIB_API` secrets).
 
+Update Telegram API
+-------------------
+
+1. Run script `Scripts/Get-TlFiles.ps1` to download the API definitions.
+2. Delete the directories `Objects` and `Functions` from the `TdLib.Api` project.
+3. Run the following shell script to regenerate the C# code:
+   ```console
+   $ cd TdLib.Api && dotnet run --project ../TdLib.CodeGen
+   ```
+
 [changelog]: ./CHANGELOG.md
 [docs.unlist]: https://docs.microsoft.com/en-us/nuget/nuget-org/policies/deleting-packages#unlisting-a-package
 [github.secrets]: https://github.com/egramtel/tdsharp/settings/secrets/actions

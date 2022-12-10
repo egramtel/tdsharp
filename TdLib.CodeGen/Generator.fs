@@ -141,13 +141,25 @@ let generateFunc (def: Parser.TlDef) (annotations: Parser.TlAnnotation list) =
             .Replace("$FUNC_ARGS", funcArgs))
         |> String.concat "\n"
 
+let private isBasicDef(line: string) =
+    // Skip the beginning of Types.tl
+    line.StartsWith("double ? =")
+    || line.StartsWith("string ? =")
+    || line.StartsWith("int32 =")
+    || line.StartsWith("int53 =")
+    || line.StartsWith("int64 =")
+    || line.StartsWith("bytes =")
+    || line.StartsWith("boolFalse =")
+    || line.StartsWith("boolTrue =")
+    || line.StartsWith("vector {t:Type} # [ t ] =")
+
 let generateAllTypes() = seq {
     let lines = Utils.readResource "Types.tl"
 
     let mutable annotations = []
 
     for line in lines do
-        if String.IsNullOrWhiteSpace(line) then
+        if String.IsNullOrWhiteSpace line || isBasicDef line then
             ()
         elif line.StartsWith("//") then
             match run Parser.parseAnnotationList line with

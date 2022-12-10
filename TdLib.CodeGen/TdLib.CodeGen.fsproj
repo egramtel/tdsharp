@@ -5,6 +5,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <Content Include="Properties\launchSettings.json" />
         <Compile Include="Utils.fs" />
         <Compile Include="Parser.fs" />
         <Compile Include="Generator.fs" />
