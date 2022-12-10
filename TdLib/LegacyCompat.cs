@@ -3,6 +3,8 @@
 // ReSharper disable once CheckNamespace
 namespace TDLib.Bindings;
 
+#pragma warning disable MA0048
+
 // TODO[#114]: Delete these obsolete types in the next update.
 
 [Obsolete("Use TdLib.Bindings.ITdLibBindings instead (check the namespace case)", error: true)]
