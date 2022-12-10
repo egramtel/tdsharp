@@ -1,10 +1,9 @@
 ﻿using System;
-using System.IO;
 using System.Collections.Generic;
+using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 using TdLib.Bindings;
-using TdLib;
 
 namespace TdLib.Samples.GetChats;
 
@@ -48,7 +47,7 @@ internal static class Program
         var currentUser = await GetCurrentUser();
 
         var fullUserName = $"{currentUser.FirstName} {currentUser.LastName}".Trim();
-        Console.WriteLine($"Successfully logged in as [{currentUser.Id}] / [@{currentUser.Username}] / [{fullUserName}]");
+        Console.WriteLine($"Successfully logged in as [{currentUser.Id}] / [@{currentUser.Usernames?.ActiveUsernames[0]}] / [{fullUserName}]");
 
         const int channelLimit = 5;
         var channels = GetChannels(channelLimit);
@@ -107,22 +106,15 @@ internal static class Program
                 var filesLocation = Path.Combine(AppContext.BaseDirectory, "db");
                 await _client.ExecuteAsync(new TdApi.SetTdlibParameters
                 {
-                    Parameters = new TdApi.TdlibParameters
-                    {
-                        ApiId = ApiId,
-                        ApiHash = ApiHash,
-                        DeviceModel = "PC",
-                        SystemLanguageCode = "en",
-                        ApplicationVersion = ApplicationVersion,
-                        DatabaseDirectory = filesLocation,
-                        FilesDirectory = filesLocation,
-                        // More parameters available!
-                    }
+                    ApiId = ApiId,
+                    ApiHash = ApiHash,
+                    DeviceModel = "PC",
+                    SystemLanguageCode = "en",
+                    ApplicationVersion = ApplicationVersion,
+                    DatabaseDirectory = filesLocation,
+                    FilesDirectory = filesLocation,
+                    // More parameters available!
                 });
-                break;
-
-            case TdApi.Update.UpdateAuthorizationState { AuthorizationState: TdApi.AuthorizationState.AuthorizationStateWaitEncryptionKey }:
-                await _client.ExecuteAsync(new TdApi.CheckDatabaseEncryptionKey());
                 break;
 
             case TdApi.Update.UpdateAuthorizationState { AuthorizationState: TdApi.AuthorizationState.AuthorizationStateWaitPhoneNumber }:

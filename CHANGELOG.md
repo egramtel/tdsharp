@@ -6,24 +6,28 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased] (1.8.2)
+### Changed
+- Update to [TDLib v1.8.9](https://github.com/tdlib/td/tree/29752073cf2fe586ecefe572d3821a8cf853fab5).
+
+  **Notable breaking changes**:
+  - [Authorization API has been changed](https://github.com/tdlib/td/issues/2155#issuecomment-1264474111).
+- All the items in `TDLib.Bindings` namespace (the previously mentioned case-only issue) were marked as `Obsolete(error: true)`. Basic API compatibility is preserved, source compatibility is not.
+
 ### Fixed
 - Array items are now deserialized to their actual types ([#146](https://github.com/egramtel/tdsharp/issues/146)).
-
-### Changed
-- All the items in `TDLib.Bindings` namespace (the previously mentioned case-only issue) were marked as `Obsolete(error: true)`. Basic API compatibility is preserved, source compatibility is not.
 
 ## [1.8.1.1] - 2022-06-26
 ### Changed
 - `ITdLibBindings`, `TdLibBindingsExtensions` and `TdLogLevel` were moved from `TDLib.Bindings` to `TdLib.Bindings` (case-only change in the namespace), since the old namespace was created in an error. A compatibility layer is created to keep the old types available.
-- Upgraded the Newtonsoft.Json dependency to 13.0.1.
+- Upgraded the Newtonsoft.Json dependency to v13.0.1.
 
 ## [1.8.1] - 2022-04-10
 ### Changed
-- Update bindings to [TDLib 1.8.1](https://github.com/tdlib/td/tree/1e1ab5d1b0e4811e6d9e1584a82da08448d0cada).
+- Update bindings to [TDLib v1.8.1](https://github.com/tdlib/td/tree/1e1ab5d1b0e4811e6d9e1584a82da08448d0cada).
 
 ## [1.7.9] - 2021-12-04
 ### Changed
-- Update bindings for [TDLib 1.7.9](https://github.com/tdlib/td/tree/8d7bda00a535d1eda684c3c8802e85d69c89a14a).
+- Update bindings for [TDLib v1.7.9](https://github.com/tdlib/td/tree/8d7bda00a535d1eda684c3c8802e85d69c89a14a).
 
 ## [1.7.0.2] - 2021-11-20
 ### Added
@@ -39,7 +43,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [1.7.0] - 2021-02-05
 ### Changed
-- Update bindings for TDLib 1.7.
+- Update bindings for TDLib v1.7.
 
 ### Added
 - Ability to provide custom native bindings (`ITdLibBindings`).
@@ -47,11 +51,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [1.6.0] - 2020-02-21
 ### Changed
 - New entry classes: `TdClient`, `TdJsonClient`.
-- Update bindings for TDLib 1.6.
+- Update bindings for TDLib v1.6.
 
 ## [1.3.0] - 2018-09-08
 ### Changed
-- Update bindings for TDLib 1.3.
+- Update bindings for TDLib v1.3.
 -
 ### Fixed
 - Use correct native library name on Linux.
@@ -63,7 +67,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [1.2.0] - 2018-04-06
 ### Changed
-- Update bindings for TDLib 1.2.
+- Update bindings for TDLib v1.2.
 
 ## [1.0.0] - 2018-04-01
 
