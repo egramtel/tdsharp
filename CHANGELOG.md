@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
-## [Unreleased] (1.8.2)
+## [Unreleased] (1.8.9)
 ### Changed
 - Update to [TDLib v1.8.9](https://github.com/tdlib/td/tree/29752073cf2fe586ecefe572d3821a8cf853fab5).
 
