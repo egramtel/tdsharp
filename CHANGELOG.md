@@ -28,7 +28,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [1.7.0.1] - 2021-11-06
 ### Added
-- `TdJsonClient.GlobalExecute` to execute a request on an automatically configured bindings instance
+- `TdJsonClient.GlobalExecute` to execute a request on an automatically configured bindings instance.
 - Ability to get autodetected bindings in the user code.
 
 ### Fixed
