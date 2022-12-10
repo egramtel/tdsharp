@@ -81,6 +81,13 @@ namespace TdLib
             public bool IsOfficial { get; set; }
 
             /// <summary>
+            /// Format of the stickers in the set
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("sticker_format")]
+            public StickerFormat StickerFormat { get; set; }
+
+            /// <summary>
             /// Type of the stickers in the set
             /// </summary>
             [JsonConverter(typeof(Converter))]

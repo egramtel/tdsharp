@@ -38,21 +38,21 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("offset")]
-            public int Offset { get; set; }
+            public long Offset { get; set; }
 
             /// <summary>
             /// Number of bytes to read. An error will be returned if there are not enough bytes available in the file from the specified position. Pass 0 to read all available data from the specified position
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("count")]
-            public int Count { get; set; }
+            public long Count { get; set; }
         }
 
         /// <summary>
         /// Reads a part of a file from the TDLib file cache and returns read bytes. This method is intended to be used only if the application has no direct access to TDLib's file system, because it is usually slower than a direct read from the file
         /// </summary>
         public static Task<FilePart> ReadFilePartAsync(
-            this Client client, int fileId = default, int offset = default, int count = default)
+            this Client client, int fileId = default, long offset = default, long count = default)
         {
             return client.ExecuteAsync(new ReadFilePart
             {

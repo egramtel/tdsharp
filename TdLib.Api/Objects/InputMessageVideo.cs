@@ -76,7 +76,7 @@ namespace TdLib
                 public bool SupportsStreaming { get; set; }
 
                 /// <summary>
-                /// Video caption; pass null to use an empty caption; 0-GetOption("message_caption_length_max") characters
+                /// Video caption; pass null to use an empty caption; 0-getOption("message_caption_length_max") characters
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("caption")]

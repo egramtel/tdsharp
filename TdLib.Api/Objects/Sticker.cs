@@ -54,11 +54,32 @@ namespace TdLib
             public string Emoji { get; set; }
 
             /// <summary>
+            /// Sticker format
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("format")]
+            public StickerFormat Format { get; set; }
+
+            /// <summary>
             /// Sticker type
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("type")]
             public StickerType Type { get; set; }
+
+            /// <summary>
+            /// Position where the mask is placed; may be null even the sticker is a mask
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("mask_position")]
+            public MaskPosition MaskPosition { get; set; }
+
+            /// <summary>
+            /// Identifier of the emoji if the sticker is a custom emoji
+            /// </summary>
+            [JsonConverter(typeof(Converter.Int64))]
+            [JsonProperty("custom_emoji_id")]
+            public long CustomEmojiId { get; set; }
 
             /// <summary>
             /// Sticker's outline represented as a list of closed vector paths; may be empty. The coordinate system origin is in the upper-left corner
@@ -72,6 +93,20 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("thumbnail")]
             public Thumbnail Thumbnail { get; set; }
+
+            /// <summary>
+            /// True, if only Premium users can use the sticker
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("is_premium")]
+            public bool IsPremium { get; set; }
+
+            /// <summary>
+            /// Premium animation of the sticker; may be null
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("premium_animation")]
+            public File PremiumAnimation { get; set; }
 
             /// <summary>
             /// File containing the sticker

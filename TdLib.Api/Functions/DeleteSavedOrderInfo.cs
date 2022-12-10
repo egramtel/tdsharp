@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Deletes saved order info
+        /// Deletes saved order information
         /// </summary>
         public class DeleteSavedOrderInfo : Function<Ok>
         {
@@ -30,7 +30,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Deletes saved order info
+        /// Deletes saved order information
         /// </summary>
         public static Task<Ok> DeleteSavedOrderInfoAsync(
             this Client client)

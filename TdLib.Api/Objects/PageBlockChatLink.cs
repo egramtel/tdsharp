@@ -42,7 +42,7 @@ namespace TdLib
                 public ChatPhotoInfo Photo { get; set; }
 
                 /// <summary>
-                /// Chat username, by which all other information about the chat can be resolved
+                /// Chat username by which all other information about the chat can be resolved
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("username")]

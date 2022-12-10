@@ -11,7 +11,7 @@ namespace TdLib
         public partial class TextParseMode : Object
         {
             /// <summary>
-            /// Describes the way the text needs to be parsed for TextEntities
+            /// Describes the way the text needs to be parsed for text entities
             /// </summary>
             public class TextParseModeMarkdown : TextParseMode
             {

@@ -9,7 +9,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Contains information about a link to a message in a chat
+        /// Contains information about a link to a message or a forum topic in a chat
         /// </summary>
         public partial class MessageLinkInfo : Object
         {
@@ -40,6 +40,13 @@ namespace TdLib
             public long ChatId { get; set; }
 
             /// <summary>
+            /// If found, identifier of the message thread in which to open the message, or a forum topic to open if the message is missing
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("message_thread_id")]
+            public long MessageThreadId { get; set; }
+
+            /// <summary>
             /// If found, the linked message; may be null
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -59,13 +66,6 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("for_album")]
             public bool ForAlbum { get; set; }
-
-            /// <summary>
-            /// True, if the message is linked as a channel post comment or from a message thread
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("for_comment")]
-            public bool ForComment { get; set; }
         }
     }
 }

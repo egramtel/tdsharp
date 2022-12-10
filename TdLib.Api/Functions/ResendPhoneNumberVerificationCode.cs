@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Re-sends the code to verify a phone number to be added to a user's Telegram Passport
+        /// Resends the code to verify a phone number to be added to a user's Telegram Passport
         /// </summary>
         public class ResendPhoneNumberVerificationCode : Function<AuthenticationCodeInfo>
         {
@@ -30,7 +30,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Re-sends the code to verify a phone number to be added to a user's Telegram Passport
+        /// Resends the code to verify a phone number to be added to a user's Telegram Passport
         /// </summary>
         public static Task<AuthenticationCodeInfo> ResendPhoneNumberVerificationCodeAsync(
             this Client client)

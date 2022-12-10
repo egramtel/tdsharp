@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Changes the password for the current user. If a new recovery email address is specified, then the change will not be applied until the new recovery email address is confirmed
+        /// Changes the 2-step verification password for the current user. If a new recovery email address is specified, then the change will not be applied until the new recovery email address is confirmed
         /// </summary>
         public class SetPassword : Function<PasswordState>
         {
@@ -27,14 +27,14 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Previous password of the user
+            /// Previous 2-step verification password of the user
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("old_password")]
             public string OldPassword { get; set; }
 
             /// <summary>
-            /// New password of the user; may be empty to remove the password
+            /// New 2-step verification password of the user; may be empty to remove the password
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("new_password")]
@@ -48,7 +48,7 @@ namespace TdLib
             public string NewHint { get; set; }
 
             /// <summary>
-            /// Pass true if the recovery email address must be changed
+            /// Pass true to change also the recovery email address
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("set_recovery_email_address")]
@@ -63,7 +63,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Changes the password for the current user. If a new recovery email address is specified, then the change will not be applied until the new recovery email address is confirmed
+        /// Changes the 2-step verification password for the current user. If a new recovery email address is specified, then the change will not be applied until the new recovery email address is confirmed
         /// </summary>
         public static Task<PasswordState> SetPasswordAsync(
             this Client client, string oldPassword = default, string newPassword = default, string newHint = default, bool setRecoveryEmailAddress = default, string newRecoveryEmailAddress = default)

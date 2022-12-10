@@ -34,7 +34,7 @@ namespace TdLib
             public int CallId { get; set; }
 
             /// <summary>
-            /// True, if the user was disconnected
+            /// Pass true if the user was disconnected
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_disconnected")]
@@ -48,7 +48,7 @@ namespace TdLib
             public int Duration { get; set; }
 
             /// <summary>
-            /// True, if the call was a video call
+            /// Pass true if the call was a video call
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_video")]

@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Re-sends the authentication code sent to confirm a new phone number for the current user. Works only if the previously received authenticationCodeInfo next_code_type was not null and the server-specified timeout has passed
+        /// Resends the authentication code sent to confirm a new phone number for the current user. Works only if the previously received authenticationCodeInfo next_code_type was not null and the server-specified timeout has passed
         /// </summary>
         public class ResendChangePhoneNumberCode : Function<AuthenticationCodeInfo>
         {
@@ -30,7 +30,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Re-sends the authentication code sent to confirm a new phone number for the current user. Works only if the previously received authenticationCodeInfo next_code_type was not null and the server-specified timeout has passed
+        /// Resends the authentication code sent to confirm a new phone number for the current user. Works only if the previously received authenticationCodeInfo next_code_type was not null and the server-specified timeout has passed
         /// </summary>
         public static Task<AuthenticationCodeInfo> ResendChangePhoneNumberCodeAsync(
             this Client client)

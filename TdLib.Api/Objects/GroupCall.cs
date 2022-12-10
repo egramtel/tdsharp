@@ -61,6 +61,13 @@ namespace TdLib
             public bool IsActive { get; set; }
 
             /// <summary>
+            /// True, if the chat is an RTMP stream instead of an ordinary video chat
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("is_rtmp_stream")]
+            public bool IsRtmpStream { get; set; }
+
+            /// <summary>
             /// True, if the call is joined
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -87,6 +94,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("participant_count")]
             public int ParticipantCount { get; set; }
+
+            /// <summary>
+            /// True, if group call participants, which are muted, aren't returned in participant list
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("has_hidden_listeners")]
+            public bool HasHiddenListeners { get; set; }
 
             /// <summary>
             /// True, if all group call participants are loaded

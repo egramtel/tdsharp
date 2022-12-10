@@ -27,7 +27,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Chat identifier, in which the video chat will be created
+            /// Identifier of a chat in which the video chat will be created
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_id")]
@@ -46,17 +46,24 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("start_date")]
             public int StartDate { get; set; }
+
+            /// <summary>
+            /// Pass true to create an RTMP stream instead of an ordinary video chat; requires creator privileges
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("is_rtmp_stream")]
+            public bool IsRtmpStream { get; set; }
         }
 
         /// <summary>
         /// Creates a video chat (a group call bound to a chat). Available only for basic groups, supergroups and channels; requires can_manage_video_chats rights
         /// </summary>
         public static Task<GroupCallId> CreateVideoChatAsync(
-            this Client client, long chatId = default, string title = default, int startDate = default)
+            this Client client, long chatId = default, string title = default, int startDate = default, bool isRtmpStream = default)
         {
             return client.ExecuteAsync(new CreateVideoChat
             {
-                ChatId = chatId, Title = title, StartDate = startDate
+                ChatId = chatId, Title = title, StartDate = startDate, IsRtmpStream = isRtmpStream
             });
         }
     }

@@ -26,11 +26,11 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Text representation of the reaction
+            /// Type of the reaction
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("reaction")]
-            public string Reaction { get; set; }
+            [JsonProperty("type")]
+            public ReactionType Type { get; set; }
 
             /// <summary>
             /// Identifier of the chat member, applied the reaction

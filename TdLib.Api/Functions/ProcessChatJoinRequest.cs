@@ -41,7 +41,7 @@ namespace TdLib
             public long UserId { get; set; }
 
             /// <summary>
-            /// True, if the request is approved. Otherwise the request is declined
+            /// Pass true to approve the request; pass false to decline it
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("approve")]

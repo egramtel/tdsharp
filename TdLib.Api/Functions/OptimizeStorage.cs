@@ -41,7 +41,7 @@ namespace TdLib
             public int Ttl { get; set; }
 
             /// <summary>
-            /// Limit on the total count of files after deletion. Pass -1 to use the default limit
+            /// Limit on the total number of files after deletion. Pass -1 to use the default limit
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("count")]

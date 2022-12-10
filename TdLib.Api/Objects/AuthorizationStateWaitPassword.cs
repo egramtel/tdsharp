@@ -11,7 +11,7 @@ namespace TdLib
         public partial class AuthorizationState : Object
         {
             /// <summary>
-            /// The user has been authorized, but needs to enter a password to start using the application
+            /// The user has been authorized, but needs to enter a 2-step verification password to start using the application
             /// </summary>
             public class AuthorizationStateWaitPassword : AuthorizationState
             {

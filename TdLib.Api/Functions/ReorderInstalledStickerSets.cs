@@ -27,11 +27,11 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Pass true to change the order of mask sticker sets; pass false to change the order of ordinary sticker sets
+            /// Type of the sticker sets to reorder
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("is_masks")]
-            public bool IsMasks { get; set; }
+            [JsonProperty("sticker_type")]
+            public StickerType StickerType { get; set; }
 
             /// <summary>
             /// Identifiers of installed sticker sets in the new correct order
@@ -44,11 +44,11 @@ namespace TdLib
         /// Changes the order of installed sticker sets
         /// </summary>
         public static Task<Ok> ReorderInstalledStickerSetsAsync(
-            this Client client, bool isMasks = default, long[] stickerSetIds = default)
+            this Client client, StickerType stickerType = default, long[] stickerSetIds = default)
         {
             return client.ExecuteAsync(new ReorderInstalledStickerSets
             {
-                IsMasks = isMasks, StickerSetIds = stickerSetIds
+                StickerType = stickerType, StickerSetIds = stickerSetIds
             });
         }
     }

@@ -11,7 +11,7 @@ namespace TdLib
         public partial class InternalLinkType : Object
         {
             /// <summary>
-            /// Describes an internal https://t.me or tg: link, which must be processed by the app in a special way
+            /// Describes an internal https://t.me or tg: link, which must be processed by the application in a special way
             /// </summary>
             public class InternalLinkTypeActiveSessions : InternalLinkType
             {

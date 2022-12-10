@@ -41,7 +41,7 @@ namespace TdLib
             public CallProtocol Protocol { get; set; }
 
             /// <summary>
-            /// True, if a video call needs to be created
+            /// Pass true to create a video call
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_video")]

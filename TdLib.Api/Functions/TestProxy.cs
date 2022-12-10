@@ -48,7 +48,7 @@ namespace TdLib
             public ProxyType Type { get; set; }
 
             /// <summary>
-            /// Identifier of a datacenter, with which to test connection
+            /// Identifier of a datacenter with which to test connection
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("dc_id")]

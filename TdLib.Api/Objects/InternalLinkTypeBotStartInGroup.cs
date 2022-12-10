@@ -40,6 +40,13 @@ namespace TdLib
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("start_parameter")]
                 public string StartParameter { get; set; }
+
+                /// <summary>
+                /// Expected administrator rights for the bot; may be null
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("administrator_rights")]
+                public ChatAdministratorRights AdministratorRights { get; set; }
             }
         }
     }

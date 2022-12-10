@@ -32,17 +32,24 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("reason")]
             public string Reason { get; set; }
+
+            /// <summary>
+            /// The 2-step verification password of the current user. If not specified, account deletion can be canceled within one week
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("password")]
+            public string Password { get; set; }
         }
 
         /// <summary>
         /// Deletes the account of the current user, deleting all information associated with the user from the server. The phone number of the account can be used to create a new account. Can be called before authorization when the current authorization state is authorizationStateWaitPassword
         /// </summary>
         public static Task<Ok> DeleteAccountAsync(
-            this Client client, string reason = default)
+            this Client client, string reason = default, string password = default)
         {
             return client.ExecuteAsync(new DeleteAccount
             {
-                Reason = reason
+                Reason = reason, Password = password
             });
         }
     }

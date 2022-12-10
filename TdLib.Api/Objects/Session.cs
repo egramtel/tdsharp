@@ -40,7 +40,7 @@ namespace TdLib
             public bool IsCurrent { get; set; }
 
             /// <summary>
-            /// True, if a password is needed to complete authorization of the session
+            /// True, if a 2-step verification password is needed to complete authorization of the session
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_password_pending")]
@@ -59,6 +59,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("can_accept_calls")]
             public bool CanAcceptCalls { get; set; }
+
+            /// <summary>
+            /// Session type based on the system and application version, which can be used to display a corresponding icon
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("type")]
+            public SessionType Type { get; set; }
 
             /// <summary>
             /// Telegram API identifier, as provided by the application

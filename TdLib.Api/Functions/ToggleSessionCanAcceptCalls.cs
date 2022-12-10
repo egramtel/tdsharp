@@ -34,7 +34,7 @@ namespace TdLib
             public long SessionId { get; set; }
 
             /// <summary>
-            /// True, if incoming calls can be accepted by the session
+            /// Pass true to allow accepting incoming calls by the session; pass false otherwise
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("can_accept_calls")]

@@ -108,6 +108,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("video_chat_changes")]
             public bool VideoChatChanges { get; set; }
+
+            /// <summary>
+            /// True, if forum-related actions need to be returned
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("forum_changes")]
+            public bool ForumChanges { get; set; }
         }
     }
 }

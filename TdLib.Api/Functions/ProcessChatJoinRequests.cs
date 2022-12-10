@@ -41,7 +41,7 @@ namespace TdLib
             public string InviteLink { get; set; }
 
             /// <summary>
-            /// True, if the requests are approved. Otherwise the requests are declined
+            /// Pass true to approve all requests; pass false to decline them
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("approve")]

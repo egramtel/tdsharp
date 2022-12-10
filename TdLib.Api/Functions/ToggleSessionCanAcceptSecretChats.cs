@@ -34,7 +34,7 @@ namespace TdLib
             public long SessionId { get; set; }
 
             /// <summary>
-            /// True, if incoming secret chats can be accepted by the session
+            /// Pass true to allow accepring secret chats by the session; pass false otherwise
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("can_accept_secret_chats")]

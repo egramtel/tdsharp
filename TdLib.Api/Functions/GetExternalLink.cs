@@ -34,7 +34,7 @@ namespace TdLib
             public string Link { get; set; }
 
             /// <summary>
-            /// True, if the current user allowed the bot, returned in getExternalLinkInfo, to send them messages
+            /// Pass true if the current user allowed the bot, returned in getExternalLinkInfo, to send them messages
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("allow_write_access")]

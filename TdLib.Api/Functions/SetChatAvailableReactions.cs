@@ -34,17 +34,18 @@ namespace TdLib
             public long ChatId { get; set; }
 
             /// <summary>
-            /// New list of reactions, available in the chat. All reactions must be active and order of the reactions must be the same as in updateReactions
+            /// Reactions available in the chat. All emoji reactions must be active
             /// </summary>
-            [JsonProperty("available_reactions", ItemConverterType = typeof(Converter))]
-            public string[] AvailableReactions { get; set; }
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("available_reactions")]
+            public ChatAvailableReactions AvailableReactions { get; set; }
         }
 
         /// <summary>
         /// Changes reactions, available in a chat. Available for basic groups, supergroups, and channels. Requires can_change_info administrator right
         /// </summary>
         public static Task<Ok> SetChatAvailableReactionsAsync(
-            this Client client, long chatId = default, string[] availableReactions = default)
+            this Client client, long chatId = default, ChatAvailableReactions availableReactions = default)
         {
             return client.ExecuteAsync(new SetChatAvailableReactions
             {

@@ -26,7 +26,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// The total count of found reactions
+            /// The total number of found reactions
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("total_count")]

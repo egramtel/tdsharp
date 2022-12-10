@@ -33,6 +33,13 @@ namespace TdLib
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("ttl")]
                 public int Ttl { get; set; }
+
+                /// <summary>
+                /// If not 0, a user identifier, which default setting was automatically applied
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("from_user_id")]
+                public long FromUserId { get; set; }
             }
         }
     }

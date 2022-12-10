@@ -47,11 +47,11 @@ namespace TdLib
             public string LastName { get; set; }
 
             /// <summary>
-            /// Username of the user
+            /// Usernames of the user; may be null
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("username")]
-            public string Username { get; set; }
+            [JsonProperty("usernames")]
+            public Usernames Usernames { get; set; }
 
             /// <summary>
             /// Phone number of the user
@@ -75,6 +75,13 @@ namespace TdLib
             public ProfilePhoto ProfilePhoto { get; set; }
 
             /// <summary>
+            /// Emoji status to be shown instead of the default Telegram Premium badge; may be null. For Telegram Premium users only
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("emoji_status")]
+            public EmojiStatus EmojiStatus { get; set; }
+
+            /// <summary>
             /// The user is a contact of the current user
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -96,11 +103,25 @@ namespace TdLib
             public bool IsVerified { get; set; }
 
             /// <summary>
+            /// True, if the user is a Telegram Premium user
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("is_premium")]
+            public bool IsPremium { get; set; }
+
+            /// <summary>
             /// True, if the user is Telegram support account
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_support")]
             public bool IsSupport { get; set; }
+
+            /// <summary>
+            /// True, if the user's phone number was bought on Fragment and isn't tied to a SIM card
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("has_anonymous_phone_number")]
+            public bool HasAnonymousPhoneNumber { get; set; }
 
             /// <summary>
             /// If non-empty, it contains a human-readable description of the reason why access to this user must be restricted
@@ -124,7 +145,7 @@ namespace TdLib
             public bool IsFake { get; set; }
 
             /// <summary>
-            /// If false, the user is inaccessible, and the only information known about the user is inside this class. It can't be passed to any method except GetUser
+            /// If false, the user is inaccessible, and the only information known about the user is inside this class. Identifier of the user can't be passed to any method
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("have_access")]
@@ -143,6 +164,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("language_code")]
             public string LanguageCode { get; set; }
+
+            /// <summary>
+            /// True, if the user added the current bot to attachment menu; only available to bots
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("added_to_attachment_menu")]
+            public bool AddedToAttachmentMenu { get; set; }
         }
     }
 }

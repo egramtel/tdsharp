@@ -42,6 +42,20 @@ namespace TdLib
                 public long TotalAmount { get; set; }
 
                 /// <summary>
+                /// True, if this is a recurring payment
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("is_recurring")]
+                public bool IsRecurring { get; set; }
+
+                /// <summary>
+                /// True, if this is the first recurring payment
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("is_first_recurring")]
+                public bool IsFirstRecurring { get; set; }
+
+                /// <summary>
                 /// Invoice payload
                 /// </summary>
                 [JsonConverter(typeof(Converter))]

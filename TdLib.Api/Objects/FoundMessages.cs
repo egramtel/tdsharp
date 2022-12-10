@@ -26,7 +26,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Approximate total count of messages found; -1 if unknown
+            /// Approximate total number of messages found; -1 if unknown
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("total_count")]

@@ -62,7 +62,7 @@ namespace TdLib
             public int Scale { get; set; }
 
             /// <summary>
-            /// Identifier of a chat, in which the thumbnail will be shown. Use 0 if unknown
+            /// Identifier of a chat in which the thumbnail will be shown. Use 0 if unknown
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_id")]

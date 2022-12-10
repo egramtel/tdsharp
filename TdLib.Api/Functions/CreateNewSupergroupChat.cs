@@ -34,7 +34,7 @@ namespace TdLib
             public string Title { get; set; }
 
             /// <summary>
-            /// True, if a channel chat needs to be created
+            /// Pass true to create a channel chat
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_channel")]
@@ -55,7 +55,14 @@ namespace TdLib
             public ChatLocation Location { get; set; }
 
             /// <summary>
-            /// True, if the supergroup is created for importing messages using importMessage
+            /// Message TTL value, in seconds; must be from 0 up to 365 * 86400 and be divisible by 86400. If 0, then messages aren't deleted automatically
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("message_ttl")]
+            public int MessageTtl { get; set; }
+
+            /// <summary>
+            /// Pass true to create a supergroup for importing messages using importMessage
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("for_import")]
@@ -66,11 +73,11 @@ namespace TdLib
         /// Creates a new supergroup or channel and sends a corresponding messageSupergroupChatCreate. Returns the newly created chat
         /// </summary>
         public static Task<Chat> CreateNewSupergroupChatAsync(
-            this Client client, string title = default, bool isChannel = default, string description = default, ChatLocation location = default, bool forImport = default)
+            this Client client, string title = default, bool isChannel = default, string description = default, ChatLocation location = default, int messageTtl = default, bool forImport = default)
         {
             return client.ExecuteAsync(new CreateNewSupergroupChat
             {
-                Title = title, IsChannel = isChannel, Description = description, Location = location, ForImport = forImport
+                Title = title, IsChannel = isChannel, Description = description, Location = location, MessageTtl = messageTtl, ForImport = forImport
             });
         }
     }

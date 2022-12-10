@@ -53,11 +53,18 @@ namespace TdLib
             public PhotoSize[] Sizes { get; set; }
 
             /// <summary>
-            /// Animated variant of the photo in MPEG4 format; may be null
+            /// A big (640x640) animated variant of the photo in MPEG4 format; may be null
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("animation")]
             public AnimatedChatPhoto Animation { get; set; }
+
+            /// <summary>
+            /// A small (160x160) animated variant of the photo in MPEG4 format; may be null even the big animation is available
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("small_animation")]
+            public AnimatedChatPhoto SmallAnimation { get; set; }
         }
     }
 }

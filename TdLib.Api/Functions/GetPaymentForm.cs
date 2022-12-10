@@ -27,36 +27,29 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Chat identifier of the Invoice message
+            /// The invoice
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("chat_id")]
-            public long ChatId { get; set; }
-
-            /// <summary>
-            /// Message identifier
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("message_id")]
-            public long MessageId { get; set; }
+            [JsonProperty("input_invoice")]
+            public InputInvoice InputInvoice { get; set; }
 
             /// <summary>
             /// Preferred payment form theme; pass null to use the default theme
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("theme")]
-            public PaymentFormTheme Theme { get; set; }
+            public ThemeParameters Theme { get; set; }
         }
 
         /// <summary>
         /// Returns an invoice payment form. This method must be called when the user presses inlineKeyboardButtonBuy
         /// </summary>
         public static Task<PaymentForm> GetPaymentFormAsync(
-            this Client client, long chatId = default, long messageId = default, PaymentFormTheme theme = default)
+            this Client client, InputInvoice inputInvoice = default, ThemeParameters theme = default)
         {
             return client.ExecuteAsync(new GetPaymentForm
             {
-                ChatId = chatId, MessageId = messageId, Theme = theme
+                InputInvoice = inputInvoice, Theme = theme
             });
         }
     }

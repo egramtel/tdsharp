@@ -9,7 +9,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Describes an animated representation of an emoji
+        /// Describes an animated or custom representation of an emoji
         /// </summary>
         public partial class AnimatedEmoji : Object
         {
@@ -26,11 +26,25 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Animated sticker for the emoji
+            /// Sticker for the emoji; may be null if yet unknown for a custom emoji. If the sticker is a custom emoji, it can have arbitrary format different from stickerFormatTgs
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("sticker")]
             public Sticker Sticker { get; set; }
+
+            /// <summary>
+            /// Expected width of the sticker, which can be used if the sticker is null
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("sticker_width")]
+            public int StickerWidth { get; set; }
+
+            /// <summary>
+            /// Expected height of the sticker, which can be used if the sticker is null
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("sticker_height")]
+            public int StickerHeight { get; set; }
 
             /// <summary>
             /// Emoji modifier fitzpatrick type; 0-6; 0 if none
@@ -40,7 +54,7 @@ namespace TdLib
             public int FitzpatrickType { get; set; }
 
             /// <summary>
-            /// File containing the sound to be played when the animated emoji is clicked if any; may be null. The sound is encoded with the Opus codec, and stored inside an OGG container
+            /// File containing the sound to be played when the sticker is clicked; may be null. The sound is encoded with the Opus codec, and stored inside an OGG container
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("sound")]

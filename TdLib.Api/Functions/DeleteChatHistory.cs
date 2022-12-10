@@ -34,7 +34,7 @@ namespace TdLib
             public long ChatId { get; set; }
 
             /// <summary>
-            /// Pass true if the chat needs to be removed from the chat list
+            /// Pass true to remove the chat from all chat lists
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("remove_from_chat_list")]

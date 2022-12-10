@@ -49,7 +49,7 @@ namespace TdLib
                 public long ChatId { get; set; }
 
                 /// <summary>
-                /// Identifier of the message, from which the query originated
+                /// Identifier of the message from which the query originated
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("message_id")]

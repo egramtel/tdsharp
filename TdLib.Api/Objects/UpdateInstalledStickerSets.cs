@@ -28,11 +28,11 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// True, if the list of installed mask sticker sets was updated
+                /// Type of the affected stickers
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("is_masks")]
-                public bool IsMasks { get; set; }
+                [JsonProperty("sticker_type")]
+                public StickerType StickerType { get; set; }
 
                 /// <summary>
                 /// The new list of installed ordinary sticker sets

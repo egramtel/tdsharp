@@ -48,7 +48,7 @@ namespace TdLib
             public ReplyMarkup ReplyMarkup { get; set; }
 
             /// <summary>
-            /// New message content caption; 0-GetOption("message_caption_length_max") characters; pass null to remove caption
+            /// New message content caption; 0-getOption("message_caption_length_max") characters; pass null to remove caption
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("caption")]

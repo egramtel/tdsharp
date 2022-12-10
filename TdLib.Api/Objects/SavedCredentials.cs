@@ -9,7 +9,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Contains information about saved card credentials
+        /// Contains information about saved payment credentials
         /// </summary>
         public partial class SavedCredentials : Object
         {

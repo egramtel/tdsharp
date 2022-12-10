@@ -11,7 +11,7 @@ namespace TdLib
         public partial class ChatEventAction : Object
         {
             /// <summary>
-            /// The chat username was changed
+            /// The chat editable username was changed
             /// </summary>
             public class ChatEventUsernameChanged : ChatEventAction
             {

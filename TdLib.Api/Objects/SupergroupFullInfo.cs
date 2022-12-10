@@ -26,7 +26,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Chat photo; may be null
+            /// Chat photo; may be null if empty or unknown. If non-null, then it is the same photo as in chat.photo
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("photo")]
@@ -124,11 +124,18 @@ namespace TdLib
             public bool CanGetStatistics { get; set; }
 
             /// <summary>
-            /// True, if new chat members will have access to old messages. In public or discussion groups and both public and private channels, old messages are always available, so this option affects only private supergroups without a linked chat. The value of this field is only available for chat administrators
+            /// True, if new chat members will have access to old messages. In public, discussion, of forum groups and all channels, old messages are always available, so this option affects only private non-forum supergroups without a linked chat. The value of this field is only available for chat administrators
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_all_history_available")]
             public bool IsAllHistoryAvailable { get; set; }
+
+            /// <summary>
+            /// True, if aggressive anti-spam checks are enabled in the supergroup. The value of this field is only available for chat administrators
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("is_aggressive_anti_spam_enabled")]
+            public bool IsAggressiveAntiSpamEnabled { get; set; }
 
             /// <summary>
             /// Identifier of the supergroup sticker set; 0 if none

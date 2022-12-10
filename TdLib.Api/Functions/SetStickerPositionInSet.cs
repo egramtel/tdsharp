@@ -34,7 +34,7 @@ namespace TdLib
             public InputFile Sticker { get; set; }
 
             /// <summary>
-            /// New position of the sticker in the set, zero-based
+            /// New position of the sticker in the set, 0-based
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("position")]

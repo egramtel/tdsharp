@@ -56,11 +56,11 @@ namespace TdLib
                 public long NotificationSettingsChatId { get; set; }
 
                 /// <summary>
-                /// True, if the notifications must be shown without sound
+                /// Identifier of the notification sound to be played; 0 if sound is disabled
                 /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("is_silent")]
-                public bool IsSilent { get; set; }
+                [JsonConverter(typeof(Converter.Int64))]
+                [JsonProperty("notification_sound_id")]
+                public long NotificationSoundId { get; set; }
 
                 /// <summary>
                 /// Total number of unread notifications in the group, can be bigger than number of active notifications

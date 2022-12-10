@@ -32,6 +32,13 @@ namespace TdLib
                 /// </summary>
                 [JsonProperty("chat_filters", ItemConverterType = typeof(Converter))]
                 public ChatFilterInfo[] ChatFilters { get; set; }
+
+                /// <summary>
+                /// Position of the main chat list among chat filters, 0-based
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("main_chat_list_position")]
+                public int MainChatListPosition { get; set; }
             }
         }
     }

@@ -26,7 +26,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// User profile photo; may be null
+            /// User profile photo; may be null if empty or unknown. If non-null, then it is the same photo as in user.profile_photo and chat.photo
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("photo")]
@@ -68,6 +68,13 @@ namespace TdLib
             public bool HasPrivateForwards { get; set; }
 
             /// <summary>
+            /// True, if voice and video notes can't be sent or forwarded to the user
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("has_restricted_voice_and_video_note_messages")]
+            public bool HasRestrictedVoiceAndVideoNoteMessages { get; set; }
+
+            /// <summary>
             /// True, if the current user needs to explicitly allow to share their phone number with the user when the method addContact is used
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -75,25 +82,17 @@ namespace TdLib
             public bool NeedPhoneNumberPrivacyException { get; set; }
 
             /// <summary>
-            /// A short user bio
+            /// A short user bio; may be null for bots
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("bio")]
-            public string Bio { get; set; }
+            public FormattedText Bio { get; set; }
 
             /// <summary>
-            /// For bots, the text that is shown on the bot's profile page and is sent together with the link when users share the bot
+            /// The list of available options for gifting Telegram Premium to the user
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("share_text")]
-            public string ShareText { get; set; }
-
-            /// <summary>
-            /// 
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("description")]
-            public string Description { get; set; }
+            [JsonProperty("premium_gift_options", ItemConverterType = typeof(Converter))]
+            public PremiumPaymentOption[] PremiumGiftOptions { get; set; }
 
             /// <summary>
             /// Number of group chats where both the other user and the current user are a member; 0 for the current user
@@ -103,10 +102,11 @@ namespace TdLib
             public int GroupInCommonCount { get; set; }
 
             /// <summary>
-            /// For bots, list of the bot commands
+            /// For bots, information about the bot; may be null
             /// </summary>
-            [JsonProperty("commands", ItemConverterType = typeof(Converter))]
-            public BotCommand[] Commands { get; set; }
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("bot_info")]
+            public BotInfo BotInfo { get; set; }
         }
     }
 }

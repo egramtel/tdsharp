@@ -38,17 +38,24 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("title")]
             public string Title { get; set; }
+
+            /// <summary>
+            /// Message TTL value, in seconds; must be from 0 up to 365 * 86400 and be divisible by 86400. If 0, then messages aren't deleted automatically
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("message_ttl")]
+            public int MessageTtl { get; set; }
         }
 
         /// <summary>
         /// Creates a new basic group and sends a corresponding messageBasicGroupChatCreate. Returns the newly created chat
         /// </summary>
         public static Task<Chat> CreateNewBasicGroupChatAsync(
-            this Client client, long[] userIds = default, string title = default)
+            this Client client, long[] userIds = default, string title = default, int messageTtl = default)
         {
             return client.ExecuteAsync(new CreateNewBasicGroupChat
             {
-                UserIds = userIds, Title = title
+                UserIds = userIds, Title = title, MessageTtl = messageTtl
             });
         }
     }

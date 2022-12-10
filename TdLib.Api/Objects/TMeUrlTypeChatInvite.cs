@@ -28,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Chat invite link info
+                /// Information about the chat invite link
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("info")]

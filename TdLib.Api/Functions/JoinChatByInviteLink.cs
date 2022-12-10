@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Uses an invite link to add the current user to the chat if possible
+        /// Uses an invite link to add the current user to the chat if possible. May return an error with a message "INVITE_REQUEST_SENT" if only a join request was created
         /// </summary>
         public class JoinChatByInviteLink : Function<Chat>
         {
@@ -35,7 +35,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Uses an invite link to add the current user to the chat if possible
+        /// Uses an invite link to add the current user to the chat if possible. May return an error with a message "INVITE_REQUEST_SENT" if only a join request was created
         /// </summary>
         public static Task<Chat> JoinChatByInviteLinkAsync(
             this Client client, string inviteLink = default)

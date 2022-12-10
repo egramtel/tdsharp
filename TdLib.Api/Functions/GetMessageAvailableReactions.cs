@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns reactions, which can be added to a message. The list can change after updateReactions, updateChatAvailableReactions for the chat, or updateMessageInteractionInfo for the message
+        /// Returns reactions, which can be added to a message. The list can change after updateActiveEmojiReactions, updateChatAvailableReactions for the chat, or updateMessageInteractionInfo for the message
         /// </summary>
         public class GetMessageAvailableReactions : Function<AvailableReactions>
         {
@@ -39,17 +39,24 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("message_id")]
             public long MessageId { get; set; }
+
+            /// <summary>
+            /// Number of reaction per row, 5-25
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("row_size")]
+            public int RowSize { get; set; }
         }
 
         /// <summary>
-        /// Returns reactions, which can be added to a message. The list can change after updateReactions, updateChatAvailableReactions for the chat, or updateMessageInteractionInfo for the message
+        /// Returns reactions, which can be added to a message. The list can change after updateActiveEmojiReactions, updateChatAvailableReactions for the chat, or updateMessageInteractionInfo for the message
         /// </summary>
         public static Task<AvailableReactions> GetMessageAvailableReactionsAsync(
-            this Client client, long chatId = default, long messageId = default)
+            this Client client, long chatId = default, long messageId = default, int rowSize = default)
         {
             return client.ExecuteAsync(new GetMessageAvailableReactions
             {
-                ChatId = chatId, MessageId = messageId
+                ChatId = chatId, MessageId = messageId, RowSize = rowSize
             });
         }
     }

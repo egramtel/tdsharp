@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Marks all reactions in a chat as read
+        /// Marks all reactions in a chat or a forum topic as read
         /// </summary>
         public class ReadAllChatReactions : Function<Ok>
         {
@@ -35,7 +35,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Marks all reactions in a chat as read
+        /// Marks all reactions in a chat or a forum topic as read
         /// </summary>
         public static Task<Ok> ReadAllChatReactionsAsync(
             this Client client, long chatId = default)

@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns information about a file with messages exported from another app
+        /// Returns information about a file with messages exported from another application
         /// </summary>
         public class GetMessageFileType : Function<MessageFileType>
         {
@@ -35,7 +35,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Returns information about a file with messages exported from another app
+        /// Returns information about a file with messages exported from another application
         /// </summary>
         public static Task<MessageFileType> GetMessageFileTypeAsync(
             this Client client, string messageFileHead = default)

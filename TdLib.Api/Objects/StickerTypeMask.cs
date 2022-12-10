@@ -27,12 +27,7 @@ namespace TdLib
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
-                /// <summary>
-                /// Position where the mask is placed; may be null
-                /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("mask_position")]
-                public MaskPosition MaskPosition { get; set; }
+
             }
         }
     }

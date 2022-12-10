@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns stickers from the installed sticker sets that correspond to a given emoji. If the emoji is non-empty, favorite and recently used stickers may also be returned
+        /// Returns stickers from the installed sticker sets that correspond to a given emoji or can be found by sticker-specific keywords. If the query is non-empty, then favorite, recently used or trending stickers may also be returned
         /// </summary>
         public class GetStickers : Function<Stickers>
         {
@@ -27,11 +27,18 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// String representation of emoji. If empty, returns all known installed stickers
+            /// Type of the stickers to return
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("emoji")]
-            public string Emoji { get; set; }
+            [JsonProperty("sticker_type")]
+            public StickerType StickerType { get; set; }
+
+            /// <summary>
+            /// Search query; an emoji or a keyword prefix. If empty, returns all known installed stickers
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("query")]
+            public string Query { get; set; }
 
             /// <summary>
             /// The maximum number of stickers to be returned
@@ -39,17 +46,24 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("limit")]
             public int Limit { get; set; }
+
+            /// <summary>
+            /// Chat identifier for which to return stickers. Available custom emoji stickers may be different for different chats
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("chat_id")]
+            public long ChatId { get; set; }
         }
 
         /// <summary>
-        /// Returns stickers from the installed sticker sets that correspond to a given emoji. If the emoji is non-empty, favorite and recently used stickers may also be returned
+        /// Returns stickers from the installed sticker sets that correspond to a given emoji or can be found by sticker-specific keywords. If the query is non-empty, then favorite, recently used or trending stickers may also be returned
         /// </summary>
         public static Task<Stickers> GetStickersAsync(
-            this Client client, string emoji = default, int limit = default)
+            this Client client, StickerType stickerType = default, string query = default, int limit = default, long chatId = default)
         {
             return client.ExecuteAsync(new GetStickers
             {
-                Emoji = emoji, Limit = limit
+                StickerType = stickerType, Query = query, Limit = limit, ChatId = chatId
             });
         }
     }

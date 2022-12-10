@@ -40,7 +40,7 @@ namespace TdLib
             public long MessageThreadId { get; set; }
 
             /// <summary>
-            /// Information about the message thread
+            /// Information about the message thread; may be null for forum topic threads
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("reply_info")]

@@ -27,11 +27,11 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Pass true to return mask sticker sets; pass false to return ordinary sticker sets
+            /// Type of the sticker sets to search for
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("is_masks")]
-            public bool IsMasks { get; set; }
+            [JsonProperty("sticker_type")]
+            public StickerType StickerType { get; set; }
 
             /// <summary>
             /// Query to search for
@@ -52,11 +52,11 @@ namespace TdLib
         /// Searches for installed sticker sets by looking for specified query in their title and name
         /// </summary>
         public static Task<StickerSets> SearchInstalledStickerSetsAsync(
-            this Client client, bool isMasks = default, string query = default, int limit = default)
+            this Client client, StickerType stickerType = default, string query = default, int limit = default)
         {
             return client.ExecuteAsync(new SearchInstalledStickerSets
             {
-                IsMasks = isMasks, Query = query, Limit = limit
+                StickerType = stickerType, Query = query, Limit = limit
             });
         }
     }

@@ -31,17 +31,24 @@ namespace TdLib
             /// </summary>
             [JsonProperty("chat_filter_ids", ItemConverterType = typeof(Converter))]
             public int[] ChatFilterIds { get; set; }
+
+            /// <summary>
+            /// Position of the main chat list among chat filters, 0-based. Can be non-zero only for Premium users
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("main_chat_list_position")]
+            public int MainChatListPosition { get; set; }
         }
 
         /// <summary>
         /// Changes the order of chat filters
         /// </summary>
         public static Task<Ok> ReorderChatFiltersAsync(
-            this Client client, int[] chatFilterIds = default)
+            this Client client, int[] chatFilterIds = default, int mainChatListPosition = default)
         {
             return client.ExecuteAsync(new ReorderChatFilters
             {
-                ChatFilterIds = chatFilterIds
+                ChatFilterIds = chatFilterIds, MainChatListPosition = mainChatListPosition
             });
         }
     }

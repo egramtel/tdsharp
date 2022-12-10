@@ -39,7 +39,7 @@ namespace TdLib
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("description")]
-                public string Description { get; set; }
+                public FormattedText Description { get; set; }
 
                 /// <summary>
                 /// Product photo; may be null
@@ -89,6 +89,13 @@ namespace TdLib
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("receipt_message_id")]
                 public long ReceiptMessageId { get; set; }
+
+                /// <summary>
+                /// Extended media attached to the invoice; may be null
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("extended_media")]
+                public MessageExtendedMedia ExtendedMedia { get; set; }
             }
         }
     }

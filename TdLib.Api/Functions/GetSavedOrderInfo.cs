@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns saved order info, if any
+        /// Returns saved order information. Returns a 404 error if there is no saved order information
         /// </summary>
         public class GetSavedOrderInfo : Function<OrderInfo>
         {
@@ -30,7 +30,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Returns saved order info, if any
+        /// Returns saved order information. Returns a 404 error if there is no saved order information
         /// </summary>
         public static Task<OrderInfo> GetSavedOrderInfoAsync(
             this Client client)

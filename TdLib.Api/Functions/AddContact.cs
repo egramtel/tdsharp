@@ -27,14 +27,14 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// The contact to add or edit; phone number can be empty and needs to be specified only if known, vCard is ignored
+            /// The contact to add or edit; phone number may be empty and needs to be specified only if known, vCard is ignored
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("contact")]
             public Contact Contact { get; set; }
 
             /// <summary>
-            /// True, if the new contact needs to be allowed to see current user's phone number. A corresponding rule to userPrivacySettingShowPhoneNumber will be added if needed. Use the field userFullInfo.need_phone_number_privacy_exception to check whether the current user needs to be asked to share their phone number
+            /// Pass true to share the current user's phone number with the new contact. A corresponding rule to userPrivacySettingShowPhoneNumber will be added if needed. Use the field userFullInfo.need_phone_number_privacy_exception to check whether the current user needs to be asked to share their phone number
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("share_phone_number")]

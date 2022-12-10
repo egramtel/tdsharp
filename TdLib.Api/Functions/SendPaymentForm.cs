@@ -27,18 +27,11 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Chat identifier of the Invoice message
+            /// The invoice
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("chat_id")]
-            public long ChatId { get; set; }
-
-            /// <summary>
-            /// Message identifier
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("message_id")]
-            public long MessageId { get; set; }
+            [JsonProperty("input_invoice")]
+            public InputInvoice InputInvoice { get; set; }
 
             /// <summary>
             /// Payment form identifier returned by getPaymentForm
@@ -80,11 +73,11 @@ namespace TdLib
         /// Sends a filled-out payment form to the bot for final verification
         /// </summary>
         public static Task<PaymentResult> SendPaymentFormAsync(
-            this Client client, long chatId = default, long messageId = default, long paymentFormId = default, string orderInfoId = default, string shippingOptionId = default, InputCredentials credentials = default, long tipAmount = default)
+            this Client client, InputInvoice inputInvoice = default, long paymentFormId = default, string orderInfoId = default, string shippingOptionId = default, InputCredentials credentials = default, long tipAmount = default)
         {
             return client.ExecuteAsync(new SendPaymentForm
             {
-                ChatId = chatId, MessageId = messageId, PaymentFormId = paymentFormId, OrderInfoId = orderInfoId, ShippingOptionId = shippingOptionId, Credentials = credentials, TipAmount = tipAmount
+                InputInvoice = inputInvoice, PaymentFormId = paymentFormId, OrderInfoId = orderInfoId, ShippingOptionId = shippingOptionId, Credentials = credentials, TipAmount = tipAmount
             });
         }
     }

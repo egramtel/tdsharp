@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Changes the username of the current user
+        /// Changes the editable username of the current user
         /// </summary>
         public class SetUsername : Function<Ok>
         {
@@ -27,7 +27,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// The new value of the username. Use an empty string to remove the username
+            /// The new value of the username. Use an empty string to remove the username. The username can't be completely removed if there is another active or disabled username
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("username")]
@@ -35,7 +35,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Changes the username of the current user
+        /// Changes the editable username of the current user
         /// </summary>
         public static Task<Ok> SetUsernameAsync(
             this Client client, string username = default)

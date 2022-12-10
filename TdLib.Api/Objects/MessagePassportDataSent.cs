@@ -11,7 +11,7 @@ namespace TdLib
         public partial class MessageContent : Object
         {
             /// <summary>
-            /// Telegram Passport data has been sent
+            /// Telegram Passport data has been sent to a bot
             /// </summary>
             public class MessagePassportDataSent : MessageContent
             {

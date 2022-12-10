@@ -35,10 +35,11 @@ namespace TdLib
                 public long ChatId { get; set; }
 
                 /// <summary>
-                /// The new list of reactions, available in the chat
+                /// The new reactions, available in the chat
                 /// </summary>
-                [JsonProperty("available_reactions", ItemConverterType = typeof(Converter))]
-                public string[] AvailableReactions { get; set; }
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("available_reactions")]
+                public ChatAvailableReactions AvailableReactions { get; set; }
             }
         }
     }

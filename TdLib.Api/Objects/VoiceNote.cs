@@ -47,6 +47,13 @@ namespace TdLib
             public string MimeType { get; set; }
 
             /// <summary>
+            /// Result of speech recognition in the voice note; may be null
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("speech_recognition_result")]
+            public SpeechRecognitionResult SpeechRecognitionResult { get; set; }
+
+            /// <summary>
             /// File containing the voice note
             /// </summary>
             [JsonConverter(typeof(Converter))]

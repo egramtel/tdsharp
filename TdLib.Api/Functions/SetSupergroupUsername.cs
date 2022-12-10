@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Changes the username of a supergroup or channel, requires owner privileges in the supergroup or channel
+        /// Changes the editable username of a supergroup or channel, requires owner privileges in the supergroup or channel
         /// </summary>
         public class SetSupergroupUsername : Function<Ok>
         {
@@ -34,7 +34,7 @@ namespace TdLib
             public long SupergroupId { get; set; }
 
             /// <summary>
-            /// New value of the username. Use an empty string to remove the username
+            /// New value of the username. Use an empty string to remove the username. The username can't be completely removed if there is another active or disabled username
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("username")]
@@ -42,7 +42,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Changes the username of a supergroup or channel, requires owner privileges in the supergroup or channel
+        /// Changes the editable username of a supergroup or channel, requires owner privileges in the supergroup or channel
         /// </summary>
         public static Task<Ok> SetSupergroupUsernameAsync(
             this Client client, long supergroupId = default, string username = default)

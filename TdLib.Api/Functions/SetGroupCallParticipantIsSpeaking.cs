@@ -41,7 +41,7 @@ namespace TdLib
             public int AudioSource { get; set; }
 
             /// <summary>
-            /// True, if the user is speaking
+            /// Pass true if the user is speaking
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_speaking")]

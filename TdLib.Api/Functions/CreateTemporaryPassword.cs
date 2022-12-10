@@ -27,7 +27,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Persistent user password
+            /// The 2-step verification password of the current user
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("password")]

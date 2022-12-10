@@ -11,7 +11,7 @@ namespace TdLib
         public partial class InlineKeyboardButtonType : Object
         {
             /// <summary>
-            /// A button that opens a specified URL and automatically authorize the current user if allowed to do so
+            /// A button that opens a specified URL and automatically authorize the current user by calling getLoginUrlInfo
             /// </summary>
             public class InlineKeyboardButtonTypeLoginUrl : InlineKeyboardButtonType
             {
@@ -28,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// An HTTP URL to open
+                /// An HTTP URL to pass to getLoginUrlInfo
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("url")]

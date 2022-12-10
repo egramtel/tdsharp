@@ -55,14 +55,14 @@ namespace TdLib
             public string Payload { get; set; }
 
             /// <summary>
-            /// True, if the user's microphone is muted
+            /// Pass true to join the call with muted microphone
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_muted")]
             public bool IsMuted { get; set; }
 
             /// <summary>
-            /// True, if the user's video is enabled
+            /// Pass true if the user's video is enabled
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_my_video_enabled")]

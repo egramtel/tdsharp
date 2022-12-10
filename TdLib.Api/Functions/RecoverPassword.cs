@@ -34,7 +34,7 @@ namespace TdLib
             public string RecoveryCode { get; set; }
 
             /// <summary>
-            /// New password of the user; may be empty to remove the password
+            /// New 2-step verification password of the user; may be empty to remove the password
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("new_password")]

@@ -34,7 +34,7 @@ namespace TdLib
             public string Emoji { get; set; }
 
             /// <summary>
-            /// The maximum number of stickers to be returned
+            /// The maximum number of stickers to be returned; 0-100
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("limit")]

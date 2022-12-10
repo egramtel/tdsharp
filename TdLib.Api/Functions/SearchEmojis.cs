@@ -34,7 +34,7 @@ namespace TdLib
             public string Text { get; set; }
 
             /// <summary>
-            /// True, if only emojis, which exactly match text needs to be returned
+            /// Pass true if only emojis, which exactly match the text, needs to be returned
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("exact_match")]

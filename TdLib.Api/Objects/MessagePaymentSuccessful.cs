@@ -28,14 +28,14 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Identifier of the chat, containing the corresponding invoice message; 0 if unknown
+                /// Identifier of the chat, containing the corresponding invoice message
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("invoice_chat_id")]
                 public long InvoiceChatId { get; set; }
 
                 /// <summary>
-                /// Identifier of the message with the corresponding invoice; can be an identifier of a deleted message
+                /// Identifier of the message with the corresponding invoice; can be 0 or an identifier of a deleted message
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("invoice_message_id")]
@@ -54,6 +54,27 @@ namespace TdLib
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("total_amount")]
                 public long TotalAmount { get; set; }
+
+                /// <summary>
+                /// True, if this is a recurring payment
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("is_recurring")]
+                public bool IsRecurring { get; set; }
+
+                /// <summary>
+                /// True, if this is the first recurring payment
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("is_first_recurring")]
+                public bool IsFirstRecurring { get; set; }
+
+                /// <summary>
+                /// Name of the invoice; may be empty if unknown
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("invoice_name")]
+                public string InvoiceName { get; set; }
             }
         }
     }

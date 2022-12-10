@@ -33,11 +33,11 @@ namespace TdLib
             public long Id { get; set; }
 
             /// <summary>
-            /// Username of the supergroup or channel; empty for private supergroups or channels
+            /// Usernames of the supergroup or channel; may be null
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("username")]
-            public string Username { get; set; }
+            [JsonProperty("usernames")]
+            public Usernames Usernames { get; set; }
 
             /// <summary>
             /// Point in time (Unix timestamp) when the current user joined, or the point in time when the supergroup or channel was created, in case the user is not a member
@@ -47,7 +47,7 @@ namespace TdLib
             public int Date { get; set; }
 
             /// <summary>
-            /// Status of the current user in the supergroup or channel; custom title will be always empty
+            /// Status of the current user in the supergroup or channel; custom title will always be empty
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("status")]
@@ -82,6 +82,20 @@ namespace TdLib
             public bool SignMessages { get; set; }
 
             /// <summary>
+            /// True, if users need to join the supergroup before they can send messages. Always true for channels and non-discussion supergroups
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("join_to_send_messages")]
+            public bool JoinToSendMessages { get; set; }
+
+            /// <summary>
+            /// True, if all users directly joining the supergroup need to be approved by supergroup administrators. Always false for channels and supergroups without username, location, or a linked chat
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("join_by_request")]
+            public bool JoinByRequest { get; set; }
+
+            /// <summary>
             /// True, if the slow mode is enabled in the supergroup
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -101,6 +115,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_broadcast_group")]
             public bool IsBroadcastGroup { get; set; }
+
+            /// <summary>
+            /// True, if the supergroup must be shown as a forum by default
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("is_forum")]
+            public bool IsForum { get; set; }
 
             /// <summary>
             /// True, if the supergroup or channel is verified

@@ -69,7 +69,7 @@ namespace TdLib
                 public int Height { get; set; }
 
                 /// <summary>
-                /// Animation caption; pass null to use an empty caption; 0-GetOption("message_caption_length_max") characters
+                /// Animation caption; pass null to use an empty caption; 0-getOption("message_caption_length_max") characters
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("caption")]

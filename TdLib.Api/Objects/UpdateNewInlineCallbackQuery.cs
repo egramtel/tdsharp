@@ -42,7 +42,7 @@ namespace TdLib
                 public long SenderUserId { get; set; }
 
                 /// <summary>
-                /// Identifier of the inline message, from which the query originated
+                /// Identifier of the inline message from which the query originated
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("inline_message_id")]

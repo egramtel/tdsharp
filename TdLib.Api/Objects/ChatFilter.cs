@@ -33,26 +33,26 @@ namespace TdLib
             public string Title { get; set; }
 
             /// <summary>
-            /// The chosen icon name for short filter representation. If non-empty, must be one of "All", "Unread", "Unmuted", "Bots", "Channels", "Groups", "Private", "Custom", "Setup", "Cat", "Crown", "Favorite", "Flower", "Game", "Home", "Love", "Mask", "Party", "Sport", "Study", "Trade", "Travel", "Work".
+            /// The chosen icon name for short filter representation. If non-empty, must be one of "All", "Unread", "Unmuted", "Bots", "Channels", "Groups", "Private", "Custom", "Setup", "Cat", "Crown", "Favorite", "Flower", "Game", "Home", "Love", "Mask", "Party", "Sport", "Study", "Trade", "Travel", "Work", "Airplane", "Book", "Light", "Like", "Money", "Note", "Palette".
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("icon_name")]
             public string IconName { get; set; }
 
             /// <summary>
-            /// The chat identifiers of pinned chats in the filtered chat list
+            /// The chat identifiers of pinned chats in the filtered chat list. There can be up to getOption("chat_filter_chosen_chat_count_max") pinned and always included non-secret chats and the same number of secret chats, but the limit can be increased with Telegram Premium
             /// </summary>
             [JsonProperty("pinned_chat_ids", ItemConverterType = typeof(Converter))]
             public long[] PinnedChatIds { get; set; }
 
             /// <summary>
-            /// The chat identifiers of always included chats in the filtered chat list
+            /// The chat identifiers of always included chats in the filtered chat list. There can be up to getOption("chat_filter_chosen_chat_count_max") pinned and always included non-secret chats and the same number of secret chats, but the limit can be increased with Telegram Premium
             /// </summary>
             [JsonProperty("included_chat_ids", ItemConverterType = typeof(Converter))]
             public long[] IncludedChatIds { get; set; }
 
             /// <summary>
-            /// The chat identifiers of always excluded chats in the filtered chat list
+            /// The chat identifiers of always excluded chats in the filtered chat list. There can be up to getOption("chat_filter_chosen_chat_count_max") always excluded non-secret chats and the same number of secret chats, but the limit can be increased with Telegram Premium
             /// </summary>
             [JsonProperty("excluded_chat_ids", ItemConverterType = typeof(Converter))]
             public long[] ExcludedChatIds { get; set; }

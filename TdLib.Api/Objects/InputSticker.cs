@@ -40,11 +40,18 @@ namespace TdLib
             public string Emojis { get; set; }
 
             /// <summary>
-            /// Sticker type
+            /// Sticker format
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("type")]
-            public StickerType Type { get; set; }
+            [JsonProperty("format")]
+            public StickerFormat Format { get; set; }
+
+            /// <summary>
+            /// Position where the mask is placed; pass null if not specified
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("mask_position")]
+            public MaskPosition MaskPosition { get; set; }
         }
     }
 }

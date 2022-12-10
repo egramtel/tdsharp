@@ -33,6 +33,13 @@ namespace TdLib
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("message")]
                 public Message Message { get; set; }
+
+                /// <summary>
+                /// True, if message content must be displayed in notifications
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("show_preview")]
+                public bool ShowPreview { get; set; }
             }
         }
     }

@@ -41,7 +41,7 @@ namespace TdLib
             public long MessageId { get; set; }
 
             /// <summary>
-            /// True, if the message needs to be edited
+            /// Pass true to edit the game message to include the current scoreboard
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("edit_message")]

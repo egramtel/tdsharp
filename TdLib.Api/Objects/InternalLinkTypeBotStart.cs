@@ -40,6 +40,13 @@ namespace TdLib
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("start_parameter")]
                 public string StartParameter { get; set; }
+
+                /// <summary>
+                /// True, if sendBotStartMessage must be called automatically without showing the START button
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("autostart")]
+                public bool Autostart { get; set; }
             }
         }
     }

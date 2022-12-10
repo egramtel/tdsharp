@@ -38,7 +38,7 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("offset")]
-            public int Offset { get; set; }
+            public long Offset { get; set; }
 
             /// <summary>
             /// The data to write
@@ -52,7 +52,7 @@ namespace TdLib
         /// Writes a part of a generated file. This method is intended to be used only if the application has no direct access to TDLib's file system, because it is usually slower than a direct write to the destination file
         /// </summary>
         public static Task<Ok> WriteGeneratedFilePartAsync(
-            this Client client, long generationId = default, int offset = default, byte[] data = default)
+            this Client client, long generationId = default, long offset = default, byte[] data = default)
         {
             return client.ExecuteAsync(new WriteGeneratedFilePart
             {

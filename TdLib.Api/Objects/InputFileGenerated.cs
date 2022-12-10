@@ -46,7 +46,7 @@ namespace TdLib
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("expected_size")]
-                public int ExpectedSize { get; set; }
+                public long ExpectedSize { get; set; }
             }
         }
     }

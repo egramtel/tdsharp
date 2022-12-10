@@ -11,7 +11,7 @@ namespace TdLib
         public partial class NotificationSettingsScope : Object
         {
             /// <summary>
-            /// Notification settings applied to all channels when the corresponding chat setting has a default value
+            /// Notification settings applied to all channel chats when the corresponding chat setting has a default value
             /// </summary>
             public class NotificationSettingsScopeChannelChats : NotificationSettingsScope
             {

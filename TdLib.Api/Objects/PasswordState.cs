@@ -61,7 +61,14 @@ namespace TdLib
             public EmailAddressAuthenticationCodeInfo RecoveryEmailAddressCodeInfo { get; set; }
 
             /// <summary>
-            /// If not 0, point in time (Unix timestamp) after which the password can be reset immediately using resetPassword
+            /// Pattern of the email address set up for logging in
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("login_email_address_pattern")]
+            public string LoginEmailAddressPattern { get; set; }
+
+            /// <summary>
+            /// If not 0, point in time (Unix timestamp) after which the 2-step verification password can be reset immediately using resetPassword
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("pending_reset_date")]

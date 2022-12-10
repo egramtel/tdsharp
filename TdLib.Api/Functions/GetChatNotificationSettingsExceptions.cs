@@ -34,7 +34,7 @@ namespace TdLib
             public NotificationSettingsScope Scope { get; set; }
 
             /// <summary>
-            /// If true, also chats with non-default sound will be returned
+            /// Pass true to include in the response chats with only non-default sound
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("compare_sound")]

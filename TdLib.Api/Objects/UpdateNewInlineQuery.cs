@@ -49,7 +49,7 @@ namespace TdLib
                 public Location UserLocation { get; set; }
 
                 /// <summary>
-                /// The type of the chat, from which the query originated; may be null if unknown
+                /// The type of the chat from which the query originated; may be null if unknown
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("chat_type")]

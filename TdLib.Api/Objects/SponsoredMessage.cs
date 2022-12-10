@@ -33,6 +33,13 @@ namespace TdLib
             public long MessageId { get; set; }
 
             /// <summary>
+            /// True, if the message needs to be labeled as "recommended" instead of "sponsored"
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("is_recommended")]
+            public bool IsRecommended { get; set; }
+
+            /// <summary>
             /// Sponsor chat identifier; 0 if the sponsor chat is accessible through an invite link
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -47,7 +54,14 @@ namespace TdLib
             public ChatInviteLinkInfo SponsorChatInfo { get; set; }
 
             /// <summary>
-            /// An internal link to be opened when the sponsored message is clicked; may be null. If null, the sponsor chat needs to be opened instead
+            /// True, if the sponsor's chat photo must be shown
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("show_chat_photo")]
+            public bool ShowChatPhoto { get; set; }
+
+            /// <summary>
+            /// An internal link to be opened when the sponsored message is clicked; may be null if the sponsor chat needs to be opened instead
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("link")]

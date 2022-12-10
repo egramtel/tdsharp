@@ -27,7 +27,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// If true, returns only locally available information without sending network requests
+            /// Pass true to get only locally available information without sending network requests
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("only_local")]

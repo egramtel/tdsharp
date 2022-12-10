@@ -179,10 +179,11 @@ namespace TdLib
             public ChatNotificationSettings NotificationSettings { get; set; }
 
             /// <summary>
-            /// List of reactions, available in the chat
+            /// Types of reaction, available in the chat
             /// </summary>
-            [JsonProperty("available_reactions", ItemConverterType = typeof(Converter))]
-            public string[] AvailableReactions { get; set; }
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("available_reactions")]
+            public ChatAvailableReactions AvailableReactions { get; set; }
 
             /// <summary>
             /// Current message Time To Live setting (self-destruct timer) for the chat; 0 if not defined. TTL is counted from the time message or its content is viewed in secret chats and from the send date in other chats

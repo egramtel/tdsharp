@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Checks whether the maximum number of owned public chats has been reached. Returns corresponding error if the limit was reached
+        /// Checks whether the maximum number of owned public chats has been reached. Returns corresponding error if the limit was reached. The limit can be increased with Telegram Premium
         /// </summary>
         public class CheckCreatedPublicChatsLimit : Function<Ok>
         {
@@ -35,7 +35,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Checks whether the maximum number of owned public chats has been reached. Returns corresponding error if the limit was reached
+        /// Checks whether the maximum number of owned public chats has been reached. Returns corresponding error if the limit was reached. The limit can be increased with Telegram Premium
         /// </summary>
         public static Task<Ok> CheckCreatedPublicChatsLimitAsync(
             this Client client, PublicChatType type = default)

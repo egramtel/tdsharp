@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Changes the pinned state of a chat. There can be up to GetOption("pinned_chat_count_max")/GetOption("pinned_archived_chat_count_max") pinned non-secret chats and the same number of secret chats in the main/archive chat list
+        /// Changes the pinned state of a chat. There can be up to getOption("pinned_chat_count_max")/getOption("pinned_archived_chat_count_max") pinned non-secret chats and the same number of secret chats in the main/archive chat list. The limit can be increased with Telegram Premium
         /// </summary>
         public class ToggleChatIsPinned : Function<Ok>
         {
@@ -41,7 +41,7 @@ namespace TdLib
             public long ChatId { get; set; }
 
             /// <summary>
-            /// True, if the chat is pinned
+            /// Pass true to pin the chat; pass false to unpin it
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_pinned")]
@@ -49,7 +49,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Changes the pinned state of a chat. There can be up to GetOption("pinned_chat_count_max")/GetOption("pinned_archived_chat_count_max") pinned non-secret chats and the same number of secret chats in the main/archive chat list
+        /// Changes the pinned state of a chat. There can be up to getOption("pinned_chat_count_max")/getOption("pinned_archived_chat_count_max") pinned non-secret chats and the same number of secret chats in the main/archive chat list. The limit can be increased with Telegram Premium
         /// </summary>
         public static Task<Ok> ToggleChatIsPinnedAsync(
             this Client client, ChatList chatList = default, long chatId = default, bool isPinned = default)

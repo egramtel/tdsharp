@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Creates new chat filter. Returns information about the created chat filter
+        /// Creates new chat filter. Returns information about the created chat filter. There can be up to getOption("chat_filter_count_max") chat filters, but the limit can be increased with Telegram Premium
         /// </summary>
         public class CreateChatFilter : Function<ChatFilterInfo>
         {
@@ -35,7 +35,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Creates new chat filter. Returns information about the created chat filter
+        /// Creates new chat filter. Returns information about the created chat filter. There can be up to getOption("chat_filter_count_max") chat filters, but the limit can be increased with Telegram Premium
         /// </summary>
         public static Task<ChatFilterInfo> CreateChatFilterAsync(
             this Client client, ChatFilter filter = default)

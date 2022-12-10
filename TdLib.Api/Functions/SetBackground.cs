@@ -41,7 +41,7 @@ namespace TdLib
             public BackgroundType Type { get; set; }
 
             /// <summary>
-            /// True, if the background is chosen for dark theme
+            /// Pass true if the background is changed for a dark theme
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("for_dark_theme")]

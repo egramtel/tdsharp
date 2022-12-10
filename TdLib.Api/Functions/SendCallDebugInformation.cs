@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Sends debug information for a call
+        /// Sends debug information for a call to Telegram servers
         /// </summary>
         public class SendCallDebugInformation : Function<Ok>
         {
@@ -42,7 +42,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Sends debug information for a call
+        /// Sends debug information for a call to Telegram servers
         /// </summary>
         public static Task<Ok> SendCallDebugInformationAsync(
             this Client client, int callId = default, string debugInformation = default)

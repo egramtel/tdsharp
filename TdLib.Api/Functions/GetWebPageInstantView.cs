@@ -34,7 +34,7 @@ namespace TdLib
             public string Url { get; set; }
 
             /// <summary>
-            /// If true, the full instant view for the web page will be returned
+            /// Pass true to get full instant view for the web page
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("force_full")]

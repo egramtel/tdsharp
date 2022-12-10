@@ -48,7 +48,7 @@ namespace TdLib
             public long ButtonId { get; set; }
 
             /// <summary>
-            /// True, if the user allowed the bot to send them messages
+            /// Pass true to allow the bot to send messages to the current user
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("allow_write_access")]

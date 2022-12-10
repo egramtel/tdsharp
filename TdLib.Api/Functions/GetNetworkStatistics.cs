@@ -27,7 +27,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// If true, returns only data for the current library launch
+            /// Pass true to get statistics only for the current library launch
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("only_current")]

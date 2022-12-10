@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns information about a message, if it is available locally without sending network request. This is an offline request
+        /// Returns information about a message, if it is available without sending network request. This is an offline request
         /// </summary>
         public class GetMessageLocally : Function<Message>
         {
@@ -42,7 +42,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Returns information about a message, if it is available locally without sending network request. This is an offline request
+        /// Returns information about a message, if it is available without sending network request. This is an offline request
         /// </summary>
         public static Task<Message> GetMessageLocallyAsync(
             this Client client, long chatId = default, long messageId = default)

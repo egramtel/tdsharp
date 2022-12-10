@@ -42,14 +42,14 @@ namespace TdLib
                 public InputThumbnail Thumbnail { get; set; }
 
                 /// <summary>
-                /// If true, automatic file type detection will be disabled and the document will be always sent as file. Always true for files sent to secret chats
+                /// If true, automatic file type detection will be disabled and the document will always be sent as file. Always true for files sent to secret chats
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("disable_content_type_detection")]
                 public bool DisableContentTypeDetection { get; set; }
 
                 /// <summary>
-                /// Document caption; pass null to use an empty caption; 0-GetOption("message_caption_length_max") characters
+                /// Document caption; pass null to use an empty caption; 0-getOption("message_caption_length_max") characters
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("caption")]

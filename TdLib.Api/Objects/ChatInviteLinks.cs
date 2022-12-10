@@ -26,7 +26,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Approximate total count of chat invite links found
+            /// Approximate total number of chat invite links found
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("total_count")]

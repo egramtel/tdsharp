@@ -44,14 +44,14 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("max_video_file_size")]
-            public int MaxVideoFileSize { get; set; }
+            public long MaxVideoFileSize { get; set; }
 
             /// <summary>
             /// The maximum size of other file types to be auto-downloaded, in bytes
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("max_other_file_size")]
-            public int MaxOtherFileSize { get; set; }
+            public long MaxOtherFileSize { get; set; }
 
             /// <summary>
             /// The maximum suggested bitrate for uploaded videos, in kbit/s

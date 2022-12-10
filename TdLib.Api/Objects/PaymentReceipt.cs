@@ -37,7 +37,7 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("description")]
-            public string Description { get; set; }
+            public FormattedText Description { get; set; }
 
             /// <summary>
             /// Product photo; may be null
@@ -64,8 +64,8 @@ namespace TdLib
             /// User identifier of the payment provider bot
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("payments_provider_user_id")]
-            public long PaymentsProviderUserId { get; set; }
+            [JsonProperty("payment_provider_user_id")]
+            public long PaymentProviderUserId { get; set; }
 
             /// <summary>
             /// Information about the invoice

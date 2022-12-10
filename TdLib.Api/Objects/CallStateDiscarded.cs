@@ -47,6 +47,13 @@ namespace TdLib
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("need_debug_information")]
                 public bool NeedDebugInformation { get; set; }
+
+                /// <summary>
+                /// True, if the call log must be sent to the server
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("need_log")]
+                public bool NeedLog { get; set; }
             }
         }
     }

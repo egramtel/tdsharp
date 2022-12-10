@@ -124,7 +124,7 @@ namespace TdLib
             public bool CanGetStatistics { get; set; }
 
             /// <summary>
-            /// True, if the message thread info is available through getMessageThread
+            /// True, if information about the message thread is available through getMessageThread and getMessageThreadHistory
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("can_get_message_thread")]
@@ -145,6 +145,13 @@ namespace TdLib
             public bool CanGetMediaTimestampLinks { get; set; }
 
             /// <summary>
+            /// True, if reactions on the message can be reported through reportMessageReactions
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("can_report_reactions")]
+            public bool CanReportReactions { get; set; }
+
+            /// <summary>
             /// True, if media timestamp entities refers to a media in this message as opposed to a media in the replied message
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -157,6 +164,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_channel_post")]
             public bool IsChannelPost { get; set; }
+
+            /// <summary>
+            /// True, if the message is a forum topic message
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("is_topic_message")]
+            public bool IsTopicMessage { get; set; }
 
             /// <summary>
             /// True, if the message contains an unread mention for the current user

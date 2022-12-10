@@ -41,7 +41,7 @@ namespace TdLib
             public string Text { get; set; }
 
             /// <summary>
-            /// If true, an alert must be shown to the user instead of a toast notification
+            /// Pass true to show an alert to the user instead of a toast notification
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("show_alert")]

@@ -47,6 +47,13 @@ namespace TdLib
             public bool ProtectContent { get; set; }
 
             /// <summary>
+            /// Pass true if the user explicitly chosen a sticker or a custom emoji from an installed sticker set; applicable only to sendMessage and sendMessageAlbum
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("update_order_of_installed_sticker_sets")]
+            public bool UpdateOrderOfInstalledStickerSets { get; set; }
+
+            /// <summary>
             /// Message scheduling state; pass null to send message immediately. Messages sent to a secret chat, live location messages and self-destructing messages can't be scheduled
             /// </summary>
             [JsonConverter(typeof(Converter))]

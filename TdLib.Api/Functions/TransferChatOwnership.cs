@@ -41,7 +41,7 @@ namespace TdLib
             public long UserId { get; set; }
 
             /// <summary>
-            /// The password of the current user
+            /// The 2-step verification password of the current user
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("password")]

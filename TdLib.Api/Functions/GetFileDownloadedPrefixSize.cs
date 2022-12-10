@@ -12,7 +12,7 @@ namespace TdLib
         /// <summary>
         /// Returns file downloaded prefix size from a given offset, in bytes
         /// </summary>
-        public class GetFileDownloadedPrefixSize : Function<Count>
+        public class GetFileDownloadedPrefixSize : Function<FileDownloadedPrefixSize>
         {
             /// <summary>
             /// Data type for serialization
@@ -38,14 +38,14 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("offset")]
-            public int Offset { get; set; }
+            public long Offset { get; set; }
         }
 
         /// <summary>
         /// Returns file downloaded prefix size from a given offset, in bytes
         /// </summary>
-        public static Task<Count> GetFileDownloadedPrefixSizeAsync(
-            this Client client, int fileId = default, int offset = default)
+        public static Task<FileDownloadedPrefixSize> GetFileDownloadedPrefixSizeAsync(
+            this Client client, int fileId = default, long offset = default)
         {
             return client.ExecuteAsync(new GetFileDownloadedPrefixSize
             {

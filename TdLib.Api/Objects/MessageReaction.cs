@@ -26,11 +26,11 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Text representation of the reaction
+            /// Type of the reaction
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("reaction")]
-            public string Reaction { get; set; }
+            [JsonProperty("type")]
+            public ReactionType Type { get; set; }
 
             /// <summary>
             /// Number of times the reaction was added
@@ -47,7 +47,7 @@ namespace TdLib
             public bool IsChosen { get; set; }
 
             /// <summary>
-            /// Identifiers of at most 3 recent message senders, added the reaction; available in private chats, basic groups and supergroups
+            /// Identifiers of at most 3 recent message senders, added the reaction; available in private, basic group and supergroup chats
             /// </summary>
             [JsonProperty("recent_sender_ids", ItemConverterType = typeof(Converter))]
             public MessageSender[] RecentSenderIds { get; set; }

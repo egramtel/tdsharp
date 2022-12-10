@@ -27,7 +27,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Chat identifier of the PaymentSuccessful message
+            /// Chat identifier of the messagePaymentSuccessful message
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_id")]

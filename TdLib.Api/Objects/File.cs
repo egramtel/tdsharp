@@ -37,14 +37,14 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("size")]
-            public int Size { get; set; }
+            public long Size { get; set; }
 
             /// <summary>
             /// Approximate file size in bytes in case the exact file size is unknown. Can be used to show download/upload progress
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("expected_size")]
-            public int ExpectedSize { get; set; }
+            public long ExpectedSize { get; set; }
 
             /// <summary>
             /// Information about the local copy of the file

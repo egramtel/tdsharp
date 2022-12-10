@@ -40,7 +40,7 @@ namespace TdLib
             public long InviterUserId { get; set; }
 
             /// <summary>
-            /// Point in time (Unix timestamp) when the user joined the chat
+            /// Point in time (Unix timestamp) when the user joined/was promoted/was banned in the chat
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("joined_chat_date")]

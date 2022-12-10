@@ -33,6 +33,13 @@ namespace TdLib
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("peer_tag")]
                 public byte[] PeerTag { get; set; }
+
+                /// <summary>
+                /// True, if the server uses TCP instead of UDP
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("is_tcp")]
+                public bool IsTcp { get; set; }
             }
         }
     }

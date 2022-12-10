@@ -41,14 +41,14 @@ namespace TdLib
             public long MessageId { get; set; }
 
             /// <summary>
-            /// True, if there must be no notification about the pinned message. Notifications are always disabled in channels and private chats
+            /// Pass true to disable notification about the pinned message. Notifications are always disabled in channels and private chats
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("disable_notification")]
             public bool DisableNotification { get; set; }
 
             /// <summary>
-            /// True, if the message needs to be pinned for one side only; private chats only
+            /// Pass true to pin the message only for self; private chats only
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("only_for_self")]

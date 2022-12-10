@@ -27,7 +27,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// True, if the backgrounds must be ordered for dark theme
+            /// Pass true to order returned backgrounds for a dark theme
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("for_dark_theme")]

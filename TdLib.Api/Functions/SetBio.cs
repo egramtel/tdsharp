@@ -27,7 +27,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// The new value of the user bio; 0-70 characters without line feeds
+            /// The new value of the user bio; 0-getOption("bio_length_max") characters without line feeds
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("bio")]

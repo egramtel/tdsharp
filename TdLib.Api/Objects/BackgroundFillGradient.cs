@@ -42,7 +42,7 @@ namespace TdLib
                 public int BottomColor { get; set; }
 
                 /// <summary>
-                /// Clockwise rotation angle of the gradient, in degrees; 0-359. Must be always divisible by 45
+                /// Clockwise rotation angle of the gradient, in degrees; 0-359. Must always be divisible by 45
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("rotation_angle")]

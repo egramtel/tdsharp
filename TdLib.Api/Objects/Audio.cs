@@ -68,11 +68,17 @@ namespace TdLib
             public Minithumbnail AlbumCoverMinithumbnail { get; set; }
 
             /// <summary>
-            /// The thumbnail of the album cover in JPEG format; as defined by the sender. The full size thumbnail is supposed to be extracted from the downloaded file; may be null
+            /// The thumbnail of the album cover in JPEG format; as defined by the sender. The full size thumbnail is supposed to be extracted from the downloaded audio file; may be null
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("album_cover_thumbnail")]
             public Thumbnail AlbumCoverThumbnail { get; set; }
+
+            /// <summary>
+            /// Album cover variants to use if the downloaded audio file contains no album cover. Provided thumbnail dimensions are approximate
+            /// </summary>
+            [JsonProperty("external_album_covers", ItemConverterType = typeof(Converter))]
+            public Thumbnail[] ExternalAlbumCovers { get; set; }
 
             /// <summary>
             /// File containing the audio

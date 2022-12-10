@@ -80,6 +80,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("can_pin_messages")]
             public bool CanPinMessages { get; set; }
+
+            /// <summary>
+            /// True, if the user can manage topics
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("can_manage_topics")]
+            public bool CanManageTopics { get; set; }
         }
     }
 }

@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Adds the current user as a new member to a chat. Private and secret chats can't be joined using this method
+        /// Adds the current user as a new member to a chat. Private and secret chats can't be joined using this method. May return an error with a message "INVITE_REQUEST_SENT" if only a join request was created
         /// </summary>
         public class JoinChat : Function<Ok>
         {
@@ -35,7 +35,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Adds the current user as a new member to a chat. Private and secret chats can't be joined using this method
+        /// Adds the current user as a new member to a chat. Private and secret chats can't be joined using this method. May return an error with a message "INVITE_REQUEST_SENT" if only a join request was created
         /// </summary>
         public static Task<Ok> JoinChatAsync(
             this Client client, long chatId = default)

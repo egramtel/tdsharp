@@ -11,7 +11,7 @@ namespace TdLib
         public partial class InternalLinkType : Object
         {
             /// <summary>
-            /// The link is a link to app settings
+            /// The link is a link to application settings
             /// </summary>
             public class InternalLinkTypeSettings : InternalLinkType
             {

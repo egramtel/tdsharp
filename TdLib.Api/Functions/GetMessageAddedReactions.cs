@@ -41,11 +41,11 @@ namespace TdLib
             public long MessageId { get; set; }
 
             /// <summary>
-            /// If non-empty, only added reactions with the specified text representation will be returned
+            /// Type of the reactions to return; pass null to return all added reactions
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("reaction")]
-            public string Reaction { get; set; }
+            [JsonProperty("reaction_type")]
+            public ReactionType ReactionType { get; set; }
 
             /// <summary>
             /// Offset of the first entry to return as received from the previous request; use empty string to get the first chunk of results
@@ -66,11 +66,11 @@ namespace TdLib
         /// Returns reactions added for a message, along with their sender
         /// </summary>
         public static Task<AddedReactions> GetMessageAddedReactionsAsync(
-            this Client client, long chatId = default, long messageId = default, string reaction = default, string offset = default, int limit = default)
+            this Client client, long chatId = default, long messageId = default, ReactionType reactionType = default, string offset = default, int limit = default)
         {
             return client.ExecuteAsync(new GetMessageAddedReactions
             {
-                ChatId = chatId, MessageId = messageId, Reaction = reaction, Offset = offset, Limit = limit
+                ChatId = chatId, MessageId = messageId, ReactionType = reactionType, Offset = offset, Limit = limit
             });
         }
     }

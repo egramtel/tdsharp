@@ -39,7 +39,7 @@ namespace TdLib
             public string EndpointId { get; set; }
 
             /// <summary>
-            /// True if the video is paused. This flag needs to be ignored, if new video frames are received
+            /// True, if the video is paused. This flag needs to be ignored, if new video frames are received
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_paused")]

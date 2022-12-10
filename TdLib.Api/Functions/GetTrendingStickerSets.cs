@@ -12,7 +12,7 @@ namespace TdLib
         /// <summary>
         /// Returns a list of trending sticker sets. For optimal performance, the number of returned sticker sets is chosen by TDLib
         /// </summary>
-        public class GetTrendingStickerSets : Function<StickerSets>
+        public class GetTrendingStickerSets : Function<TrendingStickerSets>
         {
             /// <summary>
             /// Data type for serialization
@@ -25,6 +25,13 @@ namespace TdLib
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
+
+            /// <summary>
+            /// Type of the sticker sets to return
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("sticker_type")]
+            public StickerType StickerType { get; set; }
 
             /// <summary>
             /// The offset from which to return the sticker sets; must be non-negative
@@ -44,12 +51,12 @@ namespace TdLib
         /// <summary>
         /// Returns a list of trending sticker sets. For optimal performance, the number of returned sticker sets is chosen by TDLib
         /// </summary>
-        public static Task<StickerSets> GetTrendingStickerSetsAsync(
-            this Client client, int offset = default, int limit = default)
+        public static Task<TrendingStickerSets> GetTrendingStickerSetsAsync(
+            this Client client, StickerType stickerType = default, int offset = default, int limit = default)
         {
             return client.ExecuteAsync(new GetTrendingStickerSets
             {
-                Offset = offset, Limit = limit
+                StickerType = stickerType, Offset = offset, Limit = limit
             });
         }
     }

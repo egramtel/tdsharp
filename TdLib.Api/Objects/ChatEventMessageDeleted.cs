@@ -33,6 +33,13 @@ namespace TdLib
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("message")]
                 public Message Message { get; set; }
+
+                /// <summary>
+                /// True, if the message deletion can be reported via reportSupergroupAntiSpamFalsePositive
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("can_report_anti_spam_false_positive")]
+                public bool CanReportAntiSpamFalsePositive { get; set; }
             }
         }
     }

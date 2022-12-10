@@ -28,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Photo to send
+                /// Photo to send. The photo must be at most 10 MB in size. The photo's width and height must not exceed 10000 in total. Width and height ratio must be at most 20
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("photo")]
@@ -62,7 +62,7 @@ namespace TdLib
                 public int Height { get; set; }
 
                 /// <summary>
-                /// Photo caption; pass null to use an empty caption; 0-GetOption("message_caption_length_max") characters
+                /// Photo caption; pass null to use an empty caption; 0-getOption("message_caption_length_max") characters
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("caption")]

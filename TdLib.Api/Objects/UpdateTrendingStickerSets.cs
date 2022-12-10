@@ -28,11 +28,18 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
+                /// Type of the affected stickers
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("sticker_type")]
+                public StickerType StickerType { get; set; }
+
+                /// <summary>
                 /// The prefix of the list of trending sticker sets with the newest trending sticker sets
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("sticker_sets")]
-                public StickerSets StickerSets { get; set; }
+                public TrendingStickerSets StickerSets { get; set; }
             }
         }
     }

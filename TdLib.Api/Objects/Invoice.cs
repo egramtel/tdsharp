@@ -52,6 +52,13 @@ namespace TdLib
             public long[] SuggestedTipAmounts { get; set; }
 
             /// <summary>
+            /// An HTTP URL with terms of service for recurring payments. If non-empty, the invoice payment will result in recurring payments and the user must accept the terms of service before allowed to pay
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("recurring_payment_terms_of_service_url")]
+            public string RecurringPaymentTermsOfServiceUrl { get; set; }
+
+            /// <summary>
             /// True, if the payment is a test payment
             /// </summary>
             [JsonConverter(typeof(Converter))]

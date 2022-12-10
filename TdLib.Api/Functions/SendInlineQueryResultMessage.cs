@@ -41,7 +41,7 @@ namespace TdLib
             public long MessageThreadId { get; set; }
 
             /// <summary>
-            /// Identifier of a message to reply to or 0
+            /// Identifier of a replied message; 0 if none
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("reply_to_message_id")]
@@ -69,7 +69,7 @@ namespace TdLib
             public string ResultId { get; set; }
 
             /// <summary>
-            /// If true, there will be no mention of a bot, via which the message is sent. Can be used only for bots GetOption("animation_search_bot_username"), GetOption("photo_search_bot_username") and GetOption("venue_search_bot_username")
+            /// Pass true to hide the bot, via which the message is sent. Can be used only for bots getOption("animation_search_bot_username"), getOption("photo_search_bot_username"), and getOption("venue_search_bot_username")
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("hide_via_bot")]

@@ -34,7 +34,7 @@ namespace TdLib
             public PassportElementType Type { get; set; }
 
             /// <summary>
-            /// Password of the current user
+            /// The 2-step verification password of the current user
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("password")]

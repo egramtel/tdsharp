@@ -34,6 +34,13 @@ namespace TdLib
             public long ChatId { get; set; }
 
             /// <summary>
+            /// If not 0, a message thread identifier in which the message will be sent; for forum threads only
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("message_thread_id")]
+            public long MessageThreadId { get; set; }
+
+            /// <summary>
             /// Identifier of the chat from which to forward messages
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -54,21 +61,21 @@ namespace TdLib
             public MessageSendOptions Options { get; set; }
 
             /// <summary>
-            /// If true, content of the messages will be copied without reference to the original sender. Always true if the messages are forwarded to a secret chat or are local
+            /// Pass true to copy content of the messages without reference to the original sender. Always true if the messages are forwarded to a secret chat or are local
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("send_copy")]
             public bool SendCopy { get; set; }
 
             /// <summary>
-            /// If true, media caption of message copies will be removed. Ignored if send_copy is false
+            /// Pass true to remove media captions of message copies. Ignored if send_copy is false
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("remove_caption")]
             public bool RemoveCaption { get; set; }
 
             /// <summary>
-            /// If true, messages will not be forwarded and instead fake messages will be returned
+            /// Pass true to get fake messages instead of actually forwarding them
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("only_preview")]
@@ -79,11 +86,11 @@ namespace TdLib
         /// Forwards previously sent messages. Returns the forwarded messages in the same order as the message identifiers passed in message_ids. If a message can't be forwarded, null will be returned instead of the message
         /// </summary>
         public static Task<Messages> ForwardMessagesAsync(
-            this Client client, long chatId = default, long fromChatId = default, long[] messageIds = default, MessageSendOptions options = default, bool sendCopy = default, bool removeCaption = default, bool onlyPreview = default)
+            this Client client, long chatId = default, long messageThreadId = default, long fromChatId = default, long[] messageIds = default, MessageSendOptions options = default, bool sendCopy = default, bool removeCaption = default, bool onlyPreview = default)
         {
             return client.ExecuteAsync(new ForwardMessages
             {
-                ChatId = chatId, FromChatId = fromChatId, MessageIds = messageIds, Options = options, SendCopy = sendCopy, RemoveCaption = removeCaption, OnlyPreview = onlyPreview
+                ChatId = chatId, MessageThreadId = messageThreadId, FromChatId = fromChatId, MessageIds = messageIds, Options = options, SendCopy = sendCopy, RemoveCaption = removeCaption, OnlyPreview = onlyPreview
             });
         }
     }

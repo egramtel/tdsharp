@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Searches for call messages. Returns the results in reverse chronological order (i. e., in order of decreasing message_id). For optimal performance, the number of returned messages is chosen by TDLib
+        /// Searches for call messages. Returns the results in reverse chronological order (i.e., in order of decreasing message_id). For optimal performance, the number of returned messages is chosen by TDLib
         /// </summary>
         public class SearchCallMessages : Function<Messages>
         {
@@ -41,7 +41,7 @@ namespace TdLib
             public int Limit { get; set; }
 
             /// <summary>
-            /// If true, returns only messages with missed/declined calls
+            /// Pass true to search only for messages with missed/declined calls
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("only_missed")]
@@ -49,7 +49,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Searches for call messages. Returns the results in reverse chronological order (i. e., in order of decreasing message_id). For optimal performance, the number of returned messages is chosen by TDLib
+        /// Searches for call messages. Returns the results in reverse chronological order (i.e., in order of decreasing message_id). For optimal performance, the number of returned messages is chosen by TDLib
         /// </summary>
         public static Task<Messages> SearchCallMessagesAsync(
             this Client client, long fromMessageId = default, int limit = default, bool onlyMissed = default)

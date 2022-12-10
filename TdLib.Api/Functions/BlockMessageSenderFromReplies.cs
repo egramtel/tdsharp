@@ -34,21 +34,21 @@ namespace TdLib
             public long MessageId { get; set; }
 
             /// <summary>
-            /// Pass true if the message must be deleted
+            /// Pass true to delete the message
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("delete_message")]
             public bool DeleteMessage { get; set; }
 
             /// <summary>
-            /// Pass true if all messages from the same sender must be deleted
+            /// Pass true to delete all messages from the same sender
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("delete_all_messages")]
             public bool DeleteAllMessages { get; set; }
 
             /// <summary>
-            /// Pass true if the sender must be reported to the Telegram moderators
+            /// Pass true to report the sender to the Telegram moderators
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("report_spam")]

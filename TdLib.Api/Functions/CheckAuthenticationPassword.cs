@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Checks the authentication password for correctness. Works only when the current authorization state is authorizationStateWaitPassword
+        /// Checks the 2-step verification password for correctness. Works only when the current authorization state is authorizationStateWaitPassword
         /// </summary>
         public class CheckAuthenticationPassword : Function<Ok>
         {
@@ -27,7 +27,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// The password to check
+            /// The 2-step verification password to check
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("password")]
@@ -35,7 +35,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Checks the authentication password for correctness. Works only when the current authorization state is authorizationStateWaitPassword
+        /// Checks the 2-step verification password for correctness. Works only when the current authorization state is authorizationStateWaitPassword
         /// </summary>
         public static Task<Ok> CheckAuthenticationPasswordAsync(
             this Client client, string password = default)

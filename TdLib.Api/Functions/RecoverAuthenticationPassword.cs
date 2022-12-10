@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Recovers the password with a password recovery code sent to an email address that was previously set up. Works only when the current authorization state is authorizationStateWaitPassword
+        /// Recovers the 2-step verification password with a password recovery code sent to an email address that was previously set up. Works only when the current authorization state is authorizationStateWaitPassword
         /// </summary>
         public class RecoverAuthenticationPassword : Function<Ok>
         {
@@ -34,7 +34,7 @@ namespace TdLib
             public string RecoveryCode { get; set; }
 
             /// <summary>
-            /// New password of the user; may be empty to remove the password
+            /// New 2-step verification password of the user; may be empty to remove the password
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("new_password")]
@@ -49,7 +49,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Recovers the password with a password recovery code sent to an email address that was previously set up. Works only when the current authorization state is authorizationStateWaitPassword
+        /// Recovers the 2-step verification password with a password recovery code sent to an email address that was previously set up. Works only when the current authorization state is authorizationStateWaitPassword
         /// </summary>
         public static Task<Ok> RecoverAuthenticationPasswordAsync(
             this Client client, string recoveryCode = default, string newPassword = default, string newHint = default)

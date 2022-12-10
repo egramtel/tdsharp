@@ -33,6 +33,13 @@ namespace TdLib
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("sticker")]
                 public Sticker Sticker { get; set; }
+
+                /// <summary>
+                /// True, if premium animation of the sticker must be played
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("is_premium")]
+                public bool IsPremium { get; set; }
             }
         }
     }

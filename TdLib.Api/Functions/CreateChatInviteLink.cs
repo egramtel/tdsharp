@@ -55,7 +55,7 @@ namespace TdLib
             public int MemberLimit { get; set; }
 
             /// <summary>
-            /// True, if the link only creates join request. If true, member_limit must not be specified
+            /// Pass true if users joining the chat via the link need to be approved by chat administrators. In this case, member_limit must be 0
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("creates_join_request")]

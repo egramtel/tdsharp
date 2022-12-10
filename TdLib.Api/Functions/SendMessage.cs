@@ -41,7 +41,7 @@ namespace TdLib
             public long MessageThreadId { get; set; }
 
             /// <summary>
-            /// Identifier of the message to reply to or 0
+            /// Identifier of the replied message; 0 if none
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("reply_to_message_id")]

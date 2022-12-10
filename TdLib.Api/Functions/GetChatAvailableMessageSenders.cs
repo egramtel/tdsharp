@@ -12,7 +12,7 @@ namespace TdLib
         /// <summary>
         /// Returns list of message sender identifiers, which can be used to send messages in a chat
         /// </summary>
-        public class GetChatAvailableMessageSenders : Function<MessageSenders>
+        public class GetChatAvailableMessageSenders : Function<ChatMessageSenders>
         {
             /// <summary>
             /// Data type for serialization
@@ -37,7 +37,7 @@ namespace TdLib
         /// <summary>
         /// Returns list of message sender identifiers, which can be used to send messages in a chat
         /// </summary>
-        public static Task<MessageSenders> GetChatAvailableMessageSendersAsync(
+        public static Task<ChatMessageSenders> GetChatAvailableMessageSendersAsync(
             this Client client, long chatId = default)
         {
             return client.ExecuteAsync(new GetChatAvailableMessageSenders

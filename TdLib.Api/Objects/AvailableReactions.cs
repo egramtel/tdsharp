@@ -9,7 +9,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Represents a list of available reactions
+        /// Represents a list of reactions that can be added to a message
         /// </summary>
         public partial class AvailableReactions : Object
         {
@@ -26,10 +26,29 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// List of reactions
+            /// List of reactions to be shown at the top
             /// </summary>
-            [JsonProperty("reactions", ItemConverterType = typeof(Converter))]
-            public string[] Reactions { get; set; }
+            [JsonProperty("top_reactions", ItemConverterType = typeof(Converter))]
+            public AvailableReaction[] TopReactions { get; set; }
+
+            /// <summary>
+            /// List of recently used reactions
+            /// </summary>
+            [JsonProperty("recent_reactions", ItemConverterType = typeof(Converter))]
+            public AvailableReaction[] RecentReactions { get; set; }
+
+            /// <summary>
+            /// List of popular reactions
+            /// </summary>
+            [JsonProperty("popular_reactions", ItemConverterType = typeof(Converter))]
+            public AvailableReaction[] PopularReactions { get; set; }
+
+            /// <summary>
+            /// True, if custom emoji reactions could be added by Telegram Premium subscribers
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("allow_custom_emoji")]
+            public bool AllowCustomEmoji { get; set; }
         }
     }
 }

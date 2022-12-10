@@ -11,7 +11,7 @@ namespace TdLib
         public partial class TextEntityType : Object
         {
             /// <summary>
-            /// A spoiler text. Not supported in secret chats
+            /// A spoiler text
             /// </summary>
             public class TextEntityTypeSpoiler : TextEntityType
             {

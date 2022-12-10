@@ -26,7 +26,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Approximate total count of users found
+            /// Approximate total number of users found
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("total_count")]

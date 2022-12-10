@@ -33,6 +33,13 @@ namespace TdLib
             public int Duration { get; set; }
 
             /// <summary>
+            /// A waveform representation of the video note's audio in 5-bit format; may be empty if unknown
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("waveform")]
+            public byte[] Waveform { get; set; }
+
+            /// <summary>
             /// Video width and height; as defined by the sender
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -52,6 +59,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("thumbnail")]
             public Thumbnail Thumbnail { get; set; }
+
+            /// <summary>
+            /// Result of speech recognition in the video note; may be null
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("speech_recognition_result")]
+            public SpeechRecognitionResult SpeechRecognitionResult { get; set; }
 
             /// <summary>
             /// File containing the video

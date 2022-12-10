@@ -40,7 +40,7 @@ namespace TdLib
             public int Date { get; set; }
 
             /// <summary>
-            /// True, if the notification was initially silent
+            /// True, if the notification was explicitly sent without sound
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_silent")]

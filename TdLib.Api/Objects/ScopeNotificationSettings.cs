@@ -33,11 +33,11 @@ namespace TdLib
             public int MuteFor { get; set; }
 
             /// <summary>
-            /// The name of an audio file to be used for notification sounds; only applies to iOS applications
+            /// Identifier of the notification sound to be played; 0 if sound is disabled
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("sound")]
-            public string Sound { get; set; }
+            [JsonConverter(typeof(Converter.Int64))]
+            [JsonProperty("sound_id")]
+            public long SoundId { get; set; }
 
             /// <summary>
             /// True, if message content must be displayed in notifications

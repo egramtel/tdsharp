@@ -61,6 +61,13 @@ namespace TdLib
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("need_location")]
                 public bool NeedLocation { get; set; }
+
+                /// <summary>
+                /// True, if the bot can be added to attachment menu
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("can_be_added_to_attachment_menu")]
+                public bool CanBeAddedToAttachmentMenu { get; set; }
             }
         }
     }

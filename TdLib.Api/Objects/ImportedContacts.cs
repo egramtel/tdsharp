@@ -9,7 +9,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Represents the result of an ImportContacts request
+        /// Represents the result of an importContacts request
         /// </summary>
         public partial class ImportedContacts : Object
         {

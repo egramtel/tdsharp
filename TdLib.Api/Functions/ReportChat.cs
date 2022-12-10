@@ -34,7 +34,7 @@ namespace TdLib
             public long ChatId { get; set; }
 
             /// <summary>
-            /// Identifiers of reported messages, if any
+            /// Identifiers of reported messages; may be empty to report the whole chat
             /// </summary>
             [JsonProperty("message_ids", ItemConverterType = typeof(Converter))]
             public long[] MessageIds { get; set; }

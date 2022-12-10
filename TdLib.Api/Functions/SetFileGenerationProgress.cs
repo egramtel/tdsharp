@@ -38,21 +38,21 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("expected_size")]
-            public int ExpectedSize { get; set; }
+            public long ExpectedSize { get; set; }
 
             /// <summary>
             /// The number of bytes already generated
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("local_prefix_size")]
-            public int LocalPrefixSize { get; set; }
+            public long LocalPrefixSize { get; set; }
         }
 
         /// <summary>
         /// Informs TDLib on a file generation progress
         /// </summary>
         public static Task<Ok> SetFileGenerationProgressAsync(
-            this Client client, long generationId = default, int expectedSize = default, int localPrefixSize = default)
+            this Client client, long generationId = default, long expectedSize = default, long localPrefixSize = default)
         {
             return client.ExecuteAsync(new SetFileGenerationProgress
             {

@@ -41,7 +41,7 @@ namespace TdLib
             public long MessageThreadId { get; set; }
 
             /// <summary>
-            /// Identifier of a message to reply to or 0
+            /// Identifier of a replied message; 0 if none
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("reply_to_message_id")]
@@ -59,17 +59,24 @@ namespace TdLib
             /// </summary>
             [JsonProperty("input_message_contents", ItemConverterType = typeof(Converter))]
             public InputMessageContent[] InputMessageContents { get; set; }
+
+            /// <summary>
+            /// Pass true to get fake messages instead of actually sending them
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("only_preview")]
+            public bool OnlyPreview { get; set; }
         }
 
         /// <summary>
         /// Sends 2-10 messages grouped together into an album. Currently, only audio, document, photo and video messages can be grouped into an album. Documents and audio files can be only grouped in an album with messages of the same type. Returns sent messages
         /// </summary>
         public static Task<Messages> SendMessageAlbumAsync(
-            this Client client, long chatId = default, long messageThreadId = default, long replyToMessageId = default, MessageSendOptions options = default, InputMessageContent[] inputMessageContents = default)
+            this Client client, long chatId = default, long messageThreadId = default, long replyToMessageId = default, MessageSendOptions options = default, InputMessageContent[] inputMessageContents = default, bool onlyPreview = default)
         {
             return client.ExecuteAsync(new SendMessageAlbum
             {
-                ChatId = chatId, MessageThreadId = messageThreadId, ReplyToMessageId = replyToMessageId, Options = options, InputMessageContents = inputMessageContents
+                ChatId = chatId, MessageThreadId = messageThreadId, ReplyToMessageId = replyToMessageId, Options = options, InputMessageContents = inputMessageContents, OnlyPreview = onlyPreview
             });
         }
     }

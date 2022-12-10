@@ -26,7 +26,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Chat photo; may be null
+            /// Chat photo; may be null if empty or unknown. If non-null, then it is the same photo as in chat.photo
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("photo")]

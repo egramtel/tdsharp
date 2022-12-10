@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Changes the message TTL in a chat. Requires can_delete_messages administrator right in basic groups, supergroups and channels
+        /// Changes the message TTL in a chat. Requires change_info administrator right in basic groups, supergroups and channels
         /// </summary>
         public class SetChatMessageTtl : Function<Ok>
         {
@@ -34,7 +34,7 @@ namespace TdLib
             public long ChatId { get; set; }
 
             /// <summary>
-            /// New TTL value, in seconds; must be one of 0, 86400, 7 * 86400, or 31 * 86400 unless the chat is secret
+            /// New TTL value, in seconds; unless the chat is secret, it must be from 0 up to 365 * 86400 and be divisible by 86400. If 0, then messages aren't deleted automatically
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("ttl")]
@@ -42,7 +42,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Changes the message TTL in a chat. Requires can_delete_messages administrator right in basic groups, supergroups and channels
+        /// Changes the message TTL in a chat. Requires change_info administrator right in basic groups, supergroups and channels
         /// </summary>
         public static Task<Ok> SetChatMessageTtlAsync(
             this Client client, long chatId = default, int ttl = default)

@@ -58,7 +58,7 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("uploaded_size")]
-            public int UploadedSize { get; set; }
+            public long UploadedSize { get; set; }
         }
     }
 }

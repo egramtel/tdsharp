@@ -103,6 +103,13 @@ namespace TdLib
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("start_parameter")]
                 public string StartParameter { get; set; }
+
+                /// <summary>
+                /// The content of extended media attached to the invoice. The content of the message to be sent. Must be one of the following types: inputMessagePhoto, inputMessageVideo
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("extended_media_content")]
+                public InputMessageContent ExtendedMediaContent { get; set; }
             }
         }
     }

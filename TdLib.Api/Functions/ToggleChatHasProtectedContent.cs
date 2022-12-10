@@ -34,7 +34,7 @@ namespace TdLib
             public long ChatId { get; set; }
 
             /// <summary>
-            /// True, if chat content can't be saved locally, forwarded, or copied
+            /// New value of has_protected_content
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("has_protected_content")]

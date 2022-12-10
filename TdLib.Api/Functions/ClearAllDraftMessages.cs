@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Clears draft messages in all chats
+        /// Clears message drafts in all chats
         /// </summary>
         public class ClearAllDraftMessages : Function<Ok>
         {
@@ -27,7 +27,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// If true, local draft messages in secret chats will not be cleared
+            /// Pass true to keep local message drafts in secret chats
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("exclude_secret_chats")]
@@ -35,7 +35,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Clears draft messages in all chats
+        /// Clears message drafts in all chats
         /// </summary>
         public static Task<Ok> ClearAllDraftMessagesAsync(
             this Client client, bool excludeSecretChats = default)

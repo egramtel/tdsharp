@@ -26,7 +26,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Approximate total count of chat members found
+            /// Approximate total number of chat members found
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("total_count")]

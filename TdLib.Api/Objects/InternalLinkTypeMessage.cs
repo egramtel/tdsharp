@@ -11,7 +11,7 @@ namespace TdLib
         public partial class InternalLinkType : Object
         {
             /// <summary>
-            /// The link is a link to a Telegram message. Call getMessageLinkInfo with the given URL to process the link
+            /// The link is a link to a Telegram message or a forum topic. Call getMessageLinkInfo with the given URL to process the link
             /// </summary>
             public class InternalLinkTypeMessage : InternalLinkType
             {

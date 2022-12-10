@@ -26,7 +26,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Identifier of the message to reply to; 0 if none
+            /// Identifier of the replied message; 0 if none
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("reply_to_message_id")]
