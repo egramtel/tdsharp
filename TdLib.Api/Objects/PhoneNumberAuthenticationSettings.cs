@@ -47,7 +47,7 @@ namespace TdLib
             public bool IsCurrentPhoneNumber { get; set; }
 
             /// <summary>
-            /// For official applications only. True, if the application can use Android SMS Retriever API (requires Google Play Services >= 10.2) to automatically receive the authentication code from the SMS. See https://developers.google.com/identity/sms-retriever/ for more details
+            /// For official applications only. True, if the application can use Android SMS Retriever API (requires Google Play Services &gt;= 10.2) to automatically receive the authentication code from the SMS. See https://developers.google.com/identity/sms-retriever/ for more details
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("allow_sms_retriever_api")]

@@ -41,7 +41,7 @@ namespace TdLib
             public string Title { get; set; }
 
             /// <summary>
-            /// Sticker set name. Can contain only English letters, digits and underscores. Must end with *"_by_<bot username>"* (*<bot_username>* is case insensitive) for bots; 1-64 characters
+            /// Sticker set name. Can contain only English letters, digits and underscores. Must end with *"_by_&lt;bot username&gt;"* (*&lt;bot_username&gt;* is case insensitive) for bots; 1-64 characters
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("name")]

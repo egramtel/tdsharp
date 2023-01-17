@@ -3,6 +3,8 @@
 open System
 open System.IO
 open System.Reflection
+open System.Xml.Linq
+
 open Xunit
 
 type Case =
@@ -34,6 +36,9 @@ let readResource res = seq {
         yield reader.ReadLine()
 }
 
+let xmlEncode(str: string): string =
+    if str = "" then ""
+    else XElement("x", str).LastNode.ToString()
 
 [<Fact>]
 let ``toCamelCase converts string to upper camel case``() =
@@ -58,3 +63,15 @@ let ``readResource reads file from embedded resources``() =
     let lines = readResource "Object.tpl"
     let first = Seq.head lines
     Assert.Equal("using System;", first)
+
+[<Fact>]
+let ``xmlEncode doesn't fail for an empty string``(): unit =
+    let original = ""
+    let encoded = xmlEncode original
+    Assert.Equal("", encoded)
+
+[<Fact>]
+let ``xmlEncode encodes XML``(): unit =
+    let original = "<html> test"
+    let encoded = xmlEncode original
+    Assert.Equal("&lt;html&gt; test", encoded)

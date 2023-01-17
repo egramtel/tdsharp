@@ -65,7 +65,7 @@ let generateField (def: Parser.TlDef) (field: Parser.TlField) (annotations: Pars
 
     let lines = Utils.readResource "Field.tpl"
     lines |> Seq.map (fun line ->
-        tabulation + line.Replace("$FIELD_DESCRIPTION", description)
+        tabulation + line.Replace("$FIELD_DESCRIPTION", Utils.xmlEncode description)
             .Replace("$FIELD_ATTRIBUTES", fieldAttributes)
             .Replace("$FIELD_TYPE", fieldType)
             .Replace("$FIELD_NAME", fieldName))
@@ -93,7 +93,7 @@ let generateType (def: Parser.TlDef) (annotations: Parser.TlAnnotation list) =
 
     let lines = Utils.readResource (if isObjectType then "Object.tpl" else "Union.tpl")
     lines |> Seq.map (fun line ->
-        line.Replace("$TYPE_DESCRIPTION", description)
+        line.Replace("$TYPE_DESCRIPTION", Utils.xmlEncode description)
             .Replace("$TYPE_NAME", objectTypeName)
             .Replace("$TL_TYPE_NAME", tlTypeName)
             .Replace("$BASE_TYPE_NAME", baseTypeName)
@@ -132,7 +132,7 @@ let generateFunc (def: Parser.TlDef) (annotations: Parser.TlAnnotation list) =
 
     let lines = Utils.readResource "Function.tpl"
     lines |> Seq.map (fun line ->
-        line.Replace("$FUNC_DESCRIPTION", description)
+        line.Replace("$FUNC_DESCRIPTION", Utils.xmlEncode description)
             .Replace("$FUNC_NAME", funcTypeName)
             .Replace("$TL_FUNC_NAME", tlFuncTypeName)
             .Replace("$RETURN_TYPE_NAME", returnTypeName)
