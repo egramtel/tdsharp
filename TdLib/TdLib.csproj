@@ -5,8 +5,10 @@
         <PackageId>TDLib</PackageId>
         <NoWarn>
             MA0046; <!-- About parameter types for EventHandlers: properly wrapping those could add memory traffic -->
-            MA0055 <!-- "Do not use finalizer" -->
+            MA0055; <!-- "Do not use finalizer" -->
+            CS1591 <!-- Missing XML comment for publicly visible type or member -->
         </NoWarn>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="ChangelogAutomation.MSBuild" Version="1.0.1" PrivateAssets="All" />

@@ -4,6 +4,10 @@
         <LangVersion>latest</LangVersion>
         <PackageId>TDLib.Api</PackageId>
         <RootNamespace>TdLib</RootNamespace>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <NoWarn>
+            CS1591 <!-- Missing XML comment for publicly visible type or member -->
+        </NoWarn>
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="ChangelogAutomation.MSBuild" Version="1.0.1" PrivateAssets="All" />
