@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [Unreleased] (1.8.9.1)
+### Changed
+- **Breaking!** `ITdLibBindings`, `TdLibBindingsExtensions` and `TdLogLevel` were removed from `TDLib.Bindings` namespace. Find them in `TdLib.Bindings` (case-only change in the namespace).
+
 ## [1.8.9] - 2022-12-10
 ### Changed
 - Update to [TDLib v1.8.9](https://github.com/tdlib/td/tree/29752073cf2fe586ecefe572d3821a8cf853fab5).
