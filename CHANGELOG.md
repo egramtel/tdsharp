@@ -5,9 +5,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
-## [Unreleased] (1.8.9.1)
+## [1.8.9.1] - 2023-01-18
 ### Changed
 - **Breaking!** `ITdLibBindings`, `TdLibBindingsExtensions` and `TdLogLevel` were removed from `TDLib.Bindings` namespace. Find them in `TdLib.Bindings` (case-only change in the namespace).
+
+### Added
+- XML documentation files are now included in the NuGet packages.
 
 ## [1.8.9] - 2022-12-10
 ### Changed
@@ -89,4 +92,5 @@ Initial release to support TDLib pre-1.2.
 [1.8.1]: https://github.com/egramtel/tdsharp/compare/v1.7.9...v1.8.1
 [1.8.1.1]: https://github.com/egramtel/tdsharp/compare/v1.8.1...v1.8.1.1
 [1.8.9]: https://github.com/egramtel/tdsharp/compare/v1.8.1.1...v1.8.9
-[Unreleased]: https://github.com/egramtel/tdsharp/compare/v1.8.9...HEAD
+[1.8.9.1]: https://github.com/egramtel/tdsharp/compare/v1.8.9...v1.8.9.1
+[Unreleased]: https://github.com/egramtel/tdsharp/compare/v1.8.9.1...HEAD
