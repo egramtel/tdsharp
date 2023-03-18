@@ -18,7 +18,7 @@ let ``vector field``(): unit =
         "    /// </summary>\n" +
         "    [JsonProperty(\"field\", ItemConverterType = typeof(Converter))]\n" +
         "    public Foo[] Field { get; set; }"
-    let generated = generateField ``type`` field [] "    "
+    let generated = generateField ``type`` field [] 4
     Assert.Equal(expected,  generated)
 
 [<Fact>]
@@ -32,5 +32,5 @@ let ``normal field``(): unit =
         "    [JsonConverter(typeof(Converter))]\n" +
         "    [JsonProperty(\"field\")]\n" +
         "    public Foo Field { get; set; }"
-    let generated = generateField ``type`` field [] "    "
+    let generated = generateField ``type`` field [] 4
     Assert.Equal(expected,  generated)

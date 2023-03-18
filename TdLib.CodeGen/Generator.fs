@@ -1,7 +1,9 @@
 ﻿module TdLib.CodeGen.Generator
 
 open System
+
 open FParsec
+open Xunit
 
 let rec getDotNetType (t: Parser.TlType) =
     match t with
@@ -31,7 +33,23 @@ let getNamedAnnotationText (annotations: Parser.TlAnnotation list) fieldName =
                 None
         | _ -> None) |> List.tryHead
 
-let generateField (def: Parser.TlDef) (field: Parser.TlField) (annotations: Parser.TlAnnotation list) (tabulation: string) =
+let private withDescription (pattern: string)
+                            (descriptionPlaceholder: string)
+                            (additionalIndent: int)
+                            (text: string): string =
+    if pattern.IndexOf descriptionPlaceholder = -1
+    then
+        let indentString = String(' ', additionalIndent)
+        $"{indentString}{pattern}"
+    else
+        let textLines = text.Split "\n"
+
+        let naturalIndent = pattern |> Seq.takeWhile Char.IsWhiteSpace |> Seq.length
+        let naturalPrefix = pattern.Substring(naturalIndent, pattern.IndexOf descriptionPlaceholder - naturalIndent)
+        let indentString = String(' ', naturalIndent + additionalIndent)
+        textLines |> Seq.map(fun l -> $"{indentString}{naturalPrefix}{l}") |> String.concat "\n"
+
+let generateField (def: Parser.TlDef) (field: Parser.TlField) (annotations: Parser.TlAnnotation list) (tabulation: int) =
     let tlFieldName = field.FieldName
 
     let jsonConverterAttribute converterName = $"[JsonConverter(typeof({converterName}))]"
@@ -45,7 +63,7 @@ let generateField (def: Parser.TlDef) (field: Parser.TlField) (annotations: Pars
     let fieldAttributes =
         match field.TypeName with
         | Parser.TlVector _ -> jsonPropertyAttribute $", ItemConverterType = typeof({converter})"
-        | _ -> $"{jsonConverterAttribute converter}\n{tabulation}{jsonPropertyAttribute String.Empty}"
+        | _ -> $"{jsonConverterAttribute converter}\n{String(' ', tabulation)}{jsonPropertyAttribute String.Empty}"
 
     let fieldType = getDotNetType field.TypeName
     let enclosingType =
@@ -65,7 +83,7 @@ let generateField (def: Parser.TlDef) (field: Parser.TlField) (annotations: Pars
 
     let lines = Utils.readResource "Field.tpl"
     lines |> Seq.map (fun line ->
-        tabulation + line.Replace("$FIELD_DESCRIPTION", Utils.xmlEncode description)
+        (withDescription line "$FIELD_DESCRIPTION" tabulation (Utils.xmlEncode description))
             .Replace("$FIELD_ATTRIBUTES", fieldAttributes)
             .Replace("$FIELD_TYPE", fieldType)
             .Replace("$FIELD_NAME", fieldName))
@@ -79,7 +97,7 @@ let generateType (def: Parser.TlDef) (annotations: Parser.TlAnnotation list) =
 
     let tlTypeName = Utils.toCamelCase objectTypeName Utils.LowerCase
     let isObjectType = objectTypeName = baseTypeName
-    let tabulation = if isObjectType then "            " else "                " // the easiest way to do it, but not the prettiest
+    let tabulation = if isObjectType then 12 else 16
 
     let objectFields =
         fields
@@ -93,7 +111,7 @@ let generateType (def: Parser.TlDef) (annotations: Parser.TlAnnotation list) =
 
     let lines = Utils.readResource (if isObjectType then "Object.tpl" else "Union.tpl")
     lines |> Seq.map (fun line ->
-        line.Replace("$TYPE_DESCRIPTION", Utils.xmlEncode description)
+        (withDescription line "$TYPE_DESCRIPTION" 0 (Utils.xmlEncode description))
             .Replace("$TYPE_NAME", objectTypeName)
             .Replace("$TL_TYPE_NAME", tlTypeName)
             .Replace("$BASE_TYPE_NAME", baseTypeName)
@@ -113,7 +131,7 @@ let generateFunc (def: Parser.TlDef) (annotations: Parser.TlAnnotation list) =
 
     let funcFields =
         fields
-        |> List.map (fun field -> generateField def field annotations "            ")
+        |> List.map (fun field -> generateField def field annotations 12)
         |> String.concat "\n\n"
 
     let funcParams =
@@ -132,7 +150,7 @@ let generateFunc (def: Parser.TlDef) (annotations: Parser.TlAnnotation list) =
 
     let lines = Utils.readResource "Function.tpl"
     lines |> Seq.map (fun line ->
-        line.Replace("$FUNC_DESCRIPTION", Utils.xmlEncode description)
+        (withDescription line "$FUNC_DESCRIPTION" 0 (Utils.xmlEncode description))
             .Replace("$FUNC_NAME", funcTypeName)
             .Replace("$TL_FUNC_NAME", tlFuncTypeName)
             .Replace("$RETURN_TYPE_NAME", returnTypeName)
@@ -153,8 +171,37 @@ let private isBasicDef(line: string) =
     || line.StartsWith("boolTrue =")
     || line.StartsWith("vector {t:Type} # [ t ] =")
 
+let private splitIntoChunks(lines: string seq): string seq = seq {
+    let buffer = ResizeArray()
+    let flushBuffer() =
+        let data = buffer.ToArray()
+        buffer.Clear()
+        String.Join("\n", Seq.ofArray data)
+
+    for line in lines do
+        match line with
+        | x when x.StartsWith "//" && buffer.Count = 0 -> buffer.Add x
+        | x when x.StartsWith "//-" && buffer.Count > 0 -> buffer.Add x
+        | x ->
+            if buffer.Count > 0 then
+                yield flushBuffer()
+            yield x
+
+    if buffer.Count > 0 then
+        yield flushBuffer()
+}
+
+let private processCommentBlock(line: string) =
+    line.Split("\n")
+    |> Seq.map(fun l -> l.Trim())
+    |> Seq.map(function
+    | x when x.StartsWith "//-" -> x.Substring 3
+    | x when x.StartsWith "//" -> x.Substring 2
+    | x -> x)
+    |> String.concat "\n"
+
 let generateAllTypes() = seq {
-    let lines = Utils.readResource "Types.tl"
+    let lines = Utils.readResource "Types.tl" |> splitIntoChunks
 
     let mutable annotations = []
 
@@ -162,7 +209,7 @@ let generateAllTypes() = seq {
         if String.IsNullOrWhiteSpace line || isBasicDef line then
             ()
         elif line.StartsWith("//") then
-            match run Parser.parseAnnotationList line with
+            match run Parser.parseAnnotationList <| processCommentBlock line with
             | Success(result, _, _) -> annotations <- annotations @ result
             | _ -> ()
         else
@@ -180,7 +227,7 @@ let generateAllTypes() = seq {
 }
 
 let generateAllFuncs() = seq {
-    let lines = Utils.readResource "Methods.tl"
+    let lines = Utils.readResource "Methods.tl" |> splitIntoChunks
 
     let mutable annotations = []
 
@@ -188,7 +235,7 @@ let generateAllFuncs() = seq {
         if String.IsNullOrWhiteSpace(line) then
             ()
         elif line.StartsWith("//") then
-            match run Parser.parseAnnotationList line with
+            match run Parser.parseAnnotationList <| processCommentBlock line with
             | Success(result, _, _) -> annotations <- annotations @ result
             | _ -> ()
         else
@@ -204,3 +251,21 @@ let generateAllFuncs() = seq {
             ()
             annotations <- []
 }
+
+[<Fact>]
+let ``splitIntoChunks should work properly``(): unit =
+    let input = [| "foo"; "bar"; "//@test"; "//-test2"; "foo"; "//-test"; "//-test2" |]
+    let result = splitIntoChunks input |> Seq.toArray
+    Assert.Equal<string>([|
+        "foo"
+        "bar"
+        "//@test\n//-test2"
+        "foo"
+        "//-test\n//-test2"
+    |], result)
+
+[<Fact>]
+let ``processCommentBlock works with multiline comment``(): unit =
+    let input = "//Foo\n//-Bar\n//Baz"
+    let result = processCommentBlock input
+    Assert.Equal<string>("Foo\nBar\nBaz", result)

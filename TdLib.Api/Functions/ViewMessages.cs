@@ -11,6 +11,7 @@ namespace TdLib
     {
         /// <summary>
         /// Informs TDLib that messages are being viewed by the user. Sponsored messages must be marked as viewed only when the entire text of the message is shown on the screen (excluding the button).
+        /// Many useful activities depend on whether the messages are currently being viewed or not (e.g., marking messages as read, incrementing a view counter, updating a view counter, removing deleted messages in supergroups and channels)
         /// </summary>
         public class ViewMessages : Function<Ok>
         {
@@ -56,6 +57,7 @@ namespace TdLib
 
         /// <summary>
         /// Informs TDLib that messages are being viewed by the user. Sponsored messages must be marked as viewed only when the entire text of the message is shown on the screen (excluding the button).
+        /// Many useful activities depend on whether the messages are currently being viewed or not (e.g., marking messages as read, incrementing a view counter, updating a view counter, removing deleted messages in supergroups and channels)
         /// </summary>
         public static Task<Ok> ViewMessagesAsync(
             this Client client, long chatId = default, long[] messageIds = default, MessageSource source = default, bool forceRead = default)

@@ -11,6 +11,7 @@ namespace TdLib
     {
         /// <summary>
         /// Informs TDLib that a Web App is being opened from attachment menu, a botMenuButton button, an internalLinkTypeAttachmentMenuBot link, or an inlineKeyboardButtonTypeWebApp button.
+        /// For each bot, a confirmation alert about data sent to the bot must be shown once
         /// </summary>
         public class OpenWebApp : Function<WebAppInfo>
         {
@@ -78,6 +79,7 @@ namespace TdLib
 
         /// <summary>
         /// Informs TDLib that a Web App is being opened from attachment menu, a botMenuButton button, an internalLinkTypeAttachmentMenuBot link, or an inlineKeyboardButtonTypeWebApp button.
+        /// For each bot, a confirmation alert about data sent to the bot must be shown once
         /// </summary>
         public static Task<WebAppInfo> OpenWebAppAsync(
             this Client client, long chatId = default, long botUserId = default, string url = default, ThemeParameters theme = default, string applicationName = default, long messageThreadId = default, long replyToMessageId = default)

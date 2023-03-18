@@ -11,6 +11,7 @@ namespace TdLib
     {
         /// <summary>
         /// Deletes all information about a language pack in the current localization target. The language pack which is currently in use (including base language pack) or is being synchronized can't be deleted.
+        /// Can be called before authorization
         /// </summary>
         public class DeleteLanguagePack : Function<Ok>
         {
@@ -36,6 +37,7 @@ namespace TdLib
 
         /// <summary>
         /// Deletes all information about a language pack in the current localization target. The language pack which is currently in use (including base language pack) or is being synchronized can't be deleted.
+        /// Can be called before authorization
         /// </summary>
         public static Task<Ok> DeleteLanguagePackAsync(
             this Client client, string languagePackId = default)

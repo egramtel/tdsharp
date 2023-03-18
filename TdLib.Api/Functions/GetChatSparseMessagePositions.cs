@@ -11,6 +11,7 @@ namespace TdLib
     {
         /// <summary>
         /// Returns sparse positions of messages of the specified type in the chat to be used for shared media scroll implementation. Returns the results in reverse chronological order (i.e., in order of decreasing message_id).
+        /// Cannot be used in secret chats or with searchMessagesFilterFailedToSend filter without an enabled message database
         /// </summary>
         public class GetChatSparseMessagePositions : Function<MessagePositions>
         {
@@ -57,6 +58,7 @@ namespace TdLib
 
         /// <summary>
         /// Returns sparse positions of messages of the specified type in the chat to be used for shared media scroll implementation. Returns the results in reverse chronological order (i.e., in order of decreasing message_id).
+        /// Cannot be used in secret chats or with searchMessagesFilterFailedToSend filter without an enabled message database
         /// </summary>
         public static Task<MessagePositions> GetChatSparseMessagePositionsAsync(
             this Client client, long chatId = default, SearchMessagesFilter filter = default, long fromMessageId = default, int limit = default)

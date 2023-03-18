@@ -11,6 +11,7 @@ namespace TdLib
     {
         /// <summary>
         /// Searches for messages in all chats except secret chats. Returns the results in reverse chronological order (i.e., in order of decreasing (date, chat_id, message_id)).
+        /// For optimal performance, the number of returned messages is chosen by TDLib and can be smaller than the specified limit
         /// </summary>
         public class SearchMessages : Function<FoundMessages>
         {
@@ -78,6 +79,7 @@ namespace TdLib
 
         /// <summary>
         /// Searches for messages in all chats except secret chats. Returns the results in reverse chronological order (i.e., in order of decreasing (date, chat_id, message_id)).
+        /// For optimal performance, the number of returned messages is chosen by TDLib and can be smaller than the specified limit
         /// </summary>
         public static Task<FoundMessages> SearchMessagesAsync(
             this Client client, ChatList chatList = default, string query = default, string offset = default, int limit = default, SearchMessagesFilter filter = default, int minDate = default, int maxDate = default)

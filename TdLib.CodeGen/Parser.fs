@@ -107,7 +107,7 @@ let parseAnnotation =
             else TlFieldAnnotation(id, text.Trim())
 
 let parseAnnotationList =
-    (pstring "//" >>. spaces) >>. (many parseAnnotation)
+    many parseAnnotation
 
 [<Fact>]
 let ``parseType parses simple types``() =
@@ -218,7 +218,7 @@ let ``parseAnnotation with custom field name produces annotated field definition
 
 [<Fact>]
 let ``parseAnnotationList with multiple fields on a single line produces list of annotations``() =
-    match run parseAnnotationList "//@one First. @two Second." with
+    match run parseAnnotationList "@one First. @two Second." with
     | Success(result, _, _) ->
         match result with
         | [one; two] ->
@@ -233,4 +233,18 @@ let ``parseAnnotationList with multiple fields on a single line produces list of
                 Assert.Equal("Second.", text)
             | _ -> failwith "Unexpected annotation kind, expected field annotation"
         | _ -> failwith "Unexpected number of annotations, expected 2"
+    | Failure(_,error,_) -> failwith (error.ToString())
+
+[<Fact>]
+let ``parseAnnotationList with multi-line description``() =
+    match run parseAnnotationList "@one First.\nSecond." with
+    | Success(result, _, _) ->
+        match result with
+        | [one] ->
+            match one with
+            | TlFieldAnnotation(id, text) ->
+                Assert.Equal("one", id)
+                Assert.Equal("First.\nSecond.", text)
+            | _ -> failwith "Unexpected annotation kind, expected field annotation"
+        | _ -> failwith "Unexpected number of annotations, expected 1"
     | Failure(_,error,_) -> failwith (error.ToString())

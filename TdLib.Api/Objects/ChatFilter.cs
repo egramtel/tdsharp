@@ -34,6 +34,8 @@ namespace TdLib
 
             /// <summary>
             /// The chosen icon name for short filter representation. If non-empty, must be one of "All", "Unread", "Unmuted", "Bots", "Channels", "Groups", "Private", "Custom", "Setup", "Cat", "Crown",
+            /// "Favorite", "Flower", "Game", "Home", "Love", "Mask", "Party", "Sport", "Study", "Trade", "Travel", "Work", "Airplane", "Book", "Light", "Like", "Money", "Note", "Palette".
+            /// If empty, use getChatFilterDefaultIconName to get default icon name for the filter
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("icon_name")]
