@@ -9,7 +9,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Contains a temporary identifier of validated order information, which is stored for one hour. Also contains the available shipping options
+        /// Contains a temporary identifier of validated order information, which is stored for one hour, and the available shipping options
         /// </summary>
         public partial class ValidatedOrderInfo : Object
         {

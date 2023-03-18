@@ -28,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// True, if the topic was hidden, otherwise the topic was unhidden
+                /// True, if the topic was hidden; otherwise, the topic was unhidden
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_hidden")]

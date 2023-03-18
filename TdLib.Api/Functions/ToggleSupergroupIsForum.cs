@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Toggles whether the supergroup is a forum; requires owner privileges in the supergroup
+        /// Toggles whether the supergroup is a forum; requires owner privileges in the supergroup. Discussion supergroups can't be converted to forums
         /// </summary>
         public class ToggleSupergroupIsForum : Function<Ok>
         {
@@ -34,7 +34,7 @@ namespace TdLib
             public long SupergroupId { get; set; }
 
             /// <summary>
-            /// New value of is_forum. A supergroup can be converted to a forum, only if it has at least getOption("forum_member_count_min") members
+            /// New value of is_forum
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_forum")]
@@ -42,7 +42,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Toggles whether the supergroup is a forum; requires owner privileges in the supergroup
+        /// Toggles whether the supergroup is a forum; requires owner privileges in the supergroup. Discussion supergroups can't be converted to forums
         /// </summary>
         public static Task<Ok> ToggleSupergroupIsForumAsync(
             this Client client, long supergroupId = default, bool isForum = default)

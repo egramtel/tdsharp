@@ -48,7 +48,7 @@ namespace TdLib
             public string FilesDirectory { get; set; }
 
             /// <summary>
-            /// Encryption key for the database
+            /// Encryption key for the database. If the encryption key is invalid, then an error with code 401 will be returned
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("database_encryption_key")]

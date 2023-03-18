@@ -26,25 +26,18 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// File with the sticker; must fit in a 512x512 square. For WEBP stickers and masks the file must be in PNG format, which will be converted to WEBP server-side. Otherwise, the file must be local or uploaded within a week. See https://core.telegram.org/animated_stickers#technical-requirements for technical requirements
+            /// File with the sticker; must fit in a 512x512 square. For WEBP stickers the file must be in WEBP or PNG format, which will be converted to WEBP server-side.
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("sticker")]
             public InputFile Sticker { get; set; }
 
             /// <summary>
-            /// Emojis corresponding to the sticker
+            /// String with 1-20 emoji corresponding to the sticker
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("emojis")]
             public string Emojis { get; set; }
-
-            /// <summary>
-            /// Sticker format
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("format")]
-            public StickerFormat Format { get; set; }
 
             /// <summary>
             /// Position where the mask is placed; pass null if not specified
@@ -52,6 +45,12 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("mask_position")]
             public MaskPosition MaskPosition { get; set; }
+
+            /// <summary>
+            /// List of up to 20 keywords with total length up to 64 characters, which can be used to find the sticker
+            /// </summary>
+            [JsonProperty("keywords", ItemConverterType = typeof(Converter))]
+            public string[] Keywords { get; set; }
         }
     }
 }

@@ -83,11 +83,18 @@ namespace TdLib
                 public FormattedText Caption { get; set; }
 
                 /// <summary>
-                /// Video TTL (Time To Live), in seconds (0-60). A non-zero TTL can be specified only in private chats
+                /// Video self-destruct time, in seconds (0-60). A non-zero self-destruct time can be specified only in private chats
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("ttl")]
-                public int Ttl { get; set; }
+                [JsonProperty("self_destruct_time")]
+                public int SelfDestructTime { get; set; }
+
+                /// <summary>
+                /// True, if the video preview must be covered by a spoiler animation; not supported in secret chats
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("has_spoiler")]
+                public bool HasSpoiler { get; set; }
             }
         }
     }

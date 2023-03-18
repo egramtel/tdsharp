@@ -10,15 +10,15 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns default message Time To Live setting (self-destruct timer) for new chats
+        /// Returns default list of custom emoji stickers for placing on a chat photo
         /// </summary>
-        public class GetDefaultMessageTtl : Function<MessageTtl>
+        public class GetDefaultChatPhotoCustomEmojiStickers : Function<Stickers>
         {
             /// <summary>
             /// Data type for serialization
             /// </summary>
             [JsonProperty("@type")]
-            public override string DataType { get; set; } = "getDefaultMessageTtl";
+            public override string DataType { get; set; } = "getDefaultChatPhotoCustomEmojiStickers";
 
             /// <summary>
             /// Extra data attached to the function
@@ -30,12 +30,12 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Returns default message Time To Live setting (self-destruct timer) for new chats
+        /// Returns default list of custom emoji stickers for placing on a chat photo
         /// </summary>
-        public static Task<MessageTtl> GetDefaultMessageTtlAsync(
+        public static Task<Stickers> GetDefaultChatPhotoCustomEmojiStickersAsync(
             this Client client)
         {
-            return client.ExecuteAsync(new GetDefaultMessageTtl
+            return client.ExecuteAsync(new GetDefaultChatPhotoCustomEmojiStickers
             {
                 
             });

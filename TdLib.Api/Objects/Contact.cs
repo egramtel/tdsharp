@@ -54,7 +54,7 @@ namespace TdLib
             public string Vcard { get; set; }
 
             /// <summary>
-            /// Identifier of the user, if known; otherwise 0
+            /// Identifier of the user, if known; 0 otherwise
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("user_id")]

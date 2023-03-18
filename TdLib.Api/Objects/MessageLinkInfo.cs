@@ -26,14 +26,14 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// True, if the link is a public link for a message in a chat
+            /// True, if the link is a public link for a message or a forum topic in a chat
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_public")]
             public bool IsPublic { get; set; }
 
             /// <summary>
-            /// If found, identifier of the chat to which the message belongs, 0 otherwise
+            /// If found, identifier of the chat to which the link points, 0 otherwise
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_id")]

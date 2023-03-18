@@ -88,6 +88,13 @@ namespace TdLib
             public bool HasProtectedContent { get; set; }
 
             /// <summary>
+            /// True, if translation of all messages in the chat must be suggested to the user
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("is_translatable")]
+            public bool IsTranslatable { get; set; }
+
+            /// <summary>
             /// True, if the chat is marked as unread
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -186,11 +193,11 @@ namespace TdLib
             public ChatAvailableReactions AvailableReactions { get; set; }
 
             /// <summary>
-            /// Current message Time To Live setting (self-destruct timer) for the chat; 0 if not defined. TTL is counted from the time message or its content is viewed in secret chats and from the send date in other chats
+            /// Current message auto-delete or self-destruct timer setting for the chat, in seconds; 0 if disabled. Self-destruct timer in secret chats starts after the message or its content is viewed. Auto-delete timer in other chats starts from the send date
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("message_ttl")]
-            public int MessageTtl { get; set; }
+            [JsonProperty("message_auto_delete_time")]
+            public int MessageAutoDeleteTime { get; set; }
 
             /// <summary>
             /// If non-empty, name of a theme, set for the chat

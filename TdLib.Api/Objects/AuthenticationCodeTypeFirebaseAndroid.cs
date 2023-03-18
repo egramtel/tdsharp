@@ -8,18 +8,18 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        public partial class MessageContent : Object
+        public partial class AuthenticationCodeType : Object
         {
             /// <summary>
-            /// The TTL (Time To Live) setting for messages in the chat has been changed
+            /// An authentication code is delivered via Firebase Authentication to the official Android application
             /// </summary>
-            public class MessageChatSetTtl : MessageContent
+            public class AuthenticationCodeTypeFirebaseAndroid : AuthenticationCodeType
             {
                 /// <summary>
                 /// Data type for serialization
                 /// </summary>
                 [JsonProperty("@type")]
-                public override string DataType { get; set; } = "messageChatSetTtl";
+                public override string DataType { get; set; } = "authenticationCodeTypeFirebaseAndroid";
 
                 /// <summary>
                 /// Extra data attached to the message
@@ -28,18 +28,18 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// New message TTL
+                /// Nonce to pass to the SafetyNet Attestation API
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("ttl")]
-                public int Ttl { get; set; }
+                [JsonProperty("nonce")]
+                public byte[] Nonce { get; set; }
 
                 /// <summary>
-                /// If not 0, a user identifier, which default setting was automatically applied
+                /// Length of the code
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("from_user_id")]
-                public long FromUserId { get; set; }
+                [JsonProperty("length")]
+                public int Length { get; set; }
             }
         }
     }

@@ -34,7 +34,7 @@ namespace TdLib
             public long ChatId { get; set; }
 
             /// <summary>
-            /// Identifier of a new channel's discussion group. Use 0 to remove the discussion group.
+            /// Identifier of a new channel's discussion group. Use 0 to remove the discussion group. Use the method getSuitableDiscussionChats to find all suitable groups.
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("discussion_chat_id")]

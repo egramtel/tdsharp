@@ -42,6 +42,13 @@ namespace TdLib
                 public ChatJoinRequest Request { get; set; }
 
                 /// <summary>
+                /// Chat identifier of the private chat with the user
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("user_chat_id")]
+                public long UserChatId { get; set; }
+
+                /// <summary>
                 /// The invite link, which was used to send join request; may be null
                 /// </summary>
                 [JsonConverter(typeof(Converter))]

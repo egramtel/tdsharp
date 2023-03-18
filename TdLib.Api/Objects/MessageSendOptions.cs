@@ -59,6 +59,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("scheduling_state")]
             public MessageSchedulingState SchedulingState { get; set; }
+
+            /// <summary>
+            /// Non-persistent identifier, which will be returned back in messageSendingStatePending object and can be used to match sent messages and corresponding updateNewMessage updates
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("sending_id")]
+            public int SendingId { get; set; }
         }
     }
 }

@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns an HTTPS URL of a Web App to open after keyboardButtonTypeWebApp button is pressed
+        /// Returns an HTTPS URL of a Web App to open after keyboardButtonTypeWebApp or inlineQueryResultsButtonTypeWebApp button is pressed
         /// </summary>
         public class GetWebAppUrl : Function<HttpUrl>
         {
@@ -34,7 +34,7 @@ namespace TdLib
             public long BotUserId { get; set; }
 
             /// <summary>
-            /// The URL from the keyboardButtonTypeWebApp button
+            /// The URL from the keyboardButtonTypeWebApp or inlineQueryResultsButtonTypeWebApp button
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("url")]
@@ -56,7 +56,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Returns an HTTPS URL of a Web App to open after keyboardButtonTypeWebApp button is pressed
+        /// Returns an HTTPS URL of a Web App to open after keyboardButtonTypeWebApp or inlineQueryResultsButtonTypeWebApp button is pressed
         /// </summary>
         public static Task<HttpUrl> GetWebAppUrlAsync(
             this Client client, long botUserId = default, string url = default, ThemeParameters theme = default, string applicationName = default)

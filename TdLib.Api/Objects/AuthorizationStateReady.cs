@@ -11,7 +11,7 @@ namespace TdLib
         public partial class AuthorizationState : Object
         {
             /// <summary>
-            /// The user has been successfully authorized. TDLib is now ready to answer queries
+            /// The user has been successfully authorized. TDLib is now ready to answer general requests
             /// </summary>
             public class AuthorizationStateReady : AuthorizationState
             {

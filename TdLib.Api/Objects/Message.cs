@@ -235,18 +235,25 @@ namespace TdLib
             public long MessageThreadId { get; set; }
 
             /// <summary>
-            /// For self-destructing messages, the message's TTL (Time To Live), in seconds; 0 if none. TDLib will send updateDeleteMessages or updateMessageContent once the TTL expires
+            /// The message's self-destruct time, in seconds; 0 if none. TDLib will send updateDeleteMessages or updateMessageContent once the time expires
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("ttl")]
-            public int Ttl { get; set; }
+            [JsonProperty("self_destruct_time")]
+            public int SelfDestructTime { get; set; }
 
             /// <summary>
-            /// Time left before the message expires, in seconds. If the TTL timer isn't started yet, equals to the value of the ttl field
+            /// Time left before the message self-destruct timer expires, in seconds. If the self-destruct timer isn't started yet, equals to the value of the self_destruct_time field
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("ttl_expires_in")]
-            public double? TtlExpiresIn { get; set; }
+            [JsonProperty("self_destruct_in")]
+            public double? SelfDestructIn { get; set; }
+
+            /// <summary>
+            /// Time left before the message will be automatically deleted by message_auto_delete_time setting of the chat, in seconds; 0 if never. TDLib will send updateDeleteMessages or updateMessageContent once the time expires
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("auto_delete_in")]
+            public double? AutoDeleteIn { get; set; }
 
             /// <summary>
             /// If non-zero, the user identifier of the bot through which this message was sent

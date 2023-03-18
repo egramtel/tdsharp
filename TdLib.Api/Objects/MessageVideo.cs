@@ -42,6 +42,13 @@ namespace TdLib
                 public FormattedText Caption { get; set; }
 
                 /// <summary>
+                /// True, if the video preview must be covered by a spoiler animation
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("has_spoiler")]
+                public bool HasSpoiler { get; set; }
+
+                /// <summary>
                 /// True, if the video thumbnail must be blurred and the video must be shown only while tapped
                 /// </summary>
                 [JsonConverter(typeof(Converter))]

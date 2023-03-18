@@ -11,7 +11,7 @@ namespace TdLib
         public partial class AuthorizationState : Object
         {
             /// <summary>
-            /// TDLib needs the user's authentication code sent to an email address to authorize. Call `checkAuthenticationEmailCode` to provide the code
+            /// TDLib needs the user's authentication code sent to an email address to authorize. Call checkAuthenticationEmailCode to provide the code
             /// </summary>
             public class AuthorizationStateWaitEmailCode : AuthorizationState
             {

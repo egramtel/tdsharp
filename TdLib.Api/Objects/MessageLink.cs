@@ -9,7 +9,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Contains an HTTPS link to a message in a supergroup or channel
+        /// Contains an HTTPS link to a message in a supergroup or channel, or a forum topic
         /// </summary>
         public partial class MessageLink : Object
         {
@@ -26,7 +26,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Message link
+            /// The link
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("link")]

@@ -11,7 +11,7 @@ namespace TdLib
         public partial class ChatMemberStatus : Object
         {
             /// <summary>
-            /// The user is a member of the chat and has some additional privileges. In basic groups, administrators can edit and delete messages sent by others, add new members, ban unprivileged members, and manage video chats. In supergroups and channels, there are more detailed options for administrator privileges
+            /// The user is a member of the chat and has some additional privileges. In basic groups, administrators can edit and delete messages sent by others, add new members, ban unprivileged members, and manage video chats.
             /// </summary>
             public class ChatMemberStatusAdministrator : ChatMemberStatus
             {

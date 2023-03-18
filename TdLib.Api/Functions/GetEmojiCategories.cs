@@ -10,15 +10,15 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Changes the default message Time To Live setting (self-destruct timer) for new chats
+        /// Returns available emojis categories
         /// </summary>
-        public class SetDefaultMessageTtl : Function<Ok>
+        public class GetEmojiCategories : Function<EmojiCategories>
         {
             /// <summary>
             /// Data type for serialization
             /// </summary>
             [JsonProperty("@type")]
-            public override string DataType { get; set; } = "setDefaultMessageTtl";
+            public override string DataType { get; set; } = "getEmojiCategories";
 
             /// <summary>
             /// Extra data attached to the function
@@ -27,22 +27,22 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// New message TTL; must be from 0 up to 365 * 86400 and be divisible by 86400. If 0, then messages aren't deleted automatically
+            /// Type of emoji categories to return; pass null to get default emoji categories
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("ttl")]
-            public MessageTtl Ttl { get; set; }
+            [JsonProperty("type")]
+            public EmojiCategoryType Type { get; set; }
         }
 
         /// <summary>
-        /// Changes the default message Time To Live setting (self-destruct timer) for new chats
+        /// Returns available emojis categories
         /// </summary>
-        public static Task<Ok> SetDefaultMessageTtlAsync(
-            this Client client, MessageTtl ttl = default)
+        public static Task<EmojiCategories> GetEmojiCategoriesAsync(
+            this Client client, EmojiCategoryType type = default)
         {
-            return client.ExecuteAsync(new SetDefaultMessageTtl
+            return client.ExecuteAsync(new GetEmojiCategories
             {
-                Ttl = ttl
+                Type = type
             });
         }
     }

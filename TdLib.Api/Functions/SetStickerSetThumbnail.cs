@@ -10,9 +10,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Sets a sticker set thumbnail; for bots only. Returns the sticker set
+        /// Sets a sticker set thumbnail; for bots only
         /// </summary>
-        public class SetStickerSetThumbnail : Function<StickerSet>
+        public class SetStickerSetThumbnail : Function<Ok>
         {
             /// <summary>
             /// Data type for serialization
@@ -49,9 +49,9 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Sets a sticker set thumbnail; for bots only. Returns the sticker set
+        /// Sets a sticker set thumbnail; for bots only
         /// </summary>
-        public static Task<StickerSet> SetStickerSetThumbnailAsync(
+        public static Task<Ok> SetStickerSetThumbnailAsync(
             this Client client, long userId = default, string name = default, InputFile thumbnail = default)
         {
             return client.ExecuteAsync(new SetStickerSetThumbnail

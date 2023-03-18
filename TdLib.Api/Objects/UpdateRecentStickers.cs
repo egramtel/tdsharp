@@ -28,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// True, if the list of stickers attached to photo or video files was updated, otherwise the list of sent stickers is updated
+                /// True, if the list of stickers attached to photo or video files was updated; otherwise, the list of sent stickers is updated
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_attached")]

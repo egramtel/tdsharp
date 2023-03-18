@@ -8,18 +8,18 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        public partial class ChatEventAction : Object
+        public partial class StickerFullType : Object
         {
             /// <summary>
-            /// The is_aggressive_anti_spam_enabled setting of a supergroup was toggled
+            /// The sticker is a mask in WEBP format to be placed on photos or videos
             /// </summary>
-            public class ChatEventIsAggressiveAntiSpamEnabledToggled : ChatEventAction
+            public class StickerFullTypeMask : StickerFullType
             {
                 /// <summary>
                 /// Data type for serialization
                 /// </summary>
                 [JsonProperty("@type")]
-                public override string DataType { get; set; } = "chatEventIsAggressiveAntiSpamEnabledToggled";
+                public override string DataType { get; set; } = "stickerFullTypeMask";
 
                 /// <summary>
                 /// Extra data attached to the message
@@ -28,11 +28,11 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// New value of is_aggressive_anti_spam_enabled
+                /// Position where the mask is placed; may be null
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("is_aggressive_anti_spam_enabled")]
-                public bool IsAggressiveAntiSpamEnabled { get; set; }
+                [JsonProperty("mask_position")]
+                public MaskPosition MaskPosition { get; set; }
             }
         }
     }

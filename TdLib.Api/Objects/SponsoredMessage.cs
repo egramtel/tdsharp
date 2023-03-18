@@ -73,6 +73,20 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("content")]
             public MessageContent Content { get; set; }
+
+            /// <summary>
+            /// If non-empty, information about the sponsor to be shown along with the message
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("sponsor_info")]
+            public string SponsorInfo { get; set; }
+
+            /// <summary>
+            /// If non-empty, additional information about the sponsored message to be shown along with the message
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("additional_info")]
+            public string AdditionalInfo { get; set; }
         }
     }
 }

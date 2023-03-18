@@ -28,9 +28,10 @@ To update the key:
 Update Telegram API
 -------------------
 
-1. Run script `Scripts/Get-TlFiles.ps1` to download the API definitions.
-2. Delete the directories `Objects` and `Functions` from the `TdLib.Api` project.
-3. Run the following shell script to regenerate the C# code:
+1. Update the `$CommitHash` variable in the `Scripts/Get-TlFiles.ps1` to a fresh commit hash.
+2. Run script `Scripts/Get-TlFiles.ps1` to download the API definitions.
+3. Delete the directories `Objects` and `Functions` from the `TdLib.Api` project.
+4. Run the following shell script to regenerate the C# code:
    ```console
    $ cd TdLib.Api && dotnet run --project ../TdLib.CodeGen
    ```

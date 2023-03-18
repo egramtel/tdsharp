@@ -26,7 +26,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Identifier of the custom emoji in stickerFormatTgs format. If the custom emoji belongs to the sticker set getOption("themed_emoji_statuses_sticker_set_id"), then it's color must be changed to the color of the Telegram Premium badge
+            /// Identifier of the custom emoji in stickerFormatTgs format
             /// </summary>
             [JsonConverter(typeof(Converter.Int64))]
             [JsonProperty("custom_emoji_id")]

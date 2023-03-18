@@ -9,7 +9,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Represents a bot added to attachment menu
+        /// Represents a bot, which can be added to attachment menu
         /// </summary>
         public partial class AttachmentMenuBot : Object
         {
@@ -73,6 +73,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("supports_settings")]
             public bool SupportsSettings { get; set; }
+
+            /// <summary>
+            /// True, if the user must be asked for the permission to the bot to send them messages
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("request_write_access")]
+            public bool RequestWriteAccess { get; set; }
 
             /// <summary>
             /// Name for the bot in attachment menu

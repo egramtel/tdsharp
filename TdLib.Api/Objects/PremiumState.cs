@@ -36,7 +36,7 @@ namespace TdLib
             /// The list of available options for buying Telegram Premium
             /// </summary>
             [JsonProperty("payment_options", ItemConverterType = typeof(Converter))]
-            public PremiumPaymentOption[] PaymentOptions { get; set; }
+            public PremiumStatePaymentOption[] PaymentOptions { get; set; }
 
             /// <summary>
             /// The list of available promotion animations for Premium features

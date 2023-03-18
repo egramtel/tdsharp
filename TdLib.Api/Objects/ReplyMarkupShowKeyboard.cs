@@ -34,6 +34,13 @@ namespace TdLib
                 public KeyboardButton[][] Rows { get; set; }
 
                 /// <summary>
+                /// True, if the keyboard is supposed to always be shown when the ordinary keyboard is hidden
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("is_persistent")]
+                public bool IsPersistent { get; set; }
+
+                /// <summary>
                 /// True, if the application needs to resize the keyboard vertically
                 /// </summary>
                 [JsonConverter(typeof(Converter))]

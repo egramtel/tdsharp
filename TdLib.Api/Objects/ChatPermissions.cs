@@ -26,35 +26,70 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// True, if the user can send text messages, contacts, locations, and venues
+            /// True, if the user can send text messages, contacts, invoices, locations, and venues
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("can_send_messages")]
-            public bool CanSendMessages { get; set; }
+            [JsonProperty("can_send_basic_messages")]
+            public bool CanSendBasicMessages { get; set; }
 
             /// <summary>
-            /// True, if the user can send audio files, documents, photos, videos, video notes, and voice notes. Implies can_send_messages permissions
+            /// True, if the user can send music files
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("can_send_media_messages")]
-            public bool CanSendMediaMessages { get; set; }
+            [JsonProperty("can_send_audios")]
+            public bool CanSendAudios { get; set; }
 
             /// <summary>
-            /// True, if the user can send polls. Implies can_send_messages permissions
+            /// True, if the user can send documents
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("can_send_documents")]
+            public bool CanSendDocuments { get; set; }
+
+            /// <summary>
+            /// True, if the user can send audio photos
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("can_send_photos")]
+            public bool CanSendPhotos { get; set; }
+
+            /// <summary>
+            /// True, if the user can send audio videos
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("can_send_videos")]
+            public bool CanSendVideos { get; set; }
+
+            /// <summary>
+            /// True, if the user can send video notes
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("can_send_video_notes")]
+            public bool CanSendVideoNotes { get; set; }
+
+            /// <summary>
+            /// True, if the user can send voice notes
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("can_send_voice_notes")]
+            public bool CanSendVoiceNotes { get; set; }
+
+            /// <summary>
+            /// True, if the user can send polls
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("can_send_polls")]
             public bool CanSendPolls { get; set; }
 
             /// <summary>
-            /// True, if the user can send animations, games, stickers, and dice and use inline bots. Implies can_send_messages permissions
+            /// True, if the user can send animations, games, stickers, and dice and use inline bots
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("can_send_other_messages")]
             public bool CanSendOtherMessages { get; set; }
 
             /// <summary>
-            /// True, if the user may add a web page preview to their messages. Implies can_send_messages permissions
+            /// True, if the user may add a web page preview to their messages
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("can_add_web_page_previews")]

@@ -11,7 +11,7 @@ namespace TdLib
         public partial class AuthorizationState : Object
         {
             /// <summary>
-            /// TDLib needs the user's authentication code to authorize
+            /// TDLib needs the user's authentication code to authorize. Call checkAuthenticationCode to check the code
             /// </summary>
             public class AuthorizationStateWaitCode : AuthorizationState
             {

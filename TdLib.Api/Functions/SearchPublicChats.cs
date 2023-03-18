@@ -27,7 +27,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// 
+            /// Query to search for
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("query")]

@@ -35,11 +35,11 @@ namespace TdLib
                 public string Url { get; set; }
 
                 /// <summary>
-                /// True, if there is no need to show an ordinary open URL confirm
+                /// True, if there is no need to show an ordinary open URL confirmation
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("skip_confirm")]
-                public bool SkipConfirm { get; set; }
+                [JsonProperty("skip_confirmation")]
+                public bool SkipConfirmation { get; set; }
             }
         }
     }

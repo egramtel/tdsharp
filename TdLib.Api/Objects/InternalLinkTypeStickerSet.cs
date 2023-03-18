@@ -33,6 +33,13 @@ namespace TdLib
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("sticker_set_name")]
                 public string StickerSetName { get; set; }
+
+                /// <summary>
+                /// True, if the sticker set is expected to contain custom emoji
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("expect_custom_emoji")]
+                public bool ExpectCustomEmoji { get; set; }
             }
         }
     }

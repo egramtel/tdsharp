@@ -48,11 +48,25 @@ namespace TdLib
             public string Name { get; set; }
 
             /// <summary>
+            /// Format of the stickers in the set
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("sticker_format")]
+            public StickerFormat StickerFormat { get; set; }
+
+            /// <summary>
             /// Type of the stickers in the set
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("sticker_type")]
             public StickerType StickerType { get; set; }
+
+            /// <summary>
+            /// Pass true if stickers in the sticker set must be repainted; for custom emoji sticker sets only
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("needs_repainting")]
+            public bool NeedsRepainting { get; set; }
 
             /// <summary>
             /// List of stickers to be added to the set; must be non-empty. All stickers must have the same format. For TGS stickers, uploadStickerFile must be used before the sticker is shown
@@ -72,11 +86,11 @@ namespace TdLib
         /// Creates a new sticker set. Returns the newly created sticker set
         /// </summary>
         public static Task<StickerSet> CreateNewStickerSetAsync(
-            this Client client, long userId = default, string title = default, string name = default, StickerType stickerType = default, InputSticker[] stickers = default, string source = default)
+            this Client client, long userId = default, string title = default, string name = default, StickerFormat stickerFormat = default, StickerType stickerType = default, bool needsRepainting = default, InputSticker[] stickers = default, string source = default)
         {
             return client.ExecuteAsync(new CreateNewStickerSet
             {
-                UserId = userId, Title = title, Name = name, StickerType = stickerType, Stickers = stickers, Source = source
+                UserId = userId, Title = title, Name = name, StickerFormat = stickerFormat, StickerType = stickerType, NeedsRepainting = needsRepainting, Stickers = stickers, Source = source
             });
         }
     }

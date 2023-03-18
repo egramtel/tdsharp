@@ -54,6 +54,13 @@ namespace TdLib
             public bool AllowSmsRetrieverApi { get; set; }
 
             /// <summary>
+            /// For official Android and iOS applications only; pass null otherwise. Settings for Firebase Authentication
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("firebase_authentication_settings")]
+            public FirebaseAuthenticationSettings FirebaseAuthenticationSettings { get; set; }
+
+            /// <summary>
             /// List of up to 20 authentication tokens, recently received in updateOption("authentication_token") in previously logged out sessions
             /// </summary>
             [JsonProperty("authentication_tokens", ItemConverterType = typeof(Converter))]

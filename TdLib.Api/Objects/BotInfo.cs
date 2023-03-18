@@ -29,8 +29,8 @@ namespace TdLib
             /// The text that is shown on the bot's profile page and is sent together with the link when users share the bot
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("share_text")]
-            public string ShareText { get; set; }
+            [JsonProperty("short_description")]
+            public string ShortDescription { get; set; }
 
             /// <summary>
             /// 

@@ -27,7 +27,12 @@ namespace TdLib
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
-
+                /// <summary>
+                /// Non-persistent message sending identifier, specified by the application
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("sending_id")]
+                public int SendingId { get; set; }
             }
         }
     }

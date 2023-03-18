@@ -11,7 +11,7 @@ namespace TdLib
         public partial class InternalLinkType : Object
         {
             /// <summary>
-            /// The link is a link to the language settings section of the app
+            /// The link is a link to the language section of the app settings
             /// </summary>
             public class InternalLinkTypeLanguageSettings : InternalLinkType
             {

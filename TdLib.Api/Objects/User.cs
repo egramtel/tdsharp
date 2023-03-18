@@ -117,13 +117,6 @@ namespace TdLib
             public bool IsSupport { get; set; }
 
             /// <summary>
-            /// True, if the user's phone number was bought on Fragment and isn't tied to a SIM card
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("has_anonymous_phone_number")]
-            public bool HasAnonymousPhoneNumber { get; set; }
-
-            /// <summary>
             /// If non-empty, it contains a human-readable description of the reason why access to this user must be restricted
             /// </summary>
             [JsonConverter(typeof(Converter))]

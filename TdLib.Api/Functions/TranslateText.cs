@@ -10,9 +10,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Translates a text to the given language. Returns a 404 error if the translation can't be performed
+        /// Translates a text to the given language. If the current user is a Telegram Premium user, then text formatting is preserved
         /// </summary>
-        public class TranslateText : Function<Text>
+        public class TranslateText : Function<FormattedText>
         {
             /// <summary>
             /// Data type for serialization
@@ -31,17 +31,10 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("text")]
-            public string Text { get; set; }
+            public FormattedText Text { get; set; }
 
             /// <summary>
-            /// A two-letter ISO 639-1 language code of the language from which the message is translated. If empty, the language will be detected automatically
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("from_language_code")]
-            public string FromLanguageCode { get; set; }
-
-            /// <summary>
-            /// A two-letter ISO 639-1 language code of the language to which the message is translated
+            /// Language code of the language to which the message is translated. Must be one of
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("to_language_code")]
@@ -49,14 +42,14 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Translates a text to the given language. Returns a 404 error if the translation can't be performed
+        /// Translates a text to the given language. If the current user is a Telegram Premium user, then text formatting is preserved
         /// </summary>
-        public static Task<Text> TranslateTextAsync(
-            this Client client, string text = default, string fromLanguageCode = default, string toLanguageCode = default)
+        public static Task<FormattedText> TranslateTextAsync(
+            this Client client, FormattedText text = default, string toLanguageCode = default)
         {
             return client.ExecuteAsync(new TranslateText
             {
-                Text = text, FromLanguageCode = fromLanguageCode, ToLanguageCode = toLanguageCode
+                Text = text, ToLanguageCode = toLanguageCode
             });
         }
     }

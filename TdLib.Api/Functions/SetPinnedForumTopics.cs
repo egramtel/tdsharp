@@ -10,15 +10,15 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Changes the message TTL in a chat. Requires change_info administrator right in basic groups, supergroups and channels
+        /// Changes the order of pinned forum topics
         /// </summary>
-        public class SetChatMessageTtl : Function<Ok>
+        public class SetPinnedForumTopics : Function<Ok>
         {
             /// <summary>
             /// Data type for serialization
             /// </summary>
             [JsonProperty("@type")]
-            public override string DataType { get; set; } = "setChatMessageTtl";
+            public override string DataType { get; set; } = "setPinnedForumTopics";
 
             /// <summary>
             /// Extra data attached to the function
@@ -34,22 +34,21 @@ namespace TdLib
             public long ChatId { get; set; }
 
             /// <summary>
-            /// New TTL value, in seconds; unless the chat is secret, it must be from 0 up to 365 * 86400 and be divisible by 86400. If 0, then messages aren't deleted automatically
+            /// The new list of pinned forum topics
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("ttl")]
-            public int Ttl { get; set; }
+            [JsonProperty("message_thread_ids", ItemConverterType = typeof(Converter))]
+            public long[] MessageThreadIds { get; set; }
         }
 
         /// <summary>
-        /// Changes the message TTL in a chat. Requires change_info administrator right in basic groups, supergroups and channels
+        /// Changes the order of pinned forum topics
         /// </summary>
-        public static Task<Ok> SetChatMessageTtlAsync(
-            this Client client, long chatId = default, int ttl = default)
+        public static Task<Ok> SetPinnedForumTopicsAsync(
+            this Client client, long chatId = default, long[] messageThreadIds = default)
         {
-            return client.ExecuteAsync(new SetChatMessageTtl
+            return client.ExecuteAsync(new SetPinnedForumTopics
             {
-                ChatId = chatId, Ttl = ttl
+                ChatId = chatId, MessageThreadIds = messageThreadIds
             });
         }
     }

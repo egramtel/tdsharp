@@ -28,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// The number of days to pass between consecutive authorizations if the user declines to set password
+                /// The number of days to pass between consecutive authorizations if the user declines to set password; if 0, then the user is advised to set the password for security reasons
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("authorization_delay")]

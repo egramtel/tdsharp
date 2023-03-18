@@ -11,7 +11,7 @@ namespace TdLib
         public partial class InternalLinkType : Object
         {
             /// <summary>
-            /// The link contains a request of Telegram passport data. Call getPassportAuthorizationForm with the given parameters to process the link if the link was received from outside of the application, otherwise ignore it
+            /// The link contains a request of Telegram passport data. Call getPassportAuthorizationForm with the given parameters to process the link if the link was received from outside of the application; otherwise, ignore it
             /// </summary>
             public class InternalLinkTypePassportDataRequest : InternalLinkType
             {
@@ -56,7 +56,7 @@ namespace TdLib
                 public string Nonce { get; set; }
 
                 /// <summary>
-                /// An HTTP URL to open once the request is finished or canceled with the parameter tg_passport=success or tg_passport=cancel respectively. If empty, then the link tgbot{bot_user_id}://passport/success or tgbot{bot_user_id}://passport/cancel needs to be opened instead
+                /// An HTTP URL to open once the request is finished, canceled, or failed with the parameters tg_passport=success, tg_passport=cancel, or tg_passport=error&amp;error=... respectively.
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("callback_url")]

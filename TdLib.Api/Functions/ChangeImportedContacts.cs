@@ -27,7 +27,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// 
+            /// The new list of contacts, contact's vCard are ignored and are not imported
             /// </summary>
             [JsonProperty("contacts", ItemConverterType = typeof(Converter))]
             public Contact[] Contacts { get; set; }

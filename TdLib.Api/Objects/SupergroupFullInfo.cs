@@ -89,11 +89,25 @@ namespace TdLib
             public double? SlowModeDelayExpiresIn { get; set; }
 
             /// <summary>
-            /// True, if members of the chat can be retrieved
+            /// True, if members of the chat can be retrieved via getSupergroupMembers or searchChatMembers
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("can_get_members")]
             public bool CanGetMembers { get; set; }
+
+            /// <summary>
+            /// True, if non-administrators can receive only administrators and bots using getSupergroupMembers or searchChatMembers
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("has_hidden_members")]
+            public bool HasHiddenMembers { get; set; }
+
+            /// <summary>
+            /// True, if non-administrators and non-bots can be hidden in responses to getSupergroupMembers and searchChatMembers for non-administrators
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("can_hide_members")]
+            public bool CanHideMembers { get; set; }
 
             /// <summary>
             /// True, if the chat username can be changed
@@ -124,18 +138,25 @@ namespace TdLib
             public bool CanGetStatistics { get; set; }
 
             /// <summary>
-            /// True, if new chat members will have access to old messages. In public, discussion, of forum groups and all channels, old messages are always available, so this option affects only private non-forum supergroups without a linked chat. The value of this field is only available for chat administrators
+            /// True, if aggressive anti-spam checks can be enabled or disabled in the supergroup
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("can_toggle_aggressive_anti_spam")]
+            public bool CanToggleAggressiveAntiSpam { get; set; }
+
+            /// <summary>
+            /// True, if new chat members will have access to old messages. In public, discussion, of forum groups and all channels, old messages are always available,
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_all_history_available")]
             public bool IsAllHistoryAvailable { get; set; }
 
             /// <summary>
-            /// True, if aggressive anti-spam checks are enabled in the supergroup. The value of this field is only available for chat administrators
+            /// True, if aggressive anti-spam checks are enabled in the supergroup. The value of this field is only available to chat administrators
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("is_aggressive_anti_spam_enabled")]
-            public bool IsAggressiveAntiSpamEnabled { get; set; }
+            [JsonProperty("has_aggressive_anti_spam_enabled")]
+            public bool HasAggressiveAntiSpamEnabled { get; set; }
 
             /// <summary>
             /// Identifier of the supergroup sticker set; 0 if none

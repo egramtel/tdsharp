@@ -42,7 +42,7 @@ namespace TdLib
                 public bool HasPhotos { get; set; }
 
                 /// <summary>
-                /// True, if the album has at least one video
+                /// True, if the album has at least one video file
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("has_videos")]

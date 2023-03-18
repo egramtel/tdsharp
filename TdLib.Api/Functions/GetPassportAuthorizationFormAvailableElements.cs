@@ -30,8 +30,8 @@ namespace TdLib
             /// Authorization form identifier
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("autorization_form_id")]
-            public int AutorizationFormId { get; set; }
+            [JsonProperty("authorization_form_id")]
+            public int AuthorizationFormId { get; set; }
 
             /// <summary>
             /// The 2-step verification password of the current user
@@ -45,11 +45,11 @@ namespace TdLib
         /// Returns already available Telegram Passport elements suitable for completing a Telegram Passport authorization form. Result can be received only once for each authorization form
         /// </summary>
         public static Task<PassportElementsWithErrors> GetPassportAuthorizationFormAvailableElementsAsync(
-            this Client client, int autorizationFormId = default, string password = default)
+            this Client client, int authorizationFormId = default, string password = default)
         {
             return client.ExecuteAsync(new GetPassportAuthorizationFormAvailableElements
             {
-                AutorizationFormId = autorizationFormId, Password = password
+                AuthorizationFormId = authorizationFormId, Password = password
             });
         }
     }

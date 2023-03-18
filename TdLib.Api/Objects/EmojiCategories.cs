@@ -9,15 +9,15 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Contains default message Time To Live setting (self-destruct timer) for new chats
+        /// Represents a list of emoji categories
         /// </summary>
-        public partial class MessageTtl : Object
+        public partial class EmojiCategories : Object
         {
             /// <summary>
             /// Data type for serialization
             /// </summary>
             [JsonProperty("@type")]
-            public override string DataType { get; set; } = "messageTtl";
+            public override string DataType { get; set; } = "emojiCategories";
 
             /// <summary>
             /// Extra data attached to the object
@@ -26,11 +26,10 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Message TTL setting, in seconds. If 0, then messages aren't deleted automatically
+            /// List of categories
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("ttl")]
-            public int Ttl { get; set; }
+            [JsonProperty("categories", ItemConverterType = typeof(Converter))]
+            public EmojiCategory[] Categories { get; set; }
         }
     }
 }

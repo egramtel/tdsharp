@@ -26,11 +26,25 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// User profile photo; may be null if empty or unknown. If non-null, then it is the same photo as in user.profile_photo and chat.photo
+            /// User profile photo set by the current user for the contact; may be null. If null and user.profile_photo is null, then the photo is empty; otherwise, it is unknown.
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("personal_photo")]
+            public ChatPhoto PersonalPhoto { get; set; }
+
+            /// <summary>
+            /// User profile photo; may be null. If null and user.profile_photo is null, then the photo is empty; otherwise, it is unknown.
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("photo")]
             public ChatPhoto Photo { get; set; }
+
+            /// <summary>
+            /// User profile photo visible if the main photo is hidden by privacy settings; may be null. If null and user.profile_photo is null, then the photo is empty; otherwise, it is unknown.
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("public_photo")]
+            public ChatPhoto PublicPhoto { get; set; }
 
             /// <summary>
             /// True, if the user is blocked by the current user

@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns the profile photos of a user. The result of this query may be outdated: some photos might have been deleted already
+        /// Returns the profile photos of a user. Personal and public photo aren't returned
         /// </summary>
         public class GetUserProfilePhotos : Function<ChatPhotos>
         {
@@ -49,7 +49,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Returns the profile photos of a user. The result of this query may be outdated: some photos might have been deleted already
+        /// Returns the profile photos of a user. Personal and public photo aren't returned
         /// </summary>
         public static Task<ChatPhotos> GetUserProfilePhotosAsync(
             this Client client, long userId = default, int offset = default, int limit = default)

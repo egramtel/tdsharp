@@ -12,7 +12,7 @@ namespace TdLib
         /// <summary>
         /// Searches for messages in all chats except secret chats. Returns the results in reverse chronological order (i.e., in order of decreasing (date, chat_id, message_id)).
         /// </summary>
-        public class SearchMessages : Function<Messages>
+        public class SearchMessages : Function<FoundMessages>
         {
             /// <summary>
             /// Data type for serialization
@@ -41,25 +41,11 @@ namespace TdLib
             public string Query { get; set; }
 
             /// <summary>
-            /// The date of the message starting from which the results need to be fetched. Use 0 or any date in the future to get results from the last message
+            /// Offset of the first entry to return as received from the previous request; use empty string to get the first chunk of results
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("offset_date")]
-            public int OffsetDate { get; set; }
-
-            /// <summary>
-            /// The chat identifier of the last found message, or 0 for the first request
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("offset_chat_id")]
-            public long OffsetChatId { get; set; }
-
-            /// <summary>
-            /// The message identifier of the last found message, or 0 for the first request
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("offset_message_id")]
-            public long OffsetMessageId { get; set; }
+            [JsonProperty("offset")]
+            public string Offset { get; set; }
 
             /// <summary>
             /// The maximum number of messages to be returned; up to 100. For optimal performance, the number of returned messages is chosen by TDLib and can be smaller than the specified limit
@@ -93,12 +79,12 @@ namespace TdLib
         /// <summary>
         /// Searches for messages in all chats except secret chats. Returns the results in reverse chronological order (i.e., in order of decreasing (date, chat_id, message_id)).
         /// </summary>
-        public static Task<Messages> SearchMessagesAsync(
-            this Client client, ChatList chatList = default, string query = default, int offsetDate = default, long offsetChatId = default, long offsetMessageId = default, int limit = default, SearchMessagesFilter filter = default, int minDate = default, int maxDate = default)
+        public static Task<FoundMessages> SearchMessagesAsync(
+            this Client client, ChatList chatList = default, string query = default, string offset = default, int limit = default, SearchMessagesFilter filter = default, int minDate = default, int maxDate = default)
         {
             return client.ExecuteAsync(new SearchMessages
             {
-                ChatList = chatList, Query = query, OffsetDate = offsetDate, OffsetChatId = offsetChatId, OffsetMessageId = offsetMessageId, Limit = limit, Filter = filter, MinDate = minDate, MaxDate = maxDate
+                ChatList = chatList, Query = query, Offset = offset, Limit = limit, Filter = filter, MinDate = minDate, MaxDate = maxDate
             });
         }
     }

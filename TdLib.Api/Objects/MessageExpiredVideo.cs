@@ -11,7 +11,7 @@ namespace TdLib
         public partial class MessageContent : Object
         {
             /// <summary>
-            /// An expired video message (self-destructed after TTL has elapsed)
+            /// A self-destructed video message
             /// </summary>
             public class MessageExpiredVideo : MessageContent
             {

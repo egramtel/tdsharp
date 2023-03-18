@@ -45,6 +45,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("formatted_phone_number")]
             public string FormattedPhoneNumber { get; set; }
+
+            /// <summary>
+            /// True, if the phone number was bought on Fragment and isn't tied to a SIM card
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("is_anonymous")]
+            public bool IsAnonymous { get; set; }
         }
     }
 }

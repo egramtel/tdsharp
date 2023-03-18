@@ -27,7 +27,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Identifiers of users to be added to the basic group
+            /// Identifiers of users to be added to the basic group; may be empty to create a basic group without other members
             /// </summary>
             [JsonProperty("user_ids", ItemConverterType = typeof(Converter))]
             public long[] UserIds { get; set; }
@@ -40,22 +40,22 @@ namespace TdLib
             public string Title { get; set; }
 
             /// <summary>
-            /// Message TTL value, in seconds; must be from 0 up to 365 * 86400 and be divisible by 86400. If 0, then messages aren't deleted automatically
+            /// Message auto-delete time value, in seconds; must be from 0 up to 365 * 86400 and be divisible by 86400. If 0, then messages aren't deleted automatically
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("message_ttl")]
-            public int MessageTtl { get; set; }
+            [JsonProperty("message_auto_delete_time")]
+            public int MessageAutoDeleteTime { get; set; }
         }
 
         /// <summary>
         /// Creates a new basic group and sends a corresponding messageBasicGroupChatCreate. Returns the newly created chat
         /// </summary>
         public static Task<Chat> CreateNewBasicGroupChatAsync(
-            this Client client, long[] userIds = default, string title = default, int messageTtl = default)
+            this Client client, long[] userIds = default, string title = default, int messageAutoDeleteTime = default)
         {
             return client.ExecuteAsync(new CreateNewBasicGroupChat
             {
-                UserIds = userIds, Title = title, MessageTtl = messageTtl
+                UserIds = userIds, Title = title, MessageAutoDeleteTime = messageAutoDeleteTime
             });
         }
     }

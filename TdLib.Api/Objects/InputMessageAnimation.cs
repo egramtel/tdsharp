@@ -74,6 +74,13 @@ namespace TdLib
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("caption")]
                 public FormattedText Caption { get; set; }
+
+                /// <summary>
+                /// True, if the animation preview must be covered by a spoiler animation; not supported in secret chats
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("has_spoiler")]
+                public bool HasSpoiler { get; set; }
             }
         }
     }

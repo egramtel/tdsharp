@@ -11,7 +11,7 @@ namespace TdLib
         public partial class AuthorizationState : Object
         {
             /// <summary>
-            /// TDLib needs the user's email address to authorize. Call `setAuthenticationEmailAddress` to provide the email address, or directly call `checkAuthenticationEmailCode` with Apple ID/Google ID token if allowed
+            /// TDLib needs the user's email address to authorize. Call setAuthenticationEmailAddress to provide the email address, or directly call checkAuthenticationEmailCode with Apple ID/Google ID token if allowed
             /// </summary>
             public class AuthorizationStateWaitEmailAddress : AuthorizationState
             {

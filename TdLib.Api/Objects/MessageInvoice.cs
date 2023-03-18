@@ -11,7 +11,7 @@ namespace TdLib
         public partial class MessageContent : Object
         {
             /// <summary>
-            /// A message with an invoice from a bot
+            /// A message with an invoice from a bot. Use getInternalLink with internalLinkTypeBotStart to share the invoice
             /// </summary>
             public class MessageInvoice : MessageContent
             {
@@ -63,7 +63,7 @@ namespace TdLib
                 public long TotalAmount { get; set; }
 
                 /// <summary>
-                /// Unique invoice bot start_parameter. To share an invoice use the URL https://t.me/{bot_username}?start={start_parameter}
+                /// Unique invoice bot start_parameter to be passed to getInternalLink
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("start_parameter")]

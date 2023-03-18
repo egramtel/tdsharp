@@ -12,7 +12,7 @@ namespace TdLib
         /// <summary>
         /// Returns an HTTPS link to a topic in a forum chat. This is an offline request
         /// </summary>
-        public class GetForumTopicLink : Function<HttpUrl>
+        public class GetForumTopicLink : Function<MessageLink>
         {
             /// <summary>
             /// Data type for serialization
@@ -44,7 +44,7 @@ namespace TdLib
         /// <summary>
         /// Returns an HTTPS link to a topic in a forum chat. This is an offline request
         /// </summary>
-        public static Task<HttpUrl> GetForumTopicLinkAsync(
+        public static Task<MessageLink> GetForumTopicLinkAsync(
             this Client client, long chatId = default, long messageThreadId = default)
         {
             return client.ExecuteAsync(new GetForumTopicLink

@@ -28,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// The photo description
+                /// The photo
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("photo")]
@@ -40,6 +40,13 @@ namespace TdLib
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("caption")]
                 public FormattedText Caption { get; set; }
+
+                /// <summary>
+                /// True, if the photo preview must be covered by a spoiler animation
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("has_spoiler")]
+                public bool HasSpoiler { get; set; }
 
                 /// <summary>
                 /// True, if the photo must be blurred and must be shown only while tapped

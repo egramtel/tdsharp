@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Edits title and icon of a topic in a forum supergroup chat; requires can_manage_topics administrator rights in the supergroup unless the user is creator of the topic
+        /// Edits title and icon of a topic in a forum supergroup chat; requires can_manage_topics administrator right in the supergroup unless the user is creator of the topic
         /// </summary>
         public class EditForumTopic : Function<Ok>
         {
@@ -63,7 +63,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Edits title and icon of a topic in a forum supergroup chat; requires can_manage_topics administrator rights in the supergroup unless the user is creator of the topic
+        /// Edits title and icon of a topic in a forum supergroup chat; requires can_manage_topics administrator right in the supergroup unless the user is creator of the topic
         /// </summary>
         public static Task<Ok> EditForumTopicAsync(
             this Client client, long chatId = default, long messageThreadId = default, string name = default, bool editIconCustomEmoji = default, long iconCustomEmojiId = default)

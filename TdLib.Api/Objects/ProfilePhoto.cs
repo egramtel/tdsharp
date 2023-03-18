@@ -59,6 +59,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("has_animation")]
             public bool HasAnimation { get; set; }
+
+            /// <summary>
+            /// True, if the photo is visible only for the current user
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("is_personal")]
+            public bool IsPersonal { get; set; }
         }
     }
 }

@@ -9,7 +9,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Represents an RTMP url
+        /// Represents an RTMP URL
         /// </summary>
         public partial class RtmpUrl : Object
         {

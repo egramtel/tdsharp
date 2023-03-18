@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Searches for stickers from public sticker sets that correspond to a given emoji
+        /// Searches for stickers from public sticker sets that correspond to any of the given emoji
         /// </summary>
         public class SearchStickers : Function<Stickers>
         {
@@ -27,11 +27,18 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// String representation of emoji; must be non-empty
+            /// Type of the stickers to return
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("emoji")]
-            public string Emoji { get; set; }
+            [JsonProperty("sticker_type")]
+            public StickerType StickerType { get; set; }
+
+            /// <summary>
+            /// Space-separated list of emoji to search for; must be non-empty
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("emojis")]
+            public string Emojis { get; set; }
 
             /// <summary>
             /// The maximum number of stickers to be returned; 0-100
@@ -42,14 +49,14 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Searches for stickers from public sticker sets that correspond to a given emoji
+        /// Searches for stickers from public sticker sets that correspond to any of the given emoji
         /// </summary>
         public static Task<Stickers> SearchStickersAsync(
-            this Client client, string emoji = default, int limit = default)
+            this Client client, StickerType stickerType = default, string emojis = default, int limit = default)
         {
             return client.ExecuteAsync(new SearchStickers
             {
-                Emoji = emoji, Limit = limit
+                StickerType = stickerType, Emojis = emojis, Limit = limit
             });
         }
     }

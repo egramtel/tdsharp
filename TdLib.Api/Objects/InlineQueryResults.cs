@@ -33,11 +33,11 @@ namespace TdLib
             public long InlineQueryId { get; set; }
 
             /// <summary>
-            /// The offset for the next request. If empty, there are no more results
+            /// Button to be shown above inline query results; may be null
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("next_offset")]
-            public string NextOffset { get; set; }
+            [JsonProperty("button")]
+            public InlineQueryResultsButton Button { get; set; }
 
             /// <summary>
             /// Results of the query
@@ -46,18 +46,11 @@ namespace TdLib
             public InlineQueryResult[] Results { get; set; }
 
             /// <summary>
-            /// If non-empty, this text must be shown on the button, which opens a private chat with the bot and sends the bot a start message with the switch_pm_parameter
+            /// The offset for the next request. If empty, there are no more results
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("switch_pm_text")]
-            public string SwitchPmText { get; set; }
-
-            /// <summary>
-            /// Parameter for the bot start message
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("switch_pm_parameter")]
-            public string SwitchPmParameter { get; set; }
+            [JsonProperty("next_offset")]
+            public string NextOffset { get; set; }
         }
     }
 }

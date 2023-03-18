@@ -53,6 +53,20 @@ namespace TdLib
             public ChatMember[] Members { get; set; }
 
             /// <summary>
+            /// True, if non-administrators and non-bots can be hidden in responses to getSupergroupMembers and searchChatMembers for non-administrators after upgrading the basic group to a supergroup
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("can_hide_members")]
+            public bool CanHideMembers { get; set; }
+
+            /// <summary>
+            /// True, if aggressive anti-spam checks can be enabled or disabled in the supergroup after upgrading the basic group to a supergroup
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("can_toggle_aggressive_anti_spam")]
+            public bool CanToggleAggressiveAntiSpam { get; set; }
+
+            /// <summary>
             /// Primary invite link for this group; may be null. For chat administrators with can_invite_users right only. Updated only after the basic group is opened
             /// </summary>
             [JsonConverter(typeof(Converter))]

@@ -33,6 +33,13 @@ namespace TdLib
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_restore")]
                 public bool IsRestore { get; set; }
+
+                /// <summary>
+                /// Pass true if this is an upgrade from a monthly subscription to early subscription; only for App Store
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("is_upgrade")]
+                public bool IsUpgrade { get; set; }
             }
         }
     }

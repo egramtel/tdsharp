@@ -38,6 +38,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("sender_id")]
             public MessageSender SenderId { get; set; }
+
+            /// <summary>
+            /// Point in time (Unix timestamp) when the reaction was added
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("date")]
+            public int Date { get; set; }
         }
     }
 }

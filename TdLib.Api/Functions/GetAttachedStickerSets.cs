@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns a list of sticker sets attached to a file. Currently, only photos and videos can have attached sticker sets
+        /// Returns a list of sticker sets attached to a file, including regular, mask, and emoji sticker sets. Currently, only animations, photos, and videos can have attached sticker sets
         /// </summary>
         public class GetAttachedStickerSets : Function<StickerSets>
         {
@@ -35,7 +35,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Returns a list of sticker sets attached to a file. Currently, only photos and videos can have attached sticker sets
+        /// Returns a list of sticker sets attached to a file, including regular, mask, and emoji sticker sets. Currently, only animations, photos, and videos can have attached sticker sets
         /// </summary>
         public static Task<StickerSets> GetAttachedStickerSetsAsync(
             this Client client, int fileId = default)

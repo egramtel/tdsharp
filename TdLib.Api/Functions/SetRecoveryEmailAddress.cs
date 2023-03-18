@@ -27,14 +27,14 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// 
+            /// The 2-step verification password of the current user
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("password")]
             public string Password { get; set; }
 
             /// <summary>
-            /// 
+            /// New recovery email address
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("new_recovery_email_address")]

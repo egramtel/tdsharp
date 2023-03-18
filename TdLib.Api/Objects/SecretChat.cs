@@ -47,7 +47,7 @@ namespace TdLib
             public SecretChatState State { get; set; }
 
             /// <summary>
-            /// True, if the chat was created by the current user; otherwise false
+            /// True, if the chat was created by the current user; false otherwise
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_outbound")]
@@ -61,7 +61,7 @@ namespace TdLib
             public byte[] KeyHash { get; set; }
 
             /// <summary>
-            /// Secret chat layer; determines features supported by the chat partner's application. Nested text entities and underline and strikethrough entities are supported if the layer &gt;= 101, files bigger than 2000MB are supported if the layer &gt;= 143, spoiler and custom emoji text entities are supported if the layer &gt;= 144
+            /// Secret chat layer; determines features supported by the chat partner's application. Nested text entities and underline and strikethrough entities are supported if the layer &gt;= 101,
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("layer")]

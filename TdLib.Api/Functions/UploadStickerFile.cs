@@ -34,22 +34,29 @@ namespace TdLib
             public long UserId { get; set; }
 
             /// <summary>
-            /// Sticker file to upload
+            /// Sticker format
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("sticker_format")]
+            public StickerFormat StickerFormat { get; set; }
+
+            /// <summary>
+            /// File file to upload; must fit in a 512x512 square. For WEBP stickers the file must be in WEBP or PNG format, which will be converted to WEBP server-side.
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("sticker")]
-            public InputSticker Sticker { get; set; }
+            public InputFile Sticker { get; set; }
         }
 
         /// <summary>
         /// Uploads a file with a sticker; returns the uploaded file
         /// </summary>
         public static Task<File> UploadStickerFileAsync(
-            this Client client, long userId = default, InputSticker sticker = default)
+            this Client client, long userId = default, StickerFormat stickerFormat = default, InputFile sticker = default)
         {
             return client.ExecuteAsync(new UploadStickerFile
             {
-                UserId = userId, Sticker = sticker
+                UserId = userId, StickerFormat = stickerFormat, Sticker = sticker
             });
         }
     }

@@ -34,7 +34,7 @@ namespace TdLib
             public int GroupCallId { get; set; }
 
             /// <summary>
-            /// True, if screen sharing is paused
+            /// Pass true to pause screen sharing; pass false to unpause it
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_paused")]

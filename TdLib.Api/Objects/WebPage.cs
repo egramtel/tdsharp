@@ -166,7 +166,7 @@ namespace TdLib
             public VoiceNote VoiceNote { get; set; }
 
             /// <summary>
-            /// Version of instant view, available for the web page (currently, can be 1 or 2), 0 if none
+            /// Version of web page instant view (currently, can be 1 or 2); 0 if none
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("instant_view_version")]

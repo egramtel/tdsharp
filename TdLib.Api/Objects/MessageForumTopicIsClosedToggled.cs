@@ -28,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// True, if the topic was closed, otherwise the topic was reopened
+                /// True, if the topic was closed; otherwise, the topic was reopened
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_closed")]

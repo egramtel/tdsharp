@@ -34,7 +34,14 @@ namespace TdLib
             public string Title { get; set; }
 
             /// <summary>
-            /// Pass true to create a channel chat
+            /// Pass true to create a forum supergroup chat
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("is_forum")]
+            public bool IsForum { get; set; }
+
+            /// <summary>
+            /// Pass true to create a channel chat; ignored if a forum is created
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_channel")]
@@ -55,11 +62,11 @@ namespace TdLib
             public ChatLocation Location { get; set; }
 
             /// <summary>
-            /// Message TTL value, in seconds; must be from 0 up to 365 * 86400 and be divisible by 86400. If 0, then messages aren't deleted automatically
+            /// Message auto-delete time value, in seconds; must be from 0 up to 365 * 86400 and be divisible by 86400. If 0, then messages aren't deleted automatically
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("message_ttl")]
-            public int MessageTtl { get; set; }
+            [JsonProperty("message_auto_delete_time")]
+            public int MessageAutoDeleteTime { get; set; }
 
             /// <summary>
             /// Pass true to create a supergroup for importing messages using importMessage
@@ -73,11 +80,11 @@ namespace TdLib
         /// Creates a new supergroup or channel and sends a corresponding messageSupergroupChatCreate. Returns the newly created chat
         /// </summary>
         public static Task<Chat> CreateNewSupergroupChatAsync(
-            this Client client, string title = default, bool isChannel = default, string description = default, ChatLocation location = default, int messageTtl = default, bool forImport = default)
+            this Client client, string title = default, bool isForum = default, bool isChannel = default, string description = default, ChatLocation location = default, int messageAutoDeleteTime = default, bool forImport = default)
         {
             return client.ExecuteAsync(new CreateNewSupergroupChat
             {
-                Title = title, IsChannel = isChannel, Description = description, Location = location, MessageTtl = messageTtl, ForImport = forImport
+                Title = title, IsForum = isForum, IsChannel = isChannel, Description = description, Location = location, MessageAutoDeleteTime = messageAutoDeleteTime, ForImport = forImport
             });
         }
     }

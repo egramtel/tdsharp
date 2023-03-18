@@ -12,7 +12,7 @@ namespace TdLib
         /// <summary>
         /// Searches for call messages. Returns the results in reverse chronological order (i.e., in order of decreasing message_id). For optimal performance, the number of returned messages is chosen by TDLib
         /// </summary>
-        public class SearchCallMessages : Function<Messages>
+        public class SearchCallMessages : Function<FoundMessages>
         {
             /// <summary>
             /// Data type for serialization
@@ -27,11 +27,11 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Identifier of the message from which to search; use 0 to get results from the last message
+            /// Offset of the first entry to return as received from the previous request; use empty string to get the first chunk of results
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("from_message_id")]
-            public long FromMessageId { get; set; }
+            [JsonProperty("offset")]
+            public string Offset { get; set; }
 
             /// <summary>
             /// The maximum number of messages to be returned; up to 100. For optimal performance, the number of returned messages is chosen by TDLib and can be smaller than the specified limit
@@ -51,12 +51,12 @@ namespace TdLib
         /// <summary>
         /// Searches for call messages. Returns the results in reverse chronological order (i.e., in order of decreasing message_id). For optimal performance, the number of returned messages is chosen by TDLib
         /// </summary>
-        public static Task<Messages> SearchCallMessagesAsync(
-            this Client client, long fromMessageId = default, int limit = default, bool onlyMissed = default)
+        public static Task<FoundMessages> SearchCallMessagesAsync(
+            this Client client, string offset = default, int limit = default, bool onlyMissed = default)
         {
             return client.ExecuteAsync(new SearchCallMessages
             {
-                FromMessageId = fromMessageId, Limit = limit, OnlyMissed = onlyMissed
+                Offset = offset, Limit = limit, OnlyMissed = onlyMissed
             });
         }
     }

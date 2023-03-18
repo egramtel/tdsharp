@@ -30,8 +30,8 @@ namespace TdLib
             /// Authorization form identifier
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("autorization_form_id")]
-            public int AutorizationFormId { get; set; }
+            [JsonProperty("authorization_form_id")]
+            public int AuthorizationFormId { get; set; }
 
             /// <summary>
             /// Types of Telegram Passport elements chosen by user to complete the authorization form
@@ -44,11 +44,11 @@ namespace TdLib
         /// Sends a Telegram Passport authorization form, effectively sharing data with the service. This method must be called after getPassportAuthorizationFormAvailableElements if some previously available elements are going to be reused
         /// </summary>
         public static Task<Ok> SendPassportAuthorizationFormAsync(
-            this Client client, int autorizationFormId = default, PassportElementType[] types = default)
+            this Client client, int authorizationFormId = default, PassportElementType[] types = default)
         {
             return client.ExecuteAsync(new SendPassportAuthorizationForm
             {
-                AutorizationFormId = autorizationFormId, Types = types
+                AuthorizationFormId = authorizationFormId, Types = types
             });
         }
     }

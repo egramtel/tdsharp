@@ -12,7 +12,7 @@ namespace TdLib
         /// <summary>
         /// Searches for messages with given words in the chat. Returns the results in reverse chronological order, i.e. in order of decreasing message_id. Cannot be used in secret chats with a non-empty query
         /// </summary>
-        public class SearchChatMessages : Function<Messages>
+        public class SearchChatMessages : Function<FoundChatMessages>
         {
             /// <summary>
             /// Data type for serialization
@@ -62,7 +62,7 @@ namespace TdLib
             public int Offset { get; set; }
 
             /// <summary>
-            /// The maximum number of messages to be returned; must be positive and can't be greater than 100. If the offset is negative, the limit must be greater than -offset. For optimal performance, the number of returned messages is chosen by TDLib and can be smaller than the specified limit
+            /// The maximum number of messages to be returned; must be positive and can't be greater than 100. If the offset is negative, the limit must be greater than -offset.
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("limit")]
@@ -86,7 +86,7 @@ namespace TdLib
         /// <summary>
         /// Searches for messages with given words in the chat. Returns the results in reverse chronological order, i.e. in order of decreasing message_id. Cannot be used in secret chats with a non-empty query
         /// </summary>
-        public static Task<Messages> SearchChatMessagesAsync(
+        public static Task<FoundChatMessages> SearchChatMessagesAsync(
             this Client client, long chatId = default, string query = default, MessageSender senderId = default, long fromMessageId = default, int offset = default, int limit = default, SearchMessagesFilter filter = default, long messageThreadId = default)
         {
             return client.ExecuteAsync(new SearchChatMessages

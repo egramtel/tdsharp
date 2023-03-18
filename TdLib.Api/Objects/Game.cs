@@ -9,7 +9,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Describes a game
+        /// Describes a game. Use getInternalLink with internalLinkTypeGame to share the game
         /// </summary>
         public partial class Game : Object
         {
@@ -26,14 +26,14 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Game ID
+            /// Unique game identifier
             /// </summary>
             [JsonConverter(typeof(Converter.Int64))]
             [JsonProperty("id")]
             public long Id { get; set; }
 
             /// <summary>
-            /// Game short name. To share a game use the URL https://t.me/{bot_username}?game={game_short_name}
+            /// Game short name
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("short_name")]

@@ -41,6 +41,13 @@ namespace TdLib
             public bool IsPersonal { get; set; }
 
             /// <summary>
+            /// Button to be shown above inline query results; pass null if none
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("button")]
+            public InlineQueryResultsButton Button { get; set; }
+
+            /// <summary>
             /// The results of the query
             /// </summary>
             [JsonProperty("results", ItemConverterType = typeof(Converter))]
@@ -59,31 +66,17 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("next_offset")]
             public string NextOffset { get; set; }
-
-            /// <summary>
-            /// If non-empty, this text must be shown on the button that opens a private chat with the bot and sends a start message to the bot with the parameter switch_pm_parameter
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("switch_pm_text")]
-            public string SwitchPmText { get; set; }
-
-            /// <summary>
-            /// The parameter for the bot start message
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("switch_pm_parameter")]
-            public string SwitchPmParameter { get; set; }
         }
 
         /// <summary>
         /// Sets the result of an inline query; for bots only
         /// </summary>
         public static Task<Ok> AnswerInlineQueryAsync(
-            this Client client, long inlineQueryId = default, bool isPersonal = default, InputInlineQueryResult[] results = default, int cacheTime = default, string nextOffset = default, string switchPmText = default, string switchPmParameter = default)
+            this Client client, long inlineQueryId = default, bool isPersonal = default, InlineQueryResultsButton button = default, InputInlineQueryResult[] results = default, int cacheTime = default, string nextOffset = default)
         {
             return client.ExecuteAsync(new AnswerInlineQuery
             {
-                InlineQueryId = inlineQueryId, IsPersonal = isPersonal, Results = results, CacheTime = cacheTime, NextOffset = nextOffset, SwitchPmText = switchPmText, SwitchPmParameter = switchPmParameter
+                InlineQueryId = inlineQueryId, IsPersonal = isPersonal, Button = button, Results = results, CacheTime = cacheTime, NextOffset = nextOffset
             });
         }
     }

@@ -11,7 +11,7 @@ namespace TdLib
         public partial class AuthorizationState : Object
         {
             /// <summary>
-            /// The user has been authorized, but needs to enter a 2-step verification password to start using the application
+            /// The user has been authorized, but needs to enter a 2-step verification password to start using the application.
             /// </summary>
             public class AuthorizationStateWaitPassword : AuthorizationState
             {
@@ -40,6 +40,13 @@ namespace TdLib
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("has_recovery_email_address")]
                 public bool HasRecoveryEmailAddress { get; set; }
+
+                /// <summary>
+                /// True, if some Telegram Passport elements were saved
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("has_passport_data")]
+                public bool HasPassportData { get; set; }
 
                 /// <summary>
                 /// Pattern of the email address to which the recovery email was sent; empty until a recovery email has been sent

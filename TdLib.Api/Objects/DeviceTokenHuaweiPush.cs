@@ -8,18 +8,18 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        public partial class Update : Object
+        public partial class DeviceToken : Object
         {
             /// <summary>
-            /// The message Time To Live setting for a chat was changed
+            /// A token for HUAWEI Push Service
             /// </summary>
-            public class UpdateChatMessageTtl : Update
+            public class DeviceTokenHuaweiPush : DeviceToken
             {
                 /// <summary>
                 /// Data type for serialization
                 /// </summary>
                 [JsonProperty("@type")]
-                public override string DataType { get; set; } = "updateChatMessageTtl";
+                public override string DataType { get; set; } = "deviceTokenHuaweiPush";
 
                 /// <summary>
                 /// Extra data attached to the message
@@ -28,18 +28,18 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Chat identifier
+                /// Device registration token; may be empty to deregister a device
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("chat_id")]
-                public long ChatId { get; set; }
+                [JsonProperty("token")]
+                public string Token { get; set; }
 
                 /// <summary>
-                /// New value of message_ttl
+                /// True, if push notifications must be additionally encrypted
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("message_ttl")]
-                public int MessageTtl { get; set; }
+                [JsonProperty("encrypt")]
+                public bool Encrypt { get; set; }
             }
         }
     }

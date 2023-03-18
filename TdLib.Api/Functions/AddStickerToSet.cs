@@ -10,9 +10,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Adds a new sticker to a set; for bots only. Returns the sticker set
+        /// Adds a new sticker to a set; for bots only
         /// </summary>
-        public class AddStickerToSet : Function<StickerSet>
+        public class AddStickerToSet : Function<Ok>
         {
             /// <summary>
             /// Data type for serialization
@@ -49,9 +49,9 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Adds a new sticker to a set; for bots only. Returns the sticker set
+        /// Adds a new sticker to a set; for bots only
         /// </summary>
-        public static Task<StickerSet> AddStickerToSetAsync(
+        public static Task<Ok> AddStickerToSetAsync(
             this Client client, long userId = default, string name = default, InputSticker sticker = default)
         {
             return client.ExecuteAsync(new AddStickerToSet
