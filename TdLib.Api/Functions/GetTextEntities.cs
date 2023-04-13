@@ -27,7 +27,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// The text in which to look for entites
+            /// The text in which to look for entities
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("text")]

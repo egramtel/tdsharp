@@ -28,7 +28,7 @@ ok = Ok;
 //@length Length of the code
 authenticationCodeTypeTelegramMessage length:int32 = AuthenticationCodeType;
 
-//@description An authentication code is delivered via an SMS message to the specified phone number
+//@description An authentication code is delivered via an SMS message to the specified phone number; applications may not receive this type of code
 //@length Length of the code
 authenticationCodeTypeSms length:int32 = AuthenticationCodeType;
 
@@ -56,7 +56,7 @@ authenticationCodeTypeFragment url:string length:int32 = AuthenticationCodeType;
 authenticationCodeTypeFirebaseAndroid nonce:bytes length:int32 = AuthenticationCodeType;
 
 //@description An authentication code is delivered via Firebase Authentication to the official iOS application
-//@receipt Receipt of successful applikation token validation to compare with receipt from push notification
+//@receipt Receipt of successful application token validation to compare with receipt from push notification
 //@push_timeout Time after the next authentication method is supposed to be used if verification push notification isn't received, in seconds
 //@length Length of the code
 authenticationCodeTypeFirebaseIos receipt:string push_timeout:int32 length:int32 = AuthenticationCodeType;
@@ -87,6 +87,17 @@ emailAddressAuthenticationAppleId token:string = EmailAddressAuthentication;
 emailAddressAuthenticationGoogleId token:string = EmailAddressAuthentication;
 
 
+//@class EmailAddressResetState @description Describes reset state of a email address
+
+//@description Email address can be reset after the given period. Call resetAuthenticationEmailAddress to reset it and allow the user to authorize with a code sent to the user's phone number
+//@wait_period Time required to wait before the email address can be reset; 0 if the user is subscribed to Telegram Premium
+emailAddressResetStateAvailable wait_period:int32 = EmailAddressResetState;
+
+//@description Email address reset has already been requested. Call resetAuthenticationEmailAddress to check whether immediate reset is possible
+//@reset_in Left time before the email address will be reset, in seconds. updateAuthorizationState is not sent when this field changes
+emailAddressResetStatePending reset_in:int32 = EmailAddressResetState;
+
+
 //@description Represents a part of the text that needs to be formatted in some unusual way @offset Offset of the entity, in UTF-16 code units @length Length of the entity, in UTF-16 code units @type Type of the entity
 textEntity offset:int32 length:int32 type:TextEntityType = TextEntity;
 
@@ -104,7 +115,7 @@ termsOfService text:formattedText min_user_age:int32 show_popup:Bool = TermsOfSe
 
 //@class AuthorizationState @description Represents the current authorization state of the TDLib client
 
-//@description Initializetion parameters are needed. Call setTdlibParameters to provide them
+//@description Initialization parameters are needed. Call setTdlibParameters to provide them
 authorizationStateWaitTdlibParameters = AuthorizationState;
 
 //@description TDLib needs the user's phone number to authorize. Call setAuthenticationPhoneNumber to provide the phone number, or use requestQrCodeAuthentication or checkAuthenticationBotToken for other authentication options
@@ -119,8 +130,8 @@ authorizationStateWaitEmailAddress allow_apple_id:Bool allow_google_id:Bool = Au
 //@allow_apple_id True, if authorization through Apple ID is allowed
 //@allow_google_id True, if authorization through Google ID is allowed
 //@code_info Information about the sent authentication code
-//@next_phone_number_authorization_date Point in time (Unix timestamp) when the user will be able to authorize with a code sent to the user's phone number; 0 if unknown
-authorizationStateWaitEmailCode allow_apple_id:Bool allow_google_id:Bool code_info:emailAddressAuthenticationCodeInfo next_phone_number_authorization_date:int32 = AuthorizationState;
+//@email_address_reset_state Reset state of the email address; may be null if the email address can't be reset
+authorizationStateWaitEmailCode allow_apple_id:Bool allow_google_id:Bool code_info:emailAddressAuthenticationCodeInfo email_address_reset_state:EmailAddressResetState = AuthorizationState;
 
 //@description TDLib needs the user's authentication code to authorize. Call checkAuthenticationCode to check the code @code_info Information about the authorization code that was sent
 authorizationStateWaitCode code_info:authenticationCodeInfo = AuthorizationState;
@@ -1234,7 +1245,7 @@ notificationSettingsScopeGroupChats = NotificationSettingsScope;
 notificationSettingsScopeChannelChats = NotificationSettingsScope;
 
 
-//@description Contains information about notification settings for a chat or a froum topic
+//@description Contains information about notification settings for a chat or a forum topic
 //@use_default_mute_for If true, mute_for is ignored and the value for the relevant type of chat or the forum chat is used instead
 //@mute_for Time left before notifications will be unmuted, in seconds
 //@use_default_sound If true, the value for the relevant type of chat or the forum chat is used instead of sound_id
@@ -2079,7 +2090,7 @@ messageExtendedMediaPhoto photo:photo caption:formattedText = MessageExtendedMed
 //@description The media is a video @video The video @caption Photo caption
 messageExtendedMediaVideo video:video caption:formattedText = MessageExtendedMedia;
 
-//@description The media is unuspported @caption Media caption
+//@description The media is unsupported @caption Media caption
 messageExtendedMediaUnsupported caption:formattedText = MessageExtendedMedia;
 
 
@@ -3891,7 +3902,7 @@ premiumFeatureAnimatedProfilePhoto = PremiumFeature;
 //@description The ability to set a custom emoji as a forum topic icon
 premiumFeatureForumTopicIcon = PremiumFeature;
 
-//@description Allowed to set a premium appllication icons
+//@description Allowed to set a premium application icons
 premiumFeatureAppIcons = PremiumFeature;
 
 //@description Allowed to translate chat messages real-time
@@ -5521,7 +5532,7 @@ updateSelectedBackground for_dark_theme:Bool background:background = Update;
 //@description The list of available chat themes has changed @chat_themes The new list of chat themes
 updateChatThemes chat_themes:vector<chatTheme> = Update;
 
-//@description Some language pack strings have been updated @localization_target Localization target to which the language pack belongs @language_pack_id Identifier of the updated language pack @strings List of changed language pack strings
+//@description Some language pack strings have been updated @localization_target Localization target to which the language pack belongs @language_pack_id Identifier of the updated language pack @strings List of changed language pack strings; empty if all strings have changed
 updateLanguagePackStrings localization_target:string language_pack_id:string strings:vector<languagePackString> = Update;
 
 //@description The connection state has changed. This update must be used only to show a human-readable description of the connection state @state The new connection state

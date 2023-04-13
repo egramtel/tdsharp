@@ -50,6 +50,10 @@ requestQrCodeAuthentication other_user_ids:vector<int53> = Ok;
 //@last_name The last name of the user; 0-64 characters
 registerUser first_name:string last_name:string = Ok;
 
+//@description Resets the login email address. May return an error with a message "TASK_ALREADY_EXISTS" if reset is still pending.
+//-Works only when the current authorization state is authorizationStateWaitEmailCode and authorization_state.can_reset_email_address == true
+resetAuthenticationEmailAddress = Ok;
+
 //@description Checks the 2-step verification password for correctness. Works only when the current authorization state is authorizationStateWaitPassword @password The 2-step verification password to check
 checkAuthenticationPassword password:string = Ok;
 
@@ -106,8 +110,8 @@ getPasswordState = PasswordState;
 //@new_recovery_email_address New recovery email address; may be empty
 setPassword old_password:string new_password:string new_hint:string set_recovery_email_address:Bool new_recovery_email_address:string = PasswordState;
 
-//@description Changes the login email address of the user. The change will not be applied until the new login email address is confirmed with checkLoginEmailAddressCode.
-//-To use Apple ID/Google ID instead of a email address, call checkLoginEmailAddressCode directly
+//@description Changes the login email address of the user. The email address can be changed only if the current user already has login email and passwordState.login_email_address_pattern is non-empty.
+//-The change will not be applied until the new login email address is confirmed with checkLoginEmailAddressCode. To use Apple ID/Google ID instead of a email address, call checkLoginEmailAddressCode directly
 //@new_login_email_address New login email address
 setLoginEmailAddress new_login_email_address:string = EmailAddressAuthenticationCodeInfo;
 
@@ -738,7 +742,7 @@ getMessageAddedReactions chat_id:int53 message_id:int53 reaction_type:ReactionTy
 setDefaultReactionType reaction_type:ReactionType = Ok;
 
 
-//@description Returns all entities (mentions, hashtags, cashtags, bot commands, bank card numbers, URLs, and email addresses) found in the text. Can be called synchronously @text The text in which to look for entites
+//@description Returns all entities (mentions, hashtags, cashtags, bot commands, bank card numbers, URLs, and email addresses) found in the text. Can be called synchronously @text The text in which to look for entities
 getTextEntities text:string = TextEntities;
 
 //@description Parses Bold, Italic, Underline, Strikethrough, Spoiler, CustomEmoji, Code, Pre, PreCode, TextUrl and MentionName entities from a marked-up text. Can be called synchronously @text The text to parse @parse_mode Text parse mode
@@ -884,7 +888,7 @@ sendWebAppData bot_user_id:int53 button_text:string data:string = Ok;
 
 //@description Informs TDLib that a Web App is being opened from attachment menu, a botMenuButton button, an internalLinkTypeAttachmentMenuBot link, or an inlineKeyboardButtonTypeWebApp button.
 //-For each bot, a confirmation alert about data sent to the bot must be shown once
-//@chat_id Identifier of the chat in which the Web App is opened
+//@chat_id Identifier of the chat in which the Web App is opened. The Web App can't be opened in secret chats
 //@bot_user_id Identifier of the bot, providing the Web App
 //@url The URL from an inlineKeyboardButtonTypeWebApp button, a botMenuButton button, or an internalLinkTypeAttachmentMenuBot link, or an empty string otherwise
 //@theme Preferred Web App theme; pass null to use the default theme
@@ -968,8 +972,8 @@ closeChat chat_id:int53 = Ok;
 //-Many useful activities depend on whether the messages are currently being viewed or not (e.g., marking messages as read, incrementing a view counter, updating a view counter, removing deleted messages in supergroups and channels)
 //@chat_id Chat identifier
 //@message_ids The identifiers of the messages being viewed
-//@source Source of the message view
-//@force_read Pass true to mark as read the specified messages even the chat is closed; pass null to guess the source based on chat open state
+//@source Source of the message view; pass null to guess the source based on chat open state
+//@force_read Pass true to mark as read the specified messages even the chat is closed
 viewMessages chat_id:int53 message_ids:vector<int53> source:MessageSource force_read:Bool = Ok;
 
 //@description Informs TDLib that the message content has been opened (e.g., the user has opened a photo, video, document, location or venue, or has listened to an audio file or voice note message).
@@ -1111,7 +1115,7 @@ setChatNotificationSettings chat_id:int53 notification_settings:chatNotification
 //@has_protected_content New value of has_protected_content
 toggleChatHasProtectedContent chat_id:int53 has_protected_content:Bool = Ok;
 
-//@description Changes the tranlatable state of a chat; for Telegram Premium users only @chat_id Chat identifier @is_translatable New value of is_translatable
+//@description Changes the translatable state of a chat; for Telegram Premium users only @chat_id Chat identifier @is_translatable New value of is_translatable
 toggleChatIsTranslatable chat_id:int53 is_translatable:Bool = Ok;
 
 //@description Changes the marked as unread state of a chat @chat_id Chat identifier @is_marked_as_unread New value of is_marked_as_unread
@@ -1941,7 +1945,7 @@ terminateAllOtherSessions = Ok;
 //@description Toggles whether a session can accept incoming calls @session_id Session identifier @can_accept_calls Pass true to allow accepting incoming calls by the session; pass false otherwise
 toggleSessionCanAcceptCalls session_id:int64 can_accept_calls:Bool = Ok;
 
-//@description Toggles whether a session can accept incoming secret chats @session_id Session identifier @can_accept_secret_chats Pass true to allow accepring secret chats by the session; pass false otherwise
+//@description Toggles whether a session can accept incoming secret chats @session_id Session identifier @can_accept_secret_chats Pass true to allow accepting secret chats by the session; pass false otherwise
 toggleSessionCanAcceptSecretChats session_id:int64 can_accept_secret_chats:Bool = Ok;
 
 //@description Changes the period of inactivity after which sessions will automatically be terminated @inactive_session_ttl_days New number of days of inactivity before sessions will be automatically terminated; 1-366 days
@@ -2507,7 +2511,7 @@ getDeepLinkInfo link:string = DeepLinkInfo;
 //@description Returns application config, provided by the server. Can be called before authorization
 getApplicationConfig = JsonValue;
 
-//@description Adds server-provided application changelog as messages to the chat 777000 (Telegram); for official applications only @previous_application_version The previous application version
+//@description Adds server-provided application changelog as messages to the chat 777000 (Telegram); for official applications only. Returns a 404 error if nothing changed @previous_application_version The previous application version
 addApplicationChangelog previous_application_version:string = Ok;
 
 //@description Saves application log event on the server. Can be called before authorization @type Event type @chat_id Optional chat identifier, associated with the event @data The log event data
@@ -2587,6 +2591,9 @@ getUserSupportInfo user_id:int53 = UserSupportInfo;
 
 //@description Sets support information for the given user; for Telegram support only @user_id User identifier @message New information message
 setUserSupportInfo user_id:int53 message:formattedText = UserSupportInfo;
+
+//@description Returns localized name of the Telegram support user; for Telegram support only
+getSupportName = Text;
 
 
 //@description Does nothing; for testing only. This is an offline method. Can be called before authorization

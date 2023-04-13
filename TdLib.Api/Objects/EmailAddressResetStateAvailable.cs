@@ -8,18 +8,18 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        public partial class MessageExtendedMedia : Object
+        public partial class EmailAddressResetState : Object
         {
             /// <summary>
-            /// The media is unsupported
+            /// Describes reset state of a email address
             /// </summary>
-            public class MessageExtendedMediaUnsupported : MessageExtendedMedia
+            public class EmailAddressResetStateAvailable : EmailAddressResetState
             {
                 /// <summary>
                 /// Data type for serialization
                 /// </summary>
                 [JsonProperty("@type")]
-                public override string DataType { get; set; } = "messageExtendedMediaUnsupported";
+                public override string DataType { get; set; } = "emailAddressResetStateAvailable";
 
                 /// <summary>
                 /// Extra data attached to the message
@@ -28,11 +28,11 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Media caption
+                /// Time required to wait before the email address can be reset; 0 if the user is subscribed to Telegram Premium
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("caption")]
-                public FormattedText Caption { get; set; }
+                [JsonProperty("wait_period")]
+                public int WaitPeriod { get; set; }
             }
         }
     }

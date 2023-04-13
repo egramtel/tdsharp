@@ -11,7 +11,7 @@ namespace TdLib
         public partial class AuthenticationCodeType : Object
         {
             /// <summary>
-            /// An authentication code is delivered via an SMS message to the specified phone number
+            /// An authentication code is delivered via an SMS message to the specified phone number; applications may not receive this type of code
             /// </summary>
             public class AuthenticationCodeTypeSms : AuthenticationCodeType
             {

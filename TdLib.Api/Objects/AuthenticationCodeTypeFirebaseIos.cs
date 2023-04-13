@@ -28,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Receipt of successful applikation token validation to compare with receipt from push notification
+                /// Receipt of successful application token validation to compare with receipt from push notification
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("receipt")]

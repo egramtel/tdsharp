@@ -41,14 +41,14 @@ namespace TdLib
             public long[] MessageIds { get; set; }
 
             /// <summary>
-            /// Source of the message view
+            /// Source of the message view; pass null to guess the source based on chat open state
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("source")]
             public MessageSource Source { get; set; }
 
             /// <summary>
-            /// Pass true to mark as read the specified messages even the chat is closed; pass null to guess the source based on chat open state
+            /// Pass true to mark as read the specified messages even the chat is closed
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("force_read")]

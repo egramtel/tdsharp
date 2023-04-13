@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [Unreleased]
+### Changed
+- Update to [TDLib v1.8.13](https://github.com/tdlib/td/tree/c95598e5e1493881d31211c1329bdbe4630f6136).
+
 ## [1.8.12] - 2023-03-18
 ### Changed
 - Update to [TDLib v1.8.12](https://github.com/tdlib/td/tree/70bee089d492437ce931aa78446d89af3da182fc).

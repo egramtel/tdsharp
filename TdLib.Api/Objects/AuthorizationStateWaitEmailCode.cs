@@ -49,11 +49,11 @@ namespace TdLib
                 public EmailAddressAuthenticationCodeInfo CodeInfo { get; set; }
 
                 /// <summary>
-                /// Point in time (Unix timestamp) when the user will be able to authorize with a code sent to the user's phone number; 0 if unknown
+                /// Reset state of the email address; may be null if the email address can't be reset
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("next_phone_number_authorization_date")]
-                public int NextPhoneNumberAuthorizationDate { get; set; }
+                [JsonProperty("email_address_reset_state")]
+                public EmailAddressResetState EmailAddressResetState { get; set; }
             }
         }
     }

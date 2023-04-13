@@ -42,7 +42,7 @@ namespace TdLib
                 public string LanguagePackId { get; set; }
 
                 /// <summary>
-                /// List of changed language pack strings
+                /// List of changed language pack strings; empty if all strings have changed
                 /// </summary>
                 [JsonProperty("strings", ItemConverterType = typeof(Converter))]
                 public LanguagePackString[] Strings { get; set; }

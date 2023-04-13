@@ -11,7 +11,7 @@ namespace TdLib
         public partial class PremiumFeature : Object
         {
             /// <summary>
-            /// Allowed to set a premium appllication icons
+            /// Allowed to set a premium application icons
             /// </summary>
             public class PremiumFeatureAppIcons : PremiumFeature
             {

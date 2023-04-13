@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Changes the tranlatable state of a chat; for Telegram Premium users only
+        /// Changes the translatable state of a chat; for Telegram Premium users only
         /// </summary>
         public class ToggleChatIsTranslatable : Function<Ok>
         {
@@ -42,7 +42,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Changes the tranlatable state of a chat; for Telegram Premium users only
+        /// Changes the translatable state of a chat; for Telegram Premium users only
         /// </summary>
         public static Task<Ok> ToggleChatIsTranslatableAsync(
             this Client client, long chatId = default, bool isTranslatable = default)

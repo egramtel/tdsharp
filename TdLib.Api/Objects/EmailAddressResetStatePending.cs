@@ -8,18 +8,18 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        public partial class MessageExtendedMedia : Object
+        public partial class EmailAddressResetState : Object
         {
             /// <summary>
-            /// The media is unsupported
+            /// Email address reset has already been requested. Call resetAuthenticationEmailAddress to check whether immediate reset is possible
             /// </summary>
-            public class MessageExtendedMediaUnsupported : MessageExtendedMedia
+            public class EmailAddressResetStatePending : EmailAddressResetState
             {
                 /// <summary>
                 /// Data type for serialization
                 /// </summary>
                 [JsonProperty("@type")]
-                public override string DataType { get; set; } = "messageExtendedMediaUnsupported";
+                public override string DataType { get; set; } = "emailAddressResetStatePending";
 
                 /// <summary>
                 /// Extra data attached to the message
@@ -28,11 +28,11 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Media caption
+                /// Left time before the email address will be reset, in seconds. updateAuthorizationState is not sent when this field changes
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("caption")]
-                public FormattedText Caption { get; set; }
+                [JsonProperty("reset_in")]
+                public int ResetIn { get; set; }
             }
         }
     }

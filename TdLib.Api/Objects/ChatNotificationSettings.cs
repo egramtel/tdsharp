@@ -9,7 +9,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Contains information about notification settings for a chat or a froum topic
+        /// Contains information about notification settings for a chat or a forum topic
         /// </summary>
         public partial class ChatNotificationSettings : Object
         {

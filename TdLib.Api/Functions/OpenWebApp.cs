@@ -28,7 +28,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Identifier of the chat in which the Web App is opened
+            /// Identifier of the chat in which the Web App is opened. The Web App can't be opened in secret chats
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_id")]

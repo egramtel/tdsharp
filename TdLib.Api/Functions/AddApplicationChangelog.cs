@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Adds server-provided application changelog as messages to the chat 777000 (Telegram); for official applications only
+        /// Adds server-provided application changelog as messages to the chat 777000 (Telegram); for official applications only. Returns a 404 error if nothing changed
         /// </summary>
         public class AddApplicationChangelog : Function<Ok>
         {
@@ -35,7 +35,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Adds server-provided application changelog as messages to the chat 777000 (Telegram); for official applications only
+        /// Adds server-provided application changelog as messages to the chat 777000 (Telegram); for official applications only. Returns a 404 error if nothing changed
         /// </summary>
         public static Task<Ok> AddApplicationChangelogAsync(
             this Client client, string previousApplicationVersion = default)
