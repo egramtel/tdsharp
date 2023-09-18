@@ -8,6 +8,10 @@
             MA0055; <!-- "Do not use finalizer" -->
             CS1591 <!-- Missing XML comment for publicly visible type or member -->
         </NoWarn>
+        <PackageTags>telegram</PackageTags>
+        <Description>
+           .NET bindings for TDLib (Telegram Database Library): https://github.com/tdlib/td
+        </Description>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
     </PropertyGroup>
     <ItemGroup>
