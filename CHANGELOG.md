@@ -103,4 +103,5 @@ Initial release to support TDLib pre-1.2.
 [1.8.9]: https://github.com/egramtel/tdsharp/compare/v1.8.1.1...v1.8.9
 [1.8.9.1]: https://github.com/egramtel/tdsharp/compare/v1.8.9...v1.8.9.1
 [1.8.12]: https://github.com/egramtel/tdsharp/compare/v1.8.9.1...v1.8.12
-[Unreleased]: https://github.com/egramtel/tdsharp/compare/v1.8.12...HEAD
+[1.8.21]: https://github.com/egramtel/tdsharp/compare/v1.8.12...v1.8.21
+[Unreleased]: https://github.com/egramtel/tdsharp/compare/v1.8.21...HEAD
