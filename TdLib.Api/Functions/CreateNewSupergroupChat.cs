@@ -69,7 +69,7 @@ namespace TdLib
             public int MessageAutoDeleteTime { get; set; }
 
             /// <summary>
-            /// Pass true to create a supergroup for importing messages using importMessage
+            /// Pass true to create a supergroup for importing messages using importMessages
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("for_import")]

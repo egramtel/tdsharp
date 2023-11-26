@@ -26,19 +26,19 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// List of active usernames; the first one must be shown as the primary username. The order of active usernames can be changed with reorderActiveUsernames or reorderSupergroupActiveUsernames
+            /// List of active usernames; the first one must be shown as the primary username. The order of active usernames can be changed with reorderActiveUsernames, reorderBotActiveUsernames or reorderSupergroupActiveUsernames
             /// </summary>
             [JsonProperty("active_usernames", ItemConverterType = typeof(Converter))]
             public string[] ActiveUsernames { get; set; }
 
             /// <summary>
-            /// List of currently disabled usernames; the username can be activated with toggleUsernameIsActive/toggleSupergroupUsernameIsActive
+            /// List of currently disabled usernames; the username can be activated with toggleUsernameIsActive, toggleBotUsernameIsActive, or toggleSupergroupUsernameIsActive
             /// </summary>
             [JsonProperty("disabled_usernames", ItemConverterType = typeof(Converter))]
             public string[] DisabledUsernames { get; set; }
 
             /// <summary>
-            /// The active username, which can be changed with setUsername/setSupergroupUsername
+            /// The active username, which can be changed with setUsername or setSupergroupUsername
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("editable_username")]

@@ -42,7 +42,7 @@ namespace TdLib
                 public InputThumbnail Thumbnail { get; set; }
 
                 /// <summary>
-                /// If true, automatic file type detection will be disabled and the document will always be sent as file. Always true for files sent to secret chats
+                /// True, if automatic file type detection is disabled and the document must be sent as a file. Always true for files sent to secret chats
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("disable_content_type_detection")]

@@ -11,7 +11,7 @@ namespace TdLib
         public partial class MessageContent : Object
         {
             /// <summary>
-            /// Message content that is not supported in the current TDLib version
+            /// A message content that is not supported in the current TDLib version
             /// </summary>
             public class MessageUnsupported : MessageContent
             {

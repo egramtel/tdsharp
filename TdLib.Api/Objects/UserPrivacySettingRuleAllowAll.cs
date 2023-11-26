@@ -11,7 +11,7 @@ namespace TdLib
         public partial class UserPrivacySettingRule : Object
         {
             /// <summary>
-            /// Represents a single rule for managing privacy settings
+            /// Represents a single rule for managing user privacy settings
             /// </summary>
             public class UserPrivacySettingRuleAllowAll : UserPrivacySettingRule
             {

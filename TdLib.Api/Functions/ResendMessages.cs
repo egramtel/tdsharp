@@ -39,6 +39,13 @@ namespace TdLib
             /// </summary>
             [JsonProperty("message_ids", ItemConverterType = typeof(Converter))]
             public long[] MessageIds { get; set; }
+
+            /// <summary>
+            /// New manually chosen quote from the message to be replied; pass null if none. Ignored if more than one message is re-sent, or if messageSendingStateFailed.need_another_reply_quote == false
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("quote")]
+            public FormattedText Quote { get; set; }
         }
 
         /// <summary>
@@ -46,11 +53,11 @@ namespace TdLib
         /// If a message is re-sent, the corresponding failed to send message is deleted. Returns the sent messages in the same order as the message identifiers passed in message_ids. If a message can't be re-sent, null will be returned instead of the message
         /// </summary>
         public static Task<Messages> ResendMessagesAsync(
-            this Client client, long chatId = default, long[] messageIds = default)
+            this Client client, long chatId = default, long[] messageIds = default, FormattedText quote = default)
         {
             return client.ExecuteAsync(new ResendMessages
             {
-                ChatId = chatId, MessageIds = messageIds
+                ChatId = chatId, MessageIds = messageIds, Quote = quote
             });
         }
     }

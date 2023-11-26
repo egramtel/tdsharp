@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns recently opened chats, this is an offline request. Returns chats in the order of last opening
+        /// Returns recently opened chats; this is an offline request. Returns chats in the order of last opening
         /// </summary>
         public class GetRecentlyOpenedChats : Function<Chats>
         {
@@ -35,7 +35,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Returns recently opened chats, this is an offline request. Returns chats in the order of last opening
+        /// Returns recently opened chats; this is an offline request. Returns chats in the order of last opening
         /// </summary>
         public static Task<Chats> GetRecentlyOpenedChatsAsync(
             this Client client, int limit = default)

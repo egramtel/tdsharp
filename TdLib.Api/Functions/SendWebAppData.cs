@@ -41,7 +41,7 @@ namespace TdLib
             public string ButtonText { get; set; }
 
             /// <summary>
-            /// Received data
+            /// The data
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("data")]

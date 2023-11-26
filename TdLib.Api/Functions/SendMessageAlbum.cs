@@ -41,11 +41,11 @@ namespace TdLib
             public long MessageThreadId { get; set; }
 
             /// <summary>
-            /// Identifier of a replied message; 0 if none
+            /// Information about the message or story to be replied; pass null if none
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("reply_to_message_id")]
-            public long ReplyToMessageId { get; set; }
+            [JsonProperty("reply_to")]
+            public InputMessageReplyTo ReplyTo { get; set; }
 
             /// <summary>
             /// Options to be used to send the messages; pass null to use default options
@@ -59,24 +59,17 @@ namespace TdLib
             /// </summary>
             [JsonProperty("input_message_contents", ItemConverterType = typeof(Converter))]
             public InputMessageContent[] InputMessageContents { get; set; }
-
-            /// <summary>
-            /// Pass true to get fake messages instead of actually sending them
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("only_preview")]
-            public bool OnlyPreview { get; set; }
         }
 
         /// <summary>
         /// Sends 2-10 messages grouped together into an album. Currently, only audio, document, photo and video messages can be grouped into an album. Documents and audio files can be only grouped in an album with messages of the same type. Returns sent messages
         /// </summary>
         public static Task<Messages> SendMessageAlbumAsync(
-            this Client client, long chatId = default, long messageThreadId = default, long replyToMessageId = default, MessageSendOptions options = default, InputMessageContent[] inputMessageContents = default, bool onlyPreview = default)
+            this Client client, long chatId = default, long messageThreadId = default, InputMessageReplyTo replyTo = default, MessageSendOptions options = default, InputMessageContent[] inputMessageContents = default)
         {
             return client.ExecuteAsync(new SendMessageAlbum
             {
-                ChatId = chatId, MessageThreadId = messageThreadId, ReplyToMessageId = replyToMessageId, Options = options, InputMessageContents = inputMessageContents, OnlyPreview = onlyPreview
+                ChatId = chatId, MessageThreadId = messageThreadId, ReplyTo = replyTo, Options = options, InputMessageContents = inputMessageContents
             });
         }
     }

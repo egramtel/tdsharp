@@ -69,11 +69,11 @@ namespace TdLib
                 public FormattedText Caption { get; set; }
 
                 /// <summary>
-                /// Photo self-destruct time, in seconds (0-60). A non-zero self-destruct time can be specified only in private chats
+                /// Photo self-destruct type; pass null if none; private chats only
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("self_destruct_time")]
-                public int SelfDestructTime { get; set; }
+                [JsonProperty("self_destruct_type")]
+                public MessageSelfDestructType SelfDestructType { get; set; }
 
                 /// <summary>
                 /// True, if the photo preview must be covered by a spoiler animation; not supported in secret chats

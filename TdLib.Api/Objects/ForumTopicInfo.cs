@@ -47,7 +47,7 @@ namespace TdLib
             public ForumTopicIcon Icon { get; set; }
 
             /// <summary>
-            /// Date the topic was created
+            /// Point in time (Unix timestamp) when the topic was created
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("creation_date")]

@@ -152,6 +152,20 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_fake")]
             public bool IsFake { get; set; }
+
+            /// <summary>
+            /// True, if the channel has non-expired stories available to the current user
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("has_active_stories")]
+            public bool HasActiveStories { get; set; }
+
+            /// <summary>
+            /// True, if the channel has unread non-expired stories available to the current user
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("has_unread_active_stories")]
+            public bool HasUnreadActiveStories { get; set; }
         }
     }
 }

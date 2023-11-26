@@ -47,7 +47,7 @@ namespace TdLib
             public bool UseDefaultSound { get; set; }
 
             /// <summary>
-            /// Identifier of the notification sound to be played; 0 if sound is disabled
+            /// Identifier of the notification sound to be played for messages; 0 if sound is disabled
             /// </summary>
             [JsonConverter(typeof(Converter.Int64))]
             [JsonProperty("sound_id")]
@@ -66,6 +66,48 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("show_preview")]
             public bool ShowPreview { get; set; }
+
+            /// <summary>
+            /// If true, mute_stories is ignored and the value for the relevant type of chat is used instead
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("use_default_mute_stories")]
+            public bool UseDefaultMuteStories { get; set; }
+
+            /// <summary>
+            /// True, if story notifications are disabled for the chat
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("mute_stories")]
+            public bool MuteStories { get; set; }
+
+            /// <summary>
+            /// If true, the value for the relevant type of chat is used instead of story_sound_id
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("use_default_story_sound")]
+            public bool UseDefaultStorySound { get; set; }
+
+            /// <summary>
+            /// Identifier of the notification sound to be played for stories; 0 if sound is disabled
+            /// </summary>
+            [JsonConverter(typeof(Converter.Int64))]
+            [JsonProperty("story_sound_id")]
+            public long StorySoundId { get; set; }
+
+            /// <summary>
+            /// If true, show_story_sender is ignored and the value for the relevant type of chat is used instead
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("use_default_show_story_sender")]
+            public bool UseDefaultShowStorySender { get; set; }
+
+            /// <summary>
+            /// True, if the sender of stories must be displayed in notifications
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("show_story_sender")]
+            public bool ShowStorySender { get; set; }
 
             /// <summary>
             /// If true, disable_pinned_message_notifications is ignored and the value for the relevant type of chat or the forum chat is used instead

@@ -27,7 +27,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// The input background to use; pass null to create a new filled backgrounds or to remove the current background
+            /// The input background to use; pass null to create a new filled background or to remove the current background
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("background")]

@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Searches for the specified query in the title and username of already known chats, this is an offline request. Returns chats in the order seen in the main chat list
+        /// Searches for the specified query in the title and username of already known chats; this is an offline request. Returns chats in the order seen in the main chat list
         /// </summary>
         public class SearchChats : Function<Chats>
         {
@@ -42,7 +42,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Searches for the specified query in the title and username of already known chats, this is an offline request. Returns chats in the order seen in the main chat list
+        /// Searches for the specified query in the title and username of already known chats; this is an offline request. Returns chats in the order seen in the main chat list
         /// </summary>
         public static Task<Chats> SearchChatsAsync(
             this Client client, string query = default, int limit = default)

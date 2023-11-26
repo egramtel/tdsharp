@@ -35,7 +35,7 @@ namespace TdLib
                 public long FromChatId { get; set; }
 
                 /// <summary>
-                /// Identifier of the message to forward
+                /// Identifier of the message to forward. A message can be forwarded only if message.can_be_forwarded
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("message_id")]

@@ -11,7 +11,7 @@ namespace TdLib
         public partial class UserPrivacySettingRule : Object
         {
             /// <summary>
-            /// A rule to restrict all contacts of a user from doing something
+            /// A rule to restrict all contacts of the user from doing something
             /// </summary>
             public class UserPrivacySettingRuleRestrictContacts : UserPrivacySettingRule
             {

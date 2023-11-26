@@ -78,8 +78,8 @@ namespace TdLib
             /// IP address from which the user was logged in, in human-readable format
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("ip")]
-            public string Ip { get; set; }
+            [JsonProperty("ip_address")]
+            public string IpAddress { get; set; }
 
             /// <summary>
             /// Human-readable description of a country and a region from which the user was logged in, based on the IP address

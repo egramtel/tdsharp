@@ -11,7 +11,7 @@ namespace TdLib
         public partial class StorePaymentPurpose : Object
         {
             /// <summary>
-            /// The user gifted Telegram Premium to another user
+            /// The user gifting Telegram Premium to another user
             /// </summary>
             public class StorePaymentPurposeGiftedPremium : StorePaymentPurpose
             {
@@ -28,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Identifier of the user for which Premium was gifted
+                /// Identifier of the user to which Premium was gifted
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("user_id")]

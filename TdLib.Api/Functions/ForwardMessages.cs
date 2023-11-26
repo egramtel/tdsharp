@@ -48,7 +48,7 @@ namespace TdLib
             public long FromChatId { get; set; }
 
             /// <summary>
-            /// Identifiers of the messages to forward. Message identifiers must be in a strictly increasing order. At most 100 messages can be forwarded simultaneously
+            /// Identifiers of the messages to forward. Message identifiers must be in a strictly increasing order. At most 100 messages can be forwarded simultaneously. A message can be forwarded only if message.can_be_forwarded
             /// </summary>
             [JsonProperty("message_ids", ItemConverterType = typeof(Converter))]
             public long[] MessageIds { get; set; }
@@ -73,24 +73,17 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("remove_caption")]
             public bool RemoveCaption { get; set; }
-
-            /// <summary>
-            /// Pass true to get fake messages instead of actually forwarding them
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("only_preview")]
-            public bool OnlyPreview { get; set; }
         }
 
         /// <summary>
         /// Forwards previously sent messages. Returns the forwarded messages in the same order as the message identifiers passed in message_ids. If a message can't be forwarded, null will be returned instead of the message
         /// </summary>
         public static Task<Messages> ForwardMessagesAsync(
-            this Client client, long chatId = default, long messageThreadId = default, long fromChatId = default, long[] messageIds = default, MessageSendOptions options = default, bool sendCopy = default, bool removeCaption = default, bool onlyPreview = default)
+            this Client client, long chatId = default, long messageThreadId = default, long fromChatId = default, long[] messageIds = default, MessageSendOptions options = default, bool sendCopy = default, bool removeCaption = default)
         {
             return client.ExecuteAsync(new ForwardMessages
             {
-                ChatId = chatId, MessageThreadId = messageThreadId, FromChatId = fromChatId, MessageIds = messageIds, Options = options, SendCopy = sendCopy, RemoveCaption = removeCaption, OnlyPreview = onlyPreview
+                ChatId = chatId, MessageThreadId = messageThreadId, FromChatId = fromChatId, MessageIds = messageIds, Options = options, SendCopy = sendCopy, RemoveCaption = removeCaption
             });
         }
     }

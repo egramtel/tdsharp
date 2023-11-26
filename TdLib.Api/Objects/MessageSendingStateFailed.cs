@@ -28,18 +28,11 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// An error code; 0 if unknown
+                /// The cause of the message sending failure
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("error_code")]
-                public int ErrorCode { get; set; }
-
-                /// <summary>
-                /// Error message
-                /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("error_message")]
-                public string ErrorMessage { get; set; }
+                [JsonProperty("error")]
+                public Error Error { get; set; }
 
                 /// <summary>
                 /// True, if the message can be re-sent
@@ -54,6 +47,20 @@ namespace TdLib
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("need_another_sender")]
                 public bool NeedAnotherSender { get; set; }
+
+                /// <summary>
+                /// True, if the message can be re-sent only if another quote is chosen in the message that is replied by the given message
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("need_another_reply_quote")]
+                public bool NeedAnotherReplyQuote { get; set; }
+
+                /// <summary>
+                /// True, if the message can be re-sent only if the message to be replied is removed. This will be done automatically by resendMessages
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("need_drop_reply")]
+                public bool NeedDropReply { get; set; }
 
                 /// <summary>
                 /// Time left before the message can be re-sent, in seconds. No update is sent when this field changes

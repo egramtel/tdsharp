@@ -70,13 +70,13 @@ namespace TdLib
                 public int TotalCount { get; set; }
 
                 /// <summary>
-                /// List of added group notifications, sorted by notification ID
+                /// List of added group notifications, sorted by notification identifier
                 /// </summary>
                 [JsonProperty("added_notifications", ItemConverterType = typeof(Converter))]
                 public Notification[] AddedNotifications { get; set; }
 
                 /// <summary>
-                /// Identifiers of removed group notifications, sorted by notification ID
+                /// Identifiers of removed group notifications, sorted by notification identifier
                 /// </summary>
                 [JsonProperty("removed_notification_ids", ItemConverterType = typeof(Converter))]
                 public int[] RemovedNotificationIds { get; set; }

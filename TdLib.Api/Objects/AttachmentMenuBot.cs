@@ -9,7 +9,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Represents a bot, which can be added to attachment menu
+        /// Represents a bot, which can be added to attachment or side menu
         /// </summary>
         public partial class AttachmentMenuBot : Object
         {
@@ -26,7 +26,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// User identifier of the bot added to attachment menu
+            /// User identifier of the bot
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("bot_user_id")]
@@ -68,18 +68,39 @@ namespace TdLib
             public bool SupportsChannelChats { get; set; }
 
             /// <summary>
-            /// True, if the bot supports "settings_button_pressed" event
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("supports_settings")]
-            public bool SupportsSettings { get; set; }
-
-            /// <summary>
-            /// True, if the user must be asked for the permission to the bot to send them messages
+            /// True, if the user must be asked for the permission to send messages to the bot
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("request_write_access")]
             public bool RequestWriteAccess { get; set; }
+
+            /// <summary>
+            /// True, if the bot was explicitly added by the user. If the bot isn't added, then on the first bot launch toggleBotIsAddedToAttachmentMenu must be called and the bot must be added or removed
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("is_added")]
+            public bool IsAdded { get; set; }
+
+            /// <summary>
+            /// True, if the bot must be shown in the attachment menu
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("show_in_attachment_menu")]
+            public bool ShowInAttachmentMenu { get; set; }
+
+            /// <summary>
+            /// True, if the bot must be shown in the side menu
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("show_in_side_menu")]
+            public bool ShowInSideMenu { get; set; }
+
+            /// <summary>
+            /// True, if a disclaimer, why the bot is shown in the side menu, is needed
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("show_disclaimer_in_side_menu")]
+            public bool ShowDisclaimerInSideMenu { get; set; }
 
             /// <summary>
             /// Name for the bot in attachment menu
@@ -96,39 +117,60 @@ namespace TdLib
             public AttachmentMenuBotColor NameColor { get; set; }
 
             /// <summary>
-            /// Default attachment menu icon for the bot in SVG format; may be null
+            /// Default icon for the bot in SVG format; may be null
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("default_icon")]
             public File DefaultIcon { get; set; }
 
             /// <summary>
-            /// Attachment menu icon for the bot in SVG format for the official iOS app; may be null
+            /// Icon for the bot in SVG format for the official iOS app; may be null
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("ios_static_icon")]
             public File IosStaticIcon { get; set; }
 
             /// <summary>
-            /// Attachment menu icon for the bot in TGS format for the official iOS app; may be null
+            /// Icon for the bot in TGS format for the official iOS app; may be null
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("ios_animated_icon")]
             public File IosAnimatedIcon { get; set; }
 
             /// <summary>
-            /// Attachment menu icon for the bot in TGS format for the official Android app; may be null
+            /// Icon for the bot in PNG format for the official iOS app side menu; may be null
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("ios_side_menu_icon")]
+            public File IosSideMenuIcon { get; set; }
+
+            /// <summary>
+            /// Icon for the bot in TGS format for the official Android app; may be null
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("android_icon")]
             public File AndroidIcon { get; set; }
 
             /// <summary>
-            /// Attachment menu icon for the bot in TGS format for the official native macOS app; may be null
+            /// Icon for the bot in SVG format for the official Android app side menu; may be null
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("android_side_menu_icon")]
+            public File AndroidSideMenuIcon { get; set; }
+
+            /// <summary>
+            /// Icon for the bot in TGS format for the official native macOS app; may be null
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("macos_icon")]
             public File MacosIcon { get; set; }
+
+            /// <summary>
+            /// Icon for the bot in PNG format for the official macOS app side menu; may be null
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("macos_side_menu_icon")]
+            public File MacosSideMenuIcon { get; set; }
 
             /// <summary>
             /// Color to highlight selected icon of the bot if appropriate; may be null

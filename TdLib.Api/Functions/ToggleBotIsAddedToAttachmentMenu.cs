@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Adds or removes a bot to attachment menu. Bot can be added to attachment menu, only if userTypeBot.can_be_added_to_attachment_menu == true
+        /// Adds or removes a bot to attachment and side menu. Bot can be added to the menu, only if userTypeBot.can_be_added_to_attachment_menu == true
         /// </summary>
         public class ToggleBotIsAddedToAttachmentMenu : Function<Ok>
         {
@@ -49,7 +49,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Adds or removes a bot to attachment menu. Bot can be added to attachment menu, only if userTypeBot.can_be_added_to_attachment_menu == true
+        /// Adds or removes a bot to attachment and side menu. Bot can be added to the menu, only if userTypeBot.can_be_added_to_attachment_menu == true
         /// </summary>
         public static Task<Ok> ToggleBotIsAddedToAttachmentMenuAsync(
             this Client client, long botUserId = default, bool isAdded = default, bool allowWriteAccess = default)

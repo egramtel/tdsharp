@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns information about a bot that can be added to attachment menu
+        /// Returns information about a bot that can be added to attachment or side menu
         /// </summary>
         public class GetAttachmentMenuBot : Function<AttachmentMenuBot>
         {
@@ -35,7 +35,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Returns information about a bot that can be added to attachment menu
+        /// Returns information about a bot that can be added to attachment or side menu
         /// </summary>
         public static Task<AttachmentMenuBot> GetAttachmentMenuBotAsync(
             this Client client, long botUserId = default)

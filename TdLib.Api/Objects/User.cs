@@ -75,6 +75,20 @@ namespace TdLib
             public ProfilePhoto ProfilePhoto { get; set; }
 
             /// <summary>
+            /// Identifier of the accent color for name, and backgrounds of profile photo, reply header, and link preview
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("accent_color_id")]
+            public int AccentColorId { get; set; }
+
+            /// <summary>
+            /// Identifier of a custom emoji to be shown on the reply header background; 0 if none. For Telegram Premium users only
+            /// </summary>
+            [JsonConverter(typeof(Converter.Int64))]
+            [JsonProperty("background_custom_emoji_id")]
+            public long BackgroundCustomEmojiId { get; set; }
+
+            /// <summary>
             /// Emoji status to be shown instead of the default Telegram Premium badge; may be null. For Telegram Premium users only
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -94,6 +108,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_mutual_contact")]
             public bool IsMutualContact { get; set; }
+
+            /// <summary>
+            /// The user is a close friend of the current user; implies that the user is a contact
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("is_close_friend")]
+            public bool IsCloseFriend { get; set; }
 
             /// <summary>
             /// True, if the user is verified
@@ -136,6 +157,20 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_fake")]
             public bool IsFake { get; set; }
+
+            /// <summary>
+            /// True, if the user has non-expired stories available to the current user
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("has_active_stories")]
+            public bool HasActiveStories { get; set; }
+
+            /// <summary>
+            /// True, if the user has unread non-expired stories available to the current user
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("has_unread_active_stories")]
+            public bool HasUnreadActiveStories { get; set; }
 
             /// <summary>
             /// If false, the user is inaccessible, and the only information known about the user is inside this class. Identifier of the user can't be passed to any method

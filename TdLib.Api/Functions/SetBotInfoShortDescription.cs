@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Sets the text shown on the bot's profile page and sent together with the link when users share the bot; bots only
+        /// Sets the text shown on a bot's profile page and sent together with the link when users share the bot. Can be called only if userTypeBot.can_be_edited == true
         /// </summary>
         public class SetBotInfoShortDescription : Function<Ok>
         {
@@ -27,7 +27,14 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// A two-letter ISO 639-1 language code. If empty, the short description will be shown to all users, for which language there are no dedicated description
+            /// Identifier of the target bot
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("bot_user_id")]
+            public long BotUserId { get; set; }
+
+            /// <summary>
+            /// A two-letter ISO 639-1 language code. If empty, the short description will be shown to all users for whose languages there is no dedicated description
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("language_code")]
@@ -42,14 +49,14 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Sets the text shown on the bot's profile page and sent together with the link when users share the bot; bots only
+        /// Sets the text shown on a bot's profile page and sent together with the link when users share the bot. Can be called only if userTypeBot.can_be_edited == true
         /// </summary>
         public static Task<Ok> SetBotInfoShortDescriptionAsync(
-            this Client client, string languageCode = default, string shortDescription = default)
+            this Client client, long botUserId = default, string languageCode = default, string shortDescription = default)
         {
             return client.ExecuteAsync(new SetBotInfoShortDescription
             {
-                LanguageCode = languageCode, ShortDescription = shortDescription
+                BotUserId = botUserId, LanguageCode = languageCode, ShortDescription = shortDescription
             });
         }
     }

@@ -27,7 +27,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Default administrator rights for adding the bot to basic group and supergroup chats; may be null
+            /// Default administrator rights for adding the bot to basic group and supergroup chats; pass null to remove default rights
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("default_group_administrator_rights")]

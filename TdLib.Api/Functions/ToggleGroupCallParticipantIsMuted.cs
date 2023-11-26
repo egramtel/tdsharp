@@ -41,7 +41,7 @@ namespace TdLib
             public MessageSender ParticipantId { get; set; }
 
             /// <summary>
-            /// Pass true to mute the user; pass false to unmute the them
+            /// Pass true to mute the user; pass false to unmute them
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_muted")]

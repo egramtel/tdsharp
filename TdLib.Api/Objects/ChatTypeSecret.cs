@@ -35,7 +35,7 @@ namespace TdLib
                 public int SecretChatId { get; set; }
 
                 /// <summary>
-                /// User identifier of the secret chat peer
+                /// User identifier of the other user in the secret chat
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("user_id")]

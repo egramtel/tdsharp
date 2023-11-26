@@ -54,6 +54,20 @@ namespace TdLib
             public ChatPhotoInfo Photo { get; set; }
 
             /// <summary>
+            /// Identifier of the accent color for message sender name, and backgrounds of chat photo, reply header, and link preview
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("accent_color_id")]
+            public int AccentColorId { get; set; }
+
+            /// <summary>
+            /// Identifier of a custom emoji to be shown on the reply header background in replies to messages sent by the chat; 0 if none
+            /// </summary>
+            [JsonConverter(typeof(Converter.Int64))]
+            [JsonProperty("background_custom_emoji_id")]
+            public long BackgroundCustomEmojiId { get; set; }
+
+            /// <summary>
             /// Actions that non-administrator chat members are allowed to take in the chat
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -61,7 +75,7 @@ namespace TdLib
             public ChatPermissions Permissions { get; set; }
 
             /// <summary>
-            /// Last message in the chat; may be null
+            /// Last message in the chat; may be null if none or unknown
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("last_message")]
@@ -79,6 +93,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("message_sender_id")]
             public MessageSender MessageSenderId { get; set; }
+
+            /// <summary>
+            /// Block list to which the chat is added; may be null if none
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("block_list")]
+            public BlockList BlockList { get; set; }
 
             /// <summary>
             /// True, if chat content can't be saved locally, forwarded, or copied
@@ -100,13 +121,6 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_marked_as_unread")]
             public bool IsMarkedAsUnread { get; set; }
-
-            /// <summary>
-            /// True, if the chat is blocked by the current user and private messages from the chat can't be received
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("is_blocked")]
-            public bool IsBlocked { get; set; }
 
             /// <summary>
             /// True, if the chat has scheduled messages
@@ -200,6 +214,13 @@ namespace TdLib
             public int MessageAutoDeleteTime { get; set; }
 
             /// <summary>
+            /// Background set for the chat; may be null if none
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("background")]
+            public ChatBackground Background { get; set; }
+
+            /// <summary>
             /// If non-empty, name of a theme, set for the chat
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -207,7 +228,7 @@ namespace TdLib
             public string ThemeName { get; set; }
 
             /// <summary>
-            /// Information about actions which must be possible to do through the chat action bar; may be null
+            /// Information about actions which must be possible to do through the chat action bar; may be null if none
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("action_bar")]
@@ -221,7 +242,7 @@ namespace TdLib
             public VideoChat VideoChat { get; set; }
 
             /// <summary>
-            /// Information about pending join requests; may be null
+            /// Information about pending join requests; may be null if none
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("pending_join_requests")]
@@ -235,7 +256,7 @@ namespace TdLib
             public long ReplyMarkupMessageId { get; set; }
 
             /// <summary>
-            /// A draft of a message in the chat; may be null
+            /// A draft of a message in the chat; may be null if none
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("draft_message")]

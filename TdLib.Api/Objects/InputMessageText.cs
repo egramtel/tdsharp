@@ -28,18 +28,18 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Formatted text to be sent; 1-getOption("message_text_length_max") characters. Only Bold, Italic, Underline, Strikethrough, Spoiler, CustomEmoji, Code, Pre, PreCode, TextUrl and MentionName entities are allowed to be specified manually
+                /// Formatted text to be sent; 0-getOption("message_text_length_max") characters. Only Bold, Italic, Underline, Strikethrough, Spoiler, CustomEmoji, BlockQuote, Code, Pre, PreCode, TextUrl and MentionName entities are allowed to be specified manually
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("text")]
                 public FormattedText Text { get; set; }
 
                 /// <summary>
-                /// True, if rich web page previews for URLs in the message text must be disabled
+                /// Options to be used for generation of a link preview; pass null to use default link preview options
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("disable_web_page_preview")]
-                public bool DisableWebPagePreview { get; set; }
+                [JsonProperty("link_preview_options")]
+                public LinkPreviewOptions LinkPreviewOptions { get; set; }
 
                 /// <summary>
                 /// True, if a chat message draft must be deleted

@@ -26,7 +26,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// True, if the administrator can get chat event log, get chat statistics, get message statistics in channels, get channel members, see anonymous administrators in supergroups and ignore slow mode. Implied by any other privilege; applicable to supergroups and channels only
+            /// True, if the administrator can get chat event log, get chat boosts in channels, get channel members, report supergroup spam messages, see anonymous administrators in supergroups and ignore slow mode. Implied by any other privilege; applicable to supergroups and channels only
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("can_manage_chat")]
@@ -40,7 +40,7 @@ namespace TdLib
             public bool CanChangeInfo { get; set; }
 
             /// <summary>
-            /// True, if the administrator can create channel posts; applicable to channels only
+            /// True, if the administrator can create channel posts or view channel statistics; applicable to channels only
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("can_post_messages")]
@@ -68,7 +68,7 @@ namespace TdLib
             public bool CanInviteUsers { get; set; }
 
             /// <summary>
-            /// True, if the administrator can restrict, ban, or unban chat members; always true for channels
+            /// True, if the administrator can restrict, ban, or unban chat members or view supergroup statistics; always true for channels
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("can_restrict_members")]
@@ -101,6 +101,27 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("can_manage_video_chats")]
             public bool CanManageVideoChats { get; set; }
+
+            /// <summary>
+            /// True, if the administrator can create new channel stories, or edit and delete posted stories; applicable to channels only
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("can_post_stories")]
+            public bool CanPostStories { get; set; }
+
+            /// <summary>
+            /// True, if the administrator can edit stories posted by other users, pin stories and access story archive; applicable to channels only
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("can_edit_stories")]
+            public bool CanEditStories { get; set; }
+
+            /// <summary>
+            /// True, if the administrator can delete stories posted by other users; applicable to channels only
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("can_delete_stories")]
+            public bool CanDeleteStories { get; set; }
 
             /// <summary>
             /// True, if the administrator isn't shown in the chat member list and sends messages anonymously; applicable to supergroups only

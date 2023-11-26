@@ -34,7 +34,7 @@ namespace TdLib
             public int ProxyId { get; set; }
 
             /// <summary>
-            /// Proxy server IP address
+            /// Proxy server domain or IP address
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("server")]

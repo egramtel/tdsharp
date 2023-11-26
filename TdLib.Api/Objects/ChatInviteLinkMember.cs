@@ -40,6 +40,13 @@ namespace TdLib
             public int JoinedChatDate { get; set; }
 
             /// <summary>
+            /// True, if the user has joined the chat using an invite link for a chat folder
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("via_chat_folder_invite_link")]
+            public bool ViaChatFolderInviteLink { get; set; }
+
+            /// <summary>
             /// User identifier of the chat administrator, approved user join request
             /// </summary>
             [JsonConverter(typeof(Converter))]

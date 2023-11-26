@@ -47,7 +47,7 @@ namespace TdLib
             public int ScheduledStartDate { get; set; }
 
             /// <summary>
-            /// True, if the group call is scheduled and the current user will receive a notification when the group call will start
+            /// True, if the group call is scheduled and the current user will receive a notification when the group call starts
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("enabled_start_notification")]

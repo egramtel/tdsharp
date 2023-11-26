@@ -33,7 +33,7 @@ namespace TdLib
             public long Id { get; set; }
 
             /// <summary>
-            /// The identifier of the sticker set to which the sticker belongs; 0 if none
+            /// Identifier of the sticker set to which the sticker belongs; 0 if none
             /// </summary>
             [JsonConverter(typeof(Converter.Int64))]
             [JsonProperty("set_id")]

@@ -40,11 +40,53 @@ namespace TdLib
             public int SecondaryBackgroundColor { get; set; }
 
             /// <summary>
+            /// A color of the header background in the RGB24 format
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("header_background_color")]
+            public int HeaderBackgroundColor { get; set; }
+
+            /// <summary>
+            /// A color of the section background in the RGB24 format
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("section_background_color")]
+            public int SectionBackgroundColor { get; set; }
+
+            /// <summary>
             /// A color of text in the RGB24 format
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("text_color")]
             public int TextColor { get; set; }
+
+            /// <summary>
+            /// An accent color of the text in the RGB24 format
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("accent_text_color")]
+            public int AccentTextColor { get; set; }
+
+            /// <summary>
+            /// A color of text on the section headers in the RGB24 format
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("section_header_text_color")]
+            public int SectionHeaderTextColor { get; set; }
+
+            /// <summary>
+            /// A color of the subtitle text in the RGB24 format
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("subtitle_text_color")]
+            public int SubtitleTextColor { get; set; }
+
+            /// <summary>
+            /// A color of the text for destructive actions in the RGB24 format
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("destructive_text_color")]
+            public int DestructiveTextColor { get; set; }
 
             /// <summary>
             /// A color of hints in the RGB24 format

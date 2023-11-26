@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns a list of frequently used chats. Supported only if the chat info database is enabled
+        /// Returns a list of frequently used chats
         /// </summary>
         public class GetTopChats : Function<Chats>
         {
@@ -42,7 +42,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Returns a list of frequently used chats. Supported only if the chat info database is enabled
+        /// Returns a list of frequently used chats
         /// </summary>
         public static Task<Chats> GetTopChatsAsync(
             this Client client, TopChatCategory category = default, int limit = default)

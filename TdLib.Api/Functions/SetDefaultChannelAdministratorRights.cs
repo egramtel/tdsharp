@@ -27,7 +27,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Default administrator rights for adding the bot to channels; may be null
+            /// Default administrator rights for adding the bot to channels; pass null to remove default rights
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("default_channel_administrator_rights")]

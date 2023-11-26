@@ -26,7 +26,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// True, if the user can send text messages, contacts, invoices, locations, and venues
+            /// True, if the user can send text messages, contacts, giveaways, invoices, locations, and venues
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("can_send_basic_messages")]
@@ -47,14 +47,14 @@ namespace TdLib
             public bool CanSendDocuments { get; set; }
 
             /// <summary>
-            /// True, if the user can send audio photos
+            /// True, if the user can send photos
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("can_send_photos")]
             public bool CanSendPhotos { get; set; }
 
             /// <summary>
-            /// True, if the user can send audio videos
+            /// True, if the user can send videos
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("can_send_videos")]

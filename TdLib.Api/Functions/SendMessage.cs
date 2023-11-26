@@ -41,11 +41,11 @@ namespace TdLib
             public long MessageThreadId { get; set; }
 
             /// <summary>
-            /// Identifier of the replied message; 0 if none
+            /// Information about the message or story to be replied; pass null if none
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("reply_to_message_id")]
-            public long ReplyToMessageId { get; set; }
+            [JsonProperty("reply_to")]
+            public InputMessageReplyTo ReplyTo { get; set; }
 
             /// <summary>
             /// Options to be used to send the message; pass null to use default options
@@ -73,11 +73,11 @@ namespace TdLib
         /// Sends a message. Returns the sent message
         /// </summary>
         public static Task<Message> SendMessageAsync(
-            this Client client, long chatId = default, long messageThreadId = default, long replyToMessageId = default, MessageSendOptions options = default, ReplyMarkup replyMarkup = default, InputMessageContent inputMessageContent = default)
+            this Client client, long chatId = default, long messageThreadId = default, InputMessageReplyTo replyTo = default, MessageSendOptions options = default, ReplyMarkup replyMarkup = default, InputMessageContent inputMessageContent = default)
         {
             return client.ExecuteAsync(new SendMessage
             {
-                ChatId = chatId, MessageThreadId = messageThreadId, ReplyToMessageId = replyToMessageId, Options = options, ReplyMarkup = replyMarkup, InputMessageContent = inputMessageContent
+                ChatId = chatId, MessageThreadId = messageThreadId, ReplyTo = replyTo, Options = options, ReplyMarkup = replyMarkup, InputMessageContent = inputMessageContent
             });
         }
     }

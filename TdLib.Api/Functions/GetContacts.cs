@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns all user contacts
+        /// Returns all contacts of the user
         /// </summary>
         public class GetContacts : Function<Users>
         {
@@ -30,7 +30,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Returns all user contacts
+        /// Returns all contacts of the user
         /// </summary>
         public static Task<Users> GetContactsAsync(
             this Client client)

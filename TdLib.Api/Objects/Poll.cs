@@ -53,10 +53,10 @@ namespace TdLib
             public int TotalVoterCount { get; set; }
 
             /// <summary>
-            /// User identifiers of recent voters, if the poll is non-anonymous
+            /// Identifiers of recent voters, if the poll is non-anonymous
             /// </summary>
-            [JsonProperty("recent_voter_user_ids", ItemConverterType = typeof(Converter))]
-            public long[] RecentVoterUserIds { get; set; }
+            [JsonProperty("recent_voter_ids", ItemConverterType = typeof(Converter))]
+            public MessageSender[] RecentVoterIds { get; set; }
 
             /// <summary>
             /// True, if the poll is anonymous

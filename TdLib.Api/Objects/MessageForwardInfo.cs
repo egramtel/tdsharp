@@ -26,11 +26,11 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Origin of a forwarded message
+            /// Origin of the forwarded message
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("origin")]
-            public MessageForwardOrigin Origin { get; set; }
+            public MessageOrigin Origin { get; set; }
 
             /// <summary>
             /// Point in time (Unix timestamp) when the message was originally sent

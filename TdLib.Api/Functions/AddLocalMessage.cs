@@ -41,11 +41,11 @@ namespace TdLib
             public MessageSender SenderId { get; set; }
 
             /// <summary>
-            /// Identifier of the replied message; 0 if none
+            /// Information about the message or story to be replied; pass null if none
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("reply_to_message_id")]
-            public long ReplyToMessageId { get; set; }
+            [JsonProperty("reply_to")]
+            public InputMessageReplyTo ReplyTo { get; set; }
 
             /// <summary>
             /// Pass true to disable notification for the message
@@ -66,11 +66,11 @@ namespace TdLib
         /// Adds a local message to a chat. The message is persistent across application restarts only if the message database is used. Returns the added message
         /// </summary>
         public static Task<Message> AddLocalMessageAsync(
-            this Client client, long chatId = default, MessageSender senderId = default, long replyToMessageId = default, bool disableNotification = default, InputMessageContent inputMessageContent = default)
+            this Client client, long chatId = default, MessageSender senderId = default, InputMessageReplyTo replyTo = default, bool disableNotification = default, InputMessageContent inputMessageContent = default)
         {
             return client.ExecuteAsync(new AddLocalMessage
             {
-                ChatId = chatId, SenderId = senderId, ReplyToMessageId = replyToMessageId, DisableNotification = disableNotification, InputMessageContent = inputMessageContent
+                ChatId = chatId, SenderId = senderId, ReplyTo = replyTo, DisableNotification = disableNotification, InputMessageContent = inputMessageContent
             });
         }
     }

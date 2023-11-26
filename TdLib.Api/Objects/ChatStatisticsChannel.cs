@@ -56,7 +56,7 @@ namespace TdLib
                 public StatisticalValue MeanShareCount { get; set; }
 
                 /// <summary>
-                /// A percentage of users with enabled notifications for the chat
+                /// A percentage of users with enabled notifications for the chat; 0-100
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("enabled_notifications_percentage")]

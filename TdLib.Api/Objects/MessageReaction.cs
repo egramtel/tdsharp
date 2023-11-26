@@ -47,6 +47,13 @@ namespace TdLib
             public bool IsChosen { get; set; }
 
             /// <summary>
+            /// Identifier of the message sender used by the current user to add the reaction; may be null if unknown or the reaction isn't chosen
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("used_sender_id")]
+            public MessageSender UsedSenderId { get; set; }
+
+            /// <summary>
             /// Identifiers of at most 3 recent message senders, added the reaction; available in private, basic group and supergroup chats
             /// </summary>
             [JsonProperty("recent_sender_ids", ItemConverterType = typeof(Converter))]

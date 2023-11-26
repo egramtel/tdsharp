@@ -47,6 +47,34 @@ namespace TdLib
             public bool ShowPreview { get; set; }
 
             /// <summary>
+            /// If true, mute_stories is ignored and story notifications are received only for the first 5 chats from topChatCategoryUsers
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("use_default_mute_stories")]
+            public bool UseDefaultMuteStories { get; set; }
+
+            /// <summary>
+            /// True, if story notifications are disabled for the chat
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("mute_stories")]
+            public bool MuteStories { get; set; }
+
+            /// <summary>
+            /// Identifier of the notification sound to be played for stories; 0 if sound is disabled
+            /// </summary>
+            [JsonConverter(typeof(Converter.Int64))]
+            [JsonProperty("story_sound_id")]
+            public long StorySoundId { get; set; }
+
+            /// <summary>
+            /// True, if the sender of stories must be displayed in notifications
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("show_story_sender")]
+            public bool ShowStorySender { get; set; }
+
+            /// <summary>
             /// True, if notifications for incoming pinned messages will be created as for an ordinary unread message
             /// </summary>
             [JsonConverter(typeof(Converter))]

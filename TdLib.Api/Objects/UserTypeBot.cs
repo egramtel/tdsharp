@@ -28,6 +28,13 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
+                /// True, if the bot is owned by the current user and can be edited using the methods toggleBotUsernameIsActive, reorderBotActiveUsernames, setBotProfilePhoto, setBotName, setBotInfoDescription, and setBotInfoShortDescription
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("can_be_edited")]
+                public bool CanBeEdited { get; set; }
+
+                /// <summary>
                 /// True, if the bot can be invited to basic group and supergroup chats
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
@@ -63,7 +70,7 @@ namespace TdLib
                 public bool NeedLocation { get; set; }
 
                 /// <summary>
-                /// True, if the bot can be added to attachment menu
+                /// True, if the bot can be added to attachment or side menu
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("can_be_added_to_attachment_menu")]

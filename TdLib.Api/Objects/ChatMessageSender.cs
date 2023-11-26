@@ -26,7 +26,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Available message senders
+            /// The message sender
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("sender")]

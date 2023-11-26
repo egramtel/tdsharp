@@ -31,6 +31,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter.Int64))]
             [JsonProperty("custom_emoji_id")]
             public long CustomEmojiId { get; set; }
+
+            /// <summary>
+            /// Point in time (Unix timestamp) when the status will expire; 0 if never
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("expiration_date")]
+            public int ExpirationDate { get; set; }
         }
     }
 }

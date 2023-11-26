@@ -32,24 +32,17 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("emoji_status")]
             public EmojiStatus EmojiStatus { get; set; }
-
-            /// <summary>
-            /// Duration of the status, in seconds; pass 0 to keep the status active until it will be changed manually
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("duration")]
-            public int Duration { get; set; }
         }
 
         /// <summary>
         /// Changes the emoji status of the current user; for Telegram Premium users only
         /// </summary>
         public static Task<Ok> SetEmojiStatusAsync(
-            this Client client, EmojiStatus emojiStatus = default, int duration = default)
+            this Client client, EmojiStatus emojiStatus = default)
         {
             return client.ExecuteAsync(new SetEmojiStatus
             {
-                EmojiStatus = emojiStatus, Duration = duration
+                EmojiStatus = emojiStatus
             });
         }
     }

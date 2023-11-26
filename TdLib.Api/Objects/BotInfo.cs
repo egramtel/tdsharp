@@ -79,6 +79,34 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("default_channel_administrator_rights")]
             public ChatAdministratorRights DefaultChannelAdministratorRights { get; set; }
+
+            /// <summary>
+            /// The internal link, which can be used to edit bot commands; may be null
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("edit_commands_link")]
+            public InternalLinkType EditCommandsLink { get; set; }
+
+            /// <summary>
+            /// The internal link, which can be used to edit bot description; may be null
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("edit_description_link")]
+            public InternalLinkType EditDescriptionLink { get; set; }
+
+            /// <summary>
+            /// The internal link, which can be used to edit the photo or animation shown in the chat with the bot if the chat is empty; may be null
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("edit_description_media_link")]
+            public InternalLinkType EditDescriptionMediaLink { get; set; }
+
+            /// <summary>
+            /// The internal link, which can be used to edit bot settings; may be null
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("edit_settings_link")]
+            public InternalLinkType EditSettingsLink { get; set; }
         }
     }
 }

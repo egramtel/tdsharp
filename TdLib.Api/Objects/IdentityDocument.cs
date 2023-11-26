@@ -33,11 +33,11 @@ namespace TdLib
             public string Number { get; set; }
 
             /// <summary>
-            /// Document expiry date; may be null if not applicable
+            /// Document expiration date; may be null if not applicable
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("expiry_date")]
-            public Date ExpiryDate { get; set; }
+            [JsonProperty("expiration_date")]
+            public Date ExpirationDate { get; set; }
 
             /// <summary>
             /// Front side of the document

@@ -28,6 +28,13 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
+                /// The identifier of a user that gifted Telegram Premium; 0 if the gift was anonymous
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("gifter_user_id")]
+                public long GifterUserId { get; set; }
+
+                /// <summary>
                 /// Currency for the paid amount
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
@@ -40,6 +47,20 @@ namespace TdLib
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("amount")]
                 public long Amount { get; set; }
+
+                /// <summary>
+                /// Cryptocurrency used to pay for the gift; may be empty if none
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("cryptocurrency")]
+                public string Cryptocurrency { get; set; }
+
+                /// <summary>
+                /// The paid amount, in the smallest units of the cryptocurrency
+                /// </summary>
+                [JsonConverter(typeof(Converter.Int64))]
+                [JsonProperty("cryptocurrency_amount")]
+                public long CryptocurrencyAmount { get; set; }
 
                 /// <summary>
                 /// Number of month the Telegram Premium subscription will be active

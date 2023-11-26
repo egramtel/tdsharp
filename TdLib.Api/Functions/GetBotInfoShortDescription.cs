@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns the text shown on the bot's profile page and sent together with the link when users share the bot in the given language; bots only
+        /// Returns the text shown on a bot's profile page and sent together with the link when users share the bot in the given language. Can be called only if userTypeBot.can_be_edited == true
         /// </summary>
         public class GetBotInfoShortDescription : Function<Text>
         {
@@ -27,6 +27,13 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
+            /// Identifier of the target bot
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("bot_user_id")]
+            public long BotUserId { get; set; }
+
+            /// <summary>
             /// A two-letter ISO 639-1 language code or an empty string
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -35,14 +42,14 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Returns the text shown on the bot's profile page and sent together with the link when users share the bot in the given language; bots only
+        /// Returns the text shown on a bot's profile page and sent together with the link when users share the bot in the given language. Can be called only if userTypeBot.can_be_edited == true
         /// </summary>
         public static Task<Text> GetBotInfoShortDescriptionAsync(
-            this Client client, string languageCode = default)
+            this Client client, long botUserId = default, string languageCode = default)
         {
             return client.ExecuteAsync(new GetBotInfoShortDescription
             {
-                LanguageCode = languageCode
+                BotUserId = botUserId, LanguageCode = languageCode
             });
         }
     }

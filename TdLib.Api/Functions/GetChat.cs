@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns information about a chat by its identifier, this is an offline request if the current user is not a bot
+        /// Returns information about a chat by its identifier; this is an offline request if the current user is not a bot
         /// </summary>
         public class GetChat : Function<Chat>
         {
@@ -35,7 +35,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Returns information about a chat by its identifier, this is an offline request if the current user is not a bot
+        /// Returns information about a chat by its identifier; this is an offline request if the current user is not a bot
         /// </summary>
         public static Task<Chat> GetChatAsync(
             this Client client, long chatId = default)

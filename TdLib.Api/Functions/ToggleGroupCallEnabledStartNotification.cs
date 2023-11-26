@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Toggles whether the current user will receive a notification when the group call will start; scheduled group calls only
+        /// Toggles whether the current user will receive a notification when the group call starts; scheduled group calls only
         /// </summary>
         public class ToggleGroupCallEnabledStartNotification : Function<Ok>
         {
@@ -42,7 +42,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Toggles whether the current user will receive a notification when the group call will start; scheduled group calls only
+        /// Toggles whether the current user will receive a notification when the group call starts; scheduled group calls only
         /// </summary>
         public static Task<Ok> ToggleGroupCallEnabledStartNotificationAsync(
             this Client client, int groupCallId = default, bool enabledStartNotification = default)

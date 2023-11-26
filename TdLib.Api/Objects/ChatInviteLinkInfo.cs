@@ -44,7 +44,7 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("type")]
-            public ChatType Type { get; set; }
+            public InviteLinkChatType Type { get; set; }
 
             /// <summary>
             /// Title of the chat
@@ -59,6 +59,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("photo")]
             public ChatPhotoInfo Photo { get; set; }
+
+            /// <summary>
+            /// Identifier of the accent color for chat title and background of chat photo
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("accent_color_id")]
+            public int AccentColorId { get; set; }
 
             /// <summary>
             /// 
@@ -93,6 +100,27 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_public")]
             public bool IsPublic { get; set; }
+
+            /// <summary>
+            /// True, if the chat is verified
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("is_verified")]
+            public bool IsVerified { get; set; }
+
+            /// <summary>
+            /// True, if many users reported this chat as a scam
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("is_scam")]
+            public bool IsScam { get; set; }
+
+            /// <summary>
+            /// True, if many users reported this chat as a fake account
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("is_fake")]
+            public bool IsFake { get; set; }
         }
     }
 }

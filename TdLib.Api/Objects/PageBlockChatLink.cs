@@ -42,6 +42,13 @@ namespace TdLib
                 public ChatPhotoInfo Photo { get; set; }
 
                 /// <summary>
+                /// Identifier of the accent color for chat title and background of chat photo
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("accent_color_id")]
+                public int AccentColorId { get; set; }
+
+                /// <summary>
                 /// Chat username by which all other information about the chat can be resolved
                 /// </summary>
                 [JsonConverter(typeof(Converter))]

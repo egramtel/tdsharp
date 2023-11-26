@@ -33,6 +33,13 @@ namespace TdLib
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("invite_link")]
                 public ChatInviteLink InviteLink { get; set; }
+
+                /// <summary>
+                /// True, if the user has joined the chat using an invite link for a chat folder
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("via_chat_folder_invite_link")]
+                public bool ViaChatFolderInviteLink { get; set; }
             }
         }
     }

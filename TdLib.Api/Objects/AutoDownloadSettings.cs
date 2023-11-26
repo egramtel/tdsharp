@@ -75,6 +75,13 @@ namespace TdLib
             public bool PreloadNextAudio { get; set; }
 
             /// <summary>
+            /// True, if stories needs to be preloaded
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("preload_stories")]
+            public bool PreloadStories { get; set; }
+
+            /// <summary>
             /// True, if "use less data for calls" option needs to be enabled
             /// </summary>
             [JsonConverter(typeof(Converter))]

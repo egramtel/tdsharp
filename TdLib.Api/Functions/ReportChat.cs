@@ -44,7 +44,7 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("reason")]
-            public ChatReportReason Reason { get; set; }
+            public ReportReason Reason { get; set; }
 
             /// <summary>
             /// Additional report details; 0-1024 characters
@@ -58,7 +58,7 @@ namespace TdLib
         /// Reports a chat to the Telegram moderators. A chat can be reported only from the chat action bar, or if chat.can_be_reported
         /// </summary>
         public static Task<Ok> ReportChatAsync(
-            this Client client, long chatId = default, long[] messageIds = default, ChatReportReason reason = default, string text = default)
+            this Client client, long chatId = default, long[] messageIds = default, ReportReason reason = default, string text = default)
         {
             return client.ExecuteAsync(new ReportChat
             {

@@ -11,7 +11,7 @@ namespace TdLib
         public partial class PushMessageContent : Object
         {
             /// <summary>
-            /// A new recurrent payment was made by the current user
+            /// A new recurring payment was made by the current user
             /// </summary>
             public class PushMessageContentRecurringPayment : PushMessageContent
             {

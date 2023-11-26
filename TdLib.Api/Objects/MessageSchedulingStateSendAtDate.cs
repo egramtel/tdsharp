@@ -28,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Date the message will be sent. The date must be within 367 days in the future
+                /// Point in time (Unix timestamp) when the message will be sent. The date must be within 367 days in the future
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("send_date")]

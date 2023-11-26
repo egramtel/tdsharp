@@ -89,7 +89,7 @@ namespace TdLib
             public ChatNotificationSettings NotificationSettings { get; set; }
 
             /// <summary>
-            /// A draft of a message in the topic; may be null
+            /// A draft of a message in the topic; may be null if none
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("draft_message")]

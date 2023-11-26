@@ -66,6 +66,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("sending_id")]
             public int SendingId { get; set; }
+
+            /// <summary>
+            /// Pass true to get a fake message instead of actually sending them
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("only_preview")]
+            public bool OnlyPreview { get; set; }
         }
     }
 }

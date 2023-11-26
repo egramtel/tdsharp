@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Informs TDLib that a Web App is being opened from attachment menu, a botMenuButton button, an internalLinkTypeAttachmentMenuBot link, or an inlineKeyboardButtonTypeWebApp button.
+        /// Informs TDLib that a Web App is being opened from the attachment menu, a botMenuButton button, an internalLinkTypeAttachmentMenuBot link, or an inlineKeyboardButtonTypeWebApp button.
         /// For each bot, a confirmation alert about data sent to the bot must be shown once
         /// </summary>
         public class OpenWebApp : Function<WebAppInfo>
@@ -42,7 +42,7 @@ namespace TdLib
             public long BotUserId { get; set; }
 
             /// <summary>
-            /// The URL from an inlineKeyboardButtonTypeWebApp button, a botMenuButton button, or an internalLinkTypeAttachmentMenuBot link, or an empty string otherwise
+            /// The URL from an inlineKeyboardButtonTypeWebApp button, a botMenuButton button, an internalLinkTypeAttachmentMenuBot link, or an empty string otherwise
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("url")]
@@ -70,23 +70,23 @@ namespace TdLib
             public long MessageThreadId { get; set; }
 
             /// <summary>
-            /// Identifier of the replied message for the message sent by the Web App; 0 if none
+            /// Information about the message or story to be replied in the message sent by the Web App; pass null if none
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("reply_to_message_id")]
-            public long ReplyToMessageId { get; set; }
+            [JsonProperty("reply_to")]
+            public InputMessageReplyTo ReplyTo { get; set; }
         }
 
         /// <summary>
-        /// Informs TDLib that a Web App is being opened from attachment menu, a botMenuButton button, an internalLinkTypeAttachmentMenuBot link, or an inlineKeyboardButtonTypeWebApp button.
+        /// Informs TDLib that a Web App is being opened from the attachment menu, a botMenuButton button, an internalLinkTypeAttachmentMenuBot link, or an inlineKeyboardButtonTypeWebApp button.
         /// For each bot, a confirmation alert about data sent to the bot must be shown once
         /// </summary>
         public static Task<WebAppInfo> OpenWebAppAsync(
-            this Client client, long chatId = default, long botUserId = default, string url = default, ThemeParameters theme = default, string applicationName = default, long messageThreadId = default, long replyToMessageId = default)
+            this Client client, long chatId = default, long botUserId = default, string url = default, ThemeParameters theme = default, string applicationName = default, long messageThreadId = default, InputMessageReplyTo replyTo = default)
         {
             return client.ExecuteAsync(new OpenWebApp
             {
-                ChatId = chatId, BotUserId = botUserId, Url = url, Theme = theme, ApplicationName = applicationName, MessageThreadId = messageThreadId, ReplyToMessageId = replyToMessageId
+                ChatId = chatId, BotUserId = botUserId, Url = url, Theme = theme, ApplicationName = applicationName, MessageThreadId = messageThreadId, ReplyTo = replyTo
             });
         }
     }

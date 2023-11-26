@@ -59,6 +59,13 @@ namespace TdLib
             public string RecurringPaymentTermsOfServiceUrl { get; set; }
 
             /// <summary>
+            /// An HTTP URL with terms of service for non-recurring payments. If non-empty, then the user must accept the terms of service before allowed to pay
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("terms_of_service_url")]
+            public string TermsOfServiceUrl { get; set; }
+
+            /// <summary>
             /// True, if the payment is a test payment
             /// </summary>
             [JsonConverter(typeof(Converter))]

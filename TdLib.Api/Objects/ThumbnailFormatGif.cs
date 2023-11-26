@@ -11,7 +11,7 @@ namespace TdLib
         public partial class ThumbnailFormat : Object
         {
             /// <summary>
-            /// The thumbnail is in static GIF format. It will be used only for some bot inline results
+            /// The thumbnail is in static GIF format. It will be used only for some bot inline query results
             /// </summary>
             public class ThumbnailFormatGif : ThumbnailFormat
             {

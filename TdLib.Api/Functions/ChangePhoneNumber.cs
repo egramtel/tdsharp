@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Changes the phone number of the user and sends an authentication code to the user's new phone number. On success, returns information about the sent code
+        /// Changes the phone number of the user and sends an authentication code to the user's new phone number; for official Android and iOS applications only. On success, returns information about the sent code
         /// </summary>
         public class ChangePhoneNumber : Function<AuthenticationCodeInfo>
         {
@@ -42,7 +42,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Changes the phone number of the user and sends an authentication code to the user's new phone number. On success, returns information about the sent code
+        /// Changes the phone number of the user and sends an authentication code to the user's new phone number; for official Android and iOS applications only. On success, returns information about the sent code
         /// </summary>
         public static Task<AuthenticationCodeInfo> ChangePhoneNumberAsync(
             this Client client, string phoneNumber = default, PhoneNumberAuthenticationSettings settings = default)

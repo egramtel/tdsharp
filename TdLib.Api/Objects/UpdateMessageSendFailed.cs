@@ -42,18 +42,11 @@ namespace TdLib
                 public long OldMessageId { get; set; }
 
                 /// <summary>
-                /// An error code
+                /// The cause of the message sending failure
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("error_code")]
-                public int ErrorCode { get; set; }
-
-                /// <summary>
-                /// Error message
-                /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("error_message")]
-                public string ErrorMessage { get; set; }
+                [JsonProperty("error")]
+                public Error Error { get; set; }
             }
         }
     }

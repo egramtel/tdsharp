@@ -28,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// The message identifier. The message will not be available in the chat history, but the ID can be used in viewMessages, or as reply_to_message_id
+                /// The message identifier. The message will not be available in the chat history, but the identifier can be used in viewMessages, or as a message to be replied in the same chat
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("message_id")]

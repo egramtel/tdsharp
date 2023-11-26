@@ -27,6 +27,13 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
+            /// Block list from which to return users
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("block_list")]
+            public BlockList BlockList { get; set; }
+
+            /// <summary>
             /// Number of users and chats to skip in the result; must be non-negative
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -45,11 +52,11 @@ namespace TdLib
         /// Returns users and chats that were blocked by the current user
         /// </summary>
         public static Task<MessageSenders> GetBlockedMessageSendersAsync(
-            this Client client, int offset = default, int limit = default)
+            this Client client, BlockList blockList = default, int offset = default, int limit = default)
         {
             return client.ExecuteAsync(new GetBlockedMessageSenders
             {
-                Offset = offset, Limit = limit
+                BlockList = blockList, Offset = offset, Limit = limit
             });
         }
     }

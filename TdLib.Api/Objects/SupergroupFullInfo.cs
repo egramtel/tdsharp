@@ -110,13 +110,6 @@ namespace TdLib
             public bool CanHideMembers { get; set; }
 
             /// <summary>
-            /// True, if the chat username can be changed
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("can_set_username")]
-            public bool CanSetUsername { get; set; }
-
-            /// <summary>
             /// True, if the supergroup sticker set can be changed
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -146,7 +139,6 @@ namespace TdLib
 
             /// <summary>
             /// True, if new chat members will have access to old messages. In public, discussion, of forum groups and all channels, old messages are always available,
-            /// so this option affects only private non-forum supergroups without a linked chat. The value of this field is only available to chat administrators
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_all_history_available")]
@@ -160,6 +152,13 @@ namespace TdLib
             public bool HasAggressiveAntiSpamEnabled { get; set; }
 
             /// <summary>
+            /// True, if the channel has pinned stories
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("has_pinned_stories")]
+            public bool HasPinnedStories { get; set; }
+
+            /// <summary>
             /// Identifier of the supergroup sticker set; 0 if none
             /// </summary>
             [JsonConverter(typeof(Converter.Int64))]
@@ -167,7 +166,7 @@ namespace TdLib
             public long StickerSetId { get; set; }
 
             /// <summary>
-            /// Location to which the supergroup is connected; may be null
+            /// Location to which the supergroup is connected; may be null if none
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("location")]

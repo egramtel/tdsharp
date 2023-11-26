@@ -26,11 +26,11 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Identifier of the replied message; 0 if none
+            /// Information about the message to be replied; must be of the type inputMessageReplyToMessage; may be null if none
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("reply_to_message_id")]
-            public long ReplyToMessageId { get; set; }
+            [JsonProperty("reply_to")]
+            public InputMessageReplyTo ReplyTo { get; set; }
 
             /// <summary>
             /// Point in time (Unix timestamp) when the draft was created

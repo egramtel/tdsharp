@@ -41,11 +41,11 @@ namespace TdLib
             public long MessageThreadId { get; set; }
 
             /// <summary>
-            /// Identifier of a replied message; 0 if none
+            /// Information about the message or story to be replied; pass null if none
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("reply_to_message_id")]
-            public long ReplyToMessageId { get; set; }
+            [JsonProperty("reply_to")]
+            public InputMessageReplyTo ReplyTo { get; set; }
 
             /// <summary>
             /// Options to be used to send the message; pass null to use default options
@@ -62,7 +62,7 @@ namespace TdLib
             public long QueryId { get; set; }
 
             /// <summary>
-            /// Identifier of the inline result
+            /// Identifier of the inline query result
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("result_id")]
@@ -80,11 +80,11 @@ namespace TdLib
         /// Sends the result of an inline query as a message. Returns the sent message. Always clears a chat draft message
         /// </summary>
         public static Task<Message> SendInlineQueryResultMessageAsync(
-            this Client client, long chatId = default, long messageThreadId = default, long replyToMessageId = default, MessageSendOptions options = default, long queryId = default, string resultId = default, bool hideViaBot = default)
+            this Client client, long chatId = default, long messageThreadId = default, InputMessageReplyTo replyTo = default, MessageSendOptions options = default, long queryId = default, string resultId = default, bool hideViaBot = default)
         {
             return client.ExecuteAsync(new SendInlineQueryResultMessage
             {
-                ChatId = chatId, MessageThreadId = messageThreadId, ReplyToMessageId = replyToMessageId, Options = options, QueryId = queryId, ResultId = resultId, HideViaBot = hideViaBot
+                ChatId = chatId, MessageThreadId = messageThreadId, ReplyTo = replyTo, Options = options, QueryId = queryId, ResultId = resultId, HideViaBot = hideViaBot
             });
         }
     }

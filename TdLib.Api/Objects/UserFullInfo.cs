@@ -47,11 +47,11 @@ namespace TdLib
             public ChatPhoto PublicPhoto { get; set; }
 
             /// <summary>
-            /// True, if the user is blocked by the current user
+            /// Block list to which the user is added; may be null if none
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("is_blocked")]
-            public bool IsBlocked { get; set; }
+            [JsonProperty("block_list")]
+            public BlockList BlockList { get; set; }
 
             /// <summary>
             /// True, if the user can be called
@@ -89,6 +89,13 @@ namespace TdLib
             public bool HasRestrictedVoiceAndVideoNoteMessages { get; set; }
 
             /// <summary>
+            /// True, if the user has pinned stories
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("has_pinned_stories")]
+            public bool HasPinnedStories { get; set; }
+
+            /// <summary>
             /// True, if the current user needs to explicitly allow to share their phone number with the user when the method addContact is used
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -116,7 +123,7 @@ namespace TdLib
             public int GroupInCommonCount { get; set; }
 
             /// <summary>
-            /// For bots, information about the bot; may be null
+            /// For bots, information about the bot; may be null if the user isn't a bot
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("bot_info")]

@@ -95,6 +95,13 @@ namespace TdLib
             public StickerType StickerType { get; set; }
 
             /// <summary>
+            /// True, if stickers in the sticker set are custom emoji that must be repainted; for custom emoji sticker sets only
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("needs_repainting")]
+            public bool NeedsRepainting { get; set; }
+
+            /// <summary>
             /// True for already viewed trending sticker sets
             /// </summary>
             [JsonConverter(typeof(Converter))]

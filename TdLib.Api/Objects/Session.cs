@@ -47,6 +47,13 @@ namespace TdLib
             public bool IsPasswordPending { get; set; }
 
             /// <summary>
+            /// True, if the session wasn't confirmed from another session
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("is_unconfirmed")]
+            public bool IsUnconfirmed { get; set; }
+
+            /// <summary>
             /// True, if incoming secret chats can be accepted by the session
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -134,22 +141,15 @@ namespace TdLib
             /// IP address from which the session was created, in human-readable format
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("ip")]
-            public string Ip { get; set; }
+            [JsonProperty("ip_address")]
+            public string IpAddress { get; set; }
 
             /// <summary>
-            /// A two-letter country code for the country from which the session was created, based on the IP address
+            /// A human-readable description of the location from which the session was created, based on the IP address
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("country")]
-            public string Country { get; set; }
-
-            /// <summary>
-            /// Region code from which the session was created, based on the IP address
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("region")]
-            public string Region { get; set; }
+            [JsonProperty("location")]
+            public string Location { get; set; }
         }
     }
 }

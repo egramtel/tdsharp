@@ -11,7 +11,7 @@ namespace TdLib
         public partial class PremiumFeature : Object
         {
             /// <summary>
-            /// A emoji status shown along with the user's name
+            /// An emoji status shown along with the user's name
             /// </summary>
             public class PremiumFeatureEmojiStatus : PremiumFeature
             {

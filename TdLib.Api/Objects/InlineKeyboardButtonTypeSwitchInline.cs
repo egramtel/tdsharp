@@ -35,11 +35,11 @@ namespace TdLib
                 public string Query { get; set; }
 
                 /// <summary>
-                /// True, if the inline query must be sent from the current chat
+                /// Target chat from which to send the inline query
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("in_current_chat")]
-                public bool InCurrentChat { get; set; }
+                [JsonProperty("target_chat")]
+                public TargetChat TargetChat { get; set; }
             }
         }
     }

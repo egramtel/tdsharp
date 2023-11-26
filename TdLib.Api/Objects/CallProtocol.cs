@@ -47,7 +47,7 @@ namespace TdLib
             public int MinLayer { get; set; }
 
             /// <summary>
-            /// The maximum supported API layer; use 65
+            /// The maximum supported API layer; use 92
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("max_layer")]

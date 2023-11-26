@@ -40,34 +40,6 @@ namespace TdLib
             public bool IsRecommended { get; set; }
 
             /// <summary>
-            /// Sponsor chat identifier; 0 if the sponsor chat is accessible through an invite link
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("sponsor_chat_id")]
-            public long SponsorChatId { get; set; }
-
-            /// <summary>
-            /// Information about the sponsor chat; may be null unless sponsor_chat_id == 0
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("sponsor_chat_info")]
-            public ChatInviteLinkInfo SponsorChatInfo { get; set; }
-
-            /// <summary>
-            /// True, if the sponsor's chat photo must be shown
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("show_chat_photo")]
-            public bool ShowChatPhoto { get; set; }
-
-            /// <summary>
-            /// An internal link to be opened when the sponsored message is clicked; may be null if the sponsor chat needs to be opened instead
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("link")]
-            public InternalLinkType Link { get; set; }
-
-            /// <summary>
             /// Content of the message. Currently, can be only of the type messageText
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -75,11 +47,11 @@ namespace TdLib
             public MessageContent Content { get; set; }
 
             /// <summary>
-            /// If non-empty, information about the sponsor to be shown along with the message
+            /// Information about the sponsor of the message
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("sponsor_info")]
-            public string SponsorInfo { get; set; }
+            [JsonProperty("sponsor")]
+            public MessageSponsor Sponsor { get; set; }
 
             /// <summary>
             /// If non-empty, additional information about the sponsored message to be shown along with the message

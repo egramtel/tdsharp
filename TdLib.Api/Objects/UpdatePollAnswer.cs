@@ -35,11 +35,11 @@ namespace TdLib
                 public long PollId { get; set; }
 
                 /// <summary>
-                /// The user, who changed the answer to the poll
+                /// Identifier of the message sender that changed the answer to the poll
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("user_id")]
-                public long UserId { get; set; }
+                [JsonProperty("voter_id")]
+                public MessageSender VoterId { get; set; }
 
                 /// <summary>
                 /// 0-based identifiers of answer options, chosen by the user

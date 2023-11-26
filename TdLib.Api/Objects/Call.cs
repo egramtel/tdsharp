@@ -33,7 +33,7 @@ namespace TdLib
             public int Id { get; set; }
 
             /// <summary>
-            /// Peer user identifier
+            /// User identifier of the other call participant
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("user_id")]

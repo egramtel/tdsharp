@@ -47,14 +47,14 @@ namespace TdLib
             public long ChatId { get; set; }
 
             /// <summary>
-            /// The sending state of the message; may be null
+            /// The sending state of the message; may be null if the message isn't being sent and didn't fail to be sent
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("sending_state")]
             public MessageSendingState SendingState { get; set; }
 
             /// <summary>
-            /// The scheduling state of the message; may be null
+            /// The scheduling state of the message; may be null if the message isn't scheduled
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("scheduling_state")]
@@ -87,6 +87,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("can_be_forwarded")]
             public bool CanBeForwarded { get; set; }
+
+            /// <summary>
+            /// True, if the message can be replied in another chat or topic
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("can_be_replied_in_another_chat")]
+            public bool CanBeRepliedInAnotherChat { get; set; }
 
             /// <summary>
             /// True, if content of the message can be saved locally or copied
@@ -194,14 +201,21 @@ namespace TdLib
             public int EditDate { get; set; }
 
             /// <summary>
-            /// Information about the initial message sender; may be null
+            /// Information about the initial message sender; may be null if none or unknown
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("forward_info")]
             public MessageForwardInfo ForwardInfo { get; set; }
 
             /// <summary>
-            /// Information about interactions with the message; may be null
+            /// Information about the initial message for messages created with importMessages; may be null if the message isn't imported
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("import_info")]
+            public MessageImportInfo ImportInfo { get; set; }
+
+            /// <summary>
+            /// Information about interactions with the message; may be null if none
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("interaction_info")]
@@ -214,18 +228,11 @@ namespace TdLib
             public UnreadReaction[] UnreadReactions { get; set; }
 
             /// <summary>
-            /// If non-zero, the identifier of the chat to which the replied message belongs; Currently, only messages in the Replies chat can have different reply_in_chat_id and chat_id
+            /// Information about the message or the story this message is replying to; may be null if none
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("reply_in_chat_id")]
-            public long ReplyInChatId { get; set; }
-
-            /// <summary>
-            /// If non-zero, the identifier of the message this message is replying to; can be the identifier of a deleted message
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("reply_to_message_id")]
-            public long ReplyToMessageId { get; set; }
+            [JsonProperty("reply_to")]
+            public MessageReplyTo ReplyTo { get; set; }
 
             /// <summary>
             /// If non-zero, the identifier of the message thread the message belongs to; unique within the chat to which the message belongs
@@ -235,21 +242,21 @@ namespace TdLib
             public long MessageThreadId { get; set; }
 
             /// <summary>
-            /// The message's self-destruct time, in seconds; 0 if none. TDLib will send updateDeleteMessages or updateMessageContent once the time expires
+            /// The message's self-destruct type; may be null if none
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("self_destruct_time")]
-            public int SelfDestructTime { get; set; }
+            [JsonProperty("self_destruct_type")]
+            public MessageSelfDestructType SelfDestructType { get; set; }
 
             /// <summary>
-            /// Time left before the message self-destruct timer expires, in seconds. If the self-destruct timer isn't started yet, equals to the value of the self_destruct_time field
+            /// Time left before the message self-destruct timer expires, in seconds; 0 if self-destruction isn't scheduled yet
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("self_destruct_in")]
             public double? SelfDestructIn { get; set; }
 
             /// <summary>
-            /// Time left before the message will be automatically deleted by message_auto_delete_time setting of the chat, in seconds; 0 if never. TDLib will send updateDeleteMessages or updateMessageContent once the time expires
+            /// Time left before the message will be automatically deleted by message_auto_delete_time setting of the chat, in seconds; 0 if never
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("auto_delete_in")]
@@ -291,7 +298,7 @@ namespace TdLib
             public MessageContent Content { get; set; }
 
             /// <summary>
-            /// Reply markup for the message; may be null
+            /// Reply markup for the message; may be null if none
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("reply_markup")]

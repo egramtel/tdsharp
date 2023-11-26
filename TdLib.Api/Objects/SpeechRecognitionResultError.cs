@@ -28,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Received error
+                /// Recognition error. An error with a message "MSG_VOICE_TOO_LONG" is returned when media duration is too big to be recognized
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("error")]

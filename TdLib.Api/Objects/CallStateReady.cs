@@ -28,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Call protocols supported by the peer
+                /// Call protocols supported by the other call participant
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("protocol")]

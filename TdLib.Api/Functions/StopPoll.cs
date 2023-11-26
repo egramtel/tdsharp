@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Stops a poll. A poll in a message can be stopped when the message has can_be_edited flag set
+        /// Stops a poll. A poll in a message can be stopped when the message has can_be_edited flag is set
         /// </summary>
         public class StopPoll : Function<Ok>
         {
@@ -49,7 +49,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Stops a poll. A poll in a message can be stopped when the message has can_be_edited flag set
+        /// Stops a poll. A poll in a message can be stopped when the message has can_be_edited flag is set
         /// </summary>
         public static Task<Ok> StopPollAsync(
             this Client client, long chatId = default, long messageId = default, ReplyMarkup replyMarkup = default)

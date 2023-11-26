@@ -27,7 +27,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// The identifier of the target bot
+            /// Identifier of the target bot
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("bot_user_id")]
@@ -55,7 +55,7 @@ namespace TdLib
             public string Query { get; set; }
 
             /// <summary>
-            /// Offset of the first entry to return
+            /// Offset of the first entry to return; use empty string to get the first chunk of results
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("offset")]

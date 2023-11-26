@@ -54,7 +54,7 @@ namespace TdLib
             public Message Message { get; set; }
 
             /// <summary>
-            /// Timestamp from which the video/audio/video note/voice note playing must start, in seconds; 0 if not specified. The media can be in the message content or in its web page preview
+            /// Timestamp from which the video/audio/video note/voice note/story playing must start, in seconds; 0 if not specified. The media can be in the message content or in its web page preview
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("media_timestamp")]

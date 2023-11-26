@@ -40,6 +40,13 @@ namespace TdLib
             public MessageSender SenderId { get; set; }
 
             /// <summary>
+            /// True, if the reaction was added by the current user
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("is_outgoing")]
+            public bool IsOutgoing { get; set; }
+
+            /// <summary>
             /// Point in time (Unix timestamp) when the reaction was added
             /// </summary>
             [JsonConverter(typeof(Converter))]

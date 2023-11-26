@@ -35,11 +35,18 @@ namespace TdLib
                 public FormattedText Text { get; set; }
 
                 /// <summary>
-                /// A preview of the web page that's mentioned in the text; may be null
+                /// A link preview attached to the message; may be null
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("web_page")]
                 public WebPage WebPage { get; set; }
+
+                /// <summary>
+                /// Options which was used for generation of the link preview; may be null if default options were used
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("link_preview_options")]
+                public LinkPreviewOptions LinkPreviewOptions { get; set; }
             }
         }
     }

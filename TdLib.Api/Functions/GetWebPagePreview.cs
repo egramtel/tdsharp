@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns a web page preview by the text of the message. Do not call this function too often. Returns a 404 error if the web page has no preview
+        /// Returns a link preview by the text of a message. Do not call this function too often. Returns a 404 error if the text has no link preview
         /// </summary>
         public class GetWebPagePreview : Function<WebPage>
         {
@@ -32,17 +32,24 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("text")]
             public FormattedText Text { get; set; }
+
+            /// <summary>
+            /// Options to be used for generation of the link preview; pass null to use default link preview options
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("link_preview_options")]
+            public LinkPreviewOptions LinkPreviewOptions { get; set; }
         }
 
         /// <summary>
-        /// Returns a web page preview by the text of the message. Do not call this function too often. Returns a 404 error if the web page has no preview
+        /// Returns a link preview by the text of a message. Do not call this function too often. Returns a 404 error if the text has no link preview
         /// </summary>
         public static Task<WebPage> GetWebPagePreviewAsync(
-            this Client client, FormattedText text = default)
+            this Client client, FormattedText text = default, LinkPreviewOptions linkPreviewOptions = default)
         {
             return client.ExecuteAsync(new GetWebPagePreview
             {
-                Text = text
+                Text = text, LinkPreviewOptions = linkPreviewOptions
             });
         }
     }

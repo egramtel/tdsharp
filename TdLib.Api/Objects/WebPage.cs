@@ -9,7 +9,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Describes a web page preview
+        /// Describes a link preview
         /// </summary>
         public partial class WebPage : Object
         {
@@ -117,6 +117,34 @@ namespace TdLib
             public string Author { get; set; }
 
             /// <summary>
+            /// True, if size of media in the preview can be changed
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("has_large_media")]
+            public bool HasLargeMedia { get; set; }
+
+            /// <summary>
+            /// True, if large media preview must be shown; otherwise, the media preview must be shown small and only the first frame must be shown for videos
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("show_large_media")]
+            public bool ShowLargeMedia { get; set; }
+
+            /// <summary>
+            /// True, if there is no need to show an ordinary open URL confirmation, when opening the URL from the preview, because the URL is shown in the message text in clear
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("skip_confirmation")]
+            public bool SkipConfirmation { get; set; }
+
+            /// <summary>
+            /// True, if the link preview must be shown above message text; otherwise, the link preview must be shown below the message text
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("show_above_text")]
+            public bool ShowAboveText { get; set; }
+
+            /// <summary>
             /// Preview of the content as an animation, if available; may be null
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -164,6 +192,20 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("voice_note")]
             public VoiceNote VoiceNote { get; set; }
+
+            /// <summary>
+            /// The identifier of the sender of the previewed story; 0 if none
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("story_sender_chat_id")]
+            public long StorySenderChatId { get; set; }
+
+            /// <summary>
+            /// The identifier of the previewed story; 0 if none
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("story_id")]
+            public int StoryId { get; set; }
 
             /// <summary>
             /// Version of web page instant view (currently, can be 1 or 2); 0 if none

@@ -60,7 +60,7 @@ namespace TdLib
             public Message[] Messages { get; set; }
 
             /// <summary>
-            /// A draft of a message in the message thread; may be null
+            /// A draft of a message in the message thread; may be null if none
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("draft_message")]

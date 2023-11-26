@@ -11,7 +11,7 @@ namespace TdLib
         public partial class Update : Object
         {
             /// <summary>
-            /// The list of bots added to attachment menu has changed
+            /// The list of bots added to attachment or side menu has changed
             /// </summary>
             public class UpdateAttachmentMenuBots : Update
             {
@@ -28,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// The new list of bots added to attachment menu. The bots must not be shown on scheduled messages screen
+                /// The new list of bots. The bots must not be shown on scheduled messages screen
                 /// </summary>
                 [JsonProperty("bots", ItemConverterType = typeof(Converter))]
                 public AttachmentMenuBot[] Bots { get; set; }

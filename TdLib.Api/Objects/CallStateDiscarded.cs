@@ -28,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// The reason, why the call has ended
+                /// The reason why the call has ended
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("reason")]

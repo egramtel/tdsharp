@@ -28,11 +28,11 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Information about the Web App, which requested the access; may be null if none or the Web App was opened from the attachment menu
+                /// The reason why the bot was allowed to write messages
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("web_app")]
-                public WebApp WebApp { get; set; }
+                [JsonProperty("reason")]
+                public BotWriteAccessAllowReason Reason { get; set; }
             }
         }
     }

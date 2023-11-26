@@ -10,9 +10,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns users voted for the specified option in a non-anonymous polls. For optimal performance, the number of returned users is chosen by TDLib
+        /// Returns message senders voted for the specified option in a non-anonymous polls. For optimal performance, the number of returned users is chosen by TDLib
         /// </summary>
-        public class GetPollVoters : Function<Users>
+        public class GetPollVoters : Function<MessageSenders>
         {
             /// <summary>
             /// Data type for serialization
@@ -48,14 +48,14 @@ namespace TdLib
             public int OptionId { get; set; }
 
             /// <summary>
-            /// Number of users to skip in the result; must be non-negative
+            /// Number of voters to skip in the result; must be non-negative
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("offset")]
             public int Offset { get; set; }
 
             /// <summary>
-            /// The maximum number of users to be returned; must be positive and can't be greater than 50. For optimal performance, the number of returned users is chosen by TDLib and can be smaller than the specified limit, even if the end of the voter list has not been reached
+            /// The maximum number of voters to be returned; must be positive and can't be greater than 50. For optimal performance, the number of returned voters is chosen by TDLib and can be smaller than the specified limit, even if the end of the voter list has not been reached
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("limit")]
@@ -63,9 +63,9 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Returns users voted for the specified option in a non-anonymous polls. For optimal performance, the number of returned users is chosen by TDLib
+        /// Returns message senders voted for the specified option in a non-anonymous polls. For optimal performance, the number of returned users is chosen by TDLib
         /// </summary>
-        public static Task<Users> GetPollVotersAsync(
+        public static Task<MessageSenders> GetPollVotersAsync(
             this Client client, long chatId = default, long messageId = default, int optionId = default, int offset = default, int limit = default)
         {
             return client.ExecuteAsync(new GetPollVoters
