@@ -20,20 +20,20 @@ jobs:
       NUGET_PACKAGES: ${{ github.workspace }}/.github/nuget-packages
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Read version from ref
         id: version
         shell: pwsh
-        run: ./Scripts/Get-Version.ps1 -RefName $env:GITHUB_REF
+        run: ./Scripts/Get-Version.ps1 -RefName $env:GITHUB_REF >> $env:GITHUB_OUTPUT
 
       - name: NuGet cache
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: ${{ env.NUGET_PACKAGES }}
           key: ${{ runner.os }}.nuget.${{ hashFiles('**/*.csproj', '**/*.fsproj') }}
       - name: Set up .NET SDK
-        uses: actions/setup-dotnet@v1
+        uses: actions/setup-dotnet@v4
         with:
           dotnet-version: 7.0.x
 
