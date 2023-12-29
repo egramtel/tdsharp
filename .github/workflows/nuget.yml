@@ -14,10 +14,13 @@ on:
 jobs:
   nuget-pack:
     runs-on: ubuntu-latest
+
+    # noinspection SpellCheckingInspection
     env:
       DOTNET_NOLOGO: 1
       DOTNET_CLI_TELEMETRY_OPTOUT: 1
       NUGET_PACKAGES: ${{ github.workspace }}/.github/nuget-packages
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
