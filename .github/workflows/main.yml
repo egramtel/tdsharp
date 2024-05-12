@@ -14,7 +14,7 @@ jobs:
     runs-on: ${{ matrix.image }}
     strategy:
       matrix:
-        image: [ macos-13, # TODO: Migrate to ARM64 image
+        image: [ macos-13, # TODO[#191]: Migrate to ARM64 image
                  ubuntu-latest, windows-latest ]
       fail-fast: false
     env:
