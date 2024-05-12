@@ -14,7 +14,9 @@ jobs:
     runs-on: ${{ matrix.image }}
     strategy:
       matrix:
-        image: [ macos-latest, ubuntu-latest, windows-latest ]
+        image: [ macos-13, # TODO: Migrate to ARM64 image
+                 ubuntu-latest, windows-latest ]
+      fail-fast: false
     env:
       DOTNET_NOLOGO: 1
       DOTNET_CLI_TELEMETRY_OPTOUT: 1
