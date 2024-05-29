@@ -12,9 +12,11 @@ Install via NuGet: ```TDLib```
 
 ### Dependencies
 
-You're recommended to use precompiled version of TDLib native artifacts from NuGet: ```TDLib.Native```
+You're recommended to use precompiled version of TDLib native artifacts from NuGet: **tdlib.native**.
 
 [![NuGet](https://img.shields.io/nuget/v/tdlib.native.svg)](https://www.nuget.org/packages/tdlib.native/)
+
+Note that this is the main cross-platform package, and there are per-platform packages and additional options described in [the tdlib.native documentation][tdlib-native.docs].
 
 Note that `tdlib.native` is not a dependency of `TDLib`, so you may choose to build the binaries yourself and provide them at the runtime.
 
@@ -92,3 +94,4 @@ By default, TdSharp will try to detect the platform and use the corresponding bi
 [docs.license]: ./LICENSE
 [docs.maintainership]: ./MAINTAINERSHIP.md
 [issues]: https://github.com/egramtel/tdsharp/issues
+[tdlib-native.docs]: https://github.com/ForNeVeR/tdlib.native
