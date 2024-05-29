@@ -66,6 +66,13 @@ namespace TdLib
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("allow_p2p")]
                 public bool AllowP2p { get; set; }
+
+                /// <summary>
+                /// Custom JSON-encoded call parameters to be passed to tgcalls
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("custom_parameters")]
+                public string CustomParameters { get; set; }
             }
         }
     }

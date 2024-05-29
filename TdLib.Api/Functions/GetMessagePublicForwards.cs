@@ -10,9 +10,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns forwarded copies of a channel message to different public channels. Can be used only if message.can_get_statistics == true. For optimal performance, the number of returned messages is chosen by TDLib
+        /// Returns forwarded copies of a channel message to different public channels and public reposts as a story. Can be used only if message.can_get_statistics == true. For optimal performance, the number of returned messages and stories is chosen by TDLib
         /// </summary>
-        public class GetMessagePublicForwards : Function<FoundMessages>
+        public class GetMessagePublicForwards : Function<PublicForwards>
         {
             /// <summary>
             /// Data type for serialization
@@ -48,7 +48,7 @@ namespace TdLib
             public string Offset { get; set; }
 
             /// <summary>
-            /// The maximum number of messages to be returned; must be positive and can't be greater than 100. For optimal performance, the number of returned messages is chosen by TDLib and can be smaller than the specified limit
+            /// The maximum number of messages and stories to be returned; must be positive and can't be greater than 100. For optimal performance, the number of returned objects is chosen by TDLib and can be smaller than the specified limit
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("limit")]
@@ -56,9 +56,9 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Returns forwarded copies of a channel message to different public channels. Can be used only if message.can_get_statistics == true. For optimal performance, the number of returned messages is chosen by TDLib
+        /// Returns forwarded copies of a channel message to different public channels and public reposts as a story. Can be used only if message.can_get_statistics == true. For optimal performance, the number of returned messages and stories is chosen by TDLib
         /// </summary>
-        public static Task<FoundMessages> GetMessagePublicForwardsAsync(
+        public static Task<PublicForwards> GetMessagePublicForwardsAsync(
             this Client client, long chatId = default, long messageId = default, string offset = default, int limit = default)
         {
             return client.ExecuteAsync(new GetMessagePublicForwards

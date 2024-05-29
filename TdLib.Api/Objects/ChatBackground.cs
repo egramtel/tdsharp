@@ -33,7 +33,7 @@ namespace TdLib
             public Background Background { get; set; }
 
             /// <summary>
-            /// Dimming of the background in dark themes, as a percentage; 0-100
+            /// Dimming of the background in dark themes, as a percentage; 0-100. Applied only to Wallpaper and Fill types of background
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("dark_theme_dimming")]

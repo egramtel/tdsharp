@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Creates a video chat (a group call bound to a chat). Available only for basic groups, supergroups and channels; requires can_manage_video_chats rights
+        /// Creates a video chat (a group call bound to a chat). Available only for basic groups, supergroups and channels; requires can_manage_video_chats administrator right
         /// </summary>
         public class CreateVideoChat : Function<GroupCallId>
         {
@@ -48,7 +48,7 @@ namespace TdLib
             public int StartDate { get; set; }
 
             /// <summary>
-            /// Pass true to create an RTMP stream instead of an ordinary video chat; requires creator privileges
+            /// Pass true to create an RTMP stream instead of an ordinary video chat; requires owner privileges
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_rtmp_stream")]
@@ -56,7 +56,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Creates a video chat (a group call bound to a chat). Available only for basic groups, supergroups and channels; requires can_manage_video_chats rights
+        /// Creates a video chat (a group call bound to a chat). Available only for basic groups, supergroups and channels; requires can_manage_video_chats administrator right
         /// </summary>
         public static Task<GroupCallId> CreateVideoChatAsync(
             this Client client, long chatId = default, string title = default, int startDate = default, bool isRtmpStream = default)

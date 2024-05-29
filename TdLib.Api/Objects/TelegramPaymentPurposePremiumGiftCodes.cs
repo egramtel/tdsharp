@@ -28,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Identifier of the channel chat, which will be automatically boosted by the users for duration of the Premium subscription and which is administered by the user; 0 if none
+                /// Identifier of the supergroup or channel chat, which will be automatically boosted by the users for duration of the Premium subscription and which is administered by the user; 0 if none
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("boosted_chat_id")]
@@ -55,7 +55,7 @@ namespace TdLib
                 public long[] UserIds { get; set; }
 
                 /// <summary>
-                /// Number of month the Telegram Premium subscription will be active for the users
+                /// Number of months the Telegram Premium subscription will be active for the users
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("month_count")]

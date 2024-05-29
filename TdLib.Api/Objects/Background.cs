@@ -54,7 +54,7 @@ namespace TdLib
             public string Name { get; set; }
 
             /// <summary>
-            /// Document with the background; may be null. Null only for filled backgrounds
+            /// Document with the background; may be null. Null only for filled and chat theme backgrounds
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("document")]

@@ -11,7 +11,7 @@ namespace TdLib
         public partial class MessageContent : Object
         {
             /// <summary>
-            /// A message with information about an invite to a video chat
+            /// A message with information about an invitation to a video chat
             /// </summary>
             public class MessageInviteVideoChatParticipants : MessageContent
             {

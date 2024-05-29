@@ -11,7 +11,7 @@ namespace TdLib
         public partial class PassportElementType : Object
         {
             /// <summary>
-            /// Contains the type of a Telegram Passport element
+            /// Contains the type of Telegram Passport element
             /// </summary>
             public class PassportElementTypePersonalDetails : PassportElementType
             {

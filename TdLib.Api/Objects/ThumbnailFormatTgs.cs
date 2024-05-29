@@ -11,7 +11,7 @@ namespace TdLib
         public partial class ThumbnailFormat : Object
         {
             /// <summary>
-            /// The thumbnail is in TGS format. It will be used only for TGS sticker sets
+            /// The thumbnail is in TGS format. It will be used only for sticker sets
             /// </summary>
             public class ThumbnailFormatTgs : ThumbnailFormat
             {

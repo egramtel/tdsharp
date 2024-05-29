@@ -39,6 +39,13 @@ namespace TdLib
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("main_chat_list_position")]
                 public int MainChatListPosition { get; set; }
+
+                /// <summary>
+                /// True, if folder tags are enabled
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("are_tags_enabled")]
+                public bool AreTagsEnabled { get; set; }
             }
         }
     }

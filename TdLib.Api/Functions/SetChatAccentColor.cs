@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Changes accent color and background custom emoji of a chat. Supported only for channels with getOption("channel_custom_accent_color_boost_level_min") boost level. Requires can_change_info administrator right
+        /// Changes accent color and background custom emoji of a channel chat. Requires can_change_info administrator right
         /// </summary>
         public class SetChatAccentColor : Function<Ok>
         {
@@ -34,14 +34,14 @@ namespace TdLib
             public long ChatId { get; set; }
 
             /// <summary>
-            /// Identifier of the accent color to use
+            /// Identifier of the accent color to use. The chat must have at least accentColor.min_channel_chat_boost_level boost level to pass the corresponding color
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("accent_color_id")]
             public int AccentColorId { get; set; }
 
             /// <summary>
-            /// Identifier of a custom emoji to be shown on the reply header background; 0 if none
+            /// Identifier of a custom emoji to be shown on the reply header and link preview background; 0 if none. Use chatBoostLevelFeatures.can_set_background_custom_emoji to check whether a custom emoji can be set
             /// </summary>
             [JsonConverter(typeof(Converter.Int64))]
             [JsonProperty("background_custom_emoji_id")]
@@ -49,7 +49,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Changes accent color and background custom emoji of a chat. Supported only for channels with getOption("channel_custom_accent_color_boost_level_min") boost level. Requires can_change_info administrator right
+        /// Changes accent color and background custom emoji of a channel chat. Requires can_change_info administrator right
         /// </summary>
         public static Task<Ok> SetChatAccentColorAsync(
             this Client client, long chatId = default, int accentColorId = default, long backgroundCustomEmojiId = default)

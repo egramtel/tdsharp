@@ -11,7 +11,7 @@ namespace TdLib
         public partial class EmojiCategoryType : Object
         {
             /// <summary>
-            /// Describes type of an emoji category
+            /// Describes type of emoji category
             /// </summary>
             public class EmojiCategoryTypeDefault : EmojiCategoryType
             {

@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns an HTTPS link to boost the specified channel chat
+        /// Returns an HTTPS link to boost the specified supergroup or channel chat
         /// </summary>
         public class GetChatBoostLink : Function<ChatBoostLink>
         {
@@ -35,7 +35,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Returns an HTTPS link to boost the specified channel chat
+        /// Returns an HTTPS link to boost the specified supergroup or channel chat
         /// </summary>
         public static Task<ChatBoostLink> GetChatBoostLinkAsync(
             this Client client, long chatId = default)

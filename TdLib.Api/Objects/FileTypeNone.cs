@@ -11,7 +11,7 @@ namespace TdLib
         public partial class FileType : Object
         {
             /// <summary>
-            /// Represents the type of a file
+            /// Represents the type of file
             /// </summary>
             public class FileTypeNone : FileType
             {

@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Changes the position of a sticker in the set to which it belongs; for bots only. The sticker set must have been created by the bot
+        /// Changes the position of a sticker in the set to which it belongs. The sticker set must be owned by the current user
         /// </summary>
         public class SetStickerPositionInSet : Function<Ok>
         {
@@ -42,7 +42,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Changes the position of a sticker in the set to which it belongs; for bots only. The sticker set must have been created by the bot
+        /// Changes the position of a sticker in the set to which it belongs. The sticker set must be owned by the current user
         /// </summary>
         public static Task<Ok> SetStickerPositionInSetAsync(
             this Client client, InputFile sticker = default, int position = default)

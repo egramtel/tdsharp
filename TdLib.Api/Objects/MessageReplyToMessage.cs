@@ -42,18 +42,11 @@ namespace TdLib
                 public long MessageId { get; set; }
 
                 /// <summary>
-                /// Manually or automatically chosen quote from the replied message; may be null if none. Only Bold, Italic, Underline, Strikethrough, Spoiler, and CustomEmoji entities can be present in the quote
+                /// Chosen quote from the replied message; may be null if none
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("quote")]
-                public FormattedText Quote { get; set; }
-
-                /// <summary>
-                /// True, if the quote was manually chosen by the message sender
-                /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("is_quote_manual")]
-                public bool IsQuoteManual { get; set; }
+                public TextQuote Quote { get; set; }
 
                 /// <summary>
                 /// Information about origin of the message if the message was from another chat or topic; may be null for messages from the same chat
@@ -71,6 +64,9 @@ namespace TdLib
 
                 /// <summary>
                 /// Media content of the message if the message was from another chat or topic; may be null for messages from the same chat and messages without media.
+                /// Can be only one of the following types: messageAnimation, messageAudio, messageContact, messageDice, messageDocument, messageGame, messageInvoice, messageLocation,
+                /// messagePhoto, messagePoll, messagePremiumGiveaway, messagePremiumGiveawayWinners, messageSticker, messageStory, messageText (for link preview), messageVenue,
+                /// messageVideo, messageVideoNote, or messageVoiceNote
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("content")]

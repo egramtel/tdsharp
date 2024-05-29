@@ -10,9 +10,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Creates a new basic group and sends a corresponding messageBasicGroupChatCreate. Returns the newly created chat
+        /// Creates a new basic group and sends a corresponding messageBasicGroupChatCreate. Returns information about the newly created chat
         /// </summary>
-        public class CreateNewBasicGroupChat : Function<Chat>
+        public class CreateNewBasicGroupChat : Function<CreatedBasicGroupChat>
         {
             /// <summary>
             /// Data type for serialization
@@ -48,9 +48,9 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Creates a new basic group and sends a corresponding messageBasicGroupChatCreate. Returns the newly created chat
+        /// Creates a new basic group and sends a corresponding messageBasicGroupChatCreate. Returns information about the newly created chat
         /// </summary>
-        public static Task<Chat> CreateNewBasicGroupChatAsync(
+        public static Task<CreatedBasicGroupChat> CreateNewBasicGroupChatAsync(
             this Client client, long[] userIds = default, string title = default, int messageAutoDeleteTime = default)
         {
             return client.ExecuteAsync(new CreateNewBasicGroupChat

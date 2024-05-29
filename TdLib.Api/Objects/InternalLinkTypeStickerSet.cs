@@ -11,7 +11,8 @@ namespace TdLib
         public partial class InternalLinkType : Object
         {
             /// <summary>
-            /// The link is a link to a sticker set. Call searchStickerSet with the given sticker set name to process the link and show the sticker set
+            /// The link is a link to a sticker set. Call searchStickerSet with the given sticker set name to process the link and show the sticker set.
+            /// If the sticker set is found and the user wants to add it, then call changeStickerSet
             /// </summary>
             public class InternalLinkTypeStickerSet : InternalLinkType
             {

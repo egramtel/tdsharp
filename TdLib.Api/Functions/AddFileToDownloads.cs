@@ -11,7 +11,7 @@ namespace TdLib
     {
         /// <summary>
         /// Adds a file from a message to the list of file downloads. Download progress and completion of the download will be notified through updateFile updates.
-        /// If message database is used, the list of file downloads is persistent across application restarts. The downloading is independent from download using downloadFile, i.e. it continues if downloadFile is canceled or is used to download a part of the file
+        /// If message database is used, the list of file downloads is persistent across application restarts. The downloading is independent of download using downloadFile, i.e. it continues if downloadFile is canceled or is used to download a part of the file
         /// </summary>
         public class AddFileToDownloads : Function<File>
         {
@@ -58,7 +58,7 @@ namespace TdLib
 
         /// <summary>
         /// Adds a file from a message to the list of file downloads. Download progress and completion of the download will be notified through updateFile updates.
-        /// If message database is used, the list of file downloads is persistent across application restarts. The downloading is independent from download using downloadFile, i.e. it continues if downloadFile is canceled or is used to download a part of the file
+        /// If message database is used, the list of file downloads is persistent across application restarts. The downloading is independent of download using downloadFile, i.e. it continues if downloadFile is canceled or is used to download a part of the file
         /// </summary>
         public static Task<File> AddFileToDownloadsAsync(
             this Client client, int fileId = default, long chatId = default, long messageId = default, int priority = default)

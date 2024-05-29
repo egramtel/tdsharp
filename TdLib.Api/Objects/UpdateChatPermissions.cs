@@ -11,7 +11,7 @@ namespace TdLib
         public partial class Update : Object
         {
             /// <summary>
-            /// Chat permissions was changed
+            /// Chat permissions were changed
             /// </summary>
             public class UpdateChatPermissions : Update
             {

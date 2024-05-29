@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Checks whether the current user can send a story on behalf of a chat; requires can_post_stories rights for channel chats
+        /// Checks whether the current user can send a story on behalf of a chat; requires can_post_stories right for supergroup and channel chats
         /// </summary>
         public class CanSendStory : Function<CanSendStoryResult>
         {
@@ -35,7 +35,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Checks whether the current user can send a story on behalf of a chat; requires can_post_stories rights for channel chats
+        /// Checks whether the current user can send a story on behalf of a chat; requires can_post_stories right for supergroup and channel chats
         /// </summary>
         public static Task<CanSendStoryResult> CanSendStoryAsync(
             this Client client, long chatId = default)

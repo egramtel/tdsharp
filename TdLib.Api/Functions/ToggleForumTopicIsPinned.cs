@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Changes the pinned state of a forum topic; requires can_manage_topics administrator right in the supergroup. There can be up to getOption("pinned_forum_topic_count_max") pinned forum topics
+        /// Changes the pinned state of a forum topic; requires can_manage_topics right in the supergroup. There can be up to getOption("pinned_forum_topic_count_max") pinned forum topics
         /// </summary>
         public class ToggleForumTopicIsPinned : Function<Ok>
         {
@@ -49,7 +49,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Changes the pinned state of a forum topic; requires can_manage_topics administrator right in the supergroup. There can be up to getOption("pinned_forum_topic_count_max") pinned forum topics
+        /// Changes the pinned state of a forum topic; requires can_manage_topics right in the supergroup. There can be up to getOption("pinned_forum_topic_count_max") pinned forum topics
         /// </summary>
         public static Task<Ok> ToggleForumTopicIsPinnedAsync(
             this Client client, long chatId = default, long messageThreadId = default, bool isPinned = default)

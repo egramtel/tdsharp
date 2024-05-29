@@ -48,7 +48,7 @@ namespace TdLib
             public int Offset { get; set; }
 
             /// <summary>
-            /// The maximum number of users be returned; up to 200
+            /// The maximum number of users to be returned; up to 200
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("limit")]

@@ -10,7 +10,8 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Sends 2-10 messages grouped together into an album. Currently, only audio, document, photo and video messages can be grouped into an album. Documents and audio files can be only grouped in an album with messages of the same type. Returns sent messages
+        /// Sends 2-10 messages grouped together into an album. Currently, only audio, document, photo and video messages can be grouped into an album.
+        /// Documents and audio files can be only grouped in an album with messages of the same type. Returns sent messages
         /// </summary>
         public class SendMessageAlbum : Function<Messages>
         {
@@ -34,7 +35,7 @@ namespace TdLib
             public long ChatId { get; set; }
 
             /// <summary>
-            /// If not 0, a message thread identifier in which the messages will be sent
+            /// If not 0, the message thread identifier in which the messages will be sent
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("message_thread_id")]
@@ -62,7 +63,8 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Sends 2-10 messages grouped together into an album. Currently, only audio, document, photo and video messages can be grouped into an album. Documents and audio files can be only grouped in an album with messages of the same type. Returns sent messages
+        /// Sends 2-10 messages grouped together into an album. Currently, only audio, document, photo and video messages can be grouped into an album.
+        /// Documents and audio files can be only grouped in an album with messages of the same type. Returns sent messages
         /// </summary>
         public static Task<Messages> SendMessageAlbumAsync(
             this Client client, long chatId = default, long messageThreadId = default, InputMessageReplyTo replyTo = default, MessageSendOptions options = default, InputMessageContent[] inputMessageContents = default)

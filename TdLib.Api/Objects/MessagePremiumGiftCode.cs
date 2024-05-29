@@ -28,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Identifier of a chat or a user that created the gift code
+                /// Identifier of a chat or a user that created the gift code; may be null if unknown
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("creator_id")]
@@ -49,7 +49,35 @@ namespace TdLib
                 public bool IsUnclaimed { get; set; }
 
                 /// <summary>
-                /// Number of month the Telegram Premium subscription will be active after code activation
+                /// Currency for the paid amount; empty if unknown
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("currency")]
+                public string Currency { get; set; }
+
+                /// <summary>
+                /// The paid amount, in the smallest units of the currency; 0 if unknown
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("amount")]
+                public long Amount { get; set; }
+
+                /// <summary>
+                /// Cryptocurrency used to pay for the gift; may be empty if none or unknown
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("cryptocurrency")]
+                public string Cryptocurrency { get; set; }
+
+                /// <summary>
+                /// The paid amount, in the smallest units of the cryptocurrency; 0 if unknown
+                /// </summary>
+                [JsonConverter(typeof(Converter.Int64))]
+                [JsonProperty("cryptocurrency_amount")]
+                public long CryptocurrencyAmount { get; set; }
+
+                /// <summary>
+                /// Number of months the Telegram Premium subscription will be active after code activation
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("month_count")]

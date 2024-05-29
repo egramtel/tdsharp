@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Pins a message in a chat; requires can_pin_messages rights or can_edit_messages rights in the channel
+        /// Pins a message in a chat; requires can_pin_messages member right if the chat is a basic group or supergroup, or can_edit_messages administrator right if the chat is a channel
         /// </summary>
         public class PinChatMessage : Function<Ok>
         {
@@ -56,7 +56,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Pins a message in a chat; requires can_pin_messages rights or can_edit_messages rights in the channel
+        /// Pins a message in a chat; requires can_pin_messages member right if the chat is a basic group or supergroup, or can_edit_messages administrator right if the chat is a channel
         /// </summary>
         public static Task<Ok> PinChatMessageAsync(
             this Client client, long chatId = default, long messageId = default, bool disableNotification = default, bool onlyForSelf = default)

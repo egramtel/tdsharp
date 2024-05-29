@@ -42,7 +42,7 @@ namespace TdLib
                 public long ActorUserId { get; set; }
 
                 /// <summary>
-                /// Point in time (Unix timestamp) when the user rights was changed
+                /// Point in time (Unix timestamp) when the user rights were changed
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("date")]
@@ -54,6 +54,13 @@ namespace TdLib
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("invite_link")]
                 public ChatInviteLink InviteLink { get; set; }
+
+                /// <summary>
+                /// True, if the user has joined the chat after sending a join request and being approved by an administrator
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("via_join_request")]
+                public bool ViaJoinRequest { get; set; }
 
                 /// <summary>
                 /// True, if the user has joined the chat using an invite link for a chat folder

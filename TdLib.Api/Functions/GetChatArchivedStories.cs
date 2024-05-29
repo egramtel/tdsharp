@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns the list of all stories posted by the given chat; requires can_edit_stories rights for channel chats.
+        /// Returns the list of all stories posted by the given chat; requires can_edit_stories right in the chat.
         /// The stories are returned in a reverse chronological order (i.e., in order of decreasing story_id). For optimal performance, the number of returned stories is chosen by TDLib
         /// </summary>
         public class GetChatArchivedStories : Function<Stories>
@@ -50,7 +50,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Returns the list of all stories posted by the given chat; requires can_edit_stories rights for channel chats.
+        /// Returns the list of all stories posted by the given chat; requires can_edit_stories right in the chat.
         /// The stories are returned in a reverse chronological order (i.e., in order of decreasing story_id). For optimal performance, the number of returned stories is chosen by TDLib
         /// </summary>
         public static Task<Stories> GetChatArchivedStoriesAsync(

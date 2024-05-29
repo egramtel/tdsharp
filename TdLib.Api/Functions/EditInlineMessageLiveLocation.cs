@@ -48,6 +48,14 @@ namespace TdLib
             public Location Location { get; set; }
 
             /// <summary>
+            /// New time relative to the message send date, for which the location can be updated, in seconds. If 0x7FFFFFFF specified, then the location can be updated forever.
+            /// Otherwise, must not exceed the current live_period by more than a day, and the live location expiration date must remain in the next 90 days. Pass 0 to keep the current live_period
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("live_period")]
+            public int LivePeriod { get; set; }
+
+            /// <summary>
             /// The new direction in which the location moves, in degrees; 1-360. Pass 0 if unknown
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -66,11 +74,11 @@ namespace TdLib
         /// Edits the content of a live location in an inline message sent via a bot; for bots only
         /// </summary>
         public static Task<Ok> EditInlineMessageLiveLocationAsync(
-            this Client client, string inlineMessageId = default, ReplyMarkup replyMarkup = default, Location location = default, int heading = default, int proximityAlertRadius = default)
+            this Client client, string inlineMessageId = default, ReplyMarkup replyMarkup = default, Location location = default, int livePeriod = default, int heading = default, int proximityAlertRadius = default)
         {
             return client.ExecuteAsync(new EditInlineMessageLiveLocation
             {
-                InlineMessageId = inlineMessageId, ReplyMarkup = replyMarkup, Location = location, Heading = heading, ProximityAlertRadius = proximityAlertRadius
+                InlineMessageId = inlineMessageId, ReplyMarkup = replyMarkup, Location = location, LivePeriod = livePeriod, Heading = heading, ProximityAlertRadius = proximityAlertRadius
             });
         }
     }

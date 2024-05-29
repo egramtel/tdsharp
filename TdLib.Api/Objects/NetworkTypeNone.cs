@@ -11,7 +11,7 @@ namespace TdLib
         public partial class NetworkType : Object
         {
             /// <summary>
-            /// Represents the type of a network
+            /// Represents the type of network
             /// </summary>
             public class NetworkTypeNone : NetworkType
             {

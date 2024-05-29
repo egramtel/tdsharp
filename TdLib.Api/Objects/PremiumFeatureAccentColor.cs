@@ -11,7 +11,7 @@ namespace TdLib
         public partial class PremiumFeature : Object
         {
             /// <summary>
-            /// The ability to choose accent color
+            /// The ability to choose accent color for replies and user profile
             /// </summary>
             public class PremiumFeatureAccentColor : PremiumFeature
             {

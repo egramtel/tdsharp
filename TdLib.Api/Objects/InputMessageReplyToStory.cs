@@ -28,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// The identifier of the sender of the story. Currently, stories can be replied only in the sender's chat
+                /// The identifier of the sender of the story. Currently, stories can be replied only in the sender's chat and channel stories can't be replied
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("story_sender_chat_id")]

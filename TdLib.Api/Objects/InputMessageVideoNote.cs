@@ -35,14 +35,14 @@ namespace TdLib
                 public InputFile VideoNote { get; set; }
 
                 /// <summary>
-                /// Video thumbnail; pass null to skip thumbnail uploading
+                /// Video thumbnail; may be null if empty; pass null to skip thumbnail uploading
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("thumbnail")]
                 public InputThumbnail Thumbnail { get; set; }
 
                 /// <summary>
-                /// Duration of the video, in seconds
+                /// Duration of the video, in seconds; 0-60
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("duration")]
@@ -54,6 +54,13 @@ namespace TdLib
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("length")]
                 public int Length { get; set; }
+
+                /// <summary>
+                /// Video note self-destruct type; may be null if none; pass null if none; private chats only
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("self_destruct_type")]
+                public MessageSelfDestructType SelfDestructType { get; set; }
             }
         }
     }

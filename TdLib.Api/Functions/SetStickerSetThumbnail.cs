@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Sets a sticker set thumbnail; for bots only
+        /// Sets a sticker set thumbnail
         /// </summary>
         public class SetStickerSetThumbnail : Function<Ok>
         {
@@ -27,36 +27,43 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Sticker set owner
+            /// Sticker set owner; ignored for regular users
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("user_id")]
             public long UserId { get; set; }
 
             /// <summary>
-            /// Sticker set name
+            /// Sticker set name. The sticker set must be owned by the current user
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("name")]
             public string Name { get; set; }
 
             /// <summary>
-            /// Thumbnail to set in PNG, TGS, or WEBM format; pass null to remove the sticker set thumbnail. Thumbnail format must match the format of stickers in the set
+            /// Thumbnail to set; pass null to remove the sticker set thumbnail
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("thumbnail")]
             public InputFile Thumbnail { get; set; }
+
+            /// <summary>
+            /// Format of the thumbnail; pass null if thumbnail is removed
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("format")]
+            public StickerFormat Format { get; set; }
         }
 
         /// <summary>
-        /// Sets a sticker set thumbnail; for bots only
+        /// Sets a sticker set thumbnail
         /// </summary>
         public static Task<Ok> SetStickerSetThumbnailAsync(
-            this Client client, long userId = default, string name = default, InputFile thumbnail = default)
+            this Client client, long userId = default, string name = default, InputFile thumbnail = default, StickerFormat format = default)
         {
             return client.ExecuteAsync(new SetStickerSetThumbnail
             {
-                UserId = userId, Name = name, Thumbnail = thumbnail
+                UserId = userId, Name = name, Thumbnail = thumbnail, Format = format
             });
         }
     }

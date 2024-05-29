@@ -11,7 +11,7 @@ namespace TdLib
         public partial class ConnectionState : Object
         {
             /// <summary>
-            /// Currently establishing a connection to the Telegram servers
+            /// Establishing a connection to the Telegram servers
             /// </summary>
             public class ConnectionStateConnecting : ConnectionState
             {

@@ -60,6 +60,13 @@ namespace TdLib
             public ClosedVectorPath[] ThumbnailOutline { get; set; }
 
             /// <summary>
+            /// True, if the sticker set is owned by the current user
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("is_owned")]
+            public bool IsOwned { get; set; }
+
+            /// <summary>
             /// True, if the sticker set has been installed by the current user
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -81,13 +88,6 @@ namespace TdLib
             public bool IsOfficial { get; set; }
 
             /// <summary>
-            /// Format of the stickers in the set
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("sticker_format")]
-            public StickerFormat StickerFormat { get; set; }
-
-            /// <summary>
             /// Type of the stickers in the set
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -100,6 +100,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("needs_repainting")]
             public bool NeedsRepainting { get; set; }
+
+            /// <summary>
+            /// True, if stickers in the sticker set are custom emoji that can be used as chat emoji status; for custom emoji sticker sets only
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("is_allowed_as_chat_emoji_status")]
+            public bool IsAllowedAsChatEmojiStatus { get; set; }
 
             /// <summary>
             /// True for already viewed trending sticker sets

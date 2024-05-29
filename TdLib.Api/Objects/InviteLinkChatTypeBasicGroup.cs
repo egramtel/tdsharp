@@ -11,7 +11,7 @@ namespace TdLib
         public partial class InviteLinkChatType : Object
         {
             /// <summary>
-            /// Describes the type of a chat to which points an invite link
+            /// Describes the type of chat to which points an invite link
             /// </summary>
             public class InviteLinkChatTypeBasicGroup : InviteLinkChatType
             {

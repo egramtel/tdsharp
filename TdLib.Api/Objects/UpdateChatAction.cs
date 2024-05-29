@@ -35,7 +35,7 @@ namespace TdLib
                 public long ChatId { get; set; }
 
                 /// <summary>
-                /// If not 0, a message thread identifier in which the action was performed
+                /// If not 0, the message thread identifier in which the action was performed
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("message_thread_id")]

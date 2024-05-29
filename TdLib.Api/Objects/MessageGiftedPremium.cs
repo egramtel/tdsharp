@@ -56,14 +56,14 @@ namespace TdLib
                 public string Cryptocurrency { get; set; }
 
                 /// <summary>
-                /// The paid amount, in the smallest units of the cryptocurrency
+                /// The paid amount, in the smallest units of the cryptocurrency; 0 if none
                 /// </summary>
                 [JsonConverter(typeof(Converter.Int64))]
                 [JsonProperty("cryptocurrency_amount")]
                 public long CryptocurrencyAmount { get; set; }
 
                 /// <summary>
-                /// Number of month the Telegram Premium subscription will be active
+                /// Number of months the Telegram Premium subscription will be active
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("month_count")]

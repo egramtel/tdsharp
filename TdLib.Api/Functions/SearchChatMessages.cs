@@ -57,7 +57,7 @@ namespace TdLib
             public long FromMessageId { get; set; }
 
             /// <summary>
-            /// Specify 0 to get results from exactly the from_message_id or a negative offset to get the specified message and some newer messages
+            /// Specify 0 to get results from exactly the message from_message_id or a negative offset to get the specified message and some newer messages
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("offset")]
@@ -84,6 +84,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("message_thread_id")]
             public long MessageThreadId { get; set; }
+
+            /// <summary>
+            /// If not 0, only messages in the specified Saved Messages topic will be returned; pass 0 to return all messages, or for chats other than Saved Messages
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("saved_messages_topic_id")]
+            public long SavedMessagesTopicId { get; set; }
         }
 
         /// <summary>
@@ -92,11 +99,11 @@ namespace TdLib
         /// A combination of query, sender_id, filter and message_thread_id search criteria is expected to be supported, only if it is required for Telegram official application implementation
         /// </summary>
         public static Task<FoundChatMessages> SearchChatMessagesAsync(
-            this Client client, long chatId = default, string query = default, MessageSender senderId = default, long fromMessageId = default, int offset = default, int limit = default, SearchMessagesFilter filter = default, long messageThreadId = default)
+            this Client client, long chatId = default, string query = default, MessageSender senderId = default, long fromMessageId = default, int offset = default, int limit = default, SearchMessagesFilter filter = default, long messageThreadId = default, long savedMessagesTopicId = default)
         {
             return client.ExecuteAsync(new SearchChatMessages
             {
-                ChatId = chatId, Query = query, SenderId = senderId, FromMessageId = fromMessageId, Offset = offset, Limit = limit, Filter = filter, MessageThreadId = messageThreadId
+                ChatId = chatId, Query = query, SenderId = senderId, FromMessageId = fromMessageId, Offset = offset, Limit = limit, Filter = filter, MessageThreadId = messageThreadId, SavedMessagesTopicId = savedMessagesTopicId
             });
         }
     }

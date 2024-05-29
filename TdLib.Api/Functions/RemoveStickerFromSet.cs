@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Removes a sticker from the set to which it belongs; for bots only. The sticker set must have been created by the bot
+        /// Removes a sticker from the set to which it belongs. The sticker set must be owned by the current user
         /// </summary>
         public class RemoveStickerFromSet : Function<Ok>
         {
@@ -27,7 +27,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Sticker
+            /// Sticker to remove from the set
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("sticker")]
@@ -35,7 +35,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Removes a sticker from the set to which it belongs; for bots only. The sticker set must have been created by the bot
+        /// Removes a sticker from the set to which it belongs. The sticker set must be owned by the current user
         /// </summary>
         public static Task<Ok> RemoveStickerFromSetAsync(
             this Client client, InputFile sticker = default)

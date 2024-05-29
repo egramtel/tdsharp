@@ -39,17 +39,24 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("last_name")]
             public string LastName { get; set; }
+
+            /// <summary>
+            /// Pass true to disable notification about the current user joining Telegram for other users that added them to contact list
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("disable_notification")]
+            public bool DisableNotification { get; set; }
         }
 
         /// <summary>
         /// Finishes user registration. Works only when the current authorization state is authorizationStateWaitRegistration
         /// </summary>
         public static Task<Ok> RegisterUserAsync(
-            this Client client, string firstName = default, string lastName = default)
+            this Client client, string firstName = default, string lastName = default, bool disableNotification = default)
         {
             return client.ExecuteAsync(new RegisterUser
             {
-                FirstName = firstName, LastName = lastName
+                FirstName = firstName, LastName = lastName, DisableNotification = disableNotification
             });
         }
     }

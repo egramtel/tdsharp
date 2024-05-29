@@ -11,7 +11,7 @@ namespace TdLib
         public partial class CallProblem : Object
         {
             /// <summary>
-            /// Describes the exact type of a problem with a call
+            /// Describes the exact type of problem with a call
             /// </summary>
             public class CallProblemEcho : CallProblem
             {

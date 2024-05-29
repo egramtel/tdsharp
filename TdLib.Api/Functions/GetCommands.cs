@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns list of commands supported by the bot for the given user scope and language; for bots only
+        /// Returns the list of commands supported by the bot for the given user scope and language; for bots only
         /// </summary>
         public class GetCommands : Function<BotCommands>
         {
@@ -42,7 +42,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Returns list of commands supported by the bot for the given user scope and language; for bots only
+        /// Returns the list of commands supported by the bot for the given user scope and language; for bots only
         /// </summary>
         public static Task<BotCommands> GetCommandsAsync(
             this Client client, BotCommandScope scope = default, string languageCode = default)

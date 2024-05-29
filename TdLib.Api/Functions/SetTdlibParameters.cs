@@ -123,31 +123,17 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("application_version")]
             public string ApplicationVersion { get; set; }
-
-            /// <summary>
-            /// Pass true to automatically delete old files in background
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("enable_storage_optimizer")]
-            public bool EnableStorageOptimizer { get; set; }
-
-            /// <summary>
-            /// Pass true to ignore original file names for downloaded files. Otherwise, downloaded files are saved under names as close as possible to the original name
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("ignore_file_names")]
-            public bool IgnoreFileNames { get; set; }
         }
 
         /// <summary>
         /// Sets the parameters for TDLib initialization. Works only when the current authorization state is authorizationStateWaitTdlibParameters
         /// </summary>
         public static Task<Ok> SetTdlibParametersAsync(
-            this Client client, bool useTestDc = default, string databaseDirectory = default, string filesDirectory = default, byte[] databaseEncryptionKey = default, bool useFileDatabase = default, bool useChatInfoDatabase = default, bool useMessageDatabase = default, bool useSecretChats = default, int apiId = default, string apiHash = default, string systemLanguageCode = default, string deviceModel = default, string systemVersion = default, string applicationVersion = default, bool enableStorageOptimizer = default, bool ignoreFileNames = default)
+            this Client client, bool useTestDc = default, string databaseDirectory = default, string filesDirectory = default, byte[] databaseEncryptionKey = default, bool useFileDatabase = default, bool useChatInfoDatabase = default, bool useMessageDatabase = default, bool useSecretChats = default, int apiId = default, string apiHash = default, string systemLanguageCode = default, string deviceModel = default, string systemVersion = default, string applicationVersion = default)
         {
             return client.ExecuteAsync(new SetTdlibParameters
             {
-                UseTestDc = useTestDc, DatabaseDirectory = databaseDirectory, FilesDirectory = filesDirectory, DatabaseEncryptionKey = databaseEncryptionKey, UseFileDatabase = useFileDatabase, UseChatInfoDatabase = useChatInfoDatabase, UseMessageDatabase = useMessageDatabase, UseSecretChats = useSecretChats, ApiId = apiId, ApiHash = apiHash, SystemLanguageCode = systemLanguageCode, DeviceModel = deviceModel, SystemVersion = systemVersion, ApplicationVersion = applicationVersion, EnableStorageOptimizer = enableStorageOptimizer, IgnoreFileNames = ignoreFileNames
+                UseTestDc = useTestDc, DatabaseDirectory = databaseDirectory, FilesDirectory = filesDirectory, DatabaseEncryptionKey = databaseEncryptionKey, UseFileDatabase = useFileDatabase, UseChatInfoDatabase = useChatInfoDatabase, UseMessageDatabase = useMessageDatabase, UseSecretChats = useSecretChats, ApiId = apiId, ApiHash = apiHash, SystemLanguageCode = systemLanguageCode, DeviceModel = deviceModel, SystemVersion = systemVersion, ApplicationVersion = applicationVersion
             });
         }
     }

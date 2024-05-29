@@ -9,7 +9,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Contains information about a emoji reaction
+        /// Contains information about an emoji reaction
         /// </summary>
         public partial class EmojiReaction : Object
         {

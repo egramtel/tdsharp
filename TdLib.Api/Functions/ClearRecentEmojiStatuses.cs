@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Clears the list of recently used emoji statuses
+        /// Clears the list of recently used emoji statuses for self status
         /// </summary>
         public class ClearRecentEmojiStatuses : Function<Ok>
         {
@@ -30,7 +30,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Clears the list of recently used emoji statuses
+        /// Clears the list of recently used emoji statuses for self status
         /// </summary>
         public static Task<Ok> ClearRecentEmojiStatusesAsync(
             this Client client)

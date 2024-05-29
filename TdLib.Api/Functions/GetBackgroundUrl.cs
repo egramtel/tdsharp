@@ -34,7 +34,7 @@ namespace TdLib
             public string Name { get; set; }
 
             /// <summary>
-            /// Background type
+            /// Background type; backgroundTypeChatTheme isn't supported
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("type")]

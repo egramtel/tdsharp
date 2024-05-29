@@ -11,7 +11,7 @@ namespace TdLib
         public partial class StorePaymentPurpose : Object
         {
             /// <summary>
-            /// The user creating a Telegram Premium giveaway for subscribers of channel chats; requires can_post_messages rights in the channels
+            /// The user creating a Telegram Premium giveaway
             /// </summary>
             public class StorePaymentPurposePremiumGiveaway : StorePaymentPurpose
             {

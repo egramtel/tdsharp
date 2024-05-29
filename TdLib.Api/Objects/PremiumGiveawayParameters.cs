@@ -26,14 +26,14 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Identifier of the channel chat, which will be automatically boosted by the winners of the giveaway for duration of the Premium subscription
+            /// Identifier of the supergroup or channel chat, which will be automatically boosted by the winners of the giveaway for duration of the Premium subscription.
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("boosted_chat_id")]
             public long BoostedChatId { get; set; }
 
             /// <summary>
-            /// Identifiers of other channel chats that must be subscribed by the users to be eligible for the giveaway. There can be up to getOption("giveaway_additional_chat_count_max") additional chats
+            /// Identifiers of other supergroup or channel chats that must be subscribed by the users to be eligible for the giveaway. There can be up to getOption("giveaway_additional_chat_count_max") additional chats
             /// </summary>
             [JsonProperty("additional_chat_ids", ItemConverterType = typeof(Converter))]
             public long[] AdditionalChatIds { get; set; }
@@ -46,17 +46,31 @@ namespace TdLib
             public int WinnersSelectionDate { get; set; }
 
             /// <summary>
-            /// True, if only new subscribers of the chats will be eligible for the giveaway
+            /// True, if only new members of the chats will be eligible for the giveaway
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("only_new_members")]
             public bool OnlyNewMembers { get; set; }
 
             /// <summary>
+            /// True, if the list of winners of the giveaway will be available to everyone
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("has_public_winners")]
+            public bool HasPublicWinners { get; set; }
+
+            /// <summary>
             /// The list of two-letter ISO 3166-1 alpha-2 codes of countries, users from which will be eligible for the giveaway. If empty, then all users can participate in the giveaway.
             /// </summary>
             [JsonProperty("country_codes", ItemConverterType = typeof(Converter))]
             public string[] CountryCodes { get; set; }
+
+            /// <summary>
+            /// Additional description of the giveaway prize; 0-128 characters
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("prize_description")]
+            public string PrizeDescription { get; set; }
         }
     }
 }

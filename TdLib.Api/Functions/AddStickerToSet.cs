@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Adds a new sticker to a set; for bots only
+        /// Adds a new sticker to a set
         /// </summary>
         public class AddStickerToSet : Function<Ok>
         {
@@ -27,14 +27,14 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Sticker set owner
+            /// Sticker set owner; ignored for regular users
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("user_id")]
             public long UserId { get; set; }
 
             /// <summary>
-            /// Sticker set name
+            /// Sticker set name. The sticker set must be owned by the current user, and contain less than 200 stickers for custom emoji sticker sets and less than 120 otherwise
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("name")]
@@ -49,7 +49,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Adds a new sticker to a set; for bots only
+        /// Adds a new sticker to a set
         /// </summary>
         public static Task<Ok> AddStickerToSetAsync(
             this Client client, long userId = default, string name = default, InputSticker sticker = default)

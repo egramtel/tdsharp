@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Changes the mask position of a mask sticker; for bots only. The sticker must belong to a mask sticker set created by the bot
+        /// Changes the mask position of a mask sticker. The sticker must belong to a mask sticker set that is owned by the current user
         /// </summary>
         public class SetStickerMaskPosition : Function<Ok>
         {
@@ -42,7 +42,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Changes the mask position of a mask sticker; for bots only. The sticker must belong to a mask sticker set created by the bot
+        /// Changes the mask position of a mask sticker. The sticker must belong to a mask sticker set that is owned by the current user
         /// </summary>
         public static Task<Ok> SetStickerMaskPositionAsync(
             this Client client, InputFile sticker = default, MaskPosition maskPosition = default)

@@ -42,7 +42,7 @@ namespace TdLib
                 public int Height { get; set; }
 
                 /// <summary>
-                /// Media duration; 0 if unknown
+                /// Media duration, in seconds; 0 if unknown
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("duration")]

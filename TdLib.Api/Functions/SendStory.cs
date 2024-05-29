@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Sends a new story to a chat; requires can_post_stories rights for channel chats. Returns a temporary story
+        /// Sends a new story to a chat; requires can_post_stories right for supergroup and channel chats. Returns a temporary story
         /// </summary>
         public class SendStory : Function<Story>
         {
@@ -48,14 +48,14 @@ namespace TdLib
             public InputStoryAreas Areas { get; set; }
 
             /// <summary>
-            /// Story caption; pass null to use an empty caption; 0-getOption("story_caption_length_max") characters
+            /// Story caption; pass null to use an empty caption; 0-getOption("story_caption_length_max") characters; can have entities only if getOption("can_use_text_entities_in_story_caption")
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("caption")]
             public FormattedText Caption { get; set; }
 
             /// <summary>
-            /// The privacy settings for the story
+            /// The privacy settings for the story; ignored for stories sent to supergroup and channel chats
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("privacy_settings")]
@@ -69,11 +69,18 @@ namespace TdLib
             public int ActivePeriod { get; set; }
 
             /// <summary>
+            /// Full identifier of the original story, which content was used to create the story
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("from_story_full_id")]
+            public StoryFullId FromStoryFullId { get; set; }
+
+            /// <summary>
             /// Pass true to keep the story accessible after expiration
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("is_pinned")]
-            public bool IsPinned { get; set; }
+            [JsonProperty("is_posted_to_chat_page")]
+            public bool IsPostedToChatPage { get; set; }
 
             /// <summary>
             /// Pass true if the content of the story must be protected from forwarding and screenshotting
@@ -84,14 +91,14 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Sends a new story to a chat; requires can_post_stories rights for channel chats. Returns a temporary story
+        /// Sends a new story to a chat; requires can_post_stories right for supergroup and channel chats. Returns a temporary story
         /// </summary>
         public static Task<Story> SendStoryAsync(
-            this Client client, long chatId = default, InputStoryContent content = default, InputStoryAreas areas = default, FormattedText caption = default, StoryPrivacySettings privacySettings = default, int activePeriod = default, bool isPinned = default, bool protectContent = default)
+            this Client client, long chatId = default, InputStoryContent content = default, InputStoryAreas areas = default, FormattedText caption = default, StoryPrivacySettings privacySettings = default, int activePeriod = default, StoryFullId fromStoryFullId = default, bool isPostedToChatPage = default, bool protectContent = default)
         {
             return client.ExecuteAsync(new SendStory
             {
-                ChatId = chatId, Content = content, Areas = areas, Caption = caption, PrivacySettings = privacySettings, ActivePeriod = activePeriod, IsPinned = isPinned, ProtectContent = protectContent
+                ChatId = chatId, Content = content, Areas = areas, Caption = caption, PrivacySettings = privacySettings, ActivePeriod = activePeriod, FromStoryFullId = fromStoryFullId, IsPostedToChatPage = isPostedToChatPage, ProtectContent = protectContent
             });
         }
     }

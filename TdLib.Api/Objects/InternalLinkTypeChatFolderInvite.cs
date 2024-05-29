@@ -11,7 +11,8 @@ namespace TdLib
         public partial class InternalLinkType : Object
         {
             /// <summary>
-            /// The link is an invite link to a chat folder. Call checkChatFolderInviteLink with the given invite link to process the link
+            /// The link is an invite link to a chat folder. Call checkChatFolderInviteLink with the given invite link to process the link.
+            /// If the link is valid and the user wants to join the chat folder, then call addChatFolderByInviteLink
             /// </summary>
             public class InternalLinkTypeChatFolderInvite : InternalLinkType
             {

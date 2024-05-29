@@ -31,6 +31,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("message_interaction_graph")]
             public StatisticalGraph MessageInteractionGraph { get; set; }
+
+            /// <summary>
+            /// A graph containing number of message reactions
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("message_reaction_graph")]
+            public StatisticalGraph MessageReactionGraph { get; set; }
         }
     }
 }

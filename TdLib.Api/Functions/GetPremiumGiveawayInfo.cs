@@ -34,7 +34,7 @@ namespace TdLib
             public long ChatId { get; set; }
 
             /// <summary>
-            /// Identifier of the giveaway message in the chat
+            /// Identifier of the giveaway or a giveaway winners message in the chat
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("message_id")]

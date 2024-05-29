@@ -208,6 +208,12 @@ namespace TdLib
             public int StoryId { get; set; }
 
             /// <summary>
+            /// Up to 4 stickers from the sticker set available via the link
+            /// </summary>
+            [JsonProperty("stickers", ItemConverterType = typeof(Converter))]
+            public Sticker[] Stickers { get; set; }
+
+            /// <summary>
             /// Version of web page instant view (currently, can be 1 or 2); 0 if none
             /// </summary>
             [JsonConverter(typeof(Converter))]

@@ -47,7 +47,7 @@ namespace TdLib
             public int UserCount { get; set; }
 
             /// <summary>
-            /// Number of month the Telegram Premium subscription will be active
+            /// Number of months the Telegram Premium subscription will be active
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("month_count")]

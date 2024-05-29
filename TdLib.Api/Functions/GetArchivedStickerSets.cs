@@ -34,7 +34,7 @@ namespace TdLib
             public StickerType StickerType { get; set; }
 
             /// <summary>
-            /// Identifier of the sticker set from which to return the result
+            /// Identifier of the sticker set from which to return the result; use 0 to get results from the beginning
             /// </summary>
             [JsonConverter(typeof(Converter.Int64))]
             [JsonProperty("offset_sticker_set_id")]

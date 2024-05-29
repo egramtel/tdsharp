@@ -34,14 +34,14 @@ namespace TdLib
             public long ChatId { get; set; }
 
             /// <summary>
-            /// If not 0, a message thread identifier in which the draft was changed
+            /// If not 0, the message thread identifier in which the draft was changed
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("message_thread_id")]
             public long MessageThreadId { get; set; }
 
             /// <summary>
-            /// New draft message; pass null to remove the draft
+            /// New draft message; pass null to remove the draft. All files in draft message content must be of the type inputFileLocal. Media thumbnails and captions are ignored
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("draft_message")]

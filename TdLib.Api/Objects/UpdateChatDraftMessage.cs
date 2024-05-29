@@ -35,7 +35,7 @@ namespace TdLib
                 public long ChatId { get; set; }
 
                 /// <summary>
-                /// The new draft message; may be null
+                /// The new draft message; may be null if none
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("draft_message")]

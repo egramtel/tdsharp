@@ -47,7 +47,7 @@ namespace TdLib
             public string FormattedPhoneNumber { get; set; }
 
             /// <summary>
-            /// True, if the phone number was bought on Fragment and isn't tied to a SIM card
+            /// True, if the phone number was bought at https://fragment.com and isn't tied to a SIM card. Information about the phone number can be received using getCollectibleItemInfo
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_anonymous")]

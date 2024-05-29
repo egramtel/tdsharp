@@ -28,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// User identifier of the service's bot
+                /// User identifier of the service's bot; the corresponding user may be unknown yet
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("bot_user_id")]

@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns information about a emoji reaction. Returns a 404 error if the reaction is not found
+        /// Returns information about an emoji reaction. Returns a 404 error if the reaction is not found
         /// </summary>
         public class GetEmojiReaction : Function<EmojiReaction>
         {
@@ -35,7 +35,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Returns information about a emoji reaction. Returns a 404 error if the reaction is not found
+        /// Returns information about an emoji reaction. Returns a 404 error if the reaction is not found
         /// </summary>
         public static Task<EmojiReaction> GetEmojiReactionAsync(
             this Client client, string emoji = default)

@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Adds a reaction to a message. Use getMessageAvailableReactions to receive the list of available reactions for the message
+        /// Adds a reaction or a tag to a message. Use getMessageAvailableReactions to receive the list of available reactions for the message
         /// </summary>
         public class AddMessageReaction : Function<Ok>
         {
@@ -55,7 +55,7 @@ namespace TdLib
             public bool IsBig { get; set; }
 
             /// <summary>
-            /// Pass true if the reaction needs to be added to recent reactions
+            /// Pass true if the reaction needs to be added to recent reactions; tags are never added to the list of recent reactions
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("update_recent_reactions")]
@@ -63,7 +63,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Adds a reaction to a message. Use getMessageAvailableReactions to receive the list of available reactions for the message
+        /// Adds a reaction or a tag to a message. Use getMessageAvailableReactions to receive the list of available reactions for the message
         /// </summary>
         public static Task<Ok> AddMessageReactionAsync(
             this Client client, long chatId = default, long messageId = default, ReactionType reactionType = default, bool isBig = default, bool updateRecentReactions = default)

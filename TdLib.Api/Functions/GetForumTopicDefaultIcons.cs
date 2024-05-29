@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns list of custom emojis, which can be used as forum topic icon by all users
+        /// Returns the list of custom emojis, which can be used as forum topic icon by all users
         /// </summary>
         public class GetForumTopicDefaultIcons : Function<Stickers>
         {
@@ -30,7 +30,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Returns list of custom emojis, which can be used as forum topic icon by all users
+        /// Returns the list of custom emojis, which can be used as forum topic icon by all users
         /// </summary>
         public static Task<Stickers> GetForumTopicDefaultIconsAsync(
             this Client client)

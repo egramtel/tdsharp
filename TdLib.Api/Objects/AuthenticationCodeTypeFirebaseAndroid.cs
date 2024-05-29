@@ -11,7 +11,7 @@ namespace TdLib
         public partial class AuthenticationCodeType : Object
         {
             /// <summary>
-            /// An authentication code is delivered via Firebase Authentication to the official Android application
+            /// A digit-only authentication code is delivered via Firebase Authentication to the official Android application
             /// </summary>
             public class AuthenticationCodeTypeFirebaseAndroid : AuthenticationCodeType
             {

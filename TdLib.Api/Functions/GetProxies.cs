@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns list of proxies that are currently set up. Can be called before authorization
+        /// Returns the list of proxies that are currently set up. Can be called before authorization
         /// </summary>
         public class GetProxies : Function<Proxies>
         {
@@ -30,7 +30,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Returns list of proxies that are currently set up. Can be called before authorization
+        /// Returns the list of proxies that are currently set up. Can be called before authorization
         /// </summary>
         public static Task<Proxies> GetProxiesAsync(
             this Client client)

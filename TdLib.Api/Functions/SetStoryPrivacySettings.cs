@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Changes privacy settings of a story. Can be called only if story.can_be_edited == true
+        /// Changes privacy settings of a story. The method can be called only for stories posted on behalf of the current user and if story.can_be_edited == true
         /// </summary>
         public class SetStoryPrivacySettings : Function<Ok>
         {
@@ -25,13 +25,6 @@ namespace TdLib
             /// </summary>
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
-
-            /// <summary>
-            /// Identifier of the chat that posted the story
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("story_sender_chat_id")]
-            public long StorySenderChatId { get; set; }
 
             /// <summary>
             /// Identifier of the story
@@ -49,14 +42,14 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Changes privacy settings of a story. Can be called only if story.can_be_edited == true
+        /// Changes privacy settings of a story. The method can be called only for stories posted on behalf of the current user and if story.can_be_edited == true
         /// </summary>
         public static Task<Ok> SetStoryPrivacySettingsAsync(
-            this Client client, long storySenderChatId = default, int storyId = default, StoryPrivacySettings privacySettings = default)
+            this Client client, int storyId = default, StoryPrivacySettings privacySettings = default)
         {
             return client.ExecuteAsync(new SetStoryPrivacySettings
             {
-                StorySenderChatId = storySenderChatId, StoryId = storyId, PrivacySettings = privacySettings
+                StoryId = storyId, PrivacySettings = privacySettings
             });
         }
     }

@@ -42,18 +42,46 @@ namespace TdLib
                 public StatisticalValue MemberCount { get; set; }
 
                 /// <summary>
-                /// Mean number of times the recently sent messages was viewed
+                /// Mean number of times the recently sent messages were viewed
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("mean_view_count")]
-                public StatisticalValue MeanViewCount { get; set; }
+                [JsonProperty("mean_message_view_count")]
+                public StatisticalValue MeanMessageViewCount { get; set; }
 
                 /// <summary>
-                /// Mean number of times the recently sent messages was shared
+                /// Mean number of times the recently sent messages were shared
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("mean_share_count")]
-                public StatisticalValue MeanShareCount { get; set; }
+                [JsonProperty("mean_message_share_count")]
+                public StatisticalValue MeanMessageShareCount { get; set; }
+
+                /// <summary>
+                /// Mean number of times reactions were added to the recently sent messages
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("mean_message_reaction_count")]
+                public StatisticalValue MeanMessageReactionCount { get; set; }
+
+                /// <summary>
+                /// Mean number of times the recently sent stories were viewed
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("mean_story_view_count")]
+                public StatisticalValue MeanStoryViewCount { get; set; }
+
+                /// <summary>
+                /// Mean number of times the recently sent stories were shared
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("mean_story_share_count")]
+                public StatisticalValue MeanStoryShareCount { get; set; }
+
+                /// <summary>
+                /// Mean number of times reactions were added to the recently sent stories
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("mean_story_reaction_count")]
+                public StatisticalValue MeanStoryReactionCount { get; set; }
 
                 /// <summary>
                 /// A percentage of users with enabled notifications for the chat; 0-100
@@ -119,6 +147,27 @@ namespace TdLib
                 public StatisticalGraph MessageInteractionGraph { get; set; }
 
                 /// <summary>
+                /// A graph containing number of reactions on messages
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("message_reaction_graph")]
+                public StatisticalGraph MessageReactionGraph { get; set; }
+
+                /// <summary>
+                /// A graph containing number of story views and shares
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("story_interaction_graph")]
+                public StatisticalGraph StoryInteractionGraph { get; set; }
+
+                /// <summary>
+                /// A graph containing number of reactions on stories
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("story_reaction_graph")]
+                public StatisticalGraph StoryReactionGraph { get; set; }
+
+                /// <summary>
                 /// A graph containing number of views of associated with the chat instant views
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
@@ -126,10 +175,10 @@ namespace TdLib
                 public StatisticalGraph InstantViewInteractionGraph { get; set; }
 
                 /// <summary>
-                /// Detailed statistics about number of views and shares of recently sent messages
+                /// Detailed statistics about number of views and shares of recently sent messages and stories
                 /// </summary>
-                [JsonProperty("recent_message_interactions", ItemConverterType = typeof(Converter))]
-                public ChatStatisticsMessageInteractionInfo[] RecentMessageInteractions { get; set; }
+                [JsonProperty("recent_interactions", ItemConverterType = typeof(Converter))]
+                public ChatStatisticsInteractionInfo[] RecentInteractions { get; set; }
             }
         }
     }

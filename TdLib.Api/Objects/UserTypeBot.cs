@@ -70,6 +70,13 @@ namespace TdLib
                 public bool NeedLocation { get; set; }
 
                 /// <summary>
+                /// True, if the bot supports connection to Telegram Business accounts
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("can_connect_to_business")]
+                public bool CanConnectToBusiness { get; set; }
+
+                /// <summary>
                 /// True, if the bot can be added to attachment or side menu
                 /// </summary>
                 [JsonConverter(typeof(Converter))]

@@ -11,7 +11,7 @@ namespace TdLib
         public partial class UserType : Object
         {
             /// <summary>
-            /// Represents the type of a user. The following types are possible: regular users, deleted users and bots
+            /// Represents the type of user. The following types are possible: regular users, deleted users and bots
             /// </summary>
             public class UserTypeRegular : UserType
             {

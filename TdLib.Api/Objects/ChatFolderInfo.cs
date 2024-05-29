@@ -47,6 +47,13 @@ namespace TdLib
             public ChatFolderIcon Icon { get; set; }
 
             /// <summary>
+            /// The identifier of the chosen color for the chat folder icon; from -1 to 6. If -1, then color is disabled
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("color_id")]
+            public int ColorId { get; set; }
+
+            /// <summary>
             /// True, if at least one link has been created for the folder
             /// </summary>
             [JsonConverter(typeof(Converter))]

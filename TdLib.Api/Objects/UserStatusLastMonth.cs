@@ -27,7 +27,12 @@ namespace TdLib
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
-
+                /// <summary>
+                /// Exact user's status is hidden because the current user enabled userPrivacySettingShowStatus privacy setting for the user and has no Telegram Premium
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("by_my_privacy_settings")]
+                public bool ByMyPrivacySettings { get; set; }
             }
         }
     }

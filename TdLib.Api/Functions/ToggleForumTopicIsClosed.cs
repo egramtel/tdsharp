@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Toggles whether a topic is closed in a forum supergroup chat; requires can_manage_topics administrator right in the supergroup unless the user is creator of the topic
+        /// Toggles whether a topic is closed in a forum supergroup chat; requires can_manage_topics right in the supergroup unless the user is creator of the topic
         /// </summary>
         public class ToggleForumTopicIsClosed : Function<Ok>
         {
@@ -49,7 +49,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Toggles whether a topic is closed in a forum supergroup chat; requires can_manage_topics administrator right in the supergroup unless the user is creator of the topic
+        /// Toggles whether a topic is closed in a forum supergroup chat; requires can_manage_topics right in the supergroup unless the user is creator of the topic
         /// </summary>
         public static Task<Ok> ToggleForumTopicIsClosedAsync(
             this Client client, long chatId = default, long messageThreadId = default, bool isClosed = default)

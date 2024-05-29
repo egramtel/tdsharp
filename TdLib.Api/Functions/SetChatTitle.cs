@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Changes the chat title. Supported only for basic groups, supergroups and channels. Requires can_change_info administrator right
+        /// Changes the chat title. Supported only for basic groups, supergroups and channels. Requires can_change_info member right
         /// </summary>
         public class SetChatTitle : Function<Ok>
         {
@@ -42,7 +42,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Changes the chat title. Supported only for basic groups, supergroups and channels. Requires can_change_info administrator right
+        /// Changes the chat title. Supported only for basic groups, supergroups and channels. Requires can_change_info member right
         /// </summary>
         public static Task<Ok> SetChatTitleAsync(
             this Client client, long chatId = default, string title = default)

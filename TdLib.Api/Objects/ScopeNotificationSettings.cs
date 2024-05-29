@@ -47,14 +47,14 @@ namespace TdLib
             public bool ShowPreview { get; set; }
 
             /// <summary>
-            /// If true, mute_stories is ignored and story notifications are received only for the first 5 chats from topChatCategoryUsers
+            /// If true, story notifications are received only for the first 5 chats from topChatCategoryUsers regardless of the value of mute_stories
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("use_default_mute_stories")]
             public bool UseDefaultMuteStories { get; set; }
 
             /// <summary>
-            /// True, if story notifications are disabled for the chat
+            /// True, if story notifications are disabled
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("mute_stories")]

@@ -39,7 +39,7 @@ namespace TdLib
             public AddedReaction[] Reactions { get; set; }
 
             /// <summary>
-            /// The offset for the next request. If empty, there are no more results
+            /// The offset for the next request. If empty, then there are no more results
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("next_offset")]

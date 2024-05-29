@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Toggles whether sender signature is added to sent messages in a channel; requires can_change_info administrator right
+        /// Toggles whether sender signature is added to sent messages in a channel; requires can_change_info member right
         /// </summary>
         public class ToggleSupergroupSignMessages : Function<Ok>
         {
@@ -42,7 +42,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Toggles whether sender signature is added to sent messages in a channel; requires can_change_info administrator right
+        /// Toggles whether sender signature is added to sent messages in a channel; requires can_change_info member right
         /// </summary>
         public static Task<Ok> ToggleSupergroupSignMessagesAsync(
             this Client client, long supergroupId = default, bool signMessages = default)

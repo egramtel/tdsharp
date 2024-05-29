@@ -11,7 +11,7 @@ namespace TdLib
         public partial class ChatType : Object
         {
             /// <summary>
-            /// Describes the type of a chat
+            /// Describes the type of chat
             /// </summary>
             public class ChatTypePrivate : ChatType
             {

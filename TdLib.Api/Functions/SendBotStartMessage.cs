@@ -10,7 +10,8 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Invites a bot to a chat (if it is not yet a member) and sends it the /start command. Bots can't be invited to a private chat other than the chat with the bot. Bots can't be invited to channels (although they can be added as admins) and secret chats. Returns the sent message
+        /// Invites a bot to a chat (if it is not yet a member) and sends it the /start command; requires can_invite_users member right. Bots can't be invited to a private chat other than the chat with the bot.
+        /// Bots can't be invited to channels (although they can be added as admins) and secret chats. Returns the sent message
         /// </summary>
         public class SendBotStartMessage : Function<Message>
         {
@@ -49,7 +50,8 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Invites a bot to a chat (if it is not yet a member) and sends it the /start command. Bots can't be invited to a private chat other than the chat with the bot. Bots can't be invited to channels (although they can be added as admins) and secret chats. Returns the sent message
+        /// Invites a bot to a chat (if it is not yet a member) and sends it the /start command; requires can_invite_users member right. Bots can't be invited to a private chat other than the chat with the bot.
+        /// Bots can't be invited to channels (although they can be added as admins) and secret chats. Returns the sent message
         /// </summary>
         public static Task<Message> SendBotStartMessageAsync(
             this Client client, long botUserId = default, long chatId = default, string parameter = default)

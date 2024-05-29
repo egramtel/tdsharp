@@ -34,11 +34,18 @@ namespace TdLib
             public long ChatId { get; set; }
 
             /// <summary>
-            /// If not 0, a message thread identifier in which the action was performed
+            /// If not 0, the message thread identifier in which the action was performed
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("message_thread_id")]
             public long MessageThreadId { get; set; }
+
+            /// <summary>
+            /// Unique identifier of business connection on behalf of which to send the request; for bots only
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("business_connection_id")]
+            public string BusinessConnectionId { get; set; }
 
             /// <summary>
             /// The action description; pass null to cancel the currently active action
@@ -52,11 +59,11 @@ namespace TdLib
         /// Sends a notification about user activity in a chat
         /// </summary>
         public static Task<Ok> SendChatActionAsync(
-            this Client client, long chatId = default, long messageThreadId = default, ChatAction action = default)
+            this Client client, long chatId = default, long messageThreadId = default, string businessConnectionId = default, ChatAction action = default)
         {
             return client.ExecuteAsync(new SendChatAction
             {
-                ChatId = chatId, MessageThreadId = messageThreadId, Action = action
+                ChatId = chatId, MessageThreadId = messageThreadId, BusinessConnectionId = businessConnectionId, Action = action
             });
         }
     }

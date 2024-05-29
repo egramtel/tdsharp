@@ -11,7 +11,7 @@ namespace TdLib
         public partial class BlockList : Object
         {
             /// <summary>
-            /// Describes a type of a block list
+            /// Describes a type of block list
             /// </summary>
             public class BlockListMain : BlockList
             {

@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Sets a sticker set title; for bots only
+        /// Sets a sticker set title
         /// </summary>
         public class SetStickerSetTitle : Function<Ok>
         {
@@ -27,7 +27,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Sticker set name
+            /// Sticker set name. The sticker set must be owned by the current user
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("name")]
@@ -42,7 +42,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Sets a sticker set title; for bots only
+        /// Sets a sticker set title
         /// </summary>
         public static Task<Ok> SetStickerSetTitleAsync(
             this Client client, string name = default, string title = default)

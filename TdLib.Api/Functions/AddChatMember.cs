@@ -10,9 +10,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Adds a new member to a chat. Members can't be added to private or secret chats
+        /// Adds a new member to a chat; requires can_invite_users member right. Members can't be added to private or secret chats. Returns information about members that weren't added
         /// </summary>
-        public class AddChatMember : Function<Ok>
+        public class AddChatMember : Function<FailedToAddMembers>
         {
             /// <summary>
             /// Data type for serialization
@@ -49,9 +49,9 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Adds a new member to a chat. Members can't be added to private or secret chats
+        /// Adds a new member to a chat; requires can_invite_users member right. Members can't be added to private or secret chats. Returns information about members that weren't added
         /// </summary>
-        public static Task<Ok> AddChatMemberAsync(
+        public static Task<FailedToAddMembers> AddChatMemberAsync(
             this Client client, long chatId = default, long userId = default, int forwardLimit = default)
         {
             return client.ExecuteAsync(new AddChatMember

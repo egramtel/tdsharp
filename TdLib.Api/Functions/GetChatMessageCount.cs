@@ -41,6 +41,13 @@ namespace TdLib
             public SearchMessagesFilter Filter { get; set; }
 
             /// <summary>
+            /// If not 0, only messages in the specified Saved Messages topic will be counted; pass 0 to count all messages, or for chats other than Saved Messages
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("saved_messages_topic_id")]
+            public long SavedMessagesTopicId { get; set; }
+
+            /// <summary>
             /// Pass true to get the number of messages without sending network requests, or -1 if the number of messages is unknown locally
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -52,11 +59,11 @@ namespace TdLib
         /// Returns approximate number of messages of the specified type in the chat
         /// </summary>
         public static Task<Count> GetChatMessageCountAsync(
-            this Client client, long chatId = default, SearchMessagesFilter filter = default, bool returnLocal = default)
+            this Client client, long chatId = default, SearchMessagesFilter filter = default, long savedMessagesTopicId = default, bool returnLocal = default)
         {
             return client.ExecuteAsync(new GetChatMessageCount
             {
-                ChatId = chatId, Filter = filter, ReturnLocal = returnLocal
+                ChatId = chatId, Filter = filter, SavedMessagesTopicId = savedMessagesTopicId, ReturnLocal = returnLocal
             });
         }
     }

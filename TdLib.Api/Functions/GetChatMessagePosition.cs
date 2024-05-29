@@ -53,17 +53,24 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("message_thread_id")]
             public long MessageThreadId { get; set; }
+
+            /// <summary>
+            /// If not 0, only messages in the specified Saved Messages topic will be considered; pass 0 to consider all relevant messages, or for chats other than Saved Messages
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("saved_messages_topic_id")]
+            public long SavedMessagesTopicId { get; set; }
         }
 
         /// <summary>
         /// Returns approximate 1-based position of a message among messages, which can be found by the specified filter in the chat. Cannot be used in secret chats
         /// </summary>
         public static Task<Count> GetChatMessagePositionAsync(
-            this Client client, long chatId = default, long messageId = default, SearchMessagesFilter filter = default, long messageThreadId = default)
+            this Client client, long chatId = default, long messageId = default, SearchMessagesFilter filter = default, long messageThreadId = default, long savedMessagesTopicId = default)
         {
             return client.ExecuteAsync(new GetChatMessagePosition
             {
-                ChatId = chatId, MessageId = messageId, Filter = filter, MessageThreadId = messageThreadId
+                ChatId = chatId, MessageId = messageId, Filter = filter, MessageThreadId = messageThreadId, SavedMessagesTopicId = savedMessagesTopicId
             });
         }
     }

@@ -35,7 +35,7 @@ namespace TdLib
                 public FormattedText Text { get; set; }
 
                 /// <summary>
-                /// Options to be used for generation of a link preview; pass null to use default link preview options
+                /// Options to be used for generation of a link preview; may be null if none; pass null to use default link preview options
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("link_preview_options")]

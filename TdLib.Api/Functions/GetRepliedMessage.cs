@@ -11,8 +11,8 @@ namespace TdLib
     {
         /// <summary>
         /// Returns information about a non-bundled message that is replied by a given message. Also, returns the pinned message, the game message, the invoice message,
-        /// the message with a previously set same background, and the topic creation message for messages of the types
-        /// messagePinMessage, messageGameScore, messagePaymentSuccessful, messageChatSetBackground and topic messages without non-bundled replied message respectively
+        /// the message with a previously set same background, the giveaway message, and the topic creation message for messages of the types
+        /// messagePinMessage, messageGameScore, messagePaymentSuccessful, messageChatSetBackground, messagePremiumGiveawayCompleted and topic messages without non-bundled replied message respectively
         /// </summary>
         public class GetRepliedMessage : Function<Message>
         {
@@ -45,8 +45,8 @@ namespace TdLib
 
         /// <summary>
         /// Returns information about a non-bundled message that is replied by a given message. Also, returns the pinned message, the game message, the invoice message,
-        /// the message with a previously set same background, and the topic creation message for messages of the types
-        /// messagePinMessage, messageGameScore, messagePaymentSuccessful, messageChatSetBackground and topic messages without non-bundled replied message respectively
+        /// the message with a previously set same background, the giveaway message, and the topic creation message for messages of the types
+        /// messagePinMessage, messageGameScore, messagePaymentSuccessful, messageChatSetBackground, messagePremiumGiveawayCompleted and topic messages without non-bundled replied message respectively
         /// </summary>
         public static Task<Message> GetRepliedMessageAsync(
             this Client client, long chatId = default, long messageId = default)

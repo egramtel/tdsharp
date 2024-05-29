@@ -89,11 +89,18 @@ namespace TdLib
             public bool HasRestrictedVoiceAndVideoNoteMessages { get; set; }
 
             /// <summary>
-            /// True, if the user has pinned stories
+            /// True, if the user has posted to profile stories
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("has_pinned_stories")]
-            public bool HasPinnedStories { get; set; }
+            [JsonProperty("has_posted_to_profile_stories")]
+            public bool HasPostedToProfileStories { get; set; }
+
+            /// <summary>
+            /// True, if the user always enabled sponsored messages; known only for the current user
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("has_sponsored_messages_enabled")]
+            public bool HasSponsoredMessagesEnabled { get; set; }
 
             /// <summary>
             /// True, if the current user needs to explicitly allow to share their phone number with the user when the method addContact is used
@@ -103,11 +110,32 @@ namespace TdLib
             public bool NeedPhoneNumberPrivacyException { get; set; }
 
             /// <summary>
+            /// True, if the user set chat background for both chat users and it wasn't reverted yet
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("set_chat_background")]
+            public bool SetChatBackground { get; set; }
+
+            /// <summary>
             /// A short user bio; may be null for bots
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("bio")]
             public FormattedText Bio { get; set; }
+
+            /// <summary>
+            /// Birthdate of the user; may be null if unknown
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("birthdate")]
+            public Birthdate Birthdate { get; set; }
+
+            /// <summary>
+            /// Identifier of the personal chat of the user; 0 if none
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("personal_chat_id")]
+            public long PersonalChatId { get; set; }
 
             /// <summary>
             /// The list of available options for gifting Telegram Premium to the user
@@ -121,6 +149,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("group_in_common_count")]
             public int GroupInCommonCount { get; set; }
+
+            /// <summary>
+            /// Information about business settings for Telegram Business accounts; may be null if none
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("business_info")]
+            public BusinessInfo BusinessInfo { get; set; }
 
             /// <summary>
             /// For bots, information about the bot; may be null if the user isn't a bot

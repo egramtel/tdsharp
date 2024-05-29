@@ -26,18 +26,18 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Type of the sponsor
+            /// URL of the sponsor to be opened when the message is clicked
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("type")]
-            public MessageSponsorType Type { get; set; }
+            [JsonProperty("url")]
+            public string Url { get; set; }
 
             /// <summary>
             /// Photo of the sponsor; may be null if must not be shown
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("photo")]
-            public ChatPhotoInfo Photo { get; set; }
+            public Photo Photo { get; set; }
 
             /// <summary>
             /// Additional optional information about the sponsor to be shown along with the message

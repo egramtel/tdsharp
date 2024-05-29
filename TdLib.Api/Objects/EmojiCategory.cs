@@ -9,7 +9,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Contains a list of similar emoji to search for in getStickers and searchStickers
+        /// Describes an emoji category
         /// </summary>
         public partial class EmojiCategory : Object
         {
@@ -40,10 +40,18 @@ namespace TdLib
             public Sticker Icon { get; set; }
 
             /// <summary>
-            /// List of emojis in the category
+            /// Source of stickers for the emoji category
             /// </summary>
-            [JsonProperty("emojis", ItemConverterType = typeof(Converter))]
-            public string[] Emojis { get; set; }
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("source")]
+            public EmojiCategorySource Source { get; set; }
+
+            /// <summary>
+            /// True, if the category must be shown first when choosing a sticker for the start page
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("is_greeting")]
+            public bool IsGreeting { get; set; }
         }
     }
 }

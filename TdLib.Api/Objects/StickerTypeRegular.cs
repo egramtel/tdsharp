@@ -11,7 +11,7 @@ namespace TdLib
         public partial class StickerType : Object
         {
             /// <summary>
-            /// Describes type of a sticker
+            /// Describes type of sticker
             /// </summary>
             public class StickerTypeRegular : StickerType
             {

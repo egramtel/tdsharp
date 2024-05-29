@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns information about the type of an internal link. Returns a 404 error if the link is not internal. Can be called before authorization
+        /// Returns information about the type of internal link. Returns a 404 error if the link is not internal. Can be called before authorization
         /// </summary>
         public class GetInternalLinkType : Function<InternalLinkType>
         {
@@ -35,7 +35,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Returns information about the type of an internal link. Returns a 404 error if the link is not internal. Can be called before authorization
+        /// Returns information about the type of internal link. Returns a 404 error if the link is not internal. Can be called before authorization
         /// </summary>
         public static Task<InternalLinkType> GetInternalLinkTypeAsync(
             this Client client, string link = default)

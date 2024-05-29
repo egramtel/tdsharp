@@ -11,7 +11,7 @@ namespace TdLib
         public partial class AuthenticationCodeType : Object
         {
             /// <summary>
-            /// An authentication code is delivered via a phone call to the specified phone number
+            /// A digit-only authentication code is delivered via a phone call to the specified phone number
             /// </summary>
             public class AuthenticationCodeTypeCall : AuthenticationCodeType
             {

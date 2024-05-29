@@ -11,7 +11,7 @@ namespace TdLib
         public partial class UserPrivacySetting : Object
         {
             /// <summary>
-            /// A privacy setting for managing whether the user can receive voice and video messages in private chats
+            /// A privacy setting for managing whether the user can receive voice and video messages in private chats; for Telegram Premium users only
             /// </summary>
             public class UserPrivacySettingAllowPrivateVoiceAndVideoNoteMessages : UserPrivacySetting
             {

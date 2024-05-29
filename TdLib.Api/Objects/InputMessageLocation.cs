@@ -35,7 +35,7 @@ namespace TdLib
                 public Location Location { get; set; }
 
                 /// <summary>
-                /// Period for which the location can be updated, in seconds; must be between 60 and 86400 for a live location and 0 otherwise
+                /// Period for which the location can be updated, in seconds; must be between 60 and 86400 for a temporary live location, 0x7FFFFFFF for permanent live location, and 0 otherwise
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("live_period")]

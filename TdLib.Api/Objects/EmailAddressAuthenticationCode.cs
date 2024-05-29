@@ -11,7 +11,7 @@ namespace TdLib
         public partial class EmailAddressAuthentication : Object
         {
             /// <summary>
-            /// Contains authentication data for a email address
+            /// Contains authentication data for an email address
             /// </summary>
             public class EmailAddressAuthenticationCode : EmailAddressAuthentication
             {

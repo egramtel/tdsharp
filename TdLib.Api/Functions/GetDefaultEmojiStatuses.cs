@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns default emoji statuses
+        /// Returns default emoji statuses for self status
         /// </summary>
         public class GetDefaultEmojiStatuses : Function<EmojiStatuses>
         {
@@ -30,7 +30,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Returns default emoji statuses
+        /// Returns default emoji statuses for self status
         /// </summary>
         public static Task<EmojiStatuses> GetDefaultEmojiStatusesAsync(
             this Client client)

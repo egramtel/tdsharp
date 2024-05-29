@@ -26,7 +26,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// True, if the user can send text messages, contacts, giveaways, invoices, locations, and venues
+            /// True, if the user can send text messages, contacts, giveaways, giveaway winners, invoices, locations, and venues
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("can_send_basic_messages")]
@@ -117,11 +117,11 @@ namespace TdLib
             public bool CanPinMessages { get; set; }
 
             /// <summary>
-            /// True, if the user can manage topics
+            /// True, if the user can create topics
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("can_manage_topics")]
-            public bool CanManageTopics { get; set; }
+            [JsonProperty("can_create_topics")]
+            public bool CanCreateTopics { get; set; }
         }
     }
 }

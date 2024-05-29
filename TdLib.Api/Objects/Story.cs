@@ -40,6 +40,13 @@ namespace TdLib
             public long SenderChatId { get; set; }
 
             /// <summary>
+            /// Identifier of the sender of the story; may be null if the story is posted on behalf of the sender_chat_id
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("sender_id")]
+            public MessageSender SenderId { get; set; }
+
+            /// <summary>
             /// Point in time (Unix timestamp) when the story was published
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -71,8 +78,8 @@ namespace TdLib
             /// True, if the story is saved in the sender's profile and will be available there after expiration
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("is_pinned")]
-            public bool IsPinned { get; set; }
+            [JsonProperty("is_posted_to_chat_page")]
+            public bool IsPostedToChatPage { get; set; }
 
             /// <summary>
             /// True, if the story is visible only for the current user
@@ -110,18 +117,25 @@ namespace TdLib
             public bool CanBeReplied { get; set; }
 
             /// <summary>
-            /// True, if the story's is_pinned value can be changed
+            /// True, if the story's is_posted_to_chat_page value can be changed
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("can_toggle_is_pinned")]
-            public bool CanToggleIsPinned { get; set; }
+            [JsonProperty("can_toggle_is_posted_to_chat_page")]
+            public bool CanToggleIsPostedToChatPage { get; set; }
 
             /// <summary>
-            /// True, if users viewed the story can be received through getStoryViewers
+            /// True, if the story statistics are available through getStoryStatistics
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("can_get_viewers")]
-            public bool CanGetViewers { get; set; }
+            [JsonProperty("can_get_statistics")]
+            public bool CanGetStatistics { get; set; }
+
+            /// <summary>
+            /// True, if interactions with the story can be received through getStoryInteractions
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("can_get_interactions")]
+            public bool CanGetInteractions { get; set; }
 
             /// <summary>
             /// True, if users viewed the story can't be received, because the story has expired more than getOption("story_viewers_expiration_delay") seconds ago
@@ -129,6 +143,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("has_expired_viewers")]
             public bool HasExpiredViewers { get; set; }
+
+            /// <summary>
+            /// Information about the original story; may be null if the story wasn't reposted
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("repost_info")]
+            public StoryRepostInfo RepostInfo { get; set; }
 
             /// <summary>
             /// Information about interactions with the story; may be null if the story isn't owned or there were no interactions

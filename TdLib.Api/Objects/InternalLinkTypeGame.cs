@@ -11,7 +11,8 @@ namespace TdLib
         public partial class InternalLinkType : Object
         {
             /// <summary>
-            /// The link is a link to a game. Call searchPublicChat with the given bot username, check that the user is a bot, ask the current user to select a chat to send the game, and then call sendMessage with inputMessageGame
+            /// The link is a link to a game. Call searchPublicChat with the given bot username, check that the user is a bot,
+            /// ask the current user to select a chat to send the game, and then call sendMessage with inputMessageGame
             /// </summary>
             public class InternalLinkTypeGame : InternalLinkType
             {

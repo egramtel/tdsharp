@@ -14,7 +14,7 @@ namespace TdLib
             /// The link is a link to a bot, which can be installed to the side menu. Call searchPublicChat with the given bot username, check that the user is a bot and can be added to attachment menu.
             /// Then, use getAttachmentMenuBot to receive information about the bot. If the bot isn't added to side menu, then show a disclaimer about Mini Apps being a third-party apps,
             /// ask the user to accept their Terms of service and confirm adding the bot to side and attachment menu. If the user accept the terms and confirms adding, then use toggleBotIsAddedToAttachmentMenu to add the bot.
-            /// If the bot is added to side menu, then use getWebAppUrl with the given URL
+            /// If the bot is added to side menu, then use getWebAppUrl with the given URL and open the returned URL as a Web App
             /// </summary>
             public class InternalLinkTypeSideMenuBot : InternalLinkType
             {

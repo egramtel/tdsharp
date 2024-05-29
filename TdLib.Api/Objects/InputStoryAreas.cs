@@ -26,7 +26,9 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// List of 0-10 input story areas
+            /// List of input story areas. Currently, a story can have
+            /// up to 10 inputStoryAreaTypeLocation, inputStoryAreaTypeFoundVenue, and inputStoryAreaTypePreviousVenue areas,
+            /// up to getOption("story_suggested_reaction_area_count_max") inputStoryAreaTypeSuggestedReaction areas, and up to 1 inputStoryAreaTypeMessage area
             /// </summary>
             [JsonProperty("areas", ItemConverterType = typeof(Converter))]
             public InputStoryArea[] Areas { get; set; }

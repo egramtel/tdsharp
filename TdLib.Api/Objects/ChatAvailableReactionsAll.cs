@@ -27,7 +27,12 @@ namespace TdLib
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
-
+                /// <summary>
+                /// The maximum allowed number of reactions per message; 1-11
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("max_reaction_count")]
+                public int MaxReactionCount { get; set; }
             }
         }
     }

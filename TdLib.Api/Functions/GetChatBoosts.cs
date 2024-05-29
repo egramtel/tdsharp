@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns list of boosts applied to a chat; requires administrator rights in the channel chat
+        /// Returns the list of boosts applied to a chat; requires administrator rights in the chat
         /// </summary>
         public class GetChatBoosts : Function<FoundChatBoosts>
         {
@@ -56,7 +56,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Returns list of boosts applied to a chat; requires administrator rights in the channel chat
+        /// Returns the list of boosts applied to a chat; requires administrator rights in the chat
         /// </summary>
         public static Task<FoundChatBoosts> GetChatBoostsAsync(
             this Client client, long chatId = default, bool onlyGiftCodes = default, string offset = default, int limit = default)

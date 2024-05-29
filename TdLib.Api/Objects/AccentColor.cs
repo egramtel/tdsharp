@@ -50,6 +50,13 @@ namespace TdLib
             /// </summary>
             [JsonProperty("dark_theme_colors", ItemConverterType = typeof(Converter))]
             public int[] DarkThemeColors { get; set; }
+
+            /// <summary>
+            /// The minimum chat boost level required to use the color in a channel chat
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("min_channel_chat_boost_level")]
+            public int MinChannelChatBoostLevel { get; set; }
         }
     }
 }

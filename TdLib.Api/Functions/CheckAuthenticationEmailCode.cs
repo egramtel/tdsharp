@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Checks the authentication of a email address. Works only when the current authorization state is authorizationStateWaitEmailCode
+        /// Checks the authentication of an email address. Works only when the current authorization state is authorizationStateWaitEmailCode
         /// </summary>
         public class CheckAuthenticationEmailCode : Function<Ok>
         {
@@ -35,7 +35,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Checks the authentication of a email address. Works only when the current authorization state is authorizationStateWaitEmailCode
+        /// Checks the authentication of an email address. Works only when the current authorization state is authorizationStateWaitEmailCode
         /// </summary>
         public static Task<Ok> CheckAuthenticationEmailCodeAsync(
             this Client client, EmailAddressAuthentication code = default)

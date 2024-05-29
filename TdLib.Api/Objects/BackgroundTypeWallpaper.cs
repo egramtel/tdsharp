@@ -11,7 +11,7 @@ namespace TdLib
         public partial class BackgroundType : Object
         {
             /// <summary>
-            /// Describes the type of a background
+            /// Describes the type of background
             /// </summary>
             public class BackgroundTypeWallpaper : BackgroundType
             {

@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Changes reactions, available in a chat. Available for basic groups, supergroups, and channels. Requires can_change_info administrator right
+        /// Changes reactions, available in a chat. Available for basic groups, supergroups, and channels. Requires can_change_info member right
         /// </summary>
         public class SetChatAvailableReactions : Function<Ok>
         {
@@ -34,7 +34,7 @@ namespace TdLib
             public long ChatId { get; set; }
 
             /// <summary>
-            /// Reactions available in the chat. All emoji reactions must be active
+            /// Reactions available in the chat. All explicitly specified emoji reactions must be active. In channel chats up to the chat's boost level custom emoji reactions can be explicitly specified
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("available_reactions")]
@@ -42,7 +42,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Changes reactions, available in a chat. Available for basic groups, supergroups, and channels. Requires can_change_info administrator right
+        /// Changes reactions, available in a chat. Available for basic groups, supergroups, and channels. Requires can_change_info member right
         /// </summary>
         public static Task<Ok> SetChatAvailableReactionsAsync(
             this Client client, long chatId = default, ChatAvailableReactions availableReactions = default)

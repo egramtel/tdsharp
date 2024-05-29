@@ -28,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// A list of 3 or 4 colors of the freeform gradients in the RGB24 format
+                /// A list of 3 or 4 colors of the freeform gradient in the RGB24 format
                 /// </summary>
                 [JsonProperty("colors", ItemConverterType = typeof(Converter))]
                 public int[] Colors { get; set; }

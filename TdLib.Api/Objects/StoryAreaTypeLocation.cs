@@ -11,7 +11,7 @@ namespace TdLib
         public partial class StoryAreaType : Object
         {
             /// <summary>
-            /// Describes type of a clickable rectangle area on a story media
+            /// Describes type of clickable rectangle area on a story media
             /// </summary>
             public class StoryAreaTypeLocation : StoryAreaType
             {

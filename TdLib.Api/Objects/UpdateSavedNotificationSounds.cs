@@ -11,7 +11,7 @@ namespace TdLib
         public partial class Update : Object
         {
             /// <summary>
-            /// The list of saved notifications sounds was updated. This update may not be sent until information about a notification sound was requested for the first time
+            /// The list of saved notification sounds was updated. This update may not be sent until information about a notification sound was requested for the first time
             /// </summary>
             public class UpdateSavedNotificationSounds : Update
             {

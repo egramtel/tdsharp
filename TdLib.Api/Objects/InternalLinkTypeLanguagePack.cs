@@ -11,7 +11,8 @@ namespace TdLib
         public partial class InternalLinkType : Object
         {
             /// <summary>
-            /// The link is a link to a language pack. Call getLanguagePackInfo with the given language pack identifier to process the link
+            /// The link is a link to a language pack. Call getLanguagePackInfo with the given language pack identifier to process the link.
+            /// If the language pack is found and the user wants to apply it, then call setOption for the option "language_pack_id"
             /// </summary>
             public class InternalLinkTypeLanguagePack : InternalLinkType
             {

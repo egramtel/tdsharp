@@ -33,6 +33,13 @@ namespace TdLib
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("public_token")]
                 public string PublicToken { get; set; }
+
+                /// <summary>
+                /// URL for sending card tokenization requests
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("tokenize_url")]
+                public string TokenizeUrl { get; set; }
             }
         }
     }

@@ -11,7 +11,7 @@ namespace TdLib
         public partial class ProxyType : Object
         {
             /// <summary>
-            /// Describes the type of a proxy server
+            /// Describes the type of proxy server
             /// </summary>
             public class ProxyTypeSocks5 : ProxyType
             {

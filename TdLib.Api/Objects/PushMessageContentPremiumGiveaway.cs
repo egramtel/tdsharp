@@ -35,7 +35,7 @@ namespace TdLib
                 public int WinnerCount { get; set; }
 
                 /// <summary>
-                /// Number of month the Telegram Premium subscription will be active after code activation; 0 for pinned message
+                /// Number of months the Telegram Premium subscription will be active after code activation; 0 for pinned message
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("month_count")]

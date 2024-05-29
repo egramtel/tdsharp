@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Launches a prepaid Telegram Premium giveaway for subscribers of channel chats; requires can_post_messages rights in the channels
+        /// Launches a prepaid Telegram Premium giveaway
         /// </summary>
         public class LaunchPrepaidPremiumGiveaway : Function<Ok>
         {
@@ -42,7 +42,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Launches a prepaid Telegram Premium giveaway for subscribers of channel chats; requires can_post_messages rights in the channels
+        /// Launches a prepaid Telegram Premium giveaway
         /// </summary>
         public static Task<Ok> LaunchPrepaidPremiumGiveawayAsync(
             this Client client, long giveawayId = default, PremiumGiveawayParameters parameters = default)

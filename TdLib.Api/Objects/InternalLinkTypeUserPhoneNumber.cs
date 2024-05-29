@@ -11,7 +11,8 @@ namespace TdLib
         public partial class InternalLinkType : Object
         {
             /// <summary>
-            /// The link is a link to a user by its phone number. Call searchUserByPhoneNumber with the given phone number to process the link
+            /// The link is a link to a user by its phone number. Call searchUserByPhoneNumber with the given phone number to process the link.
+            /// If the user is found, then call createPrivateChat and open the chat. If draft text isn't empty, then put the draft text in the input field
             /// </summary>
             public class InternalLinkTypeUserPhoneNumber : InternalLinkType
             {
@@ -33,6 +34,13 @@ namespace TdLib
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("phone_number")]
                 public string PhoneNumber { get; set; }
+
+                /// <summary>
+                /// Draft text for message to send in the chat
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("draft_text")]
+                public string DraftText { get; set; }
             }
         }
     }

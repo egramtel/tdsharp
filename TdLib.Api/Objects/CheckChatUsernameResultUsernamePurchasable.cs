@@ -11,7 +11,7 @@ namespace TdLib
         public partial class CheckChatUsernameResult : Object
         {
             /// <summary>
-            /// The username can be purchased at fragment.com
+            /// The username can be purchased at https://fragment.com. Information about the username can be received using getCollectibleItemInfo
             /// </summary>
             public class CheckChatUsernameResultUsernamePurchasable : CheckChatUsernameResult
             {

@@ -42,7 +42,7 @@ namespace TdLib
             public long FromMessageId { get; set; }
 
             /// <summary>
-            /// Specify 0 to get results from exactly the from_message_id or a negative offset up to 99 to get additionally some newer messages
+            /// Specify 0 to get results from exactly the message from_message_id or a negative offset up to 99 to get additionally some newer messages
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("offset")]

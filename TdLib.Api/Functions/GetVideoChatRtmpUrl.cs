@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns RTMP URL for streaming to the chat; requires creator privileges
+        /// Returns RTMP URL for streaming to the chat; requires owner privileges
         /// </summary>
         public class GetVideoChatRtmpUrl : Function<RtmpUrl>
         {
@@ -35,7 +35,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Returns RTMP URL for streaming to the chat; requires creator privileges
+        /// Returns RTMP URL for streaming to the chat; requires owner privileges
         /// </summary>
         public static Task<RtmpUrl> GetVideoChatRtmpUrlAsync(
             this Client client, long chatId = default)

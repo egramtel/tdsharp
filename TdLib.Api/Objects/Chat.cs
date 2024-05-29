@@ -61,11 +61,25 @@ namespace TdLib
             public int AccentColorId { get; set; }
 
             /// <summary>
-            /// Identifier of a custom emoji to be shown on the reply header background in replies to messages sent by the chat; 0 if none
+            /// Identifier of a custom emoji to be shown on the reply header and link preview background for messages sent by the chat; 0 if none
             /// </summary>
             [JsonConverter(typeof(Converter.Int64))]
             [JsonProperty("background_custom_emoji_id")]
             public long BackgroundCustomEmojiId { get; set; }
+
+            /// <summary>
+            /// Identifier of the profile accent color for the chat's profile; -1 if none
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("profile_accent_color_id")]
+            public int ProfileAccentColorId { get; set; }
+
+            /// <summary>
+            /// Identifier of a custom emoji to be shown on the background of the chat's profile; 0 if none
+            /// </summary>
+            [JsonConverter(typeof(Converter.Int64))]
+            [JsonProperty("profile_background_custom_emoji_id")]
+            public long ProfileBackgroundCustomEmojiId { get; set; }
 
             /// <summary>
             /// Actions that non-administrator chat members are allowed to take in the chat
@@ -86,6 +100,12 @@ namespace TdLib
             /// </summary>
             [JsonProperty("positions", ItemConverterType = typeof(Converter))]
             public ChatPosition[] Positions { get; set; }
+
+            /// <summary>
+            /// Chat lists to which the chat belongs. A chat can have a non-zero position in a chat list even it doesn't belong to the chat list and have no position in a chat list even it belongs to the chat list
+            /// </summary>
+            [JsonProperty("chat_lists", ItemConverterType = typeof(Converter))]
+            public ChatList[] ChatLists { get; set; }
 
             /// <summary>
             /// Identifier of a user or chat that is selected to send messages in the chat; may be null if the user can't change message sender
@@ -121,6 +141,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_marked_as_unread")]
             public bool IsMarkedAsUnread { get; set; }
+
+            /// <summary>
+            /// True, if the chat is a forum supergroup that must be shown in the "View as topics" mode, or Saved Messages chat that must be shown in the "View as chats"
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("view_as_topics")]
+            public bool ViewAsTopics { get; set; }
 
             /// <summary>
             /// True, if the chat has scheduled messages
@@ -214,6 +241,13 @@ namespace TdLib
             public int MessageAutoDeleteTime { get; set; }
 
             /// <summary>
+            /// Emoji status to be shown along with chat title; may be null
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("emoji_status")]
+            public EmojiStatus EmojiStatus { get; set; }
+
+            /// <summary>
             /// Background set for the chat; may be null if none
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -233,6 +267,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("action_bar")]
             public ChatActionBar ActionBar { get; set; }
+
+            /// <summary>
+            /// Information about bar for managing a business bot in the chat; may be null if none
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("business_bot_manage_bar")]
+            public BusinessBotManageBar BusinessBotManageBar { get; set; }
 
             /// <summary>
             /// Information about video chat of the chat

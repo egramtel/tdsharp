@@ -75,6 +75,13 @@ namespace TdLib
             public bool IsPinned { get; set; }
 
             /// <summary>
+            /// True, if the message was sent because of a scheduled action by the message sender, for example, as away, or greeting service message
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("is_from_offline")]
+            public bool IsFromOffline { get; set; }
+
+            /// <summary>
             /// True, if the message can be edited. For live location and poll messages this fields shows whether editMessageLiveLocation or stopPoll can be used with this message by the application
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -136,6 +143,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("can_get_message_thread")]
             public bool CanGetMessageThread { get; set; }
+
+            /// <summary>
+            /// True, if read date of the message can be received through getMessageReadDate
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("can_get_read_date")]
+            public bool CanGetReadDate { get; set; }
 
             /// <summary>
             /// True, if chat members already viewed the message can be received through getMessageViewers
@@ -242,6 +256,13 @@ namespace TdLib
             public long MessageThreadId { get; set; }
 
             /// <summary>
+            /// Identifier of the Saved Messages topic for the message; 0 for messages not from Saved Messages
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("saved_messages_topic_id")]
+            public long SavedMessagesTopicId { get; set; }
+
+            /// <summary>
             /// The message's self-destruct type; may be null if none
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -263,11 +284,25 @@ namespace TdLib
             public double? AutoDeleteIn { get; set; }
 
             /// <summary>
-            /// If non-zero, the user identifier of the bot through which this message was sent
+            /// If non-zero, the user identifier of the inline bot through which this message was sent
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("via_bot_user_id")]
             public long ViaBotUserId { get; set; }
+
+            /// <summary>
+            /// If non-zero, the user identifier of the business bot that sent this message
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("sender_business_bot_user_id")]
+            public long SenderBusinessBotUserId { get; set; }
+
+            /// <summary>
+            /// Number of times the sender of the message boosted the supergroup at the time the message was sent; 0 if none or unknown. For messages sent by the current user, supergroupFullInfo.my_boost_count must be used instead
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("sender_boost_count")]
+            public int SenderBoostCount { get; set; }
 
             /// <summary>
             /// For channel posts and anonymous group messages, optional author signature
@@ -277,7 +312,7 @@ namespace TdLib
             public string AuthorSignature { get; set; }
 
             /// <summary>
-            /// Unique identifier of an album this message belongs to. Only audios, documents, photos and videos can be grouped together in albums
+            /// Unique identifier of an album this message belongs to; 0 if none. Only audios, documents, photos and videos can be grouped together in albums
             /// </summary>
             [JsonConverter(typeof(Converter.Int64))]
             [JsonProperty("media_album_id")]

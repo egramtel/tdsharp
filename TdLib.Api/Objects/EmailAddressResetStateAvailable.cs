@@ -11,7 +11,7 @@ namespace TdLib
         public partial class EmailAddressResetState : Object
         {
             /// <summary>
-            /// Describes reset state of a email address
+            /// Describes reset state of an email address
             /// </summary>
             public class EmailAddressResetStateAvailable : EmailAddressResetState
             {

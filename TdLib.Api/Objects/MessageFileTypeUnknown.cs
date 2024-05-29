@@ -11,7 +11,7 @@ namespace TdLib
         public partial class MessageFileType : Object
         {
             /// <summary>
-            /// The messages was exported from a chat of unknown type
+            /// The messages were exported from a chat of unknown type
             /// </summary>
             public class MessageFileTypeUnknown : MessageFileType
             {

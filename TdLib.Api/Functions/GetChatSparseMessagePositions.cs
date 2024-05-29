@@ -54,6 +54,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("limit")]
             public int Limit { get; set; }
+
+            /// <summary>
+            /// If not 0, only messages in the specified Saved Messages topic will be considered; pass 0 to consider all messages, or for chats other than Saved Messages
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("saved_messages_topic_id")]
+            public long SavedMessagesTopicId { get; set; }
         }
 
         /// <summary>
@@ -61,11 +68,11 @@ namespace TdLib
         /// Cannot be used in secret chats or with searchMessagesFilterFailedToSend filter without an enabled message database
         /// </summary>
         public static Task<MessagePositions> GetChatSparseMessagePositionsAsync(
-            this Client client, long chatId = default, SearchMessagesFilter filter = default, long fromMessageId = default, int limit = default)
+            this Client client, long chatId = default, SearchMessagesFilter filter = default, long fromMessageId = default, int limit = default, long savedMessagesTopicId = default)
         {
             return client.ExecuteAsync(new GetChatSparseMessagePositions
             {
-                ChatId = chatId, Filter = filter, FromMessageId = fromMessageId, Limit = limit
+                ChatId = chatId, Filter = filter, FromMessageId = fromMessageId, Limit = limit, SavedMessagesTopicId = savedMessagesTopicId
             });
         }
     }

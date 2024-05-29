@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Changes the order of pinned forum topics
+        /// Changes the order of pinned forum topics; requires can_manage_topics right in the supergroup
         /// </summary>
         public class SetPinnedForumTopics : Function<Ok>
         {
@@ -41,7 +41,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Changes the order of pinned forum topics
+        /// Changes the order of pinned forum topics; requires can_manage_topics right in the supergroup
         /// </summary>
         public static Task<Ok> SetPinnedForumTopicsAsync(
             this Client client, long chatId = default, long[] messageThreadIds = default)

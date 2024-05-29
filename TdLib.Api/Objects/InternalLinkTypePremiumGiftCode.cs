@@ -11,7 +11,8 @@ namespace TdLib
         public partial class InternalLinkType : Object
         {
             /// <summary>
-            /// The link is a link with a Telegram Premium gift code. Call checkPremiumGiftCode with the given code to process the link. If the code is valid and the user wants to apply it, then call applyPremiumGiftCode
+            /// The link is a link with a Telegram Premium gift code. Call checkPremiumGiftCode with the given code to process the link.
+            /// If the code is valid and the user wants to apply it, then call applyPremiumGiftCode
             /// </summary>
             public class InternalLinkTypePremiumGiftCode : InternalLinkType
             {

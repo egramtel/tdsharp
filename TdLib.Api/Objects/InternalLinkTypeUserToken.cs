@@ -11,7 +11,8 @@ namespace TdLib
         public partial class InternalLinkType : Object
         {
             /// <summary>
-            /// The link is a link to a user by a temporary token. Call searchUserByToken with the given token to process the link
+            /// The link is a link to a user by a temporary token. Call searchUserByToken with the given token to process the link.
+            /// If the user is found, then call createPrivateChat and open the chat
             /// </summary>
             public class InternalLinkTypeUserToken : InternalLinkType
             {

@@ -11,7 +11,7 @@ namespace TdLib
         public partial class SessionType : Object
         {
             /// <summary>
-            /// Represents the type of a session
+            /// Represents the type of session
             /// </summary>
             public class SessionTypeAndroid : SessionType
             {

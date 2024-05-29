@@ -11,7 +11,7 @@ namespace TdLib
         public partial class ConnectionState : Object
         {
             /// <summary>
-            /// Currently establishing a connection with a proxy server
+            /// Establishing a connection with a proxy server
             /// </summary>
             public class ConnectionStateConnectingToProxy : ConnectionState
             {

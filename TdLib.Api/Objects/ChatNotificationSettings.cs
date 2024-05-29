@@ -26,7 +26,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// If true, mute_for is ignored and the value for the relevant type of chat or the forum chat is used instead
+            /// If true, the value for the relevant type of chat or the forum chat is used instead of mute_for
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("use_default_mute_for")]
@@ -54,7 +54,7 @@ namespace TdLib
             public long SoundId { get; set; }
 
             /// <summary>
-            /// If true, show_preview is ignored and the value for the relevant type of chat or the forum chat is used instead
+            /// If true, the value for the relevant type of chat or the forum chat is used instead of show_preview
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("use_default_show_preview")]
@@ -68,7 +68,7 @@ namespace TdLib
             public bool ShowPreview { get; set; }
 
             /// <summary>
-            /// If true, mute_stories is ignored and the value for the relevant type of chat is used instead
+            /// If true, the value for the relevant type of chat is used instead of mute_stories
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("use_default_mute_stories")]
@@ -96,7 +96,7 @@ namespace TdLib
             public long StorySoundId { get; set; }
 
             /// <summary>
-            /// If true, show_story_sender is ignored and the value for the relevant type of chat is used instead
+            /// If true, the value for the relevant type of chat is used instead of show_story_sender
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("use_default_show_story_sender")]
@@ -110,7 +110,7 @@ namespace TdLib
             public bool ShowStorySender { get; set; }
 
             /// <summary>
-            /// If true, disable_pinned_message_notifications is ignored and the value for the relevant type of chat or the forum chat is used instead
+            /// If true, the value for the relevant type of chat or the forum chat is used instead of disable_pinned_message_notifications
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("use_default_disable_pinned_message_notifications")]
@@ -124,7 +124,7 @@ namespace TdLib
             public bool DisablePinnedMessageNotifications { get; set; }
 
             /// <summary>
-            /// If true, disable_mention_notifications is ignored and the value for the relevant type of chat or the forum chat is used instead
+            /// If true, the value for the relevant type of chat or the forum chat is used instead of disable_mention_notifications
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("use_default_disable_mention_notifications")]

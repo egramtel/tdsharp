@@ -47,10 +47,11 @@ namespace TdLib
             public MessageReplyInfo ReplyInfo { get; set; }
 
             /// <summary>
-            /// The list of reactions added to the message
+            /// The list of reactions or tags added to the message; may be null
             /// </summary>
-            [JsonProperty("reactions", ItemConverterType = typeof(Converter))]
-            public MessageReaction[] Reactions { get; set; }
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("reactions")]
+            public MessageReactions Reactions { get; set; }
         }
     }
 }

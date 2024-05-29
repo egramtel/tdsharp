@@ -55,6 +55,13 @@ namespace TdLib
             public Location Location { get; set; }
 
             /// <summary>
+            /// New time relative to the message send date, for which the location can be updated, in seconds. If 0x7FFFFFFF specified, then the location can be updated forever.
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("live_period")]
+            public int LivePeriod { get; set; }
+
+            /// <summary>
             /// The new direction in which the location moves, in degrees; 1-360. Pass 0 if unknown
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -73,11 +80,11 @@ namespace TdLib
         /// Edits the message content of a live location. Messages can be edited for a limited period of time specified in the live location. Returns the edited message after the edit is completed on the server side
         /// </summary>
         public static Task<Message> EditMessageLiveLocationAsync(
-            this Client client, long chatId = default, long messageId = default, ReplyMarkup replyMarkup = default, Location location = default, int heading = default, int proximityAlertRadius = default)
+            this Client client, long chatId = default, long messageId = default, ReplyMarkup replyMarkup = default, Location location = default, int livePeriod = default, int heading = default, int proximityAlertRadius = default)
         {
             return client.ExecuteAsync(new EditMessageLiveLocation
             {
-                ChatId = chatId, MessageId = messageId, ReplyMarkup = replyMarkup, Location = location, Heading = heading, ProximityAlertRadius = proximityAlertRadius
+                ChatId = chatId, MessageId = messageId, ReplyMarkup = replyMarkup, Location = location, LivePeriod = livePeriod, Heading = heading, ProximityAlertRadius = proximityAlertRadius
             });
         }
     }

@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns the current boost status for a channel chat
+        /// Returns the current boost status for a supergroup or a channel chat
         /// </summary>
         public class GetChatBoostStatus : Function<ChatBoostStatus>
         {
@@ -27,7 +27,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Identifier of the channel chat
+            /// Identifier of the chat
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_id")]
@@ -35,7 +35,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Returns the current boost status for a channel chat
+        /// Returns the current boost status for a supergroup or a channel chat
         /// </summary>
         public static Task<ChatBoostStatus> GetChatBoostStatusAsync(
             this Client client, long chatId = default)

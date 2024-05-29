@@ -11,7 +11,7 @@ namespace TdLib
         public partial class CallServerType : Object
         {
             /// <summary>
-            /// Describes the type of a call server
+            /// Describes the type of call server
             /// </summary>
             public class CallServerTypeTelegramReflector : CallServerType
             {

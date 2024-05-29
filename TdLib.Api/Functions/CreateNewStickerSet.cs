@@ -41,18 +41,11 @@ namespace TdLib
             public string Title { get; set; }
 
             /// <summary>
-            /// Sticker set name. Can contain only English letters, digits and underscores. Must end with *"_by_&lt;bot username&gt;"* (*&lt;bot_username&gt;* is case insensitive) for bots; 1-64 characters
+            /// Sticker set name. Can contain only English letters, digits and underscores. Must end with *"_by_&lt;bot username&gt;"* (*&lt;bot_username&gt;* is case insensitive) for bots; 0-64 characters.
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("name")]
             public string Name { get; set; }
-
-            /// <summary>
-            /// Format of the stickers in the set
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("sticker_format")]
-            public StickerFormat StickerFormat { get; set; }
 
             /// <summary>
             /// Type of the stickers in the set
@@ -69,7 +62,7 @@ namespace TdLib
             public bool NeedsRepainting { get; set; }
 
             /// <summary>
-            /// List of stickers to be added to the set; must be non-empty. All stickers must have the same format. For TGS stickers, uploadStickerFile must be used before the sticker is shown
+            /// List of stickers to be added to the set; 1-200 stickers for custom emoji sticker sets, and 1-120 stickers otherwise. For TGS stickers, uploadStickerFile must be used before the sticker is shown
             /// </summary>
             [JsonProperty("stickers", ItemConverterType = typeof(Converter))]
             public InputSticker[] Stickers { get; set; }
@@ -86,11 +79,11 @@ namespace TdLib
         /// Creates a new sticker set. Returns the newly created sticker set
         /// </summary>
         public static Task<StickerSet> CreateNewStickerSetAsync(
-            this Client client, long userId = default, string title = default, string name = default, StickerFormat stickerFormat = default, StickerType stickerType = default, bool needsRepainting = default, InputSticker[] stickers = default, string source = default)
+            this Client client, long userId = default, string title = default, string name = default, StickerType stickerType = default, bool needsRepainting = default, InputSticker[] stickers = default, string source = default)
         {
             return client.ExecuteAsync(new CreateNewStickerSet
             {
-                UserId = userId, Title = title, Name = name, StickerFormat = stickerFormat, StickerType = stickerType, NeedsRepainting = needsRepainting, Stickers = stickers, Source = source
+                UserId = userId, Title = title, Name = name, StickerType = stickerType, NeedsRepainting = needsRepainting, Stickers = stickers, Source = source
             });
         }
     }

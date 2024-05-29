@@ -63,7 +63,7 @@ namespace TdLib
             public string ApplicationName { get; set; }
 
             /// <summary>
-            /// If not 0, a message thread identifier in which the message will be sent
+            /// If not 0, the message thread identifier in which the message will be sent
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("message_thread_id")]

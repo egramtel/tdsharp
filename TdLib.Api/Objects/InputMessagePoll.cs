@@ -28,17 +28,17 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Poll question; 1-255 characters (up to 300 characters for bots)
+                /// Poll question; 1-255 characters (up to 300 characters for bots). Only custom emoji entities are allowed to be added and only by Premium users
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("question")]
-                public string Question { get; set; }
+                public FormattedText Question { get; set; }
 
                 /// <summary>
-                /// List of poll answer options, 2-10 strings 1-100 characters each
+                /// List of poll answer options, 2-10 strings 1-100 characters each. Only custom emoji entities are allowed to be added and only by Premium users
                 /// </summary>
                 [JsonProperty("options", ItemConverterType = typeof(Converter))]
-                public string[] Options { get; set; }
+                public FormattedText[] Options { get; set; }
 
                 /// <summary>
                 /// True, if the poll voters are anonymous. Non-anonymous polls can't be sent or forwarded to channels

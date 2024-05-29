@@ -43,6 +43,12 @@ namespace TdLib
             /// </summary>
             [JsonProperty("animations", ItemConverterType = typeof(Converter))]
             public PremiumFeaturePromotionAnimation[] Animations { get; set; }
+
+            /// <summary>
+            /// The list of available promotion animations for Business features
+            /// </summary>
+            [JsonProperty("business_animations", ItemConverterType = typeof(Converter))]
+            public BusinessFeaturePromotionAnimation[] BusinessAnimations { get; set; }
         }
     }
 }

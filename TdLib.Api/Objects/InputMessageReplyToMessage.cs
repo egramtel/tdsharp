@@ -42,11 +42,11 @@ namespace TdLib
                 public long MessageId { get; set; }
 
                 /// <summary>
-                /// Manually chosen quote from the message to be replied; pass null if none; 0-getOption("message_reply_quote_length_max") characters. Must always be null for replies in secret chats.
+                /// Quote from the message to be replied; pass null if none. Must always be null for replies in secret chats
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("quote")]
-                public FormattedText Quote { get; set; }
+                public InputTextQuote Quote { get; set; }
             }
         }
     }

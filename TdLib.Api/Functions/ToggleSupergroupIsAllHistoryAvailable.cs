@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Toggles whether the message history of a supergroup is available to new members; requires can_change_info administrator right
+        /// Toggles whether the message history of a supergroup is available to new members; requires can_change_info member right
         /// </summary>
         public class ToggleSupergroupIsAllHistoryAvailable : Function<Ok>
         {
@@ -42,7 +42,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Toggles whether the message history of a supergroup is available to new members; requires can_change_info administrator right
+        /// Toggles whether the message history of a supergroup is available to new members; requires can_change_info member right
         /// </summary>
         public static Task<Ok> ToggleSupergroupIsAllHistoryAvailableAsync(
             this Client client, long supergroupId = default, bool isAllHistoryAvailable = default)

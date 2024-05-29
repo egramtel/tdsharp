@@ -28,7 +28,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Number of month the Telegram Premium subscription will be active after code activation
+                /// Number of months the Telegram Premium subscription will be active after code activation
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("month_count")]

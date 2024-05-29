@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Recognizes speech in a video note or a voice note message. The message must be successfully sent and must not be scheduled
+        /// Recognizes speech in a video note or a voice note message. The message must be successfully sent, must not be scheduled, and must be from a non-secret chat
         /// </summary>
         public class RecognizeSpeech : Function<Ok>
         {
@@ -42,7 +42,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Recognizes speech in a video note or a voice note message. The message must be successfully sent and must not be scheduled
+        /// Recognizes speech in a video note or a voice note message. The message must be successfully sent, must not be scheduled, and must be from a non-secret chat
         /// </summary>
         public static Task<Ok> RecognizeSpeechAsync(
             this Client client, long chatId = default, long messageId = default)

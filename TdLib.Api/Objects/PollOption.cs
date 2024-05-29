@@ -26,11 +26,11 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Option text; 1-100 characters
+            /// Option text; 1-100 characters. Only custom emoji entities are allowed
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("text")]
-            public string Text { get; set; }
+            public FormattedText Text { get; set; }
 
             /// <summary>
             /// Number of voters for this option, available only for closed or voted polls

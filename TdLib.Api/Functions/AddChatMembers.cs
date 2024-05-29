@@ -10,9 +10,10 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Adds multiple new members to a chat. Currently, this method is only available for supergroups and channels. This method can't be used to join a chat. Members can't be added to a channel if it has more than 200 members
+        /// Adds multiple new members to a chat; requires can_invite_users member right. Currently, this method is only available for supergroups and channels.
+        /// This method can't be used to join a chat. Members can't be added to a channel if it has more than 200 members. Returns information about members that weren't added
         /// </summary>
-        public class AddChatMembers : Function<Ok>
+        public class AddChatMembers : Function<FailedToAddMembers>
         {
             /// <summary>
             /// Data type for serialization
@@ -41,9 +42,10 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Adds multiple new members to a chat. Currently, this method is only available for supergroups and channels. This method can't be used to join a chat. Members can't be added to a channel if it has more than 200 members
+        /// Adds multiple new members to a chat; requires can_invite_users member right. Currently, this method is only available for supergroups and channels.
+        /// This method can't be used to join a chat. Members can't be added to a channel if it has more than 200 members. Returns information about members that weren't added
         /// </summary>
-        public static Task<Ok> AddChatMembersAsync(
+        public static Task<FailedToAddMembers> AddChatMembersAsync(
             this Client client, long chatId = default, long[] userIds = default)
         {
             return client.ExecuteAsync(new AddChatMembers

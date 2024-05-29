@@ -44,11 +44,25 @@ namespace TdLib
             public AvailableReaction[] PopularReactions { get; set; }
 
             /// <summary>
-            /// True, if custom emoji reactions could be added by Telegram Premium subscribers
+            /// True, if any custom emoji reaction can be added by Telegram Premium subscribers
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("allow_custom_emoji")]
             public bool AllowCustomEmoji { get; set; }
+
+            /// <summary>
+            /// True, if the reactions will be tags and the message can be found by them
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("are_tags")]
+            public bool AreTags { get; set; }
+
+            /// <summary>
+            /// The reason why the current user can't add reactions to the message, despite some other users can; may be null if none
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("unavailability_reason")]
+            public ReactionUnavailabilityReason UnavailabilityReason { get; set; }
         }
     }
 }

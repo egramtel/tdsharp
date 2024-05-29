@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Sets a custom emoji sticker set thumbnail; for bots only
+        /// Sets a custom emoji sticker set thumbnail
         /// </summary>
         public class SetCustomEmojiStickerSetThumbnail : Function<Ok>
         {
@@ -27,7 +27,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Sticker set name
+            /// Sticker set name. The sticker set must be owned by the current user
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("name")]
@@ -42,7 +42,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Sets a custom emoji sticker set thumbnail; for bots only
+        /// Sets a custom emoji sticker set thumbnail
         /// </summary>
         public static Task<Ok> SetCustomEmojiStickerSetThumbnailAsync(
             this Client client, string name = default, long customEmojiId = default)

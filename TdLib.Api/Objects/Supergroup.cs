@@ -56,11 +56,18 @@ namespace TdLib
             public ChatMemberStatus Status { get; set; }
 
             /// <summary>
-            /// Number of members in the supergroup or channel; 0 if unknown. Currently, it is guaranteed to be known only if the supergroup or channel was received
+            /// Number of members in the supergroup or channel; 0 if unknown. Currently, it is guaranteed to be known only if the supergroup or channel was received through
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("member_count")]
             public int MemberCount { get; set; }
+
+            /// <summary>
+            /// Approximate boost level for the chat
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("boost_level")]
+            public int BoostLevel { get; set; }
 
             /// <summary>
             /// True, if the channel has a discussion group, or the supergroup is the designated discussion group for a channel
@@ -119,7 +126,7 @@ namespace TdLib
             public bool IsBroadcastGroup { get; set; }
 
             /// <summary>
-            /// True, if the supergroup must be shown as a forum by default
+            /// True, if the supergroup is a forum with topics
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_forum")]
@@ -154,14 +161,14 @@ namespace TdLib
             public bool IsFake { get; set; }
 
             /// <summary>
-            /// True, if the channel has non-expired stories available to the current user
+            /// True, if the supergroup or channel has non-expired stories available to the current user
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("has_active_stories")]
             public bool HasActiveStories { get; set; }
 
             /// <summary>
-            /// True, if the channel has unread non-expired stories available to the current user
+            /// True, if the supergroup or channel has unread non-expired stories available to the current user
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("has_unread_active_stories")]

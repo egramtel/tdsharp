@@ -35,14 +35,14 @@ namespace TdLib
                 public Location Location { get; set; }
 
                 /// <summary>
-                /// Time relative to the message send date, for which the location can be updated, in seconds
+                /// Time relative to the message send date, for which the location can be updated, in seconds; if 0x7FFFFFFF, then location can be updated forever
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("live_period")]
                 public int LivePeriod { get; set; }
 
                 /// <summary>
-                /// Left time for which the location can be updated, in seconds. updateMessageContent is not sent when this field changes
+                /// Left time for which the location can be updated, in seconds. If 0, then the location can't be updated anymore. The update updateMessageContent is not sent when this field changes
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("expires_in")]

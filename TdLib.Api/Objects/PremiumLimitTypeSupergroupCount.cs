@@ -11,7 +11,7 @@ namespace TdLib
         public partial class PremiumLimitType : Object
         {
             /// <summary>
-            /// Describes type of a limit, increased for Premium users
+            /// Describes type of limit, increased for Premium users
             /// </summary>
             public class PremiumLimitTypeSupergroupCount : PremiumLimitType
             {

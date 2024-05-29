@@ -28,11 +28,11 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Identifier of the shared chat
+                /// The shared chat
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("chat_id")]
-                public long ChatId { get; set; }
+                [JsonProperty("chat")]
+                public SharedChat Chat { get; set; }
 
                 /// <summary>
                 /// Identifier of the keyboard button with the request

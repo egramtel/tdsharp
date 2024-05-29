@@ -11,7 +11,7 @@ namespace TdLib
         public partial class InputStoryAreaType : Object
         {
             /// <summary>
-            /// Describes type of a clickable rectangle area on a story media to be added
+            /// Describes type of clickable rectangle area on a story media to be added
             /// </summary>
             public class InputStoryAreaTypeLocation : InputStoryAreaType
             {

@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Changes chosen reaction on a story
+        /// Changes chosen reaction on a story that has already been sent
         /// </summary>
         public class SetStoryReaction : Function<Ok>
         {
@@ -56,7 +56,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Changes chosen reaction on a story
+        /// Changes chosen reaction on a story that has already been sent
         /// </summary>
         public static Task<Ok> SetStoryReactionAsync(
             this Client client, long storySenderChatId = default, int storyId = default, ReactionType reactionType = default, bool updateRecentReactions = default)

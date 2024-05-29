@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns recent emoji statuses
+        /// Returns recent emoji statuses for self status
         /// </summary>
         public class GetRecentEmojiStatuses : Function<EmojiStatuses>
         {
@@ -30,7 +30,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Returns recent emoji statuses
+        /// Returns recent emoji statuses for self status
         /// </summary>
         public static Task<EmojiStatuses> GetRecentEmojiStatusesAsync(
             this Client client)

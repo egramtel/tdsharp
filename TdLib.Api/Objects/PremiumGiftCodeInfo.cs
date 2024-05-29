@@ -26,7 +26,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Identifier of a chat or a user that created the gift code
+            /// Identifier of a chat or a user that created the gift code; may be null if unknown. If null and the code is from messagePremiumGiftCode message, then creator_id from the message can be used
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("creator_id")]
@@ -54,7 +54,7 @@ namespace TdLib
             public long GiveawayMessageId { get; set; }
 
             /// <summary>
-            /// Number of month the Telegram Premium subscription will be active after code activation
+            /// Number of months the Telegram Premium subscription will be active after code activation
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("month_count")]

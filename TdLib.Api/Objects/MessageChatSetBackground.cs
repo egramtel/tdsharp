@@ -40,6 +40,13 @@ namespace TdLib
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("background")]
                 public ChatBackground Background { get; set; }
+
+                /// <summary>
+                /// True, if the background was set only for self
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("only_for_self")]
+                public bool OnlyForSelf { get; set; }
             }
         }
     }

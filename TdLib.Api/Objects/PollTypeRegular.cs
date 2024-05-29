@@ -11,7 +11,7 @@ namespace TdLib
         public partial class PollType : Object
         {
             /// <summary>
-            /// Describes the type of a poll
+            /// Describes the type of poll
             /// </summary>
             public class PollTypeRegular : PollType
             {

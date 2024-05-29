@@ -10,9 +10,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Searches for emojis by keywords. Supported only if the file database is enabled
+        /// Searches for emojis by keywords. Supported only if the file database is enabled. Order of results is unspecified
         /// </summary>
-        public class SearchEmojis : Function<Emojis>
+        public class SearchEmojis : Function<EmojiKeywords>
         {
             /// <summary>
             /// Data type for serialization
@@ -34,13 +34,6 @@ namespace TdLib
             public string Text { get; set; }
 
             /// <summary>
-            /// Pass true if only emojis, which exactly match the text, needs to be returned
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("exact_match")]
-            public bool ExactMatch { get; set; }
-
-            /// <summary>
             /// List of possible IETF language tags of the user's input language; may be empty if unknown
             /// </summary>
             [JsonProperty("input_language_codes", ItemConverterType = typeof(Converter))]
@@ -48,14 +41,14 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Searches for emojis by keywords. Supported only if the file database is enabled
+        /// Searches for emojis by keywords. Supported only if the file database is enabled. Order of results is unspecified
         /// </summary>
-        public static Task<Emojis> SearchEmojisAsync(
-            this Client client, string text = default, bool exactMatch = default, string[] inputLanguageCodes = default)
+        public static Task<EmojiKeywords> SearchEmojisAsync(
+            this Client client, string text = default, string[] inputLanguageCodes = default)
         {
             return client.ExecuteAsync(new SearchEmojis
             {
-                Text = text, ExactMatch = exactMatch, InputLanguageCodes = inputLanguageCodes
+                Text = text, InputLanguageCodes = inputLanguageCodes
             });
         }
     }

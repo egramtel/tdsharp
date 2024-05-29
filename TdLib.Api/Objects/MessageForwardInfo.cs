@@ -40,25 +40,18 @@ namespace TdLib
             public int Date { get; set; }
 
             /// <summary>
-            /// The type of a public service announcement for the forwarded message
+            /// For messages forwarded to the chat with the current user (Saved Messages), to the Replies bot chat, or to the channel's discussion group, information about the source message from which the message was forwarded last time; may be null for other forwards or if unknown
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("source")]
+            public ForwardSource Source { get; set; }
+
+            /// <summary>
+            /// The type of public service announcement for the forwarded message
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("public_service_announcement_type")]
             public string PublicServiceAnnouncementType { get; set; }
-
-            /// <summary>
-            /// For messages forwarded to the chat with the current user (Saved Messages), to the Replies bot chat, or to the channel's discussion group, the identifier of the chat from which the message was forwarded last time; 0 if unknown
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("from_chat_id")]
-            public long FromChatId { get; set; }
-
-            /// <summary>
-            /// For messages forwarded to the chat with the current user (Saved Messages), to the Replies bot chat, or to the channel's discussion group, the identifier of the original message from which the new message was forwarded last time; 0 if unknown
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("from_message_id")]
-            public long FromMessageId { get; set; }
         }
     }
 }

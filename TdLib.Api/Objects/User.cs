@@ -75,18 +75,32 @@ namespace TdLib
             public ProfilePhoto ProfilePhoto { get; set; }
 
             /// <summary>
-            /// Identifier of the accent color for name, and backgrounds of profile photo, reply header, and link preview
+            /// Identifier of the accent color for name, and backgrounds of profile photo, reply header, and link preview. For Telegram Premium users only
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("accent_color_id")]
             public int AccentColorId { get; set; }
 
             /// <summary>
-            /// Identifier of a custom emoji to be shown on the reply header background; 0 if none. For Telegram Premium users only
+            /// Identifier of a custom emoji to be shown on the reply header and link preview background; 0 if none. For Telegram Premium users only
             /// </summary>
             [JsonConverter(typeof(Converter.Int64))]
             [JsonProperty("background_custom_emoji_id")]
             public long BackgroundCustomEmojiId { get; set; }
+
+            /// <summary>
+            /// Identifier of the accent color for the user's profile; -1 if none. For Telegram Premium users only
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("profile_accent_color_id")]
+            public int ProfileAccentColorId { get; set; }
+
+            /// <summary>
+            /// Identifier of a custom emoji to be shown on the background of the user's profile; 0 if none. For Telegram Premium users only
+            /// </summary>
+            [JsonConverter(typeof(Converter.Int64))]
+            [JsonProperty("profile_background_custom_emoji_id")]
+            public long ProfileBackgroundCustomEmojiId { get; set; }
 
             /// <summary>
             /// Emoji status to be shown instead of the default Telegram Premium badge; may be null. For Telegram Premium users only
@@ -171,6 +185,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("has_unread_active_stories")]
             public bool HasUnreadActiveStories { get; set; }
+
+            /// <summary>
+            /// True, if the user may restrict new chats with non-contacts. Use canSendMessageToUser to check whether the current user can message the user or try to create a chat with them
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("restricts_new_chats")]
+            public bool RestrictsNewChats { get; set; }
 
             /// <summary>
             /// If false, the user is inaccessible, and the only information known about the user is inside this class. Identifier of the user can't be passed to any method

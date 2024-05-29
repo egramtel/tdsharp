@@ -33,6 +33,13 @@ namespace TdLib
             public InputFile Sticker { get; set; }
 
             /// <summary>
+            /// Format of the sticker
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("format")]
+            public StickerFormat Format { get; set; }
+
+            /// <summary>
             /// String with 1-20 emoji corresponding to the sticker
             /// </summary>
             [JsonConverter(typeof(Converter))]

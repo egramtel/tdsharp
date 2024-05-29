@@ -34,7 +34,7 @@ namespace TdLib
             public int AccentColorId { get; set; }
 
             /// <summary>
-            /// Identifier of a custom emoji to be shown on the reply header background; 0 if none
+            /// Identifier of a custom emoji to be shown on the reply header and link preview background; 0 if none
             /// </summary>
             [JsonConverter(typeof(Converter.Int64))]
             [JsonProperty("background_custom_emoji_id")]

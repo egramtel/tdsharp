@@ -131,6 +131,13 @@ namespace TdLib
             public bool CanGetStatistics { get; set; }
 
             /// <summary>
+            /// True, if the supergroup or channel revenue statistics are available
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("can_get_revenue_statistics")]
+            public bool CanGetRevenueStatistics { get; set; }
+
+            /// <summary>
             /// True, if aggressive anti-spam checks can be enabled or disabled in the supergroup
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -139,10 +146,18 @@ namespace TdLib
 
             /// <summary>
             /// True, if new chat members will have access to old messages. In public, discussion, of forum groups and all channels, old messages are always available,
+            /// so this option affects only private non-forum supergroups without a linked chat. The value of this field is only available to chat administrators
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_all_history_available")]
             public bool IsAllHistoryAvailable { get; set; }
+
+            /// <summary>
+            /// True, if the chat can have sponsored messages. The value of this field is only available to the owner of the chat
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("can_have_sponsored_messages")]
+            public bool CanHaveSponsoredMessages { get; set; }
 
             /// <summary>
             /// True, if aggressive anti-spam checks are enabled in the supergroup. The value of this field is only available to chat administrators
@@ -152,18 +167,39 @@ namespace TdLib
             public bool HasAggressiveAntiSpamEnabled { get; set; }
 
             /// <summary>
-            /// True, if the channel has pinned stories
+            /// True, if the supergroup or channel has pinned stories
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("has_pinned_stories")]
             public bool HasPinnedStories { get; set; }
 
             /// <summary>
-            /// Identifier of the supergroup sticker set; 0 if none
+            /// Number of times the current user boosted the supergroup or channel
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("my_boost_count")]
+            public int MyBoostCount { get; set; }
+
+            /// <summary>
+            /// Number of times the supergroup must be boosted by a user to ignore slow mode and chat permission restrictions; 0 if unspecified
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("unrestrict_boost_count")]
+            public int UnrestrictBoostCount { get; set; }
+
+            /// <summary>
+            /// Identifier of the supergroup sticker set that must be shown before user sticker sets; 0 if none
             /// </summary>
             [JsonConverter(typeof(Converter.Int64))]
             [JsonProperty("sticker_set_id")]
             public long StickerSetId { get; set; }
+
+            /// <summary>
+            /// Identifier of the custom emoji sticker set that can be used in the supergroup without Telegram Premium subscription; 0 if none
+            /// </summary>
+            [JsonConverter(typeof(Converter.Int64))]
+            [JsonProperty("custom_emoji_sticker_set_id")]
+            public long CustomEmojiStickerSetId { get; set; }
 
             /// <summary>
             /// Location to which the supergroup is connected; may be null if none

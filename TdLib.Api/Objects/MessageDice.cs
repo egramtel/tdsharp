@@ -28,14 +28,14 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// The animated stickers with the initial dice animation; may be null if unknown. updateMessageContent will be sent when the sticker became known
+                /// The animated stickers with the initial dice animation; may be null if unknown. The update updateMessageContent will be sent when the sticker became known
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("initial_state")]
                 public DiceStickers InitialState { get; set; }
 
                 /// <summary>
-                /// The animated stickers with the final dice animation; may be null if unknown. updateMessageContent will be sent when the sticker became known
+                /// The animated stickers with the final dice animation; may be null if unknown. The update updateMessageContent will be sent when the sticker became known
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("final_state")]

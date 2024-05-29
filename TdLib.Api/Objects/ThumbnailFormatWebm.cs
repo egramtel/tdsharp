@@ -11,7 +11,7 @@ namespace TdLib
         public partial class ThumbnailFormat : Object
         {
             /// <summary>
-            /// The thumbnail is in WEBM format. It will be used only for WEBM sticker sets
+            /// The thumbnail is in WEBM format. It will be used only for sticker sets
             /// </summary>
             public class ThumbnailFormatWebm : ThumbnailFormat
             {

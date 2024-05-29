@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Deleted a sticker set; for bots only
+        /// Completely deletes a sticker set
         /// </summary>
         public class DeleteStickerSet : Function<Ok>
         {
@@ -27,7 +27,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Sticker set name
+            /// Sticker set name. The sticker set must be owned by the current user
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("name")]
@@ -35,7 +35,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Deleted a sticker set; for bots only
+        /// Completely deletes a sticker set
         /// </summary>
         public static Task<Ok> DeleteStickerSetAsync(
             this Client client, string name = default)

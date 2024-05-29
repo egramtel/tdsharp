@@ -9,7 +9,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Contains a list of custom emoji identifiers, which can be set as emoji statuses
+        /// Contains a list of custom emoji identifiers for emoji statuses
         /// </summary>
         public partial class EmojiStatuses : Object
         {

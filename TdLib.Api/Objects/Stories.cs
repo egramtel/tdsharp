@@ -37,6 +37,12 @@ namespace TdLib
             /// </summary>
             [JsonProperty("stories", ItemConverterType = typeof(Converter))]
             public Story[] Stories_ { get; set; }
+
+            /// <summary>
+            /// Identifiers of the pinned stories; returned only in getChatPostedToChatPageStories with from_story_id == 0
+            /// </summary>
+            [JsonProperty("pinned_story_ids", ItemConverterType = typeof(Converter))]
+            public int[] PinnedStoryIds { get; set; }
         }
     }
 }

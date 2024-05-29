@@ -11,7 +11,7 @@ namespace TdLib
         public partial class ChatEventAction : Object
         {
             /// <summary>
-            /// The chat accent color was changed
+            /// The chat accent color or background custom emoji were changed
             /// </summary>
             public class ChatEventAccentColorChanged : ChatEventAction
             {
@@ -35,11 +35,25 @@ namespace TdLib
                 public int OldAccentColorId { get; set; }
 
                 /// <summary>
+                /// Previous identifier of the custom emoji; 0 if none
+                /// </summary>
+                [JsonConverter(typeof(Converter.Int64))]
+                [JsonProperty("old_background_custom_emoji_id")]
+                public long OldBackgroundCustomEmojiId { get; set; }
+
+                /// <summary>
                 /// New identifier of chat accent color
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("new_accent_color_id")]
                 public int NewAccentColorId { get; set; }
+
+                /// <summary>
+                /// New identifier of the custom emoji; 0 if none
+                /// </summary>
+                [JsonConverter(typeof(Converter.Int64))]
+                [JsonProperty("new_background_custom_emoji_id")]
+                public long NewBackgroundCustomEmojiId { get; set; }
             }
         }
     }

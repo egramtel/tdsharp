@@ -11,7 +11,7 @@ namespace TdLib
         public partial class MessageFileType : Object
         {
             /// <summary>
-            /// The messages was exported from a group chat
+            /// The messages were exported from a group chat
             /// </summary>
             public class MessageFileTypeGroup : MessageFileType
             {

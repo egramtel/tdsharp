@@ -11,7 +11,7 @@ namespace TdLib
         public partial class InlineKeyboardButtonType : Object
         {
             /// <summary>
-            /// Describes the type of an inline keyboard button
+            /// Describes the type of inline keyboard button
             /// </summary>
             public class InlineKeyboardButtonTypeUrl : InlineKeyboardButtonType
             {

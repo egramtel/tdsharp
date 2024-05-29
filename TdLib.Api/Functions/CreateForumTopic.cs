@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Creates a topic in a forum supergroup chat; requires can_manage_topics rights in the supergroup
+        /// Creates a topic in a forum supergroup chat; requires can_manage_topics administrator or can_create_topics member right in the supergroup
         /// </summary>
         public class CreateForumTopic : Function<ForumTopicInfo>
         {
@@ -49,7 +49,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Creates a topic in a forum supergroup chat; requires can_manage_topics rights in the supergroup
+        /// Creates a topic in a forum supergroup chat; requires can_manage_topics administrator or can_create_topics member right in the supergroup
         /// </summary>
         public static Task<ForumTopicInfo> CreateForumTopicAsync(
             this Client client, long chatId = default, string name = default, ForumTopicIcon icon = default)

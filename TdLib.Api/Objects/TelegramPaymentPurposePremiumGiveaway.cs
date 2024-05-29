@@ -11,7 +11,7 @@ namespace TdLib
         public partial class TelegramPaymentPurpose : Object
         {
             /// <summary>
-            /// The user creating a Telegram Premium giveaway for subscribers of channel chats; requires can_post_messages rights in the channels
+            /// The user creating a Telegram Premium giveaway
             /// </summary>
             public class TelegramPaymentPurposePremiumGiveaway : TelegramPaymentPurpose
             {
@@ -56,7 +56,7 @@ namespace TdLib
                 public int WinnerCount { get; set; }
 
                 /// <summary>
-                /// Number of month the Telegram Premium subscription will be active for the users
+                /// Number of months the Telegram Premium subscription will be active for the users
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("month_count")]

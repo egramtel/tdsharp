@@ -11,7 +11,7 @@ namespace TdLib
         public partial class ChatPhotoStickerType : Object
         {
             /// <summary>
-            /// Describes type of a sticker, which was used to create a chat photo
+            /// Describes type of sticker, which was used to create a chat photo
             /// </summary>
             public class ChatPhotoStickerTypeRegularOrMask : ChatPhotoStickerType
             {

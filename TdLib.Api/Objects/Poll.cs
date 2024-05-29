@@ -33,11 +33,11 @@ namespace TdLib
             public long Id { get; set; }
 
             /// <summary>
-            /// Poll question; 1-300 characters
+            /// Poll question; 1-300 characters. Only custom emoji entities are allowed
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("question")]
-            public string Question { get; set; }
+            public FormattedText Question { get; set; }
 
             /// <summary>
             /// List of poll answer options

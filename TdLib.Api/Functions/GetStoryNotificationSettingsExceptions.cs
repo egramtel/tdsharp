@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns list of chats with non-default notification settings for stories
+        /// Returns the list of chats with non-default notification settings for stories
         /// </summary>
         public class GetStoryNotificationSettingsExceptions : Function<Chats>
         {
@@ -30,7 +30,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Returns list of chats with non-default notification settings for stories
+        /// Returns the list of chats with non-default notification settings for stories
         /// </summary>
         public static Task<Chats> GetStoryNotificationSettingsExceptionsAsync(
             this Client client)

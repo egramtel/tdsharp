@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Resets all notification settings to their default values. By default, all chats are unmuted and message previews are shown
+        /// Resets all chat and scope notification settings to their default values. By default, all chats are unmuted and message previews are shown
         /// </summary>
         public class ResetAllNotificationSettings : Function<Ok>
         {
@@ -30,7 +30,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Resets all notification settings to their default values. By default, all chats are unmuted and message previews are shown
+        /// Resets all chat and scope notification settings to their default values. By default, all chats are unmuted and message previews are shown
         /// </summary>
         public static Task<Ok> ResetAllNotificationSettingsAsync(
             this Client client)
