@@ -1,5 +1,5 @@
 param(
-    [string] $CommitHash = '07c1d53a6d3cb1fad58d2822e55eef6d57363581',
+    [string] $CommitHash = 'fd3154b28727df9e66423d64168fab1202d8c849',
     [string] $TdApiUrl = "https://github.com/tdlib/td/raw/$CommitHash/td/generate/scheme/td_api.tl",
 
     [string] $SourceRoot = "$PSScriptRoot/..",
