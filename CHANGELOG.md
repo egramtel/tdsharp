@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [1.8.29] - 2024-05-30
+### Changed
+- Update to [TDLib v1.8.29](https://github.com/tdlib/td/tree/fd3154b28727df9e66423d64168fab1202d8c849).
+
 ## [1.8.21] - 2023-11-26
 ### Changed
 - Update to [TDLib v1.8.21](https://github.com/tdlib/td/tree/07c1d53a6d3cb1fad58d2822e55eef6d57363581).
@@ -104,4 +108,5 @@ Initial release to support TDLib pre-1.2.
 [1.8.9.1]: https://github.com/egramtel/tdsharp/compare/v1.8.9...v1.8.9.1
 [1.8.12]: https://github.com/egramtel/tdsharp/compare/v1.8.9.1...v1.8.12
 [1.8.21]: https://github.com/egramtel/tdsharp/compare/v1.8.12...v1.8.21
-[Unreleased]: https://github.com/egramtel/tdsharp/compare/v1.8.21...HEAD
+[1.8.29]: https://github.com/egramtel/tdsharp/compare/v1.8.21...v1.8.29
+[Unreleased]: https://github.com/egramtel/tdsharp/compare/v1.8.29...HEAD
