@@ -25,10 +25,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Read version from ref
-        id: version
+      - id: version
+        name: Get version
         shell: pwsh
-        run: ./Scripts/Get-Version.ps1 -RefName $env:GITHUB_REF >> $env:GITHUB_OUTPUT
+        run: echo "version=$(Scripts/Get-Version.ps1 -RefName $env:GITHUB_REF)" >> $env:GITHUB_OUTPUT
 
       - name: NuGet cache
         uses: actions/cache@v4
