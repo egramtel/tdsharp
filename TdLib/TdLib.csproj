@@ -11,6 +11,8 @@
         <PackageTags>telegram</PackageTags>
         <Description>
            .NET bindings for TDLib (Telegram Database Library): https://github.com/tdlib/td
+
+            This is the main binding library. For TL API, see TDLib.Api package.
         </Description>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
     </PropertyGroup>
