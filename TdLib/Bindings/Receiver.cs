@@ -25,7 +25,7 @@ namespace TdLib.Bindings
 
         internal void Start()
         {
-            Task.Factory.StartNew(async () =>
+            _ = Task.Factory.StartNew(async () =>
                 {
                     try
                     {
