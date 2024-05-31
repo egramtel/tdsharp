@@ -9,3 +9,6 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
+    ignore:
+      # Explicit update only: this dependency requirement is exposed to the library users
+      - dependency-name: Newtonsoft.Json
