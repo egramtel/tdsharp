@@ -2,4 +2,22 @@
     <PropertyGroup>
         <Version>1.8.29</Version>
     </PropertyGroup>
+
+    <PropertyGroup>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <Copyright>2024 tdsharp contributors &lt;https://github.com/egramtel/tdsharp&gt;</Copyright>
+        <PublishRepositoryUrl>true</PublishRepositoryUrl>
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    </PropertyGroup>
+    <ItemGroup>
+        <None Include="$(MSBuildThisFileDirectory)\README.md" Pack="true" PackagePath="\"/>
+        <None Include="$(MSBuildThisFileDirectory)\CHANGELOG.md" Pack="true" PackagePath="\"/>
+        <None Include="$(MSBuildThisFileDirectory)\LICENSE" Pack="true" PackagePath="\"/>
+    </ItemGroup>
+
+    <PropertyGroup Condition="$(CI) != ''">
+        <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+    </PropertyGroup>
 </Project>
