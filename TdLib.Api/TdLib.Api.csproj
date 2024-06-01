@@ -13,6 +13,8 @@
 
             This is the TL API descrtiptions. For the main binding engine, see TDLib package.
         </Description>
+        <PackageLicenseExpression>$(PackageLicenseExpression) AND BSL-1.0</PackageLicenseExpression>
+        <Copyright>$(Copyright); tdlib contributors &lt;https://github.com/tdlib/td%gt;</Copyright>
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="ChangelogAutomation.MSBuild" Version="2.0.0" PrivateAssets="All" />

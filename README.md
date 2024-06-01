@@ -86,11 +86,20 @@ By default, TdSharp will try to detect the platform and use the corresponding bi
 ### Documentation
 
 - [Changelog][docs.changelog]
-- [License (MIT)][docs.license]
+- [Contributor Guide][docs.contributing]
 - [Instructions for Maintainers][docs.maintainership]
+
+### License
+All the project code is licensed under [the MIT license][docs.license].
+
+The code generated from the upstream TDLib has the same license as TDLib, which is [the Boost Software License - Version 1.0][docs.license.bsl].
+
+The license indication in the project's sources is compliant with the [REUSE specification v3.0][reuse.spec].
 
 [discussions]: https://github.com/egramtel/tdsharp/discussions
 [docs.changelog]: ./CHANGELOG.md
+[docs.contributing]: CONTRIBUTING.md
+[docs.license.bsl]: https://github.com/tdlib/td/blob/f35dea776cdaa8b986e2a634dfabf0dafe659be7/LICENSE_1_0.txt
 [docs.license]: ./LICENSE
 [docs.maintainership]: ./MAINTAINERSHIP.md
 [issues]: https://github.com/egramtel/tdsharp/issues
