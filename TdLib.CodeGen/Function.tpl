@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
+// REUSE-IgnoreStart
 namespace TdLib
 {
     /// <summary>
@@ -42,3 +43,4 @@ $FUNC_FIELDS
         }
     }
 }
+// REUSE-IgnoreEnd

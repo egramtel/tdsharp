@@ -2,6 +2,7 @@ using System;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
+// REUSE-IgnoreStart
 namespace TdLib
 {
     /// <summary>
@@ -91,3 +92,4 @@ namespace TdLib
         }
     }
 }
+// REUSE-IgnoreEnd

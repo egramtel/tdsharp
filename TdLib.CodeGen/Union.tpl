@@ -1,6 +1,7 @@
 ﻿using System;
 using Newtonsoft.Json;
 
+// REUSE-IgnoreStart
 namespace TdLib
 {
     /// <summary>
@@ -32,3 +33,4 @@ $TYPE_FIELDS
         }
     }
 }
+// REUSE-IgnoreEnd
