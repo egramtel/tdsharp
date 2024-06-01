@@ -16,7 +16,7 @@ SPDX-License-Identifier: MIT
 
     <ItemGroup>
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.10.0" />
-        <PackageReference Include="tdlib.native" Version="1.8.21.2-preview" />
+        <PackageReference Include="tdlib.native" Version="1.8.29" />
         <PackageReference Include="xunit" Version="2.8.1" />
         <PackageReference Include="xunit.runner.visualstudio" Version="2.8.1" />
     </ItemGroup>
