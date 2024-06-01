@@ -1,4 +1,8 @@
-﻿using System;
+// SPDX-FileCopyrightText: 2024 tdsharp contributors <https://github.com/egramtel/tdsharp>
+//
+// SPDX-License-Identifier: MIT
+
+using System;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -31,23 +35,23 @@ namespace TdLib.Bindings
             {
                 return null;
             }
-            
+
             using (var data = new MemoryStream())
             {
                 int offset = 0;
-            
+
                 while (true)
                 {
                     byte b = Marshal.ReadByte(ptr, offset++);
-                    
+
                     if (b == 0)
                     {
                         break;
                     }
-                    
+
                     data.WriteByte(b);
                 }
-            
+
                 return Encoding.UTF8.GetString(data.ToArray());
             }
         }
@@ -56,7 +60,7 @@ namespace TdLib.Bindings
         {
             var n = Encoding.UTF8.GetByteCount(str);
             var buf = new byte[n + 1];
- 
+
             Encoding.UTF8.GetBytes(str, 0, str.Length, buf, 0);
             var ptr = Marshal.AllocHGlobal(buf.Length);
             Marshal.Copy(buf, 0, ptr, buf.Length);

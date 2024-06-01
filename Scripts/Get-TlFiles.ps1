@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2024 tdsharp contributors <https://github.com/egramtel/tdsharp>
+#
+# SPDX-License-Identifier: MIT
+
 param(
     [string] $CommitHash = 'fd3154b28727df9e66423d64168fab1202d8c849',
     [string] $TdApiUrl = "https://github.com/tdlib/td/raw/$CommitHash/td/generate/scheme/td_api.tl",

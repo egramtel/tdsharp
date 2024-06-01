@@ -1,0 +1,18 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: tdsharp
+Upstream-Contact: Friedrich von Never <friedrich@fornever.me>
+Source: https://github.com/egramtel/tdsharp
+
+Files: .idea/**/*
+Copyright: 2024 tdsharp contributors <https://github.com/egramtel/tdsharp>
+License: MIT
+
+Files: TdLib.Api/Functions/*.cs
+Copyright: 2024 tdsharp contributors <https://github.com/egramtel/tdsharp>
+ 2024 TDLib contributors <https://github.com/tdlib/td>
+License: MIT AND BSL-1.0
+
+Files: TdLib.Api/Objects/*.cs
+Copyright: 2024 tdsharp contributors <https://github.com/egramtel/tdsharp>
+ 2024 TDLib contributors <https://github.com/tdlib/td>
+License: MIT AND BSL-1.0

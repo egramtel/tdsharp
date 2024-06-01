@@ -1,4 +1,8 @@
-﻿namespace TdLib.Bindings
+// SPDX-FileCopyrightText: 2024 tdsharp contributors <https://github.com/egramtel/tdsharp>
+//
+// SPDX-License-Identifier: MIT
+
+namespace TdLib.Bindings
 {
     public enum TdLogLevel
     {

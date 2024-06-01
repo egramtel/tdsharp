@@ -1,4 +1,8 @@
-﻿using System;
+// SPDX-FileCopyrightText: 2024 tdsharp contributors <https://github.com/egramtel/tdsharp>
+//
+// SPDX-License-Identifier: MIT
+
+using System;
 using TdLib.Bindings;
 
 namespace TdLib
@@ -12,7 +16,7 @@ namespace TdLib
         private IntPtr _handle;
 
         public TdJsonClient() : this(Interop.AutoDetectBindings()) {}
-        
+
         public TdJsonClient(ITdLibBindings bindings)
         {
             Bindings = bindings;
@@ -28,9 +32,9 @@ namespace TdLib
             {
                 throw new ObjectDisposedException("TDLib JSON client was disposed");
             }
-            
+
             var ptr = Interop.StringToIntPtr(data);
-            
+
             try
             {
                 Bindings.ClientSend(_handle, ptr);
@@ -40,7 +44,7 @@ namespace TdLib
                 Interop.FreeIntPtr(ptr);
             }
         }
-        
+
         /// <summary>
         /// Receive one JSON string from TDLib
         /// </summary>
@@ -50,13 +54,13 @@ namespace TdLib
             {
                 throw new ObjectDisposedException("TDLib JSON client was disposed");
             }
-            
+
             var res = Bindings.ClientReceive(_handle, timeout);
             return Interop.IntPtrToString(res);
         }
 
         /// <summary>
-        /// Synchronously send JSON string to TDLib and get response 
+        /// Synchronously send JSON string to TDLib and get response
         /// </summary>
         public string Execute(string data)
         {
@@ -76,10 +80,10 @@ namespace TdLib
         /// <summary>
         /// Synchronously send JSON string to TDLib and get response
         /// </summary>
-        public static string GlobalExecute(ITdLibBindings bindings, string data) 
+        public static string GlobalExecute(ITdLibBindings bindings, string data)
             => Execute(bindings, IntPtr.Zero, data);
 
-        private static string Execute(ITdLibBindings bindings, IntPtr handle, string data) 
+        private static string Execute(ITdLibBindings bindings, IntPtr handle, string data)
         {
             var ptr = Interop.StringToIntPtr(data);
 
@@ -99,14 +103,14 @@ namespace TdLib
             Destroy();
             GC.SuppressFinalize(this);
         }
-        
+
         private void Destroy()
         {
             if (_handle == IntPtr.Zero)
             {
                 return;
             }
-            
+
             Bindings.ClientDestroy(_handle);
             _handle = IntPtr.Zero;
         }

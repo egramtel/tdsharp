@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2024 tdsharp contributors <https://github.com/egramtel/tdsharp>
+
+SPDX-License-Identifier: MIT
+-->
+
 # TDLib
 
 .NET bindings for **TDLib** (Telegram Database Library): https://github.com/tdlib/td

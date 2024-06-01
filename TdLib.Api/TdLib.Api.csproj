@@ -1,4 +1,10 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<!--
+SPDX-FileCopyrightText: 2024 tdsharp contributors <https://github.com/egramtel/tdsharp>
+
+SPDX-License-Identifier: MIT
+-->
+
+<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
         <LangVersion>latest</LangVersion>
@@ -13,8 +19,10 @@
 
             This is the TL API descrtiptions. For the main binding engine, see TDLib package.
         </Description>
+        <!-- REUSE-IgnoreStart -->
         <PackageLicenseExpression>$(PackageLicenseExpression) AND BSL-1.0</PackageLicenseExpression>
         <Copyright>$(Copyright); tdlib contributors &lt;https://github.com/tdlib/td%gt;</Copyright>
+        <!-- REUSE-IgnoreEnd -->
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="ChangelogAutomation.MSBuild" Version="2.0.0" PrivateAssets="All" />

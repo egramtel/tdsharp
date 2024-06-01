@@ -1,4 +1,8 @@
-﻿module TdLib.CodeGen.Utils
+// SPDX-FileCopyrightText: 2024 tdsharp contributors <https://github.com/egramtel/tdsharp>
+//
+// SPDX-License-Identifier: MIT
+
+module TdLib.CodeGen.Utils
 
 open System
 open System.IO

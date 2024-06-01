@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2024 tdsharp contributors <https://github.com/egramtel/tdsharp>
+//
+// SPDX-License-Identifier: MIT
+
 open System
 open System.IO
 open System.Threading

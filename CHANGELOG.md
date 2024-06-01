@@ -1,4 +1,10 @@
-﻿Changelog
+<!--
+SPDX-FileCopyrightText: 2024 tdsharp contributors <https://github.com/egramtel/tdsharp>
+
+SPDX-License-Identifier: MIT
+-->
+
+Changelog
 =========
 
 All notable changes to this project will be documented in this file.

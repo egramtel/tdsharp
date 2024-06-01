@@ -1,4 +1,10 @@
-﻿<Project>
+<!--
+SPDX-FileCopyrightText: 2024 tdsharp contributors <https://github.com/egramtel/tdsharp>
+
+SPDX-License-Identifier: MIT
+-->
+
+<Project>
     <PropertyGroup Label="Packaging">
         <Version>1.8.29</Version>
     </PropertyGroup>
@@ -6,7 +12,9 @@
     <PropertyGroup>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <!-- REUSE-IgnoreStart -->
         <Copyright>2024 tdsharp contributors &lt;https://github.com/egramtel/tdsharp&gt;</Copyright>
+        <!-- REUSE-IgnoreEnd -->
         <PublishRepositoryUrl>true</PublishRepositoryUrl>
         <IncludeSymbols>true</IncludeSymbols>
         <SymbolPackageFormat>snupkg</SymbolPackageFormat>
@@ -14,7 +22,7 @@
     <ItemGroup>
         <None Include="$(MSBuildThisFileDirectory)\README.md" Pack="true" PackagePath="\"/>
         <None Include="$(MSBuildThisFileDirectory)\CHANGELOG.md" Pack="true" PackagePath="\"/>
-        <None Include="$(MSBuildThisFileDirectory)\LICENSE" Pack="true" PackagePath="\"/>
+        <None Include="$(MSBuildThisFileDirectory)\LICENSES\*" Pack="true" PackagePath="\"/>
     </ItemGroup>
 
     <PropertyGroup Condition="$(CI) != ''">
