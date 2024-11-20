@@ -48,7 +48,7 @@ jobs:
         run: dotnet pack --configuration Release -p:Version=${{ steps.version.outputs.version }}
       - name: Read the changelog
         id: changelog
-        uses: ForNeVeR/ChangelogAutomation.action@v1
+        uses: ForNeVeR/ChangelogAutomation.action@v2
         with:
           output: ./release-notes.md
 
