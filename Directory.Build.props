@@ -6,7 +6,7 @@ SPDX-License-Identifier: MIT
 
 <Project>
     <PropertyGroup Label="Packaging">
-        <Version>1.8.29</Version>
+        <Version>1.8.30</Version>
     </PropertyGroup>
 
     <PropertyGroup>
