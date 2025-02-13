@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 tdsharp contributors <https://github.com/egramtel/tdsharp>
+// SPDX-FileCopyrightText: 2024-2025 tdsharp contributors <https://github.com/egramtel/tdsharp>
 //
 // SPDX-License-Identifier: MIT
 
@@ -77,8 +77,5 @@ public class ConverterTests
         {
             throw new XunitException("Data is not a properly-formed message");
         }
-
-        // removed test since it seems now to be implemented via GetStickerOutlineAsync
-
     }
 }
