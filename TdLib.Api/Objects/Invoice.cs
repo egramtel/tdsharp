@@ -40,6 +40,13 @@ namespace TdLib
             public LabeledPricePart[] PriceParts { get; set; }
 
             /// <summary>
+            /// The number of seconds between consecutive Telegram Star debiting for subscription invoices; 0 if the invoice doesn't create subscription
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("subscription_period")]
+            public int SubscriptionPeriod { get; set; }
+
+            /// <summary>
             /// The maximum allowed amount of tip in the smallest units of the currency
             /// </summary>
             [JsonConverter(typeof(Converter))]

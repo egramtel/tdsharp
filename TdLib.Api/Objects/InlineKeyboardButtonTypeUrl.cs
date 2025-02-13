@@ -29,7 +29,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// HTTP or tg:// URL to open
+                /// HTTP or tg:// URL to open. If the link is of the type internalLinkTypeWebApp, then the button must be marked as a Web App button
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("url")]

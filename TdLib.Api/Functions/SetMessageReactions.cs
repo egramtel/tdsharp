@@ -42,7 +42,7 @@ namespace TdLib
             public long MessageId { get; set; }
 
             /// <summary>
-            /// Types of the reaction to set
+            /// Types of the reaction to set; pass an empty list to remove the reactions
             /// </summary>
             [JsonProperty("reaction_types", ItemConverterType = typeof(Converter))]
             public ReactionType[] ReactionTypes { get; set; }

@@ -33,7 +33,7 @@ namespace TdLib
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("parameters")]
-                public PremiumGiveawayParameters Parameters { get; set; }
+                public GiveawayParameters Parameters { get; set; }
 
                 /// <summary>
                 /// ISO 4217 currency code of the payment currency

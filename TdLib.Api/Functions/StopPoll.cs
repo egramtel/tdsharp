@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Stops a poll. A poll in a message can be stopped when the message has can_be_edited flag is set
+        /// Stops a poll
         /// </summary>
         public class StopPoll : Function<Ok>
         {
@@ -35,7 +35,7 @@ namespace TdLib
             public long ChatId { get; set; }
 
             /// <summary>
-            /// Identifier of the message containing the poll
+            /// Identifier of the message containing the poll. Use messageProperties.can_be_edited to check whether the poll can be stopped
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("message_id")]
@@ -50,7 +50,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Stops a poll. A poll in a message can be stopped when the message has can_be_edited flag is set
+        /// Stops a poll
         /// </summary>
         public static Task<Ok> StopPollAsync(
             this Client client, long chatId = default, long messageId = default, ReplyMarkup replyMarkup = default)

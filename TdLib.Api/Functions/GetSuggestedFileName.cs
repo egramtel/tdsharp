@@ -35,7 +35,7 @@ namespace TdLib
             public int FileId { get; set; }
 
             /// <summary>
-            /// Directory in which the file is supposed to be saved
+            /// Directory in which the file is expected to be saved
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("directory")]

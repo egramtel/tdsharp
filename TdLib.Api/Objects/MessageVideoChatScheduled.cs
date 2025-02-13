@@ -36,7 +36,7 @@ namespace TdLib
                 public int GroupCallId { get; set; }
 
                 /// <summary>
-                /// Point in time (Unix timestamp) when the group call is supposed to be started by an administrator
+                /// Point in time (Unix timestamp) when the group call is expected to be started by an administrator
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("start_date")]

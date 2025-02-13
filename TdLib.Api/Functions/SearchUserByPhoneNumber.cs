@@ -33,17 +33,24 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("phone_number")]
             public string PhoneNumber { get; set; }
+
+            /// <summary>
+            /// Pass true to get only locally available information without sending network requests
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("only_local")]
+            public bool OnlyLocal { get; set; }
         }
 
         /// <summary>
         /// Searches a user by their phone number. Returns a 404 error if the user can't be found
         /// </summary>
         public static Task<User> SearchUserByPhoneNumberAsync(
-            this Client client, string phoneNumber = default)
+            this Client client, string phoneNumber = default, bool onlyLocal = default)
         {
             return client.ExecuteAsync(new SearchUserByPhoneNumber
             {
-                PhoneNumber = phoneNumber
+                PhoneNumber = phoneNumber, OnlyLocal = onlyLocal
             });
         }
     }

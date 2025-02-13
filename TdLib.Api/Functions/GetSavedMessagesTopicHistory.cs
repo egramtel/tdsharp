@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns messages in a Saved Messages topic. The messages are returned in a reverse chronological order (i.e., in order of decreasing message_id)
+        /// Returns messages in a Saved Messages topic. The messages are returned in reverse chronological order (i.e., in order of decreasing message_id)
         /// </summary>
         public class GetSavedMessagesTopicHistory : Function<Messages>
         {
@@ -58,7 +58,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Returns messages in a Saved Messages topic. The messages are returned in a reverse chronological order (i.e., in order of decreasing message_id)
+        /// Returns messages in a Saved Messages topic. The messages are returned in reverse chronological order (i.e., in order of decreasing message_id)
         /// </summary>
         public static Task<Messages> GetSavedMessagesTopicHistoryAsync(
             this Client client, long savedMessagesTopicId = default, long fromMessageId = default, int offset = default, int limit = default)

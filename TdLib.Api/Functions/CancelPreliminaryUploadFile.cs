@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Stops the preliminary uploading of a file. Supported only for files uploaded by using preliminaryUploadFile. For other files the behavior is undefined
+        /// Stops the preliminary uploading of a file. Supported only for files uploaded by using preliminaryUploadFile
         /// </summary>
         public class CancelPreliminaryUploadFile : Function<Ok>
         {
@@ -36,7 +36,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Stops the preliminary uploading of a file. Supported only for files uploaded by using preliminaryUploadFile. For other files the behavior is undefined
+        /// Stops the preliminary uploading of a file. Supported only for files uploaded by using preliminaryUploadFile
         /// </summary>
         public static Task<Ok> CancelPreliminaryUploadFileAsync(
             this Client client, int fileId = default)

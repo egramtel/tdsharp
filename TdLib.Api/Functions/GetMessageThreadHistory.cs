@@ -11,8 +11,8 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns messages in a message thread of a message. Can be used only if message.can_get_message_thread == true. Message thread of a channel message is in the channel's linked supergroup.
-        /// The messages are returned in a reverse chronological order (i.e., in order of decreasing message_id). For optimal performance, the number of returned messages is chosen by TDLib
+        /// Returns messages in a message thread of a message. Can be used only if messageProperties.can_get_message_thread == true. Message thread of a channel message is in the channel's linked supergroup.
+        /// The messages are returned in reverse chronological order (i.e., in order of decreasing message_id). For optimal performance, the number of returned messages is chosen by TDLib
         /// </summary>
         public class GetMessageThreadHistory : Function<Messages>
         {
@@ -65,8 +65,8 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Returns messages in a message thread of a message. Can be used only if message.can_get_message_thread == true. Message thread of a channel message is in the channel's linked supergroup.
-        /// The messages are returned in a reverse chronological order (i.e., in order of decreasing message_id). For optimal performance, the number of returned messages is chosen by TDLib
+        /// Returns messages in a message thread of a message. Can be used only if messageProperties.can_get_message_thread == true. Message thread of a channel message is in the channel's linked supergroup.
+        /// The messages are returned in reverse chronological order (i.e., in order of decreasing message_id). For optimal performance, the number of returned messages is chosen by TDLib
         /// </summary>
         public static Task<Messages> GetMessageThreadHistoryAsync(
             this Client client, long chatId = default, long messageId = default, long fromMessageId = default, int offset = default, int limit = default)

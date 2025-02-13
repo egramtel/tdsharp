@@ -13,7 +13,7 @@ namespace TdLib
         /// <summary>
         /// Returns up to 8 emoji statuses, which must be shown in the emoji status list for chats
         /// </summary>
-        public class GetThemedChatEmojiStatuses : Function<EmojiStatuses>
+        public class GetThemedChatEmojiStatuses : Function<EmojiStatusCustomEmojis>
         {
             /// <summary>
             /// Data type for serialization
@@ -33,7 +33,7 @@ namespace TdLib
         /// <summary>
         /// Returns up to 8 emoji statuses, which must be shown in the emoji status list for chats
         /// </summary>
-        public static Task<EmojiStatuses> GetThemedChatEmojiStatusesAsync(
+        public static Task<EmojiStatusCustomEmojis> GetThemedChatEmojiStatusesAsync(
             this Client client)
         {
             return client.ExecuteAsync(new GetThemedChatEmojiStatuses

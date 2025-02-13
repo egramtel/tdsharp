@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns an HTTPS URL of a Web App to open from the side menu, a keyboardButtonTypeWebApp button, an inlineQueryResultsButtonTypeWebApp button, or an internalLinkTypeSideMenuBot link
+        /// Returns an HTTPS URL of a Web App to open from the side menu, a keyboardButtonTypeWebApp button, or an inlineQueryResultsButtonTypeWebApp button
         /// </summary>
         public class GetWebAppUrl : Function<HttpUrl>
         {
@@ -28,43 +28,36 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Identifier of the target bot
+            /// Identifier of the target bot. If the bot is restricted for the current user, then show an error instead of calling the method
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("bot_user_id")]
             public long BotUserId { get; set; }
 
             /// <summary>
-            /// The URL from a keyboardButtonTypeWebApp button, inlineQueryResultsButtonTypeWebApp button, an internalLinkTypeSideMenuBot link, or an empty when the bot is opened from the side menu
+            /// The URL from a keyboardButtonTypeWebApp button, inlineQueryResultsButtonTypeWebApp button, or an empty string when the bot is opened from the side menu
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("url")]
             public string Url { get; set; }
 
             /// <summary>
-            /// Preferred Web App theme; pass null to use the default theme
+            /// Parameters to use to open the Web App
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("theme")]
-            public ThemeParameters Theme { get; set; }
-
-            /// <summary>
-            /// Short name of the application; 0-64 English letters, digits, and underscores
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("application_name")]
-            public string ApplicationName { get; set; }
+            [JsonProperty("parameters")]
+            public WebAppOpenParameters Parameters { get; set; }
         }
 
         /// <summary>
-        /// Returns an HTTPS URL of a Web App to open from the side menu, a keyboardButtonTypeWebApp button, an inlineQueryResultsButtonTypeWebApp button, or an internalLinkTypeSideMenuBot link
+        /// Returns an HTTPS URL of a Web App to open from the side menu, a keyboardButtonTypeWebApp button, or an inlineQueryResultsButtonTypeWebApp button
         /// </summary>
         public static Task<HttpUrl> GetWebAppUrlAsync(
-            this Client client, long botUserId = default, string url = default, ThemeParameters theme = default, string applicationName = default)
+            this Client client, long botUserId = default, string url = default, WebAppOpenParameters parameters = default)
         {
             return client.ExecuteAsync(new GetWebAppUrl
             {
-                BotUserId = botUserId, Url = url, Theme = theme, ApplicationName = applicationName
+                BotUserId = botUserId, Url = url, Parameters = parameters
             });
         }
     }

@@ -11,7 +11,8 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Edits the message content of a live location. Messages can be edited for a limited period of time specified in the live location. Returns the edited message after the edit is completed on the server side
+        /// Edits the message content of a live location. Messages can be edited for a limited period of time specified in the live location.
+        /// Returns the edited message after the edit is completed on the server side
         /// </summary>
         public class EditMessageLiveLocation : Function<Message>
         {
@@ -35,7 +36,7 @@ namespace TdLib
             public long ChatId { get; set; }
 
             /// <summary>
-            /// Identifier of the message
+            /// Identifier of the message. Use messageProperties.can_be_edited to check whether the message can be edited
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("message_id")]
@@ -78,7 +79,8 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Edits the message content of a live location. Messages can be edited for a limited period of time specified in the live location. Returns the edited message after the edit is completed on the server side
+        /// Edits the message content of a live location. Messages can be edited for a limited period of time specified in the live location.
+        /// Returns the edited message after the edit is completed on the server side
         /// </summary>
         public static Task<Message> EditMessageLiveLocationAsync(
             this Client client, long chatId = default, long messageId = default, ReplyMarkup replyMarkup = default, Location location = default, int livePeriod = default, int heading = default, int proximityAlertRadius = default)

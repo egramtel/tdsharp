@@ -50,6 +50,13 @@ namespace TdLib
                 public bool CanReadAllGroupMessages { get; set; }
 
                 /// <summary>
+                /// True, if the bot has the main Web App
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("has_main_web_app")]
+                public bool HasMainWebApp { get; set; }
+
+                /// <summary>
                 /// True, if the bot supports inline queries
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
@@ -83,6 +90,13 @@ namespace TdLib
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("can_be_added_to_attachment_menu")]
                 public bool CanBeAddedToAttachmentMenu { get; set; }
+
+                /// <summary>
+                /// The number of recently active users of the bot
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("active_user_count")]
+                public int ActiveUserCount { get; set; }
             }
         }
     }

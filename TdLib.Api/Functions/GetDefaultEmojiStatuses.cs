@@ -13,7 +13,7 @@ namespace TdLib
         /// <summary>
         /// Returns default emoji statuses for self status
         /// </summary>
-        public class GetDefaultEmojiStatuses : Function<EmojiStatuses>
+        public class GetDefaultEmojiStatuses : Function<EmojiStatusCustomEmojis>
         {
             /// <summary>
             /// Data type for serialization
@@ -33,7 +33,7 @@ namespace TdLib
         /// <summary>
         /// Returns default emoji statuses for self status
         /// </summary>
-        public static Task<EmojiStatuses> GetDefaultEmojiStatusesAsync(
+        public static Task<EmojiStatusCustomEmojis> GetDefaultEmojiStatusesAsync(
             this Client client)
         {
             return client.ExecuteAsync(new GetDefaultEmojiStatuses

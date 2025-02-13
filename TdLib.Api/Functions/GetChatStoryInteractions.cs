@@ -42,7 +42,7 @@ namespace TdLib
             public int StoryId { get; set; }
 
             /// <summary>
-            /// Pass the default heart reaction or a suggested reaction type to receive only interactions with the specified reaction type; pass null to receive all interactions
+            /// Pass the default heart reaction or a suggested reaction type to receive only interactions with the specified reaction type; pass null to receive all interactions; reactionTypePaid isn't supported
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("reaction_type")]

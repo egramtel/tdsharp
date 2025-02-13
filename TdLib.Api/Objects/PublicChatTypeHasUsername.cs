@@ -12,7 +12,7 @@ namespace TdLib
         public partial class PublicChatType : Object
         {
             /// <summary>
-            /// Describes a type of public chats
+            /// Describes type of public chat
             /// </summary>
             public class PublicChatTypeHasUsername : PublicChatType
             {

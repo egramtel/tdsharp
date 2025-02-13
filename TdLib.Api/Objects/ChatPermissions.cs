@@ -90,11 +90,11 @@ namespace TdLib
             public bool CanSendOtherMessages { get; set; }
 
             /// <summary>
-            /// True, if the user may add a web page preview to their messages
+            /// True, if the user may add a link preview to their messages
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("can_add_web_page_previews")]
-            public bool CanAddWebPagePreviews { get; set; }
+            [JsonProperty("can_add_link_previews")]
+            public bool CanAddLinkPreviews { get; set; }
 
             /// <summary>
             /// True, if the user can change the chat title, photo, and other settings

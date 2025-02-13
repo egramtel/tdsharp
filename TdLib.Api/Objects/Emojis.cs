@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Represents a list of emoji
+        /// Represents a list of emojis
         /// </summary>
         public partial class Emojis : Object
         {

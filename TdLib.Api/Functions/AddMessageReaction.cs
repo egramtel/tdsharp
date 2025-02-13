@@ -42,7 +42,7 @@ namespace TdLib
             public long MessageId { get; set; }
 
             /// <summary>
-            /// Type of the reaction to add
+            /// Type of the reaction to add. Use addPendingPaidMessageReaction instead to add the paid reaction
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("reaction_type")]

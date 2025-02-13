@@ -42,7 +42,7 @@ namespace TdLib
             public long MessageId { get; set; }
 
             /// <summary>
-            /// Type of the reaction to remove
+            /// Type of the reaction to remove. The paid reaction can't be removed
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("reaction_type")]

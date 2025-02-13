@@ -28,7 +28,19 @@ namespace TdLib
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
+                /// <summary>
+                /// Identifier of the chat
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("chat_id")]
+                public long ChatId { get; set; }
 
+                /// <summary>
+                /// New amount of earned revenue
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("revenue_amount")]
+                public ChatRevenueAmount RevenueAmount { get; set; }
             }
         }
     }

@@ -64,7 +64,14 @@ namespace TdLib
             public bool ProtectContent { get; set; }
 
             /// <summary>
-            /// Contents of messages to be sent. At most 10 messages can be added to an album
+            /// Identifier of the effect to apply to the message
+            /// </summary>
+            [JsonConverter(typeof(Converter.Int64))]
+            [JsonProperty("effect_id")]
+            public long EffectId { get; set; }
+
+            /// <summary>
+            /// Contents of messages to be sent. At most 10 messages can be added to an album. All messages must have the same value of show_caption_above_media
             /// </summary>
             [JsonProperty("input_message_contents", ItemConverterType = typeof(Converter))]
             public InputMessageContent[] InputMessageContents { get; set; }
@@ -75,11 +82,11 @@ namespace TdLib
         /// Documents and audio files can be only grouped in an album with messages of the same type. Returns sent messages
         /// </summary>
         public static Task<BusinessMessages> SendBusinessMessageAlbumAsync(
-            this Client client, string businessConnectionId = default, long chatId = default, InputMessageReplyTo replyTo = default, bool disableNotification = default, bool protectContent = default, InputMessageContent[] inputMessageContents = default)
+            this Client client, string businessConnectionId = default, long chatId = default, InputMessageReplyTo replyTo = default, bool disableNotification = default, bool protectContent = default, long effectId = default, InputMessageContent[] inputMessageContents = default)
         {
             return client.ExecuteAsync(new SendBusinessMessageAlbum
             {
-                BusinessConnectionId = businessConnectionId, ChatId = chatId, ReplyTo = replyTo, DisableNotification = disableNotification, ProtectContent = protectContent, InputMessageContents = inputMessageContents
+                BusinessConnectionId = businessConnectionId, ChatId = chatId, ReplyTo = replyTo, DisableNotification = disableNotification, ProtectContent = protectContent, EffectId = effectId, InputMessageContents = inputMessageContents
             });
         }
     }

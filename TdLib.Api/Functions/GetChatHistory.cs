@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns messages in a chat. The messages are returned in a reverse chronological order (i.e., in order of decreasing message_id).
+        /// Returns messages in a chat. The messages are returned in reverse chronological order (i.e., in order of decreasing message_id).
         /// For optimal performance, the number of returned messages is chosen by TDLib. This is an offline request if only_local is true
         /// </summary>
         public class GetChatHistory : Function<Messages>
@@ -66,7 +66,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Returns messages in a chat. The messages are returned in a reverse chronological order (i.e., in order of decreasing message_id).
+        /// Returns messages in a chat. The messages are returned in reverse chronological order (i.e., in order of decreasing message_id).
         /// For optimal performance, the number of returned messages is chosen by TDLib. This is an offline request if only_local is true
         /// </summary>
         public static Task<Messages> GetChatHistoryAsync(

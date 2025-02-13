@@ -38,6 +38,19 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("are_tags")]
             public bool AreTags { get; set; }
+
+            /// <summary>
+            /// Information about top users that added the paid reaction
+            /// </summary>
+            [JsonProperty("paid_reactors", ItemConverterType = typeof(Converter))]
+            public PaidReactor[] PaidReactors { get; set; }
+
+            /// <summary>
+            /// True, if the list of added reactions is available using getMessageAddedReactions
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("can_get_added_reactions")]
+            public bool CanGetAddedReactions { get; set; }
         }
     }
 }

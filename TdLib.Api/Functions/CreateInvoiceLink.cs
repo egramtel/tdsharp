@@ -28,6 +28,13 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
+            /// Unique identifier of business connection on behalf of which to send the request
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("business_connection_id")]
+            public string BusinessConnectionId { get; set; }
+
+            /// <summary>
             /// Information about the invoice of the type inputMessageInvoice
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -39,11 +46,11 @@ namespace TdLib
         /// Creates a link for the given invoice; for bots only
         /// </summary>
         public static Task<HttpUrl> CreateInvoiceLinkAsync(
-            this Client client, InputMessageContent invoice = default)
+            this Client client, string businessConnectionId = default, InputMessageContent invoice = default)
         {
             return client.ExecuteAsync(new CreateInvoiceLink
             {
-                Invoice = invoice
+                BusinessConnectionId = businessConnectionId, Invoice = invoice
             });
         }
     }

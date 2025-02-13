@@ -27,11 +27,11 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// The title of the folder; 1-12 characters without line feeds
+            /// The name of the folder
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("title")]
-            public string Title { get; set; }
+            [JsonProperty("name")]
+            public ChatFolderName Name { get; set; }
 
             /// <summary>
             /// The chosen icon for the chat folder; may be null. If null, use getChatFolderDefaultIconName to get default icon name for the folder

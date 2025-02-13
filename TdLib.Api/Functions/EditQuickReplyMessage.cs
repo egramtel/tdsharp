@@ -12,7 +12,7 @@ namespace TdLib
     {
         /// <summary>
         /// Asynchronously edits the text, media or caption of a quick reply message. Use quickReplyMessage.can_be_edited to check whether a message can be edited.
-        /// Text message can be edited only to a text message. The type of message content in an album can't be changed with exception of replacing a photo with a video or vice versa
+        /// Media message can be edited only to a media message. The type of message content in an album can't be changed with exception of replacing a photo with a video or vice versa
         /// </summary>
         public class EditQuickReplyMessage : Function<Ok>
         {
@@ -52,7 +52,7 @@ namespace TdLib
 
         /// <summary>
         /// Asynchronously edits the text, media or caption of a quick reply message. Use quickReplyMessage.can_be_edited to check whether a message can be edited.
-        /// Text message can be edited only to a text message. The type of message content in an album can't be changed with exception of replacing a photo with a video or vice versa
+        /// Media message can be edited only to a media message. The type of message content in an album can't be changed with exception of replacing a photo with a video or vice versa
         /// </summary>
         public static Task<Ok> EditQuickReplyMessageAsync(
             this Client client, int shortcutId = default, long messageId = default, InputMessageContent inputMessageContent = default)

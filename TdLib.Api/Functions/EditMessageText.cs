@@ -35,7 +35,7 @@ namespace TdLib
             public long ChatId { get; set; }
 
             /// <summary>
-            /// Identifier of the message
+            /// Identifier of the message. Use messageProperties.can_be_edited to check whether the message can be edited
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("message_id")]

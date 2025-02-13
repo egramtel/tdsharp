@@ -13,7 +13,7 @@ namespace TdLib
         /// <summary>
         /// Returns up to 8 emoji statuses, which must be shown right after the default Premium Badge in the emoji status list for self status
         /// </summary>
-        public class GetThemedEmojiStatuses : Function<EmojiStatuses>
+        public class GetThemedEmojiStatuses : Function<EmojiStatusCustomEmojis>
         {
             /// <summary>
             /// Data type for serialization
@@ -33,7 +33,7 @@ namespace TdLib
         /// <summary>
         /// Returns up to 8 emoji statuses, which must be shown right after the default Premium Badge in the emoji status list for self status
         /// </summary>
-        public static Task<EmojiStatuses> GetThemedEmojiStatusesAsync(
+        public static Task<EmojiStatusCustomEmojis> GetThemedEmojiStatusesAsync(
             this Client client)
         {
             return client.ExecuteAsync(new GetThemedEmojiStatuses

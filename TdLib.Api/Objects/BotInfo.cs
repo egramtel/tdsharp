@@ -68,6 +68,13 @@ namespace TdLib
             public BotCommand[] Commands { get; set; }
 
             /// <summary>
+            /// The HTTP link to the privacy policy of the bot. If empty, then /privacy command must be used if supported by the bot. If the command isn't supported, then https://telegram.org/privacy-tpa must be opened
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("privacy_policy_url")]
+            public string PrivacyPolicyUrl { get; set; }
+
+            /// <summary>
             /// Default administrator rights for adding the bot to basic group and supergroup chats; may be null
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -80,6 +87,69 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("default_channel_administrator_rights")]
             public ChatAdministratorRights DefaultChannelAdministratorRights { get; set; }
+
+            /// <summary>
+            /// Information about the affiliate program of the bot; may be null if none
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("affiliate_program")]
+            public AffiliateProgramInfo AffiliateProgram { get; set; }
+
+            /// <summary>
+            /// Default light background color for bot Web Apps; -1 if not specified
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("web_app_background_light_color")]
+            public int WebAppBackgroundLightColor { get; set; }
+
+            /// <summary>
+            /// Default dark background color for bot Web Apps; -1 if not specified
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("web_app_background_dark_color")]
+            public int WebAppBackgroundDarkColor { get; set; }
+
+            /// <summary>
+            /// Default light header color for bot Web Apps; -1 if not specified
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("web_app_header_light_color")]
+            public int WebAppHeaderLightColor { get; set; }
+
+            /// <summary>
+            /// Default dark header color for bot Web Apps; -1 if not specified
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("web_app_header_dark_color")]
+            public int WebAppHeaderDarkColor { get; set; }
+
+            /// <summary>
+            /// Parameters of the verification that can be provided by the bot; may be null if none or the current user isn't the owner of the bot
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("verification_parameters")]
+            public BotVerificationParameters VerificationParameters { get; set; }
+
+            /// <summary>
+            /// True, if the bot's revenue statistics are available to the current user
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("can_get_revenue_statistics")]
+            public bool CanGetRevenueStatistics { get; set; }
+
+            /// <summary>
+            /// True, if the bot can manage emoji status of the current user
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("can_manage_emoji_status")]
+            public bool CanManageEmojiStatus { get; set; }
+
+            /// <summary>
+            /// True, if the bot has media previews
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("has_media_previews")]
+            public bool HasMediaPreviews { get; set; }
 
             /// <summary>
             /// The internal link, which can be used to edit bot commands; may be null

@@ -116,6 +116,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("forum_changes")]
             public bool ForumChanges { get; set; }
+
+            /// <summary>
+            /// True, if subscription extensions need to be returned
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("subscription_extensions")]
+            public bool SubscriptionExtensions { get; set; }
         }
     }
 }

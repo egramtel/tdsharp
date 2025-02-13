@@ -35,7 +35,7 @@ namespace TdLib
             public long ChatId { get; set; }
 
             /// <summary>
-            /// Message identifier of the message with the button
+            /// Message identifier of the message with the button. The message must not be scheduled
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("message_id")]

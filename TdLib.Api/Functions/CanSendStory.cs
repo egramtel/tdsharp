@@ -28,7 +28,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Chat identifier
+            /// Chat identifier. Pass Saved Messages chat identifier when posting a story on behalf of the current user
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_id")]

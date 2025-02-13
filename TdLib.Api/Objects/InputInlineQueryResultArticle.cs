@@ -43,13 +43,6 @@ namespace TdLib
                 public string Url { get; set; }
 
                 /// <summary>
-                /// True, if the URL must be not shown
-                /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("hide_url")]
-                public bool HideUrl { get; set; }
-
-                /// <summary>
                 /// Title of the result
                 /// </summary>
                 [JsonConverter(typeof(Converter))]

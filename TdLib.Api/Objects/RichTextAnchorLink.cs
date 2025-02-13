@@ -12,7 +12,7 @@ namespace TdLib
         public partial class RichText : Object
         {
             /// <summary>
-            /// A link to an anchor on the same web page
+            /// A link to an anchor on the same page
             /// </summary>
             public class RichTextAnchorLink : RichText
             {

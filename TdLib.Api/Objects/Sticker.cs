@@ -76,12 +76,6 @@ namespace TdLib
             public StickerFullType FullType { get; set; }
 
             /// <summary>
-            /// Sticker's outline represented as a list of closed vector paths; may be empty. The coordinate system origin is in the upper-left corner
-            /// </summary>
-            [JsonProperty("outline", ItemConverterType = typeof(Converter))]
-            public ClosedVectorPath[] Outline { get; set; }
-
-            /// <summary>
             /// Sticker thumbnail in WEBP or JPEG format; may be null
             /// </summary>
             [JsonConverter(typeof(Converter))]

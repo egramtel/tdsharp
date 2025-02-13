@@ -12,7 +12,7 @@ namespace TdLib
         public partial class MessageContent : Object
         {
             /// <summary>
-            /// A payment has been completed
+            /// A payment has been sent to a bot or a business account
             /// </summary>
             public class MessagePaymentSuccessful : MessageContent
             {
@@ -55,6 +55,13 @@ namespace TdLib
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("total_amount")]
                 public long TotalAmount { get; set; }
+
+                /// <summary>
+                /// Point in time (Unix timestamp) when the subscription will expire; 0 if unknown or the payment isn't recurring
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("subscription_until_date")]
+                public int SubscriptionUntilDate { get; set; }
 
                 /// <summary>
                 /// True, if this is a recurring payment

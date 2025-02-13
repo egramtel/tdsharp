@@ -47,17 +47,24 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_video")]
             public bool IsVideo { get; set; }
+
+            /// <summary>
+            /// Identifier of the group call to which the user will be added after exchanging private key via the call; pass 0 if none; currently, ignored
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("group_call_id")]
+            public int GroupCallId { get; set; }
         }
 
         /// <summary>
         /// Creates a new call
         /// </summary>
         public static Task<CallId> CreateCallAsync(
-            this Client client, long userId = default, CallProtocol protocol = default, bool isVideo = default)
+            this Client client, long userId = default, CallProtocol protocol = default, bool isVideo = default, int groupCallId = default)
         {
             return client.ExecuteAsync(new CreateCall
             {
-                UserId = userId, Protocol = protocol, IsVideo = isVideo
+                UserId = userId, Protocol = protocol, IsVideo = isVideo, GroupCallId = groupCallId
             });
         }
     }

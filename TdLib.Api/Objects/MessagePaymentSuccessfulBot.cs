@@ -12,7 +12,7 @@ namespace TdLib
         public partial class MessageContent : Object
         {
             /// <summary>
-            /// A payment has been completed; for bots only
+            /// A payment has been received by the bot or the business account
             /// </summary>
             public class MessagePaymentSuccessfulBot : MessageContent
             {
@@ -43,6 +43,13 @@ namespace TdLib
                 public long TotalAmount { get; set; }
 
                 /// <summary>
+                /// Point in time (Unix timestamp) when the subscription will expire; 0 if unknown or the payment isn't recurring
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("subscription_until_date")]
+                public int SubscriptionUntilDate { get; set; }
+
+                /// <summary>
                 /// True, if this is a recurring payment
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
@@ -64,14 +71,14 @@ namespace TdLib
                 public byte[] InvoicePayload { get; set; }
 
                 /// <summary>
-                /// Identifier of the shipping option chosen by the user; may be empty if not applicable
+                /// Identifier of the shipping option chosen by the user; may be empty if not applicable; for bots only
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("shipping_option_id")]
                 public string ShippingOptionId { get; set; }
 
                 /// <summary>
-                /// Information about the order; may be null
+                /// Information about the order; may be null; for bots only
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("order_info")]

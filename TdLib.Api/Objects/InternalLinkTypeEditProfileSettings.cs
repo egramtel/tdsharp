@@ -12,7 +12,7 @@ namespace TdLib
         public partial class InternalLinkType : Object
         {
             /// <summary>
-            /// The link is a link to the edit profile section of the app settings
+            /// The link is a link to the edit profile section of the application settings
             /// </summary>
             public class InternalLinkTypeEditProfileSettings : InternalLinkType
             {

@@ -42,6 +42,13 @@ namespace TdLib
             public string InviteLink { get; set; }
 
             /// <summary>
+            /// Pass true if the link is a subscription link and only members with expired subscription must be returned
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("only_with_expired_subscription")]
+            public bool OnlyWithExpiredSubscription { get; set; }
+
+            /// <summary>
             /// A chat member from which to return next chat members; pass null to get results from the beginning
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -60,11 +67,11 @@ namespace TdLib
         /// Returns chat members joined a chat via an invite link. Requires administrator privileges and can_invite_users right in the chat for own links and owner privileges for other links
         /// </summary>
         public static Task<ChatInviteLinkMembers> GetChatInviteLinkMembersAsync(
-            this Client client, long chatId = default, string inviteLink = default, ChatInviteLinkMember offsetMember = default, int limit = default)
+            this Client client, long chatId = default, string inviteLink = default, bool onlyWithExpiredSubscription = default, ChatInviteLinkMember offsetMember = default, int limit = default)
         {
             return client.ExecuteAsync(new GetChatInviteLinkMembers
             {
-                ChatId = chatId, InviteLink = inviteLink, OffsetMember = offsetMember, Limit = limit
+                ChatId = chatId, InviteLink = inviteLink, OnlyWithExpiredSubscription = onlyWithExpiredSubscription, OffsetMember = offsetMember, Limit = limit
             });
         }
     }

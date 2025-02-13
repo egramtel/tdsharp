@@ -29,11 +29,11 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Nonce to pass to the SafetyNet Attestation API
+                /// Parameters to be used for device verification
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("nonce")]
-                public byte[] Nonce { get; set; }
+                [JsonProperty("device_verification_parameters")]
+                public FirebaseDeviceVerificationParameters DeviceVerificationParameters { get; set; }
 
                 /// <summary>
                 /// Length of the code

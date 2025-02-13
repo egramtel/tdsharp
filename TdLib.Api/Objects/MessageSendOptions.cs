@@ -48,6 +48,13 @@ namespace TdLib
             public bool ProtectContent { get; set; }
 
             /// <summary>
+            /// Pass true to allow the message to ignore regular broadcast limits for a small fee; for bots only
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("allow_paid_broadcast")]
+            public bool AllowPaidBroadcast { get; set; }
+
+            /// <summary>
             /// Pass true if the user explicitly chosen a sticker or a custom emoji from an installed sticker set; applicable only to sendMessage and sendMessageAlbum
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -60,6 +67,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("scheduling_state")]
             public MessageSchedulingState SchedulingState { get; set; }
+
+            /// <summary>
+            /// Identifier of the effect to apply to the message; pass 0 if none; applicable only to sendMessage and sendMessageAlbum in private chats
+            /// </summary>
+            [JsonConverter(typeof(Converter.Int64))]
+            [JsonProperty("effect_id")]
+            public long EffectId { get; set; }
 
             /// <summary>
             /// Non-persistent identifier, which will be returned back in messageSendingStatePending object and can be used to match sent messages and corresponding updateNewMessage updates

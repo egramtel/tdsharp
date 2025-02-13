@@ -42,7 +42,7 @@ namespace TdLib
             public int StoryId { get; set; }
 
             /// <summary>
-            /// Type of the reaction to set; pass null to remove the reaction. `reactionTypeCustomEmoji` reactions can be used only by Telegram Premium users
+            /// Type of the reaction to set; pass null to remove the reaction. Custom emoji reactions can be used only by Telegram Premium users. Paid reactions can't be set
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("reaction_type")]

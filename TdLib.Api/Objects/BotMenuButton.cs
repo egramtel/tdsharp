@@ -34,7 +34,7 @@ namespace TdLib
             public string Text { get; set; }
 
             /// <summary>
-            /// URL to be passed to openWebApp
+            /// URL of a Web App to open when the button is pressed. If the link is of the type internalLinkTypeWebApp, then it must be processed accordingly. Otherwise, the link must be passed to openWebApp
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("url")]

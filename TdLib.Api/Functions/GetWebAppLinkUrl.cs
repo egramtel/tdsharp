@@ -56,36 +56,29 @@ namespace TdLib
             public string StartParameter { get; set; }
 
             /// <summary>
-            /// Preferred Web App theme; pass null to use the default theme
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("theme")]
-            public ThemeParameters Theme { get; set; }
-
-            /// <summary>
-            /// Short name of the application; 0-64 English letters, digits, and underscores
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("application_name")]
-            public string ApplicationName { get; set; }
-
-            /// <summary>
             /// Pass true if the current user allowed the bot to send them messages
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("allow_write_access")]
             public bool AllowWriteAccess { get; set; }
+
+            /// <summary>
+            /// Parameters to use to open the Web App
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("parameters")]
+            public WebAppOpenParameters Parameters { get; set; }
         }
 
         /// <summary>
         /// Returns an HTTPS URL of a Web App to open after a link of the type internalLinkTypeWebApp is clicked
         /// </summary>
         public static Task<HttpUrl> GetWebAppLinkUrlAsync(
-            this Client client, long chatId = default, long botUserId = default, string webAppShortName = default, string startParameter = default, ThemeParameters theme = default, string applicationName = default, bool allowWriteAccess = default)
+            this Client client, long chatId = default, long botUserId = default, string webAppShortName = default, string startParameter = default, bool allowWriteAccess = default, WebAppOpenParameters parameters = default)
         {
             return client.ExecuteAsync(new GetWebAppLinkUrl
             {
-                ChatId = chatId, BotUserId = botUserId, WebAppShortName = webAppShortName, StartParameter = startParameter, Theme = theme, ApplicationName = applicationName, AllowWriteAccess = allowWriteAccess
+                ChatId = chatId, BotUserId = botUserId, WebAppShortName = webAppShortName, StartParameter = startParameter, AllowWriteAccess = allowWriteAccess, Parameters = parameters
             });
         }
     }

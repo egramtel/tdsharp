@@ -12,7 +12,7 @@ namespace TdLib
         public partial class PageBlock : Object
         {
             /// <summary>
-            /// Describes a block of an instant view web page
+            /// Describes a block of an instant view for a web page
             /// </summary>
             public class PageBlockTitle : PageBlock
             {

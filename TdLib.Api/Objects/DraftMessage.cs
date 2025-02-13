@@ -46,6 +46,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("input_message_text")]
             public InputMessageContent InputMessageText { get; set; }
+
+            /// <summary>
+            /// Identifier of the effect to apply to the message when it is sent; 0 if none
+            /// </summary>
+            [JsonConverter(typeof(Converter.Int64))]
+            [JsonProperty("effect_id")]
+            public long EffectId { get; set; }
         }
     }
 }

@@ -61,6 +61,13 @@ namespace TdLib
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("month_count")]
                 public int MonthCount { get; set; }
+
+                /// <summary>
+                /// Text to show along with the gift codes; 0-getOption("gift_text_length_max") characters. Only Bold, Italic, Underline, Strikethrough, Spoiler, and CustomEmoji entities are allowed
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("text")]
+                public FormattedText Text { get; set; }
             }
         }
     }

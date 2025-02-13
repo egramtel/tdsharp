@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns available options for Telegram Premium gift code or giveaway creation
+        /// Returns available options for Telegram Premium gift code or Telegram Premium giveaway creation
         /// </summary>
         public class GetPremiumGiftCodePaymentOptions : Function<PremiumGiftCodePaymentOptions>
         {
@@ -36,7 +36,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Returns available options for Telegram Premium gift code or giveaway creation
+        /// Returns available options for Telegram Premium gift code or Telegram Premium giveaway creation
         /// </summary>
         public static Task<PremiumGiftCodePaymentOptions> GetPremiumGiftCodePaymentOptionsAsync(
             this Client client, long boostedChatId = default)

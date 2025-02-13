@@ -12,7 +12,7 @@ namespace TdLib
         public partial class TextEntityType : Object
         {
             /// <summary>
-            /// A hashtag text, beginning with "#"
+            /// A hashtag text, beginning with "#" and optionally containing a chat username at the end
             /// </summary>
             public class TextEntityTypeHashtag : TextEntityType
             {

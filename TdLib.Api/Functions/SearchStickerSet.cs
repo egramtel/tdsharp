@@ -33,17 +33,24 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("name")]
             public string Name { get; set; }
+
+            /// <summary>
+            /// Pass true to ignore local cache of sticker sets and always send a network request
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("ignore_cache")]
+            public bool IgnoreCache { get; set; }
         }
 
         /// <summary>
         /// Searches for a sticker set by its name
         /// </summary>
         public static Task<StickerSet> SearchStickerSetAsync(
-            this Client client, string name = default)
+            this Client client, string name = default, bool ignoreCache = default)
         {
             return client.ExecuteAsync(new SearchStickerSet
             {
-                Name = name
+                Name = name, IgnoreCache = ignoreCache
             });
         }
     }

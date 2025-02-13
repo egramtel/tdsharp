@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Describes an option for creating Telegram Premium gift codes
+        /// Describes an option for creating Telegram Premium gift codes or Telegram Premium giveaway. Use telegramPaymentPurposePremiumGiftCodes or telegramPaymentPurposePremiumGiveaway for out-of-store payments
         /// </summary>
         public partial class PremiumGiftCodePaymentOption : Object
         {
@@ -41,11 +41,18 @@ namespace TdLib
             public long Amount { get; set; }
 
             /// <summary>
+            /// The discount associated with this option, as a percentage
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("discount_percentage")]
+            public int DiscountPercentage { get; set; }
+
+            /// <summary>
             /// Number of users which will be able to activate the gift codes
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("user_count")]
-            public int UserCount { get; set; }
+            [JsonProperty("winner_count")]
+            public int WinnerCount { get; set; }
 
             /// <summary>
             /// Number of months the Telegram Premium subscription will be active
@@ -67,6 +74,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("store_product_quantity")]
             public int StoreProductQuantity { get; set; }
+
+            /// <summary>
+            /// A sticker to be shown along with the gift code; may be null if unknown
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("sticker")]
+            public Sticker Sticker { get; set; }
         }
     }
 }

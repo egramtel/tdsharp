@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Describes a custom emoji to be shown instead of the Telegram Premium badge
+        /// Describes an emoji to be shown instead of the Telegram Premium badge
         /// </summary>
         public partial class EmojiStatus : Object
         {
@@ -27,11 +27,11 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Identifier of the custom emoji in stickerFormatTgs format
+            /// Type of the emoji status
             /// </summary>
-            [JsonConverter(typeof(Converter.Int64))]
-            [JsonProperty("custom_emoji_id")]
-            public long CustomEmojiId { get; set; }
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("type")]
+            public EmojiStatusType Type { get; set; }
 
             /// <summary>
             /// Point in time (Unix timestamp) when the status will expire; 0 if never

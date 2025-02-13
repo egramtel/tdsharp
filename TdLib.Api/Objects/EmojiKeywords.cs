@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Represents a list of emoji with their keywords
+        /// Represents a list of emojis with their keywords
         /// </summary>
         public partial class EmojiKeywords : Object
         {
@@ -27,7 +27,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// List of emoji with their keywords
+            /// List of emojis with their keywords
             /// </summary>
             [JsonProperty("emoji_keywords", ItemConverterType = typeof(Converter))]
             public EmojiKeyword[] EmojiKeywords_ { get; set; }

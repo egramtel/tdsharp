@@ -35,7 +35,7 @@ namespace TdLib
             public long SupergroupId { get; set; }
 
             /// <summary>
-            /// Identifier of the erroneously deleted message
+            /// Identifier of the erroneously deleted message from chatEventMessageDeleted
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("message_id")]

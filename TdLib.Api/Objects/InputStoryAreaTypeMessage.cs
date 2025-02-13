@@ -36,7 +36,7 @@ namespace TdLib
                 public long ChatId { get; set; }
 
                 /// <summary>
-                /// Identifier of the message. Only successfully sent non-scheduled messages can be specified
+                /// Identifier of the message. Use messageProperties.can_be_shared_in_story to check whether the message is suitable
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("message_id")]

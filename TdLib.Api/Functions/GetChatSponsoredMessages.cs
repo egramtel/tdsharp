@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns sponsored messages to be shown in a chat; for channel chats only
+        /// Returns sponsored messages to be shown in a chat; for channel chats and chats with bots only
         /// </summary>
         public class GetChatSponsoredMessages : Function<SponsoredMessages>
         {
@@ -36,7 +36,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Returns sponsored messages to be shown in a chat; for channel chats only
+        /// Returns sponsored messages to be shown in a chat; for channel chats and chats with bots only
         /// </summary>
         public static Task<SponsoredMessages> GetChatSponsoredMessagesAsync(
             this Client client, long chatId = default)

@@ -29,25 +29,11 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Product title
+                /// Information about the product
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("title")]
-                public string Title { get; set; }
-
-                /// <summary>
-                /// 
-                /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("description")]
-                public FormattedText Description { get; set; }
-
-                /// <summary>
-                /// Product photo; may be null
-                /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("photo")]
-                public Photo Photo { get; set; }
+                [JsonProperty("product_info")]
+                public ProductInfo ProductInfo { get; set; }
 
                 /// <summary>
                 /// Currency for the product price
@@ -92,11 +78,18 @@ namespace TdLib
                 public long ReceiptMessageId { get; set; }
 
                 /// <summary>
-                /// Extended media attached to the invoice; may be null
+                /// Extended media attached to the invoice; may be null if none
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("extended_media")]
-                public MessageExtendedMedia ExtendedMedia { get; set; }
+                [JsonProperty("paid_media")]
+                public PaidMedia PaidMedia { get; set; }
+
+                /// <summary>
+                /// Extended media caption; may be null if none
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("paid_media_caption")]
+                public FormattedText PaidMediaCaption { get; set; }
             }
         }
     }

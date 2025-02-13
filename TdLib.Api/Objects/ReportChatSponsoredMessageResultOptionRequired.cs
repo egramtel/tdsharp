@@ -39,7 +39,7 @@ namespace TdLib
                 /// List of available options
                 /// </summary>
                 [JsonProperty("options", ItemConverterType = typeof(Converter))]
-                public ReportChatSponsoredMessageOption[] Options { get; set; }
+                public ReportOption[] Options { get; set; }
             }
         }
     }

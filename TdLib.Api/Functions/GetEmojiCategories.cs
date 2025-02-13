@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns available emojis categories
+        /// Returns available emoji categories
         /// </summary>
         public class GetEmojiCategories : Function<EmojiCategories>
         {
@@ -36,7 +36,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Returns available emojis categories
+        /// Returns available emoji categories
         /// </summary>
         public static Task<EmojiCategories> GetEmojiCategoriesAsync(
             this Client client, EmojiCategoryType type = default)

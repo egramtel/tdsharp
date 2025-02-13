@@ -28,7 +28,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// New type of the default reaction
+            /// New type of the default reaction. The paid reaction can't be set as default
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("reaction_type")]

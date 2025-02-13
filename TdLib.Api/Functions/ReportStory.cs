@@ -13,7 +13,7 @@ namespace TdLib
         /// <summary>
         /// Reports a story to the Telegram moderators
         /// </summary>
-        public class ReportStory : Function<Ok>
+        public class ReportStory : Function<ReportStoryResult>
         {
             /// <summary>
             /// Data type for serialization
@@ -42,14 +42,14 @@ namespace TdLib
             public int StoryId { get; set; }
 
             /// <summary>
-            /// The reason for reporting the story
+            /// Option identifier chosen by the user; leave empty for the initial request
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("reason")]
-            public ReportReason Reason { get; set; }
+            [JsonProperty("option_id")]
+            public byte[] OptionId { get; set; }
 
             /// <summary>
-            /// Additional report details; 0-1024 characters
+            /// Additional report details; 0-1024 characters; leave empty for the initial request
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("text")]
@@ -59,12 +59,12 @@ namespace TdLib
         /// <summary>
         /// Reports a story to the Telegram moderators
         /// </summary>
-        public static Task<Ok> ReportStoryAsync(
-            this Client client, long storySenderChatId = default, int storyId = default, ReportReason reason = default, string text = default)
+        public static Task<ReportStoryResult> ReportStoryAsync(
+            this Client client, long storySenderChatId = default, int storyId = default, byte[] optionId = default, string text = default)
         {
             return client.ExecuteAsync(new ReportStory
             {
-                StorySenderChatId = storySenderChatId, StoryId = storyId, Reason = reason, Text = text
+                StorySenderChatId = storySenderChatId, StoryId = storyId, OptionId = optionId, Text = text
             });
         }
     }

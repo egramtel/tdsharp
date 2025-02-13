@@ -28,7 +28,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Identifier of the chat that will post the story
+            /// Identifier of the chat that will post the story. Pass Saved Messages chat identifier when posting a story on behalf of the current user
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_id")]
@@ -70,7 +70,7 @@ namespace TdLib
             public int ActivePeriod { get; set; }
 
             /// <summary>
-            /// Full identifier of the original story, which content was used to create the story
+            /// Full identifier of the original story, which content was used to create the story; pass null if the story isn't repost of another story
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("from_story_full_id")]

@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Toggles whether sender signature is added to sent messages in a channel; requires can_change_info member right
+        /// Toggles whether sender signature or link to the account is added to sent messages in a channel; requires can_change_info member right
         /// </summary>
         public class ToggleSupergroupSignMessages : Function<Ok>
         {
@@ -40,17 +40,24 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("sign_messages")]
             public bool SignMessages { get; set; }
+
+            /// <summary>
+            /// New value of show_message_sender
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("show_message_sender")]
+            public bool ShowMessageSender { get; set; }
         }
 
         /// <summary>
-        /// Toggles whether sender signature is added to sent messages in a channel; requires can_change_info member right
+        /// Toggles whether sender signature or link to the account is added to sent messages in a channel; requires can_change_info member right
         /// </summary>
         public static Task<Ok> ToggleSupergroupSignMessagesAsync(
-            this Client client, long supergroupId = default, bool signMessages = default)
+            this Client client, long supergroupId = default, bool signMessages = default, bool showMessageSender = default)
         {
             return client.ExecuteAsync(new ToggleSupergroupSignMessages
             {
-                SupergroupId = supergroupId, SignMessages = signMessages
+                SupergroupId = supergroupId, SignMessages = signMessages, ShowMessageSender = showMessageSender
             });
         }
     }

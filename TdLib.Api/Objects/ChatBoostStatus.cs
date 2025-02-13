@@ -92,7 +92,7 @@ namespace TdLib
             /// The list of prepaid giveaways available for the chat; only for chat administrators
             /// </summary>
             [JsonProperty("prepaid_giveaways", ItemConverterType = typeof(Converter))]
-            public PrepaidPremiumGiveaway[] PrepaidGiveaways { get; set; }
+            public PrepaidGiveaway[] PrepaidGiveaways { get; set; }
         }
     }
 }

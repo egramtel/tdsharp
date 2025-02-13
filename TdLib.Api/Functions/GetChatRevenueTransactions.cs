@@ -11,7 +11,8 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns the list of revenue transactions for a chat. Currently, this method can be used only for channels if supergroupFullInfo.can_get_revenue_statistics == true
+        /// Returns the list of revenue transactions for a chat. Currently, this method can be used only
+        /// for channels if supergroupFullInfo.can_get_revenue_statistics == true or bots if userFullInfo.bot_info.can_get_revenue_statistics == true
         /// </summary>
         public class GetChatRevenueTransactions : Function<ChatRevenueTransactions>
         {
@@ -50,7 +51,8 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Returns the list of revenue transactions for a chat. Currently, this method can be used only for channels if supergroupFullInfo.can_get_revenue_statistics == true
+        /// Returns the list of revenue transactions for a chat. Currently, this method can be used only
+        /// for channels if supergroupFullInfo.can_get_revenue_statistics == true or bots if userFullInfo.bot_info.can_get_revenue_statistics == true
         /// </summary>
         public static Task<ChatRevenueTransactions> GetChatRevenueTransactionsAsync(
             this Client client, long chatId = default, int offset = default, int limit = default)

@@ -36,7 +36,7 @@ namespace TdLib
                 public string Receipt { get; set; }
 
                 /// <summary>
-                /// Time after the next authentication method is supposed to be used if verification push notification isn't received, in seconds
+                /// Time after the next authentication method is expected to be used if verification push notification isn't received, in seconds
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("push_timeout")]

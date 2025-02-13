@@ -56,7 +56,7 @@ namespace TdLib
             public string ShippingOptionId { get; set; }
 
             /// <summary>
-            /// The credentials chosen by user for payment
+            /// The credentials chosen by user for payment; pass null for a payment in Telegram Stars
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("credentials")]

@@ -35,7 +35,7 @@ namespace TdLib
                 public AccentColor[] Colors { get; set; }
 
                 /// <summary>
-                /// The list of accent color identifiers, which can be set through setAccentColor and setChatAccentColor. The colors must be shown in the specififed order
+                /// The list of accent color identifiers, which can be set through setAccentColor and setChatAccentColor. The colors must be shown in the specified order
                 /// </summary>
                 [JsonProperty("available_accent_color_ids", ItemConverterType = typeof(Converter))]
                 public int[] AvailableAccentColorIds { get; set; }

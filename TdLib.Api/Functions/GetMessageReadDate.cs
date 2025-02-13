@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns read date of a recent outgoing message in a private chat. The method can be called if message.can_get_read_date == true and the message is read
+        /// Returns read date of a recent outgoing message in a private chat. The method can be called if messageProperties.can_get_read_date == true
         /// </summary>
         public class GetMessageReadDate : Function<MessageReadDate>
         {
@@ -43,7 +43,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Returns read date of a recent outgoing message in a private chat. The method can be called if message.can_get_read_date == true and the message is read
+        /// Returns read date of a recent outgoing message in a private chat. The method can be called if messageProperties.can_get_read_date == true
         /// </summary>
         public static Task<MessageReadDate> GetMessageReadDateAsync(
             this Client client, long chatId = default, long messageId = default)

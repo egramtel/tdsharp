@@ -69,6 +69,13 @@ namespace TdLib
             public int ExpirationDate { get; set; }
 
             /// <summary>
+            /// Information about subscription plan that is applied to the users joining the chat by the link; may be null if the link doesn't require subscription
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("subscription_pricing")]
+            public StarSubscriptionPricing SubscriptionPricing { get; set; }
+
+            /// <summary>
             /// The maximum number of members, which can join the chat using the link simultaneously; 0 if not limited. Always 0 if the link requires approval
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -81,6 +88,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("member_count")]
             public int MemberCount { get; set; }
+
+            /// <summary>
+            /// Number of chat members, which joined the chat using the link, but have already left because of expired subscription; for subscription links only
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("expired_member_count")]
+            public int ExpiredMemberCount { get; set; }
 
             /// <summary>
             /// Number of pending join requests created using this link

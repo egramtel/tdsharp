@@ -29,7 +29,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Video to be sent
+                /// Video to be sent. The video is expected to be re-encoded to MPEG4 format with H.264 codec by the sender
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("video")]
@@ -41,6 +41,20 @@ namespace TdLib
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("thumbnail")]
                 public InputThumbnail Thumbnail { get; set; }
+
+                /// <summary>
+                /// Cover of the video; pass null to skip cover uploading; not supported in secret chats and for self-destructing messages
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("cover")]
+                public InputFile Cover { get; set; }
+
+                /// <summary>
+                /// Timestamp from which the video playing must start, in seconds
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("start_timestamp")]
+                public int StartTimestamp { get; set; }
 
                 /// <summary>
                 /// File identifiers of the stickers added to the video, if applicable
@@ -70,7 +84,7 @@ namespace TdLib
                 public int Height { get; set; }
 
                 /// <summary>
-                /// True, if the video is supposed to be streamed
+                /// True, if the video is expected to be streamed
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("supports_streaming")]
@@ -82,6 +96,13 @@ namespace TdLib
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("caption")]
                 public FormattedText Caption { get; set; }
+
+                /// <summary>
+                /// True, if the caption must be shown above the video; otherwise, the caption must be shown below the video; not supported in secret chats
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("show_caption_above_media")]
+                public bool ShowCaptionAboveMedia { get; set; }
 
                 /// <summary>
                 /// Video self-destruct type; pass null if none; private chats only

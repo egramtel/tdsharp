@@ -36,7 +36,7 @@ namespace TdLib
                 public StoryVideo Video { get; set; }
 
                 /// <summary>
-                /// Alternative version of the video in MPEG4 format, encoded by x264 codec; may be null
+                /// Alternative version of the video in MPEG4 format, encoded with H.264 codec; may be null
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("alternative_video")]

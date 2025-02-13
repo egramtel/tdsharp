@@ -90,6 +90,13 @@ namespace TdLib
             public double? SlowModeDelayExpiresIn { get; set; }
 
             /// <summary>
+            /// True, if paid reaction can be enabled in the channel chat; for channels only
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("can_enable_paid_reaction")]
+            public bool CanEnablePaidReaction { get; set; }
+
+            /// <summary>
             /// True, if members of the chat can be retrieved via getSupergroupMembers or searchChatMembers
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -139,6 +146,20 @@ namespace TdLib
             public bool CanGetRevenueStatistics { get; set; }
 
             /// <summary>
+            /// True, if the supergroup or channel Telegram Star revenue statistics are available
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("can_get_star_revenue_statistics")]
+            public bool CanGetStarRevenueStatistics { get; set; }
+
+            /// <summary>
+            /// True, if the user can send a gift to the supergroup or channel using sendGift or transferGift
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("can_send_gift")]
+            public bool CanSendGift { get; set; }
+
+            /// <summary>
             /// True, if aggressive anti-spam checks can be enabled or disabled in the supergroup
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -147,7 +168,6 @@ namespace TdLib
 
             /// <summary>
             /// True, if new chat members will have access to old messages. In public, discussion, of forum groups and all channels, old messages are always available,
-            /// so this option affects only private non-forum supergroups without a linked chat. The value of this field is only available to chat administrators
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_all_history_available")]
@@ -168,11 +188,25 @@ namespace TdLib
             public bool HasAggressiveAntiSpamEnabled { get; set; }
 
             /// <summary>
+            /// True, if paid media can be sent and forwarded to the channel chat; for channels only
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("has_paid_media_allowed")]
+            public bool HasPaidMediaAllowed { get; set; }
+
+            /// <summary>
             /// True, if the supergroup or channel has pinned stories
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("has_pinned_stories")]
             public bool HasPinnedStories { get; set; }
+
+            /// <summary>
+            /// Number of saved to profile gifts for channels without can_post_messages administrator right, otherwise, the total number of received gifts
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("gift_count")]
+            public int GiftCount { get; set; }
 
             /// <summary>
             /// Number of times the current user boosted the supergroup or channel
@@ -221,6 +255,13 @@ namespace TdLib
             /// </summary>
             [JsonProperty("bot_commands", ItemConverterType = typeof(Converter))]
             public BotCommands[] BotCommands { get; set; }
+
+            /// <summary>
+            /// Information about verification status of the supergroup or the channel provided by a bot; may be null if none or unknown
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("bot_verification")]
+            public BotVerification BotVerification { get; set; }
 
             /// <summary>
             /// Identifier of the basic group from which supergroup was upgraded; 0 if none

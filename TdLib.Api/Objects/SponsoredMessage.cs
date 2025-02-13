@@ -48,7 +48,7 @@ namespace TdLib
             public bool CanBeReported { get; set; }
 
             /// <summary>
-            /// Content of the message. Currently, can be only of the type messageText
+            /// Content of the message. Currently, can be only of the types messageText, messageAnimation, messagePhoto, or messageVideo. Video messages can be viewed fullscreen
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("content")]

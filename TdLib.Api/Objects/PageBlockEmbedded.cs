@@ -29,7 +29,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Web page URL, if available
+                /// URL of the embedded page, if available
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("url")]

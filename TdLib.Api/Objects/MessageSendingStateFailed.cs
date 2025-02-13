@@ -36,7 +36,7 @@ namespace TdLib
                 public Error Error { get; set; }
 
                 /// <summary>
-                /// True, if the message can be re-sent
+                /// True, if the message can be re-sent using resendMessages or readdQuickReplyShortcutMessages
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("can_retry")]

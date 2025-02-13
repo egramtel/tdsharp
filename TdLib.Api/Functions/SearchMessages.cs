@@ -36,13 +36,6 @@ namespace TdLib
             public ChatList ChatList { get; set; }
 
             /// <summary>
-            /// Pass true to search only for messages in channels
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("only_in_channels")]
-            public bool OnlyInChannels { get; set; }
-
-            /// <summary>
             /// Query to search for
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -71,6 +64,13 @@ namespace TdLib
             public SearchMessagesFilter Filter { get; set; }
 
             /// <summary>
+            /// Additional filter for type of the chat of the searched messages; pass null to search for messages in all chats
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("chat_type_filter")]
+            public SearchMessagesChatTypeFilter ChatTypeFilter { get; set; }
+
+            /// <summary>
             /// If not 0, the minimum date of the messages to return
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -90,11 +90,11 @@ namespace TdLib
         /// For optimal performance, the number of returned messages is chosen by TDLib and can be smaller than the specified limit
         /// </summary>
         public static Task<FoundMessages> SearchMessagesAsync(
-            this Client client, ChatList chatList = default, bool onlyInChannels = default, string query = default, string offset = default, int limit = default, SearchMessagesFilter filter = default, int minDate = default, int maxDate = default)
+            this Client client, ChatList chatList = default, string query = default, string offset = default, int limit = default, SearchMessagesFilter filter = default, SearchMessagesChatTypeFilter chatTypeFilter = default, int minDate = default, int maxDate = default)
         {
             return client.ExecuteAsync(new SearchMessages
             {
-                ChatList = chatList, OnlyInChannels = onlyInChannels, Query = query, Offset = offset, Limit = limit, Filter = filter, MinDate = minDate, MaxDate = maxDate
+                ChatList = chatList, Query = query, Offset = offset, Limit = limit, Filter = filter, ChatTypeFilter = chatTypeFilter, MinDate = minDate, MaxDate = maxDate
             });
         }
     }

@@ -29,14 +29,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// The identifier of the chat to which the message to be replied belongs; pass 0 if the message to be replied is in the same chat. Must always be 0 for replies in secret chats. A message can be replied in another chat or topic only if message.can_be_replied_in_another_chat
-                /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("chat_id")]
-                public long ChatId { get; set; }
-
-                /// <summary>
-                /// The identifier of the message to be replied in the same or the specified chat
+                /// The identifier of the message to be replied in the same chat and forum topic. A message can be replied in the same chat and forum topic only if messageProperties.can_be_replied
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("message_id")]

@@ -35,7 +35,7 @@ namespace TdLib
             public StickerType StickerType { get; set; }
 
             /// <summary>
-            /// Search query; a space-separated list of emoji or a keyword prefix. If empty, returns all known installed stickers
+            /// Search query; a space-separated list of emojis or a keyword prefix. If empty, returns all known installed stickers
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("query")]

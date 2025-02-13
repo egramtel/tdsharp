@@ -49,7 +49,7 @@ namespace TdLib
             public long FromChatId { get; set; }
 
             /// <summary>
-            /// Identifiers of the messages to forward. Message identifiers must be in a strictly increasing order. At most 100 messages can be forwarded simultaneously. A message can be forwarded only if message.can_be_forwarded
+            /// Identifiers of the messages to forward. Message identifiers must be in a strictly increasing order. At most 100 messages can be forwarded simultaneously. A message can be forwarded only if messageProperties.can_be_forwarded
             /// </summary>
             [JsonProperty("message_ids", ItemConverterType = typeof(Converter))]
             public long[] MessageIds { get; set; }
@@ -62,7 +62,8 @@ namespace TdLib
             public MessageSendOptions Options { get; set; }
 
             /// <summary>
-            /// Pass true to copy content of the messages without reference to the original sender. Always true if the messages are forwarded to a secret chat or are local
+            /// Pass true to copy content of the messages without reference to the original sender. Always true if the messages are forwarded to a secret chat or are local.
+            /// Use messageProperties.can_be_saved and messageProperties.can_be_copied_to_secret_chat to check whether the message is suitable
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("send_copy")]

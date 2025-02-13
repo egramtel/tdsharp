@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns an HTTPS link to a message in a chat. Available only for already sent messages in supergroups and channels, or if message.can_get_media_timestamp_links and a media timestamp link is generated. This is an offline request
+        /// Returns an HTTPS link to a message in a chat. Available only if messageProperties.can_get_link, or if messageProperties.can_get_media_timestamp_links and a media timestamp link is generated. This is an offline request
         /// </summary>
         public class GetMessageLink : Function<MessageLink>
         {
@@ -42,7 +42,7 @@ namespace TdLib
             public long MessageId { get; set; }
 
             /// <summary>
-            /// If not 0, timestamp from which the video/audio/video note/voice note/story playing must start, in seconds. The media can be in the message content or in its web page preview
+            /// If not 0, timestamp from which the video/audio/video note/voice note/story playing must start, in seconds. The media can be in the message content or in its link preview
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("media_timestamp")]
@@ -64,7 +64,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Returns an HTTPS link to a message in a chat. Available only for already sent messages in supergroups and channels, or if message.can_get_media_timestamp_links and a media timestamp link is generated. This is an offline request
+        /// Returns an HTTPS link to a message in a chat. Available only if messageProperties.can_get_link, or if messageProperties.can_get_media_timestamp_links and a media timestamp link is generated. This is an offline request
         /// </summary>
         public static Task<MessageLink> GetMessageLinkAsync(
             this Client client, long chatId = default, long messageId = default, int mediaTimestamp = default, bool forAlbum = default, bool inMessageThread = default)

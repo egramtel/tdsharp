@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Informs TDLib that the user opened the sponsored chat via the button, the name, the photo, or a mention in the sponsored message
+        /// Informs TDLib that the user opened the sponsored chat via the button, the name, the chat photo, a mention in the sponsored message text, or the media in the sponsored message
         /// </summary>
         public class ClickChatSponsoredMessage : Function<Ok>
         {
@@ -40,17 +40,31 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("message_id")]
             public long MessageId { get; set; }
+
+            /// <summary>
+            /// Pass true if the media was clicked in the sponsored message
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("is_media_click")]
+            public bool IsMediaClick { get; set; }
+
+            /// <summary>
+            /// Pass true if the user expanded the video from the sponsored message fullscreen before the click
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("from_fullscreen")]
+            public bool FromFullscreen { get; set; }
         }
 
         /// <summary>
-        /// Informs TDLib that the user opened the sponsored chat via the button, the name, the photo, or a mention in the sponsored message
+        /// Informs TDLib that the user opened the sponsored chat via the button, the name, the chat photo, a mention in the sponsored message text, or the media in the sponsored message
         /// </summary>
         public static Task<Ok> ClickChatSponsoredMessageAsync(
-            this Client client, long chatId = default, long messageId = default)
+            this Client client, long chatId = default, long messageId = default, bool isMediaClick = default, bool fromFullscreen = default)
         {
             return client.ExecuteAsync(new ClickChatSponsoredMessage
             {
-                ChatId = chatId, MessageId = messageId
+                ChatId = chatId, MessageId = messageId, IsMediaClick = isMediaClick, FromFullscreen = fromFullscreen
             });
         }
     }

@@ -47,17 +47,24 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("caption")]
             public FormattedText Caption { get; set; }
+
+            /// <summary>
+            /// Pass true to show the caption above the media; otherwise, the caption will be shown below the media. May be true only for animation, photo, and video messages
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("show_caption_above_media")]
+            public bool ShowCaptionAboveMedia { get; set; }
         }
 
         /// <summary>
         /// Edits the caption of an inline message sent via a bot; for bots only
         /// </summary>
         public static Task<Ok> EditInlineMessageCaptionAsync(
-            this Client client, string inlineMessageId = default, ReplyMarkup replyMarkup = default, FormattedText caption = default)
+            this Client client, string inlineMessageId = default, ReplyMarkup replyMarkup = default, FormattedText caption = default, bool showCaptionAboveMedia = default)
         {
             return client.ExecuteAsync(new EditInlineMessageCaption
             {
-                InlineMessageId = inlineMessageId, ReplyMarkup = replyMarkup, Caption = caption
+                InlineMessageId = inlineMessageId, ReplyMarkup = replyMarkup, Caption = caption, ShowCaptionAboveMedia = showCaptionAboveMedia
             });
         }
     }

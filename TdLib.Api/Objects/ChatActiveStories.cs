@@ -55,7 +55,7 @@ namespace TdLib
             public int MaxReadStoryId { get; set; }
 
             /// <summary>
-            /// Basic information about the stories; use getStory to get full information about the stories. The stories are in a chronological order (i.e., in order of increasing story identifiers)
+            /// Basic information about the stories; use getStory to get full information about the stories. The stories are in chronological order (i.e., in order of increasing story identifiers)
             /// </summary>
             [JsonProperty("stories", ItemConverterType = typeof(Converter))]
             public StoryInfo[] Stories { get; set; }

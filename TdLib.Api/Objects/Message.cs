@@ -83,95 +83,11 @@ namespace TdLib
             public bool IsFromOffline { get; set; }
 
             /// <summary>
-            /// True, if the message can be edited. For live location and poll messages this fields shows whether editMessageLiveLocation or stopPoll can be used with this message by the application
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("can_be_edited")]
-            public bool CanBeEdited { get; set; }
-
-            /// <summary>
-            /// True, if the message can be forwarded
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("can_be_forwarded")]
-            public bool CanBeForwarded { get; set; }
-
-            /// <summary>
-            /// True, if the message can be replied in another chat or topic
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("can_be_replied_in_another_chat")]
-            public bool CanBeRepliedInAnotherChat { get; set; }
-
-            /// <summary>
-            /// True, if content of the message can be saved locally or copied
+            /// True, if content of the message can be saved locally or copied using inputMessageForwarded or forwardMessages with copy options
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("can_be_saved")]
             public bool CanBeSaved { get; set; }
-
-            /// <summary>
-            /// True, if the message can be deleted only for the current user while other users will continue to see it
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("can_be_deleted_only_for_self")]
-            public bool CanBeDeletedOnlyForSelf { get; set; }
-
-            /// <summary>
-            /// True, if the message can be deleted for all users
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("can_be_deleted_for_all_users")]
-            public bool CanBeDeletedForAllUsers { get; set; }
-
-            /// <summary>
-            /// True, if the list of added reactions is available through getMessageAddedReactions
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("can_get_added_reactions")]
-            public bool CanGetAddedReactions { get; set; }
-
-            /// <summary>
-            /// True, if the message statistics are available through getMessageStatistics
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("can_get_statistics")]
-            public bool CanGetStatistics { get; set; }
-
-            /// <summary>
-            /// True, if information about the message thread is available through getMessageThread and getMessageThreadHistory
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("can_get_message_thread")]
-            public bool CanGetMessageThread { get; set; }
-
-            /// <summary>
-            /// True, if read date of the message can be received through getMessageReadDate
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("can_get_read_date")]
-            public bool CanGetReadDate { get; set; }
-
-            /// <summary>
-            /// True, if chat members already viewed the message can be received through getMessageViewers
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("can_get_viewers")]
-            public bool CanGetViewers { get; set; }
-
-            /// <summary>
-            /// True, if media timestamp links can be generated for media timestamp entities in the message text, caption or web page description through getMessageLink
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("can_get_media_timestamp_links")]
-            public bool CanGetMediaTimestampLinks { get; set; }
-
-            /// <summary>
-            /// True, if reactions on the message can be reported through reportMessageReactions
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("can_report_reactions")]
-            public bool CanReportReactions { get; set; }
 
             /// <summary>
             /// True, if media timestamp entities refers to a media in this message as opposed to a media in the replied message
@@ -202,14 +118,14 @@ namespace TdLib
             public bool ContainsUnreadMention { get; set; }
 
             /// <summary>
-            /// Point in time (Unix timestamp) when the message was sent
+            /// Point in time (Unix timestamp) when the message was sent; 0 for scheduled messages
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("date")]
             public int Date { get; set; }
 
             /// <summary>
-            /// Point in time (Unix timestamp) when the message was last edited
+            /// Point in time (Unix timestamp) when the message was last edited; 0 for scheduled messages
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("edit_date")]
@@ -241,6 +157,13 @@ namespace TdLib
             /// </summary>
             [JsonProperty("unread_reactions", ItemConverterType = typeof(Converter))]
             public UnreadReaction[] UnreadReactions { get; set; }
+
+            /// <summary>
+            /// Information about fact-check added to the message; may be null if none
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("fact_check")]
+            public FactCheck FactCheck { get; set; }
 
             /// <summary>
             /// Information about the message or the story this message is replying to; may be null if none
@@ -318,6 +241,20 @@ namespace TdLib
             [JsonConverter(typeof(Converter.Int64))]
             [JsonProperty("media_album_id")]
             public long MediaAlbumId { get; set; }
+
+            /// <summary>
+            /// Unique identifier of the effect added to the message; 0 if none
+            /// </summary>
+            [JsonConverter(typeof(Converter.Int64))]
+            [JsonProperty("effect_id")]
+            public long EffectId { get; set; }
+
+            /// <summary>
+            /// True, if media content of the message must be hidden with 18+ spoiler
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("has_sensitive_content")]
+            public bool HasSensitiveContent { get; set; }
 
             /// <summary>
             /// If non-empty, contains a human-readable description of the reason why access to this message must be restricted

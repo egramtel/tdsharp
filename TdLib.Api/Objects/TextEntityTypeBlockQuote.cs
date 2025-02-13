@@ -12,7 +12,7 @@ namespace TdLib
         public partial class TextEntityType : Object
         {
             /// <summary>
-            /// Text that must be formatted as if inside a blockquote HTML tag
+            /// Text that must be formatted as if inside a blockquote HTML tag; not supported in secret chats
             /// </summary>
             public class TextEntityTypeBlockQuote : TextEntityType
             {

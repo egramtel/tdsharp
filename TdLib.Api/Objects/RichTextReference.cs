@@ -12,7 +12,7 @@ namespace TdLib
         public partial class RichText : Object
         {
             /// <summary>
-            /// A reference to a richTexts object on the same web page
+            /// A reference to a richTexts object on the same page
             /// </summary>
             public class RichTextReference : RichText
             {

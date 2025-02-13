@@ -29,7 +29,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// List of emojis for search for
+                /// List of emojis to search for
                 /// </summary>
                 [JsonProperty("emojis", ItemConverterType = typeof(Converter))]
                 public string[] Emojis { get; set; }

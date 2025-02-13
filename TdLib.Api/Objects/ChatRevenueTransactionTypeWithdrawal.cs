@@ -47,7 +47,7 @@ namespace TdLib
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("state")]
-                public ChatRevenueWithdrawalState State { get; set; }
+                public RevenueWithdrawalState State { get; set; }
             }
         }
     }

@@ -28,7 +28,12 @@ namespace TdLib
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
-
+                /// <summary>
+                /// Point in time (Unix timestamp) when the user will be removed from the chat because of the expired subscription; 0 if never. Ignored in setChatMemberStatus
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("member_until_date")]
+                public int MemberUntilDate { get; set; }
             }
         }
     }

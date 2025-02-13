@@ -12,7 +12,7 @@ namespace TdLib
         public partial class InternalLinkType : Object
         {
             /// <summary>
-            /// The link is a link to the change phone number section of the app
+            /// The link is a link to the change phone number section of the application
             /// </summary>
             public class InternalLinkTypeChangePhoneNumber : InternalLinkType
             {

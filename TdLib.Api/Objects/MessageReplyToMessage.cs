@@ -65,9 +65,9 @@ namespace TdLib
 
                 /// <summary>
                 /// Media content of the message if the message was from another chat or topic; may be null for messages from the same chat and messages without media.
-                /// Can be only one of the following types: messageAnimation, messageAudio, messageContact, messageDice, messageDocument, messageGame, messageInvoice, messageLocation,
-                /// messagePhoto, messagePoll, messagePremiumGiveaway, messagePremiumGiveawayWinners, messageSticker, messageStory, messageText (for link preview), messageVenue,
-                /// messageVideo, messageVideoNote, or messageVoiceNote
+                /// Can be only one of the following types: messageAnimation, messageAudio, messageContact, messageDice, messageDocument, messageGame, messageGiveaway, messageGiveawayWinners,
+                /// messageInvoice, messageLocation, messagePaidMedia, messagePhoto, messagePoll, messageSticker, messageStory, messageText (for link preview), messageVenue, messageVideo,
+                /// messageVideoNote, or messageVoiceNote
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("content")]

@@ -35,13 +35,6 @@ namespace TdLib
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("can_unarchive")]
                 public bool CanUnarchive { get; set; }
-
-                /// <summary>
-                /// If non-negative, the current user was found by the other user through searchChatsNearby and this is the distance between the users
-                /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("distance")]
-                public int Distance { get; set; }
             }
         }
     }

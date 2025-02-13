@@ -139,10 +139,11 @@ namespace TdLib
             public long PersonalChatId { get; set; }
 
             /// <summary>
-            /// The list of available options for gifting Telegram Premium to the user
+            /// Number of saved to profile gifts for other users or the total number of received gifts for the current user
             /// </summary>
-            [JsonProperty("premium_gift_options", ItemConverterType = typeof(Converter))]
-            public PremiumPaymentOption[] PremiumGiftOptions { get; set; }
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("gift_count")]
+            public int GiftCount { get; set; }
 
             /// <summary>
             /// Number of group chats where both the other user and the current user are a member; 0 for the current user
@@ -150,6 +151,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("group_in_common_count")]
             public int GroupInCommonCount { get; set; }
+
+            /// <summary>
+            /// Information about verification status of the user provided by a bot; may be null if none or unknown
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("bot_verification")]
+            public BotVerification BotVerification { get; set; }
 
             /// <summary>
             /// Information about business settings for Telegram Business accounts; may be null if none

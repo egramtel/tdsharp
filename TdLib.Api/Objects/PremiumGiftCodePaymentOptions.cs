@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Contains a list of options for creating Telegram Premium gift codes
+        /// Contains a list of options for creating Telegram Premium gift codes or Telegram Premium giveaway
         /// </summary>
         public partial class PremiumGiftCodePaymentOptions : Object
         {

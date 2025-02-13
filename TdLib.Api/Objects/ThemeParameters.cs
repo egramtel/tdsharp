@@ -27,91 +27,105 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// A color of the background in the RGB24 format
+            /// A color of the background in the RGB format
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("background_color")]
             public int BackgroundColor { get; set; }
 
             /// <summary>
-            /// A secondary color for the background in the RGB24 format
+            /// A secondary color for the background in the RGB format
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("secondary_background_color")]
             public int SecondaryBackgroundColor { get; set; }
 
             /// <summary>
-            /// A color of the header background in the RGB24 format
+            /// A color of the header background in the RGB format
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("header_background_color")]
             public int HeaderBackgroundColor { get; set; }
 
             /// <summary>
-            /// A color of the section background in the RGB24 format
+            /// A color of the bottom bar background in the RGB format
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("bottom_bar_background_color")]
+            public int BottomBarBackgroundColor { get; set; }
+
+            /// <summary>
+            /// A color of the section background in the RGB format
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("section_background_color")]
             public int SectionBackgroundColor { get; set; }
 
             /// <summary>
-            /// A color of text in the RGB24 format
+            /// A color of the section separator in the RGB format
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("section_separator_color")]
+            public int SectionSeparatorColor { get; set; }
+
+            /// <summary>
+            /// A color of text in the RGB format
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("text_color")]
             public int TextColor { get; set; }
 
             /// <summary>
-            /// An accent color of the text in the RGB24 format
+            /// An accent color of the text in the RGB format
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("accent_text_color")]
             public int AccentTextColor { get; set; }
 
             /// <summary>
-            /// A color of text on the section headers in the RGB24 format
+            /// A color of text on the section headers in the RGB format
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("section_header_text_color")]
             public int SectionHeaderTextColor { get; set; }
 
             /// <summary>
-            /// A color of the subtitle text in the RGB24 format
+            /// A color of the subtitle text in the RGB format
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("subtitle_text_color")]
             public int SubtitleTextColor { get; set; }
 
             /// <summary>
-            /// A color of the text for destructive actions in the RGB24 format
+            /// A color of the text for destructive actions in the RGB format
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("destructive_text_color")]
             public int DestructiveTextColor { get; set; }
 
             /// <summary>
-            /// A color of hints in the RGB24 format
+            /// A color of hints in the RGB format
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("hint_color")]
             public int HintColor { get; set; }
 
             /// <summary>
-            /// A color of links in the RGB24 format
+            /// A color of links in the RGB format
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("link_color")]
             public int LinkColor { get; set; }
 
             /// <summary>
-            /// A color of the buttons in the RGB24 format
+            /// A color of the buttons in the RGB format
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("button_color")]
             public int ButtonColor { get; set; }
 
             /// <summary>
-            /// A color of text on the buttons in the RGB24 format
+            /// A color of text on the buttons in the RGB format
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("button_text_color")]

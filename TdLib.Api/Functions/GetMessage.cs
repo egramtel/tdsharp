@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns information about a message
+        /// Returns information about a message. Returns a 404 error if the message doesn't exist
         /// </summary>
         public class GetMessage : Function<Message>
         {
@@ -43,7 +43,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Returns information about a message
+        /// Returns information about a message. Returns a 404 error if the message doesn't exist
         /// </summary>
         public static Task<Message> GetMessageAsync(
             this Client client, long chatId = default, long messageId = default)

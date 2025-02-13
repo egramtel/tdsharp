@@ -11,8 +11,8 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Resends an authentication code to the user. Works only when the current authorization state is authorizationStateWaitCode, the next_code_type of the result is not null and the server-specified timeout has passed,
-        /// or when the current authorization state is authorizationStateWaitEmailCode
+        /// Resends an authentication code to the user. Works only when the current authorization state is authorizationStateWaitCode, the next_code_type of the result is not null
+        /// and the server-specified timeout has passed, or when the current authorization state is authorizationStateWaitEmailCode
         /// </summary>
         public class ResendAuthenticationCode : Function<Ok>
         {
@@ -28,19 +28,24 @@ namespace TdLib
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
-
+            /// <summary>
+            /// Reason of code resending; pass null if unknown
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("reason")]
+            public ResendCodeReason Reason { get; set; }
         }
 
         /// <summary>
-        /// Resends an authentication code to the user. Works only when the current authorization state is authorizationStateWaitCode, the next_code_type of the result is not null and the server-specified timeout has passed,
-        /// or when the current authorization state is authorizationStateWaitEmailCode
+        /// Resends an authentication code to the user. Works only when the current authorization state is authorizationStateWaitCode, the next_code_type of the result is not null
+        /// and the server-specified timeout has passed, or when the current authorization state is authorizationStateWaitEmailCode
         /// </summary>
         public static Task<Ok> ResendAuthenticationCodeAsync(
-            this Client client)
+            this Client client, ResendCodeReason reason = default)
         {
             return client.ExecuteAsync(new ResendAuthenticationCode
             {
-                
+                Reason = reason
             });
         }
     }

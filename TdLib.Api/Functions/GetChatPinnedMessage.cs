@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns information about a newest pinned message in the chat
+        /// Returns information about a newest pinned message in the chat. Returns a 404 error if the message doesn't exist
         /// </summary>
         public class GetChatPinnedMessage : Function<Message>
         {
@@ -36,7 +36,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Returns information about a newest pinned message in the chat
+        /// Returns information about a newest pinned message in the chat. Returns a 404 error if the message doesn't exist
         /// </summary>
         public static Task<Message> GetChatPinnedMessageAsync(
             this Client client, long chatId = default)

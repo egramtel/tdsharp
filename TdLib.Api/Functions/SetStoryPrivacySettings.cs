@@ -35,7 +35,7 @@ namespace TdLib
             public int StoryId { get; set; }
 
             /// <summary>
-            /// The new privacy settigs for the story
+            /// The new privacy settings for the story
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("privacy_settings")]

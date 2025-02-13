@@ -29,7 +29,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Video note to be sent
+                /// Video note to be sent. The video is expected to be encoded to MPEG4 format with H.264 codec and have no data outside of the visible circle
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("video_note")]

@@ -12,7 +12,7 @@ namespace TdLib
         public partial class PremiumStoryFeature : Object
         {
             /// <summary>
-            /// The ability to use links and formatting in story caption
+            /// The ability to use links and formatting in story caption, and use inputStoryAreaTypeLink areas
             /// </summary>
             public class PremiumStoryFeatureLinksAndFormatting : PremiumStoryFeature
             {

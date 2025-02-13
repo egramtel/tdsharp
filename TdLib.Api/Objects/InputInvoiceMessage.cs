@@ -36,7 +36,7 @@ namespace TdLib
                 public long ChatId { get; set; }
 
                 /// <summary>
-                /// Message identifier
+                /// Message identifier. Use messageProperties.can_be_paid to check whether the message can be used in the method
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("message_id")]

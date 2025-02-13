@@ -12,7 +12,7 @@ namespace TdLib
         public partial class StoryAreaType : Object
         {
             /// <summary>
-            /// Describes type of clickable rectangle area on a story media
+            /// Describes type of clickable area on a story media
             /// </summary>
             public class StoryAreaTypeLocation : StoryAreaType
             {
@@ -34,6 +34,13 @@ namespace TdLib
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("location")]
                 public Location Location { get; set; }
+
+                /// <summary>
+                /// Address of the location; may be null if unknown
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("address")]
+                public LocationAddress Address { get; set; }
             }
         }
     }

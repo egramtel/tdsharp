@@ -12,9 +12,10 @@ namespace TdLib
         public partial class InternalLinkType : Object
         {
             /// <summary>
-            /// The link is a link to a Web App. Call searchPublicChat with the given bot username, check that the user is a bot, then call searchWebApp with the received bot and the given web_app_short_name.
-            /// Process received foundWebApp by showing a confirmation dialog if needed. If the bot can be added to attachment or side menu, but isn't added yet, then show a disclaimer about Mini Apps being a third-party apps
-            /// instead of the dialog and ask the user to accept their Terms of service. If the user accept the terms and confirms adding, then use toggleBotIsAddedToAttachmentMenu to add the bot.
+            /// The link is a link to a Web App. Call searchPublicChat with the given bot username, check that the user is a bot. If the bot is restricted for the current user, then show an error message.
+            /// Otherwise, call searchWebApp with the received bot and the given web_app_short_name. Process received foundWebApp by showing a confirmation dialog if needed.
+            /// If the bot can be added to attachment or side menu, but isn't added yet, then show a disclaimer about Mini Apps being third-party applications instead of the dialog
+            /// and ask the user to accept their Terms of service. If the user accept the terms and confirms adding, then use toggleBotIsAddedToAttachmentMenu to add the bot.
             /// Then, call getWebAppLinkUrl and open the returned URL as a Web App
             /// </summary>
             public class InternalLinkTypeWebApp : InternalLinkType
@@ -51,6 +52,13 @@ namespace TdLib
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("start_parameter")]
                 public string StartParameter { get; set; }
+
+                /// <summary>
+                /// The mode in which the Web App must be opened
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("mode")]
+                public WebAppOpenMode Mode { get; set; }
             }
         }
     }

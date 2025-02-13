@@ -35,14 +35,14 @@ namespace TdLib
             public long ChatId { get; set; }
 
             /// <summary>
-            /// Identifier of the message
+            /// Identifier of the message. Use message.interaction_info.reactions.can_get_added_reactions to check whether added reactions can be received for the message
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("message_id")]
             public long MessageId { get; set; }
 
             /// <summary>
-            /// Type of the reactions to return; pass null to return all added reactions
+            /// Type of the reactions to return; pass null to return all added reactions; reactionTypePaid isn't supported
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("reaction_type")]

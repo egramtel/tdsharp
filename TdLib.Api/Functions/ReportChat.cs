@@ -13,7 +13,7 @@ namespace TdLib
         /// <summary>
         /// Reports a chat to the Telegram moderators. A chat can be reported only from the chat action bar, or if chat.can_be_reported
         /// </summary>
-        public class ReportChat : Function<Ok>
+        public class ReportChat : Function<ReportChatResult>
         {
             /// <summary>
             /// Data type for serialization
@@ -35,20 +35,20 @@ namespace TdLib
             public long ChatId { get; set; }
 
             /// <summary>
-            /// Identifiers of reported messages; may be empty to report the whole chat
+            /// Option identifier chosen by the user; leave empty for the initial request
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("option_id")]
+            public byte[] OptionId { get; set; }
+
+            /// <summary>
+            /// Identifiers of reported messages. Use messageProperties.can_report_chat to check whether the message can be reported
             /// </summary>
             [JsonProperty("message_ids", ItemConverterType = typeof(Converter))]
             public long[] MessageIds { get; set; }
 
             /// <summary>
-            /// The reason for reporting the chat
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("reason")]
-            public ReportReason Reason { get; set; }
-
-            /// <summary>
-            /// Additional report details; 0-1024 characters
+            /// Additional report details if asked by the server; 0-1024 characters; leave empty for the initial request
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("text")]
@@ -58,12 +58,12 @@ namespace TdLib
         /// <summary>
         /// Reports a chat to the Telegram moderators. A chat can be reported only from the chat action bar, or if chat.can_be_reported
         /// </summary>
-        public static Task<Ok> ReportChatAsync(
-            this Client client, long chatId = default, long[] messageIds = default, ReportReason reason = default, string text = default)
+        public static Task<ReportChatResult> ReportChatAsync(
+            this Client client, long chatId = default, byte[] optionId = default, long[] messageIds = default, string text = default)
         {
             return client.ExecuteAsync(new ReportChat
             {
-                ChatId = chatId, MessageIds = messageIds, Reason = reason, Text = text
+                ChatId = chatId, OptionId = optionId, MessageIds = messageIds, Text = text
             });
         }
     }

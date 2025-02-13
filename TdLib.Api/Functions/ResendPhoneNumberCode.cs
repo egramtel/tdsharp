@@ -27,18 +27,23 @@ namespace TdLib
             [JsonProperty("@extra")]
             public override string Extra { get; set; }
 
-
+            /// <summary>
+            /// Reason of code resending; pass null if unknown
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("reason")]
+            public ResendCodeReason Reason { get; set; }
         }
 
         /// <summary>
         /// Resends the authentication code sent to a phone number. Works only if the previously received authenticationCodeInfo next_code_type was not null and the server-specified timeout has passed
         /// </summary>
         public static Task<AuthenticationCodeInfo> ResendPhoneNumberCodeAsync(
-            this Client client)
+            this Client client, ResendCodeReason reason = default)
         {
             return client.ExecuteAsync(new ResendPhoneNumberCode
             {
-                
+                Reason = reason
             });
         }
     }

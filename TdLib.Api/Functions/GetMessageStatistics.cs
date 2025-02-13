@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns detailed statistics about a message. Can be used only if message.can_get_statistics == true
+        /// Returns detailed statistics about a message. Can be used only if messageProperties.can_get_statistics == true
         /// </summary>
         public class GetMessageStatistics : Function<MessageStatistics>
         {
@@ -50,7 +50,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Returns detailed statistics about a message. Can be used only if message.can_get_statistics == true
+        /// Returns detailed statistics about a message. Can be used only if messageProperties.can_get_statistics == true
         /// </summary>
         public static Task<MessageStatistics> GetMessageStatisticsAsync(
             this Client client, long chatId = default, long messageId = default, bool isDark = default)

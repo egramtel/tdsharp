@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Contains a caption of an instant view web page block, consisting of a text and a trailing credit
+        /// Contains a caption of another block
         /// </summary>
         public partial class PageBlockCaption : Object
         {

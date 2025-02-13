@@ -28,7 +28,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// SafetyNet Attestation API token for the Android application, or secret from push notification for the iOS application
+            /// Play Integrity API or SafetyNet Attestation API token for the Android application, or secret from push notification for the iOS application
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("token")]

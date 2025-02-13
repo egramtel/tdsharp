@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns an HTML code for embedding the message. Available only for messages in supergroups and channels with a username
+        /// Returns an HTML code for embedding the message. Available only if messageProperties.can_get_embedding_code
         /// </summary>
         public class GetMessageEmbeddingCode : Function<Text>
         {
@@ -50,7 +50,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Returns an HTML code for embedding the message. Available only for messages in supergroups and channels with a username
+        /// Returns an HTML code for embedding the message. Available only if messageProperties.can_get_embedding_code
         /// </summary>
         public static Task<Text> GetMessageEmbeddingCodeAsync(
             this Client client, long chatId = default, long messageId = default, bool forAlbum = default)

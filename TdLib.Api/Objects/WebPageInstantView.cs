@@ -27,7 +27,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Content of the web page
+            /// Content of the instant view page
             /// </summary>
             [JsonProperty("page_blocks", ItemConverterType = typeof(Converter))]
             public PageBlock[] PageBlocks { get; set; }
@@ -54,7 +54,7 @@ namespace TdLib
             public bool IsRtl { get; set; }
 
             /// <summary>
-            /// True, if the instant view contains the full page. A network request might be needed to get the full web page instant view
+            /// True, if the instant view contains the full page. A network request might be needed to get the full instant view
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_full")]

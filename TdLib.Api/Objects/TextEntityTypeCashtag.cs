@@ -12,7 +12,7 @@ namespace TdLib
         public partial class TextEntityType : Object
         {
             /// <summary>
-            /// A cashtag text, beginning with "$" and consisting of capital English letters (e.g., "$USD")
+            /// A cashtag text, beginning with "$", consisting of capital English letters (e.g., "$USD"), and optionally containing a chat username at the end
             /// </summary>
             public class TextEntityTypeCashtag : TextEntityType
             {

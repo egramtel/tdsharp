@@ -12,7 +12,7 @@ namespace TdLib
         public partial class InlineQueryResultsButtonType : Object
         {
             /// <summary>
-            /// Represents a type of button in results of inline query
+            /// Represents type of button in results of inline query
             /// </summary>
             public class InlineQueryResultsButtonTypeStartBot : InlineQueryResultsButtonType
             {

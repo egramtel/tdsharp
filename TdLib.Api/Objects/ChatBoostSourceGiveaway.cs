@@ -12,7 +12,7 @@ namespace TdLib
         public partial class ChatBoostSource : Object
         {
             /// <summary>
-            /// The chat created a Telegram Premium giveaway
+            /// The chat created a giveaway
             /// </summary>
             public class ChatBoostSourceGiveaway : ChatBoostSource
             {
@@ -36,11 +36,18 @@ namespace TdLib
                 public long UserId { get; set; }
 
                 /// <summary>
-                /// The created Telegram Premium gift code if it was used by the user or can be claimed by the current user; an empty string otherwise
+                /// The created Telegram Premium gift code if it was used by the user or can be claimed by the current user; an empty string otherwise; for Telegram Premium giveways only
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("gift_code")]
                 public string GiftCode { get; set; }
+
+                /// <summary>
+                /// Number of Telegram Stars distributed among winners of the giveaway
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("star_count")]
+                public long StarCount { get; set; }
 
                 /// <summary>
                 /// Identifier of the corresponding giveaway message; can be an identifier of a deleted message
@@ -50,7 +57,7 @@ namespace TdLib
                 public long GiveawayMessageId { get; set; }
 
                 /// <summary>
-                /// True, if the winner for the corresponding Telegram Premium subscription wasn't chosen, because there were not enough participants
+                /// True, if the winner for the corresponding giveaway prize wasn't chosen, because there were not enough participants
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_unclaimed")]

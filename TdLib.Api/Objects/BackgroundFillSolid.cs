@@ -29,7 +29,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// A color of the background in the RGB24 format
+                /// A color of the background in the RGB format
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("color")]

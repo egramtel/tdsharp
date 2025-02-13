@@ -60,6 +60,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("rotation_angle")]
             public double? RotationAngle { get; set; }
+
+            /// <summary>
+            /// The radius of the rectangle corner rounding, as a percentage of the media width
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("corner_radius_percentage")]
+            public double? CornerRadiusPercentage { get; set; }
         }
     }
 }

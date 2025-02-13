@@ -55,7 +55,7 @@ namespace TdLib
             public int UnreadMessageCount { get; set; }
 
             /// <summary>
-            /// The messages from which the thread starts. The messages are returned in a reverse chronological order (i.e., in order of decreasing message_id)
+            /// The messages from which the thread starts. The messages are returned in reverse chronological order (i.e., in order of decreasing message_id)
             /// </summary>
             [JsonProperty("messages", ItemConverterType = typeof(Converter))]
             public Message[] Messages { get; set; }

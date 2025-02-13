@@ -12,7 +12,7 @@ namespace TdLib
         public partial class InternalLinkType : Object
         {
             /// <summary>
-            /// The link is a link to the default message auto-delete timer settings section of the app settings
+            /// The link is a link to the default message auto-delete timer settings section of the application settings
             /// </summary>
             public class InternalLinkTypeDefaultMessageAutoDeleteTimerSettings : InternalLinkType
             {

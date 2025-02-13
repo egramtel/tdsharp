@@ -39,8 +39,8 @@ namespace TdLib
                 /// A link preview attached to the message; may be null
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("web_page")]
-                public WebPage WebPage { get; set; }
+                [JsonProperty("link_preview")]
+                public LinkPreview LinkPreview { get; set; }
 
                 /// <summary>
                 /// Options which were used for generation of the link preview; may be null if default options were used

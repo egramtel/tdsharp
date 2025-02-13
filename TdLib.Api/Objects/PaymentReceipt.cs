@@ -27,25 +27,11 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Product title
+            /// Information about the product
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("title")]
-            public string Title { get; set; }
-
-            /// <summary>
-            /// 
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("description")]
-            public FormattedText Description { get; set; }
-
-            /// <summary>
-            /// Product photo; may be null
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("photo")]
-            public Photo Photo { get; set; }
+            [JsonProperty("product_info")]
+            public ProductInfo ProductInfo { get; set; }
 
             /// <summary>
             /// Point in time (Unix timestamp) when the payment was made
@@ -62,46 +48,11 @@ namespace TdLib
             public long SellerBotUserId { get; set; }
 
             /// <summary>
-            /// User identifier of the payment provider bot
+            /// Type of the payment receipt
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("payment_provider_user_id")]
-            public long PaymentProviderUserId { get; set; }
-
-            /// <summary>
-            /// Information about the invoice
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("invoice")]
-            public Invoice Invoice { get; set; }
-
-            /// <summary>
-            /// Order information; may be null
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("order_info")]
-            public OrderInfo OrderInfo { get; set; }
-
-            /// <summary>
-            /// Chosen shipping option; may be null
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("shipping_option")]
-            public ShippingOption ShippingOption { get; set; }
-
-            /// <summary>
-            /// Title of the saved credentials chosen by the buyer
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("credentials_title")]
-            public string CredentialsTitle { get; set; }
-
-            /// <summary>
-            /// The amount of tip chosen by the buyer in the smallest units of the currency
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("tip_amount")]
-            public long TipAmount { get; set; }
+            [JsonProperty("type")]
+            public PaymentReceiptType Type { get; set; }
         }
     }
 }

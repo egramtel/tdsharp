@@ -60,6 +60,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("state")]
             public CallState State { get; set; }
+
+            /// <summary>
+            /// Identifier of the group call associated with the call; 0 if the group call isn't created yet. The group call can be received through the method getGroupCall
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("group_call_id")]
+            public int GroupCallId { get; set; }
         }
     }
 }

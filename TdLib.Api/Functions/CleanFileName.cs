@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Removes potentially dangerous characters from the name of a file. The encoding of the file name is supposed to be UTF-8. Returns an empty string on failure. Can be called synchronously
+        /// Removes potentially dangerous characters from the name of a file. Returns an empty string on failure. Can be called synchronously
         /// </summary>
         public class CleanFileName : Function<Text>
         {
@@ -36,7 +36,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Removes potentially dangerous characters from the name of a file. The encoding of the file name is supposed to be UTF-8. Returns an empty string on failure. Can be called synchronously
+        /// Removes potentially dangerous characters from the name of a file. Returns an empty string on failure. Can be called synchronously
         /// </summary>
         public static Task<Text> CleanFileNameAsync(
             this Client client, string fileName = default)

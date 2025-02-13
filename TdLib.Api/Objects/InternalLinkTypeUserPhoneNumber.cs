@@ -13,7 +13,7 @@ namespace TdLib
         {
             /// <summary>
             /// The link is a link to a user by its phone number. Call searchUserByPhoneNumber with the given phone number to process the link.
-            /// If the user is found, then call createPrivateChat and open the chat. If draft text isn't empty, then put the draft text in the input field
+            /// If the user is found, then call createPrivateChat and open user's profile information screen or the chat itself. If draft text isn't empty, then put the draft text in the input field
             /// </summary>
             public class InternalLinkTypeUserPhoneNumber : InternalLinkType
             {
@@ -42,6 +42,13 @@ namespace TdLib
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("draft_text")]
                 public string DraftText { get; set; }
+
+                /// <summary>
+                /// True, if user's profile information screen must be opened; otherwise, the chat itself must be opened
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("open_profile")]
+                public bool OpenProfile { get; set; }
             }
         }
     }

@@ -34,11 +34,11 @@ namespace TdLib
             public int Id { get; set; }
 
             /// <summary>
-            /// The title of the folder; 1-12 characters without line feeds
+            /// The name of the folder
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("title")]
-            public string Title { get; set; }
+            [JsonProperty("name")]
+            public ChatFolderName Name { get; set; }
 
             /// <summary>
             /// The chosen or default icon for the chat folder

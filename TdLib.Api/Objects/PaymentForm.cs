@@ -34,11 +34,11 @@ namespace TdLib
             public long Id { get; set; }
 
             /// <summary>
-            /// Full information about the invoice
+            /// Type of the payment form
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("invoice")]
-            public Invoice Invoice { get; set; }
+            [JsonProperty("type")]
+            public PaymentFormType Type { get; set; }
 
             /// <summary>
             /// User identifier of the seller bot
@@ -48,72 +48,11 @@ namespace TdLib
             public long SellerBotUserId { get; set; }
 
             /// <summary>
-            /// User identifier of the payment provider bot
+            /// Information about the product
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("payment_provider_user_id")]
-            public long PaymentProviderUserId { get; set; }
-
-            /// <summary>
-            /// Information about the payment provider
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("payment_provider")]
-            public PaymentProvider PaymentProvider { get; set; }
-
-            /// <summary>
-            /// The list of additional payment options
-            /// </summary>
-            [JsonProperty("additional_payment_options", ItemConverterType = typeof(Converter))]
-            public PaymentOption[] AdditionalPaymentOptions { get; set; }
-
-            /// <summary>
-            /// Saved server-side order information; may be null
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("saved_order_info")]
-            public OrderInfo SavedOrderInfo { get; set; }
-
-            /// <summary>
-            /// The list of saved payment credentials
-            /// </summary>
-            [JsonProperty("saved_credentials", ItemConverterType = typeof(Converter))]
-            public SavedCredentials[] SavedCredentials { get; set; }
-
-            /// <summary>
-            /// True, if the user can choose to save credentials
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("can_save_credentials")]
-            public bool CanSaveCredentials { get; set; }
-
-            /// <summary>
-            /// True, if the user will be able to save credentials, if sets up a 2-step verification password
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("need_password")]
-            public bool NeedPassword { get; set; }
-
-            /// <summary>
-            /// Product title
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("product_title")]
-            public string ProductTitle { get; set; }
-
-            /// <summary>
-            /// Product description
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("product_description")]
-            public FormattedText ProductDescription { get; set; }
-
-            /// <summary>
-            /// Product photo; may be null
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("product_photo")]
-            public Photo ProductPhoto { get; set; }
+            [JsonProperty("product_info")]
+            public ProductInfo ProductInfo { get; set; }
         }
     }
 }

@@ -29,7 +29,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Video to be sent. The video size must be 720x1280. The video must be streamable and stored in MPEG4 format, after encoding with x265 codec and key frames added each second
+                /// Video to be sent. The video size must be 720x1280. The video must be streamable and stored in MPEG4 format, after encoding with H.265 codec and key frames added each second
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("video")]
@@ -47,6 +47,13 @@ namespace TdLib
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("duration")]
                 public double? Duration { get; set; }
+
+                /// <summary>
+                /// Timestamp of the frame, which will be used as video thumbnail
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("cover_frame_timestamp")]
+                public double? CoverFrameTimestamp { get; set; }
 
                 /// <summary>
                 /// True, if the video has no sound

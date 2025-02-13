@@ -29,14 +29,14 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// A top color of the background in the RGB24 format
+                /// A top color of the background in the RGB format
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("top_color")]
                 public int TopColor { get; set; }
 
                 /// <summary>
-                /// A bottom color of the background in the RGB24 format
+                /// A bottom color of the background in the RGB format
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("bottom_color")]

@@ -12,7 +12,7 @@ namespace TdLib
     {
         /// <summary>
         /// Returns the list of stories that posted by the given chat to its chat page. If from_story_id == 0, then pinned stories are returned first.
-        /// Then, stories are returned in a reverse chronological order (i.e., in order of decreasing story_id). For optimal performance, the number of returned stories is chosen by TDLib
+        /// Then, stories are returned in reverse chronological order (i.e., in order of decreasing story_id). For optimal performance, the number of returned stories is chosen by TDLib
         /// </summary>
         public class GetChatPostedToChatPageStories : Function<Stories>
         {
@@ -43,7 +43,7 @@ namespace TdLib
             public int FromStoryId { get; set; }
 
             /// <summary>
-            /// The maximum number of stories to be returned
+            /// The maximum number of stories to be returned.
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("limit")]
@@ -52,7 +52,7 @@ namespace TdLib
 
         /// <summary>
         /// Returns the list of stories that posted by the given chat to its chat page. If from_story_id == 0, then pinned stories are returned first.
-        /// Then, stories are returned in a reverse chronological order (i.e., in order of decreasing story_id). For optimal performance, the number of returned stories is chosen by TDLib
+        /// Then, stories are returned in reverse chronological order (i.e., in order of decreasing story_id). For optimal performance, the number of returned stories is chosen by TDLib
         /// </summary>
         public static Task<Stories> GetChatPostedToChatPageStoriesAsync(
             this Client client, long chatId = default, int fromStoryId = default, int limit = default)

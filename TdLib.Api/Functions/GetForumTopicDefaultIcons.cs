@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns the list of custom emojis, which can be used as forum topic icon by all users
+        /// Returns the list of custom emoji, which can be used as forum topic icon by all users
         /// </summary>
         public class GetForumTopicDefaultIcons : Function<Stickers>
         {
@@ -31,7 +31,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Returns the list of custom emojis, which can be used as forum topic icon by all users
+        /// Returns the list of custom emoji, which can be used as forum topic icon by all users
         /// </summary>
         public static Task<Stickers> GetForumTopicDefaultIconsAsync(
             this Client client)

@@ -43,6 +43,13 @@ namespace TdLib
                 public FormattedText Caption { get; set; }
 
                 /// <summary>
+                /// True, if the caption must be shown above the photo; otherwise, the caption must be shown below the photo
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("show_caption_above_media")]
+                public bool ShowCaptionAboveMedia { get; set; }
+
+                /// <summary>
                 /// True, if the photo preview must be covered by a spoiler animation
                 /// </summary>
                 [JsonConverter(typeof(Converter))]

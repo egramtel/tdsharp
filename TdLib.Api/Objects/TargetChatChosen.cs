@@ -29,32 +29,11 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// True, if private chats with ordinary users are allowed
+                /// Allowed types for the chat
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("allow_user_chats")]
-                public bool AllowUserChats { get; set; }
-
-                /// <summary>
-                /// True, if private chats with other bots are allowed
-                /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("allow_bot_chats")]
-                public bool AllowBotChats { get; set; }
-
-                /// <summary>
-                /// True, if basic group and supergroup chats are allowed
-                /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("allow_group_chats")]
-                public bool AllowGroupChats { get; set; }
-
-                /// <summary>
-                /// True, if channel chats are allowed
-                /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("allow_channel_chats")]
-                public bool AllowChannelChats { get; set; }
+                [JsonProperty("types")]
+                public TargetChatTypes Types { get; set; }
             }
         }
     }

@@ -57,7 +57,7 @@ namespace TdLib
             public MessageSendOptions Options { get; set; }
 
             /// <summary>
-            /// Contents of messages to be sent. At most 10 messages can be added to an album
+            /// Contents of messages to be sent. At most 10 messages can be added to an album. All messages must have the same value of show_caption_above_media
             /// </summary>
             [JsonProperty("input_message_contents", ItemConverterType = typeof(Converter))]
             public InputMessageContent[] InputMessageContents { get; set; }

@@ -35,7 +35,7 @@ namespace TdLib
                 public KeyboardButton[][] Rows { get; set; }
 
                 /// <summary>
-                /// True, if the keyboard is supposed to always be shown when the ordinary keyboard is hidden
+                /// True, if the keyboard is expected to always be shown when the ordinary keyboard is hidden
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_persistent")]

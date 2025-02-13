@@ -28,7 +28,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Identifier of the channel
+            /// Identifier of the supergroup that isn't a broadcast group
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("supergroup_id")]

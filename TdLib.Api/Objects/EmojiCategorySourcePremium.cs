@@ -12,7 +12,7 @@ namespace TdLib
         public partial class EmojiCategorySource : Object
         {
             /// <summary>
-            /// The category contains Premium stickers that must be found by getPremiumStickers
+            /// The category contains premium stickers that must be found by getPremiumStickers
             /// </summary>
             public class EmojiCategorySourcePremium : EmojiCategorySource
             {

@@ -85,7 +85,7 @@ namespace TdLib
                 public byte[] Payload { get; set; }
 
                 /// <summary>
-                /// Payment provider token
+                /// Payment provider token; may be empty for payments in Telegram Stars
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("provider_token")]
@@ -106,11 +106,18 @@ namespace TdLib
                 public string StartParameter { get; set; }
 
                 /// <summary>
-                /// The content of extended media attached to the invoice. The content of the message to be sent. Must be one of the following types: inputMessagePhoto, inputMessageVideo
+                /// The content of paid media attached to the invoice; pass null if none
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("extended_media_content")]
-                public InputMessageContent ExtendedMediaContent { get; set; }
+                [JsonProperty("paid_media")]
+                public InputPaidMedia PaidMedia { get; set; }
+
+                /// <summary>
+                /// Paid media caption; pass null to use an empty caption; 0-getOption("message_caption_length_max") characters
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("paid_media_caption")]
+                public FormattedText PaidMediaCaption { get; set; }
             }
         }
     }

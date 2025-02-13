@@ -27,14 +27,14 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Color in the RGB24 format for light themes
+            /// Color in the RGB format for light themes
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("light_color")]
             public int LightColor { get; set; }
 
             /// <summary>
-            /// Color in the RGB24 format for dark themes
+            /// Color in the RGB format for dark themes
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("dark_color")]

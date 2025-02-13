@@ -53,6 +53,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter.Int64))]
             [JsonProperty("available_amount")]
             public long AvailableAmount { get; set; }
+
+            /// <summary>
+            /// True, if Telegram Stars can be withdrawn now or later
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("withdrawal_enabled")]
+            public bool WithdrawalEnabled { get; set; }
         }
     }
 }

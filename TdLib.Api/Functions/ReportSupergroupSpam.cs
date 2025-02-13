@@ -35,7 +35,7 @@ namespace TdLib
             public long SupergroupId { get; set; }
 
             /// <summary>
-            /// Identifiers of messages to report
+            /// Identifiers of messages to report. Use messageProperties.can_report_supergroup_spam to check whether the message can be reported
             /// </summary>
             [JsonProperty("message_ids", ItemConverterType = typeof(Converter))]
             public long[] MessageIds { get; set; }

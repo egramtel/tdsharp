@@ -85,11 +85,18 @@ namespace TdLib
             public bool HasLocation { get; set; }
 
             /// <summary>
-            /// True, if messages sent to the channel need to contain information about the sender. This field is only applicable to channels
+            /// True, if messages sent to the channel contains name of the sender. This field is only applicable to channels
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("sign_messages")]
             public bool SignMessages { get; set; }
+
+            /// <summary>
+            /// True, if messages sent to the channel have information about the sender user. This field is only applicable to channels
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("show_message_sender")]
+            public bool ShowMessageSender { get; set; }
 
             /// <summary>
             /// True, if users need to join the supergroup before they can send messages. Always true for channels and non-discussion supergroups
@@ -134,11 +141,18 @@ namespace TdLib
             public bool IsForum { get; set; }
 
             /// <summary>
-            /// True, if the supergroup or channel is verified
+            /// Information about verification status of the supergroup or channel; may be null if none
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("is_verified")]
-            public bool IsVerified { get; set; }
+            [JsonProperty("verification_status")]
+            public VerificationStatus VerificationStatus { get; set; }
+
+            /// <summary>
+            /// True, if content of media messages in the supergroup or channel chat must be hidden with 18+ spoiler
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("has_sensitive_content")]
+            public bool HasSensitiveContent { get; set; }
 
             /// <summary>
             /// If non-empty, contains a human-readable description of the reason why access to this supergroup or channel must be restricted
@@ -146,20 +160,6 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("restriction_reason")]
             public string RestrictionReason { get; set; }
-
-            /// <summary>
-            /// True, if many users reported this supergroup or channel as a scam
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("is_scam")]
-            public bool IsScam { get; set; }
-
-            /// <summary>
-            /// True, if many users reported this supergroup or channel as a fake account
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("is_fake")]
-            public bool IsFake { get; set; }
 
             /// <summary>
             /// True, if the supergroup or channel has non-expired stories available to the current user

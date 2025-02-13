@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns information about a message thread. Can be used only if message.can_get_message_thread == true
+        /// Returns information about a message thread. Can be used only if messageProperties.can_get_message_thread == true
         /// </summary>
         public class GetMessageThread : Function<MessageThreadInfo>
         {
@@ -43,7 +43,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Returns information about a message thread. Can be used only if message.can_get_message_thread == true
+        /// Returns information about a message thread. Can be used only if messageProperties.can_get_message_thread == true
         /// </summary>
         public static Task<MessageThreadInfo> GetMessageThreadAsync(
             this Client client, long chatId = default, long messageId = default)

@@ -56,7 +56,7 @@ namespace TdLib
                 public byte[] EncryptionKey { get; set; }
 
                 /// <summary>
-                /// Encryption key emojis fingerprint
+                /// Encryption key fingerprint represented as 4 emoji
                 /// </summary>
                 [JsonProperty("emojis", ItemConverterType = typeof(Converter))]
                 public string[] Emojis { get; set; }

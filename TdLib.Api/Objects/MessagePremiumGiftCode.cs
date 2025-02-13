@@ -36,6 +36,13 @@ namespace TdLib
                 public MessageSender CreatorId { get; set; }
 
                 /// <summary>
+                /// Message added to the gift
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("text")]
+                public FormattedText Text { get; set; }
+
+                /// <summary>
                 /// True, if the gift code was created for a giveaway
                 /// </summary>
                 [JsonConverter(typeof(Converter))]

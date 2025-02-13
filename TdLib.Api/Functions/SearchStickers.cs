@@ -35,11 +35,31 @@ namespace TdLib
             public StickerType StickerType { get; set; }
 
             /// <summary>
-            /// Space-separated list of emoji to search for; must be non-empty
+            /// Space-separated list of emojis to search for
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("emojis")]
             public string Emojis { get; set; }
+
+            /// <summary>
+            /// Query to search for; may be empty to search for emoji only
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("query")]
+            public string Query { get; set; }
+
+            /// <summary>
+            /// List of possible IETF language tags of the user's input language; may be empty if unknown
+            /// </summary>
+            [JsonProperty("input_language_codes", ItemConverterType = typeof(Converter))]
+            public string[] InputLanguageCodes { get; set; }
+
+            /// <summary>
+            /// The offset from which to return the stickers; must be non-negative
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("offset")]
+            public int Offset { get; set; }
 
             /// <summary>
             /// The maximum number of stickers to be returned; 0-100
@@ -53,11 +73,11 @@ namespace TdLib
         /// Searches for stickers from public sticker sets that correspond to any of the given emoji
         /// </summary>
         public static Task<Stickers> SearchStickersAsync(
-            this Client client, StickerType stickerType = default, string emojis = default, int limit = default)
+            this Client client, StickerType stickerType = default, string emojis = default, string query = default, string[] inputLanguageCodes = default, int offset = default, int limit = default)
         {
             return client.ExecuteAsync(new SearchStickers
             {
-                StickerType = stickerType, Emojis = emojis, Limit = limit
+                StickerType = stickerType, Emojis = emojis, Query = query, InputLanguageCodes = inputLanguageCodes, Offset = offset, Limit = limit
             });
         }
     }

@@ -12,7 +12,7 @@ namespace TdLib
         public partial class Update : Object
         {
             /// <summary>
-            /// A message with a live location was viewed. When the update is received, the application is supposed to update the live location
+            /// A message with a live location was viewed. When the update is received, the application is expected to update the live location
             /// </summary>
             public class UpdateMessageLiveLocationViewed : Update
             {

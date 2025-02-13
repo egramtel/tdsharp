@@ -55,10 +55,11 @@ namespace TdLib
             public Thumbnail Thumbnail { get; set; }
 
             /// <summary>
-            /// Sticker set thumbnail's outline represented as a list of closed vector paths; may be empty. The coordinate system origin is in the upper-left corner
+            /// Sticker set thumbnail's outline; may be null if unknown
             /// </summary>
-            [JsonProperty("thumbnail_outline", ItemConverterType = typeof(Converter))]
-            public ClosedVectorPath[] ThumbnailOutline { get; set; }
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("thumbnail_outline")]
+            public Outline ThumbnailOutline { get; set; }
 
             /// <summary>
             /// True, if the sticker set is owned by the current user
@@ -123,7 +124,7 @@ namespace TdLib
             public Sticker[] Stickers { get; set; }
 
             /// <summary>
-            /// A list of emoji corresponding to the stickers in the same order. The list is only for informational purposes, because a sticker is always sent with a fixed emoji from the corresponding Sticker object
+            /// A list of emojis corresponding to the stickers in the same order. The list is only for informational purposes, because a sticker is always sent with a fixed emoji from the corresponding Sticker object
             /// </summary>
             [JsonProperty("emojis", ItemConverterType = typeof(Converter))]
             public Emojis[] Emojis { get; set; }

@@ -12,7 +12,7 @@ namespace TdLib
         public partial class RichText : Object
         {
             /// <summary>
-            /// Describes a text object inside an instant-view web page
+            /// Describes a formatted text object
             /// </summary>
             public class RichTextPlain : RichText
             {

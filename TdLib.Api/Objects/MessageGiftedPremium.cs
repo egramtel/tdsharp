@@ -12,7 +12,7 @@ namespace TdLib
         public partial class MessageContent : Object
         {
             /// <summary>
-            /// Telegram Premium was gifted to the user
+            /// Telegram Premium was gifted to a user
             /// </summary>
             public class MessageGiftedPremium : MessageContent
             {
@@ -29,11 +29,25 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// The identifier of a user that gifted Telegram Premium; 0 if the gift was anonymous
+                /// The identifier of a user that gifted Telegram Premium; 0 if the gift was anonymous or is outgoing
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("gifter_user_id")]
                 public long GifterUserId { get; set; }
+
+                /// <summary>
+                /// The identifier of a user that received Telegram Premium; 0 if the gift is incoming
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("receiver_user_id")]
+                public long ReceiverUserId { get; set; }
+
+                /// <summary>
+                /// Message added to the gifted Telegram Premium by the sender
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("text")]
+                public FormattedText Text { get; set; }
 
                 /// <summary>
                 /// Currency for the paid amount

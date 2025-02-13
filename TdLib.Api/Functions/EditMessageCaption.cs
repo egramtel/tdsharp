@@ -35,7 +35,7 @@ namespace TdLib
             public long ChatId { get; set; }
 
             /// <summary>
-            /// Identifier of the message
+            /// Identifier of the message. Use messageProperties.can_be_edited to check whether the message can be edited
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("message_id")]
@@ -54,17 +54,24 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("caption")]
             public FormattedText Caption { get; set; }
+
+            /// <summary>
+            /// Pass true to show the caption above the media; otherwise, the caption will be shown below the media. May be true only for animation, photo, and video messages
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("show_caption_above_media")]
+            public bool ShowCaptionAboveMedia { get; set; }
         }
 
         /// <summary>
         /// Edits the message content caption. Returns the edited message after the edit is completed on the server side
         /// </summary>
         public static Task<Message> EditMessageCaptionAsync(
-            this Client client, long chatId = default, long messageId = default, ReplyMarkup replyMarkup = default, FormattedText caption = default)
+            this Client client, long chatId = default, long messageId = default, ReplyMarkup replyMarkup = default, FormattedText caption = default, bool showCaptionAboveMedia = default)
         {
             return client.ExecuteAsync(new EditMessageCaption
             {
-                ChatId = chatId, MessageId = messageId, ReplyMarkup = replyMarkup, Caption = caption
+                ChatId = chatId, MessageId = messageId, ReplyMarkup = replyMarkup, Caption = caption, ShowCaptionAboveMedia = showCaptionAboveMedia
             });
         }
     }

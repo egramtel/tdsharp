@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Contains a list of custom emoji identifiers for emoji statuses
+        /// Contains a list of emoji statuses
         /// </summary>
         public partial class EmojiStatuses : Object
         {
@@ -27,10 +27,10 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// The list of custom emoji identifiers
+            /// The list of emoji statuses identifiers
             /// </summary>
-            [JsonProperty("custom_emoji_ids", ItemConverterType = typeof(Converter))]
-            public long[] CustomEmojiIds { get; set; }
+            [JsonProperty("emoji_statuses", ItemConverterType = typeof(Converter))]
+            public EmojiStatus[] EmojiStatuses_ { get; set; }
         }
     }
 }
