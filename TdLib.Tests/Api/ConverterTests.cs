@@ -63,32 +63,7 @@ public class ConverterTests
                 "emoji": "\ud83d\ude02",
                 "type": {
                     "@type": "stickerTypeAnimated"
-                },
-                "outline": [
-                    {
-                        "@type": "closedVectorPath",
-                        "commands": [
-                            {
-                                "@type": "vectorPathCommandCubicBezierCurve",
-                                "start_control_point": {
-                                    "@type": "point",
-                                    "x": 223.000000,
-                                    "y": 464.000000
-                                },
-                                "end_control_point": {
-                                    "@type": "point",
-                                    "x": 174.000000,
-                                    "y": 431.000000
-                                },
-                                "end_point": {
-                                    "@type": "point",
-                                    "x": 133.000000,
-                                    "y": 402.000000
-                                }
-                            }
-                        ]
-                    }
-                ]
+                }
             }
         }
     }
@@ -97,27 +72,13 @@ public class ConverterTests
         var data = JsonConvert.DeserializeObject<TdApi.Object>(json, Converter);
         if (data is not TdApi.Update.UpdateNewMessage
             {
-                Message.Content: TdApi.MessageContent.MessageSticker { Sticker: { Outline: var outline } }
+                Message.Content: TdApi.MessageContent.MessageSticker
             })
         {
             throw new XunitException("Data is not a properly-formed message");
         }
 
-        var path = Assert.Single(outline);
-        var curve = Assert.IsType<TdApi.VectorPathCommand.VectorPathCommandCubicBezierCurve>(Assert.Single(path.Commands));
+        // removed test since it seems now to be implemented via GetStickerOutlineAsync
 
-        var startControlPoint = curve.StartControlPoint;
-        var endControlPoint = curve.EndControlPoint;
-        var endPoint = curve.EndPoint;
-
-        Assert.Equal(
-            new { X = 223.0, Y = 464.0 },
-            new { X = startControlPoint.X!.Value, Y = startControlPoint.Y!.Value });
-        Assert.Equal(
-            new { X = 174.0, Y = 431.0 },
-            new { X = endControlPoint.X!.Value, Y = endControlPoint.Y!.Value });
-        Assert.Equal(
-            new { X = 133.0, Y = 402.0 },
-            new { X = endPoint.X!.Value, Y = endPoint.Y!.Value });
     }
 }
