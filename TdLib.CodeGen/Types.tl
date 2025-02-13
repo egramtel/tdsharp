@@ -1,4 +1,4 @@
-﻿double ? = Double;
+double ? = Double;
 string ? = String;
 
 int32 = Int32;

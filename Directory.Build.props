@@ -1,19 +1,19 @@
 <!--
-SPDX-FileCopyrightText: 2024 tdsharp contributors <https://github.com/egramtel/tdsharp>
+SPDX-FileCopyrightText: 2024-2025 tdsharp contributors <https://github.com/egramtel/tdsharp>
 
 SPDX-License-Identifier: MIT
 -->
 
 <Project>
     <PropertyGroup Label="Packaging">
-        <Version>1.8.30</Version>
+        <Version>1.8.45</Version>
     </PropertyGroup>
 
     <PropertyGroup>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <!-- REUSE-IgnoreStart -->
-        <Copyright>2024 tdsharp contributors &lt;https://github.com/egramtel/tdsharp&gt;</Copyright>
+        <Copyright>2025 tdsharp contributors &lt;https://github.com/egramtel/tdsharp&gt;</Copyright>
         <!-- REUSE-IgnoreEnd -->
         <PublishRepositoryUrl>true</PublishRepositoryUrl>
         <IncludeSymbols>true</IncludeSymbols>

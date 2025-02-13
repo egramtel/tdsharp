@@ -1,5 +1,5 @@
 <!--
-SPDX-FileCopyrightText: 2024 tdsharp contributors <https://github.com/egramtel/tdsharp>
+SPDX-FileCopyrightText: 2024-2025 tdsharp contributors <https://github.com/egramtel/tdsharp>
 
 SPDX-License-Identifier: MIT
 -->
@@ -11,10 +11,9 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
-## [1.8.30] - 2025-05-13
+## [1.8.45] - 2025-05-13
 ### Changed
-- Update to [TDLib v1.8.30](https://github.com/tdlib/td/tree/349d297af89afe50f7eecd3c9b5c4ce1ef732f57).
-- 
+- Update to [TDLib v1.8.45](https://github.com/tdlib/td/tree/721300bcb4d0f2114505712f4dc6350af1ce1a09).
 ## [1.8.29] - 2024-05-30
 ### Changed
 - Update to [TDLib v1.8.29](https://github.com/tdlib/td/tree/fd3154b28727df9e66423d64168fab1202d8c849).
@@ -119,4 +118,5 @@ Initial release to support TDLib pre-1.2.
 [1.8.12]: https://github.com/egramtel/tdsharp/compare/v1.8.9.1...v1.8.12
 [1.8.21]: https://github.com/egramtel/tdsharp/compare/v1.8.12...v1.8.21
 [1.8.29]: https://github.com/egramtel/tdsharp/compare/v1.8.21...v1.8.29
-[Unreleased]: https://github.com/egramtel/tdsharp/compare/v1.8.29...HEAD
+[1.8.45]: https://github.com/egramtel/tdsharp/compare/v1.8.29...v1.8.45
+[Unreleased]: https://github.com/egramtel/tdsharp/compare/v1.8.45...HEAD
