@@ -109,4 +109,5 @@ The license indication in the project's sources is compliant with the [REUSE spe
 [docs.license]: ./LICENSE
 [docs.maintainership]: ./MAINTAINERSHIP.md
 [issues]: https://github.com/egramtel/tdsharp/issues
+[reuse.spec]: https://reuse.software/spec-3.0/
 [tdlib-native.docs]: https://github.com/ForNeVeR/tdlib.native
