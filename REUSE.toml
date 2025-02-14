@@ -1,0 +1,28 @@
+version = 1
+SPDX-PackageName = "tdsharp"
+SPDX-PackageSupplier = "tdsharp contributors <https://github.com/egramtel/tdsharp>"
+SPDX-PackageDownloadLocation = "https://github.com/egramtel/tdsharp"
+
+[[annotations]]
+path = ".idea/**/*"
+precedence = "override"
+SPDX-FileCopyrightText = "2024 tdsharp contributors <https://github.com/egramtel/tdsharp>"
+SPDX-License-Identifier = "MIT"
+
+[[annotations]]
+path = "TdLib.Api/Functions/*.cs"
+precedence = "override"
+SPDX-FileCopyrightText = [
+    "2025 tdsharp contributors <https://github.com/egramtel/tdsharp>",
+    "2025 TDLib contributors <https://github.com/tdlib/td>"
+]
+SPDX-License-Identifier = "MIT AND BSL-1.0"
+
+[[annotations]]
+path = "TdLib.Api/Objects/*.cs"
+precedence = "override"
+SPDX-FileCopyrightText = [
+    "2025 tdsharp contributors <https://github.com/egramtel/tdsharp>",
+    "2025 TDLib contributors <https://github.com/tdlib/td>"
+]
+SPDX-License-Identifier = "MIT AND BSL-1.0"

@@ -100,7 +100,7 @@ All the project code is licensed under [the MIT license][docs.license].
 
 The code generated from the upstream TDLib has the same license as TDLib, which is [the Boost Software License - Version 1.0][docs.license.bsl].
 
-The license indication in the project's sources is compliant with the [REUSE specification v3.0][reuse.spec].
+The license indication in the project's sources is compliant with the [REUSE specification v3.3][reuse.spec].
 
 [discussions]: https://github.com/egramtel/tdsharp/discussions
 [docs.changelog]: ./CHANGELOG.md
@@ -109,5 +109,5 @@ The license indication in the project's sources is compliant with the [REUSE spe
 [docs.license]: ./LICENSE
 [docs.maintainership]: ./MAINTAINERSHIP.md
 [issues]: https://github.com/egramtel/tdsharp/issues
-[reuse.spec]: https://reuse.software/spec-3.0/
+[reuse.spec]: https://reuse.software/spec-3.3/
 [tdlib-native.docs]: https://github.com/ForNeVeR/tdlib.native

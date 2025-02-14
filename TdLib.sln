@@ -25,6 +25,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		LICENSE = LICENSE
 		CONTRIBUTING.md = CONTRIBUTING.md
 		TdLib.sln.license = TdLib.sln.license
+		REUSE.toml = REUSE.toml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{178D86BC-A6CA-4A4D-AE1A-B9DC926D77CB}"
@@ -45,11 +46,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{08FD
 	EndProjectSection
 EndProject
 Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "TdLib.Samples.GetChats.FSharp", "Samples\TdLib.Samples.GetChats.FSharp\TdLib.Samples.GetChats.FSharp.fsproj", "{B968D706-7538-4D67-B167-461B10BFB4C0}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".reuse", ".reuse", "{192616C6-D17F-400D-93CA-C86C5743A96F}"
-	ProjectSection(SolutionItems) = preProject
-		.reuse\dep5 = .reuse\dep5
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LICENSES", "LICENSES", "{5399309F-760D-4FE6-B158-706A37F3B04B}"
 	ProjectSection(SolutionItems) = preProject
