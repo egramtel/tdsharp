@@ -28,11 +28,11 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// The identifier of the sender of the story
+            /// The identifier of the poster of the story
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("story_sender_chat_id")]
-            public long StorySenderChatId { get; set; }
+            [JsonProperty("story_poster_chat_id")]
+            public long StoryPosterChatId { get; set; }
 
             /// <summary>
             /// The identifier of the story
@@ -60,11 +60,11 @@ namespace TdLib
         /// Changes chosen reaction on a story that has already been sent
         /// </summary>
         public static Task<Ok> SetStoryReactionAsync(
-            this Client client, long storySenderChatId = default, int storyId = default, ReactionType reactionType = default, bool updateRecentReactions = default)
+            this Client client, long storyPosterChatId = default, int storyId = default, ReactionType reactionType = default, bool updateRecentReactions = default)
         {
             return client.ExecuteAsync(new SetStoryReaction
             {
-                StorySenderChatId = storySenderChatId, StoryId = storyId, ReactionType = reactionType, UpdateRecentReactions = updateRecentReactions
+                StoryPosterChatId = storyPosterChatId, StoryId = storyId, ReactionType = reactionType, UpdateRecentReactions = updateRecentReactions
             });
         }
     }

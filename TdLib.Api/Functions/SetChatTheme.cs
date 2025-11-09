@@ -35,22 +35,22 @@ namespace TdLib
             public long ChatId { get; set; }
 
             /// <summary>
-            /// Name of the new chat theme; pass an empty string to return the default theme
+            /// New chat theme; pass null to return the default theme
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("theme_name")]
-            public string ThemeName { get; set; }
+            [JsonProperty("theme")]
+            public InputChatTheme Theme { get; set; }
         }
 
         /// <summary>
         /// Changes the chat theme. Supported only in private and secret chats
         /// </summary>
         public static Task<Ok> SetChatThemeAsync(
-            this Client client, long chatId = default, string themeName = default)
+            this Client client, long chatId = default, InputChatTheme theme = default)
         {
             return client.ExecuteAsync(new SetChatTheme
             {
-                ChatId = chatId, ThemeName = themeName
+                ChatId = chatId, Theme = theme
             });
         }
     }

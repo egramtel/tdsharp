@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Sends messages from a quick reply shortcut. Requires Telegram Business subscription
+        /// Sends messages from a quick reply shortcut. Requires Telegram Business subscription. Can't be used to send paid messages
         /// </summary>
         public class SendQuickReplyShortcutMessages : Function<Messages>
         {
@@ -50,7 +50,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Sends messages from a quick reply shortcut. Requires Telegram Business subscription
+        /// Sends messages from a quick reply shortcut. Requires Telegram Business subscription. Can't be used to send paid messages
         /// </summary>
         public static Task<Messages> SendQuickReplyShortcutMessagesAsync(
             this Client client, long chatId = default, int shortcutId = default, int sendingId = default)

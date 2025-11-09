@@ -27,11 +27,18 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Message thread identifier of the topic
+            /// Identifier of a forum supergroup chat or a chat with a bot to which the topic belongs
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("message_thread_id")]
-            public long MessageThreadId { get; set; }
+            [JsonProperty("chat_id")]
+            public long ChatId { get; set; }
+
+            /// <summary>
+            /// Forum topic identifier of the topic
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("forum_topic_id")]
+            public int ForumTopicId { get; set; }
 
             /// <summary>
             /// Name of the topic
@@ -62,7 +69,7 @@ namespace TdLib
             public MessageSender CreatorId { get; set; }
 
             /// <summary>
-            /// True, if the topic is the General topic list
+            /// True, if the topic is the General topic
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_general")]
@@ -76,7 +83,7 @@ namespace TdLib
             public bool IsOutgoing { get; set; }
 
             /// <summary>
-            /// True, if the topic is closed
+            /// True, if the topic is closed. If the topic is closed, then the user must have can_manage_topics administrator right in the supergroup or must be the creator of the topic to send messages there
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_closed")]
@@ -88,6 +95,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_hidden")]
             public bool IsHidden { get; set; }
+
+            /// <summary>
+            /// True, if the name of the topic wasn't added explicitly
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("is_name_implicit")]
+            public bool IsNameImplicit { get; set; }
         }
     }
 }

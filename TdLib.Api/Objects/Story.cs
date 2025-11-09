@@ -27,7 +27,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Unique story identifier among stories of the given sender
+            /// Unique story identifier among stories posted by the given chat
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("id")]
@@ -37,15 +37,15 @@ namespace TdLib
             /// Identifier of the chat that posted the story
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("sender_chat_id")]
-            public long SenderChatId { get; set; }
+            [JsonProperty("poster_chat_id")]
+            public long PosterChatId { get; set; }
 
             /// <summary>
-            /// Identifier of the sender of the story; may be null if the story is posted on behalf of the sender_chat_id
+            /// Identifier of the user or chat that posted the story; may be null if the story is posted on behalf of the poster_chat_id
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("sender_id")]
-            public MessageSender SenderId { get; set; }
+            [JsonProperty("poster_id")]
+            public MessageSender PosterId { get; set; }
 
             /// <summary>
             /// Point in time (Unix timestamp) when the story was published
@@ -55,11 +55,11 @@ namespace TdLib
             public int Date { get; set; }
 
             /// <summary>
-            /// True, if the story is being sent by the current user
+            /// True, if the story is being posted by the current user
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("is_being_sent")]
-            public bool IsBeingSent { get; set; }
+            [JsonProperty("is_being_posted")]
+            public bool IsBeingPosted { get; set; }
 
             /// <summary>
             /// True, if the story is being edited by the current user
@@ -76,7 +76,7 @@ namespace TdLib
             public bool IsEdited { get; set; }
 
             /// <summary>
-            /// True, if the story is saved in the sender's profile and will be available there after expiration
+            /// True, if the story is saved in the profile of the chat that posted it and will be available there after expiration
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_posted_to_chat_page")]
@@ -88,6 +88,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_visible_only_for_self")]
             public bool IsVisibleOnlyForSelf { get; set; }
+
+            /// <summary>
+            /// True, if the story can be added to an album
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("can_be_added_to_album")]
+            public bool CanBeAddedToAlbum { get; set; }
 
             /// <summary>
             /// True, if the story can be deleted
@@ -104,14 +111,14 @@ namespace TdLib
             public bool CanBeEdited { get; set; }
 
             /// <summary>
-            /// True, if the story can be forwarded as a message. Otherwise, screenshots and saving of the story content must be also forbidden
+            /// True, if the story can be forwarded as a message or reposted as a story. Otherwise, screenshotting and saving of the story content must be also forbidden
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("can_be_forwarded")]
             public bool CanBeForwarded { get; set; }
 
             /// <summary>
-            /// True, if the story can be replied in the chat with the story sender
+            /// True, if the story can be replied in the chat with the user that posted the story
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("can_be_replied")]
@@ -192,6 +199,12 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("caption")]
             public FormattedText Caption { get; set; }
+
+            /// <summary>
+            /// Identifiers of story albums to which the story is added; only for manageable stories
+            /// </summary>
+            [JsonProperty("album_ids", ItemConverterType = typeof(Converter))]
+            public int[] AlbumIds { get; set; }
         }
     }
 }

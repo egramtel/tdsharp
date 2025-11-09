@@ -54,11 +54,11 @@ namespace TdLib
             public long NextOffsetMessageId { get; set; }
 
             /// <summary>
-            /// Offset message thread identifier for the next getForumTopics request
+            /// Offset forum topic identifier for the next getForumTopics request
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("next_offset_message_thread_id")]
-            public long NextOffsetMessageThreadId { get; set; }
+            [JsonProperty("next_offset_forum_topic_id")]
+            public int NextOffsetForumTopicId { get; set; }
         }
     }
 }

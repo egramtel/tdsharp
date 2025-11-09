@@ -29,11 +29,11 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// The identifier of the sender of the story
+                /// The identifier of the poster of the story
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("story_sender_chat_id")]
-                public long StorySenderChatId { get; set; }
+                [JsonProperty("story_poster_chat_id")]
+                public long StoryPosterChatId { get; set; }
 
                 /// <summary>
                 /// The identifier of the story

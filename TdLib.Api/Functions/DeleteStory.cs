@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Deletes a previously sent story. Can be called only if story.can_be_deleted == true
+        /// Deletes a previously posted story. Can be called only if story.can_be_deleted == true
         /// </summary>
         public class DeleteStory : Function<Ok>
         {
@@ -31,8 +31,8 @@ namespace TdLib
             /// Identifier of the chat that posted the story
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("story_sender_chat_id")]
-            public long StorySenderChatId { get; set; }
+            [JsonProperty("story_poster_chat_id")]
+            public long StoryPosterChatId { get; set; }
 
             /// <summary>
             /// Identifier of the story to delete
@@ -43,14 +43,14 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Deletes a previously sent story. Can be called only if story.can_be_deleted == true
+        /// Deletes a previously posted story. Can be called only if story.can_be_deleted == true
         /// </summary>
         public static Task<Ok> DeleteStoryAsync(
-            this Client client, long storySenderChatId = default, int storyId = default)
+            this Client client, long storyPosterChatId = default, int storyId = default)
         {
             return client.ExecuteAsync(new DeleteStory
             {
-                StorySenderChatId = storySenderChatId, StoryId = storyId
+                StoryPosterChatId = storyPosterChatId, StoryId = storyId
             });
         }
     }

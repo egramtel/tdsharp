@@ -11,7 +11,8 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Deletes all messages in a forum topic; requires can_delete_messages administrator right in the supergroup unless the user is creator of the topic, the topic has no messages from other users and has at most 11 messages
+        /// Deletes all messages from a topic in a forum supergroup chat or a chat with a bot with topics; requires can_delete_messages administrator right in the supergroup
+        /// unless the user is creator of the topic, the topic has no messages from other users and has at most 11 messages
         /// </summary>
         public class DeleteForumTopic : Function<Ok>
         {
@@ -35,22 +36,23 @@ namespace TdLib
             public long ChatId { get; set; }
 
             /// <summary>
-            /// Message thread identifier of the forum topic
+            /// Forum topic identifier
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("message_thread_id")]
-            public long MessageThreadId { get; set; }
+            [JsonProperty("forum_topic_id")]
+            public int ForumTopicId { get; set; }
         }
 
         /// <summary>
-        /// Deletes all messages in a forum topic; requires can_delete_messages administrator right in the supergroup unless the user is creator of the topic, the topic has no messages from other users and has at most 11 messages
+        /// Deletes all messages from a topic in a forum supergroup chat or a chat with a bot with topics; requires can_delete_messages administrator right in the supergroup
+        /// unless the user is creator of the topic, the topic has no messages from other users and has at most 11 messages
         /// </summary>
         public static Task<Ok> DeleteForumTopicAsync(
-            this Client client, long chatId = default, long messageThreadId = default)
+            this Client client, long chatId = default, int forumTopicId = default)
         {
             return client.ExecuteAsync(new DeleteForumTopic
             {
-                ChatId = chatId, MessageThreadId = messageThreadId
+                ChatId = chatId, ForumTopicId = forumTopicId
             });
         }
     }

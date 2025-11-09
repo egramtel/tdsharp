@@ -36,11 +36,11 @@ namespace TdLib
             public long ChatId { get; set; }
 
             /// <summary>
-            /// If not 0, the message thread identifier in which the messages will be sent
+            /// Topic in which the messages will be sent; pass null if none
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("message_thread_id")]
-            public long MessageThreadId { get; set; }
+            [JsonProperty("topic_id")]
+            public MessageTopic TopicId { get; set; }
 
             /// <summary>
             /// Information about the message or story to be replied; pass null if none
@@ -68,11 +68,11 @@ namespace TdLib
         /// Documents and audio files can be only grouped in an album with messages of the same type. Returns sent messages
         /// </summary>
         public static Task<Messages> SendMessageAlbumAsync(
-            this Client client, long chatId = default, long messageThreadId = default, InputMessageReplyTo replyTo = default, MessageSendOptions options = default, InputMessageContent[] inputMessageContents = default)
+            this Client client, long chatId = default, MessageTopic topicId = default, InputMessageReplyTo replyTo = default, MessageSendOptions options = default, InputMessageContent[] inputMessageContents = default)
         {
             return client.ExecuteAsync(new SendMessageAlbum
             {
-                ChatId = chatId, MessageThreadId = messageThreadId, ReplyTo = replyTo, Options = options, InputMessageContents = inputMessageContents
+                ChatId = chatId, TopicId = topicId, ReplyTo = replyTo, Options = options, InputMessageContents = inputMessageContents
             });
         }
     }

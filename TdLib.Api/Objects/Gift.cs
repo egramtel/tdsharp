@@ -34,6 +34,13 @@ namespace TdLib
             public long Id { get; set; }
 
             /// <summary>
+            /// Identifier of the chat that published the gift; 0 if none
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("publisher_chat_id")]
+            public long PublisherChatId { get; set; }
+
+            /// <summary>
             /// The sticker representing the gift
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -62,6 +69,13 @@ namespace TdLib
             public long UpgradeStarCount { get; set; }
 
             /// <summary>
+            /// True, if the gift can be used to customize the user's name, and backgrounds of profile photo, reply header, and link preview
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("has_colors")]
+            public bool HasColors { get; set; }
+
+            /// <summary>
             /// True, if the gift is a birthday gift
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -69,18 +83,33 @@ namespace TdLib
             public bool IsForBirthday { get; set; }
 
             /// <summary>
-            /// Number of remaining times the gift can be purchased; 0 if not limited or the gift was sold out
+            /// True, if the gift can be bought only by Telegram Premium subscribers
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("remaining_count")]
-            public int RemainingCount { get; set; }
+            [JsonProperty("is_premium")]
+            public bool IsPremium { get; set; }
 
             /// <summary>
-            /// Number of total times the gift can be purchased; 0 if not limited
+            /// Point in time (Unix timestamp) when the gift can be sent next time by the current user; can be 0 or a date in the past.
+            /// If the date is in the future, then call canSendGift to get the reason, why the gift can't be sent now
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("total_count")]
-            public int TotalCount { get; set; }
+            [JsonProperty("next_send_date")]
+            public int NextSendDate { get; set; }
+
+            /// <summary>
+            /// Number of times the gift can be purchased by the current user; may be null if not limited
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("user_limits")]
+            public GiftPurchaseLimits UserLimits { get; set; }
+
+            /// <summary>
+            /// Number of times the gift can be purchased all users; may be null if not limited
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("overall_limits")]
+            public GiftPurchaseLimits OverallLimits { get; set; }
 
             /// <summary>
             /// Point in time (Unix timestamp) when the gift was send for the first time; for sold out gifts only

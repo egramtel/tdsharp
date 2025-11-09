@@ -27,7 +27,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Information about the message to be replied; must be of the type inputMessageReplyToMessage; may be null if none
+            /// Information about the message to be replied; inputMessageReplyToStory is unsupported; may be null if none
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("reply_to")]
@@ -53,6 +53,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter.Int64))]
             [JsonProperty("effect_id")]
             public long EffectId { get; set; }
+
+            /// <summary>
+            /// Information about the suggested post; may be null if none
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("suggested_post_info")]
+            public InputSuggestedPostInfo SuggestedPostInfo { get; set; }
         }
     }
 }

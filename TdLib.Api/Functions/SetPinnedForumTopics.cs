@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Changes the order of pinned forum topics; requires can_manage_topics right in the supergroup
+        /// Changes the order of pinned topics in a forum supergroup chat or a chat with a bot with topics; requires can_manage_topics administrator right in the supergroup
         /// </summary>
         public class SetPinnedForumTopics : Function<Ok>
         {
@@ -35,21 +35,21 @@ namespace TdLib
             public long ChatId { get; set; }
 
             /// <summary>
-            /// The new list of pinned forum topics
+            /// The new list of identifiers of the pinned forum topics
             /// </summary>
-            [JsonProperty("message_thread_ids", ItemConverterType = typeof(Converter))]
-            public long[] MessageThreadIds { get; set; }
+            [JsonProperty("forum_topic_ids", ItemConverterType = typeof(Converter))]
+            public int[] ForumTopicIds { get; set; }
         }
 
         /// <summary>
-        /// Changes the order of pinned forum topics; requires can_manage_topics right in the supergroup
+        /// Changes the order of pinned topics in a forum supergroup chat or a chat with a bot with topics; requires can_manage_topics administrator right in the supergroup
         /// </summary>
         public static Task<Ok> SetPinnedForumTopicsAsync(
-            this Client client, long chatId = default, long[] messageThreadIds = default)
+            this Client client, long chatId = default, int[] forumTopicIds = default)
         {
             return client.ExecuteAsync(new SetPinnedForumTopics
             {
-                ChatId = chatId, MessageThreadIds = messageThreadIds
+                ChatId = chatId, ForumTopicIds = forumTopicIds
             });
         }
     }

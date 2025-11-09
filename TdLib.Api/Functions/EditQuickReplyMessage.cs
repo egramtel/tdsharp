@@ -12,7 +12,8 @@ namespace TdLib
     {
         /// <summary>
         /// Asynchronously edits the text, media or caption of a quick reply message. Use quickReplyMessage.can_be_edited to check whether a message can be edited.
-        /// Media message can be edited only to a media message. The type of message content in an album can't be changed with exception of replacing a photo with a video or vice versa
+        /// Media message can be edited only to a media message. Checklist messages can be edited only to a checklist message.
+        /// The type of message content in an album can't be changed with exception of replacing a photo with a video or vice versa
         /// </summary>
         public class EditQuickReplyMessage : Function<Ok>
         {
@@ -43,7 +44,7 @@ namespace TdLib
             public long MessageId { get; set; }
 
             /// <summary>
-            /// New content of the message. Must be one of the following types: inputMessageText, inputMessageAnimation, inputMessageAudio, inputMessageDocument, inputMessagePhoto or inputMessageVideo
+            /// New content of the message. Must be one of the following types: inputMessageAnimation, inputMessageAudio, inputMessageChecklist, inputMessageDocument, inputMessagePhoto, inputMessageText, or inputMessageVideo
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("input_message_content")]
@@ -52,7 +53,8 @@ namespace TdLib
 
         /// <summary>
         /// Asynchronously edits the text, media or caption of a quick reply message. Use quickReplyMessage.can_be_edited to check whether a message can be edited.
-        /// Media message can be edited only to a media message. The type of message content in an album can't be changed with exception of replacing a photo with a video or vice versa
+        /// Media message can be edited only to a media message. Checklist messages can be edited only to a checklist message.
+        /// The type of message content in an album can't be changed with exception of replacing a photo with a video or vice versa
         /// </summary>
         public static Task<Ok> EditQuickReplyMessageAsync(
             this Client client, int shortcutId = default, long messageId = default, InputMessageContent inputMessageContent = default)

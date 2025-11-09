@@ -12,7 +12,7 @@ namespace TdLib
         public partial class MessageSource : Object
         {
             /// <summary>
-            /// The message is from a forum topic history
+            /// The message is from history of a forum topic
             /// </summary>
             public class MessageSourceForumTopicHistory : MessageSource
             {

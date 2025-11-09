@@ -11,7 +11,8 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Edits title and icon of a topic in a forum supergroup chat; requires can_manage_topics right in the supergroup unless the user is creator of the topic
+        /// Edits title and icon of a topic in a forum supergroup chat or a chat with a bot with topics; for supergroup chats requires can_manage_topics administrator right
+        /// unless the user is creator of the topic
         /// </summary>
         public class EditForumTopic : Function<Ok>
         {
@@ -35,11 +36,11 @@ namespace TdLib
             public long ChatId { get; set; }
 
             /// <summary>
-            /// Message thread identifier of the forum topic
+            /// Forum topic identifier
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("message_thread_id")]
-            public long MessageThreadId { get; set; }
+            [JsonProperty("forum_topic_id")]
+            public int ForumTopicId { get; set; }
 
             /// <summary>
             /// New name of the topic; 0-128 characters. If empty, the previous topic name is kept
@@ -64,14 +65,15 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Edits title and icon of a topic in a forum supergroup chat; requires can_manage_topics right in the supergroup unless the user is creator of the topic
+        /// Edits title and icon of a topic in a forum supergroup chat or a chat with a bot with topics; for supergroup chats requires can_manage_topics administrator right
+        /// unless the user is creator of the topic
         /// </summary>
         public static Task<Ok> EditForumTopicAsync(
-            this Client client, long chatId = default, long messageThreadId = default, string name = default, bool editIconCustomEmoji = default, long iconCustomEmojiId = default)
+            this Client client, long chatId = default, int forumTopicId = default, string name = default, bool editIconCustomEmoji = default, long iconCustomEmojiId = default)
         {
             return client.ExecuteAsync(new EditForumTopic
             {
-                ChatId = chatId, MessageThreadId = messageThreadId, Name = name, EditIconCustomEmoji = editIconCustomEmoji, IconCustomEmojiId = iconCustomEmojiId
+                ChatId = chatId, ForumTopicId = forumTopicId, Name = name, EditIconCustomEmoji = editIconCustomEmoji, IconCustomEmojiId = iconCustomEmojiId
             });
         }
     }

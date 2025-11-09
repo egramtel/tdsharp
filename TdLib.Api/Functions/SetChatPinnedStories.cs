@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Changes the list of pinned stories on a chat page; requires can_edit_stories right in the chat
+        /// Changes the list of pinned stories on a chat page; requires can_edit_stories administrator right in the chat
         /// </summary>
         public class SetChatPinnedStories : Function<Ok>
         {
@@ -42,7 +42,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Changes the list of pinned stories on a chat page; requires can_edit_stories right in the chat
+        /// Changes the list of pinned stories on a chat page; requires can_edit_stories administrator right in the chat
         /// </summary>
         public static Task<Ok> SetChatPinnedStoriesAsync(
             this Client client, long chatId = default, int[] storyIds = default)

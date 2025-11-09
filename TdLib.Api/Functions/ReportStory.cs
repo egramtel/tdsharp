@@ -28,11 +28,11 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// The identifier of the sender of the story to report
+            /// The identifier of the poster of the story to report
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("story_sender_chat_id")]
-            public long StorySenderChatId { get; set; }
+            [JsonProperty("story_poster_chat_id")]
+            public long StoryPosterChatId { get; set; }
 
             /// <summary>
             /// The identifier of the story to report
@@ -60,11 +60,11 @@ namespace TdLib
         /// Reports a story to the Telegram moderators
         /// </summary>
         public static Task<ReportStoryResult> ReportStoryAsync(
-            this Client client, long storySenderChatId = default, int storyId = default, byte[] optionId = default, string text = default)
+            this Client client, long storyPosterChatId = default, int storyId = default, byte[] optionId = default, string text = default)
         {
             return client.ExecuteAsync(new ReportStory
             {
-                StorySenderChatId = storySenderChatId, StoryId = storyId, OptionId = optionId, Text = text
+                StoryPosterChatId = storyPosterChatId, StoryId = storyId, OptionId = optionId, Text = text
             });
         }
     }

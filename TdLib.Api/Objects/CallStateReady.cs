@@ -69,6 +69,13 @@ namespace TdLib
                 public bool AllowP2p { get; set; }
 
                 /// <summary>
+                /// True, if the other party supports upgrading of the call to a group call
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("is_group_call_supported")]
+                public bool IsGroupCallSupported { get; set; }
+
+                /// <summary>
                 /// Custom JSON-encoded call parameters to be passed to tgcalls
                 /// </summary>
                 [JsonConverter(typeof(Converter))]

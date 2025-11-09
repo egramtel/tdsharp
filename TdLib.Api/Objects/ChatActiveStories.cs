@@ -41,11 +41,19 @@ namespace TdLib
             public StoryList List { get; set; }
 
             /// <summary>
-            /// A parameter used to determine order of the stories in the story list; 0 if the stories doesn't need to be shown in the story list. Stories must be sorted by the pair (order, story_sender_chat_id) in descending order
+            /// A parameter used to determine order of the stories in the story list; 0 if the stories doesn't need to be shown in the story list. Stories must be sorted by the pair (order, story_poster_chat_id) in descending order
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("order")]
             public long Order { get; set; }
+
+            /// <summary>
+            /// True, if the stories are shown in the main story list and can be archived; otherwise, the stories can be hidden from the main story list
+            /// only by calling removeTopChat with topChatCategoryUsers and the chat_id. Stories of the current user can't be archived nor hidden using removeTopChat
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("can_be_archived")]
+            public bool CanBeArchived { get; set; }
 
             /// <summary>
             /// Identifier of the last read active story

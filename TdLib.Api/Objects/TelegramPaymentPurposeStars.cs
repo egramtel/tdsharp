@@ -48,6 +48,13 @@ namespace TdLib
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("star_count")]
                 public long StarCount { get; set; }
+
+                /// <summary>
+                /// Identifier of the chat that is supposed to receive the Telegram Stars; pass 0 if none
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("chat_id")]
+                public long ChatId { get; set; }
             }
         }
     }

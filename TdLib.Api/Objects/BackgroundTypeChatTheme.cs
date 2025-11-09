@@ -12,7 +12,7 @@ namespace TdLib
         public partial class BackgroundType : Object
         {
             /// <summary>
-            /// A background from a chat theme; can be used only as a chat background in channels
+            /// A background from a chat theme based on an emoji; can be used only as a chat background in channels
             /// </summary>
             public class BackgroundTypeChatTheme : BackgroundType
             {
@@ -29,7 +29,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Name of the chat theme
+                /// Name of the emoji chat theme
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("theme_name")]

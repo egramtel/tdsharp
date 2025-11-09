@@ -41,11 +41,11 @@ namespace TdLib
             public BusinessRecipients Recipients { get; set; }
 
             /// <summary>
-            /// True, if the bot can send messages to the private chats; false otherwise
+            /// Rights of the bot
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("can_reply")]
-            public bool CanReply { get; set; }
+            [JsonProperty("rights")]
+            public BusinessBotRights Rights { get; set; }
         }
     }
 }

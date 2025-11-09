@@ -28,11 +28,11 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// The identifier of the sender of the story to close
+            /// The identifier of the poster of the story to close
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("story_sender_chat_id")]
-            public long StorySenderChatId { get; set; }
+            [JsonProperty("story_poster_chat_id")]
+            public long StoryPosterChatId { get; set; }
 
             /// <summary>
             /// The identifier of the story
@@ -46,11 +46,11 @@ namespace TdLib
         /// Informs TDLib that a story is closed by the user
         /// </summary>
         public static Task<Ok> CloseStoryAsync(
-            this Client client, long storySenderChatId = default, int storyId = default)
+            this Client client, long storyPosterChatId = default, int storyId = default)
         {
             return client.ExecuteAsync(new CloseStory
             {
-                StorySenderChatId = storySenderChatId, StoryId = storyId
+                StoryPosterChatId = storyPosterChatId, StoryId = storyId
             });
         }
     }

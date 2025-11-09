@@ -43,6 +43,18 @@ namespace TdLib
             /// </summary>
             [JsonProperty("backdrops", ItemConverterType = typeof(Converter))]
             public UpgradedGiftBackdrop[] Backdrops { get; set; }
+
+            /// <summary>
+            /// Examples of price for gift upgrade from the maximum price to the minimum price
+            /// </summary>
+            [JsonProperty("prices", ItemConverterType = typeof(Converter))]
+            public GiftUpgradePrice[] Prices { get; set; }
+
+            /// <summary>
+            /// Next changes for the price for gift upgrade with more granularity than in prices
+            /// </summary>
+            [JsonProperty("next_prices", ItemConverterType = typeof(Converter))]
+            public GiftUpgradePrice[] NextPrices { get; set; }
         }
     }
 }

@@ -76,7 +76,7 @@ namespace TdLib
             public bool CanSendVoiceNotes { get; set; }
 
             /// <summary>
-            /// True, if the user can send polls
+            /// True, if the user can send polls and checklists
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("can_send_polls")]

@@ -31,8 +31,8 @@ namespace TdLib
             /// Identifier of the chat that posted the stories to search for; pass 0 to search stories in all chats
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("story_sender_chat_id")]
-            public long StorySenderChatId { get; set; }
+            [JsonProperty("story_poster_chat_id")]
+            public long StoryPosterChatId { get; set; }
 
             /// <summary>
             /// Hashtag or cashtag to search for
@@ -60,11 +60,11 @@ namespace TdLib
         /// Searches for public stories containing the given hashtag or cashtag. For optimal performance, the number of returned stories is chosen by TDLib and can be smaller than the specified limit
         /// </summary>
         public static Task<FoundStories> SearchPublicStoriesByTagAsync(
-            this Client client, long storySenderChatId = default, string tag = default, string offset = default, int limit = default)
+            this Client client, long storyPosterChatId = default, string tag = default, string offset = default, int limit = default)
         {
             return client.ExecuteAsync(new SearchPublicStoriesByTag
             {
-                StorySenderChatId = storySenderChatId, Tag = tag, Offset = offset, Limit = limit
+                StoryPosterChatId = storyPosterChatId, Tag = tag, Offset = offset, Limit = limit
             });
         }
     }

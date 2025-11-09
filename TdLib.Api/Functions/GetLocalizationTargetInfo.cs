@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns information about the current localization target. This is an offline request if only_local is true. Can be called before authorization
+        /// Returns information about the current localization target. This is an offline method if only_local is true. Can be called before authorization
         /// </summary>
         public class GetLocalizationTargetInfo : Function<LocalizationTargetInfo>
         {
@@ -36,7 +36,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Returns information about the current localization target. This is an offline request if only_local is true. Can be called before authorization
+        /// Returns information about the current localization target. This is an offline method if only_local is true. Can be called before authorization
         /// </summary>
         public static Task<LocalizationTargetInfo> GetLocalizationTargetInfoAsync(
             this Client client, bool onlyLocal = default)

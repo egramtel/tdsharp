@@ -35,11 +35,11 @@ namespace TdLib
             public long ChatId { get; set; }
 
             /// <summary>
-            /// If not 0, the message thread identifier in which the message will be sent; for forum threads only
+            /// Topic in which the messages will be forwarded; message threads aren't supported; pass null if none
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("message_thread_id")]
-            public long MessageThreadId { get; set; }
+            [JsonProperty("topic_id")]
+            public MessageTopic TopicId { get; set; }
 
             /// <summary>
             /// Identifier of the chat from which to forward messages
@@ -63,7 +63,7 @@ namespace TdLib
 
             /// <summary>
             /// Pass true to copy content of the messages without reference to the original sender. Always true if the messages are forwarded to a secret chat or are local.
-            /// Use messageProperties.can_be_saved and messageProperties.can_be_copied_to_secret_chat to check whether the message is suitable
+            /// Use messageProperties.can_be_copied and messageProperties.can_be_copied_to_secret_chat to check whether the message is suitable
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("send_copy")]
@@ -81,11 +81,11 @@ namespace TdLib
         /// Forwards previously sent messages. Returns the forwarded messages in the same order as the message identifiers passed in message_ids. If a message can't be forwarded, null will be returned instead of the message
         /// </summary>
         public static Task<Messages> ForwardMessagesAsync(
-            this Client client, long chatId = default, long messageThreadId = default, long fromChatId = default, long[] messageIds = default, MessageSendOptions options = default, bool sendCopy = default, bool removeCaption = default)
+            this Client client, long chatId = default, MessageTopic topicId = default, long fromChatId = default, long[] messageIds = default, MessageSendOptions options = default, bool sendCopy = default, bool removeCaption = default)
         {
             return client.ExecuteAsync(new ForwardMessages
             {
-                ChatId = chatId, MessageThreadId = messageThreadId, FromChatId = fromChatId, MessageIds = messageIds, Options = options, SendCopy = sendCopy, RemoveCaption = removeCaption
+                ChatId = chatId, TopicId = topicId, FromChatId = fromChatId, MessageIds = messageIds, Options = options, SendCopy = sendCopy, RemoveCaption = removeCaption
             });
         }
     }

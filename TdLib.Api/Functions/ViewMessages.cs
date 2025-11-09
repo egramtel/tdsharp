@@ -49,7 +49,7 @@ namespace TdLib
             public MessageSource Source { get; set; }
 
             /// <summary>
-            /// Pass true to mark as read the specified messages even the chat is closed
+            /// Pass true to mark as read the specified messages even if the chat is closed
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("force_read")]

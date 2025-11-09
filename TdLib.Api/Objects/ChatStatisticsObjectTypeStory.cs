@@ -12,7 +12,7 @@ namespace TdLib
         public partial class ChatStatisticsObjectType : Object
         {
             /// <summary>
-            /// Describes a story sent by the chat
+            /// Describes a story posted on behalf of the chat
             /// </summary>
             public class ChatStatisticsObjectTypeStory : ChatStatisticsObjectType
             {

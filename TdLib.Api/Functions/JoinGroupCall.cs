@@ -11,9 +11,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Joins an active group call. Returns join response payload for tgcalls
+        /// Joins a group call that is not bound to a chat
         /// </summary>
-        public class JoinGroupCall : Function<Text>
+        public class JoinGroupCall : Function<GroupCallInfo>
         {
             /// <summary>
             /// Data type for serialization
@@ -28,64 +28,29 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Group call identifier
+            /// The group call to join
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("group_call_id")]
-            public int GroupCallId { get; set; }
+            [JsonProperty("input_group_call")]
+            public InputGroupCall InputGroupCall { get; set; }
 
             /// <summary>
-            /// Identifier of a group call participant, which will be used to join the call; pass null to join as self; video chats only
+            /// Parameters to join the call
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("participant_id")]
-            public MessageSender ParticipantId { get; set; }
-
-            /// <summary>
-            /// Caller audio channel synchronization source identifier; received from tgcalls
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("audio_source_id")]
-            public int AudioSourceId { get; set; }
-
-            /// <summary>
-            /// Group call join payload; received from tgcalls
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("payload")]
-            public string Payload { get; set; }
-
-            /// <summary>
-            /// Pass true to join the call with muted microphone
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("is_muted")]
-            public bool IsMuted { get; set; }
-
-            /// <summary>
-            /// Pass true if the user's video is enabled
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("is_my_video_enabled")]
-            public bool IsMyVideoEnabled { get; set; }
-
-            /// <summary>
-            /// If non-empty, invite hash to be used to join the group call without being muted by administrators
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("invite_hash")]
-            public string InviteHash { get; set; }
+            [JsonProperty("join_parameters")]
+            public GroupCallJoinParameters JoinParameters { get; set; }
         }
 
         /// <summary>
-        /// Joins an active group call. Returns join response payload for tgcalls
+        /// Joins a group call that is not bound to a chat
         /// </summary>
-        public static Task<Text> JoinGroupCallAsync(
-            this Client client, int groupCallId = default, MessageSender participantId = default, int audioSourceId = default, string payload = default, bool isMuted = default, bool isMyVideoEnabled = default, string inviteHash = default)
+        public static Task<GroupCallInfo> JoinGroupCallAsync(
+            this Client client, InputGroupCall inputGroupCall = default, GroupCallJoinParameters joinParameters = default)
         {
             return client.ExecuteAsync(new JoinGroupCall
             {
-                GroupCallId = groupCallId, ParticipantId = participantId, AudioSourceId = audioSourceId, Payload = payload, IsMuted = isMuted, IsMyVideoEnabled = isMyVideoEnabled, InviteHash = inviteHash
+                InputGroupCall = inputGroupCall, JoinParameters = joinParameters
             });
         }
     }

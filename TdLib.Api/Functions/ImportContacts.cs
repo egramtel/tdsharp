@@ -28,17 +28,17 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// The list of contacts to import or edit; contacts' vCard are ignored and are not imported
+            /// The list of contacts to import or edit
             /// </summary>
             [JsonProperty("contacts", ItemConverterType = typeof(Converter))]
-            public Contact[] Contacts { get; set; }
+            public ImportedContact[] Contacts { get; set; }
         }
 
         /// <summary>
         /// Adds new contacts or edits existing contacts by their phone numbers; contacts' user identifiers are ignored
         /// </summary>
         public static Task<ImportedContacts> ImportContactsAsync(
-            this Client client, Contact[] contacts = default)
+            this Client client, ImportedContact[] contacts = default)
         {
             return client.ExecuteAsync(new ImportContacts
             {

@@ -59,7 +59,7 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("sponsor")]
-            public MessageSponsor Sponsor { get; set; }
+            public AdvertisementSponsor Sponsor { get; set; }
 
             /// <summary>
             /// Title of the sponsored message

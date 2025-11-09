@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Changes the slow mode delay of a chat. Available only for supergroups; requires can_restrict_members right
+        /// Changes the slow mode delay of a chat. Available only for supergroups; requires can_restrict_members administrator right
         /// </summary>
         public class SetChatSlowModeDelay : Function<Ok>
         {
@@ -35,7 +35,7 @@ namespace TdLib
             public long ChatId { get; set; }
 
             /// <summary>
-            /// New slow mode delay for the chat, in seconds; must be one of 0, 10, 30, 60, 300, 900, 3600
+            /// New slow mode delay for the chat, in seconds; must be one of 0, 5, 10, 30, 60, 300, 900, 3600
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("slow_mode_delay")]
@@ -43,7 +43,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Changes the slow mode delay of a chat. Available only for supergroups; requires can_restrict_members right
+        /// Changes the slow mode delay of a chat. Available only for supergroups; requires can_restrict_members administrator right
         /// </summary>
         public static Task<Ok> SetChatSlowModeDelayAsync(
             this Client client, long chatId = default, int slowModeDelay = default)

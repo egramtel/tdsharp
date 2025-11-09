@@ -28,7 +28,12 @@ namespace TdLib
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
-
+                /// <summary>
+                /// True, if the user joined Telegram as a Telegram Premium account
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("as_premium_account")]
+                public bool AsPremiumAccount { get; set; }
             }
         }
     }

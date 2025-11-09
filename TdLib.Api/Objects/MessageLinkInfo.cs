@@ -41,11 +41,11 @@ namespace TdLib
             public long ChatId { get; set; }
 
             /// <summary>
-            /// If found, identifier of the message thread in which to open the message, or a forum topic to open if the message is missing
+            /// Identifier of the specific topic in which the message must be opened, or a topic to open if the message is missing; may be null if none
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("message_thread_id")]
-            public long MessageThreadId { get; set; }
+            [JsonProperty("topic_id")]
+            public MessageTopic TopicId { get; set; }
 
             /// <summary>
             /// If found, the linked message; may be null

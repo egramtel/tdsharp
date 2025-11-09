@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Toggles whether a topic is closed in a forum supergroup chat; requires can_manage_topics right in the supergroup unless the user is creator of the topic
+        /// Toggles whether a topic is closed in a forum supergroup chat; requires can_manage_topics administrator right in the supergroup unless the user is creator of the topic
         /// </summary>
         public class ToggleForumTopicIsClosed : Function<Ok>
         {
@@ -35,11 +35,11 @@ namespace TdLib
             public long ChatId { get; set; }
 
             /// <summary>
-            /// Message thread identifier of the forum topic
+            /// Forum topic identifier
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("message_thread_id")]
-            public long MessageThreadId { get; set; }
+            [JsonProperty("forum_topic_id")]
+            public int ForumTopicId { get; set; }
 
             /// <summary>
             /// Pass true to close the topic; pass false to reopen it
@@ -50,14 +50,14 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Toggles whether a topic is closed in a forum supergroup chat; requires can_manage_topics right in the supergroup unless the user is creator of the topic
+        /// Toggles whether a topic is closed in a forum supergroup chat; requires can_manage_topics administrator right in the supergroup unless the user is creator of the topic
         /// </summary>
         public static Task<Ok> ToggleForumTopicIsClosedAsync(
-            this Client client, long chatId = default, long messageThreadId = default, bool isClosed = default)
+            this Client client, long chatId = default, int forumTopicId = default, bool isClosed = default)
         {
             return client.ExecuteAsync(new ToggleForumTopicIsClosed
             {
-                ChatId = chatId, MessageThreadId = messageThreadId, IsClosed = isClosed
+                ChatId = chatId, ForumTopicId = forumTopicId, IsClosed = isClosed
             });
         }
     }

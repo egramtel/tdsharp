@@ -28,11 +28,11 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// The identifier of the sender of the story
+            /// The identifier of the poster of the story
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("story_sender_chat_id")]
-            public long StorySenderChatId { get; set; }
+            [JsonProperty("story_poster_chat_id")]
+            public long StoryPosterChatId { get; set; }
 
             /// <summary>
             /// Story identifier
@@ -74,11 +74,11 @@ namespace TdLib
         /// Returns interactions with a story posted in a chat. Can be used only if story is posted on behalf of a chat and the user is an administrator in the chat
         /// </summary>
         public static Task<StoryInteractions> GetChatStoryInteractionsAsync(
-            this Client client, long storySenderChatId = default, int storyId = default, ReactionType reactionType = default, bool preferForwards = default, string offset = default, int limit = default)
+            this Client client, long storyPosterChatId = default, int storyId = default, ReactionType reactionType = default, bool preferForwards = default, string offset = default, int limit = default)
         {
             return client.ExecuteAsync(new GetChatStoryInteractions
             {
-                StorySenderChatId = storySenderChatId, StoryId = storyId, ReactionType = reactionType, PreferForwards = preferForwards, Offset = offset, Limit = limit
+                StoryPosterChatId = storyPosterChatId, StoryId = storyId, ReactionType = reactionType, PreferForwards = preferForwards, Offset = offset, Limit = limit
             });
         }
     }

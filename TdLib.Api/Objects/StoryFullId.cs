@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Contains identifier of a story along with identifier of its sender
+        /// Contains identifier of a story along with identifier of the chat that posted it
         /// </summary>
         public partial class StoryFullId : Object
         {
@@ -30,11 +30,11 @@ namespace TdLib
             /// Identifier of the chat that posted the story
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("sender_chat_id")]
-            public long SenderChatId { get; set; }
+            [JsonProperty("poster_chat_id")]
+            public long PosterChatId { get; set; }
 
             /// <summary>
-            /// Unique story identifier among stories of the given sender
+            /// Unique story identifier among stories of the chat
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("story_id")]

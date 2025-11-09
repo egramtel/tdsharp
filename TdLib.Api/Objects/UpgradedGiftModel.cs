@@ -41,7 +41,7 @@ namespace TdLib
             public Sticker Sticker { get; set; }
 
             /// <summary>
-            /// The number of upgraded gift that receive this model for each 1000 gifts upgraded
+            /// The number of upgraded gifts that receive this model for each 1000 gifts upgraded
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("rarity_per_mille")]

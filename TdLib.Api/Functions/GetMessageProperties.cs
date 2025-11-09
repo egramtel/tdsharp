@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns properties of a message; this is an offline request
+        /// Returns properties of a message. This is an offline method
         /// </summary>
         public class GetMessageProperties : Function<MessageProperties>
         {
@@ -43,7 +43,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Returns properties of a message; this is an offline request
+        /// Returns properties of a message. This is an offline method
         /// </summary>
         public static Task<MessageProperties> GetMessagePropertiesAsync(
             this Client client, long chatId = default, long messageId = default)

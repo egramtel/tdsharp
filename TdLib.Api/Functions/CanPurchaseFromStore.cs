@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Checks whether an in-store purchase is possible. Must be called before any in-store purchase
+        /// Checks whether an in-store purchase is possible. Must be called before any in-store purchase. For official applications only
         /// </summary>
         public class CanPurchaseFromStore : Function<Ok>
         {
@@ -36,7 +36,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Checks whether an in-store purchase is possible. Must be called before any in-store purchase
+        /// Checks whether an in-store purchase is possible. Must be called before any in-store purchase. For official applications only
         /// </summary>
         public static Task<Ok> CanPurchaseFromStoreAsync(
             this Client client, StorePaymentPurpose purpose = default)

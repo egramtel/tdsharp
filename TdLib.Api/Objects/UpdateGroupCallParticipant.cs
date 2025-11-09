@@ -29,14 +29,14 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Identifier of group call
+                /// Identifier of the group call
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("group_call_id")]
                 public int GroupCallId { get; set; }
 
                 /// <summary>
-                /// New data about a participant
+                /// New data about the participant
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("participant")]

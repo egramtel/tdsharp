@@ -12,7 +12,7 @@ namespace TdLib
         public partial class InternalLinkType : Object
         {
             /// <summary>
-            /// The link is a link to a video chat. Call searchPublicChat with the given chat username, and then joinGroupCall with the given invite hash to process the link
+            /// The link is a link to a video chat. Call searchPublicChat with the given chat username, and then joinVideoChat with the given invite hash to process the link
             /// </summary>
             public class InternalLinkTypeVideoChat : InternalLinkType
             {

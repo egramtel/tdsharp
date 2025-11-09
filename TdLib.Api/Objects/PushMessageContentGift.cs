@@ -34,6 +34,13 @@ namespace TdLib
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("star_count")]
                 public long StarCount { get; set; }
+
+                /// <summary>
+                /// True, if the message is about prepaid upgrade of the gift by another user instead of actual receiving of a new gift
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("is_prepaid_upgrade")]
+                public bool IsPrepaidUpgrade { get; set; }
             }
         }
     }

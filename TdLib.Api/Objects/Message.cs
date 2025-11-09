@@ -83,7 +83,7 @@ namespace TdLib
             public bool IsFromOffline { get; set; }
 
             /// <summary>
-            /// True, if content of the message can be saved locally or copied using inputMessageForwarded or forwardMessages with copy options
+            /// True, if content of the message can be saved locally
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("can_be_saved")]
@@ -104,11 +104,18 @@ namespace TdLib
             public bool IsChannelPost { get; set; }
 
             /// <summary>
-            /// True, if the message is a forum topic message
+            /// True, if the message is a suggested channel post which was paid in Telegram Stars; a warning must be shown if the message is deleted in less than getOption("suggested_post_lifetime_min") seconds after sending
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("is_topic_message")]
-            public bool IsTopicMessage { get; set; }
+            [JsonProperty("is_paid_star_suggested_post")]
+            public bool IsPaidStarSuggestedPost { get; set; }
+
+            /// <summary>
+            /// True, if the message is a suggested channel post which was paid in Toncoins; a warning must be shown if the message is deleted in less than getOption("suggested_post_lifetime_min") seconds after sending
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("is_paid_ton_suggested_post")]
+            public bool IsPaidTonSuggestedPost { get; set; }
 
             /// <summary>
             /// True, if the message contains an unread mention for the current user
@@ -166,6 +173,13 @@ namespace TdLib
             public FactCheck FactCheck { get; set; }
 
             /// <summary>
+            /// Information about the suggested post; may be null if the message isn't a suggested post
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("suggested_post_info")]
+            public SuggestedPostInfo SuggestedPostInfo { get; set; }
+
+            /// <summary>
             /// Information about the message or the story this message is replying to; may be null if none
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -173,18 +187,11 @@ namespace TdLib
             public MessageReplyTo ReplyTo { get; set; }
 
             /// <summary>
-            /// If non-zero, the identifier of the message thread the message belongs to; unique within the chat to which the message belongs
+            /// Identifier of the topic within the chat to which the message belongs; may be null if none
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("message_thread_id")]
-            public long MessageThreadId { get; set; }
-
-            /// <summary>
-            /// Identifier of the Saved Messages topic for the message; 0 for messages not from Saved Messages
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("saved_messages_topic_id")]
-            public long SavedMessagesTopicId { get; set; }
+            [JsonProperty("topic_id")]
+            public MessageTopic TopicId { get; set; }
 
             /// <summary>
             /// The message's self-destruct type; may be null if none
@@ -229,6 +236,13 @@ namespace TdLib
             public int SenderBoostCount { get; set; }
 
             /// <summary>
+            /// The number of Telegram Stars the sender paid to send the message
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("paid_message_star_count")]
+            public long PaidMessageStarCount { get; set; }
+
+            /// <summary>
             /// For channel posts and anonymous group messages, optional author signature
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -250,18 +264,11 @@ namespace TdLib
             public long EffectId { get; set; }
 
             /// <summary>
-            /// True, if media content of the message must be hidden with 18+ spoiler
+            /// Information about the restrictions that must be applied to the message content; may be null if none
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("has_sensitive_content")]
-            public bool HasSensitiveContent { get; set; }
-
-            /// <summary>
-            /// If non-empty, contains a human-readable description of the reason why access to this message must be restricted
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("restriction_reason")]
-            public string RestrictionReason { get; set; }
+            [JsonProperty("restriction_info")]
+            public RestrictionInfo RestrictionInfo { get; set; }
 
             /// <summary>
             /// Content of the message

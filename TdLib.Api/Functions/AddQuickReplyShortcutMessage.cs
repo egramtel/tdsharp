@@ -43,7 +43,7 @@ namespace TdLib
             public long ReplyToMessageId { get; set; }
 
             /// <summary>
-            /// The content of the message to be added; inputMessagePoll, inputMessageForwarded and inputMessageLocation with live_period aren't supported
+            /// The content of the message to be added; inputMessagePaidMedia, inputMessageForwarded and inputMessageLocation with live_period aren't supported
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("input_message_content")]

@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Starts recording of an active group call. Requires groupCall.can_be_managed group call flag
+        /// Starts recording of an active group call; for video chats only. Requires groupCall.can_be_managed right
         /// </summary>
         public class StartGroupCallRecording : Function<Ok>
         {
@@ -57,7 +57,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Starts recording of an active group call. Requires groupCall.can_be_managed group call flag
+        /// Starts recording of an active group call; for video chats only. Requires groupCall.can_be_managed right
         /// </summary>
         public static Task<Ok> StartGroupCallRecordingAsync(
             this Client client, int groupCallId = default, string title = default, bool recordVideo = default, bool usePortraitOrientation = default)

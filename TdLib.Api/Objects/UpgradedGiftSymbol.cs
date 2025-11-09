@@ -34,14 +34,14 @@ namespace TdLib
             public string Name { get; set; }
 
             /// <summary>
-            /// The sticker representing the upgraded gift
+            /// The sticker representing the symbol
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("sticker")]
             public Sticker Sticker { get; set; }
 
             /// <summary>
-            /// The number of upgraded gift that receive this symbol for each 1000 gifts upgraded
+            /// The number of upgraded gifts that receive this symbol for each 1000 gifts upgraded
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("rarity_per_mille")]

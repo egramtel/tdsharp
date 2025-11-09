@@ -12,7 +12,7 @@ namespace TdLib
         public partial class InternalLinkType : Object
         {
             /// <summary>
-            /// The link is a link to a story. Call searchPublicChat with the given sender username, then call getStory with the received chat identifier and the given story identifier, then show the story if received
+            /// The link is a link to a story. Call searchPublicChat with the given poster username, then call getStory with the received chat identifier and the given story identifier, then show the story if received
             /// </summary>
             public class InternalLinkTypeStory : InternalLinkType
             {
@@ -29,11 +29,11 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Username of the sender of the story
+                /// Username of the poster of the story
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("story_sender_username")]
-                public string StorySenderUsername { get; set; }
+                [JsonProperty("story_poster_username")]
+                public string StoryPosterUsername { get; set; }
 
                 /// <summary>
                 /// Story identifier

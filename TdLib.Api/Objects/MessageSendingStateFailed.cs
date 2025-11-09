@@ -64,6 +64,13 @@ namespace TdLib
                 public bool NeedDropReply { get; set; }
 
                 /// <summary>
+                /// The number of Telegram Stars that must be paid to send the message; 0 if the current amount is correct
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("required_paid_message_star_count")]
+                public long RequiredPaidMessageStarCount { get; set; }
+
+                /// <summary>
                 /// Time left before the message can be re-sent, in seconds. No update is sent when this field changes
                 /// </summary>
                 [JsonConverter(typeof(Converter))]

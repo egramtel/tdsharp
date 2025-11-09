@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns chat lists to which the chat can be added. This is an offline request
+        /// Returns chat lists to which the chat can be added. This is an offline method
         /// </summary>
         public class GetChatListsToAddChat : Function<ChatLists>
         {
@@ -36,7 +36,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Returns chat lists to which the chat can be added. This is an offline request
+        /// Returns chat lists to which the chat can be added. This is an offline method
         /// </summary>
         public static Task<ChatLists> GetChatListsToAddChatAsync(
             this Client client, long chatId = default)

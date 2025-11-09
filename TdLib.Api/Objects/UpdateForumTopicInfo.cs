@@ -29,13 +29,6 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Chat identifier
-                /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("chat_id")]
-                public long ChatId { get; set; }
-
-                /// <summary>
                 /// New information about the topic
                 /// </summary>
                 [JsonConverter(typeof(Converter))]

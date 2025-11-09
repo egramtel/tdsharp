@@ -57,6 +57,13 @@ namespace TdLib
                 public bool HasMainWebApp { get; set; }
 
                 /// <summary>
+                /// True, if the bot has topics
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("has_topics")]
+                public bool HasTopics { get; set; }
+
+                /// <summary>
                 /// True, if the bot supports inline queries
                 /// </summary>
                 [JsonConverter(typeof(Converter))]

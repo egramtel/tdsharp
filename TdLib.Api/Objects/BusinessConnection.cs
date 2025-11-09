@@ -55,11 +55,11 @@ namespace TdLib
             public int Date { get; set; }
 
             /// <summary>
-            /// True, if the bot can send messages to the connected user; false otherwise
+            /// Rights of the bot; may be null if the connection was disabled
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("can_reply")]
-            public bool CanReply { get; set; }
+            [JsonProperty("rights")]
+            public BusinessBotRights Rights { get; set; }
 
             /// <summary>
             /// True, if the connection is enabled; false otherwise

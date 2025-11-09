@@ -71,6 +71,13 @@ namespace TdLib
             public int BoostLevel { get; set; }
 
             /// <summary>
+            /// True, if automatic translation of messages is enabled in the channel
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("has_automatic_translation")]
+            public bool HasAutomaticTranslation { get; set; }
+
+            /// <summary>
             /// True, if the channel has a discussion group, or the supergroup is the designated discussion group for a channel
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -99,14 +106,14 @@ namespace TdLib
             public bool ShowMessageSender { get; set; }
 
             /// <summary>
-            /// True, if users need to join the supergroup before they can send messages. Always true for channels and non-discussion supergroups
+            /// True, if users need to join the supergroup before they can send messages. May be false only for discussion supergroups and channel direct messages groups
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("join_to_send_messages")]
             public bool JoinToSendMessages { get; set; }
 
             /// <summary>
-            /// True, if all users directly joining the supergroup need to be approved by supergroup administrators. Always false for channels and supergroups without username, location, or a linked chat
+            /// True, if all users directly joining the supergroup need to be approved by supergroup administrators. Can be true only for non-broadcast supergroups with username, location, or a linked chat
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("join_by_request")]
@@ -141,6 +148,20 @@ namespace TdLib
             public bool IsForum { get; set; }
 
             /// <summary>
+            /// True, if the supergroup is a direct message group for a channel chat
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("is_direct_messages_group")]
+            public bool IsDirectMessagesGroup { get; set; }
+
+            /// <summary>
+            /// True, if the supergroup is a direct messages group for a channel chat that is administered by the current user
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("is_administered_direct_messages_group")]
+            public bool IsAdministeredDirectMessagesGroup { get; set; }
+
+            /// <summary>
             /// Information about verification status of the supergroup or channel; may be null if none
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -148,18 +169,32 @@ namespace TdLib
             public VerificationStatus VerificationStatus { get; set; }
 
             /// <summary>
-            /// True, if content of media messages in the supergroup or channel chat must be hidden with 18+ spoiler
+            /// True, if the channel has direct messages group
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("has_sensitive_content")]
-            public bool HasSensitiveContent { get; set; }
+            [JsonProperty("has_direct_messages_group")]
+            public bool HasDirectMessagesGroup { get; set; }
 
             /// <summary>
-            /// If non-empty, contains a human-readable description of the reason why access to this supergroup or channel must be restricted
+            /// True, if the supergroup is a forum, which topics are shown in the same way as in channel direct messages groups
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("restriction_reason")]
-            public string RestrictionReason { get; set; }
+            [JsonProperty("has_forum_tabs")]
+            public bool HasForumTabs { get; set; }
+
+            /// <summary>
+            /// Information about the restrictions that must be applied to the corresponding supergroup or channel chat; may be null if none
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("restriction_info")]
+            public RestrictionInfo RestrictionInfo { get; set; }
+
+            /// <summary>
+            /// Number of Telegram Stars that must be paid by non-administrator users of the supergroup chat for each sent message
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("paid_message_star_count")]
+            public long PaidMessageStarCount { get; set; }
 
             /// <summary>
             /// True, if the supergroup or channel has non-expired stories available to the current user

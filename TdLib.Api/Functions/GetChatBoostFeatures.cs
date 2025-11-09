@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns the list of features available for different chat boost levels; this is an offline request
+        /// Returns the list of features available for different chat boost levels. This is an offline method
         /// </summary>
         public class GetChatBoostFeatures : Function<ChatBoostFeatures>
         {
@@ -36,7 +36,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Returns the list of features available for different chat boost levels; this is an offline request
+        /// Returns the list of features available for different chat boost levels. This is an offline method
         /// </summary>
         public static Task<ChatBoostFeatures> GetChatBoostFeaturesAsync(
             this Client client, bool isChannel = default)

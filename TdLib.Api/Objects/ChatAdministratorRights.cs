@@ -27,7 +27,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// True, if the administrator can access the chat event log, get boost list, see hidden supergroup and channel members, report supergroup spam messages and ignore slow mode. Implied by any other privilege; applicable to supergroups and channels only
+            /// True, if the administrator can access the chat event log, get boost list, see hidden supergroup and channel members, report supergroup spam messages,
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("can_manage_chat")]
@@ -41,7 +41,7 @@ namespace TdLib
             public bool CanChangeInfo { get; set; }
 
             /// <summary>
-            /// True, if the administrator can create channel posts or view channel statistics; applicable to channels only
+            /// True, if the administrator can create channel posts, approve suggested channel posts, or view channel statistics; applicable to channels only
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("can_post_messages")]
@@ -123,6 +123,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("can_delete_stories")]
             public bool CanDeleteStories { get; set; }
+
+            /// <summary>
+            /// True, if the administrator can answer to channel direct messages; applicable to channels only
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("can_manage_direct_messages")]
+            public bool CanManageDirectMessages { get; set; }
 
             /// <summary>
             /// True, if the administrator isn't shown in the chat member list and sends messages anonymously; applicable to supergroups only

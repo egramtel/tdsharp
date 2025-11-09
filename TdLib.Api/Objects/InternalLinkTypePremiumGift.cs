@@ -12,7 +12,7 @@ namespace TdLib
         public partial class InternalLinkType : Object
         {
             /// <summary>
-            /// The link is a link to the screen for gifting Telegram Premium subscriptions to friends via inputInvoiceTelegram with telegramPaymentPurposePremiumGiftCodes payments or in-store purchases
+            /// The link is a link to the screen for gifting Telegram Premium subscriptions to friends via inputInvoiceTelegram with telegramPaymentPurposePremiumGift payments or in-store purchases
             /// </summary>
             public class InternalLinkTypePremiumGift : InternalLinkType
             {

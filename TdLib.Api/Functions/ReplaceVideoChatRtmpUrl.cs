@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Replaces the current RTMP URL for streaming to the chat; requires owner privileges
+        /// Replaces the current RTMP URL for streaming to the video chat of a chat; requires owner privileges in the chat
         /// </summary>
         public class ReplaceVideoChatRtmpUrl : Function<RtmpUrl>
         {
@@ -36,7 +36,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Replaces the current RTMP URL for streaming to the chat; requires owner privileges
+        /// Replaces the current RTMP URL for streaming to the video chat of a chat; requires owner privileges in the chat
         /// </summary>
         public static Task<RtmpUrl> ReplaceVideoChatRtmpUrlAsync(
             this Client client, long chatId = default)

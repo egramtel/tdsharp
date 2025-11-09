@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Describes a user contact
+        /// Describes a contact of a user
         /// </summary>
         public partial class Contact : Object
         {
@@ -34,14 +34,14 @@ namespace TdLib
             public string PhoneNumber { get; set; }
 
             /// <summary>
-            /// First name of the user; 1-255 characters in length
+            /// First name of the user; 1-64 characters
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("first_name")]
             public string FirstName { get; set; }
 
             /// <summary>
-            /// Last name of the user
+            /// Last name of the user; 0-64 characters
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("last_name")]

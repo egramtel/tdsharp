@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Sells a gift for Telegram Stars
+        /// Sells a gift for Telegram Stars; requires owner privileges for gifts owned by a chat
         /// </summary>
         public class SellGift : Function<Ok>
         {
@@ -28,6 +28,13 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
+            /// Unique identifier of business connection on behalf of which to send the request; for bots only
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("business_connection_id")]
+            public string BusinessConnectionId { get; set; }
+
+            /// <summary>
             /// Identifier of the gift
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -36,14 +43,14 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Sells a gift for Telegram Stars
+        /// Sells a gift for Telegram Stars; requires owner privileges for gifts owned by a chat
         /// </summary>
         public static Task<Ok> SellGiftAsync(
-            this Client client, string receivedGiftId = default)
+            this Client client, string businessConnectionId = default, string receivedGiftId = default)
         {
             return client.ExecuteAsync(new SellGift
             {
-                ReceivedGiftId = receivedGiftId
+                BusinessConnectionId = businessConnectionId, ReceivedGiftId = receivedGiftId
             });
         }
     }

@@ -11,7 +11,8 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Changes the pinned state of a forum topic; requires can_manage_topics right in the supergroup. There can be up to getOption("pinned_forum_topic_count_max") pinned forum topics
+        /// Changes the pinned state of a topic in a forum supergroup chat or a chat with a bot with topics; requires can_manage_topics administrator right in the supergroup.
+        /// There can be up to getOption("pinned_forum_topic_count_max") pinned forum topics
         /// </summary>
         public class ToggleForumTopicIsPinned : Function<Ok>
         {
@@ -35,11 +36,11 @@ namespace TdLib
             public long ChatId { get; set; }
 
             /// <summary>
-            /// Message thread identifier of the forum topic
+            /// Forum topic identifier
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("message_thread_id")]
-            public long MessageThreadId { get; set; }
+            [JsonProperty("forum_topic_id")]
+            public int ForumTopicId { get; set; }
 
             /// <summary>
             /// Pass true to pin the topic; pass false to unpin it
@@ -50,14 +51,15 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Changes the pinned state of a forum topic; requires can_manage_topics right in the supergroup. There can be up to getOption("pinned_forum_topic_count_max") pinned forum topics
+        /// Changes the pinned state of a topic in a forum supergroup chat or a chat with a bot with topics; requires can_manage_topics administrator right in the supergroup.
+        /// There can be up to getOption("pinned_forum_topic_count_max") pinned forum topics
         /// </summary>
         public static Task<Ok> ToggleForumTopicIsPinnedAsync(
-            this Client client, long chatId = default, long messageThreadId = default, bool isPinned = default)
+            this Client client, long chatId = default, int forumTopicId = default, bool isPinned = default)
         {
             return client.ExecuteAsync(new ToggleForumTopicIsPinned
             {
-                ChatId = chatId, MessageThreadId = messageThreadId, IsPinned = isPinned
+                ChatId = chatId, ForumTopicId = forumTopicId, IsPinned = isPinned
             });
         }
     }

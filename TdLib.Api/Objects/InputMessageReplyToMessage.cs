@@ -41,6 +41,13 @@ namespace TdLib
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("quote")]
                 public InputTextQuote Quote { get; set; }
+
+                /// <summary>
+                /// Identifier of the checklist task in the message to be replied; pass 0 to reply to the whole message
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("checklist_task_id")]
+                public int ChecklistTaskId { get; set; }
             }
         }
     }

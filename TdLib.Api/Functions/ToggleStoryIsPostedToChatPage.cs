@@ -31,8 +31,8 @@ namespace TdLib
             /// Identifier of the chat that posted the story
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("story_sender_chat_id")]
-            public long StorySenderChatId { get; set; }
+            [JsonProperty("story_poster_chat_id")]
+            public long StoryPosterChatId { get; set; }
 
             /// <summary>
             /// Identifier of the story
@@ -53,11 +53,11 @@ namespace TdLib
         /// Toggles whether a story is accessible after expiration. Can be called only if story.can_toggle_is_posted_to_chat_page == true
         /// </summary>
         public static Task<Ok> ToggleStoryIsPostedToChatPageAsync(
-            this Client client, long storySenderChatId = default, int storyId = default, bool isPostedToChatPage = default)
+            this Client client, long storyPosterChatId = default, int storyId = default, bool isPostedToChatPage = default)
         {
             return client.ExecuteAsync(new ToggleStoryIsPostedToChatPage
             {
-                StorySenderChatId = storySenderChatId, StoryId = storyId, IsPostedToChatPage = isPostedToChatPage
+                StoryPosterChatId = storyPosterChatId, StoryId = storyId, IsPostedToChatPage = isPostedToChatPage
             });
         }
     }

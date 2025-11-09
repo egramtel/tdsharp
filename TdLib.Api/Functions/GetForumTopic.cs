@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns information about a forum topic
+        /// Returns information about a topic in a forum supergroup chat or a chat with a bot with topics
         /// </summary>
         public class GetForumTopic : Function<ForumTopic>
         {
@@ -35,22 +35,22 @@ namespace TdLib
             public long ChatId { get; set; }
 
             /// <summary>
-            /// Message thread identifier of the forum topic
+            /// Forum topic identifier
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("message_thread_id")]
-            public long MessageThreadId { get; set; }
+            [JsonProperty("forum_topic_id")]
+            public int ForumTopicId { get; set; }
         }
 
         /// <summary>
-        /// Returns information about a forum topic
+        /// Returns information about a topic in a forum supergroup chat or a chat with a bot with topics
         /// </summary>
         public static Task<ForumTopic> GetForumTopicAsync(
-            this Client client, long chatId = default, long messageThreadId = default)
+            this Client client, long chatId = default, int forumTopicId = default)
         {
             return client.ExecuteAsync(new GetForumTopic
             {
-                ChatId = chatId, MessageThreadId = messageThreadId
+                ChatId = chatId, ForumTopicId = forumTopicId
             });
         }
     }

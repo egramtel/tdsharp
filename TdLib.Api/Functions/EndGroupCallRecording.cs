@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Ends recording of an active group call. Requires groupCall.can_be_managed group call flag
+        /// Ends recording of an active group call; for video chats only. Requires groupCall.can_be_managed right
         /// </summary>
         public class EndGroupCallRecording : Function<Ok>
         {
@@ -36,7 +36,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Ends recording of an active group call. Requires groupCall.can_be_managed group call flag
+        /// Ends recording of an active group call; for video chats only. Requires groupCall.can_be_managed right
         /// </summary>
         public static Task<Ok> EndGroupCallRecordingAsync(
             this Client client, int groupCallId = default)

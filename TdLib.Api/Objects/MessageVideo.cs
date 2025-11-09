@@ -42,6 +42,12 @@ namespace TdLib
                 public AlternativeVideo[] AlternativeVideos { get; set; }
 
                 /// <summary>
+                /// Available storyboards for the video
+                /// </summary>
+                [JsonProperty("storyboards", ItemConverterType = typeof(Converter))]
+                public VideoStoryboard[] Storyboards { get; set; }
+
+                /// <summary>
                 /// Cover of the video; may be null if none
                 /// </summary>
                 [JsonConverter(typeof(Converter))]

@@ -111,6 +111,13 @@ namespace TdLib
             public bool CanSetCustomEmojiStickerSet { get; set; }
 
             /// <summary>
+            /// True, if automatic translation of messages can be enabled in the chat
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("can_enable_automatic_translation")]
+            public bool CanEnableAutomaticTranslation { get; set; }
+
+            /// <summary>
             /// True, if speech recognition can be used for video note and voice note messages by all users
             /// </summary>
             [JsonConverter(typeof(Converter))]

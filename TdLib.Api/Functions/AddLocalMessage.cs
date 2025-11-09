@@ -28,7 +28,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Target chat
+            /// Target chat; channel direct messages chats aren't supported
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_id")]

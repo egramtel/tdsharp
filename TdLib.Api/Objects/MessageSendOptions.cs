@@ -27,6 +27,13 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
+            /// Information about the suggested post; pass null if none. For messages to channel direct messages chat only. Applicable only to sendMessage and addOffer
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("suggested_post_info")]
+            public InputSuggestedPostInfo SuggestedPostInfo { get; set; }
+
+            /// <summary>
             /// Pass true to disable notification for the message
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -55,6 +62,13 @@ namespace TdLib
             public bool AllowPaidBroadcast { get; set; }
 
             /// <summary>
+            /// The number of Telegram Stars the user agreed to pay to send the messages
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("paid_message_star_count")]
+            public long PaidMessageStarCount { get; set; }
+
+            /// <summary>
             /// Pass true if the user explicitly chosen a sticker or a custom emoji from an installed sticker set; applicable only to sendMessage and sendMessageAlbum
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -62,7 +76,8 @@ namespace TdLib
             public bool UpdateOrderOfInstalledStickerSets { get; set; }
 
             /// <summary>
-            /// Message scheduling state; pass null to send message immediately. Messages sent to a secret chat, live location messages and self-destructing messages can't be scheduled
+            /// Message scheduling state; pass null to send message immediately. Messages sent to a secret chat, to a chat with paid messages, to a channel direct messages chat,
+            /// live location messages and self-destructing messages can't be scheduled
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("scheduling_state")]

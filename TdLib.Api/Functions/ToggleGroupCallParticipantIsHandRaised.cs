@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Toggles whether a group call participant hand is rased
+        /// Toggles whether a group call participant hand is rased; for video chats only
         /// </summary>
         public class ToggleGroupCallParticipantIsHandRaised : Function<Ok>
         {
@@ -42,7 +42,7 @@ namespace TdLib
             public MessageSender ParticipantId { get; set; }
 
             /// <summary>
-            /// Pass true if the user's hand needs to be raised. Only self hand can be raised. Requires groupCall.can_be_managed group call flag to lower other's hand
+            /// Pass true if the user's hand needs to be raised. Only self hand can be raised. Requires groupCall.can_be_managed right to lower other's hand
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_hand_raised")]
@@ -50,7 +50,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Toggles whether a group call participant hand is rased
+        /// Toggles whether a group call participant hand is rased; for video chats only
         /// </summary>
         public static Task<Ok> ToggleGroupCallParticipantIsHandRaisedAsync(
             this Client client, int groupCallId = default, MessageSender participantId = default, bool isHandRaised = default)

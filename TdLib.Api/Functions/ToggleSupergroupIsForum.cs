@@ -40,17 +40,24 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_forum")]
             public bool IsForum { get; set; }
+
+            /// <summary>
+            /// New value of has_forum_tabs; ignored if is_forum is false
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("has_forum_tabs")]
+            public bool HasForumTabs { get; set; }
         }
 
         /// <summary>
         /// Toggles whether the supergroup is a forum; requires owner privileges in the supergroup. Discussion supergroups can't be converted to forums
         /// </summary>
         public static Task<Ok> ToggleSupergroupIsForumAsync(
-            this Client client, long supergroupId = default, bool isForum = default)
+            this Client client, long supergroupId = default, bool isForum = default, bool hasForumTabs = default)
         {
             return client.ExecuteAsync(new ToggleSupergroupIsForum
             {
-                SupergroupId = supergroupId, IsForum = isForum
+                SupergroupId = supergroupId, IsForum = isForum, HasForumTabs = hasForumTabs
             });
         }
     }

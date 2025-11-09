@@ -29,10 +29,10 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// The new list of contacts, contact's vCard are ignored and are not imported
+            /// The new list of contacts to import
             /// </summary>
             [JsonProperty("contacts", ItemConverterType = typeof(Converter))]
-            public Contact[] Contacts { get; set; }
+            public ImportedContact[] Contacts { get; set; }
         }
 
         /// <summary>
@@ -40,7 +40,7 @@ namespace TdLib
         /// Query result depends on the result of the previous query, so only one query is possible at the same time
         /// </summary>
         public static Task<ImportedContacts> ChangeImportedContactsAsync(
-            this Client client, Contact[] contacts = default)
+            this Client client, ImportedContact[] contacts = default)
         {
             return client.ExecuteAsync(new ChangeImportedContacts
             {

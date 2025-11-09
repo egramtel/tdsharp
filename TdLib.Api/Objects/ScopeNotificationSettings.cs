@@ -69,11 +69,11 @@ namespace TdLib
             public long StorySoundId { get; set; }
 
             /// <summary>
-            /// True, if the sender of stories must be displayed in notifications
+            /// True, if the chat that posted a story must be displayed in notifications
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("show_story_sender")]
-            public bool ShowStorySender { get; set; }
+            [JsonProperty("show_story_poster")]
+            public bool ShowStoryPoster { get; set; }
 
             /// <summary>
             /// True, if notifications for incoming pinned messages will be created as for an ordinary unread message

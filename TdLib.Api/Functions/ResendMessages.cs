@@ -47,6 +47,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("quote")]
             public InputTextQuote Quote { get; set; }
+
+            /// <summary>
+            /// The number of Telegram Stars the user agreed to pay to send the messages. Ignored if messageSendingStateFailed.required_paid_message_star_count == 0
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("paid_message_star_count")]
+            public long PaidMessageStarCount { get; set; }
         }
 
         /// <summary>
@@ -54,11 +61,11 @@ namespace TdLib
         /// If a message is re-sent, the corresponding failed to send message is deleted. Returns the sent messages in the same order as the message identifiers passed in message_ids. If a message can't be re-sent, null will be returned instead of the message
         /// </summary>
         public static Task<Messages> ResendMessagesAsync(
-            this Client client, long chatId = default, long[] messageIds = default, InputTextQuote quote = default)
+            this Client client, long chatId = default, long[] messageIds = default, InputTextQuote quote = default, long paidMessageStarCount = default)
         {
             return client.ExecuteAsync(new ResendMessages
             {
-                ChatId = chatId, MessageIds = messageIds, Quote = quote
+                ChatId = chatId, MessageIds = messageIds, Quote = quote, PaidMessageStarCount = paidMessageStarCount
             });
         }
     }

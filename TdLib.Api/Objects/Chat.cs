@@ -69,6 +69,13 @@ namespace TdLib
             public long BackgroundCustomEmojiId { get; set; }
 
             /// <summary>
+            /// Color scheme based on an upgraded gift to be used for the chat instead of accent_color_id and background_custom_emoji_id; may be null if none
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("upgraded_gift_colors")]
+            public UpgradedGiftColors UpgradedGiftColors { get; set; }
+
+            /// <summary>
             /// Identifier of the profile accent color for the chat's profile; -1 if none
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -103,7 +110,7 @@ namespace TdLib
             public ChatPosition[] Positions { get; set; }
 
             /// <summary>
-            /// Chat lists to which the chat belongs. A chat can have a non-zero position in a chat list even it doesn't belong to the chat list and have no position in a chat list even it belongs to the chat list
+            /// Chat lists to which the chat belongs. A chat can have a non-zero position in a chat list even if it doesn't belong to the chat list and have no position in a chat list even if it belongs to the chat list
             /// </summary>
             [JsonProperty("chat_lists", ItemConverterType = typeof(Converter))]
             public ChatList[] ChatLists { get; set; }
@@ -256,11 +263,11 @@ namespace TdLib
             public ChatBackground Background { get; set; }
 
             /// <summary>
-            /// If non-empty, name of a theme, set for the chat
+            /// Theme set for the chat; may be null if none
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("theme_name")]
-            public string ThemeName { get; set; }
+            [JsonProperty("theme")]
+            public ChatTheme Theme { get; set; }
 
             /// <summary>
             /// Information about actions which must be possible to do through the chat action bar; may be null if none

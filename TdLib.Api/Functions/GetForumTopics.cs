@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns found forum topics in a forum chat. This is a temporary method for getting information about topic list from the server
+        /// Returns found forum topics in a forum supergroup chat or a chat with a bot with topics. This is a temporary method for getting information about topic list from the server
         /// </summary>
         public class GetForumTopics : Function<ForumTopics>
         {
@@ -28,7 +28,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Identifier of the forum chat
+            /// Identifier of the chat
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_id")]
@@ -56,11 +56,11 @@ namespace TdLib
             public long OffsetMessageId { get; set; }
 
             /// <summary>
-            /// The message thread identifier of the last found topic, or 0 for the first request
+            /// The forum topic identifier of the last found topic, or 0 for the first request
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("offset_message_thread_id")]
-            public long OffsetMessageThreadId { get; set; }
+            [JsonProperty("offset_forum_topic_id")]
+            public int OffsetForumTopicId { get; set; }
 
             /// <summary>
             /// The maximum number of forum topics to be returned; up to 100. For optimal performance, the number of returned forum topics is chosen by TDLib and can be smaller than the specified limit
@@ -71,14 +71,14 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Returns found forum topics in a forum chat. This is a temporary method for getting information about topic list from the server
+        /// Returns found forum topics in a forum supergroup chat or a chat with a bot with topics. This is a temporary method for getting information about topic list from the server
         /// </summary>
         public static Task<ForumTopics> GetForumTopicsAsync(
-            this Client client, long chatId = default, string query = default, int offsetDate = default, long offsetMessageId = default, long offsetMessageThreadId = default, int limit = default)
+            this Client client, long chatId = default, string query = default, int offsetDate = default, long offsetMessageId = default, int offsetForumTopicId = default, int limit = default)
         {
             return client.ExecuteAsync(new GetForumTopics
             {
-                ChatId = chatId, Query = query, OffsetDate = offsetDate, OffsetMessageId = offsetMessageId, OffsetMessageThreadId = offsetMessageThreadId, Limit = limit
+                ChatId = chatId, Query = query, OffsetDate = offsetDate, OffsetMessageId = offsetMessageId, OffsetForumTopicId = offsetForumTopicId, Limit = limit
             });
         }
     }

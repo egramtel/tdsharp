@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Searches for the specified query in the title and username of up to 50 recently found chats; this is an offline request
+        /// Searches for the specified query in the title and username of up to 50 recently found chats. This is an offline method
         /// </summary>
         public class SearchRecentlyFoundChats : Function<Chats>
         {
@@ -43,7 +43,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Searches for the specified query in the title and username of up to 50 recently found chats; this is an offline request
+        /// Searches for the specified query in the title and username of up to 50 recently found chats. This is an offline method
         /// </summary>
         public static Task<Chats> SearchRecentlyFoundChatsAsync(
             this Client client, string query = default, int limit = default)

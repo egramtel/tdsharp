@@ -11,10 +11,12 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns information about a non-bundled message that is replied by a given message. Also, returns the pinned message, the game message, the invoice message,
-        /// the message with a previously set same background, the giveaway message, and the topic creation message for messages of the types
-        /// messagePinMessage, messageGameScore, messagePaymentSuccessful, messageChatSetBackground, messageGiveawayCompleted and topic messages without non-bundled replied message respectively.
-        /// Returns a 404 error if the message doesn't exist
+        /// Returns information about a non-bundled message that is replied by a given message. Also, returns the pinned message for messagePinMessage,
+        /// the game message for messageGameScore, the invoice message for messagePaymentSuccessful, the message with a previously set same background for messageChatSetBackground,
+        /// the giveaway message for messageGiveawayCompleted, the checklist message for messageChecklistTasksDone, messageChecklistTasksAdded, the message with suggested post information
+        /// for messageSuggestedPostApprovalFailed, messageSuggestedPostApproved, messageSuggestedPostDeclined, messageSuggestedPostPaid, messageSuggestedPostRefunded,
+        /// the message with the regular gift that was upgraded for messageUpgradedGift with origin of the type upgradedGiftOriginUpgrade,
+        /// and the topic creation message for topic messages without non-bundled replied message. Returns a 404 error if the message doesn't exist
         /// </summary>
         public class GetRepliedMessage : Function<Message>
         {
@@ -46,10 +48,12 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Returns information about a non-bundled message that is replied by a given message. Also, returns the pinned message, the game message, the invoice message,
-        /// the message with a previously set same background, the giveaway message, and the topic creation message for messages of the types
-        /// messagePinMessage, messageGameScore, messagePaymentSuccessful, messageChatSetBackground, messageGiveawayCompleted and topic messages without non-bundled replied message respectively.
-        /// Returns a 404 error if the message doesn't exist
+        /// Returns information about a non-bundled message that is replied by a given message. Also, returns the pinned message for messagePinMessage,
+        /// the game message for messageGameScore, the invoice message for messagePaymentSuccessful, the message with a previously set same background for messageChatSetBackground,
+        /// the giveaway message for messageGiveawayCompleted, the checklist message for messageChecklistTasksDone, messageChecklistTasksAdded, the message with suggested post information
+        /// for messageSuggestedPostApprovalFailed, messageSuggestedPostApproved, messageSuggestedPostDeclined, messageSuggestedPostPaid, messageSuggestedPostRefunded,
+        /// the message with the regular gift that was upgraded for messageUpgradedGift with origin of the type upgradedGiftOriginUpgrade,
+        /// and the topic creation message for topic messages without non-bundled replied message. Returns a 404 error if the message doesn't exist
         /// </summary>
         public static Task<Message> GetRepliedMessageAsync(
             this Client client, long chatId = default, long messageId = default)

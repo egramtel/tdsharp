@@ -27,17 +27,24 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Total number of transactions
+            /// The amount of owned Toncoins; in the smallest units of the cryptocurrency
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("total_count")]
-            public int TotalCount { get; set; }
+            [JsonProperty("ton_amount")]
+            public long TonAmount { get; set; }
 
             /// <summary>
             /// List of transactions
             /// </summary>
             [JsonProperty("transactions", ItemConverterType = typeof(Converter))]
             public ChatRevenueTransaction[] Transactions { get; set; }
+
+            /// <summary>
+            /// The offset for the next request. If empty, then there are no more results
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("next_offset")]
+            public string NextOffset { get; set; }
         }
     }
 }

@@ -12,7 +12,7 @@ namespace TdLib
         public partial class InputMessageContent : Object
         {
             /// <summary>
-            /// A message with a poll. Polls can't be sent to secret chats. Polls can be sent only to a private chat with a bot
+            /// A message with a poll. Polls can't be sent to secret chats and channel direct messages chats. Polls can be sent to a private chat only if the chat is a chat with a bot or the Saved Messages chat
             /// </summary>
             public class InputMessagePoll : InputMessageContent
             {
@@ -36,7 +36,7 @@ namespace TdLib
                 public FormattedText Question { get; set; }
 
                 /// <summary>
-                /// List of poll answer options, 2-10 strings 1-100 characters each. Only custom emoji entities are allowed to be added and only by Premium users
+                /// List of poll answer options, 2-getOption("poll_answer_count_max") strings 1-100 characters each. Only custom emoji entities are allowed to be added and only by Premium users
                 /// </summary>
                 [JsonProperty("options", ItemConverterType = typeof(Converter))]
                 public FormattedText[] Options { get; set; }

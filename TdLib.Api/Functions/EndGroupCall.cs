@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Ends a group call. Requires groupCall.can_be_managed
+        /// Ends a group call. Requires groupCall.can_be_managed right for video chats or groupCall.is_owned otherwise
         /// </summary>
         public class EndGroupCall : Function<Ok>
         {
@@ -36,7 +36,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Ends a group call. Requires groupCall.can_be_managed
+        /// Ends a group call. Requires groupCall.can_be_managed right for video chats or groupCall.is_owned otherwise
         /// </summary>
         public static Task<Ok> EndGroupCallAsync(
             this Client client, int groupCallId = default)

@@ -35,11 +35,11 @@ namespace TdLib
             public long ChatId { get; set; }
 
             /// <summary>
-            /// If not 0, the message thread identifier in which the message will be sent
+            /// Topic in which the message will be sent; pass null if none
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("message_thread_id")]
-            public long MessageThreadId { get; set; }
+            [JsonProperty("topic_id")]
+            public MessageTopic TopicId { get; set; }
 
             /// <summary>
             /// Information about the message or story to be replied; pass null if none
@@ -81,11 +81,11 @@ namespace TdLib
         /// Sends the result of an inline query as a message. Returns the sent message. Always clears a chat draft message
         /// </summary>
         public static Task<Message> SendInlineQueryResultMessageAsync(
-            this Client client, long chatId = default, long messageThreadId = default, InputMessageReplyTo replyTo = default, MessageSendOptions options = default, long queryId = default, string resultId = default, bool hideViaBot = default)
+            this Client client, long chatId = default, MessageTopic topicId = default, InputMessageReplyTo replyTo = default, MessageSendOptions options = default, long queryId = default, string resultId = default, bool hideViaBot = default)
         {
             return client.ExecuteAsync(new SendInlineQueryResultMessage
             {
-                ChatId = chatId, MessageThreadId = messageThreadId, ReplyTo = replyTo, Options = options, QueryId = queryId, ResultId = resultId, HideViaBot = hideViaBot
+                ChatId = chatId, TopicId = topicId, ReplyTo = replyTo, Options = options, QueryId = queryId, ResultId = resultId, HideViaBot = hideViaBot
             });
         }
     }

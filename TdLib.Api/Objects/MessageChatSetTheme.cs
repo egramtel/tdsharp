@@ -29,11 +29,11 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// If non-empty, name of a new theme, set for the chat. Otherwise, chat theme was reset to the default one
+                /// New theme for the chat; may be null if chat theme was reset to the default one
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("theme_name")]
-                public string ThemeName { get; set; }
+                [JsonProperty("theme")]
+                public ChatTheme Theme { get; set; }
             }
         }
     }

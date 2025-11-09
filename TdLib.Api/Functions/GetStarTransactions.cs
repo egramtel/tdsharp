@@ -46,7 +46,7 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("direction")]
-            public StarTransactionDirection Direction { get; set; }
+            public TransactionDirection Direction { get; set; }
 
             /// <summary>
             /// Offset of the first transaction to return as received from the previous request; use empty string to get the first chunk of results
@@ -67,7 +67,7 @@ namespace TdLib
         /// Returns the list of Telegram Star transactions for the specified owner
         /// </summary>
         public static Task<StarTransactions> GetStarTransactionsAsync(
-            this Client client, MessageSender ownerId = default, string subscriptionId = default, StarTransactionDirection direction = default, string offset = default, int limit = default)
+            this Client client, MessageSender ownerId = default, string subscriptionId = default, TransactionDirection direction = default, string offset = default, int limit = default)
         {
             return client.ExecuteAsync(new GetStarTransactions
             {

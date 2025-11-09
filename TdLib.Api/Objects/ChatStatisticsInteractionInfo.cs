@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Contains statistics about interactions with a message sent in the chat or a story sent by the chat
+        /// Contains statistics about interactions with a message sent in the chat or a story posted on behalf of the chat
         /// </summary>
         public partial class ChatStatisticsInteractionInfo : Object
         {

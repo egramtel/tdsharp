@@ -153,11 +153,74 @@ namespace TdLib
             public int GroupInCommonCount { get; set; }
 
             /// <summary>
+            /// Number of Telegram Stars that must be paid by the user for each sent message to the current user
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("incoming_paid_message_star_count")]
+            public long IncomingPaidMessageStarCount { get; set; }
+
+            /// <summary>
+            /// Number of Telegram Stars that must be paid by the current user for each sent message to the user
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("outgoing_paid_message_star_count")]
+            public long OutgoingPaidMessageStarCount { get; set; }
+
+            /// <summary>
+            /// Settings for gift receiving for the user
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("gift_settings")]
+            public GiftSettings GiftSettings { get; set; }
+
+            /// <summary>
             /// Information about verification status of the user provided by a bot; may be null if none or unknown
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("bot_verification")]
             public BotVerification BotVerification { get; set; }
+
+            /// <summary>
+            /// The main tab chosen by the user; may be null if not chosen manually
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("main_profile_tab")]
+            public ProfileTab MainProfileTab { get; set; }
+
+            /// <summary>
+            /// The first audio file added to the user's profile; may be null if none
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("first_profile_audio")]
+            public Audio FirstProfileAudio { get; set; }
+
+            /// <summary>
+            /// The current rating of the user; may be null if none
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("rating")]
+            public UserRating Rating { get; set; }
+
+            /// <summary>
+            /// The rating of the user after the next change; may be null if the user isn't the current user or there are no pending rating changes
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("pending_rating")]
+            public UserRating PendingRating { get; set; }
+
+            /// <summary>
+            /// Unix timestamp when rating of the user will change to pending_rating; 0 if the user isn't the current user or there are no pending rating changes
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("pending_rating_date")]
+            public int PendingRatingDate { get; set; }
+
+            /// <summary>
+            /// Note added to the user's contact; may be null if none
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("note")]
+            public FormattedText Note { get; set; }
 
             /// <summary>
             /// Information about business settings for Telegram Business accounts; may be null if none

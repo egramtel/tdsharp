@@ -97,18 +97,18 @@ namespace TdLib
             public long StorySoundId { get; set; }
 
             /// <summary>
-            /// If true, the value for the relevant type of chat is used instead of show_story_sender
+            /// If true, the value for the relevant type of chat is used instead of show_story_poster
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("use_default_show_story_sender")]
-            public bool UseDefaultShowStorySender { get; set; }
+            [JsonProperty("use_default_show_story_poster")]
+            public bool UseDefaultShowStoryPoster { get; set; }
 
             /// <summary>
-            /// True, if the sender of stories must be displayed in notifications
+            /// True, if the chat that posted a story must be displayed in notifications
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("show_story_sender")]
-            public bool ShowStorySender { get; set; }
+            [JsonProperty("show_story_poster")]
+            public bool ShowStoryPoster { get; set; }
 
             /// <summary>
             /// If true, the value for the relevant type of chat or the forum chat is used instead of disable_pinned_message_notifications

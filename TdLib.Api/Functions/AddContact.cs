@@ -28,15 +28,21 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// The contact to add or edit; phone number may be empty and needs to be specified only if known, vCard is ignored
+            /// Identifier of the user
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("user_id")]
+            public long UserId { get; set; }
+
+            /// <summary>
+            /// The contact to add or edit; phone number may be empty and needs to be specified only if known
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("contact")]
-            public Contact Contact { get; set; }
+            public ImportedContact Contact { get; set; }
 
             /// <summary>
             /// Pass true to share the current user's phone number with the new contact. A corresponding rule to userPrivacySettingShowPhoneNumber will be added if needed.
-            /// Use the field userFullInfo.need_phone_number_privacy_exception to check whether the current user needs to be asked to share their phone number
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("share_phone_number")]
@@ -47,11 +53,11 @@ namespace TdLib
         /// Adds a user to the contact list or edits an existing contact by their user identifier
         /// </summary>
         public static Task<Ok> AddContactAsync(
-            this Client client, Contact contact = default, bool sharePhoneNumber = default)
+            this Client client, long userId = default, ImportedContact contact = default, bool sharePhoneNumber = default)
         {
             return client.ExecuteAsync(new AddContact
             {
-                Contact = contact, SharePhoneNumber = sharePhoneNumber
+                UserId = userId, Contact = contact, SharePhoneNumber = sharePhoneNumber
             });
         }
     }

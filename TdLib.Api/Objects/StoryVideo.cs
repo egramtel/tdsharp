@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Describes a video file sent in a story
+        /// Describes a video file posted as a story
         /// </summary>
         public partial class StoryVideo : Object
         {

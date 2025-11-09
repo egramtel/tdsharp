@@ -50,6 +50,13 @@ namespace TdLib
                 public long BackgroundCustomEmojiId { get; set; }
 
                 /// <summary>
+                /// Color scheme based on an upgraded gift to be used for the chat instead of accent_color_id and background_custom_emoji_id; may be null if none
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("upgraded_gift_colors")]
+                public UpgradedGiftColors UpgradedGiftColors { get; set; }
+
+                /// <summary>
                 /// The new chat profile accent color identifier; -1 if none
                 /// </summary>
                 [JsonConverter(typeof(Converter))]

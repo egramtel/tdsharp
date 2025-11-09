@@ -27,6 +27,13 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
+            /// Unique identifier of the backdrop
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("id")]
+            public int Id { get; set; }
+
+            /// <summary>
             /// Name of the backdrop
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -41,7 +48,7 @@ namespace TdLib
             public UpgradedGiftBackdropColors Colors { get; set; }
 
             /// <summary>
-            /// The number of upgraded gift that receive this backdrop for each 1000 gifts upgraded
+            /// The number of upgraded gifts that receive this backdrop for each 1000 gifts upgraded
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("rarity_per_mille")]

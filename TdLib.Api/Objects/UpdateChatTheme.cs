@@ -36,11 +36,11 @@ namespace TdLib
                 public long ChatId { get; set; }
 
                 /// <summary>
-                /// The new name of the chat theme; may be empty if theme was reset to default
+                /// The new theme of the chat; may be null if theme was reset to default
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("theme_name")]
-                public string ThemeName { get; set; }
+                [JsonProperty("theme")]
+                public ChatTheme Theme { get; set; }
             }
         }
     }

@@ -27,11 +27,46 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
+            /// True, if an offer can be added to the message using addOffer
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("can_add_offer")]
+            public bool CanAddOffer { get; set; }
+
+            /// <summary>
+            /// True, if tasks can be added to the message's checklist using addChecklistTasks if the current user has Telegram Premium subscription
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("can_add_tasks")]
+            public bool CanAddTasks { get; set; }
+
+            /// <summary>
+            /// True, if the message is a suggested post that can be approved by the user using approveSuggestedPost
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("can_be_approved")]
+            public bool CanBeApproved { get; set; }
+
+            /// <summary>
+            /// True, if content of the message can be copied using inputMessageForwarded or forwardMessages with copy options
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("can_be_copied")]
+            public bool CanBeCopied { get; set; }
+
+            /// <summary>
             /// True, if content of the message can be copied to a secret chat using inputMessageForwarded or forwardMessages with copy options
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("can_be_copied_to_secret_chat")]
             public bool CanBeCopiedToSecretChat { get; set; }
+
+            /// <summary>
+            /// True, if the message is a suggested post that can be declined by the user using declineSuggestedPost
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("can_be_declined")]
+            public bool CanBeDeclined { get; set; }
 
             /// <summary>
             /// True, if the message can be deleted only for the current user while other users will continue to see it using the method deleteMessages with revoke == false
@@ -49,14 +84,13 @@ namespace TdLib
 
             /// <summary>
             /// True, if the message can be edited using the methods editMessageText, editMessageCaption, or editMessageReplyMarkup.
-            /// For live location and poll messages this fields shows whether editMessageLiveLocation or stopPoll can be used with this message
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("can_be_edited")]
             public bool CanBeEdited { get; set; }
 
             /// <summary>
-            /// True, if the message can be forwarded using inputMessageForwarded or forwardMessages
+            /// True, if the message can be forwarded using inputMessageForwarded or forwardMessages without copy options
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("can_be_forwarded")]
@@ -91,7 +125,7 @@ namespace TdLib
             public bool CanBeRepliedInAnotherChat { get; set; }
 
             /// <summary>
-            /// True, if content of the message can be saved locally or copied using inputMessageForwarded or forwardMessages with copy options
+            /// True, if content of the message can be saved locally
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("can_be_saved")]
@@ -117,6 +151,20 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("can_edit_scheduling_state")]
             public bool CanEditSchedulingState { get; set; }
+
+            /// <summary>
+            /// True, if another price or post send time can be suggested using addOffer
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("can_edit_suggested_post_info")]
+            public bool CanEditSuggestedPostInfo { get; set; }
+
+            /// <summary>
+            /// True, if author of the message sent on behalf of a chat can be received through getMessageAuthor
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("can_get_author")]
+            public bool CanGetAuthor { get; set; }
 
             /// <summary>
             /// True, if code for message embedding can be received using getMessageEmbeddingCode
@@ -161,11 +209,25 @@ namespace TdLib
             public bool CanGetStatistics { get; set; }
 
             /// <summary>
+            /// True, if advertisements for video of the message can be received though getVideoMessageAdvertisements
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("can_get_video_advertisements")]
+            public bool CanGetVideoAdvertisements { get; set; }
+
+            /// <summary>
             /// True, if chat members already viewed the message can be received through getMessageViewers
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("can_get_viewers")]
             public bool CanGetViewers { get; set; }
+
+            /// <summary>
+            /// True, if tasks can be marked as done or not done in the message's checklist using markChecklistTasksAsDone if the current user has Telegram Premium subscription
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("can_mark_tasks_as_done")]
+            public bool CanMarkTasksAsDone { get; set; }
 
             /// <summary>
             /// True, if speech can be recognized for the message through recognizeSpeech

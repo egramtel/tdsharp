@@ -34,6 +34,20 @@ namespace TdLib
             public long Id { get; set; }
 
             /// <summary>
+            /// Unique identifier of the regular gift from which the gift was upgraded; may be 0 for short period of time for old gifts from database
+            /// </summary>
+            [JsonConverter(typeof(Converter.Int64))]
+            [JsonProperty("regular_gift_id")]
+            public long RegularGiftId { get; set; }
+
+            /// <summary>
+            /// Identifier of the chat that published the gift; 0 if none
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("publisher_chat_id")]
+            public long PublisherChatId { get; set; }
+
+            /// <summary>
             /// The title of the upgraded gift
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -41,7 +55,7 @@ namespace TdLib
             public string Title { get; set; }
 
             /// <summary>
-            /// Unique name of the upgraded gift that can be used with internalLinkTypeUpgradedGift
+            /// Unique name of the upgraded gift that can be used with internalLinkTypeUpgradedGift or sendResoldGift
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("name")]
@@ -69,6 +83,34 @@ namespace TdLib
             public int MaxUpgradedCount { get; set; }
 
             /// <summary>
+            /// True, if the original gift could have been bought only by Telegram Premium subscribers
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("is_premium")]
+            public bool IsPremium { get; set; }
+
+            /// <summary>
+            /// True, if the gift can be used to set a theme in a chat
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("is_theme_available")]
+            public bool IsThemeAvailable { get; set; }
+
+            /// <summary>
+            /// Identifier of the chat for which the gift is used to set a theme; 0 if none or the gift isn't owned by the current user
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("used_theme_chat_id")]
+            public long UsedThemeChatId { get; set; }
+
+            /// <summary>
+            /// Identifier of the user or the chat to which the upgraded gift was assigned from blockchain; may be null if none or unknown
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("host_id")]
+            public MessageSender HostId { get; set; }
+
+            /// <summary>
             /// Identifier of the user or the chat that owns the upgraded gift; may be null if none or unknown
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -76,7 +118,7 @@ namespace TdLib
             public MessageSender OwnerId { get; set; }
 
             /// <summary>
-            /// Address of the gift NFT owner in TON blockchain; may be empty if none
+            /// Address of the gift NFT owner in TON blockchain; may be empty if none. Append the address to getOption("ton_blockchain_explorer_url") to get a link with information about the address
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("owner_address")]
@@ -90,7 +132,7 @@ namespace TdLib
             public string OwnerName { get; set; }
 
             /// <summary>
-            /// Address of the gift NFT in TON blockchain; may be empty if none
+            /// Address of the gift NFT in TON blockchain; may be empty if none. Append the address to getOption("ton_blockchain_explorer_url") to get a link with information about the address
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("gift_address")]
@@ -123,6 +165,34 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("original_details")]
             public UpgradedGiftOriginalDetails OriginalDetails { get; set; }
+
+            /// <summary>
+            /// Colors that can be set for user's name, background of empty chat photo, replies to messages and link previews; may be null if none
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("colors")]
+            public UpgradedGiftColors Colors { get; set; }
+
+            /// <summary>
+            /// Resale parameters of the gift; may be null if resale isn't possible
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("resale_parameters")]
+            public GiftResaleParameters ResaleParameters { get; set; }
+
+            /// <summary>
+            /// ISO 4217 currency code of the currency in which value of the gift is represented; may be empty if unavailable
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("value_currency")]
+            public string ValueCurrency { get; set; }
+
+            /// <summary>
+            /// Estimated value of the gift; in the smallest units of the currency; 0 if unavailable
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("value_amount")]
+            public long ValueAmount { get; set; }
         }
     }
 }

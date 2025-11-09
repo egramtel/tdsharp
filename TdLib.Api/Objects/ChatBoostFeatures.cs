@@ -75,6 +75,13 @@ namespace TdLib
             public int MinCustomEmojiStickerSetBoostLevel { get; set; }
 
             /// <summary>
+            /// The minimum boost level allowing to enable automatic translation of messages for non-Premium users; for channel chats only
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("min_automatic_translation_boost_level")]
+            public int MinAutomaticTranslationBoostLevel { get; set; }
+
+            /// <summary>
             /// The minimum boost level allowing to recognize speech in video note and voice note messages for non-Premium users; for supergroup chats only
             /// </summary>
             [JsonConverter(typeof(Converter))]

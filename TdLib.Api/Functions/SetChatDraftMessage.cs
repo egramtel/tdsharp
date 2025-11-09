@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Changes the draft message in a chat
+        /// Changes the draft message in a chat or a topic
         /// </summary>
         public class SetChatDraftMessage : Function<Ok>
         {
@@ -35,11 +35,11 @@ namespace TdLib
             public long ChatId { get; set; }
 
             /// <summary>
-            /// If not 0, the message thread identifier in which the draft was changed
+            /// Topic in which the draft will be changed; pass null to change the draft for the chat itself
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("message_thread_id")]
-            public long MessageThreadId { get; set; }
+            [JsonProperty("topic_id")]
+            public MessageTopic TopicId { get; set; }
 
             /// <summary>
             /// New draft message; pass null to remove the draft. All files in draft message content must be of the type inputFileLocal. Media thumbnails and captions are ignored
@@ -50,14 +50,14 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Changes the draft message in a chat
+        /// Changes the draft message in a chat or a topic
         /// </summary>
         public static Task<Ok> SetChatDraftMessageAsync(
-            this Client client, long chatId = default, long messageThreadId = default, DraftMessage draftMessage = default)
+            this Client client, long chatId = default, MessageTopic topicId = default, DraftMessage draftMessage = default)
         {
             return client.ExecuteAsync(new SetChatDraftMessage
             {
-                ChatId = chatId, MessageThreadId = messageThreadId, DraftMessage = draftMessage
+                ChatId = chatId, TopicId = topicId, DraftMessage = draftMessage
             });
         }
     }

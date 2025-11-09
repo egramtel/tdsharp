@@ -39,7 +39,7 @@ namespace TdLib
             public string[] DisabledUsernames { get; set; }
 
             /// <summary>
-            /// The active username, which can be changed with setUsername or setSupergroupUsername. Information about other active usernames can be received using getCollectibleItemInfo
+            /// Active or disabled username, which may be changed with setUsername or setSupergroupUsername. Information about other active usernames can be received using getCollectibleItemInfo
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("editable_username")]

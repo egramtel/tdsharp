@@ -76,6 +76,13 @@ namespace TdLib
             public long LinkedChatId { get; set; }
 
             /// <summary>
+            /// Chat identifier of a direct messages group for the channel, or a channel, for which the supergroup is the designated direct messages group; 0 if none
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("direct_messages_chat_id")]
+            public long DirectMessagesChatId { get; set; }
+
+            /// <summary>
             /// Delay between consecutive sent messages for non-administrator supergroup members, in seconds
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -88,6 +95,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("slow_mode_delay_expires_in")]
             public double? SlowModeDelayExpiresIn { get; set; }
+
+            /// <summary>
+            /// True, if paid messages can be enabled in the supergroup chat; for supergroup only
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("can_enable_paid_messages")]
+            public bool CanEnablePaidMessages { get; set; }
 
             /// <summary>
             /// True, if paid reaction can be enabled in the channel chat; for channels only
@@ -223,6 +237,13 @@ namespace TdLib
             public int UnrestrictBoostCount { get; set; }
 
             /// <summary>
+            /// Number of Telegram Stars that must be paid by the current user for each sent message to the supergroup
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("outgoing_paid_message_star_count")]
+            public long OutgoingPaidMessageStarCount { get; set; }
+
+            /// <summary>
             /// Identifier of the supergroup sticker set that must be shown before user sticker sets; 0 if none
             /// </summary>
             [JsonConverter(typeof(Converter.Int64))]
@@ -262,6 +283,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("bot_verification")]
             public BotVerification BotVerification { get; set; }
+
+            /// <summary>
+            /// The main tab chosen by the administrators of the channel; may be null if not chosen manually
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("main_profile_tab")]
+            public ProfileTab MainProfileTab { get; set; }
 
             /// <summary>
             /// Identifier of the basic group from which supergroup was upgraded; 0 if none

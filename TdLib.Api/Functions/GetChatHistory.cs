@@ -12,7 +12,7 @@ namespace TdLib
     {
         /// <summary>
         /// Returns messages in a chat. The messages are returned in reverse chronological order (i.e., in order of decreasing message_id).
-        /// For optimal performance, the number of returned messages is chosen by TDLib. This is an offline request if only_local is true
+        /// For optimal performance, the number of returned messages is chosen by TDLib. This is an offline method if only_local is true
         /// </summary>
         public class GetChatHistory : Function<Messages>
         {
@@ -43,14 +43,14 @@ namespace TdLib
             public long FromMessageId { get; set; }
 
             /// <summary>
-            /// Specify 0 to get results from exactly the message from_message_id or a negative offset up to 99 to get additionally some newer messages
+            /// Specify 0 to get results from exactly the message from_message_id or a negative number from -99 to -1 to get additionally -offset newer messages
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("offset")]
             public int Offset { get; set; }
 
             /// <summary>
-            /// The maximum number of messages to be returned; must be positive and can't be greater than 100. If the offset is negative, the limit must be greater than or equal to -offset.
+            /// The maximum number of messages to be returned; must be positive and can't be greater than 100. If the offset is negative, then the limit must be greater than or equal to -offset.
             /// For optimal performance, the number of returned messages is chosen by TDLib and can be smaller than the specified limit
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -67,7 +67,7 @@ namespace TdLib
 
         /// <summary>
         /// Returns messages in a chat. The messages are returned in reverse chronological order (i.e., in order of decreasing message_id).
-        /// For optimal performance, the number of returned messages is chosen by TDLib. This is an offline request if only_local is true
+        /// For optimal performance, the number of returned messages is chosen by TDLib. This is an offline method if only_local is true
         /// </summary>
         public static Task<Messages> GetChatHistoryAsync(
             this Client client, long chatId = default, long fromMessageId = default, int offset = default, int limit = default, bool onlyLocal = default)

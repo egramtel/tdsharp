@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Describes a video chat
+        /// Describes a video chat, i.e. a group call bound to a chat
         /// </summary>
         public partial class VideoChat : Object
         {

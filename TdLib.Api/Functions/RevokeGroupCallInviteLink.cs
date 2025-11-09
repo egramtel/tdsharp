@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Revokes invite link for a group call. Requires groupCall.can_be_managed group call flag
+        /// Revokes invite link for a group call. Requires groupCall.can_be_managed right for video chats or groupCall.is_owned otherwise
         /// </summary>
         public class RevokeGroupCallInviteLink : Function<Ok>
         {
@@ -36,7 +36,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Revokes invite link for a group call. Requires groupCall.can_be_managed group call flag
+        /// Revokes invite link for a group call. Requires groupCall.can_be_managed right for video chats or groupCall.is_owned otherwise
         /// </summary>
         public static Task<Ok> RevokeGroupCallInviteLinkAsync(
             this Client client, int groupCallId = default)

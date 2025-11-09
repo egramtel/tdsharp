@@ -27,6 +27,13 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
+            /// Base theme for this theme
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("base_theme")]
+            public BuiltInTheme BaseTheme { get; set; }
+
+            /// <summary>
             /// Theme accent color in ARGB format
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -41,7 +48,7 @@ namespace TdLib
             public Background Background { get; set; }
 
             /// <summary>
-            /// The fill to be used as a background for outgoing messages
+            /// The fill to be used as a background for outgoing messages; may be null if the fill from the base theme must be used instead
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("outgoing_message_fill")]

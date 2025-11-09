@@ -36,11 +36,18 @@ namespace TdLib
                 public Gift Gift { get; set; }
 
                 /// <summary>
-                /// Sender of the gift
+                /// Sender of the gift; may be null for outgoing messages about prepaid upgrade of gifts from unknown users
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("sender_id")]
                 public MessageSender SenderId { get; set; }
+
+                /// <summary>
+                /// Receiver of the gift
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("receiver_id")]
+                public MessageSender ReceiverId { get; set; }
 
                 /// <summary>
                 /// Unique identifier of the received gift for the current user; only for the receiver of the gift
@@ -71,6 +78,13 @@ namespace TdLib
                 public long PrepaidUpgradeStarCount { get; set; }
 
                 /// <summary>
+                /// True, if the upgrade was bought after the gift was sent. In this case, prepaid upgrade cost must not be added to the gift cost
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("is_upgrade_separate")]
+                public bool IsUpgradeSeparate { get; set; }
+
+                /// <summary>
                 /// True, if the sender and gift text are shown only to the gift receiver; otherwise, everyone will be able to see them
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
@@ -83,6 +97,13 @@ namespace TdLib
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_saved")]
                 public bool IsSaved { get; set; }
+
+                /// <summary>
+                /// True, if the message is about prepaid upgrade of the gift by another user
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("is_prepaid_upgrade")]
+                public bool IsPrepaidUpgrade { get; set; }
 
                 /// <summary>
                 /// True, if the gift can be upgraded to a unique gift; only for the receiver of the gift
@@ -118,6 +139,13 @@ namespace TdLib
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("upgraded_received_gift_id")]
                 public string UpgradedReceivedGiftId { get; set; }
+
+                /// <summary>
+                /// If non-empty, then the user can pay for an upgrade of the gift using buyGiftUpgrade
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("prepaid_upgrade_hash")]
+                public string PrepaidUpgradeHash { get; set; }
             }
         }
     }

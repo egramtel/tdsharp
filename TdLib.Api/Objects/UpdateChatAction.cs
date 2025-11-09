@@ -36,11 +36,11 @@ namespace TdLib
                 public long ChatId { get; set; }
 
                 /// <summary>
-                /// If not 0, the message thread identifier in which the action was performed
+                /// Identifier of the specific topic in which the action was performed; may be null if none
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("message_thread_id")]
-                public long MessageThreadId { get; set; }
+                [JsonProperty("topic_id")]
+                public MessageTopic TopicId { get; set; }
 
                 /// <summary>
                 /// Identifier of a message sender performing the action

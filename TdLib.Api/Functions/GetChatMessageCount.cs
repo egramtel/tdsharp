@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns approximate number of messages of the specified type in the chat
+        /// Returns approximate number of messages of the specified type in the chat or its topic
         /// </summary>
         public class GetChatMessageCount : Function<Count>
         {
@@ -35,18 +35,18 @@ namespace TdLib
             public long ChatId { get; set; }
 
             /// <summary>
+            /// Pass topic identifier to get number of messages only in specific topic; pass null to get number of messages in all topics; message threads aren't supported
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("topic_id")]
+            public MessageTopic TopicId { get; set; }
+
+            /// <summary>
             /// Filter for message content; searchMessagesFilterEmpty is unsupported in this function
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("filter")]
             public SearchMessagesFilter Filter { get; set; }
-
-            /// <summary>
-            /// If not 0, only messages in the specified Saved Messages topic will be counted; pass 0 to count all messages, or for chats other than Saved Messages
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("saved_messages_topic_id")]
-            public long SavedMessagesTopicId { get; set; }
 
             /// <summary>
             /// Pass true to get the number of messages without sending network requests, or -1 if the number of messages is unknown locally
@@ -57,14 +57,14 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Returns approximate number of messages of the specified type in the chat
+        /// Returns approximate number of messages of the specified type in the chat or its topic
         /// </summary>
         public static Task<Count> GetChatMessageCountAsync(
-            this Client client, long chatId = default, SearchMessagesFilter filter = default, long savedMessagesTopicId = default, bool returnLocal = default)
+            this Client client, long chatId = default, MessageTopic topicId = default, SearchMessagesFilter filter = default, bool returnLocal = default)
         {
             return client.ExecuteAsync(new GetChatMessageCount
             {
-                ChatId = chatId, Filter = filter, SavedMessagesTopicId = savedMessagesTopicId, ReturnLocal = returnLocal
+                ChatId = chatId, TopicId = topicId, Filter = filter, ReturnLocal = returnLocal
             });
         }
     }

@@ -12,7 +12,7 @@ namespace TdLib
         public partial class StarTransactionType : Object
         {
             /// <summary>
-            /// The transaction is a withdrawal of earned Telegram Stars to Fragment; for bots and channel chats only
+            /// The transaction is a withdrawal of earned Telegram Stars to Fragment; for regular users, bots, supergroup and channel chats only
             /// </summary>
             public class StarTransactionTypeFragmentWithdrawal : StarTransactionType
             {

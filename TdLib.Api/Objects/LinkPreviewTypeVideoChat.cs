@@ -41,6 +41,13 @@ namespace TdLib
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_live_stream")]
                 public bool IsLiveStream { get; set; }
+
+                /// <summary>
+                /// True, if the user can use the link to join the video chat without being muted by administrators
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("joins_as_speaker")]
+                public bool JoinsAsSpeaker { get; set; }
             }
         }
     }

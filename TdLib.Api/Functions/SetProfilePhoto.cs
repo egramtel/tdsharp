@@ -35,7 +35,7 @@ namespace TdLib
             public InputChatPhoto Photo { get; set; }
 
             /// <summary>
-            /// Pass true to set a public photo, which will be visible even the main photo is hidden by privacy settings
+            /// Pass true to set the public photo, which will be visible even if the main photo is hidden by privacy settings
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_public")]

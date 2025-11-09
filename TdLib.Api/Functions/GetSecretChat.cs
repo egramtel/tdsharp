@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns information about a secret chat by its identifier. This is an offline request
+        /// Returns information about a secret chat by its identifier. This is an offline method
         /// </summary>
         public class GetSecretChat : Function<SecretChat>
         {
@@ -36,7 +36,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Returns information about a secret chat by its identifier. This is an offline request
+        /// Returns information about a secret chat by its identifier. This is an offline method
         /// </summary>
         public static Task<SecretChat> GetSecretChatAsync(
             this Client client, int secretChatId = default)

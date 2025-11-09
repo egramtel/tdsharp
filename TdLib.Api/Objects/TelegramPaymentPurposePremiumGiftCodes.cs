@@ -12,7 +12,7 @@ namespace TdLib
         public partial class TelegramPaymentPurpose : Object
         {
             /// <summary>
-            /// Describes a purpose of a payment toward Telegram
+            /// The user boosting a chat by creating Telegram Premium gift codes for other users
             /// </summary>
             public class TelegramPaymentPurposePremiumGiftCodes : TelegramPaymentPurpose
             {
@@ -29,7 +29,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Identifier of the supergroup or channel chat, which will be automatically boosted by the users for duration of the Premium subscription and which is administered by the user; 0 if none
+                /// Identifier of the supergroup or channel chat, which will be automatically boosted by the users for duration of the Premium subscription and which is administered by the user
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("boosted_chat_id")]

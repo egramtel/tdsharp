@@ -36,6 +36,13 @@ namespace TdLib
                 public string Name { get; set; }
 
                 /// <summary>
+                /// True, if the name of the topic wasn't added explicitly
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("is_name_implicit")]
+                public bool IsNameImplicit { get; set; }
+
+                /// <summary>
                 /// Icon of the topic
                 /// </summary>
                 [JsonConverter(typeof(Converter))]

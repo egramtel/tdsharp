@@ -12,7 +12,7 @@ namespace TdLib
         public partial class InputMessageContent : Object
         {
             /// <summary>
-            /// A message with a forwarded story. Stories can't be sent to secret chats. A story can be forwarded only if story.can_be_forwarded
+            /// A message with a forwarded story. Stories can't be forwarded to secret chats. A story can be forwarded only if story.can_be_forwarded
             /// </summary>
             public class InputMessageStory : InputMessageContent
             {
@@ -32,8 +32,8 @@ namespace TdLib
                 /// Identifier of the chat that posted the story
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("story_sender_chat_id")]
-                public long StorySenderChatId { get; set; }
+                [JsonProperty("story_poster_chat_id")]
+                public long StoryPosterChatId { get; set; }
 
                 /// <summary>
                 /// Story identifier

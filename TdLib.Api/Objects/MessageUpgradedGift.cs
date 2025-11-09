@@ -43,18 +43,25 @@ namespace TdLib
                 public MessageSender SenderId { get; set; }
 
                 /// <summary>
+                /// Receiver of the gift
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("receiver_id")]
+                public MessageSender ReceiverId { get; set; }
+
+                /// <summary>
+                /// Origin of the upgraded gift
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("origin")]
+                public UpgradedGiftOrigin Origin { get; set; }
+
+                /// <summary>
                 /// Unique identifier of the received gift for the current user; only for the receiver of the gift
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("received_gift_id")]
                 public string ReceivedGiftId { get; set; }
-
-                /// <summary>
-                /// True, if the gift was obtained by upgrading of a previously received gift; otherwise, this is a transferred gift
-                /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("is_upgrade")]
-                public bool IsUpgrade { get; set; }
 
                 /// <summary>
                 /// True, if the gift is displayed on the user's or the channel's profile page; only for the receiver of the gift
@@ -71,7 +78,7 @@ namespace TdLib
                 public bool CanBeTransferred { get; set; }
 
                 /// <summary>
-                /// True, if the gift was transferred to another owner; only for the receiver of the gift
+                /// True, if the gift has already been transferred to another owner; only for the receiver of the gift
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("was_transferred")]
@@ -85,7 +92,28 @@ namespace TdLib
                 public long TransferStarCount { get; set; }
 
                 /// <summary>
-                /// Point in time (Unix timestamp) when the gift can be transferred to the TON blockchain as an NFT; 0 if NFT export isn't possible; only for the receiver of the gift
+                /// Number of Telegram Stars that must be paid to drop original details of the upgraded gift; 0 if not available; only for the receiver of the gift
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("drop_original_details_star_count")]
+                public long DropOriginalDetailsStarCount { get; set; }
+
+                /// <summary>
+                /// Point in time (Unix timestamp) when the gift can be transferred to another owner; can be in the past; 0 if the gift can be transferred immediately or transfer isn't possible; only for the receiver of the gift
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("next_transfer_date")]
+                public int NextTransferDate { get; set; }
+
+                /// <summary>
+                /// Point in time (Unix timestamp) when the gift can be resold to another user; can be in the past; 0 if the gift can't be resold; only for the receiver of the gift
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("next_resale_date")]
+                public int NextResaleDate { get; set; }
+
+                /// <summary>
+                /// Point in time (Unix timestamp) when the gift can be transferred to the TON blockchain as an NFT; can be in the past; 0 if NFT export isn't possible; only for the receiver of the gift
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("export_date")]

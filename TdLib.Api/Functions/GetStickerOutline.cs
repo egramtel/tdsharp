@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns outline of a sticker; this is an offline request. Returns a 404 error if the outline isn't known
+        /// Returns outline of a sticker. This is an offline method. Returns a 404 error if the outline isn't known
         /// </summary>
         public class GetStickerOutline : Function<Outline>
         {
@@ -50,7 +50,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Returns outline of a sticker; this is an offline request. Returns a 404 error if the outline isn't known
+        /// Returns outline of a sticker. This is an offline method. Returns a 404 error if the outline isn't known
         /// </summary>
         public static Task<Outline> GetStickerOutlineAsync(
             this Client client, int stickerFileId = default, bool forAnimatedEmoji = default, bool forClickedAnimatedEmojiMessage = default)

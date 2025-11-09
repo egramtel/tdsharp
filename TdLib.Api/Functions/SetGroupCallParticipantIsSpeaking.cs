@@ -11,9 +11,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Informs TDLib that speaking state of a participant of an active group has changed
+        /// Informs TDLib that speaking state of a participant of an active group call has changed. Returns identifier of the participant if it is found
         /// </summary>
-        public class SetGroupCallParticipantIsSpeaking : Function<Ok>
+        public class SetGroupCallParticipantIsSpeaking : Function<MessageSender>
         {
             /// <summary>
             /// Data type for serialization
@@ -50,9 +50,9 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Informs TDLib that speaking state of a participant of an active group has changed
+        /// Informs TDLib that speaking state of a participant of an active group call has changed. Returns identifier of the participant if it is found
         /// </summary>
-        public static Task<Ok> SetGroupCallParticipantIsSpeakingAsync(
+        public static Task<MessageSender> SetGroupCallParticipantIsSpeakingAsync(
             this Client client, int groupCallId = default, int audioSource = default, bool isSpeaking = default)
         {
             return client.ExecuteAsync(new SetGroupCallParticipantIsSpeaking

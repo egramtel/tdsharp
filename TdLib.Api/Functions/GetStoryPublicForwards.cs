@@ -29,11 +29,11 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// The identifier of the sender of the story
+            /// The identifier of the poster of the story
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("story_sender_chat_id")]
-            public long StorySenderChatId { get; set; }
+            [JsonProperty("story_poster_chat_id")]
+            public long StoryPosterChatId { get; set; }
 
             /// <summary>
             /// The identifier of the story
@@ -62,11 +62,11 @@ namespace TdLib
         /// For optimal performance, the number of returned messages and stories is chosen by TDLib
         /// </summary>
         public static Task<PublicForwards> GetStoryPublicForwardsAsync(
-            this Client client, long storySenderChatId = default, int storyId = default, string offset = default, int limit = default)
+            this Client client, long storyPosterChatId = default, int storyId = default, string offset = default, int limit = default)
         {
             return client.ExecuteAsync(new GetStoryPublicForwards
             {
-                StorySenderChatId = storySenderChatId, StoryId = storyId, Offset = offset, Limit = limit
+                StoryPosterChatId = storyPosterChatId, StoryId = storyId, Offset = offset, Limit = limit
             });
         }
     }

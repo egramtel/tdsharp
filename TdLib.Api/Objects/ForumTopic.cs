@@ -41,6 +41,13 @@ namespace TdLib
             public Message LastMessage { get; set; }
 
             /// <summary>
+            /// A parameter used to determine order of the topic in the topic list. Topics must be sorted by the order in descending order
+            /// </summary>
+            [JsonConverter(typeof(Converter.Int64))]
+            [JsonProperty("order")]
+            public long Order { get; set; }
+
+            /// <summary>
             /// True, if the topic is pinned in the topic list
             /// </summary>
             [JsonConverter(typeof(Converter))]

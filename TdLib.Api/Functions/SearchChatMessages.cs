@@ -13,7 +13,7 @@ namespace TdLib
         /// <summary>
         /// Searches for messages with given words in the chat. Returns the results in reverse chronological order, i.e. in order of decreasing message_id. Cannot be used in secret chats with a non-empty query
         /// (searchSecretMessages must be used instead), or without an enabled message database. For optimal performance, the number of returned messages is chosen by TDLib and can be smaller than the specified limit.
-        /// A combination of query, sender_id, filter and message_thread_id search criteria is expected to be supported, only if it is required for Telegram official application implementation
+        /// A combination of query, sender_id, filter and topic_id search criteria is expected to be supported, only if it is required for Telegram official application implementation
         /// </summary>
         public class SearchChatMessages : Function<FoundChatMessages>
         {
@@ -37,6 +37,13 @@ namespace TdLib
             public long ChatId { get; set; }
 
             /// <summary>
+            /// Pass topic identifier to search messages only in specific topic; pass null to search for messages in all topics
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("topic_id")]
+            public MessageTopic TopicId { get; set; }
+
+            /// <summary>
             /// Query to search for
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -58,15 +65,14 @@ namespace TdLib
             public long FromMessageId { get; set; }
 
             /// <summary>
-            /// Specify 0 to get results from exactly the message from_message_id or a negative offset to get the specified message and some newer messages
+            /// Specify 0 to get results from exactly the message from_message_id or a negative number to get the specified message and some newer messages
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("offset")]
             public int Offset { get; set; }
 
             /// <summary>
-            /// The maximum number of messages to be returned; must be positive and can't be greater than 100. If the offset is negative, the limit must be greater than -offset.
-            /// For optimal performance, the number of returned messages is chosen by TDLib and can be smaller than the specified limit
+            /// The maximum number of messages to be returned; must be positive and can't be greater than 100. If the offset is negative, then the limit must be greater than -offset.
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("limit")]
@@ -78,33 +84,19 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("filter")]
             public SearchMessagesFilter Filter { get; set; }
-
-            /// <summary>
-            /// If not 0, only messages in the specified thread will be returned; supergroups only
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("message_thread_id")]
-            public long MessageThreadId { get; set; }
-
-            /// <summary>
-            /// If not 0, only messages in the specified Saved Messages topic will be returned; pass 0 to return all messages, or for chats other than Saved Messages
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("saved_messages_topic_id")]
-            public long SavedMessagesTopicId { get; set; }
         }
 
         /// <summary>
         /// Searches for messages with given words in the chat. Returns the results in reverse chronological order, i.e. in order of decreasing message_id. Cannot be used in secret chats with a non-empty query
         /// (searchSecretMessages must be used instead), or without an enabled message database. For optimal performance, the number of returned messages is chosen by TDLib and can be smaller than the specified limit.
-        /// A combination of query, sender_id, filter and message_thread_id search criteria is expected to be supported, only if it is required for Telegram official application implementation
+        /// A combination of query, sender_id, filter and topic_id search criteria is expected to be supported, only if it is required for Telegram official application implementation
         /// </summary>
         public static Task<FoundChatMessages> SearchChatMessagesAsync(
-            this Client client, long chatId = default, string query = default, MessageSender senderId = default, long fromMessageId = default, int offset = default, int limit = default, SearchMessagesFilter filter = default, long messageThreadId = default, long savedMessagesTopicId = default)
+            this Client client, long chatId = default, MessageTopic topicId = default, string query = default, MessageSender senderId = default, long fromMessageId = default, int offset = default, int limit = default, SearchMessagesFilter filter = default)
         {
             return client.ExecuteAsync(new SearchChatMessages
             {
-                ChatId = chatId, Query = query, SenderId = senderId, FromMessageId = fromMessageId, Offset = offset, Limit = limit, Filter = filter, MessageThreadId = messageThreadId, SavedMessagesTopicId = savedMessagesTopicId
+                ChatId = chatId, TopicId = topicId, Query = query, SenderId = senderId, FromMessageId = fromMessageId, Offset = offset, Limit = limit, Filter = filter
             });
         }
     }

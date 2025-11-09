@@ -28,11 +28,11 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// The identifier of the sender of the opened story
+            /// The identifier of the chat that posted the opened story
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("story_sender_chat_id")]
-            public long StorySenderChatId { get; set; }
+            [JsonProperty("story_poster_chat_id")]
+            public long StoryPosterChatId { get; set; }
 
             /// <summary>
             /// The identifier of the story
@@ -46,11 +46,11 @@ namespace TdLib
         /// Informs TDLib that a story is opened and is being viewed by the user
         /// </summary>
         public static Task<Ok> OpenStoryAsync(
-            this Client client, long storySenderChatId = default, int storyId = default)
+            this Client client, long storyPosterChatId = default, int storyId = default)
         {
             return client.ExecuteAsync(new OpenStory
             {
-                StorySenderChatId = storySenderChatId, StoryId = storyId
+                StoryPosterChatId = storyPosterChatId, StoryId = storyId
             });
         }
     }

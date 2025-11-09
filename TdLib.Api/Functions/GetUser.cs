@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns information about a user by their identifier. This is an offline request if the current user is not a bot
+        /// Returns information about a user by their identifier. This is an offline method if the current user is not a bot
         /// </summary>
         public class GetUser : Function<User>
         {
@@ -36,7 +36,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Returns information about a user by their identifier. This is an offline request if the current user is not a bot
+        /// Returns information about a user by their identifier. This is an offline method if the current user is not a bot
         /// </summary>
         public static Task<User> GetUserAsync(
             this Client client, long userId = default)

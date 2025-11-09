@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns approximate 1-based position of a message among messages, which can be found by the specified filter in the chat. Cannot be used in secret chats
+        /// Returns approximate 1-based position of a message among messages, which can be found by the specified filter in the chat and topic. Cannot be used in secret chats
         /// </summary>
         public class GetChatMessagePosition : Function<Count>
         {
@@ -35,11 +35,11 @@ namespace TdLib
             public long ChatId { get; set; }
 
             /// <summary>
-            /// Message identifier
+            /// Pass topic identifier to get position among messages only in specific topic; pass null to get position among all chat messages; message threads aren't supported
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("message_id")]
-            public long MessageId { get; set; }
+            [JsonProperty("topic_id")]
+            public MessageTopic TopicId { get; set; }
 
             /// <summary>
             /// Filter for message content; searchMessagesFilterEmpty, searchMessagesFilterUnreadMention, searchMessagesFilterUnreadReaction, and searchMessagesFilterFailedToSend are unsupported in this function
@@ -49,29 +49,22 @@ namespace TdLib
             public SearchMessagesFilter Filter { get; set; }
 
             /// <summary>
-            /// If not 0, only messages in the specified thread will be considered; supergroups only
+            /// Message identifier
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("message_thread_id")]
-            public long MessageThreadId { get; set; }
-
-            /// <summary>
-            /// If not 0, only messages in the specified Saved Messages topic will be considered; pass 0 to consider all relevant messages, or for chats other than Saved Messages
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("saved_messages_topic_id")]
-            public long SavedMessagesTopicId { get; set; }
+            [JsonProperty("message_id")]
+            public long MessageId { get; set; }
         }
 
         /// <summary>
-        /// Returns approximate 1-based position of a message among messages, which can be found by the specified filter in the chat. Cannot be used in secret chats
+        /// Returns approximate 1-based position of a message among messages, which can be found by the specified filter in the chat and topic. Cannot be used in secret chats
         /// </summary>
         public static Task<Count> GetChatMessagePositionAsync(
-            this Client client, long chatId = default, long messageId = default, SearchMessagesFilter filter = default, long messageThreadId = default, long savedMessagesTopicId = default)
+            this Client client, long chatId = default, MessageTopic topicId = default, SearchMessagesFilter filter = default, long messageId = default)
         {
             return client.ExecuteAsync(new GetChatMessagePosition
             {
-                ChatId = chatId, MessageId = messageId, Filter = filter, MessageThreadId = messageThreadId, SavedMessagesTopicId = savedMessagesTopicId
+                ChatId = chatId, TopicId = topicId, Filter = filter, MessageId = messageId
             });
         }
     }

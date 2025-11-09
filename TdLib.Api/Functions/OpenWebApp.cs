@@ -50,11 +50,11 @@ namespace TdLib
             public string Url { get; set; }
 
             /// <summary>
-            /// If not 0, the message thread identifier in which the message will be sent
+            /// Topic in which the message will be sent; pass null if none
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("message_thread_id")]
-            public long MessageThreadId { get; set; }
+            [JsonProperty("topic_id")]
+            public MessageTopic TopicId { get; set; }
 
             /// <summary>
             /// Information about the message or story to be replied in the message sent by the Web App; pass null if none
@@ -76,11 +76,11 @@ namespace TdLib
         /// For each bot, a confirmation alert about data sent to the bot must be shown once
         /// </summary>
         public static Task<WebAppInfo> OpenWebAppAsync(
-            this Client client, long chatId = default, long botUserId = default, string url = default, long messageThreadId = default, InputMessageReplyTo replyTo = default, WebAppOpenParameters parameters = default)
+            this Client client, long chatId = default, long botUserId = default, string url = default, MessageTopic topicId = default, InputMessageReplyTo replyTo = default, WebAppOpenParameters parameters = default)
         {
             return client.ExecuteAsync(new OpenWebApp
             {
-                ChatId = chatId, BotUserId = botUserId, Url = url, MessageThreadId = messageThreadId, ReplyTo = replyTo, Parameters = parameters
+                ChatId = chatId, BotUserId = botUserId, Url = url, TopicId = topicId, ReplyTo = replyTo, Parameters = parameters
             });
         }
     }

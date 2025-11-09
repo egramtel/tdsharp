@@ -36,14 +36,14 @@ namespace TdLib
             public long ChatId { get; set; }
 
             /// <summary>
-            /// Number of transactions to skip
+            /// Offset of the first transaction to return as received from the previous request; use empty string to get the first chunk of results
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("offset")]
-            public int Offset { get; set; }
+            public string Offset { get; set; }
 
             /// <summary>
-            /// The maximum number of transactions to be returned; up to 200
+            /// The maximum number of transactions to be returned; up to 100
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("limit")]
@@ -55,7 +55,7 @@ namespace TdLib
         /// for channels if supergroupFullInfo.can_get_revenue_statistics == true or bots if userFullInfo.bot_info.can_get_revenue_statistics == true
         /// </summary>
         public static Task<ChatRevenueTransactions> GetChatRevenueTransactionsAsync(
-            this Client client, long chatId = default, int offset = default, int limit = default)
+            this Client client, long chatId = default, string offset = default, int limit = default)
         {
             return client.ExecuteAsync(new GetChatRevenueTransactions
             {

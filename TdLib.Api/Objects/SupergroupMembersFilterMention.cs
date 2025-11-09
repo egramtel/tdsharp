@@ -36,11 +36,11 @@ namespace TdLib
                 public string Query { get; set; }
 
                 /// <summary>
-                /// If non-zero, the identifier of the current message thread
+                /// Identifier of the topic in which the users will be mentioned; pass null if none
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("message_thread_id")]
-                public long MessageThreadId { get; set; }
+                [JsonProperty("topic_id")]
+                public MessageTopic TopicId { get; set; }
             }
         }
     }

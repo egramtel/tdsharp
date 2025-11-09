@@ -32,8 +32,8 @@ namespace TdLib
                 /// Identifier of the chat that posted the story
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("story_sender_chat_id")]
-                public long StorySenderChatId { get; set; }
+                [JsonProperty("story_poster_chat_id")]
+                public long StoryPosterChatId { get; set; }
 
                 /// <summary>
                 /// Story identifier

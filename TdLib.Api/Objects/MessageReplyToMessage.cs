@@ -50,6 +50,13 @@ namespace TdLib
                 public TextQuote Quote { get; set; }
 
                 /// <summary>
+                /// Identifier of the checklist task in the original message that was replied; 0 if none
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("checklist_task_id")]
+                public int ChecklistTaskId { get; set; }
+
+                /// <summary>
                 /// Information about origin of the message if the message was from another chat or topic; may be null for messages from the same chat
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
@@ -65,9 +72,6 @@ namespace TdLib
 
                 /// <summary>
                 /// Media content of the message if the message was from another chat or topic; may be null for messages from the same chat and messages without media.
-                /// Can be only one of the following types: messageAnimation, messageAudio, messageContact, messageDice, messageDocument, messageGame, messageGiveaway, messageGiveawayWinners,
-                /// messageInvoice, messageLocation, messagePaidMedia, messagePhoto, messagePoll, messageSticker, messageStory, messageText (for link preview), messageVenue, messageVideo,
-                /// messageVideoNote, or messageVoiceNote
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("content")]

@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Changes the notification settings of a forum topic
+        /// Changes the notification settings of a forum topic in a forum supergroup chat or a chat with a bot with topics
         /// </summary>
         public class SetForumTopicNotificationSettings : Function<Ok>
         {
@@ -35,11 +35,11 @@ namespace TdLib
             public long ChatId { get; set; }
 
             /// <summary>
-            /// Message thread identifier of the forum topic
+            /// Forum topic identifier
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("message_thread_id")]
-            public long MessageThreadId { get; set; }
+            [JsonProperty("forum_topic_id")]
+            public int ForumTopicId { get; set; }
 
             /// <summary>
             /// New notification settings for the forum topic. If the topic is muted for more than 366 days, it is considered to be muted forever
@@ -50,14 +50,14 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Changes the notification settings of a forum topic
+        /// Changes the notification settings of a forum topic in a forum supergroup chat or a chat with a bot with topics
         /// </summary>
         public static Task<Ok> SetForumTopicNotificationSettingsAsync(
-            this Client client, long chatId = default, long messageThreadId = default, ChatNotificationSettings notificationSettings = default)
+            this Client client, long chatId = default, int forumTopicId = default, ChatNotificationSettings notificationSettings = default)
         {
             return client.ExecuteAsync(new SetForumTopicNotificationSettings
             {
-                ChatId = chatId, MessageThreadId = messageThreadId, NotificationSettings = notificationSettings
+                ChatId = chatId, ForumTopicId = forumTopicId, NotificationSettings = notificationSettings
             });
         }
     }

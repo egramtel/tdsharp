@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Contains a list of options for creating Telegram Star giveaway
+        /// Contains a list of options for creating of Telegram Star giveaway
         /// </summary>
         public partial class StarGiveawayPaymentOptions : Object
         {

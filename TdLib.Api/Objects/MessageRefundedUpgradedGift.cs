@@ -43,11 +43,18 @@ namespace TdLib
                 public MessageSender SenderId { get; set; }
 
                 /// <summary>
-                /// True, if the gift was obtained by upgrading of a previously received gift
+                /// Receiver of the gift
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("is_upgrade")]
-                public bool IsUpgrade { get; set; }
+                [JsonProperty("receiver_id")]
+                public MessageSender ReceiverId { get; set; }
+
+                /// <summary>
+                /// Origin of the upgraded gift
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("origin")]
+                public UpgradedGiftOrigin Origin { get; set; }
             }
         }
     }

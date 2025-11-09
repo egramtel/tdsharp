@@ -29,6 +29,13 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
+                /// True, if the user was mentioned in the story
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("is_mention")]
+                public bool IsMention { get; set; }
+
+                /// <summary>
                 /// True, if the message is a pinned message with the specified content
                 /// </summary>
                 [JsonConverter(typeof(Converter))]

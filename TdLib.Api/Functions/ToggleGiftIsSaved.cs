@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Toggles whether a gift is shown on the current user's or the channel's profile page; requires can_post_messages administrator right in the chat
+        /// Toggles whether a gift is shown on the current user's or the channel's profile page; requires can_post_messages administrator right in the channel chat
         /// </summary>
         public class ToggleGiftIsSaved : Function<Ok>
         {
@@ -43,7 +43,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Toggles whether a gift is shown on the current user's or the channel's profile page; requires can_post_messages administrator right in the chat
+        /// Toggles whether a gift is shown on the current user's or the channel's profile page; requires can_post_messages administrator right in the channel chat
         /// </summary>
         public static Task<Ok> ToggleGiftIsSavedAsync(
             this Client client, string receivedGiftId = default, bool isSaved = default)

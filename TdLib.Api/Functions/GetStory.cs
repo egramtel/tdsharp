@@ -31,8 +31,8 @@ namespace TdLib
             /// Identifier of the chat that posted the story
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("story_sender_chat_id")]
-            public long StorySenderChatId { get; set; }
+            [JsonProperty("story_poster_chat_id")]
+            public long StoryPosterChatId { get; set; }
 
             /// <summary>
             /// Story identifier
@@ -53,11 +53,11 @@ namespace TdLib
         /// Returns a story
         /// </summary>
         public static Task<Story> GetStoryAsync(
-            this Client client, long storySenderChatId = default, int storyId = default, bool onlyLocal = default)
+            this Client client, long storyPosterChatId = default, int storyId = default, bool onlyLocal = default)
         {
             return client.ExecuteAsync(new GetStory
             {
-                StorySenderChatId = storySenderChatId, StoryId = storyId, OnlyLocal = onlyLocal
+                StoryPosterChatId = storyPosterChatId, StoryId = storyId, OnlyLocal = onlyLocal
             });
         }
     }

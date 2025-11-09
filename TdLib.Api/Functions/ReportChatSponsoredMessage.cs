@@ -13,7 +13,7 @@ namespace TdLib
         /// <summary>
         /// Reports a sponsored message to Telegram moderators
         /// </summary>
-        public class ReportChatSponsoredMessage : Function<ReportChatSponsoredMessageResult>
+        public class ReportChatSponsoredMessage : Function<ReportSponsoredResult>
         {
             /// <summary>
             /// Data type for serialization
@@ -52,7 +52,7 @@ namespace TdLib
         /// <summary>
         /// Reports a sponsored message to Telegram moderators
         /// </summary>
-        public static Task<ReportChatSponsoredMessageResult> ReportChatSponsoredMessageAsync(
+        public static Task<ReportSponsoredResult> ReportChatSponsoredMessageAsync(
             this Client client, long chatId = default, long messageId = default, byte[] optionId = default)
         {
             return client.ExecuteAsync(new ReportChatSponsoredMessage

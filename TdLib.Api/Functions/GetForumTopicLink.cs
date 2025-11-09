@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns an HTTPS link to a topic in a forum chat. This is an offline request
+        /// Returns an HTTPS link to a topic in a forum supergroup chat. This is an offline method
         /// </summary>
         public class GetForumTopicLink : Function<MessageLink>
         {
@@ -35,22 +35,22 @@ namespace TdLib
             public long ChatId { get; set; }
 
             /// <summary>
-            /// Message thread identifier of the forum topic
+            /// Forum topic identifier
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("message_thread_id")]
-            public long MessageThreadId { get; set; }
+            [JsonProperty("forum_topic_id")]
+            public int ForumTopicId { get; set; }
         }
 
         /// <summary>
-        /// Returns an HTTPS link to a topic in a forum chat. This is an offline request
+        /// Returns an HTTPS link to a topic in a forum supergroup chat. This is an offline method
         /// </summary>
         public static Task<MessageLink> GetForumTopicLinkAsync(
-            this Client client, long chatId = default, long messageThreadId = default)
+            this Client client, long chatId = default, int forumTopicId = default)
         {
             return client.ExecuteAsync(new GetForumTopicLink
             {
-                ChatId = chatId, MessageThreadId = messageThreadId
+                ChatId = chatId, ForumTopicId = forumTopicId
             });
         }
     }

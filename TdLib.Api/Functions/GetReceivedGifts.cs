@@ -28,11 +28,25 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
+            /// Unique identifier of business connection on behalf of which to send the request; for bots only
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("business_connection_id")]
+            public string BusinessConnectionId { get; set; }
+
+            /// <summary>
             /// Identifier of the gift receiver
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("owner_id")]
             public MessageSender OwnerId { get; set; }
+
+            /// <summary>
+            /// Pass collection identifier to get gifts only from the specified collection; pass 0 to get gifts regardless of collections
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("collection_id")]
+            public int CollectionId { get; set; }
 
             /// <summary>
             /// Pass true to exclude gifts that aren't saved to the chat's profile page. Always true for gifts received by other users and channel chats without can_post_messages administrator right
@@ -56,11 +70,18 @@ namespace TdLib
             public bool ExcludeUnlimited { get; set; }
 
             /// <summary>
-            /// Pass true to exclude gifts that can be purchased limited number of times
+            /// Pass true to exclude gifts that can be purchased limited number of times and can be upgraded
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("exclude_limited")]
-            public bool ExcludeLimited { get; set; }
+            [JsonProperty("exclude_upgradable")]
+            public bool ExcludeUpgradable { get; set; }
+
+            /// <summary>
+            /// Pass true to exclude gifts that can be purchased limited number of times and can't be upgraded
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("exclude_non_upgradable")]
+            public bool ExcludeNonUpgradable { get; set; }
 
             /// <summary>
             /// Pass true to exclude upgraded gifts
@@ -68,6 +89,20 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("exclude_upgraded")]
             public bool ExcludeUpgraded { get; set; }
+
+            /// <summary>
+            /// Pass true to exclude gifts that can't be used in setUpgradedGiftColors
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("exclude_without_colors")]
+            public bool ExcludeWithoutColors { get; set; }
+
+            /// <summary>
+            /// Pass true to exclude gifts that are just hosted and are not owned by the owner
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("exclude_hosted")]
+            public bool ExcludeHosted { get; set; }
 
             /// <summary>
             /// Pass true to sort results by gift price instead of send date
@@ -95,11 +130,11 @@ namespace TdLib
         /// Returns gifts received by the given user or chat
         /// </summary>
         public static Task<ReceivedGifts> GetReceivedGiftsAsync(
-            this Client client, MessageSender ownerId = default, bool excludeUnsaved = default, bool excludeSaved = default, bool excludeUnlimited = default, bool excludeLimited = default, bool excludeUpgraded = default, bool sortByPrice = default, string offset = default, int limit = default)
+            this Client client, string businessConnectionId = default, MessageSender ownerId = default, int collectionId = default, bool excludeUnsaved = default, bool excludeSaved = default, bool excludeUnlimited = default, bool excludeUpgradable = default, bool excludeNonUpgradable = default, bool excludeUpgraded = default, bool excludeWithoutColors = default, bool excludeHosted = default, bool sortByPrice = default, string offset = default, int limit = default)
         {
             return client.ExecuteAsync(new GetReceivedGifts
             {
-                OwnerId = ownerId, ExcludeUnsaved = excludeUnsaved, ExcludeSaved = excludeSaved, ExcludeUnlimited = excludeUnlimited, ExcludeLimited = excludeLimited, ExcludeUpgraded = excludeUpgraded, SortByPrice = sortByPrice, Offset = offset, Limit = limit
+                BusinessConnectionId = businessConnectionId, OwnerId = ownerId, CollectionId = collectionId, ExcludeUnsaved = excludeUnsaved, ExcludeSaved = excludeSaved, ExcludeUnlimited = excludeUnlimited, ExcludeUpgradable = excludeUpgradable, ExcludeNonUpgradable = excludeNonUpgradable, ExcludeUpgraded = excludeUpgraded, ExcludeWithoutColors = excludeWithoutColors, ExcludeHosted = excludeHosted, SortByPrice = sortByPrice, Offset = offset, Limit = limit
             });
         }
     }

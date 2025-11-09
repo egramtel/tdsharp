@@ -27,6 +27,13 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
+            /// Unique identifier of the alternative video, which is used in the HLS file
+            /// </summary>
+            [JsonConverter(typeof(Converter.Int64))]
+            [JsonProperty("id")]
+            public long Id { get; set; }
+
+            /// <summary>
             /// Video width
             /// </summary>
             [JsonConverter(typeof(Converter))]

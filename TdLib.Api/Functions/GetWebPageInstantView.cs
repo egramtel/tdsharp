@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns an instant view version of a web page if available. Returns a 404 error if the web page has no instant view page
+        /// Returns an instant view version of a web page if available. This is an offline method if only_local is true. Returns a 404 error if the web page has no instant view page
         /// </summary>
         public class GetWebPageInstantView : Function<WebPageInstantView>
         {
@@ -35,22 +35,22 @@ namespace TdLib
             public string Url { get; set; }
 
             /// <summary>
-            /// Pass true to get full instant view for the web page
+            /// Pass true to get only locally available information without sending network requests
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("force_full")]
-            public bool ForceFull { get; set; }
+            [JsonProperty("only_local")]
+            public bool OnlyLocal { get; set; }
         }
 
         /// <summary>
-        /// Returns an instant view version of a web page if available. Returns a 404 error if the web page has no instant view page
+        /// Returns an instant view version of a web page if available. This is an offline method if only_local is true. Returns a 404 error if the web page has no instant view page
         /// </summary>
         public static Task<WebPageInstantView> GetWebPageInstantViewAsync(
-            this Client client, string url = default, bool forceFull = default)
+            this Client client, string url = default, bool onlyLocal = default)
         {
             return client.ExecuteAsync(new GetWebPageInstantView
             {
-                Url = url, ForceFull = forceFull
+                Url = url, OnlyLocal = onlyLocal
             });
         }
     }

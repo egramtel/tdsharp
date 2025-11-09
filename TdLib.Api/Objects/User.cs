@@ -90,6 +90,13 @@ namespace TdLib
             public long BackgroundCustomEmojiId { get; set; }
 
             /// <summary>
+            /// Color scheme based on an upgraded gift to be used for the user instead of accent_color_id and background_custom_emoji_id; may be null if none
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("upgraded_gift_colors")]
+            public UpgradedGiftColors UpgradedGiftColors { get; set; }
+
+            /// <summary>
             /// Identifier of the accent color for the user's profile; -1 if none
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -153,11 +160,11 @@ namespace TdLib
             public bool IsSupport { get; set; }
 
             /// <summary>
-            /// If non-empty, it contains a human-readable description of the reason why access to this user must be restricted
+            /// Information about restrictions that must be applied to the corresponding private chat; may be null if none
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("restriction_reason")]
-            public string RestrictionReason { get; set; }
+            [JsonProperty("restriction_info")]
+            public RestrictionInfo RestrictionInfo { get; set; }
 
             /// <summary>
             /// True, if the user has non-expired stories available to the current user
@@ -179,6 +186,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("restricts_new_chats")]
             public bool RestrictsNewChats { get; set; }
+
+            /// <summary>
+            /// Number of Telegram Stars that must be paid by general user for each sent message to the user. If positive and userFullInfo is unknown, use canSendMessageToUser to check whether the current user must pay
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("paid_message_star_count")]
+            public long PaidMessageStarCount { get; set; }
 
             /// <summary>
             /// If false, the user is inaccessible, and the only information known about the user is inside this class. Identifier of the user can't be passed to any method

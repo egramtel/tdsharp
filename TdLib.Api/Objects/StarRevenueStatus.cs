@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Contains information about Telegram Stars earned by a bot or a chat
+        /// Contains information about Telegram Stars earned by a user or a chat
         /// </summary>
         public partial class StarRevenueStatus : Object
         {

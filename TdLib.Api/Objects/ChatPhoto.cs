@@ -61,7 +61,7 @@ namespace TdLib
             public AnimatedChatPhoto Animation { get; set; }
 
             /// <summary>
-            /// A small (160x160) animated variant of the photo in MPEG4 format; may be null even the big animation is available
+            /// A small (160x160) animated variant of the photo in MPEG4 format; may be null even if the big animation is available
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("small_animation")]
