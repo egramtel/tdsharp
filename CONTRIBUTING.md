@@ -1,5 +1,5 @@
 <!--
-SPDX-FileCopyrightText: 2024 tdsharp contributors <https://github.com/egramtel/tdsharp>
+SPDX-FileCopyrightText: 2024-2025 tdsharp contributors <https://github.com/egramtel/tdsharp>
 
 SPDX-License-Identifier: MIT
 -->
@@ -9,7 +9,7 @@ Contributor Guide
 
 Prerequisites
 -------------
-To work with the project, you'll need [.NET SDK 7][dotnet-sdk] or later.
+To work with the project, you'll need [.NET SDK 9][dotnet-sdk] or later.
 
 Build
 -----
