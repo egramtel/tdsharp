@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2024 tdsharp contributors <https://github.com/egramtel/tdsharp>
+# SPDX-FileCopyrightText: 2024-2025 tdsharp contributors <https://github.com/egramtel/tdsharp>
 #
 # SPDX-License-Identifier: MIT
 
@@ -39,8 +39,6 @@ jobs:
           key: ${{ runner.os }}.nuget.${{ hashFiles('**/*.csproj', '**/*.fsproj') }}
       - name: Set up .NET SDK
         uses: actions/setup-dotnet@v5
-        with:
-          dotnet-version: 7.0.x
 
       - name: Build
         run: dotnet build --configuration Release
