@@ -37,12 +37,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{
 	ProjectSection(SolutionItems) = preProject
 		.github\workflows\main.yml = .github\workflows\main.yml
 		.github\workflows\nuget.yml = .github\workflows\nuget.yml
+		.github\workflows\tdlib.yml = .github\workflows\tdlib.yml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{08FD319D-352A-413F-8B5B-AE9388316FD5}"
 	ProjectSection(SolutionItems) = preProject
 		Scripts\Get-Version.ps1 = Scripts\Get-Version.ps1
 		Scripts\Get-TlFiles.ps1 = Scripts\Get-TlFiles.ps1
+		Scripts\update-tdlib.fsx = Scripts\update-tdlib.fsx
 	EndProjectSection
 EndProject
 Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "TdLib.Samples.GetChats.FSharp", "Samples\TdLib.Samples.GetChats.FSharp\TdLib.Samples.GetChats.FSharp.fsproj", "{B968D706-7538-4D67-B167-461B10BFB4C0}"
