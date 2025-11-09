@@ -1,7 +1,8 @@
-# SPDX-FileCopyrightText: 2024 tdsharp contributors <https://github.com/egramtel/tdsharp>
+# SPDX-FileCopyrightText: 2024-2025 tdsharp contributors <https://github.com/egramtel/tdsharp>
 #
 # SPDX-License-Identifier: MIT
 
+# macOS:
 .DS_Store
 
 # User-specific files
@@ -38,3 +39,6 @@ msbuild.wrn
 *.dll
 *.dylib
 *.so
+
+# NuGet package cache, used by GitHub Actions:
+/.github/nuget-packages/
