@@ -20,7 +20,6 @@ jobs:
       matrix:
         image:
           - macos-latest # AArch64
-          - macos-13 # x86-64
           - ubuntu-latest
           - windows-latest
       fail-fast: false
