@@ -58,13 +58,6 @@ let readLatestVersion() = task {
         |> Seq.maxBy (fun t -> tagNameToVersion t.Name)
 }
 
-let doNothing() = {|
-    BodyMarkdown = ""
-    BranchName = ""
-    CommitMessage = ""
-    PullRequestTitle = ""
-|}
-
 let updateTlScript commitHash =
     let content = getTlFiles.ReadAllText()
     let versionRegex = Regex @"\$CommitHash = '.*?'"
@@ -147,15 +140,10 @@ let result =
     printfn $"Current version: {currentVersion}, latest version: {latestVersion}."
     if currentVersion < latestVersion then
         printfn $"Updating to {latestVersion}…"
-        updateTo latestTag
+        Some <| updateTo latestTag
     else
         printfn "Nothing to do."
-        doNothing()
-
-let bodyMarkdown = result.BodyMarkdown
-let branchName = result.BranchName
-let commitMessage = result.CommitMessage
-let pullRequestTitle = result.PullRequestTitle
+        None
 
 let writeResults() =
     let output = Environment.GetEnvironmentVariable "GITHUB_OUTPUT" |> Option.ofObj
@@ -175,9 +163,16 @@ let writeResults() =
         else
             writer.Write $"{key}={value}\n"
 
-    serializeParameter "body" bodyMarkdown
-    serializeParameter "branch-name" branchName
-    serializeParameter "commit-message" commitMessage
-    serializeParameter "title" pullRequestTitle
+    let fromBool = function | true -> "true" | false -> "false"
+
+    serializeParameter "has-changes" (fromBool <| Option.isSome result)
+
+    match result with
+    | None -> ()
+    | Some result ->
+        serializeParameter "body" result.BodyMarkdown
+        serializeParameter "branch-name" result.BranchName
+        serializeParameter "commit-message" result.CommitMessage
+        serializeParameter "title" result.PullRequestTitle
 
 writeResults()
