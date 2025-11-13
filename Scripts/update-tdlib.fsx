@@ -43,7 +43,7 @@ let tagNameToVersion(name: string) =
     Version.Parse(name.Substring 1)
 
 let readLatestVersion() = task {
-    let client = GitHubClient(ProductHeaderValue("tdlib-versioned"))
+    let client = GitHubClient(ProductHeaderValue("tdsharp"))
     match Environment.GetEnvironmentVariable "GITHUB_TOKEN" |> Option.ofObj with
     | Some token ->
         printfn "Found GitHub token credentials in environment, will use."
@@ -60,8 +60,8 @@ let readLatestVersion() = task {
 
 let updateTlScript commitHash =
     let content = getTlFiles.ReadAllText()
-    let versionRegex = Regex @"\$CommitHash = '.*?'"
-    let newContent = versionRegex.Replace(content, $"$CommitHash = '{commitHash}'")
+    let commitHashRegex = Regex @"\$CommitHash = '.*?'"
+    let newContent = commitHashRegex.Replace(content, $"$CommitHash = '{commitHash}'")
     getTlFiles.WriteAllText newContent
 
 let processCommandResult(result: CommandResult) =
