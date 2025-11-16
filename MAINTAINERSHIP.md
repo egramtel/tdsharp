@@ -30,8 +30,8 @@ To update the keys:
 
 1. Sign in onto nuget.org.
 2. Go to the [API keys][nuget.api-keys] section.
-3. Create a new key with permission to **Push only new package versions** and only allowed to publish **TDLib** package. Name it `github-actions.tdlib`.
-4. Create a new key with same permission and only allowed to publish **TDLib.Api** package. Name it `github-actions.tdlib.api`.
+3. Create a new (or regenerate) key with permission to **Push only new package versions** and only allowed to publish **TDLib** package. Name it `github-actions.tdlib`.
+4. Create a new (or regenerate) key with the same permission and only allowed to publish **TDLib.Api** package. Name it `github-actions.tdlib.api`.
 5. Paste the generated API keys to the [action secrets][github.secrets] section on GitHub settings (update the `NUGET_KEY_TDLIB` and `NUGET_KEY_TDLIB_API` secrets).
 
 Update Telegram API
