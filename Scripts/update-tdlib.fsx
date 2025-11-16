@@ -109,11 +109,38 @@ let updateVersion(version: string) =
 
 let updateChangelog(version: string) =
     let changelogFile = repoRoot / "CHANGELOG.md"
-    let changelog = changelogFile.ReadAllText()
+    let mutable changelog = changelogFile.ReadAllText()
 
-    let firstReleasedSection = changelog.IndexOf "##"
-    let newChangelog = changelog.Insert(firstReleasedSection, $"## [Unreleased] ({version})\n### Changed\n- Update to [TDLib v{version}](https://github.com/ForNeVeR/tdlib-versioned/releases/tag/tdlib%%2Fv{version}).\n\n")
-    changelogFile.WriteAllText newChangelog
+    let firstReleaseSection = changelog.IndexOf "##"
+    let hasUnreleased = changelog.Substring(firstReleaseSection).StartsWith("## [Unreleased]")
+    if not hasUnreleased then
+        changelog <- changelog.Insert(firstReleaseSection, "## [Unreleased]\n\n")
+
+    changelog <- changelog.Substring(0, firstReleaseSection)
+                 + $"## [Unreleased] ({version})"
+                 + changelog.Substring(changelog.IndexOf("\n", firstReleaseSection))
+
+    let nextSection = changelog.IndexOf("\n## ", firstReleaseSection)
+
+    let mutable sectionContent = changelog.Substring(firstReleaseSection, nextSection - firstReleaseSection)
+    let mutable changedSubsection = sectionContent.IndexOf "### Changed"
+    if changedSubsection = -1 then
+        sectionContent <- sectionContent.Insert(sectionContent.IndexOf "\n", "### Changed")
+        changedSubsection <- sectionContent.IndexOf "### Changed"
+
+    let updateVersionRegex = Regex @"- Update to \[TDLib.*?\n"
+    sectionContent <- updateVersionRegex.Replace(sectionContent, "")
+
+    sectionContent <- sectionContent.Insert(
+        sectionContent.IndexOf("\n", changedSubsection),
+        $"\n- Update to [TDLib v{version}](https://github.com/ForNeVeR/tdlib-versioned/releases/tag/tdlib%%2Fv{version})."
+    )
+
+    changelog <- changelog.Substring(0, firstReleaseSection)
+                 + sectionContent
+                 + changelog.Substring(changelog.IndexOf("\n", nextSection))
+
+    changelogFile.WriteAllText changelog
 
 let updateTo (tag: RepositoryTag) =
     let version = tag.Name.Substring(tagNamePrefix.Length + 1)
