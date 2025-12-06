@@ -34,6 +34,14 @@ namespace TdLib
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("send_date")]
                 public int SendDate { get; set; }
+
+                /// <summary>
+                /// Period after which the message will be sent again; in seconds; 0 if never; for Telegram Premium users only; may be non-zero only in sendMessage and forwardMessages with one message requests;
+                /// must be one of 0, 86400, 7 * 86400, 14 * 86400, 30 * 86400, 91 * 86400, 182 * 86400, 365 * 86400, or additionally 60, or 300 in the Test DC
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("repeat_period")]
+                public int RepeatPeriod { get; set; }
             }
         }
     }

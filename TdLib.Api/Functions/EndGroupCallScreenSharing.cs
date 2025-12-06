@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Ends screen sharing in a joined group call
+        /// Ends screen sharing in a joined group call; not supported in live stories
         /// </summary>
         public class EndGroupCallScreenSharing : Function<Ok>
         {
@@ -36,7 +36,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Ends screen sharing in a joined group call
+        /// Ends screen sharing in a joined group call; not supported in live stories
         /// </summary>
         public static Task<Ok> EndGroupCallScreenSharingAsync(
             this Client client, int groupCallId = default)

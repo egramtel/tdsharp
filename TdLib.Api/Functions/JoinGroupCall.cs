@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Joins a group call that is not bound to a chat
+        /// Joins a regular group call that is not bound to a chat
         /// </summary>
         public class JoinGroupCall : Function<GroupCallInfo>
         {
@@ -43,7 +43,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Joins a group call that is not bound to a chat
+        /// Joins a regular group call that is not bound to a chat
         /// </summary>
         public static Task<GroupCallInfo> JoinGroupCallAsync(
             this Client client, InputGroupCall inputGroupCall = default, GroupCallJoinParameters joinParameters = default)

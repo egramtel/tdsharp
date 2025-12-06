@@ -43,7 +43,7 @@ namespace TdLib
             public string Name { get; set; }
 
             /// <summary>
-            /// Identifier of the gifts to add to the collection; 0-getOption("gift_collection_gift_count_max") identifiers
+            /// Identifier of the gifts to add to the collection; 0-getOption("gift_collection_size_max") identifiers
             /// </summary>
             [JsonProperty("received_gift_ids", ItemConverterType = typeof(Converter))]
             public string[] ReceivedGiftIds { get; set; }

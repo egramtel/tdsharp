@@ -85,6 +85,13 @@ namespace TdLib
                 public bool IsUpgradeSeparate { get; set; }
 
                 /// <summary>
+                /// True, if the message is a notification about a gift won on an auction
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("is_from_auction")]
+                public bool IsFromAuction { get; set; }
+
+                /// <summary>
                 /// True, if the sender and gift text are shown only to the gift receiver; otherwise, everyone will be able to see them
                 /// </summary>
                 [JsonConverter(typeof(Converter))]

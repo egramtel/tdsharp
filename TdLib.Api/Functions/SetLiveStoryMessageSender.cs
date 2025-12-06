@@ -11,15 +11,15 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Toggles whether participants of a group call can send messages there. Requires groupCall.can_toggle_can_send_messages right
+        /// Selects a message sender to send messages in a live story call
         /// </summary>
-        public class ToggleGroupCallCanSendMessages : Function<Ok>
+        public class SetLiveStoryMessageSender : Function<Ok>
         {
             /// <summary>
             /// Data type for serialization
             /// </summary>
             [JsonProperty("@type")]
-            public override string DataType { get; set; } = "toggleGroupCallCanSendMessages";
+            public override string DataType { get; set; } = "setLiveStoryMessageSender";
 
             /// <summary>
             /// Extra data attached to the function
@@ -35,22 +35,22 @@ namespace TdLib
             public int GroupCallId { get; set; }
 
             /// <summary>
-            /// New value of the can_send_messages setting
+            /// New message sender for the group call
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("can_send_messages")]
-            public bool CanSendMessages { get; set; }
+            [JsonProperty("message_sender_id")]
+            public MessageSender MessageSenderId { get; set; }
         }
 
         /// <summary>
-        /// Toggles whether participants of a group call can send messages there. Requires groupCall.can_toggle_can_send_messages right
+        /// Selects a message sender to send messages in a live story call
         /// </summary>
-        public static Task<Ok> ToggleGroupCallCanSendMessagesAsync(
-            this Client client, int groupCallId = default, bool canSendMessages = default)
+        public static Task<Ok> SetLiveStoryMessageSenderAsync(
+            this Client client, int groupCallId = default, MessageSender messageSenderId = default)
         {
-            return client.ExecuteAsync(new ToggleGroupCallCanSendMessages
+            return client.ExecuteAsync(new SetLiveStoryMessageSender
             {
-                GroupCallId = groupCallId, CanSendMessages = canSendMessages
+                GroupCallId = groupCallId, MessageSenderId = messageSenderId
             });
         }
     }

@@ -11,15 +11,15 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns a file with a segment of a video chat stream in a modified OGG format for audio or MPEG-4 format for video
+        /// Returns a file with a segment of a video chat or live story in a modified OGG format for audio or MPEG-4 format for video
         /// </summary>
-        public class GetVideoChatStreamSegment : Function<Data>
+        public class GetGroupCallStreamSegment : Function<Data>
         {
             /// <summary>
             /// Data type for serialization
             /// </summary>
             [JsonProperty("@type")]
-            public override string DataType { get; set; } = "getVideoChatStreamSegment";
+            public override string DataType { get; set; } = "getGroupCallStreamSegment";
 
             /// <summary>
             /// Extra data attached to the function
@@ -64,12 +64,12 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Returns a file with a segment of a video chat stream in a modified OGG format for audio or MPEG-4 format for video
+        /// Returns a file with a segment of a video chat or live story in a modified OGG format for audio or MPEG-4 format for video
         /// </summary>
-        public static Task<Data> GetVideoChatStreamSegmentAsync(
+        public static Task<Data> GetGroupCallStreamSegmentAsync(
             this Client client, int groupCallId = default, long timeOffset = default, int scale = default, int channelId = default, GroupCallVideoQuality videoQuality = default)
         {
-            return client.ExecuteAsync(new GetVideoChatStreamSegment
+            return client.ExecuteAsync(new GetGroupCallStreamSegment
             {
                 GroupCallId = groupCallId, TimeOffset = timeOffset, Scale = scale, ChannelId = channelId, VideoQuality = videoQuality
             });

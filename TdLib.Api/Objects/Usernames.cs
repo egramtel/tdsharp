@@ -39,11 +39,17 @@ namespace TdLib
             public string[] DisabledUsernames { get; set; }
 
             /// <summary>
-            /// Active or disabled username, which may be changed with setUsername or setSupergroupUsername. Information about other active usernames can be received using getCollectibleItemInfo
+            /// Active or disabled username, which may be changed with setUsername or setSupergroupUsername
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("editable_username")]
             public string EditableUsername { get; set; }
+
+            /// <summary>
+            /// Collectible usernames that were purchased at https://fragment.com and can be passed to getCollectibleItemInfo for more details
+            /// </summary>
+            [JsonProperty("collectible_usernames", ItemConverterType = typeof(Converter))]
+            public string[] CollectibleUsernames { get; set; }
         }
     }
 }

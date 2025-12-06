@@ -50,7 +50,7 @@ namespace TdLib
             /// <summary>
             /// Number of Telegram Stars that must be paid for each non-free query
             /// </summary>
-            [JsonConverter(typeof(Converter.Int64))]
+            [JsonConverter(typeof(Converter))]
             [JsonProperty("star_count")]
             public long StarCount { get; set; }
 

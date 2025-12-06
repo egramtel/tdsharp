@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Toggles whether a participant of an active group call is muted, unmuted, or allowed to unmute themselves
+        /// Toggles whether a participant of an active group call is muted, unmuted, or allowed to unmute themselves; not supported for live stories
         /// </summary>
         public class ToggleGroupCallParticipantIsMuted : Function<Ok>
         {
@@ -50,7 +50,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Toggles whether a participant of an active group call is muted, unmuted, or allowed to unmute themselves
+        /// Toggles whether a participant of an active group call is muted, unmuted, or allowed to unmute themselves; not supported for live stories
         /// </summary>
         public static Task<Ok> ToggleGroupCallParticipantIsMutedAsync(
             this Client client, int groupCallId = default, MessageSender participantId = default, bool isMuted = default)

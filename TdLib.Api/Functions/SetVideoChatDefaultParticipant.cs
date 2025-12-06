@@ -35,7 +35,7 @@ namespace TdLib
             public long ChatId { get; set; }
 
             /// <summary>
-            /// Default group call participant identifier to join the video chats
+            /// Default group call participant identifier to join the video chats in the chat
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("default_participant_id")]

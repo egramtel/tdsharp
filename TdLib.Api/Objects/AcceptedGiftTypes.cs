@@ -48,6 +48,13 @@ namespace TdLib
             public bool UpgradedGifts { get; set; }
 
             /// <summary>
+            /// True, if gifts from channels are accepted subject to other restrictions
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("gifts_from_channels")]
+            public bool GiftsFromChannels { get; set; }
+
+            /// <summary>
             /// True, if Telegram Premium subscription is accepted
             /// </summary>
             [JsonConverter(typeof(Converter))]

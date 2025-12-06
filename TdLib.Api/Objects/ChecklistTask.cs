@@ -41,11 +41,11 @@ namespace TdLib
             public FormattedText Text { get; set; }
 
             /// <summary>
-            /// Identifier of the user that completed the task; 0 if the task isn't completed
+            /// Identifier of the user or chat that completed the task; may be null if the task isn't completed yet
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("completed_by_user_id")]
-            public long CompletedByUserId { get; set; }
+            [JsonProperty("completed_by")]
+            public MessageSender CompletedBy { get; set; }
 
             /// <summary>
             /// Point in time (Unix timestamp) when the task was completed; 0 if the task isn't completed

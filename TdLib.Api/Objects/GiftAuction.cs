@@ -10,15 +10,15 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Describes an available stream in a video chat
+        /// Describes an auction on which a gift can be purchased
         /// </summary>
-        public partial class VideoChatStream : Object
+        public partial class GiftAuction : Object
         {
             /// <summary>
             /// Data type for serialization
             /// </summary>
             [JsonProperty("@type")]
-            public override string DataType { get; set; } = "videoChatStream";
+            public override string DataType { get; set; } = "giftAuction";
 
             /// <summary>
             /// Extra data attached to the object
@@ -27,25 +27,18 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Identifier of an audio/video channel
+            /// Identifier of the auction
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("channel_id")]
-            public int ChannelId { get; set; }
+            [JsonProperty("id")]
+            public string Id { get; set; }
 
             /// <summary>
-            /// Scale of segment durations in the stream. The duration is 1000/(2**scale) milliseconds
+            /// Number of gifts distributed in each round
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("scale")]
-            public int Scale { get; set; }
-
-            /// <summary>
-            /// Point in time when the stream currently ends; Unix timestamp in milliseconds
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("time_offset")]
-            public long TimeOffset { get; set; }
+            [JsonProperty("gifts_per_round")]
+            public int GiftsPerRound { get; set; }
         }
     }
 }

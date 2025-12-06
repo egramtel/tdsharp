@@ -35,22 +35,30 @@ namespace TdLib
             public int GroupCallId { get; set; }
 
             /// <summary>
-            /// Text of the message to send; 1-getOption("group_call_message_text_length_max") characters
+            /// Text of the message to send; 1-getOption("group_call_message_text_length_max") characters for non-live-stories; see updateGroupCallMessageLevels for live story restrictions,
+            /// which depends on paid_message_star_count. Can't contain line feeds for live stories
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("text")]
             public FormattedText Text { get; set; }
+
+            /// <summary>
+            /// The number of Telegram Stars the user agreed to pay to send the message; for live stories only; 0-getOption("paid_group_call_message_star_count_max").
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("paid_message_star_count")]
+            public long PaidMessageStarCount { get; set; }
         }
 
         /// <summary>
         /// Sends a message to other participants of a group call. Requires groupCall.can_send_messages right
         /// </summary>
         public static Task<Ok> SendGroupCallMessageAsync(
-            this Client client, int groupCallId = default, FormattedText text = default)
+            this Client client, int groupCallId = default, FormattedText text = default, long paidMessageStarCount = default)
         {
             return client.ExecuteAsync(new SendGroupCallMessage
             {
-                GroupCallId = groupCallId, Text = text
+                GroupCallId = groupCallId, Text = text, PaidMessageStarCount = paidMessageStarCount
             });
         }
     }

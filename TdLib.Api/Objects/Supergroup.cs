@@ -113,7 +113,7 @@ namespace TdLib
             public bool JoinToSendMessages { get; set; }
 
             /// <summary>
-            /// True, if all users directly joining the supergroup need to be approved by supergroup administrators. Can be true only for non-broadcast supergroups with username, location, or a linked chat
+            /// True, if all users directly joining the supergroup need to be approved by supergroup administrators. May be true only for non-broadcast supergroups with username, location, or a linked chat
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("join_by_request")]
@@ -197,18 +197,11 @@ namespace TdLib
             public long PaidMessageStarCount { get; set; }
 
             /// <summary>
-            /// True, if the supergroup or channel has non-expired stories available to the current user
+            /// State of active stories of the supergroup or channel; may be null if there are no active stories
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("has_active_stories")]
-            public bool HasActiveStories { get; set; }
-
-            /// <summary>
-            /// True, if the supergroup or channel has unread non-expired stories available to the current user
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("has_unread_active_stories")]
-            public bool HasUnreadActiveStories { get; set; }
+            [JsonProperty("active_story_state")]
+            public ActiveStoryState ActiveStoryState { get; set; }
         }
     }
 }

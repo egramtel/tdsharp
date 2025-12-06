@@ -12,15 +12,15 @@ namespace TdLib
         public partial class Update : Object
         {
             /// <summary>
-            /// A new message was received in a group call. It must be shown for at most getOption("group_call_message_show_time_max") seconds after receiving
+            /// The list of top donors in live story group call has changed
             /// </summary>
-            public class UpdateGroupCallNewMessage : Update
+            public class UpdateLiveStoryTopDonors : Update
             {
                 /// <summary>
                 /// Data type for serialization
                 /// </summary>
                 [JsonProperty("@type")]
-                public override string DataType { get; set; } = "updateGroupCallNewMessage";
+                public override string DataType { get; set; } = "updateLiveStoryTopDonors";
 
                 /// <summary>
                 /// Extra data attached to the message
@@ -36,18 +36,11 @@ namespace TdLib
                 public int GroupCallId { get; set; }
 
                 /// <summary>
-                /// Identifier of the sender of the message
+                /// New list of live story donors
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("sender_id")]
-                public MessageSender SenderId { get; set; }
-
-                /// <summary>
-                /// Text of the message
-                /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("text")]
-                public FormattedText Text { get; set; }
+                [JsonProperty("donors")]
+                public LiveStoryDonors Donors { get; set; }
             }
         }
     }

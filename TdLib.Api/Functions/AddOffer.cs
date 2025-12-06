@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Sent a suggested post based on a previously sent message in a channel direct messages chat. Can be also used to suggest price or time change for an existing suggested post.
+        /// Sends a suggested post based on a previously sent message in a channel direct messages chat. Can be also used to suggest price or time change for an existing suggested post.
         /// Returns the sent message
         /// </summary>
         public class AddOffer : Function<Message>
@@ -52,7 +52,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Sent a suggested post based on a previously sent message in a channel direct messages chat. Can be also used to suggest price or time change for an existing suggested post.
+        /// Sends a suggested post based on a previously sent message in a channel direct messages chat. Can be also used to suggest price or time change for an existing suggested post.
         /// Returns the sent message
         /// </summary>
         public static Task<Message> AddOfferAsync(

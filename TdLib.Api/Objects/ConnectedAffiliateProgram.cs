@@ -71,7 +71,7 @@ namespace TdLib
             /// <summary>
             /// The number of Telegram Stars that were earned by the affiliate program
             /// </summary>
-            [JsonConverter(typeof(Converter.Int64))]
+            [JsonConverter(typeof(Converter))]
             [JsonProperty("revenue_star_count")]
             public long RevenueStarCount { get; set; }
         }
