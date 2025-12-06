@@ -41,11 +41,18 @@ namespace TdLib
             public string Title { get; set; }
 
             /// <summary>
-            /// Invite link for the group call; for group calls that aren't bound to a chat. For video chats call getVideoChatInviteLink to get the link
+            /// Invite link for the group call; for group calls that aren't bound to a chat. For video chats call getVideoChatInviteLink to get the link.
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("invite_link")]
             public string InviteLink { get; set; }
+
+            /// <summary>
+            /// The minimum number of Telegram Stars that must be paid by general participant for each sent message to the call; for live stories only
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("paid_message_star_count")]
+            public long PaidMessageStarCount { get; set; }
 
             /// <summary>
             /// Point in time (Unix timestamp) when the group call is expected to be started by an administrator; 0 if it is already active or was ended; for video chats only
@@ -76,7 +83,14 @@ namespace TdLib
             public bool IsVideoChat { get; set; }
 
             /// <summary>
-            /// True, if the call is an RTMP stream instead of an ordinary video chat; for video chats only
+            /// True, if the call is a live story of a chat
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("is_live_story")]
+            public bool IsLiveStory { get; set; }
+
+            /// <summary>
+            /// True, if the call is an RTMP stream instead of an ordinary video chat; for video chats and live stories only
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_rtmp_stream")]
@@ -104,7 +118,7 @@ namespace TdLib
             public bool IsOwned { get; set; }
 
             /// <summary>
-            /// True, if the current user can manage the group call; for video chats only
+            /// True, if the current user can manage the group call; for video chats and live stories only
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("can_be_managed")]
@@ -130,6 +144,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("loaded_all_participants")]
             public bool LoadedAllParticipants { get; set; }
+
+            /// <summary>
+            /// Message sender chosen to send messages to the group call; for live stories only; may be null if the call isn't a live story
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("message_sender_id")]
+            public MessageSender MessageSenderId { get; set; }
 
             /// <summary>
             /// At most 3 recently speaking users in the group call
@@ -173,18 +194,32 @@ namespace TdLib
             public bool CanToggleMuteNewParticipants { get; set; }
 
             /// <summary>
-            /// True, if users can send messages to the group call
+            /// True, if the current user can send messages to the group call
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("can_send_messages")]
             public bool CanSendMessages { get; set; }
 
             /// <summary>
-            /// True, if the current user can enable or disable sending messages in the group call
+            /// True, if sending of messages is allowed in the group call
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("can_toggle_can_send_messages")]
-            public bool CanToggleCanSendMessages { get; set; }
+            [JsonProperty("are_messages_allowed")]
+            public bool AreMessagesAllowed { get; set; }
+
+            /// <summary>
+            /// True, if the current user can enable or disable sending of messages in the group call
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("can_toggle_are_messages_allowed")]
+            public bool CanToggleAreMessagesAllowed { get; set; }
+
+            /// <summary>
+            /// True, if the user can delete messages in the group call
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("can_delete_messages")]
+            public bool CanDeleteMessages { get; set; }
 
             /// <summary>
             /// Duration of the ongoing group call recording, in seconds; 0 if none. An updateGroupCall update is not triggered when value of this field changes, but the same recording goes on

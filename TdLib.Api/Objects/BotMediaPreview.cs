@@ -34,7 +34,7 @@ namespace TdLib
             public int Date { get; set; }
 
             /// <summary>
-            /// Content of the preview
+            /// Content of the preview; may only be of the types storyContentPhoto, storyContentVideo, or storyContentUnsupported
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("content")]

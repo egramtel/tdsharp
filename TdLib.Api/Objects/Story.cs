@@ -90,7 +90,7 @@ namespace TdLib
             public bool IsVisibleOnlyForSelf { get; set; }
 
             /// <summary>
-            /// True, if the story can be added to an album
+            /// True, if the story can be added to an album using createStoryAlbum and addStoryAlbumStories
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("can_be_added_to_album")]
@@ -123,6 +123,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("can_be_replied")]
             public bool CanBeReplied { get; set; }
+
+            /// <summary>
+            /// True, if the story privacy settings can be changed
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("can_set_privacy_settings")]
+            public bool CanSetPrivacySettings { get; set; }
 
             /// <summary>
             /// True, if the story's is_posted_to_chat_page value can be changed

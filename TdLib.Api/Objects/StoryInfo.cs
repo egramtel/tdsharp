@@ -46,6 +46,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_for_close_friends")]
             public bool IsForCloseFriends { get; set; }
+
+            /// <summary>
+            /// True, if the story is a live story
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("is_live")]
+            public bool IsLive { get; set; }
         }
     }
 }

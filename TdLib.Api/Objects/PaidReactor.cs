@@ -38,7 +38,7 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("star_count")]
-            public int StarCount { get; set; }
+            public long StarCount { get; set; }
 
             /// <summary>
             /// True, if the reactor is one of the most active reactors; may be false if the reactor is the current user

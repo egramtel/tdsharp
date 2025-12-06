@@ -43,7 +43,7 @@ namespace TdLib
             public int StoryAlbumId { get; set; }
 
             /// <summary>
-            /// Identifier of the stories to add to the album; 1-getOption("story_album_story_count_max") identifiers.
+            /// Identifier of the stories to add to the album; 1-getOption("story_album_size_max") identifiers.
             /// </summary>
             [JsonProperty("story_ids", ItemConverterType = typeof(Converter))]
             public int[] StoryIds { get; set; }

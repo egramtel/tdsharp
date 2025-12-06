@@ -90,8 +90,14 @@ namespace TdLib
             public bool IsPremium { get; set; }
 
             /// <summary>
+            /// Information about the auction on which the gift can be purchased; may be null if the gift can be purchased directly
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("auction_info")]
+            public GiftAuction AuctionInfo { get; set; }
+
+            /// <summary>
             /// Point in time (Unix timestamp) when the gift can be sent next time by the current user; can be 0 or a date in the past.
-            /// If the date is in the future, then call canSendGift to get the reason, why the gift can't be sent now
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("next_send_date")]

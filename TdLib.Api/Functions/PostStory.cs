@@ -63,7 +63,7 @@ namespace TdLib
             public StoryPrivacySettings PrivacySettings { get; set; }
 
             /// <summary>
-            /// Identifiers of story albums to which the story will be added upon posting. An album can have up to getOption("story_album_story_count_max")
+            /// Identifiers of story albums to which the story will be added upon posting. An album can have up to getOption("story_album_size_max") stories
             /// </summary>
             [JsonProperty("album_ids", ItemConverterType = typeof(Converter))]
             public int[] AlbumIds { get; set; }

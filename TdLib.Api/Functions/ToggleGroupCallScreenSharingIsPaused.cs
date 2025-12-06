@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Pauses or unpauses screen sharing in a joined group call
+        /// Pauses or unpauses screen sharing in a joined group call; not supported in live stories
         /// </summary>
         public class ToggleGroupCallScreenSharingIsPaused : Function<Ok>
         {
@@ -43,7 +43,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Pauses or unpauses screen sharing in a joined group call
+        /// Pauses or unpauses screen sharing in a joined group call; not supported in live stories
         /// </summary>
         public static Task<Ok> ToggleGroupCallScreenSharingIsPausedAsync(
             this Client client, int groupCallId = default, bool isPaused = default)

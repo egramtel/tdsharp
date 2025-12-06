@@ -85,11 +85,18 @@ namespace TdLib
                 public long CryptocurrencyAmount { get; set; }
 
                 /// <summary>
-                /// Number of months the Telegram Premium subscription will be active after code activation
+                /// Number of months the Telegram Premium subscription will be active after code activation; 0 if the number of months isn't integer
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("month_count")]
                 public int MonthCount { get; set; }
+
+                /// <summary>
+                /// Number of days the Telegram Premium subscription will be active after code activation
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("day_count")]
+                public int DayCount { get; set; }
 
                 /// <summary>
                 /// A sticker to be shown in the message; may be null if unknown

@@ -187,7 +187,7 @@ namespace TdLib
             public MessageReplyTo ReplyTo { get; set; }
 
             /// <summary>
-            /// Identifier of the topic within the chat to which the message belongs; may be null if none
+            /// Identifier of the topic within the chat to which the message belongs; may be null if none; may change when the chat is converted to a forum or back
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("topic_id")]

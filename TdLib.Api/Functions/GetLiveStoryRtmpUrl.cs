@@ -11,15 +11,15 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns information about available video chat streams
+        /// Returns RTMP URL for streaming to a live story; requires can_post_stories administrator right for channel chats
         /// </summary>
-        public class GetVideoChatStreams : Function<VideoChatStreams>
+        public class GetLiveStoryRtmpUrl : Function<RtmpUrl>
         {
             /// <summary>
             /// Data type for serialization
             /// </summary>
             [JsonProperty("@type")]
-            public override string DataType { get; set; } = "getVideoChatStreams";
+            public override string DataType { get; set; } = "getLiveStoryRtmpUrl";
 
             /// <summary>
             /// Extra data attached to the function
@@ -28,22 +28,22 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Group call identifier
+            /// Chat identifier
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("group_call_id")]
-            public int GroupCallId { get; set; }
+            [JsonProperty("chat_id")]
+            public long ChatId { get; set; }
         }
 
         /// <summary>
-        /// Returns information about available video chat streams
+        /// Returns RTMP URL for streaming to a live story; requires can_post_stories administrator right for channel chats
         /// </summary>
-        public static Task<VideoChatStreams> GetVideoChatStreamsAsync(
-            this Client client, int groupCallId = default)
+        public static Task<RtmpUrl> GetLiveStoryRtmpUrlAsync(
+            this Client client, long chatId = default)
         {
-            return client.ExecuteAsync(new GetVideoChatStreams
+            return client.ExecuteAsync(new GetLiveStoryRtmpUrl
             {
-                GroupCallId = groupCallId
+                ChatId = chatId
             });
         }
     }

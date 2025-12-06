@@ -35,7 +35,7 @@ namespace TdLib
             public int GroupCallId { get; set; }
 
             /// <summary>
-            /// Identifier of a group call participant, which will be used to join the call; pass null to join as self; video chats only
+            /// Identifier of a group call participant, which will be used to join the call; pass null to join as self
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("participant_id")]

@@ -167,18 +167,11 @@ namespace TdLib
             public RestrictionInfo RestrictionInfo { get; set; }
 
             /// <summary>
-            /// True, if the user has non-expired stories available to the current user
+            /// State of active stories of the user; may be null if the user has no active stories
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("has_active_stories")]
-            public bool HasActiveStories { get; set; }
-
-            /// <summary>
-            /// True, if the user has unread non-expired stories available to the current user
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("has_unread_active_stories")]
-            public bool HasUnreadActiveStories { get; set; }
+            [JsonProperty("active_story_state")]
+            public ActiveStoryState ActiveStoryState { get; set; }
 
             /// <summary>
             /// True, if the user may restrict new chats with non-contacts. Use canSendMessageToUser to check whether the current user can message the user or try to create a chat with them

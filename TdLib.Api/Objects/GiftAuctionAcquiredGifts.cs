@@ -10,15 +10,15 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Represents a list of video chat streams
+        /// Represents a list of gifts that were acquired by the current user on an auction
         /// </summary>
-        public partial class VideoChatStreams : Object
+        public partial class GiftAuctionAcquiredGifts : Object
         {
             /// <summary>
             /// Data type for serialization
             /// </summary>
             [JsonProperty("@type")]
-            public override string DataType { get; set; } = "videoChatStreams";
+            public override string DataType { get; set; } = "giftAuctionAcquiredGifts";
 
             /// <summary>
             /// Extra data attached to the object
@@ -27,10 +27,10 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// A list of video chat streams
+            /// The list of acquired gifts
             /// </summary>
-            [JsonProperty("streams", ItemConverterType = typeof(Converter))]
-            public VideoChatStream[] Streams { get; set; }
+            [JsonProperty("gifts", ItemConverterType = typeof(Converter))]
+            public GiftAuctionAcquiredGift[] Gifts { get; set; }
         }
     }
 }
