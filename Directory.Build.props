@@ -13,7 +13,11 @@ SPDX-License-Identifier: MIT
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <!-- REUSE-IgnoreStart -->
-        <Copyright>2025 tdsharp contributors &lt;https://github.com/egramtel/tdsharp&gt;</Copyright>
+        <Copyright>
+            2018 Sergey Khabibullin;
+            2018-2025 tdsharp contributors &lt;https://github.com/egramtel/tdsharp&gt;;
+            2025 TDLib contributors &lt;https://github.com/tdlib/td&gt;
+        </Copyright>
         <!-- REUSE-IgnoreEnd -->
         <PublishRepositoryUrl>true</PublishRepositoryUrl>
         <IncludeSymbols>true</IncludeSymbols>

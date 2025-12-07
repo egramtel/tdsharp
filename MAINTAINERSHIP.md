@@ -12,8 +12,8 @@ Publish a New Version
 
 1. Choose a new version. To avoid confusion, all the packages should follow the versioning of the upstream Telegram library, and should have the same version among them.
 2. Update the copyright year in [the license file][license], if required.
-3. Update the copyright year in the `Directory.Build.props`, if required.
-4. Update the upstream license information in the `README.md`, if required.
+3. Update the `<Copyright>` element in the `Directory.Build.props`, if required.
+4. Update the upstream license information in the `README.md` and `REUSE.toml`, if required.
 5. Prepare a corresponding entry in [the changelog][changelog] (usually by renaming the "Unreleased" section).
 6. Set the `<Version>` in the `Directory.Build.props`.
 7. Merge all the changes to the main branch using a pull request.
