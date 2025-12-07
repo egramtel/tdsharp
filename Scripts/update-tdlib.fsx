@@ -125,7 +125,7 @@ let updateChangelog(version: string) =
     let mutable sectionContent = changelog.Substring(firstReleaseSection, nextSection - firstReleaseSection)
     let mutable changedSubsection = sectionContent.IndexOf "### Changed"
     if changedSubsection = -1 then
-        sectionContent <- sectionContent.Insert(sectionContent.IndexOf "\n", "### Changed")
+        sectionContent <- sectionContent.Insert(sectionContent.IndexOf "\n", "\n### Changed")
         changedSubsection <- sectionContent.IndexOf "### Changed"
 
     let updateVersionRegex = Regex @"- Update to \[TDLib.*?\n"
