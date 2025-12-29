@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Check whether the current user can message another user or try to create a chat with them
+        /// Checks whether the current user can message another user or try to create a chat with them
         /// </summary>
         public class CanSendMessageToUser : Function<CanSendMessageToUserResult>
         {
@@ -43,7 +43,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Check whether the current user can message another user or try to create a chat with them
+        /// Checks whether the current user can message another user or try to create a chat with them
         /// </summary>
         public static Task<CanSendMessageToUserResult> CanSendMessageToUserAsync(
             this Client client, long userId = default, bool onlyLocal = default)

@@ -12,7 +12,7 @@ namespace TdLib
         public partial class StarTransactionType : Object
         {
             /// <summary>
-            /// The transaction is a sale of an upgraded gift; for regular users only
+            /// The transaction is a sale of an upgraded gift; relevant for regular users only
             /// </summary>
             public class StarTransactionTypeUpgradedGiftSale : StarTransactionType
             {
@@ -55,6 +55,13 @@ namespace TdLib
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("commission_star_amount")]
                 public StarAmount CommissionStarAmount { get; set; }
+
+                /// <summary>
+                /// True, if the gift was sold through a purchase offer
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("via_offer")]
+                public bool ViaOffer { get; set; }
             }
         }
     }

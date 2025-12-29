@@ -29,7 +29,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Price paid by the sender for the gift
+                /// Price paid for the gift
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("price")]

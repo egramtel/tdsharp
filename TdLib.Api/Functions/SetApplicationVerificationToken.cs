@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Application or reCAPTCHA verification has been completed. Can be called before authorization
+        /// Informs TDLib that application or reCAPTCHA verification has been completed. Can be called before authorization
         /// </summary>
         public class SetApplicationVerificationToken : Function<Ok>
         {
@@ -44,7 +44,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Application or reCAPTCHA verification has been completed. Can be called before authorization
+        /// Informs TDLib that application or reCAPTCHA verification has been completed. Can be called before authorization
         /// </summary>
         public static Task<Ok> SetApplicationVerificationTokenAsync(
             this Client client, long verificationId = default, string token = default)

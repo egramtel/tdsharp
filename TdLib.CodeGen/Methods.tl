@@ -58,6 +58,19 @@ checkAuthenticationCode code:string = Ok;
 //@other_user_ids List of user identifiers of other users currently using the application
 requestQrCodeAuthentication other_user_ids:vector<int53> = Ok;
 
+//@description Returns parameters for authentication using a passkey as JSON-serialized string
+getAuthenticationPasskeyParameters = Text;
+
+//@description Checks a passkey to log in to the corresponding account. Call getAuthenticationPasskeyParameters to get parameters for the passkey. Works only when the current authorization state is
+//-authorizationStateWaitPhoneNumber or authorizationStateWaitOtherDeviceConfirmation, or if there is no pending authentication query and the current authorization state is
+//-authorizationStateWaitPremiumPurchase, authorizationStateWaitEmailAddress, authorizationStateWaitEmailCode, authorizationStateWaitCode, authorizationStateWaitRegistration, or authorizationStateWaitPassword
+//@credential_id Base64url-encoded identifier of the credential
+//@client_data JSON-encoded client data
+//@authenticator_data Authenticator data of the application that created the credential
+//@signature Cryptographic signature of the credential
+//@user_handle User handle of the passkey
+checkAuthenticationPasskey credential_id:string client_data:string authenticator_data:bytes signature:bytes user_handle:bytes = Ok;
+
 //@description Finishes user registration. Works only when the current authorization state is authorizationStateWaitRegistration
 //@first_name The first name of the user; 1-64 characters
 //@last_name The last name of the user; 0-64 characters
@@ -227,6 +240,7 @@ getMessageLocally chat_id:int53 message_id:int53 = Message;
 //-the giveaway message for messageGiveawayCompleted, the checklist message for messageChecklistTasksDone, messageChecklistTasksAdded, the message with suggested post information
 //-for messageSuggestedPostApprovalFailed, messageSuggestedPostApproved, messageSuggestedPostDeclined, messageSuggestedPostPaid, messageSuggestedPostRefunded,
 //-the message with the regular gift that was upgraded for messageUpgradedGift with origin of the type upgradedGiftOriginUpgrade,
+//-the message with gift purchase offer for messageUpgradedGiftPurchaseOfferDeclined,
 //-and the topic creation message for topic messages without non-bundled replied message. Returns a 404 error if the message doesn't exist
 //@chat_id Identifier of the chat the message belongs to
 //@message_id Identifier of the reply message
@@ -1085,7 +1099,7 @@ setBusinessAccountGiftSettings business_connection_id:string settings:giftSettin
 //@description Returns the amount of Telegram Stars owned by a business account; for bots only @business_connection_id Unique identifier of business connection
 getBusinessAccountStarAmount business_connection_id:string = StarAmount;
 
-//@description Transfer Telegram Stars from the business account to the business bot; for bots only
+//@description Transfers Telegram Stars from the business account to the business bot; for bots only
 //@business_connection_id Unique identifier of business connection
 //@star_count Number of Telegram Stars to transfer
 transferBusinessAccountStars business_connection_id:string star_count:int53 = Ok;
@@ -1248,6 +1262,21 @@ readAllForumTopicReactions chat_id:int53 forum_topic_id:int32 = Ok;
 //@chat_id Identifier of the chat
 //@forum_topic_id Forum topic identifier in which messages will be unpinned
 unpinAllForumTopicMessages chat_id:int53 forum_topic_id:int32 = Ok;
+
+
+//@description Returns parameters for creating of a new passkey as JSON-serialized string
+getPasskeyParameters = Text;
+
+//@description Adds a passkey allowed to be used for the login by the current user and returns the added passkey. Call getPasskeyParameters to get parameters for creating of the passkey
+//@client_data JSON-encoded client data
+//@attestation_object Passkey attestation object
+addLoginPasskey client_data:string attestation_object:bytes = Passkey;
+
+//@description Returns the list of passkeys allowed to be used for the login by the current user
+getLoginPasskeys = Passkeys;
+
+//@description Removes a passkey from the list of passkeys allowed to be used for the login by the current user @passkey_id Unique identifier of the passkey to remove
+removeLoginPasskey passkey_id:string = Ok;
 
 
 //@description Returns information about an emoji reaction. Returns a 404 error if the reaction is not found @emoji Text representation of the reaction
@@ -2018,7 +2047,7 @@ toggleChatIsPinned chat_list:ChatList chat_id:int53 is_pinned:Bool = Ok;
 //@description Changes the order of pinned chats @chat_list Chat list in which to change the order of pinned chats @chat_ids The new list of pinned chats
 setPinnedChats chat_list:ChatList chat_ids:vector<int53> = Ok;
 
-//@description Traverse all chats in a chat list and marks all messages in the chats as read @chat_list Chat list in which to mark all chats as read
+//@description Traverses all chats in a chat list and marks all messages in the chats as read @chat_list Chat list in which to mark all chats as read
 readChatList chat_list:ChatList = Ok;
 
 
@@ -2331,7 +2360,7 @@ cancelDownloadFile file_id:int32 only_if_pending:Bool = Ok;
 //@description Returns suggested name for saving a file in a given directory @file_id Identifier of the file @directory Directory in which the file is expected to be saved
 getSuggestedFileName file_id:int32 directory:string = Text;
 
-//@description Preliminary uploads a file to the cloud before sending it in a message, which can be useful for uploading of being recorded voice and video notes.
+//@description Preliminarily uploads a file to the cloud before sending it in a message, which can be useful for uploading of being recorded voice and video notes.
 //-In all other cases there is no need to preliminary upload a file. Updates updateFile will be used to notify about upload progress.
 //-The upload will not be completed until the file is sent in a message
 //@file File to upload
@@ -2402,7 +2431,7 @@ removeAllFilesFromDownloads only_active:Bool only_completed:Bool delete_from_cac
 searchFileDownloads query:string only_active:Bool only_completed:Bool offset:string limit:int32 = FoundFileDownloads;
 
 
-//@description Application or reCAPTCHA verification has been completed. Can be called before authorization
+//@description Informs TDLib that application or reCAPTCHA verification has been completed. Can be called before authorization
 //@verification_id Unique identifier for the verification process as received from updateApplicationVerificationRequired or updateApplicationRecaptchaVerificationRequired
 //@token Play Integrity API token for the Android application, or secret from push notification for the iOS application for application verification, or reCAPTCHA token for reCAPTCHA verifications;
 //-pass an empty string to abort verification and receive the error "VERIFICATION_FAILED" for the request
@@ -2952,6 +2981,12 @@ removeProfileAudio file_id:int32 = Ok;
 //@for_clicked_animated_emoji_message Pass true to get the outline scaled for clicked animated emoji message
 getStickerOutline sticker_file_id:int32 for_animated_emoji:Bool for_clicked_animated_emoji_message:Bool = Outline;
 
+//@description Returns outline of a sticker as an SVG path. This is an offline method. Returns an empty string if the outline isn't known
+//@sticker_file_id File identifier of the sticker
+//@for_animated_emoji Pass true to get the outline scaled for animated emoji
+//@for_clicked_animated_emoji_message Pass true to get the outline scaled for clicked animated emoji message
+getStickerOutlineSvgPath sticker_file_id:int32 for_animated_emoji:Bool for_clicked_animated_emoji_message:Bool = Text;
+
 //@description Returns stickers from the installed sticker sets that correspond to any of the given emoji or can be found by sticker-specific keywords. If the query is non-empty, then favorite, recently used or trending stickers may also be returned
 //@sticker_type Type of the stickers to return
 //@query Search query; a space-separated list of emojis or a keyword prefix. If empty, returns all known installed stickers
@@ -3059,7 +3094,7 @@ getStickerEmojis sticker:InputFile = Emojis;
 //@input_language_codes List of possible IETF language tags of the user's input language; may be empty if unknown
 searchEmojis text:string input_language_codes:vector<string> = EmojiKeywords;
 
-//@description Return emojis matching the keyword. Supported only if the file database is enabled. Order of results is unspecified
+//@description Returns emojis matching the keyword. Supported only if the file database is enabled. Order of results is unspecified
 //@text Text to search for
 //@input_language_codes List of possible IETF language tags of the user's input language; may be empty if unknown
 getKeywordEmojis text:string input_language_codes:vector<string> = Emojis;
@@ -3215,7 +3250,7 @@ reportPhoneNumberCodeMissing mobile_network_code:string = Ok;
 //@reason Reason of code resending; pass null if unknown
 resendPhoneNumberCode reason:ResendCodeReason = AuthenticationCodeInfo;
 
-//@description Check the authentication code and completes the request for which the code was sent if appropriate @code Authentication code to check
+//@description Checks the authentication code and completes the request for which the code was sent if appropriate @code Authentication code to check
 checkPhoneNumberCode code:string = Ok;
 
 
@@ -3333,7 +3368,7 @@ editBotMediaPreview bot_user_id:int53 language_code:string file_id:int32 content
 //@file_ids File identifiers of the media in the new order
 reorderBotMediaPreviews bot_user_id:int53 language_code:string file_ids:vector<int32> = Ok;
 
-//@description Delete media previews from the list of media previews of a bot
+//@description Deletes media previews from the list of media previews of a bot
 //@bot_user_id Identifier of the target bot. The bot must be owned and must have the main Web App
 //@language_code Language code of the media previews to delete
 //@file_ids File identifiers of the media to delete
@@ -3656,6 +3691,9 @@ toggleChatGiftNotifications chat_id:int53 are_enabled:Bool = Ok;
 //@description Returns examples of possible upgraded gifts for a regular gift @gift_id Identifier of the gift
 getGiftUpgradePreview gift_id:int64 = GiftUpgradePreview;
 
+//@description Returns all possible variants of upgraded gifts for a regular gift @gift_id Identifier of the gift
+getGiftUpgradeVariants gift_id:int64 = GiftUpgradeVariants;
+
 //@description Upgrades a regular gift
 //@business_connection_id Unique identifier of business connection on behalf of which to send the request; for bots only
 //@received_gift_id Identifier of the gift
@@ -3688,6 +3726,19 @@ dropGiftOriginalDetails received_gift_id:string star_count:int53 = Ok;
 //@price The price that the user agreed to pay for the gift
 sendResoldGift gift_name:string owner_id:MessageSender price:GiftResalePrice = GiftResaleResult;
 
+//@description Sends an offer to purchase an upgraded gift
+//@owner_id Identifier of the user or the channel chat that currently owns the gift and will receive the offer
+//@gift_name Name of the upgraded gift
+//@price The price that the user agreed to pay for the gift
+//@duration Duration of the offer, in seconds; must be one of 21600, 43200, 86400, 129600, 172800, or 259200. Can also be 120 if Telegram test environment is used
+//@paid_message_star_count The number of Telegram Stars the user agreed to pay additionally for sending of the offer message to the current gift owner; pass userFullInfo.outgoing_paid_message_star_count for users and 0 otherwise
+sendGiftPurchaseOffer owner_id:MessageSender gift_name:string price:GiftResalePrice duration:int32 paid_message_star_count:int53 = Ok;
+
+//@description Handles a pending gift purchase offer
+//@message_id Identifier of the message with the gift purchase offer
+//@approve Pass true to approve the request; pass false to decline it
+processGiftPurchaseOffer message_id:int53 approve:Bool = Ok;
+
 //@description Returns gifts received by the given user or chat
 //@business_connection_id Unique identifier of business connection on behalf of which to send the request; for bots only
 //@owner_id Identifier of the gift receiver
@@ -3718,6 +3769,9 @@ getUpgradedGiftValueInfo name:string = UpgradedGiftValueInfo;
 //@received_gift_id Identifier of the gift
 //@password The 2-step verification password of the current user
 getUpgradedGiftWithdrawalUrl received_gift_id:string password:string = HttpUrl;
+
+//@description Returns promotional anumation for upgraded gifts
+getUpgradedGiftsPromotionalAnimation = Animation;
 
 //@description Changes resale price of a unique gift owned by the current user
 //@received_gift_id Identifier of the unique gift
@@ -3907,7 +3961,7 @@ allowUnpaidMessagesFromUser user_id:int53 refund_payments:Bool = Ok;
 setChatPaidMessageStarCount chat_id:int53 paid_message_star_count:int53 = Ok;
 
 
-//@description Check whether the current user can message another user or try to create a chat with them
+//@description Checks whether the current user can message another user or try to create a chat with them
 //@user_id Identifier of the other user
 //@only_local Pass true to get only locally available information without sending network requests
 canSendMessageToUser user_id:int53 only_local:Bool = CanSendMessageToUserResult;
@@ -4270,7 +4324,7 @@ getPremiumGiftPaymentOptions = PremiumGiftPaymentOptions;
 //@boosted_chat_id Identifier of the supergroup or channel chat, which will be automatically boosted by receivers of the gift codes and which is administered by the user
 getPremiumGiveawayPaymentOptions boosted_chat_id:int53 = PremiumGiveawayPaymentOptions;
 
-//@description Return information about a Telegram Premium gift code @code The code to check
+//@description Returns information about a Telegram Premium gift code @code The code to check
 checkPremiumGiftCode code:string = PremiumGiftCodeInfo;
 
 //@description Applies a Telegram Premium gift code @code The code to apply

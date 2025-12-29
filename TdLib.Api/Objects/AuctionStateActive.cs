@@ -29,7 +29,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Point in time (Unix timestamp) when the auction started
+                /// Point in time (Unix timestamp) when the auction started or will start
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("start_date")]
@@ -62,6 +62,12 @@ namespace TdLib
                 public long[] TopBidderUserIds { get; set; }
 
                 /// <summary>
+                /// Rounds of the auction in which their duration or extension rules are changed
+                /// </summary>
+                [JsonProperty("rounds", ItemConverterType = typeof(Converter))]
+                public AuctionRound[] Rounds { get; set; }
+
+                /// <summary>
                 /// Point in time (Unix timestamp) when the current round will end
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
@@ -83,14 +89,21 @@ namespace TdLib
                 public int TotalRoundCount { get; set; }
 
                 /// <summary>
-                /// The number of items that have to be distributed on the auciton
+                /// The number of items that were purchased on the auction by all users
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("distributed_item_count")]
+                public int DistributedItemCount { get; set; }
+
+                /// <summary>
+                /// The number of items that have to be distributed on the auction
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("left_item_count")]
                 public int LeftItemCount { get; set; }
 
                 /// <summary>
-                /// The number of items that were purchased by the current user on the auciton
+                /// The number of items that were purchased by the current user on the auction
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("acquired_item_count")]

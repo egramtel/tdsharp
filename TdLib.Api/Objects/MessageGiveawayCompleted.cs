@@ -29,7 +29,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Identifier of the message with the giveaway; can be 0 if the message was deleted
+                /// Identifier of the message with the giveaway; may be 0 or an identifier of a deleted message
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("giveaway_message_id")]

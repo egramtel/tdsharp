@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Delete media previews from the list of media previews of a bot
+        /// Deletes media previews from the list of media previews of a bot
         /// </summary>
         public class DeleteBotMediaPreviews : Function<Ok>
         {
@@ -49,7 +49,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Delete media previews from the list of media previews of a bot
+        /// Deletes media previews from the list of media previews of a bot
         /// </summary>
         public static Task<Ok> DeleteBotMediaPreviewsAsync(
             this Client client, long botUserId = default, string languageCode = default, int[] fileIds = default)

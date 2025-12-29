@@ -12,7 +12,7 @@ namespace TdLib
         public partial class StarTransactionType : Object
         {
             /// <summary>
-            /// The transaction is a deposit of Telegram Stars by another user; for regular users only
+            /// The transaction is a deposit of Telegram Stars by another user; relevant for regular users only
             /// </summary>
             public class StarTransactionTypeUserDeposit : StarTransactionType
             {

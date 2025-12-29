@@ -62,6 +62,13 @@ namespace TdLib
             public int AuctionRoundPosition { get; set; }
 
             /// <summary>
+            /// Unique number of the gift among gifts upgraded from the same gift after upgrade; 0 if yet unassigned
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("unique_gift_number")]
+            public int UniqueGiftNumber { get; set; }
+
+            /// <summary>
             /// Message added to the gift
             /// </summary>
             [JsonConverter(typeof(Converter))]

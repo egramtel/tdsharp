@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Return information about a Telegram Premium gift code
+        /// Returns information about a Telegram Premium gift code
         /// </summary>
         public class CheckPremiumGiftCode : Function<PremiumGiftCodeInfo>
         {
@@ -36,7 +36,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Return information about a Telegram Premium gift code
+        /// Returns information about a Telegram Premium gift code
         /// </summary>
         public static Task<PremiumGiftCodeInfo> CheckPremiumGiftCodeAsync(
             this Client client, string code = default)

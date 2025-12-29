@@ -48,6 +48,13 @@ namespace TdLib
             public FormattedText Text { get; set; }
 
             /// <summary>
+            /// Unique number of the gift among gifts upgraded from the same gift after upgrade; 0 if yet unassigned
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("unique_gift_number")]
+            public int UniqueGiftNumber { get; set; }
+
+            /// <summary>
             /// True, if the sender and gift text are shown only to the gift receiver; otherwise, everyone are able to see them
             /// </summary>
             [JsonConverter(typeof(Converter))]

@@ -12,7 +12,7 @@ namespace TdLib
         public partial class StarTransactionType : Object
         {
             /// <summary>
-            /// The transaction is a purchase of Telegram Premium subscription; for regular users and bots only
+            /// The transaction is a purchase of Telegram Premium subscription; relevant for regular users and bots only
             /// </summary>
             public class StarTransactionTypePremiumPurchase : StarTransactionType
             {

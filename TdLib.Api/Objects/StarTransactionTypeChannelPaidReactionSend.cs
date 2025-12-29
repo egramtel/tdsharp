@@ -12,7 +12,7 @@ namespace TdLib
         public partial class StarTransactionType : Object
         {
             /// <summary>
-            /// The transaction is a sending of a paid reaction to a message in a channel chat by the current user; for regular users only
+            /// The transaction is a sending of a paid reaction to a message in a channel chat by the current user; relevant for regular users only
             /// </summary>
             public class StarTransactionTypeChannelPaidReactionSend : StarTransactionType
             {
@@ -36,7 +36,7 @@ namespace TdLib
                 public long ChatId { get; set; }
 
                 /// <summary>
-                /// Identifier of the reacted message; can be 0 or an identifier of a deleted message
+                /// Identifier of the reacted message; may be 0 or an identifier of a deleted message
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("message_id")]

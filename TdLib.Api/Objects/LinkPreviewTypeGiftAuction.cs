@@ -36,13 +36,6 @@ namespace TdLib
                 public Gift Gift { get; set; }
 
                 /// <summary>
-                /// Background of the gift
-                /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("gift_background")]
-                public GiftBackground GiftBackground { get; set; }
-
-                /// <summary>
                 /// Point in time (Unix timestamp) when the auction will be ended
                 /// </summary>
                 [JsonConverter(typeof(Converter))]

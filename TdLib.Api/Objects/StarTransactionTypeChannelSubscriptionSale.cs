@@ -12,7 +12,7 @@ namespace TdLib
         public partial class StarTransactionType : Object
         {
             /// <summary>
-            /// The transaction is a sale of a subscription by the channel chat; for channel chats only
+            /// The transaction is a sale of a subscription by the channel chat; relevant for channel chats only
             /// </summary>
             public class StarTransactionTypeChannelSubscriptionSale : StarTransactionType
             {

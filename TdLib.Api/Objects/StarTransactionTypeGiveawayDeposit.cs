@@ -12,7 +12,7 @@ namespace TdLib
         public partial class StarTransactionType : Object
         {
             /// <summary>
-            /// The transaction is a deposit of Telegram Stars from a giveaway; for regular users only
+            /// The transaction is a deposit of Telegram Stars from a giveaway; relevant for regular users only
             /// </summary>
             public class StarTransactionTypeGiveawayDeposit : StarTransactionType
             {
@@ -36,7 +36,7 @@ namespace TdLib
                 public long ChatId { get; set; }
 
                 /// <summary>
-                /// Identifier of the message with the giveaway; can be 0 or an identifier of a deleted message
+                /// Identifier of the message with the giveaway; may be 0 or an identifier of a deleted message
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("giveaway_message_id")]

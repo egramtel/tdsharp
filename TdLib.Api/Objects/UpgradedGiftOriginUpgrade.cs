@@ -29,7 +29,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Identifier of the message with the regular gift that was upgraded; can be 0 or an identifier of a deleted message
+                /// Identifier of the message with the regular gift that was upgraded; may be 0 or an identifier of a deleted message
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("gift_message_id")]

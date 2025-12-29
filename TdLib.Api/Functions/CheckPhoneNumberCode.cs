@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Check the authentication code and completes the request for which the code was sent if appropriate
+        /// Checks the authentication code and completes the request for which the code was sent if appropriate
         /// </summary>
         public class CheckPhoneNumberCode : Function<Ok>
         {
@@ -36,7 +36,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Check the authentication code and completes the request for which the code was sent if appropriate
+        /// Checks the authentication code and completes the request for which the code was sent if appropriate
         /// </summary>
         public static Task<Ok> CheckPhoneNumberCodeAsync(
             this Client client, string code = default)

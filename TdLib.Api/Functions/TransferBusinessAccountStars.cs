@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Transfer Telegram Stars from the business account to the business bot; for bots only
+        /// Transfers Telegram Stars from the business account to the business bot; for bots only
         /// </summary>
         public class TransferBusinessAccountStars : Function<Ok>
         {
@@ -43,7 +43,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Transfer Telegram Stars from the business account to the business bot; for bots only
+        /// Transfers Telegram Stars from the business account to the business bot; for bots only
         /// </summary>
         public static Task<Ok> TransferBusinessAccountStarsAsync(
             this Client client, string businessConnectionId = default, long starCount = default)

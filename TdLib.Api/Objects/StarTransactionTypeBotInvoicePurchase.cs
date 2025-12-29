@@ -12,7 +12,7 @@ namespace TdLib
         public partial class StarTransactionType : Object
         {
             /// <summary>
-            /// The transaction is a purchase of a product from a bot or a business account by the current user; for regular users only
+            /// The transaction is a purchase of a product from a bot or a business account by the current user; relevant for regular users only
             /// </summary>
             public class StarTransactionTypeBotInvoicePurchase : StarTransactionType
             {

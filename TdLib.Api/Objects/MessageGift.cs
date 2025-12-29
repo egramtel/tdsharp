@@ -64,6 +64,13 @@ namespace TdLib
                 public FormattedText Text { get; set; }
 
                 /// <summary>
+                /// Unique number of the gift among gifts upgraded from the same gift after upgrade; 0 if yet unassigned
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("unique_gift_number")]
+                public int UniqueGiftNumber { get; set; }
+
+                /// <summary>
                 /// Number of Telegram Stars that can be claimed by the receiver instead of the regular gift; 0 if the gift can't be sold by the receiver
                 /// </summary>
                 [JsonConverter(typeof(Converter))]

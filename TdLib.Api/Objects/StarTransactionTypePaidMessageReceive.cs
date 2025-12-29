@@ -12,7 +12,7 @@ namespace TdLib
         public partial class StarTransactionType : Object
         {
             /// <summary>
-            /// The transaction is a receiving of a paid message; for regular users, supergroup and channel chats only
+            /// The transaction is a receiving of a paid message; relevant for regular users, supergroup and channel chats only
             /// </summary>
             public class StarTransactionTypePaidMessageReceive : StarTransactionType
             {

@@ -36,7 +36,7 @@ namespace TdLib
                 public long InvoiceChatId { get; set; }
 
                 /// <summary>
-                /// Identifier of the message with the corresponding invoice; can be 0 or an identifier of a deleted message
+                /// Identifier of the message with the corresponding invoice; may be 0 or an identifier of a deleted message
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("invoice_message_id")]

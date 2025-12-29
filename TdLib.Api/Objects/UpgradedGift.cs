@@ -181,6 +181,13 @@ namespace TdLib
             public GiftResaleParameters ResaleParameters { get; set; }
 
             /// <summary>
+            /// True, if an offer to purchase the gift can be sent using sendGiftPurchaseOffer
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("can_send_purchase_offer")]
+            public bool CanSendPurchaseOffer { get; set; }
+
+            /// <summary>
             /// ISO 4217 currency code of the currency in which value of the gift is represented; may be empty if unavailable
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -193,6 +200,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("value_amount")]
             public long ValueAmount { get; set; }
+
+            /// <summary>
+            /// Estimated value of the gift in USD; in USD cents; 0 if unavailable
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("value_usd_amount")]
+            public long ValueUsdAmount { get; set; }
         }
     }
 }

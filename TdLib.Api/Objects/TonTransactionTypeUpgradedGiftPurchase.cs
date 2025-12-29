@@ -12,7 +12,7 @@ namespace TdLib
         public partial class TonTransactionType : Object
         {
             /// <summary>
-            /// The transaction is a purchase of an upgraded gift for some user or channel; for regular users only
+            /// The transaction is a purchase of an upgraded gift for some user or channel
             /// </summary>
             public class TonTransactionTypeUpgradedGiftPurchase : TonTransactionType
             {

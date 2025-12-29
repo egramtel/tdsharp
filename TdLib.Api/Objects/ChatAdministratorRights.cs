@@ -69,7 +69,7 @@ namespace TdLib
             public bool CanInviteUsers { get; set; }
 
             /// <summary>
-            /// True, if the administrator can restrict, ban, or unban chat members or view supergroup statistics; always true for channels
+            /// True, if the administrator can restrict, ban, or unban chat members or view supergroup statistics
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("can_restrict_members")]

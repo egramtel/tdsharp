@@ -48,7 +48,7 @@ namespace TdLib
             public bool IsFromGiveaway { get; set; }
 
             /// <summary>
-            /// Identifier of the corresponding giveaway message in the creator_id chat; can be 0 or an identifier of a deleted message
+            /// Identifier of the corresponding giveaway message in the creator_id chat; may be 0 or an identifier of a deleted message
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("giveaway_message_id")]

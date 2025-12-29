@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Traverse all chats in a chat list and marks all messages in the chats as read
+        /// Traverses all chats in a chat list and marks all messages in the chats as read
         /// </summary>
         public class ReadChatList : Function<Ok>
         {
@@ -36,7 +36,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Traverse all chats in a chat list and marks all messages in the chats as read
+        /// Traverses all chats in a chat list and marks all messages in the chats as read
         /// </summary>
         public static Task<Ok> ReadChatListAsync(
             this Client client, ChatList chatList = default)

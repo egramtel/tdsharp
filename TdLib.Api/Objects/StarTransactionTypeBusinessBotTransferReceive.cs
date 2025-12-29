@@ -12,7 +12,7 @@ namespace TdLib
         public partial class StarTransactionType : Object
         {
             /// <summary>
-            /// The transaction is a transfer of Telegram Stars from a business account; for bots only
+            /// The transaction is a transfer of Telegram Stars from a business account; relevant for bots only
             /// </summary>
             public class StarTransactionTypeBusinessBotTransferReceive : StarTransactionType
             {

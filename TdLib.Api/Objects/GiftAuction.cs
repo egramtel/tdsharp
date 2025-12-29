@@ -39,6 +39,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("gifts_per_round")]
             public int GiftsPerRound { get; set; }
+
+            /// <summary>
+            /// Point in time (Unix timestamp) when the auction will start
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("start_date")]
+            public int StartDate { get; set; }
         }
     }
 }

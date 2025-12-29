@@ -50,11 +50,32 @@ namespace TdLib
                 public long AveragePrice { get; set; }
 
                 /// <summary>
-                /// The number of items that were purchased by the current user on the auciton
+                /// The number of items that were purchased by the current user on the auction
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("acquired_item_count")]
                 public int AcquiredItemCount { get; set; }
+
+                /// <summary>
+                /// Number of items from the auction being resold on Telegram
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("telegram_listed_item_count")]
+                public int TelegramListedItemCount { get; set; }
+
+                /// <summary>
+                /// Number of items from the auction being resold on Fragment
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("fragment_listed_item_count")]
+                public int FragmentListedItemCount { get; set; }
+
+                /// <summary>
+                /// The HTTPS link to the Fragment for the resold items; may be empty if there are no such items being sold on Fragment
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("fragment_url")]
+                public string FragmentUrl { get; set; }
             }
         }
     }

@@ -12,7 +12,7 @@ namespace TdLib
         public partial class StarTransactionType : Object
         {
             /// <summary>
-            /// The transaction is a drop of original details of an upgraded gift; for regular users only
+            /// The transaction is a drop of original details of an upgraded gift; relevant for regular users only
             /// </summary>
             public class StarTransactionTypeGiftOriginalDetailsDrop : StarTransactionType
             {

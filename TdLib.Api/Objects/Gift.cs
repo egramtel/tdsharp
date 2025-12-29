@@ -69,6 +69,13 @@ namespace TdLib
             public long UpgradeStarCount { get; set; }
 
             /// <summary>
+            /// Number of unique gift variants that are available for the upgraded gift; 0 if unknown
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("upgrade_variant_count")]
+            public int UpgradeVariantCount { get; set; }
+
+            /// <summary>
             /// True, if the gift can be used to customize the user's name, and backgrounds of profile photo, reply header, and link preview
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -97,7 +104,8 @@ namespace TdLib
             public GiftAuction AuctionInfo { get; set; }
 
             /// <summary>
-            /// Point in time (Unix timestamp) when the gift can be sent next time by the current user; can be 0 or a date in the past.
+            /// Point in time (Unix timestamp) when the gift can be sent next time by the current user; may be 0 or a date in the past.
+            /// If the date is in the future, then call canSendGift to get the reason, why the gift can't be sent now
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("next_send_date")]
@@ -116,6 +124,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("overall_limits")]
             public GiftPurchaseLimits OverallLimits { get; set; }
+
+            /// <summary>
+            /// Background of the gift
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("background")]
+            public GiftBackground Background { get; set; }
 
             /// <summary>
             /// Point in time (Unix timestamp) when the gift was send for the first time; for sold out gifts only

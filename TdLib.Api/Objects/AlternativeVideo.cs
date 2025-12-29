@@ -48,7 +48,7 @@ namespace TdLib
             public int Height { get; set; }
 
             /// <summary>
-            /// Codec used for video file encoding, for example, "h264", "h265", or "av1"
+            /// Codec used for video file encoding, for example, "h264", "h265", "av1", or "av01"
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("codec")]

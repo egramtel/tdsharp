@@ -12,7 +12,7 @@ namespace TdLib
         public partial class StarTransactionType : Object
         {
             /// <summary>
-            /// The transaction is a sale of paid media by the channel chat; for channel chats only
+            /// The transaction is a sale of paid media by the channel chat; relevant for channel chats only
             /// </summary>
             public class StarTransactionTypeChannelPaidMediaSale : StarTransactionType
             {
@@ -36,7 +36,7 @@ namespace TdLib
                 public long UserId { get; set; }
 
                 /// <summary>
-                /// Identifier of the corresponding message with paid media; can be 0 or an identifier of a deleted message
+                /// Identifier of the corresponding message with paid media; may be 0 or an identifier of a deleted message
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("message_id")]
