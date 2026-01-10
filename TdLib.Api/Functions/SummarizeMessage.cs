@@ -11,15 +11,15 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Extracts text or caption of the given message and translates it to the given language. If the current user is a Telegram Premium user, then text formatting is preserved
+        /// Summarizes content of the message with non-empty summary_language_code
         /// </summary>
-        public class TranslateMessageText : Function<FormattedText>
+        public class SummarizeMessage : Function<FormattedText>
         {
             /// <summary>
             /// Data type for serialization
             /// </summary>
             [JsonProperty("@type")]
-            public override string DataType { get; set; } = "translateMessageText";
+            public override string DataType { get; set; } = "summarizeMessage";
 
             /// <summary>
             /// Extra data attached to the function
@@ -42,22 +42,22 @@ namespace TdLib
             public long MessageId { get; set; }
 
             /// <summary>
-            /// Language code of the language to which the message is translated. See translateText.to_language_code for the list of supported values
+            /// Pass a language code to which the summary will be translated; may be empty if translation isn't needed. See translateText.to_language_code for the list of supported values
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("to_language_code")]
-            public string ToLanguageCode { get; set; }
+            [JsonProperty("translate_to_language_code")]
+            public string TranslateToLanguageCode { get; set; }
         }
 
         /// <summary>
-        /// Extracts text or caption of the given message and translates it to the given language. If the current user is a Telegram Premium user, then text formatting is preserved
+        /// Summarizes content of the message with non-empty summary_language_code
         /// </summary>
-        public static Task<FormattedText> TranslateMessageTextAsync(
-            this Client client, long chatId = default, long messageId = default, string toLanguageCode = default)
+        public static Task<FormattedText> SummarizeMessageAsync(
+            this Client client, long chatId = default, long messageId = default, string translateToLanguageCode = default)
         {
-            return client.ExecuteAsync(new TranslateMessageText
+            return client.ExecuteAsync(new SummarizeMessage
             {
-                ChatId = chatId, MessageId = messageId, ToLanguageCode = toLanguageCode
+                ChatId = chatId, MessageId = messageId, TranslateToLanguageCode = translateToLanguageCode
             });
         }
     }

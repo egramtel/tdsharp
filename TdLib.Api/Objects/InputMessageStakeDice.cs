@@ -12,15 +12,15 @@ namespace TdLib
         public partial class InputMessageContent : Object
         {
             /// <summary>
-            /// The content of a message to send
+            /// A stake dice message
             /// </summary>
-            public class InputMessageText : InputMessageContent
+            public class InputMessageStakeDice : InputMessageContent
             {
                 /// <summary>
                 /// Data type for serialization
                 /// </summary>
                 [JsonProperty("@type")]
-                public override string DataType { get; set; } = "inputMessageText";
+                public override string DataType { get; set; } = "inputMessageStakeDice";
 
                 /// <summary>
                 /// Extra data attached to the message
@@ -29,18 +29,19 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Formatted text to be sent; 0-getOption("message_text_length_max") characters. Only Bold, Italic, Underline, Strikethrough, Spoiler, CustomEmoji, BlockQuote, ExpandableBlockQuote,
+                /// Hash of the stake dice state. The state hash can be used only if it was received recently enough. Otherwise, a new state must be requested using getStakeDiceState
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("text")]
-                public FormattedText Text { get; set; }
+                [JsonProperty("state_hash")]
+                public string StateHash { get; set; }
 
                 /// <summary>
-                /// Options to be used for generation of a link preview; may be null if none; pass null to use default link preview options
+                /// The amount of Toncoins that will be staked; in the smallest units of the currency. Must be in the range
+                /// getOption("stake_dice_stake_amount_min")-getOption("stake_dice_stake_amount_max")
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("link_preview_options")]
-                public LinkPreviewOptions LinkPreviewOptions { get; set; }
+                [JsonProperty("stake_toncoin_amount")]
+                public long StakeToncoinAmount { get; set; }
 
                 /// <summary>
                 /// True, if the chat message draft must be deleted

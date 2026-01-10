@@ -12,15 +12,15 @@ namespace TdLib
         public partial class MessageContent : Object
         {
             /// <summary>
-            /// An offer to purchase a gift was declined or expired
+            /// An offer to purchase a gift was rejected or expired
             /// </summary>
-            public class MessageUpgradedGiftPurchaseOfferDeclined : MessageContent
+            public class MessageUpgradedGiftPurchaseOfferRejected : MessageContent
             {
                 /// <summary>
                 /// Data type for serialization
                 /// </summary>
                 [JsonProperty("@type")]
-                public override string DataType { get; set; } = "messageUpgradedGiftPurchaseOfferDeclined";
+                public override string DataType { get; set; } = "messageUpgradedGiftPurchaseOfferRejected";
 
                 /// <summary>
                 /// Extra data attached to the message
@@ -43,14 +43,14 @@ namespace TdLib
                 public GiftResalePrice Price { get; set; }
 
                 /// <summary>
-                /// Identifier of the message with purchase offer which was declined or expired; may be 0 or an identifier of a deleted message
+                /// Identifier of the message with purchase offer which was rejected or expired; may be 0 or an identifier of a deleted message
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("offer_message_id")]
                 public long OfferMessageId { get; set; }
 
                 /// <summary>
-                /// True, if the offer has expired; otherwise, the offer was explicitly declined
+                /// True, if the offer has expired; otherwise, the offer was explicitly rejected
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("was_expired")]

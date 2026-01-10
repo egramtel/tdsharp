@@ -16,7 +16,7 @@ namespace TdLib
         /// the giveaway message for messageGiveawayCompleted, the checklist message for messageChecklistTasksDone, messageChecklistTasksAdded, the message with suggested post information
         /// for messageSuggestedPostApprovalFailed, messageSuggestedPostApproved, messageSuggestedPostDeclined, messageSuggestedPostPaid, messageSuggestedPostRefunded,
         /// the message with the regular gift that was upgraded for messageUpgradedGift with origin of the type upgradedGiftOriginUpgrade,
-        /// the message with gift purchase offer for messageUpgradedGiftPurchaseOfferDeclined,
+        /// the message with gift purchase offer for messageUpgradedGiftPurchaseOfferRejected,
         /// and the topic creation message for topic messages without non-bundled replied message. Returns a 404 error if the message doesn't exist
         /// </summary>
         public class GetRepliedMessage : Function<Message>
@@ -54,7 +54,7 @@ namespace TdLib
         /// the giveaway message for messageGiveawayCompleted, the checklist message for messageChecklistTasksDone, messageChecklistTasksAdded, the message with suggested post information
         /// for messageSuggestedPostApprovalFailed, messageSuggestedPostApproved, messageSuggestedPostDeclined, messageSuggestedPostPaid, messageSuggestedPostRefunded,
         /// the message with the regular gift that was upgraded for messageUpgradedGift with origin of the type upgradedGiftOriginUpgrade,
-        /// the message with gift purchase offer for messageUpgradedGiftPurchaseOfferDeclined,
+        /// the message with gift purchase offer for messageUpgradedGiftPurchaseOfferRejected,
         /// and the topic creation message for topic messages without non-bundled replied message. Returns a 404 error if the message doesn't exist
         /// </summary>
         public static Task<Message> GetRepliedMessageAsync(

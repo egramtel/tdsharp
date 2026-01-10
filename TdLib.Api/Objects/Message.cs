@@ -271,6 +271,13 @@ namespace TdLib
             public RestrictionInfo RestrictionInfo { get; set; }
 
             /// <summary>
+            /// IETF language tag of the message language on which it can be summarized; empty if summary isn't available for the message
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("summary_language_code")]
+            public string SummaryLanguageCode { get; set; }
+
+            /// <summary>
             /// Content of the message
             /// </summary>
             [JsonConverter(typeof(Converter))]

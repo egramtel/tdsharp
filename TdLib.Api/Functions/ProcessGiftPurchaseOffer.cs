@@ -35,22 +35,22 @@ namespace TdLib
             public long MessageId { get; set; }
 
             /// <summary>
-            /// Pass true to approve the request; pass false to decline it
+            /// Pass true to accept the request; pass false to reject it
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("approve")]
-            public bool Approve { get; set; }
+            [JsonProperty("accept")]
+            public bool Accept { get; set; }
         }
 
         /// <summary>
         /// Handles a pending gift purchase offer
         /// </summary>
         public static Task<Ok> ProcessGiftPurchaseOfferAsync(
-            this Client client, long messageId = default, bool approve = default)
+            this Client client, long messageId = default, bool accept = default)
         {
             return client.ExecuteAsync(new ProcessGiftPurchaseOffer
             {
-                MessageId = messageId, Approve = approve
+                MessageId = messageId, Accept = accept
             });
         }
     }

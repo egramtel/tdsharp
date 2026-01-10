@@ -9,18 +9,18 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        public partial class GiftResalePrice : Object
+        public partial class Update : Object
         {
             /// <summary>
-            /// Describes price of a resold gift
+            /// The stake dice state has changed
             /// </summary>
-            public class GiftResalePriceStar : GiftResalePrice
+            public class UpdateStakeDiceState : Update
             {
                 /// <summary>
                 /// Data type for serialization
                 /// </summary>
                 [JsonProperty("@type")]
-                public override string DataType { get; set; } = "giftResalePriceStar";
+                public override string DataType { get; set; } = "updateStakeDiceState";
 
                 /// <summary>
                 /// Extra data attached to the message
@@ -29,11 +29,11 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// The amount of Telegram Stars expected to be paid for the gift. Must be in the range
+                /// The new state. The state can be used only if it was received recently enough. Otherwise, a new state must be requested using getStakeDiceState
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("star_count")]
-                public long StarCount { get; set; }
+                [JsonProperty("state")]
+                public StakeDiceState State { get; set; }
             }
         }
     }

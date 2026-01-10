@@ -240,7 +240,7 @@ getMessageLocally chat_id:int53 message_id:int53 = Message;
 //-the giveaway message for messageGiveawayCompleted, the checklist message for messageChecklistTasksDone, messageChecklistTasksAdded, the message with suggested post information
 //-for messageSuggestedPostApprovalFailed, messageSuggestedPostApproved, messageSuggestedPostDeclined, messageSuggestedPostPaid, messageSuggestedPostRefunded,
 //-the message with the regular gift that was upgraded for messageUpgradedGift with origin of the type upgradedGiftOriginUpgrade,
-//-the message with gift purchase offer for messageUpgradedGiftPurchaseOfferDeclined,
+//-the message with gift purchase offer for messageUpgradedGiftPurchaseOfferRejected,
 //-and the topic creation message for topic messages without non-bundled replied message. Returns a 404 error if the message doesn't exist
 //@chat_id Identifier of the chat the message belongs to
 //@message_id Identifier of the reply message
@@ -753,12 +753,14 @@ translateText text:formattedText to_language_code:string = FormattedText;
 //@description Extracts text or caption of the given message and translates it to the given language. If the current user is a Telegram Premium user, then text formatting is preserved
 //@chat_id Identifier of the chat to which the message belongs
 //@message_id Identifier of the message
-//@to_language_code Language code of the language to which the message is translated. Must be one of
-//-"af", "sq", "am", "ar", "hy", "az", "eu", "be", "bn", "bs", "bg", "ca", "ceb", "zh-CN", "zh", "zh-Hans", "zh-TW", "zh-Hant", "co", "hr", "cs", "da", "nl", "en", "eo", "et",
-//-"fi", "fr", "fy", "gl", "ka", "de", "el", "gu", "ht", "ha", "haw", "he", "iw", "hi", "hmn", "hu", "is", "ig", "id", "in", "ga", "it", "ja", "jv", "kn", "kk", "km", "rw", "ko",
-//-"ku", "ky", "lo", "la", "lv", "lt", "lb", "mk", "mg", "ms", "ml", "mt", "mi", "mr", "mn", "my", "ne", "no", "ny", "or", "ps", "fa", "pl", "pt", "pa", "ro", "ru", "sm", "gd", "sr",
-//-"st", "sn", "sd", "si", "sk", "sl", "so", "es", "su", "sw", "sv", "tl", "tg", "ta", "tt", "te", "th", "tr", "tk", "uk", "ur", "ug", "uz", "vi", "cy", "xh", "yi", "ji", "yo", "zu"
+//@to_language_code Language code of the language to which the message is translated. See translateText.to_language_code for the list of supported values
 translateMessageText chat_id:int53 message_id:int53 to_language_code:string = FormattedText;
+
+//@description Summarizes content of the message with non-empty summary_language_code
+//@chat_id Identifier of the chat to which the message belongs
+//@message_id Identifier of the message
+//@translate_to_language_code Pass a language code to which the summary will be translated; may be empty if translation isn't needed. See translateText.to_language_code for the list of supported values
+summarizeMessage chat_id:int53 message_id:int53 translate_to_language_code:string = FormattedText;
 
 //@description Recognizes speech in a video note or a voice note message
 //@chat_id Identifier of the chat to which the message belongs
@@ -2005,6 +2007,10 @@ getChatAdministrators chat_id:int53 = ChatAdministrators;
 
 //@description Clears message drafts in all chats @exclude_secret_chats Pass true to keep local message drafts in secret chats
 clearAllDraftMessages exclude_secret_chats:Bool = Ok;
+
+
+//@description Returns the current state of stake dice
+getStakeDiceState = StakeDiceState;
 
 
 //@description Returns saved notification sound by its identifier. Returns a 404 error if there is no saved notification sound with the specified identifier @notification_sound_id Identifier of the notification sound
@@ -3736,8 +3742,8 @@ sendGiftPurchaseOffer owner_id:MessageSender gift_name:string price:GiftResalePr
 
 //@description Handles a pending gift purchase offer
 //@message_id Identifier of the message with the gift purchase offer
-//@approve Pass true to approve the request; pass false to decline it
-processGiftPurchaseOffer message_id:int53 approve:Bool = Ok;
+//@accept Pass true to accept the request; pass false to reject it
+processGiftPurchaseOffer message_id:int53 accept:Bool = Ok;
 
 //@description Returns gifts received by the given user or chat
 //@business_connection_id Unique identifier of business connection on behalf of which to send the request; for bots only

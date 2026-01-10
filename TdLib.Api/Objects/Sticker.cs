@@ -55,7 +55,7 @@ namespace TdLib
             public int Height { get; set; }
 
             /// <summary>
-            /// Emoji corresponding to the sticker
+            /// Emoji corresponding to the sticker; may be empty if unknown
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("emoji")]

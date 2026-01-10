@@ -29,7 +29,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// The amount of 1/100 of Toncoin expected to be paid for the gift. Must be in range
+                /// The amount of 1/100 of Toncoin expected to be paid for the gift. Must be in the range
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("toncoin_cent_count")]
