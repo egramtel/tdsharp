@@ -18,22 +18,26 @@ namespace TdLib
     public class TdClient : TdApi.Client, IDisposable
     {
         private TdJsonClient _tdJsonClient;
-        
+
         private int _taskId;
         private readonly ConcurrentDictionary<int, Action<TdApi.Object>> _tasks;
-        
+
         private Receiver _receiver;
         private TdApi.AuthorizationState _authorizationState;
 
         public TdClient() : this(Interop.AutoDetectBindings()) {}
 
-        public TdClient(ITdLibBindings bindings)
+        public TdClient(ITdLibBindings bindings): this( bindings, 0.1 )
+        {
+
+        }
+        public TdClient(ITdLibBindings bindings, double receiverTimeOut)
         {
             _tdJsonClient = new TdJsonClient(bindings);
-            
+
             _tasks = new ConcurrentDictionary<int, Action<TdApi.Object>>();
-            
-            _receiver = new Receiver(_tdJsonClient);
+
+            _receiver = new Receiver(_tdJsonClient,receiverTimeOut);
             _receiver.Received += OnReceived;
             _receiver.AuthorizationStateChanged += OnAuthorizationStateChanged;
             _receiver.Start();
@@ -44,8 +48,8 @@ namespace TdLib
         /// <summary>
         /// How much time should wait for closed state
         /// </summary>
-        public TimeSpan TimeoutToClose { get; set; } = TimeSpan.FromMinutes(1.0); 
-        
+        public TimeSpan TimeoutToClose { get; set; } = TimeSpan.FromMinutes(1.0);
+
         /// <summary>
         /// Provides updates from TDLib
         /// </summary>
@@ -56,7 +60,7 @@ namespace TdLib
                 lock (_updateLock)
                 {
                     _updateReceived += value;
-                    
+
                     while (_updateBuffer.TryDequeue(out var update))
                     {
                         _updateReceived(this, update);
@@ -105,7 +109,7 @@ namespace TdLib
         private readonly ConcurrentQueue<TdApi.Update> _updateBuffer = new ConcurrentQueue<TdApi.Update>();
         private EventHandler<TdApi.Update> _updateReceived;
         private int _updateReceiverCount;
-        
+
         /// <summary>
         /// Executes function and ignores response
         /// </summary>
@@ -115,7 +119,7 @@ namespace TdLib
             {
                 throw new ObjectDisposedException("TDLib client was disposed");
             }
-            
+
             var data = JsonConvert.SerializeObject(function);
             _tdJsonClient.Send(data);
         }
@@ -129,19 +133,19 @@ namespace TdLib
             {
                 throw new ObjectDisposedException("TDLib client was disposed");
             }
-            
+
             var data = JsonConvert.SerializeObject(function);
             data = _tdJsonClient.Execute(data);
             var structure = JsonConvert.DeserializeObject<TdApi.Object>(data, new Converter());
-            
+
             if (structure is TdApi.Error error)
             {
                 throw new TdException(error);
             }
-            
+
             return (TResult)structure;
         }
-        
+
         /// <summary>
         /// Asynchronously executes function and returns response
         /// </summary>
@@ -151,7 +155,7 @@ namespace TdLib
             {
                 throw new ObjectDisposedException("TDLib client was disposed");
             }
-            
+
             var id = Interlocked.Increment(ref _taskId);
             var tcs = new TaskCompletionSource<TResult>(TaskCreationOptions.RunContinuationsAsynchronously);
 
@@ -167,9 +171,9 @@ namespace TdLib
                     tcs.SetResult(result);
                 }
             });
-            
+
             Send(function);
-            
+
             return tcs.Task;
         }
 
@@ -185,14 +189,14 @@ namespace TdLib
                 {
                     return;
                 }
-            
+
                 CloseSynchronously();
-            
+
                 _receiver.Dispose();
                 _receiver.Received -= OnReceived;
                 _receiver.AuthorizationStateChanged -= OnAuthorizationStateChanged;
                 _receiver = null;
-            
+
                 _tdJsonClient.Dispose();
                 _tdJsonClient = null;
             }
@@ -209,16 +213,16 @@ namespace TdLib
                     tcs.SetResult(state);
                 }
             };
-            
+
             try
             {
                 _receiver.AuthorizationStateChanged += handler;
-                
+
                 if (_authorizationState is TdApi.AuthorizationState.AuthorizationStateClosed)
                 {
                     return;
                 }
-                
+
                 await ExecuteAsync(new TdApi.Close()).ConfigureAwait(false);
                 await Task.WhenAny(tcs.Task, Task.Delay(TimeoutToClose)).ConfigureAwait(false);
             }
@@ -227,7 +231,7 @@ namespace TdLib
                 _receiver.AuthorizationStateChanged -= handler;
             }
         }
-        
+
         private void CloseSynchronously()
         {
             CloseAsync().GetAwaiter().GetResult();
