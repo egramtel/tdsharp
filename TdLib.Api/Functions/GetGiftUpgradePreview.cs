@@ -28,22 +28,22 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Identifier of the gift
+            /// Identifier of the regular gift
             /// </summary>
             [JsonConverter(typeof(Converter.Int64))]
-            [JsonProperty("gift_id")]
-            public long GiftId { get; set; }
+            [JsonProperty("regular_gift_id")]
+            public long RegularGiftId { get; set; }
         }
 
         /// <summary>
         /// Returns examples of possible upgraded gifts for a regular gift
         /// </summary>
         public static Task<GiftUpgradePreview> GetGiftUpgradePreviewAsync(
-            this Client client, long giftId = default)
+            this Client client, long regularGiftId = default)
         {
             return client.ExecuteAsync(new GetGiftUpgradePreview
             {
-                GiftId = giftId
+                RegularGiftId = regularGiftId
             });
         }
     }

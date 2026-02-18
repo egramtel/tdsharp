@@ -13,7 +13,7 @@ namespace TdLib
         /// <summary>
         /// Adds a proxy server for network requests. Can be called before authorization
         /// </summary>
-        public class AddProxy : Function<Proxy>
+        public class AddProxy : Function<AddedProxy>
         {
             /// <summary>
             /// Data type for serialization
@@ -28,18 +28,11 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Proxy server domain or IP address
+            /// The proxy to add
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("server")]
-            public string Server { get; set; }
-
-            /// <summary>
-            /// Proxy server port
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("port")]
-            public int Port { get; set; }
+            [JsonProperty("proxy")]
+            public Proxy Proxy { get; set; }
 
             /// <summary>
             /// Pass true to immediately enable the proxy
@@ -47,24 +40,17 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("enable")]
             public bool Enable { get; set; }
-
-            /// <summary>
-            /// Proxy type
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("type")]
-            public ProxyType Type { get; set; }
         }
 
         /// <summary>
         /// Adds a proxy server for network requests. Can be called before authorization
         /// </summary>
-        public static Task<Proxy> AddProxyAsync(
-            this Client client, string server = default, int port = default, bool enable = default, ProxyType type = default)
+        public static Task<AddedProxy> AddProxyAsync(
+            this Client client, Proxy proxy = default, bool enable = default)
         {
             return client.ExecuteAsync(new AddProxy
             {
-                Server = server, Port = port, Enable = enable, Type = type
+                Proxy = proxy, Enable = enable
             });
         }
     }

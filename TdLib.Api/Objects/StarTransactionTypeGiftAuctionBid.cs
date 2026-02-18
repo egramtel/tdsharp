@@ -29,7 +29,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Identifier of the user that will receive the gift
+                /// Identifier of the user who will receive the gift
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("owner_id")]

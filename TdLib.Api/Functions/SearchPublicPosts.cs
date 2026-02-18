@@ -49,7 +49,7 @@ namespace TdLib
             public int Limit { get; set; }
 
             /// <summary>
-            /// The amount of Telegram Stars the user agreed to pay for the search; pass 0 for free searches
+            /// The Telegram Star amount the user agreed to pay for the search; pass 0 for free searches
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("star_count")]

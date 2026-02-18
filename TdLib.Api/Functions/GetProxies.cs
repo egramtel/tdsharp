@@ -13,7 +13,7 @@ namespace TdLib
         /// <summary>
         /// Returns the list of proxies that are currently set up. Can be called before authorization
         /// </summary>
-        public class GetProxies : Function<Proxies>
+        public class GetProxies : Function<AddedProxies>
         {
             /// <summary>
             /// Data type for serialization
@@ -33,7 +33,7 @@ namespace TdLib
         /// <summary>
         /// Returns the list of proxies that are currently set up. Can be called before authorization
         /// </summary>
-        public static Task<Proxies> GetProxiesAsync(
+        public static Task<AddedProxies> GetProxiesAsync(
             this Client client)
         {
             return client.ExecuteAsync(new GetProxies

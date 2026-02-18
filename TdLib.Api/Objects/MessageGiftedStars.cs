@@ -29,14 +29,14 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// The identifier of a user that gifted Telegram Stars; 0 if the gift was anonymous or is outgoing
+                /// The identifier of a user who gifted Telegram Stars; 0 if the gift was anonymous or is outgoing
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("gifter_user_id")]
                 public long GifterUserId { get; set; }
 
                 /// <summary>
-                /// The identifier of a user that received Telegram Stars; 0 if the gift is incoming
+                /// The identifier of a user who received Telegram Stars; 0 if the gift is incoming
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("receiver_user_id")]

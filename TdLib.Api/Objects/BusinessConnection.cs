@@ -34,7 +34,7 @@ namespace TdLib
             public string Id { get; set; }
 
             /// <summary>
-            /// Identifier of the business user that created the connection
+            /// Identifier of the business user who created the connection
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("user_id")]

@@ -50,7 +50,7 @@ namespace TdLib
                 public int CommissionPerMille { get; set; }
 
                 /// <summary>
-                /// The amount of Telegram Stars that were received by Telegram; can be negative for refunds
+                /// The Telegram Star amount that was received by Telegram; can be negative for refunds
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("commission_star_amount")]

@@ -35,7 +35,7 @@ namespace TdLib
             public long ChatId { get; set; }
 
             /// <summary>
-            /// Identifier of the user that sent the request
+            /// Identifier of the user who sent the request
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("user_id")]

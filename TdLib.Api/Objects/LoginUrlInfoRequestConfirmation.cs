@@ -55,6 +55,41 @@ namespace TdLib
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("request_write_access")]
                 public bool RequestWriteAccess { get; set; }
+
+                /// <summary>
+                /// True, if the user must be asked for the permission to share their phone number
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("request_phone_number_access")]
+                public bool RequestPhoneNumberAccess { get; set; }
+
+                /// <summary>
+                /// The version of a browser used for the authorization; may be empty if irrelevant
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("browser")]
+                public string Browser { get; set; }
+
+                /// <summary>
+                /// Operating system the browser is running on; may be empty if irrelevant
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("platform")]
+                public string Platform { get; set; }
+
+                /// <summary>
+                /// IP address from which the authorization is performed, in human-readable format; may be empty if irrelevant
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("ip_address")]
+                public string IpAddress { get; set; }
+
+                /// <summary>
+                /// Human-readable description of a country and a region from which the authorization is performed, based on the IP address; may be empty if irrelevant
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("location")]
+                public string Location { get; set; }
             }
         }
     }

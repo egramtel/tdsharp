@@ -11,7 +11,8 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns an HTTP URL which can be used to automatically authorize the current user on a website after clicking an HTTP link. Use the method getExternalLinkInfo to find whether a prior user confirmation is needed
+        /// Returns an HTTP URL which can be used to automatically authorize the current user on a website after clicking an HTTP link.
+        /// Use the method getExternalLinkInfo to find whether a prior user confirmation is needed. May return an empty link if just a toast about successful login has to be shown
         /// </summary>
         public class GetExternalLink : Function<HttpUrl>
         {
@@ -35,22 +36,30 @@ namespace TdLib
             public string Link { get; set; }
 
             /// <summary>
-            /// Pass true if the current user allowed the bot, returned in getExternalLinkInfo, to send them messages
+            /// Pass true if the current user allowed the bot that was returned in getExternalLinkInfo, to send them messages
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("allow_write_access")]
             public bool AllowWriteAccess { get; set; }
+
+            /// <summary>
+            /// Pass true if the current user allowed the bot that was returned in getExternalLinkInfo, to access their phone number
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("allow_phone_number_access")]
+            public bool AllowPhoneNumberAccess { get; set; }
         }
 
         /// <summary>
-        /// Returns an HTTP URL which can be used to automatically authorize the current user on a website after clicking an HTTP link. Use the method getExternalLinkInfo to find whether a prior user confirmation is needed
+        /// Returns an HTTP URL which can be used to automatically authorize the current user on a website after clicking an HTTP link.
+        /// Use the method getExternalLinkInfo to find whether a prior user confirmation is needed. May return an empty link if just a toast about successful login has to be shown
         /// </summary>
         public static Task<HttpUrl> GetExternalLinkAsync(
-            this Client client, string link = default, bool allowWriteAccess = default)
+            this Client client, string link = default, bool allowWriteAccess = default, bool allowPhoneNumberAccess = default)
         {
             return client.ExecuteAsync(new GetExternalLink
             {
-                Link = link, AllowWriteAccess = allowWriteAccess
+                Link = link, AllowWriteAccess = allowWriteAccess, AllowPhoneNumberAccess = allowPhoneNumberAccess
             });
         }
     }

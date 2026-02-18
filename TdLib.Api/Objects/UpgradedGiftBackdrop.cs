@@ -48,11 +48,11 @@ namespace TdLib
             public UpgradedGiftBackdropColors Colors { get; set; }
 
             /// <summary>
-            /// The number of upgraded gifts that receive this backdrop for each 1000 gifts upgraded
+            /// The rarity of the backdrop
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("rarity_per_mille")]
-            public int RarityPerMille { get; set; }
+            [JsonProperty("rarity")]
+            public UpgradedGiftAttributeRarity Rarity { get; set; }
         }
     }
 }

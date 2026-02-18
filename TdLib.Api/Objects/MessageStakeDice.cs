@@ -50,14 +50,14 @@ namespace TdLib
                 public int Value { get; set; }
 
                 /// <summary>
-                /// The amount of Toncoins that were staked; in the smallest units of the currency
+                /// The Toncoin amount that was staked; in the smallest units of the currency
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("stake_toncoin_amount")]
                 public long StakeToncoinAmount { get; set; }
 
                 /// <summary>
-                /// The amount of Toncoins that were gained from the roll; in the smallest units of the currency; -1 if the dice don't have final state yet
+                /// The Toncoin amount that was gained from the roll; in the smallest units of the currency; -1 if the dice don't have final state yet
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("prize_toncoin_amount")]

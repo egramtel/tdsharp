@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Contains information about a user that added paid reactions
+        /// Contains information about a user who added paid reactions
         /// </summary>
         public partial class PaidReactor : Object
         {

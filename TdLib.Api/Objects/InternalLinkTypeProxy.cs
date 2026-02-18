@@ -29,25 +29,11 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Proxy server domain or IP address
+                /// The proxy; may be null if the proxy is unsupported, in which case an alert can be shown to the user
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("server")]
-                public string Server { get; set; }
-
-                /// <summary>
-                /// Proxy server port
-                /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("port")]
-                public int Port { get; set; }
-
-                /// <summary>
-                /// Type of the proxy
-                /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("type")]
-                public ProxyType Type { get; set; }
+                [JsonProperty("proxy")]
+                public Proxy Proxy { get; set; }
             }
         }
     }

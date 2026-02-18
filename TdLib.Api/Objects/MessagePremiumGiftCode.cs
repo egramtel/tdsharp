@@ -29,7 +29,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Identifier of a chat or a user that created the gift code; may be null if unknown
+                /// Identifier of a chat or a user who created the gift code; may be null if unknown
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("creator_id")]

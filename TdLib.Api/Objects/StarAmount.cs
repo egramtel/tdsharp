@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Describes a possibly non-integer amount of Telegram Stars
+        /// Describes a possibly non-integer Telegram Star amount
         /// </summary>
         public partial class StarAmount : Object
         {
@@ -27,7 +27,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// The integer amount of Telegram Stars rounded to 0
+            /// The integer Telegram Star amount rounded to 0
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("star_count")]

@@ -34,6 +34,20 @@ namespace TdLib
             public string Text { get; set; }
 
             /// <summary>
+            /// Identifier of the custom emoji that must be shown on the button; 0 if none
+            /// </summary>
+            [JsonConverter(typeof(Converter.Int64))]
+            [JsonProperty("icon_custom_emoji_id")]
+            public long IconCustomEmojiId { get; set; }
+
+            /// <summary>
+            /// Style of the button
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("style")]
+            public ButtonStyle Style { get; set; }
+
+            /// <summary>
             /// Type of the button
             /// </summary>
             [JsonConverter(typeof(Converter))]

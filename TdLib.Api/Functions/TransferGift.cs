@@ -49,7 +49,7 @@ namespace TdLib
             public MessageSender NewOwnerId { get; set; }
 
             /// <summary>
-            /// The amount of Telegram Stars required to pay for the transfer
+            /// The Telegram Star amount required to pay for the transfer
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("star_count")]

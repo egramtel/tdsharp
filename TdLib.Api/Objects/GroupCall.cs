@@ -34,6 +34,13 @@ namespace TdLib
             public int Id { get; set; }
 
             /// <summary>
+            /// Persistent unique group call identifier
+            /// </summary>
+            [JsonConverter(typeof(Converter.Int64))]
+            [JsonProperty("unique_id")]
+            public long UniqueId { get; set; }
+
+            /// <summary>
             /// Group call title; for video chats only
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -42,6 +49,7 @@ namespace TdLib
 
             /// <summary>
             /// Invite link for the group call; for group calls that aren't bound to a chat. For video chats call getVideoChatInviteLink to get the link.
+            /// For live stories in chats with username call getInternalLink with internalLinkTypeLiveStory
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("invite_link")]

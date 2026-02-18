@@ -34,7 +34,7 @@ namespace TdLib
             public string StateHash { get; set; }
 
             /// <summary>
-            /// The amount of Toncoins that was staked in the previous roll; in the smallest units of the currency
+            /// The Toncoin amount that was staked in the previous roll; in the smallest units of the currency
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("stake_toncoin_amount")]

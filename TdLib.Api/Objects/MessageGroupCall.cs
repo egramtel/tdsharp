@@ -31,6 +31,13 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
+                /// Persistent unique group call identifier
+                /// </summary>
+                [JsonConverter(typeof(Converter.Int64))]
+                [JsonProperty("unique_id")]
+                public long UniqueId { get; set; }
+
+                /// <summary>
                 /// True, if the call is active, i.e. the called user joined the call
                 /// </summary>
                 [JsonConverter(typeof(Converter))]

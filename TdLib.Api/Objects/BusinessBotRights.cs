@@ -83,7 +83,7 @@ namespace TdLib
             public bool CanEditUsername { get; set; }
 
             /// <summary>
-            /// True, if the bot can view gifts and amount of Telegram Stars owned by the business account
+            /// True, if the bot can view gifts and Telegram Star amount owned by the business account
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("can_view_gifts_and_stars")]

@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Contains basic information about another user that started a chat with the current user
+        /// Contains basic information about another user who started a chat with the current user
         /// </summary>
         public partial class AccountInfo : Object
         {

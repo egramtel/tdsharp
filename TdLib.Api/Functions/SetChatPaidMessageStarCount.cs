@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Changes the amount of Telegram Stars that must be paid to send a message to a supergroup chat; requires can_restrict_members administrator right and supergroupFullInfo.can_enable_paid_messages
+        /// Changes the Telegram Star amount that must be paid to send a message to a supergroup chat; requires can_restrict_members administrator right and supergroupFullInfo.can_enable_paid_messages
         /// </summary>
         public class SetChatPaidMessageStarCount : Function<Ok>
         {
@@ -44,7 +44,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Changes the amount of Telegram Stars that must be paid to send a message to a supergroup chat; requires can_restrict_members administrator right and supergroupFullInfo.can_enable_paid_messages
+        /// Changes the Telegram Star amount that must be paid to send a message to a supergroup chat; requires can_restrict_members administrator right and supergroupFullInfo.can_enable_paid_messages
         /// </summary>
         public static Task<Ok> SetChatPaidMessageStarCountAsync(
             this Client client, long chatId = default, long paidMessageStarCount = default)

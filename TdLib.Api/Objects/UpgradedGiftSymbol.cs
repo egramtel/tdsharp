@@ -41,11 +41,11 @@ namespace TdLib
             public Sticker Sticker { get; set; }
 
             /// <summary>
-            /// The number of upgraded gifts that receive this symbol for each 1000 gifts upgraded
+            /// The rarity of the symbol
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("rarity_per_mille")]
-            public int RarityPerMille { get; set; }
+            [JsonProperty("rarity")]
+            public UpgradedGiftAttributeRarity Rarity { get; set; }
         }
     }
 }

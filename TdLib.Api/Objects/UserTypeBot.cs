@@ -64,6 +64,13 @@ namespace TdLib
                 public bool HasTopics { get; set; }
 
                 /// <summary>
+                /// True, if users can create and delete topics in the chat with the bot
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("allows_users_to_create_topics")]
+                public bool AllowsUsersToCreateTopics { get; set; }
+
+                /// <summary>
                 /// True, if the bot supports inline queries
                 /// </summary>
                 [JsonConverter(typeof(Converter))]

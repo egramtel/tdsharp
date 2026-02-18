@@ -83,6 +83,20 @@ namespace TdLib
             public int MaxUpgradedCount { get; set; }
 
             /// <summary>
+            /// True, if the gift was used to craft another gift
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("is_burned")]
+            public bool IsBurned { get; set; }
+
+            /// <summary>
+            /// True, if the gift was craft from another gifts
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("is_crafted")]
+            public bool IsCrafted { get; set; }
+
+            /// <summary>
             /// True, if the original gift could have been bought only by Telegram Premium subscribers
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -167,7 +181,7 @@ namespace TdLib
             public UpgradedGiftOriginalDetails OriginalDetails { get; set; }
 
             /// <summary>
-            /// Colors that can be set for user's name, background of empty chat photo, replies to messages and link previews; may be null if none
+            /// Colors that can be set for user's name, background of empty chat photo, replies to messages and link previews; may be null if none or unknown
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("colors")]
@@ -186,6 +200,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("can_send_purchase_offer")]
             public bool CanSendPurchaseOffer { get; set; }
+
+            /// <summary>
+            /// Probability that the gift adds to the chance of successful crafting of a new gift; 0 if the gift can't be used for crafting
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("craft_probability_per_mille")]
+            public int CraftProbabilityPerMille { get; set; }
 
             /// <summary>
             /// ISO 4217 currency code of the currency in which value of the gift is represented; may be empty if unavailable

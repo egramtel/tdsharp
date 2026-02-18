@@ -34,7 +34,7 @@ namespace TdLib
             public int Date { get; set; }
 
             /// <summary>
-            /// The amount of Telegram Stars required to pay to upgrade the gift
+            /// The Telegram Star amount required to pay to upgrade the gift
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("star_count")]

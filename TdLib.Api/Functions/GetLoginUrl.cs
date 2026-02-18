@@ -50,7 +50,7 @@ namespace TdLib
             public long ButtonId { get; set; }
 
             /// <summary>
-            /// Pass true to allow the bot to send messages to the current user
+            /// Pass true to allow the bot to send messages to the current user. Phone number access can't be requested using the button
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("allow_write_access")]
