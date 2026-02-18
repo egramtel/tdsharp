@@ -42,7 +42,15 @@ namespace TdLib
             public GiftForResaleOrder Order { get; set; }
 
             /// <summary>
+            /// Pass true to get only gifts suitable for crafting
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("for_crafting")]
+            public bool ForCrafting { get; set; }
+
+            /// <summary>
             /// Attributes used to filter received gifts. If multiple attributes of the same type are specified, then all of them are allowed.
+            /// If none attributes of specific type are specified, then all values for this attribute type are allowed
             /// </summary>
             [JsonProperty("attributes", ItemConverterType = typeof(Converter))]
             public UpgradedGiftAttributeId[] Attributes { get; set; }
@@ -66,11 +74,11 @@ namespace TdLib
         /// Returns upgraded gifts that can be bought from other owners using sendResoldGift
         /// </summary>
         public static Task<GiftsForResale> SearchGiftsForResaleAsync(
-            this Client client, long giftId = default, GiftForResaleOrder order = default, UpgradedGiftAttributeId[] attributes = default, string offset = default, int limit = default)
+            this Client client, long giftId = default, GiftForResaleOrder order = default, bool forCrafting = default, UpgradedGiftAttributeId[] attributes = default, string offset = default, int limit = default)
         {
             return client.ExecuteAsync(new SearchGiftsForResale
             {
-                GiftId = giftId, Order = order, Attributes = attributes, Offset = offset, Limit = limit
+                GiftId = giftId, Order = order, ForCrafting = forCrafting, Attributes = attributes, Offset = offset, Limit = limit
             });
         }
     }

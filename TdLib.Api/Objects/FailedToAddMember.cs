@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Contains information about a user that has failed to be added to a chat
+        /// Contains information about a user who has failed to be added to a chat
         /// </summary>
         public partial class FailedToAddMember : Object
         {

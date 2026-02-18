@@ -29,21 +29,21 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// The identifier of a user that gifted Toncoins; 0 if the gift was anonymous or is outgoing
+                /// The identifier of a user who gifted Toncoins; 0 if the gift was anonymous or is outgoing
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("gifter_user_id")]
                 public long GifterUserId { get; set; }
 
                 /// <summary>
-                /// The identifier of a user that received Toncoins; 0 if the gift is incoming
+                /// The identifier of a user who received Toncoins; 0 if the gift is incoming
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("receiver_user_id")]
                 public long ReceiverUserId { get; set; }
 
                 /// <summary>
-                /// The received amount of Toncoins, in the smallest units of the cryptocurrency
+                /// The received Toncoin amount, in the smallest units of the cryptocurrency
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("ton_amount")]

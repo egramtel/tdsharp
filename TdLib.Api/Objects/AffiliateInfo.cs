@@ -41,7 +41,7 @@ namespace TdLib
             public long AffiliateChatId { get; set; }
 
             /// <summary>
-            /// The amount of Telegram Stars that were received by the affiliate; can be negative for refunds
+            /// The Telegram Star amount that was received by the affiliate; can be negative for refunds
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("star_amount")]

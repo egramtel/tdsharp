@@ -55,7 +55,7 @@ namespace TdLib
             public int InitialSaleDate { get; set; }
 
             /// <summary>
-            /// Amount of Telegram Stars that were paid for the gift
+            /// The Telegram Star amount that was paid for the gift
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("initial_sale_star_count")]

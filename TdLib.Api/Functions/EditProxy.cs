@@ -13,7 +13,7 @@ namespace TdLib
         /// <summary>
         /// Edits an existing proxy server for network requests. Can be called before authorization
         /// </summary>
-        public class EditProxy : Function<Proxy>
+        public class EditProxy : Function<AddedProxy>
         {
             /// <summary>
             /// Data type for serialization
@@ -35,18 +35,11 @@ namespace TdLib
             public int ProxyId { get; set; }
 
             /// <summary>
-            /// Proxy server domain or IP address
+            /// The new information about the proxy
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("server")]
-            public string Server { get; set; }
-
-            /// <summary>
-            /// Proxy server port
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("port")]
-            public int Port { get; set; }
+            [JsonProperty("proxy")]
+            public Proxy Proxy { get; set; }
 
             /// <summary>
             /// Pass true to immediately enable the proxy
@@ -54,24 +47,17 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("enable")]
             public bool Enable { get; set; }
-
-            /// <summary>
-            /// Proxy type
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("type")]
-            public ProxyType Type { get; set; }
         }
 
         /// <summary>
         /// Edits an existing proxy server for network requests. Can be called before authorization
         /// </summary>
-        public static Task<Proxy> EditProxyAsync(
-            this Client client, int proxyId = default, string server = default, int port = default, bool enable = default, ProxyType type = default)
+        public static Task<AddedProxy> EditProxyAsync(
+            this Client client, int proxyId = default, Proxy proxy = default, bool enable = default)
         {
             return client.ExecuteAsync(new EditProxy
             {
-                ProxyId = proxyId, Server = server, Port = port, Enable = enable, Type = type
+                ProxyId = proxyId, Proxy = proxy, Enable = enable
             });
         }
     }

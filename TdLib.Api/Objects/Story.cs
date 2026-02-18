@@ -118,7 +118,7 @@ namespace TdLib
             public bool CanBeForwarded { get; set; }
 
             /// <summary>
-            /// True, if the story can be replied in the chat with the user that posted the story
+            /// True, if the story can be replied in the chat with the user who posted the story
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("can_be_replied")]

@@ -42,7 +42,7 @@ namespace TdLib
             public string PrepaidUpgradeHash { get; set; }
 
             /// <summary>
-            /// The amount of Telegram Stars the user agreed to pay for the upgrade; must be equal to gift.upgrade_star_count
+            /// The Telegram Star amount the user agreed to pay for the upgrade; must be equal to gift.upgrade_star_count
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("star_count")]

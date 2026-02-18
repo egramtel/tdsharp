@@ -41,11 +41,18 @@ namespace TdLib
             public Sticker Sticker { get; set; }
 
             /// <summary>
-            /// The number of upgraded gifts that receive this model for each 1000 gifts upgraded
+            /// The rarity of the model
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("rarity_per_mille")]
-            public int RarityPerMille { get; set; }
+            [JsonProperty("rarity")]
+            public UpgradedGiftAttributeRarity Rarity { get; set; }
+
+            /// <summary>
+            /// True, if the model can be obtained only through gift crafting
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("is_crafted")]
+            public bool IsCrafted { get; set; }
         }
     }
 }

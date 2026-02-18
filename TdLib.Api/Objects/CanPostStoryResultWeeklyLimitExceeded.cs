@@ -29,7 +29,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Time left before the user can post the next story
+                /// Time left before the user can post the next story, in seconds
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("retry_after")]

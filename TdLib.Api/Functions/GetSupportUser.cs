@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns a user that can be contacted to get support
+        /// Returns a user who can be contacted to get support
         /// </summary>
         public class GetSupportUser : Function<User>
         {
@@ -31,7 +31,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Returns a user that can be contacted to get support
+        /// Returns a user who can be contacted to get support
         /// </summary>
         public static Task<User> GetSupportUserAsync(
             this Client client)

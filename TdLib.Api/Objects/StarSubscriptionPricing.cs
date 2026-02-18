@@ -34,7 +34,7 @@ namespace TdLib
             public int Period { get; set; }
 
             /// <summary>
-            /// The amount of Telegram Stars that must be paid for each period
+            /// The Telegram Star amount that must be paid for each period
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("star_count")]

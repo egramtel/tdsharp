@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns the amount of Telegram Stars owned by a business account; for bots only
+        /// Returns the Telegram Star amount owned by a business account; for bots only
         /// </summary>
         public class GetBusinessAccountStarAmount : Function<StarAmount>
         {
@@ -36,7 +36,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Returns the amount of Telegram Stars owned by a business account; for bots only
+        /// Returns the Telegram Star amount owned by a business account; for bots only
         /// </summary>
         public static Task<StarAmount> GetBusinessAccountStarAmountAsync(
             this Client client, string businessConnectionId = default)

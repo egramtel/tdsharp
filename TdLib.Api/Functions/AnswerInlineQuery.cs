@@ -35,7 +35,7 @@ namespace TdLib
             public long InlineQueryId { get; set; }
 
             /// <summary>
-            /// Pass true if results may be cached and returned only for the user that sent the query. By default, results may be returned to any user who sends the same query
+            /// Pass true if results may be cached and returned only for the user who sent the query. By default, results may be returned to any user who sends the same query
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_personal")]

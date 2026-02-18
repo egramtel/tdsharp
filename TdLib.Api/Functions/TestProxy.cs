@@ -28,25 +28,11 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Proxy server domain or IP address
+            /// The proxy to test
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("server")]
-            public string Server { get; set; }
-
-            /// <summary>
-            /// Proxy server port
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("port")]
-            public int Port { get; set; }
-
-            /// <summary>
-            /// Proxy type
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("type")]
-            public ProxyType Type { get; set; }
+            [JsonProperty("proxy")]
+            public Proxy Proxy { get; set; }
 
             /// <summary>
             /// Identifier of a datacenter with which to test connection
@@ -67,11 +53,11 @@ namespace TdLib
         /// Sends a simple network request to the Telegram servers via proxy; for testing only. Can be called before authorization
         /// </summary>
         public static Task<Ok> TestProxyAsync(
-            this Client client, string server = default, int port = default, ProxyType type = default, int dcId = default, double? timeout = default)
+            this Client client, Proxy proxy = default, int dcId = default, double? timeout = default)
         {
             return client.ExecuteAsync(new TestProxy
             {
-                Server = server, Port = port, Type = type, DcId = dcId, Timeout = timeout
+                Proxy = proxy, DcId = dcId, Timeout = timeout
             });
         }
     }

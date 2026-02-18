@@ -78,7 +78,7 @@ namespace TdLib
                 public string GiftCode { get; set; }
 
                 /// <summary>
-                /// The amount of Telegram Stars won by the current user; 0 if the user isn't a winner in the giveaway or the giveaway isn't a Telegram Star giveaway
+                /// The Telegram Star amount won by the current user; 0 if the user isn't a winner in the giveaway or the giveaway isn't a Telegram Star giveaway
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("won_star_count")]

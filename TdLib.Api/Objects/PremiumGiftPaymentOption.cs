@@ -41,7 +41,7 @@ namespace TdLib
             public long Amount { get; set; }
 
             /// <summary>
-            /// The alternative amount of Telegram Stars to pay; 0 if payment in Telegram Stars is not possible
+            /// The alternative Telegram Star amount to pay; 0 if payment in Telegram Stars is not possible
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("star_count")]

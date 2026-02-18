@@ -34,6 +34,13 @@ namespace TdLib
             public int Id { get; set; }
 
             /// <summary>
+            /// Persistent unique call identifier; 0 if isn't assigned yet by the server
+            /// </summary>
+            [JsonConverter(typeof(Converter.Int64))]
+            [JsonProperty("unique_id")]
+            public long UniqueId { get; set; }
+
+            /// <summary>
             /// User identifier of the other call participant
             /// </summary>
             [JsonConverter(typeof(Converter))]

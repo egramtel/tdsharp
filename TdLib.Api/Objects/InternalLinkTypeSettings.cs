@@ -28,7 +28,12 @@ namespace TdLib
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
-
+                /// <summary>
+                /// Section of the application settings to open; may be null if none
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("section")]
+                public SettingsSection Section { get; set; }
             }
         }
     }

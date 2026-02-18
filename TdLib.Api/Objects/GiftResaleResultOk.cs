@@ -28,7 +28,12 @@ namespace TdLib
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
-
+                /// <summary>
+                /// Unique identifier of the received gift; only for the gifts sent to the current user
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("received_gift_id")]
+                public string ReceivedGiftId { get; set; }
             }
         }
     }

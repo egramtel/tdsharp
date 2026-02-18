@@ -29,7 +29,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Identifier of the user that bought the product
+                /// Identifier of the user who bought the product
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("user_id")]

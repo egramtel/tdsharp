@@ -587,7 +587,7 @@ getPublicPostSearchLimits query:string = PublicPostSearchLimits;
 //@query Query to search for
 //@offset Offset of the first entry to return as received from the previous request; use empty string to get the first chunk of results
 //@limit The maximum number of messages to be returned; up to 100. For optimal performance, the number of returned messages is chosen by TDLib and can be smaller than the specified limit
-//@star_count The amount of Telegram Stars the user agreed to pay for the search; pass 0 for free searches
+//@star_count The Telegram Star amount the user agreed to pay for the search; pass 0 for free searches
 searchPublicPosts query:string offset:string limit:int32 star_count:int53 = FoundPublicPosts;
 
 //@description Searches for public channel posts containing the given hashtag or cashtag. For optimal performance, the number of returned messages is chosen by TDLib and can be smaller than the specified limit
@@ -1098,7 +1098,7 @@ setBusinessAccountUsername business_connection_id:string username:string = Ok;
 //@settings The new settings
 setBusinessAccountGiftSettings business_connection_id:string settings:giftSettings = Ok;
 
-//@description Returns the amount of Telegram Stars owned by a business account; for bots only @business_connection_id Unique identifier of business connection
+//@description Returns the Telegram Star amount owned by a business account; for bots only @business_connection_id Unique identifier of business connection
 getBusinessAccountStarAmount business_connection_id:string = StarAmount;
 
 //@description Transfers Telegram Stars from the business account to the business bot; for bots only
@@ -1469,7 +1469,7 @@ getLoginUrlInfo chat_id:int53 message_id:int53 button_id:int53 = LoginUrlInfo;
 //@chat_id Chat identifier of the message with the button
 //@message_id Message identifier of the message with the button
 //@button_id Button identifier
-//@allow_write_access Pass true to allow the bot to send messages to the current user
+//@allow_write_access Pass true to allow the bot to send messages to the current user. Phone number access can't be requested using the button
 getLoginUrl chat_id:int53 message_id:int53 button_id:int53 allow_write_access:Bool = HttpUrl;
 
 
@@ -1502,7 +1502,7 @@ getInlineQueryResults bot_user_id:int53 chat_id:int53 user_location:location que
 
 //@description Sets the result of an inline query; for bots only
 //@inline_query_id Identifier of the inline query
-//@is_personal Pass true if results may be cached and returned only for the user that sent the query. By default, results may be returned to any user who sends the same query
+//@is_personal Pass true if results may be cached and returned only for the user who sent the query. By default, results may be returned to any user who sends the same query
 //@button Button to be shown above inline query results; pass null if none
 //@results The results of the query
 //@cache_time Allowed time to cache the results of the query, in seconds
@@ -1641,7 +1641,7 @@ deleteChatReplyMarkup chat_id:int53 message_id:int53 = Ok;
 
 //@description Sends a notification about user activity in a chat
 //@chat_id Chat identifier
-//@topic_id Identifier of the topic in which the action is performed
+//@topic_id Identifier of the topic in which the action is performed; pass null if none
 //@business_connection_id Unique identifier of business connection on behalf of which to send the request; for bots only
 //@action The action description; pass null to cancel the currently active action
 sendChatAction chat_id:int53 topic_id:MessageTopic business_connection_id:string action:ChatAction = Ok;
@@ -1686,10 +1686,12 @@ getInternalLinkType link:string = InternalLinkType;
 //@description Returns information about an action to be done when the current user clicks an external link. Don't use this method for links from secret chats if link preview is disabled in secret chats @link The link
 getExternalLinkInfo link:string = LoginUrlInfo;
 
-//@description Returns an HTTP URL which can be used to automatically authorize the current user on a website after clicking an HTTP link. Use the method getExternalLinkInfo to find whether a prior user confirmation is needed
+//@description Returns an HTTP URL which can be used to automatically authorize the current user on a website after clicking an HTTP link.
+//-Use the method getExternalLinkInfo to find whether a prior user confirmation is needed. May return an empty link if just a toast about successful login has to be shown
 //@link The HTTP link
-//@allow_write_access Pass true if the current user allowed the bot, returned in getExternalLinkInfo, to send them messages
-getExternalLink link:string allow_write_access:Bool = HttpUrl;
+//@allow_write_access Pass true if the current user allowed the bot that was returned in getExternalLinkInfo, to send them messages
+//@allow_phone_number_access Pass true if the current user allowed the bot that was returned in getExternalLinkInfo, to access their phone number
+getExternalLink link:string allow_write_access:Bool allow_phone_number_access:Bool = HttpUrl;
 
 
 //@description Marks all mentions in a chat as read @chat_id Chat identifier
@@ -1979,7 +1981,7 @@ setChatMemberStatus chat_id:int53 member_id:MessageSender status:ChatMemberStatu
 //@chat_id Chat identifier
 //@member_id Member identifier
 //@banned_until_date Point in time (Unix timestamp) when the user will be unbanned; 0 if never. If the user is banned for more than 366 days or for less than 30 seconds from the current time, the user is considered to be banned forever. Ignored in basic groups and if a chat is banned
-//@revoke_messages Pass true to delete all messages in the chat for the user that is being removed. Always true for supergroups and channels
+//@revoke_messages Pass true to delete all messages in the chat for the user who is being removed. Always true for supergroups and channels
 banChatMember chat_id:int53 member_id:MessageSender banned_until_date:int32 revoke_messages:Bool = Ok;
 
 //@description Checks whether the current session can be used to transfer a chat ownership to another user
@@ -1990,6 +1992,11 @@ canTransferOwnership = CanTransferOwnershipResult;
 //@user_id Identifier of the user to which transfer the ownership. The ownership can't be transferred to a bot or to a deleted user
 //@password The 2-step verification password of the current user
 transferChatOwnership chat_id:int53 user_id:int53 password:string = Ok;
+
+//@description Returns the user who will become the owner of the chat after 7 days if the current user does not return to the chat during that period; requires owner privileges in the chat.
+//-Available only for supergroups and channel chats
+//@chat_id Chat identifier
+getChatOwnerAfterLeaving chat_id:int53 = User;
 
 //@description Returns information about a single member of a chat @chat_id Chat identifier @member_id Member identifier
 getChatMember chat_id:int53 member_id:MessageSender = ChatMember;
@@ -2546,7 +2553,7 @@ joinChatByInviteLink invite_link:string = Chat;
 //@limit The maximum number of requests to join the chat to return
 getChatJoinRequests chat_id:int53 invite_link:string query:string offset_request:chatJoinRequest limit:int32 = ChatJoinRequests;
 
-//@description Handles a pending join request in a chat @chat_id Chat identifier @user_id Identifier of the user that sent the request @approve Pass true to approve the request; pass false to decline it
+//@description Handles a pending join request in a chat @chat_id Chat identifier @user_id Identifier of the user who sent the request @approve Pass true to approve the request; pass false to decline it
 processChatJoinRequest chat_id:int53 user_id:int53 approve:Bool = Ok;
 
 //@description Handles all pending join requests for a given link in a chat
@@ -3663,7 +3670,7 @@ closeGiftAuction gift_id:int64 = Ok;
 //@description Places a bid on an auction gift
 //@gift_id Identifier of the gift to place the bid on
 //@star_count The number of Telegram Stars to place in the bid
-//@user_id Identifier of the user that will receive the gift
+//@user_id Identifier of the user who will receive the gift
 //@text Text to show along with the gift; 0-getOption("gift_text_length_max") characters. Only Bold, Italic, Underline, Strikethrough, Spoiler, and CustomEmoji entities are allowed.
 //-Must be empty if the receiver enabled paid messages
 //@is_private Pass true to show gift text and sender only to the gift receiver; otherwise, everyone will be able to see them
@@ -3694,35 +3701,42 @@ setPinnedGifts owner_id:MessageSender received_gift_ids:vector<string> = Ok;
 //@are_enabled Pass true to enable notifications about new gifts owned by the channel chat; pass false to disable the notifications
 toggleChatGiftNotifications chat_id:int53 are_enabled:Bool = Ok;
 
-//@description Returns examples of possible upgraded gifts for a regular gift @gift_id Identifier of the gift
-getGiftUpgradePreview gift_id:int64 = GiftUpgradePreview;
+//@description Returns examples of possible upgraded gifts for a regular gift @regular_gift_id Identifier of the regular gift
+getGiftUpgradePreview regular_gift_id:int64 = GiftUpgradePreview;
 
-//@description Returns all possible variants of upgraded gifts for a regular gift @gift_id Identifier of the gift
-getGiftUpgradeVariants gift_id:int64 = GiftUpgradeVariants;
+//@description Returns all possible variants of upgraded gifts for a regular gift
+//@regular_gift_id Identifier of the regular gift
+//@return_upgrade_models Pass true to get models that can be obtained by upgrading a regular gift
+//@return_craft_models Pass true to get models that can be obtained by crafting a gift from upgraded gifts
+getUpgradedGiftVariants regular_gift_id:int64 return_upgrade_models:Bool return_craft_models:Bool = GiftUpgradeVariants;
 
 //@description Upgrades a regular gift
 //@business_connection_id Unique identifier of business connection on behalf of which to send the request; for bots only
 //@received_gift_id Identifier of the gift
 //@keep_original_details Pass true to keep the original gift text, sender and receiver in the upgraded gift
-//@star_count The amount of Telegram Stars required to pay for the upgrade. It the gift has prepaid_upgrade_star_count > 0, then pass 0, otherwise, pass gift.upgrade_star_count
+//@star_count The Telegram Star amount required to pay for the upgrade. It the gift has prepaid_upgrade_star_count > 0, then pass 0, otherwise, pass gift.upgrade_star_count
 upgradeGift business_connection_id:string received_gift_id:string keep_original_details:Bool star_count:int53 = UpgradeGiftResult;
 
 //@description Pays for upgrade of a regular gift that is owned by another user or channel chat
 //@owner_id Identifier of the user or the channel chat that owns the gift
 //@prepaid_upgrade_hash Prepaid upgrade hash as received along with the gift
-//@star_count The amount of Telegram Stars the user agreed to pay for the upgrade; must be equal to gift.upgrade_star_count
+//@star_count The Telegram Star amount the user agreed to pay for the upgrade; must be equal to gift.upgrade_star_count
 buyGiftUpgrade owner_id:MessageSender prepaid_upgrade_hash:string star_count:int53 = Ok;
+
+//@description Crafts a new gift from other gifts that will be permanently lost
+//@received_gift_ids Identifier of the gifts to use for crafting
+craftGift received_gift_ids:vector<string> = CraftGiftResult;
 
 //@description Sends an upgraded gift to another user or channel chat
 //@business_connection_id Unique identifier of business connection on behalf of which to send the request; for bots only
 //@received_gift_id Identifier of the gift
 //@new_owner_id Identifier of the user or the channel chat that will receive the gift
-//@star_count The amount of Telegram Stars required to pay for the transfer
+//@star_count The Telegram Star amount required to pay for the transfer
 transferGift business_connection_id:string received_gift_id:string new_owner_id:MessageSender star_count:int53 = Ok;
 
 //@description Drops original details for an upgraded gift
 //@received_gift_id Identifier of the gift
-//@star_count The amount of Telegram Stars required to pay for the operation
+//@star_count The Telegram Star amount required to pay for the operation
 dropGiftOriginalDetails received_gift_id:string star_count:int53 = Ok;
 
 //@description Sends an upgraded gift that is available for resale to another user or channel chat; gifts already owned by the current user
@@ -3765,6 +3779,12 @@ getReceivedGifts business_connection_id:string owner_id:MessageSender collection
 //@description Returns information about a received gift @received_gift_id Identifier of the gift
 getReceivedGift received_gift_id:string = ReceivedGift;
 
+//@description Returns upgraded gifts of the current user who can be used to craft another gifts
+//@regular_gift_id Identifier of the regular gift that will be used for crafting
+//@offset Offset of the first entry to return as received from the previous request; use empty string to get the first chunk of results
+//@limit The maximum number of gifts to be returned; must be positive and can't be greater than 100. For optimal performance, the number of returned objects is chosen by TDLib and can be smaller than the specified limit
+getGiftsForCrafting regular_gift_id:int64 offset:string limit:int32 = GiftsForCrafting;
+
 //@description Returns information about an upgraded gift by its name @name Unique name of the upgraded gift
 getUpgradedGift name:string = UpgradedGift;
 
@@ -3789,11 +3809,12 @@ setGiftResalePrice received_gift_id:string price:GiftResalePrice = Ok;
 //@description Returns upgraded gifts that can be bought from other owners using sendResoldGift
 //@gift_id Identifier of the regular gift that was upgraded to a unique gift
 //@order Order in which the results will be sorted
+//@for_crafting Pass true to get only gifts suitable for crafting
 //@attributes Attributes used to filter received gifts. If multiple attributes of the same type are specified, then all of them are allowed.
 //-If none attributes of specific type are specified, then all values for this attribute type are allowed
 //@offset Offset of the first entry to return as received from the previous request with the same order and attributes; use empty string to get the first chunk of results
 //@limit The maximum number of gifts to return
-searchGiftsForResale gift_id:int64 order:GiftForResaleOrder attributes:vector<UpgradedGiftAttributeId> offset:string limit:int32 = GiftsForResale;
+searchGiftsForResale gift_id:int64 order:GiftForResaleOrder for_crafting:Bool attributes:vector<UpgradedGiftAttributeId> offset:string limit:int32 = GiftsForResale;
 
 
 //@description Returns collections of gifts owned by the given user or chat
@@ -3849,12 +3870,12 @@ reorderGiftCollectionGifts owner_id:MessageSender collection_id:int32 received_g
 createInvoiceLink business_connection_id:string invoice:InputMessageContent = HttpUrl;
 
 //@description Refunds a previously done payment in Telegram Stars; for bots only
-//@user_id Identifier of the user that did the payment
+//@user_id Identifier of the user who did the payment
 //@telegram_payment_charge_id Telegram payment identifier
 refundStarPayment user_id:int53 telegram_payment_charge_id:string = Ok;
 
 
-//@description Returns a user that can be contacted to get support
+//@description Returns a user who can be contacted to get support
 getSupportUser = User;
 
 
@@ -3960,7 +3981,7 @@ getPaidMessageRevenue user_id:int53 = StarCount;
 //@refund_payments Pass true to refund the user previously paid messages
 allowUnpaidMessagesFromUser user_id:int53 refund_payments:Bool = Ok;
 
-//@description Changes the amount of Telegram Stars that must be paid to send a message to a supergroup chat; requires can_restrict_members administrator right and supergroupFullInfo.can_enable_paid_messages
+//@description Changes the Telegram Star amount that must be paid to send a message to a supergroup chat; requires can_restrict_members administrator right and supergroupFullInfo.can_enable_paid_messages
 //@chat_id Identifier of the supergroup chat
 //@paid_message_star_count The new number of Telegram Stars that must be paid for each message that is sent to the supergroup chat unless the sender is an administrator of the chat; 0-getOption("paid_message_star_count_max").
 //-The supergroup will receive getOption("paid_message_earnings_per_mille") Telegram Stars for each 1000 Telegram Stars paid for message sending
@@ -4168,7 +4189,7 @@ setPassportElement element:InputPassportElement password:string = PassportElemen
 //@description Deletes a Telegram Passport element @type Element type
 deletePassportElement type:PassportElementType = Ok;
 
-//@description Informs the user that some of the elements in their Telegram Passport contain errors; for bots only. The user will not be able to resend the elements, until the errors are fixed @user_id User identifier @errors The errors
+//@description Informs the user who some of the elements in their Telegram Passport contain errors; for bots only. The user will not be able to resend the elements, until the errors are fixed @user_id User identifier @errors The errors
 setPassportElementErrors user_id:int53 errors:vector<inputPassportElementError> = Ok;
 
 
@@ -4358,7 +4379,7 @@ getGiveawayInfo chat_id:int53 message_id:int53 = GiveawayInfo;
 //@description Returns available options for Telegram Stars purchase
 getStarPaymentOptions = StarPaymentOptions;
 
-//@description Returns available options for Telegram Stars gifting @user_id Identifier of the user that will receive Telegram Stars; pass 0 to get options for an unspecified user
+//@description Returns available options for Telegram Stars gifting @user_id Identifier of the user who will receive Telegram Stars; pass 0 to get options for an unspecified user
 getStarGiftPaymentOptions user_id:int53 = StarPaymentOptions;
 
 //@description Returns available options for Telegram Star giveaway creation
@@ -4427,7 +4448,7 @@ connectAffiliateProgram affiliate:AffiliateType bot_user_id:int53 = ConnectedAff
 //@url The referral link of the affiliate program
 disconnectAffiliateProgram affiliate:AffiliateType url:string = ConnectedAffiliateProgram;
 
-//@description Returns an affiliate program that were connected to the given affiliate by identifier of the bot that created the program
+//@description Returns an affiliate program that was connected to the given affiliate by identifier of the bot that created the program
 //@affiliate The affiliate to which the affiliate program will be connected
 //@bot_user_id Identifier of the bot that created the program
 getConnectedAffiliateProgram affiliate:AffiliateType bot_user_id:int53 = ConnectedAffiliateProgram;
@@ -4501,19 +4522,15 @@ getApplicationDownloadLink = HttpUrl;
 
 
 //@description Adds a proxy server for network requests. Can be called before authorization
-//@server Proxy server domain or IP address
-//@port Proxy server port
+//@proxy The proxy to add
 //@enable Pass true to immediately enable the proxy
-//@type Proxy type
-addProxy server:string port:int32 enable:Bool type:ProxyType = Proxy;
+addProxy proxy:proxy enable:Bool = AddedProxy;
 
 //@description Edits an existing proxy server for network requests. Can be called before authorization
 //@proxy_id Proxy identifier
-//@server Proxy server domain or IP address
-//@port Proxy server port
+//@proxy The new information about the proxy
 //@enable Pass true to immediately enable the proxy
-//@type Proxy type
-editProxy proxy_id:int32 server:string port:int32 enable:Bool type:ProxyType = Proxy;
+editProxy proxy_id:int32 proxy:proxy enable:Bool = AddedProxy;
 
 //@description Enables a proxy. Only one proxy can be enabled at a time. Can be called before authorization @proxy_id Proxy identifier
 enableProxy proxy_id:int32 = Ok;
@@ -4525,13 +4542,11 @@ disableProxy = Ok;
 removeProxy proxy_id:int32 = Ok;
 
 //@description Returns the list of proxies that are currently set up. Can be called before authorization
-getProxies = Proxies;
+getProxies = AddedProxies;
 
-//@description Returns an HTTPS link, which can be used to add a proxy. Available only for SOCKS5 and MTProto proxies. Can be called before authorization @proxy_id Proxy identifier
-getProxyLink proxy_id:int32 = HttpUrl;
-
-//@description Computes time needed to receive a response from a Telegram server through a proxy. Can be called before authorization @proxy_id Proxy identifier. Use 0 to ping a Telegram server without a proxy
-pingProxy proxy_id:int32 = Seconds;
+//@description Computes time needed to receive a response from a Telegram server through a proxy. Can be called before authorization
+//@proxy The proxy to test; pass null to ping a Telegram server without a proxy
+pingProxy proxy:proxy = Seconds;
 
 
 //@description Sets new log stream for internal logging of TDLib. Can be called synchronously @log_stream New log stream
@@ -4603,12 +4618,10 @@ testSquareInt x:int32 = TestInt;
 testNetwork = Ok;
 
 //@description Sends a simple network request to the Telegram servers via proxy; for testing only. Can be called before authorization
-//@server Proxy server domain or IP address
-//@port Proxy server port
-//@type Proxy type
+//@proxy The proxy to test
 //@dc_id Identifier of a datacenter with which to test connection
 //@timeout The maximum overall timeout for the request
-testProxy server:string port:int32 type:ProxyType dc_id:int32 timeout:double = Ok;
+testProxy proxy:proxy dc_id:int32 timeout:double = Ok;
 
 //@description Forces an updates.getDifference call to the Telegram servers; for testing only
 testGetDifference = Ok;

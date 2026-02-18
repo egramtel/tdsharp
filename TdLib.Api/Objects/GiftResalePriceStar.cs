@@ -29,7 +29,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// The amount of Telegram Stars expected to be paid for the gift. Must be in the range
+                /// The Telegram Star amount expected to be paid for the gift. Must be in the range
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("star_count")]

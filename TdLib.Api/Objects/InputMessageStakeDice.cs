@@ -36,7 +36,7 @@ namespace TdLib
                 public string StateHash { get; set; }
 
                 /// <summary>
-                /// The amount of Toncoins that will be staked; in the smallest units of the currency. Must be in the range
+                /// The Toncoin amount that will be staked; in the smallest units of the currency. Must be in the range
                 /// getOption("stake_dice_stake_amount_min")-getOption("stake_dice_stake_amount_max")
                 /// </summary>
                 [JsonConverter(typeof(Converter))]

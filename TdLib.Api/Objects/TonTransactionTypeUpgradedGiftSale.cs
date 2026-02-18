@@ -29,7 +29,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Identifier of the user that bought the gift
+                /// Identifier of the user who bought the gift
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("user_id")]
@@ -50,7 +50,7 @@ namespace TdLib
                 public int CommissionPerMille { get; set; }
 
                 /// <summary>
-                /// The amount of Toncoins that were received by the Telegram; in the smallest units of the currency
+                /// The Toncoin amount that was received by the Telegram; in the smallest units of the currency
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("commission_toncoin_amount")]

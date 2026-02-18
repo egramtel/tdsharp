@@ -12,7 +12,7 @@ namespace TdLib
         public partial class PremiumSource : Object
         {
             /// <summary>
-            /// A user opened an internal link of the type internalLinkTypePremiumFeatures
+            /// A user opened an internal link of the type internalLinkTypePremiumFeaturesPage
             /// </summary>
             public class PremiumSourceLink : PremiumSource
             {

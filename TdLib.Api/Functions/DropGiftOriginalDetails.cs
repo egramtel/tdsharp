@@ -35,7 +35,7 @@ namespace TdLib
             public string ReceivedGiftId { get; set; }
 
             /// <summary>
-            /// The amount of Telegram Stars required to pay for the operation
+            /// The Telegram Star amount required to pay for the operation
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("star_count")]

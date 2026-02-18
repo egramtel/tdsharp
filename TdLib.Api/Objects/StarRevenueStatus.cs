@@ -27,21 +27,21 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Total amount of Telegram Stars earned
+            /// Total Telegram Star amount earned
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("total_amount")]
             public StarAmount TotalAmount { get; set; }
 
             /// <summary>
-            /// The amount of Telegram Stars that aren't withdrawn yet
+            /// The Telegram Star amount that isn't withdrawn yet
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("current_amount")]
             public StarAmount CurrentAmount { get; set; }
 
             /// <summary>
-            /// The amount of Telegram Stars that are available for withdrawal
+            /// The Telegram Star amount that is available for withdrawal
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("available_amount")]

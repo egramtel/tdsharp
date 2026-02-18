@@ -28,22 +28,22 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Proxy identifier. Use 0 to ping a Telegram server without a proxy
+            /// The proxy to test; pass null to ping a Telegram server without a proxy
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("proxy_id")]
-            public int ProxyId { get; set; }
+            [JsonProperty("proxy")]
+            public Proxy Proxy { get; set; }
         }
 
         /// <summary>
         /// Computes time needed to receive a response from a Telegram server through a proxy. Can be called before authorization
         /// </summary>
         public static Task<Seconds> PingProxyAsync(
-            this Client client, int proxyId = default)
+            this Client client, Proxy proxy = default)
         {
             return client.ExecuteAsync(new PingProxy
             {
-                ProxyId = proxyId
+                Proxy = proxy
             });
         }
     }

@@ -35,7 +35,7 @@ namespace TdLib
             public long ChatId { get; set; }
 
             /// <summary>
-            /// Identifier of the topic in which the action is performed
+            /// Identifier of the topic in which the action is performed; pass null if none
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("topic_id")]

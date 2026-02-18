@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Describes a user that had or will have a birthday soon
+        /// Describes a user who had or will have a birthday soon
         /// </summary>
         public partial class CloseBirthdayUser : Object
         {

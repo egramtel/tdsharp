@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Contains information about a proxy server
+        /// Describes a proxy server
         /// </summary>
         public partial class Proxy : Object
         {
@@ -27,13 +27,6 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Unique identifier of the proxy
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("id")]
-            public int Id { get; set; }
-
-            /// <summary>
             /// Proxy server domain or IP address
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -46,20 +39,6 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("port")]
             public int Port { get; set; }
-
-            /// <summary>
-            /// Point in time (Unix timestamp) when the proxy was last used; 0 if never
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("last_used_date")]
-            public int LastUsedDate { get; set; }
-
-            /// <summary>
-            /// True, if the proxy is enabled now
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("is_enabled")]
-            public bool IsEnabled { get; set; }
 
             /// <summary>
             /// Type of the proxy
