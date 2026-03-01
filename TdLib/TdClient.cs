@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 tdsharp contributors <https://github.com/egramtel/tdsharp>
+// SPDX-FileCopyrightText: 2024-2026 tdsharp contributors <https://github.com/egramtel/tdsharp>
 //
 // SPDX-License-Identifier: MIT
 
@@ -27,11 +27,11 @@ namespace TdLib
 
         public TdClient() : this(Interop.AutoDetectBindings()) {}
 
-        public TdClient(ITdLibBindings bindings): this( bindings, 0.1 )
+        public TdClient(ITdLibBindings bindings): this(bindings, TimeSpan.FromSeconds(0.1))
         {
-
         }
-        public TdClient(ITdLibBindings bindings, double receiverTimeOut)
+
+        public TdClient(ITdLibBindings bindings, TimeSpan receiverTimeOut)
         {
             _tdJsonClient = new TdJsonClient(bindings);
 

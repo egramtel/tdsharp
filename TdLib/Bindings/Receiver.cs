@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 tdsharp contributors <https://github.com/egramtel/tdsharp>
+// SPDX-FileCopyrightText: 2024-2026 tdsharp contributors <https://github.com/egramtel/tdsharp>
 //
 // SPDX-License-Identifier: MIT
 
@@ -13,7 +13,7 @@ namespace TdLib.Bindings
     {
         private readonly Converter _converter;
         private readonly TdJsonClient _tdJsonClient;
-        private readonly double _receiverTimeOut;
+        private readonly double _receiverTimeOutSeconds;
 
         private readonly CancellationTokenSource _cts = new CancellationTokenSource();
         private readonly ManualResetEventSlim _stopped = new ManualResetEventSlim(false);
@@ -22,11 +22,11 @@ namespace TdLib.Bindings
         internal event EventHandler<TdApi.AuthorizationState> AuthorizationStateChanged;
         internal event EventHandler<Exception> ExceptionThrown;
 
-        internal Receiver(TdJsonClient tdJsonClient, double receiverTimeOut)
+        internal Receiver(TdJsonClient tdJsonClient, TimeSpan receiverTimeOut)
         {
             _converter = new Converter();
             _tdJsonClient = tdJsonClient;
-            _receiverTimeOut = receiverTimeOut;
+            _receiverTimeOutSeconds = receiverTimeOut.TotalSeconds;
         }
 
         internal void Start()
@@ -51,7 +51,7 @@ namespace TdLib.Bindings
             var ct = _cts.Token;
             while (!ct.IsCancellationRequested)
             {
-                var data = _tdJsonClient.Receive(_receiverTimeOut);
+                var data = _tdJsonClient.Receive(_receiverTimeOutSeconds);
 
                 if (!string.IsNullOrEmpty(data))
                 {

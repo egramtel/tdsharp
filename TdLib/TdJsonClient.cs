@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 tdsharp contributors <https://github.com/egramtel/tdsharp>
+// SPDX-FileCopyrightText: 2024-2026 tdsharp contributors <https://github.com/egramtel/tdsharp>
 //
 // SPDX-License-Identifier: MIT
 
@@ -48,6 +48,7 @@ namespace TdLib
         /// <summary>
         /// Receive one JSON string from TDLib
         /// </summary>
+        /// <param name="timeout">Timeout in seconds.</param>
         public string Receive(double timeout)
         {
             if (_handle == IntPtr.Zero)
