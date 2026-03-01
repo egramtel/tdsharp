@@ -27,10 +27,13 @@ namespace TdLib
 
         public TdClient() : this(Interop.AutoDetectBindings()) {}
 
+        /// <param name="bindings">Bidings for the client to call functions of TDLib.</param>
         public TdClient(ITdLibBindings bindings): this(bindings, TimeSpan.FromSeconds(0.1))
         {
         }
 
+        /// <param name="bindings">Bidings for the client to call functions of TDLib.</param>
+        /// <param name="receiverTimeOut">Timeout for <c>td_json_client_receive</c>.</param>
         public TdClient(ITdLibBindings bindings, TimeSpan receiverTimeOut)
         {
             _tdJsonClient = new TdJsonClient(bindings);
