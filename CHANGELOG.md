@@ -11,9 +11,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
-## [Unreleased] (1.8.61)
+## [1.8.61] - 2026-03-01
 ### Changed
 - Update to [TDLib v1.8.61](https://github.com/ForNeVeR/tdlib-versioned/releases/tag/tdlib%2Fv1.8.61).
+
+### Added
+- New constructor for `TdClient` with configurable receive timeout. Thanks to @bielu!
 
 ## [1.8.60] - 2026-01-10
 ### Changed
@@ -143,4 +146,5 @@ Initial release to support TDLib pre-1.2.
 [1.8.58]: https://github.com/egramtel/tdsharp/compare/v1.8.56.1...v1.8.58
 [1.8.59]: https://github.com/egramtel/tdsharp/compare/v1.8.58...v1.8.59
 [1.8.60]: https://github.com/egramtel/tdsharp/compare/v1.8.59...v1.8.60
-[Unreleased]: https://github.com/egramtel/tdsharp/compare/v1.8.60...HEAD
+[1.8.61]: https://github.com/egramtel/tdsharp/compare/v1.8.60...v1.8.61
+[Unreleased]: https://github.com/egramtel/tdsharp/compare/v1.8.61...HEAD
