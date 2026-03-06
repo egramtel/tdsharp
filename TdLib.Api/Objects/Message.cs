@@ -236,6 +236,13 @@ namespace TdLib
             public int SenderBoostCount { get; set; }
 
             /// <summary>
+            /// Tag of the sender of the message in the supergroup at the time the message was sent; may be empty if none or unknown. For messages sent in basic groups or supergroup administrators, the current custom title or tag must be used instead
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("sender_tag")]
+            public string SenderTag { get; set; }
+
+            /// <summary>
             /// The number of Telegram Stars the sender paid to send the message
             /// </summary>
             [JsonConverter(typeof(Converter))]

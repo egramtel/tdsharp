@@ -50,7 +50,7 @@ namespace TdLib
             public int Date { get; set; }
 
             /// <summary>
-            /// Status of the current user in the supergroup or channel; custom title will always be empty
+            /// Status of the current user in the supergroup or channel
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("status")]

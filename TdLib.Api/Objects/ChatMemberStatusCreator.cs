@@ -29,13 +29,6 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// A custom title of the owner; 0-16 characters without emoji; applicable to supergroups only
-                /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("custom_title")]
-                public string CustomTitle { get; set; }
-
-                /// <summary>
                 /// True, if the creator isn't shown in the chat member list and sends messages anonymously; applicable to supergroups only
                 /// </summary>
                 [JsonConverter(typeof(Converter))]

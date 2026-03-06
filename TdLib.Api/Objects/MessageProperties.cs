@@ -265,6 +265,20 @@ namespace TdLib
             public bool CanSetFactCheck { get; set; }
 
             /// <summary>
+            /// True, if content of the message can't be saved locally, because it is protected by the current user; if true, then can_be_saved is false
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("has_protected_content_by_current_user")]
+            public bool HasProtectedContentByCurrentUser { get; set; }
+
+            /// <summary>
+            /// True, if content of the message can't be saved locally, because it is protected by the other user; if true, then can_be_saved is false
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("has_protected_content_by_other_user")]
+            public bool HasProtectedContentByOtherUser { get; set; }
+
+            /// <summary>
             /// True, if message statistics must be available from context menu of the message
             /// </summary>
             [JsonConverter(typeof(Converter))]

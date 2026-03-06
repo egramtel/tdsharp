@@ -28,7 +28,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Identifier of the gifts to use for crafting
+            /// Identifier of the gifts to use for crafting. In the case of a successful craft, the resulting gift will have the number of the first gift.
             /// </summary>
             [JsonProperty("received_gift_ids", ItemConverterType = typeof(Converter))]
             public string[] ReceivedGiftIds { get; set; }

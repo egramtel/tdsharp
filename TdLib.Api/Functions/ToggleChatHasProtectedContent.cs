@@ -11,7 +11,8 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Changes the ability of users to save, forward, or copy chat content. Supported only for basic groups, supergroups and channels. Requires owner privileges
+        /// Changes the ability of users to save, forward, or copy chat content. Requires owner privileges in basic groups, supergroups and channels.
+        /// Requires Telegram Premium to enable protected content in private chats. Not available in Saved Messages and private chats with bots or support accounts
         /// </summary>
         public class ToggleChatHasProtectedContent : Function<Ok>
         {
@@ -43,7 +44,8 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Changes the ability of users to save, forward, or copy chat content. Supported only for basic groups, supergroups and channels. Requires owner privileges
+        /// Changes the ability of users to save, forward, or copy chat content. Requires owner privileges in basic groups, supergroups and channels.
+        /// Requires Telegram Premium to enable protected content in private chats. Not available in Saved Messages and private chats with bots or support accounts
         /// </summary>
         public static Task<Ok> ToggleChatHasProtectedContentAsync(
             this Client client, long chatId = default, bool hasProtectedContent = default)

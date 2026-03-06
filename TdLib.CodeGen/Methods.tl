@@ -241,6 +241,7 @@ getMessageLocally chat_id:int53 message_id:int53 = Message;
 //-for messageSuggestedPostApprovalFailed, messageSuggestedPostApproved, messageSuggestedPostDeclined, messageSuggestedPostPaid, messageSuggestedPostRefunded,
 //-the message with the regular gift that was upgraded for messageUpgradedGift with origin of the type upgradedGiftOriginUpgrade,
 //-the message with gift purchase offer for messageUpgradedGiftPurchaseOfferRejected,
+//-the message with the request to disable content protection for messageChatHasProtectedContentToggled,
 //-and the topic creation message for topic messages without non-bundled replied message. Returns a 404 error if the message doesn't exist
 //@chat_id Identifier of the chat the message belongs to
 //@message_id Identifier of the reply message
@@ -1424,7 +1425,7 @@ setPollAnswer chat_id:int53 message_id:int53 option_ids:vector<int32> = Ok;
 //@option_id 0-based identifier of the answer option
 //@offset Number of voters to skip in the result; must be non-negative
 //@limit The maximum number of voters to be returned; must be positive and can't be greater than 50. For optimal performance, the number of returned voters is chosen by TDLib and can be smaller than the specified limit, even if the end of the voter list has not been reached
-getPollVoters chat_id:int53 message_id:int53 option_id:int32 offset:int32 limit:int32 = MessageSenders;
+getPollVoters chat_id:int53 message_id:int53 option_id:int32 offset:int32 limit:int32 = PollVoters;
 
 //@description Stops a poll
 //@chat_id Identifier of the chat to which the poll belongs
@@ -1690,8 +1691,30 @@ getExternalLinkInfo link:string = LoginUrlInfo;
 //-Use the method getExternalLinkInfo to find whether a prior user confirmation is needed. May return an empty link if just a toast about successful login has to be shown
 //@link The HTTP link
 //@allow_write_access Pass true if the current user allowed the bot that was returned in getExternalLinkInfo, to send them messages
-//@allow_phone_number_access Pass true if the current user allowed the bot that was returned in getExternalLinkInfo, to access their phone number
-getExternalLink link:string allow_write_access:Bool allow_phone_number_access:Bool = HttpUrl;
+getExternalLink link:string allow_write_access:Bool = HttpUrl;
+
+//@description Returns information about an OAuth deep link. Use checkOauthRequestMatchCode, acceptOauthRequest or declineOauthRequest to process the link
+//@url URL of the link
+//@in_app_origin Origin of the OAuth request if the request was received from the in-app browser; pass an empty string otherwise
+getOauthLinkInfo url:string in_app_origin:string = OauthLinkInfo;
+
+//@description Checks a match-code for an OAuth authorization request. If fails, then the authorization request has failed. Otherwise,
+//-authorization confirmation dialog must be shown and the link must be processed using acceptOauthRequest or declineOauthRequest
+//@url URL of the OAuth deep link
+//@match_code The matching code chosen by the user
+checkOauthRequestMatchCode url:string match_code:string = Ok;
+
+//@description Accepts an OAuth authorization request. Returns an HTTP URL to open after successful authorization.
+//-May return an empty link if just a toast about successful login has to be shown
+//@url URL of the OAuth deep link
+//@match_code The matching code chosen by the user
+//@allow_write_access Pass true if the current user allowed the bot that was returned in getOauthLinkInfo, to send them messages
+//@allow_phone_number_access Pass true if the current user allowed the bot that was returned in getOauthLinkInfo, to access their phone number
+acceptOauthRequest url:string match_code:string allow_write_access:Bool allow_phone_number_access:Bool = HttpUrl;
+
+//@description Declines an OAuth authorization request
+//@url URL of the OAuth deep link
+declineOauthRequest url:string = Ok;
 
 
 //@description Marks all mentions in a chat as read @chat_id Chat identifier
@@ -1890,10 +1913,17 @@ setChatDraftMessage chat_id:int53 topic_id:MessageTopic draft_message:draftMessa
 //@notification_settings New notification settings for the chat. If the chat is muted for more than 366 days, it is considered to be muted forever
 setChatNotificationSettings chat_id:int53 notification_settings:chatNotificationSettings = Ok;
 
-//@description Changes the ability of users to save, forward, or copy chat content. Supported only for basic groups, supergroups and channels. Requires owner privileges
+//@description Changes the ability of users to save, forward, or copy chat content. Requires owner privileges in basic groups, supergroups and channels.
+//-Requires Telegram Premium to enable protected content in private chats. Not available in Saved Messages and private chats with bots or support accounts
 //@chat_id Chat identifier
 //@has_protected_content New value of has_protected_content
 toggleChatHasProtectedContent chat_id:int53 has_protected_content:Bool = Ok;
+
+//@description Processes request to disable has_protected_content in a chat
+//@chat_id Chat identifier
+//@request_message_id Identifier of the message with the request. The message must be incoming and has content of the type messageChatHasProtectedContentDisableRequested
+//@approve Pass true to approve the request; pass false to reject the request
+processChatHasProtectedContentDisableRequest chat_id:int53 request_message_id:int53 approve:Bool = Ok;
 
 //@description Changes the view_as_topics setting of a forum chat or Saved Messages @chat_id Chat identifier @view_as_topics New value of view_as_topics
 toggleChatViewAsTopics chat_id:int53 view_as_topics:Bool = Ok;
@@ -1977,6 +2007,12 @@ addChatMembers chat_id:int53 user_ids:vector<int53> = FailedToAddMembers;
 //@status The new status of the member in the chat
 setChatMemberStatus chat_id:int53 member_id:MessageSender status:ChatMemberStatus = Ok;
 
+//@description Changes the tag or custom title of a chat member; requires can_manage_tags administrator right to change tag of other users; for basic groups and supergroups only
+//@chat_id Chat identifier
+//@user_id Identifier of the user, which tag is changed. Chats can't have member tags
+//@tag The new tag of the member in the chat; 0-16 characters without emoji
+setChatMemberTag chat_id:int53 user_id:int53 tag:string = Ok;
+
 //@description Bans a member in a chat; requires can_restrict_members administrator right. Members can't be banned in private or secret chats. In supergroups and channels, the user will not be able to return to the group on their own using invite links, etc., unless unbanned first
 //@chat_id Chat identifier
 //@member_id Member identifier
@@ -1987,13 +2023,13 @@ banChatMember chat_id:int53 member_id:MessageSender banned_until_date:int32 revo
 //@description Checks whether the current session can be used to transfer a chat ownership to another user
 canTransferOwnership = CanTransferOwnershipResult;
 
-//@description Changes the owner of a chat; requires owner privileges in the chat. Use the method canTransferOwnership to check whether the ownership can be transferred from the current session. Available only for supergroups and channel chats
+//@description Changes the owner of a chat; for basic groups, supergroups and channel chats only; requires owner privileges in the chat. Use the method canTransferOwnership to check whether the ownership can be transferred from the current session
 //@chat_id Chat identifier
 //@user_id Identifier of the user to which transfer the ownership. The ownership can't be transferred to a bot or to a deleted user
 //@password The 2-step verification password of the current user
 transferChatOwnership chat_id:int53 user_id:int53 password:string = Ok;
 
-//@description Returns the user who will become the owner of the chat after 7 days if the current user does not return to the chat during that period; requires owner privileges in the chat.
+//@description Returns the user who will become the owner of the chat after 7 days if the current user does not return to the supergroup or channel during that period or immediately for basic groups; requires owner privileges in the chat.
 //-Available only for supergroups and channel chats
 //@chat_id Chat identifier
 getChatOwnerAfterLeaving chat_id:int53 = User;
@@ -2611,13 +2647,13 @@ discardCall call_id:int32 is_disconnected:Bool invite_link:string duration:int32
 //@rating Call rating; 1-5
 //@comment An optional user comment if the rating is less than 5
 //@problems List of the exact types of problems with the call, specified by the user
-sendCallRating call_id:int32 rating:int32 comment:string problems:vector<CallProblem> = Ok;
+sendCallRating call_id:InputCall rating:int32 comment:string problems:vector<CallProblem> = Ok;
 
 //@description Sends debug information for a call to Telegram servers @call_id Call identifier @debug_information Debug information in application-specific format
-sendCallDebugInformation call_id:int32 debug_information:string = Ok;
+sendCallDebugInformation call_id:InputCall debug_information:string = Ok;
 
 //@description Sends log file for a call to Telegram servers @call_id Call identifier @log_file Call log file. Only inputFileLocal and inputFileGenerated are supported
-sendCallLog call_id:int32 log_file:InputFile = Ok;
+sendCallLog call_id:InputCall log_file:InputFile = Ok;
 
 
 //@description Returns the list of participant identifiers, on whose behalf a video chat in the chat can be joined @chat_id Chat identifier
@@ -2628,7 +2664,7 @@ getVideoChatAvailableParticipants chat_id:int53 = MessageSenders;
 //@default_participant_id Default group call participant identifier to join the video chats in the chat
 setVideoChatDefaultParticipant chat_id:int53 default_participant_id:MessageSender = Ok;
 
-//@description Creates a video chat (a group call bound to a chat). Available only for basic groups, supergroups and channels; requires can_manage_video_chats administrator right
+//@description Creates a video chat (a group call bound to a chat); for basic groups, supergroups and channels only; requires can_manage_video_chats administrator right
 //@chat_id Identifier of a chat in which the video chat will be created
 //@title Group call title; if empty, chat title will be used
 //@start_date Point in time (Unix timestamp) when the group call is expected to be started by an administrator; 0 to start the video chat immediately. The date must be at least 10 seconds and at most 8 days in the future
@@ -3724,7 +3760,8 @@ upgradeGift business_connection_id:string received_gift_id:string keep_original_
 buyGiftUpgrade owner_id:MessageSender prepaid_upgrade_hash:string star_count:int53 = Ok;
 
 //@description Crafts a new gift from other gifts that will be permanently lost
-//@received_gift_ids Identifier of the gifts to use for crafting
+//@received_gift_ids Identifier of the gifts to use for crafting. In the case of a successful craft, the resulting gift will have the number of the first gift.
+//-Consequently, the first gift must not have been withdrawn to the TON blockchain as an NFT and must have an empty gift_address
 craftGift received_gift_ids:vector<string> = CraftGiftResult;
 
 //@description Sends an upgraded gift to another user or channel chat

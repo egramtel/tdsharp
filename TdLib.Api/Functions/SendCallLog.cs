@@ -32,7 +32,7 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("call_id")]
-            public int CallId { get; set; }
+            public InputCall CallId { get; set; }
 
             /// <summary>
             /// Call log file. Only inputFileLocal and inputFileGenerated are supported
@@ -46,7 +46,7 @@ namespace TdLib
         /// Sends log file for a call to Telegram servers
         /// </summary>
         public static Task<Ok> SendCallLogAsync(
-            this Client client, int callId = default, InputFile logFile = default)
+            this Client client, InputCall callId = default, InputFile logFile = default)
         {
             return client.ExecuteAsync(new SendCallLog
             {

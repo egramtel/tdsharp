@@ -36,6 +36,13 @@ namespace TdLib
                 public string Url { get; set; }
 
                 /// <summary>
+                /// The cached audio; may be null if unknown
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("audio")]
+                public Audio Audio { get; set; }
+
+                /// <summary>
                 /// Thumbnail of the audio; may be null if unknown
                 /// </summary>
                 [JsonConverter(typeof(Converter))]

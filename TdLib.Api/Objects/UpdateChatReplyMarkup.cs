@@ -12,7 +12,7 @@ namespace TdLib
         public partial class Update : Object
         {
             /// <summary>
-            /// The default chat reply markup was changed. Can occur because new messages with reply markup were received or because an old reply markup was hidden by the user
+            /// The chat reply markup was changed
             /// </summary>
             public class UpdateChatReplyMarkup : Update
             {
@@ -36,11 +36,11 @@ namespace TdLib
                 public long ChatId { get; set; }
 
                 /// <summary>
-                /// Identifier of the message from which reply markup needs to be used; 0 if there is no default custom reply markup in the chat
+                /// The message from which the reply markup must be used; may be null if there is no default reply markup in the chat
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("reply_markup_message_id")]
-                public long ReplyMarkupMessageId { get; set; }
+                [JsonProperty("reply_markup_message")]
+                public Message ReplyMarkupMessage { get; set; }
             }
         }
     }

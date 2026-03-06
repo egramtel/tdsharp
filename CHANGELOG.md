@@ -11,9 +11,9 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
-## [Unreleased] (1.8.61.1)
+## [Unreleased] (1.8.62)
 ### Changed
-- Update to [TDLib v1.8.61.1](https://github.com/ForNeVeR/tdlib-versioned/releases/tag/tdlib%2Fv1.8.61.1).
+- Update to [TDLib v1.8.62](https://github.com/ForNeVeR/tdlib-versioned/releases/tag/tdlib%2Fv1.8.62).
 
 ## [1.8.61] - 2026-03-01
 ### Changed
