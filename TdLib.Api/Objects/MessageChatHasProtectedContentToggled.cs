@@ -12,15 +12,15 @@ namespace TdLib
         public partial class MessageContent : Object
         {
             /// <summary>
-            /// A message with information about an ended call
+            /// Chat has_protected_content setting was changed or request to change it was rejected
             /// </summary>
-            public class MessageCall : MessageContent
+            public class MessageChatHasProtectedContentToggled : MessageContent
             {
                 /// <summary>
                 /// Data type for serialization
                 /// </summary>
                 [JsonProperty("@type")]
-                public override string DataType { get; set; } = "messageCall";
+                public override string DataType { get; set; } = "messageChatHasProtectedContentToggled";
 
                 /// <summary>
                 /// Extra data attached to the message
@@ -29,32 +29,25 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Persistent unique call identifier; 0 for calls from other devices, which can't be passed as inputCallFromMessage
-                /// </summary>
-                [JsonConverter(typeof(Converter.Int64))]
-                [JsonProperty("unique_id")]
-                public long UniqueId { get; set; }
-
-                /// <summary>
-                /// True, if the call was a video call
+                /// Identifier of the message with the request to change the setting; can be an identifier of a deleted message or 0
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("is_video")]
-                public bool IsVideo { get; set; }
+                [JsonProperty("request_message_id")]
+                public long RequestMessageId { get; set; }
 
                 /// <summary>
-                /// Reason why the call was discarded
+                /// Previous value of the setting
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("discard_reason")]
-                public CallDiscardReason DiscardReason { get; set; }
+                [JsonProperty("old_has_protected_content")]
+                public bool OldHasProtectedContent { get; set; }
 
                 /// <summary>
-                /// Call duration, in seconds
+                /// New value of the setting
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("duration")]
-                public int Duration { get; set; }
+                [JsonProperty("new_has_protected_content")]
+                public bool NewHasProtectedContent { get; set; }
             }
         }
     }

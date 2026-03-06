@@ -83,6 +83,13 @@ namespace TdLib
             public bool MemberRestrictions { get; set; }
 
             /// <summary>
+            /// True, if member tag and custom title change events need to be returned
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("member_tag_changes")]
+            public bool MemberTagChanges { get; set; }
+
+            /// <summary>
             /// True, if changes in chat information need to be returned
             /// </summary>
             [JsonConverter(typeof(Converter))]

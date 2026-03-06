@@ -11,15 +11,15 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Changes the owner of a chat; for basic groups, supergroups and channel chats only; requires owner privileges in the chat. Use the method canTransferOwnership to check whether the ownership can be transferred from the current session
+        /// Changes the tag or custom title of a chat member; requires can_manage_tags administrator right to change tag of other users; for basic groups and supergroups only
         /// </summary>
-        public class TransferChatOwnership : Function<Ok>
+        public class SetChatMemberTag : Function<Ok>
         {
             /// <summary>
             /// Data type for serialization
             /// </summary>
             [JsonProperty("@type")]
-            public override string DataType { get; set; } = "transferChatOwnership";
+            public override string DataType { get; set; } = "setChatMemberTag";
 
             /// <summary>
             /// Extra data attached to the function
@@ -35,29 +35,29 @@ namespace TdLib
             public long ChatId { get; set; }
 
             /// <summary>
-            /// Identifier of the user to which transfer the ownership. The ownership can't be transferred to a bot or to a deleted user
+            /// Identifier of the user, which tag is changed. Chats can't have member tags
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("user_id")]
             public long UserId { get; set; }
 
             /// <summary>
-            /// The 2-step verification password of the current user
+            /// The new tag of the member in the chat; 0-16 characters without emoji
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("password")]
-            public string Password { get; set; }
+            [JsonProperty("tag")]
+            public string Tag { get; set; }
         }
 
         /// <summary>
-        /// Changes the owner of a chat; for basic groups, supergroups and channel chats only; requires owner privileges in the chat. Use the method canTransferOwnership to check whether the ownership can be transferred from the current session
+        /// Changes the tag or custom title of a chat member; requires can_manage_tags administrator right to change tag of other users; for basic groups and supergroups only
         /// </summary>
-        public static Task<Ok> TransferChatOwnershipAsync(
-            this Client client, long chatId = default, long userId = default, string password = default)
+        public static Task<Ok> SetChatMemberTagAsync(
+            this Client client, long chatId = default, long userId = default, string tag = default)
         {
-            return client.ExecuteAsync(new TransferChatOwnership
+            return client.ExecuteAsync(new SetChatMemberTag
             {
-                ChatId = chatId, UserId = userId, Password = password
+                ChatId = chatId, UserId = userId, Tag = tag
             });
         }
     }

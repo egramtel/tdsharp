@@ -30,13 +30,6 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// A custom title of the administrator; 0-16 characters without emoji; applicable to supergroups only
-                /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("custom_title")]
-                public string CustomTitle { get; set; }
-
-                /// <summary>
                 /// True, if the current user can edit the administrator privileges for the called user
                 /// </summary>
                 [JsonConverter(typeof(Converter))]

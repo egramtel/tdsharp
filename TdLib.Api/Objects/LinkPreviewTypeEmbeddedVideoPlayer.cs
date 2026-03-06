@@ -36,6 +36,13 @@ namespace TdLib
                 public string Url { get; set; }
 
                 /// <summary>
+                /// The cached video; may be null if unknown
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("video")]
+                public Video Video { get; set; }
+
+                /// <summary>
                 /// Thumbnail of the video; may be null if unknown
                 /// </summary>
                 [JsonConverter(typeof(Converter))]

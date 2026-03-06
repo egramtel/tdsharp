@@ -9,18 +9,18 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        public partial class LoginUrlInfo : Object
+        public partial class InputCall : Object
         {
             /// <summary>
-            /// Contains information about an inline button of type inlineKeyboardButtonTypeLoginUrl or an external link
+            /// A call from a message of the type messageCall with non-zero messageCall.unique_id
             /// </summary>
-            public class LoginUrlInfoOpen : LoginUrlInfo
+            public class InputCallFromMessage : InputCall
             {
                 /// <summary>
                 /// Data type for serialization
                 /// </summary>
                 [JsonProperty("@type")]
-                public override string DataType { get; set; } = "loginUrlInfoOpen";
+                public override string DataType { get; set; } = "inputCallFromMessage";
 
                 /// <summary>
                 /// Extra data attached to the message
@@ -29,18 +29,18 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// The URL to open
+                /// Chat identifier of the message
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("url")]
-                public string Url { get; set; }
+                [JsonProperty("chat_id")]
+                public long ChatId { get; set; }
 
                 /// <summary>
-                /// True, if there is no need to show an ordinary open URL confirmation
+                /// Message identifier
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("skip_confirmation")]
-                public bool SkipConfirmation { get; set; }
+                [JsonProperty("message_id")]
+                public long MessageId { get; set; }
             }
         }
     }

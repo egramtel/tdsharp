@@ -9,18 +9,19 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        public partial class LoginUrlInfo : Object
+        public partial class InternalLinkType : Object
         {
             /// <summary>
-            /// Contains information about an inline button of type inlineKeyboardButtonTypeLoginUrl or an external link
+            /// The link is an OAuth link. Call getOauthLinkInfo with the given URL to process the link if the link was received from outside of the application; otherwise, ignore it.
+            /// After getOauthLinkInfo, show the user confirmation dialog and process it with checkOauthRequestMatchCode, acceptOauthRequest or declineOauthRequest
             /// </summary>
-            public class LoginUrlInfoOpen : LoginUrlInfo
+            public class InternalLinkTypeOauth : InternalLinkType
             {
                 /// <summary>
                 /// Data type for serialization
                 /// </summary>
                 [JsonProperty("@type")]
-                public override string DataType { get; set; } = "loginUrlInfoOpen";
+                public override string DataType { get; set; } = "internalLinkTypeOauth";
 
                 /// <summary>
                 /// Extra data attached to the message
@@ -29,18 +30,11 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// The URL to open
+                /// URL to be passed to getOauthLinkInfo
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("url")]
                 public string Url { get; set; }
-
-                /// <summary>
-                /// True, if there is no need to show an ordinary open URL confirmation
-                /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("skip_confirmation")]
-                public bool SkipConfirmation { get; set; }
             }
         }
     }

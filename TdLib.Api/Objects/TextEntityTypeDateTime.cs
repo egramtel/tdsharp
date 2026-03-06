@@ -9,18 +9,18 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        public partial class LoginUrlInfo : Object
+        public partial class TextEntityType : Object
         {
             /// <summary>
-            /// Contains information about an inline button of type inlineKeyboardButtonTypeLoginUrl or an external link
+            /// A data and time
             /// </summary>
-            public class LoginUrlInfoOpen : LoginUrlInfo
+            public class TextEntityTypeDateTime : TextEntityType
             {
                 /// <summary>
                 /// Data type for serialization
                 /// </summary>
                 [JsonProperty("@type")]
-                public override string DataType { get; set; } = "loginUrlInfoOpen";
+                public override string DataType { get; set; } = "textEntityTypeDateTime";
 
                 /// <summary>
                 /// Extra data attached to the message
@@ -29,18 +29,18 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// The URL to open
+                /// Point in time (Unix timestamp) representing the data and time
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("url")]
-                public string Url { get; set; }
+                [JsonProperty("unix_time")]
+                public int UnixTime { get; set; }
 
                 /// <summary>
-                /// True, if there is no need to show an ordinary open URL confirmation
+                /// Date and time formatting type; may be null if none and the original text must not be changed
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("skip_confirmation")]
-                public bool SkipConfirmation { get; set; }
+                [JsonProperty("formatting_type")]
+                public DateTimeFormattingType FormattingType { get; set; }
             }
         }
     }

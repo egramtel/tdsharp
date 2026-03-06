@@ -34,6 +34,13 @@ namespace TdLib
             public MessageSender MemberId { get; set; }
 
             /// <summary>
+            /// Tag of the chat member or its custom title if the member is an administrator of the chat; 0-16 characters without emoji; applicable to basic groups and supergroups only
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("tag")]
+            public string Tag { get; set; }
+
+            /// <summary>
             /// Identifier of a user who invited/promoted/banned this member in the chat; 0 if unknown
             /// </summary>
             [JsonConverter(typeof(Converter))]

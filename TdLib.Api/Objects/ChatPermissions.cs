@@ -97,6 +97,13 @@ namespace TdLib
             public bool CanAddLinkPreviews { get; set; }
 
             /// <summary>
+            /// True, if the user may change the tag of self
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("can_edit_tag")]
+            public bool CanEditTag { get; set; }
+
+            /// <summary>
             /// True, if the user can change the chat title, photo, and other settings
             /// </summary>
             [JsonConverter(typeof(Converter))]

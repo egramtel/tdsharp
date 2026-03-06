@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Creates a video chat (a group call bound to a chat). Available only for basic groups, supergroups and channels; requires can_manage_video_chats administrator right
+        /// Creates a video chat (a group call bound to a chat); for basic groups, supergroups and channels only; requires can_manage_video_chats administrator right
         /// </summary>
         public class CreateVideoChat : Function<GroupCallId>
         {
@@ -57,7 +57,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Creates a video chat (a group call bound to a chat). Available only for basic groups, supergroups and channels; requires can_manage_video_chats administrator right
+        /// Creates a video chat (a group call bound to a chat); for basic groups, supergroups and channels only; requires can_manage_video_chats administrator right
         /// </summary>
         public static Task<GroupCallId> CreateVideoChatAsync(
             this Client client, long chatId = default, string title = default, int startDate = default, bool isRtmpStream = default)

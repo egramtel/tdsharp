@@ -9,18 +9,18 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        public partial class LoginUrlInfo : Object
+        public partial class ChatEventAction : Object
         {
             /// <summary>
-            /// Contains information about an inline button of type inlineKeyboardButtonTypeLoginUrl or an external link
+            /// A chat member tag has been changed
             /// </summary>
-            public class LoginUrlInfoOpen : LoginUrlInfo
+            public class ChatEventMemberTagChanged : ChatEventAction
             {
                 /// <summary>
                 /// Data type for serialization
                 /// </summary>
                 [JsonProperty("@type")]
-                public override string DataType { get; set; } = "loginUrlInfoOpen";
+                public override string DataType { get; set; } = "chatEventMemberTagChanged";
 
                 /// <summary>
                 /// Extra data attached to the message
@@ -29,18 +29,25 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// The URL to open
+                /// Affected chat member user identifier
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("url")]
-                public string Url { get; set; }
+                [JsonProperty("user_id")]
+                public long UserId { get; set; }
 
                 /// <summary>
-                /// True, if there is no need to show an ordinary open URL confirmation
+                /// Previous tag of the chat member
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("skip_confirmation")]
-                public bool SkipConfirmation { get; set; }
+                [JsonProperty("old_tag")]
+                public string OldTag { get; set; }
+
+                /// <summary>
+                /// New tag of the chat member
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("new_tag")]
+                public string NewTag { get; set; }
             }
         }
     }

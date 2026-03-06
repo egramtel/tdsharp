@@ -32,7 +32,7 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("call_id")]
-            public int CallId { get; set; }
+            public InputCall CallId { get; set; }
 
             /// <summary>
             /// Debug information in application-specific format
@@ -46,7 +46,7 @@ namespace TdLib
         /// Sends debug information for a call to Telegram servers
         /// </summary>
         public static Task<Ok> SendCallDebugInformationAsync(
-            this Client client, int callId = default, string debugInformation = default)
+            this Client client, InputCall callId = default, string debugInformation = default)
         {
             return client.ExecuteAsync(new SendCallDebugInformation
             {

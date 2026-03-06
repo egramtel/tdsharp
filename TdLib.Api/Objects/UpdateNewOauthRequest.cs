@@ -9,18 +9,18 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        public partial class LoginUrlInfo : Object
+        public partial class Update : Object
         {
             /// <summary>
-            /// An authorization confirmation dialog needs to be shown to the user
+            /// An OAuth authorization request was received
             /// </summary>
-            public class LoginUrlInfoRequestConfirmation : LoginUrlInfo
+            public class UpdateNewOauthRequest : Update
             {
                 /// <summary>
                 /// Data type for serialization
                 /// </summary>
                 [JsonProperty("@type")]
-                public override string DataType { get; set; } = "loginUrlInfoRequestConfirmation";
+                public override string DataType { get; set; } = "updateNewOauthRequest";
 
                 /// <summary>
                 /// Extra data attached to the message
@@ -29,32 +29,25 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// An HTTP URL to be opened
-                /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("url")]
-                public string Url { get; set; }
-
-                /// <summary>
-                /// A domain of the URL
+                /// A domain of the URL where the user authorizes
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("domain")]
                 public string Domain { get; set; }
 
                 /// <summary>
-                /// User identifier of a bot linked with the website
+                /// Human-readable description of a country and a region from which the authorization is performed, based on the IP address
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("bot_user_id")]
-                public long BotUserId { get; set; }
+                [JsonProperty("location")]
+                public string Location { get; set; }
 
                 /// <summary>
-                /// True, if the user must be asked for the permission to the bot to send them messages
+                /// The URL to pass to getOauthLinkInfo; the link is valid for 60 seconds
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("request_write_access")]
-                public bool RequestWriteAccess { get; set; }
+                [JsonProperty("url")]
+                public string Url { get; set; }
             }
         }
     }

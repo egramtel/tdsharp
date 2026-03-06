@@ -298,7 +298,7 @@ namespace TdLib
             public ChatJoinRequestsInfo PendingJoinRequests { get; set; }
 
             /// <summary>
-            /// Identifier of the message from which reply markup needs to be used; 0 if there is no default custom reply markup in the chat
+            /// Identifier of the message from which reply markup needs to be used; 0 if there is no reply markup in the chat
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("reply_markup_message_id")]

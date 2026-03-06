@@ -36,6 +36,13 @@ namespace TdLib
                 public string Url { get; set; }
 
                 /// <summary>
+                /// The cached animation; may be null if unknown
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("animation")]
+                public Animation Animation { get; set; }
+
+                /// <summary>
                 /// Thumbnail of the animation; may be null if unknown
                 /// </summary>
                 [JsonConverter(typeof(Converter))]

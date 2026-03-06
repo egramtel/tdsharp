@@ -10,15 +10,15 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Represents a list of message senders
+        /// Represents a poll voter
         /// </summary>
-        public partial class MessageSenders : Object
+        public partial class PollVoter : Object
         {
             /// <summary>
             /// Data type for serialization
             /// </summary>
             [JsonProperty("@type")]
-            public override string DataType { get; set; } = "messageSenders";
+            public override string DataType { get; set; } = "pollVoter";
 
             /// <summary>
             /// Extra data attached to the object
@@ -27,17 +27,18 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Approximate total number of message senders found
+            /// The voter identifier
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("total_count")]
-            public int TotalCount { get; set; }
+            [JsonProperty("voter_id")]
+            public MessageSender VoterId { get; set; }
 
             /// <summary>
-            /// List of message senders
+            /// Point in time (Unix timestamp) when the vote was added
             /// </summary>
-            [JsonProperty("senders", ItemConverterType = typeof(Converter))]
-            public MessageSender[] Senders { get; set; }
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("date")]
+            public int Date { get; set; }
         }
     }
 }
