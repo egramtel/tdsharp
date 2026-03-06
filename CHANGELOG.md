@@ -11,7 +11,7 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
-## [Unreleased] (1.8.62)
+## [1.8.62] - 2026-03-06
 ### Changed
 - Update to [TDLib v1.8.62](https://github.com/ForNeVeR/tdlib-versioned/releases/tag/tdlib%2Fv1.8.62).
 
@@ -151,4 +151,5 @@ Initial release to support TDLib pre-1.2.
 [1.8.59]: https://github.com/egramtel/tdsharp/compare/v1.8.58...v1.8.59
 [1.8.60]: https://github.com/egramtel/tdsharp/compare/v1.8.59...v1.8.60
 [1.8.61]: https://github.com/egramtel/tdsharp/compare/v1.8.60...v1.8.61
-[Unreleased]: https://github.com/egramtel/tdsharp/compare/v1.8.61...HEAD
+[1.8.62]: https://github.com/egramtel/tdsharp/compare/v1.8.61...v1.8.62
+[Unreleased]: https://github.com/egramtel/tdsharp/compare/v1.8.62...HEAD
