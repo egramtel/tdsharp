@@ -56,7 +56,7 @@ namespace TdLib
         /// <summary>
         /// Provides updates from TDLib
         /// </summary>
-        public event EventHandler<TdApi.Update> UpdateReceived
+        public override event EventHandler<TdApi.Update> UpdateReceived
         {
             add
             {
