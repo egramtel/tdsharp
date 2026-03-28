@@ -9,7 +9,6 @@ SPDX-License-Identifier: MIT
     <PropertyGroup>
         <TargetFramework>net9.0</TargetFramework>
         <GenerateProgramFile>false</GenerateProgramFile>
-        <LangVersion>10.0</LangVersion>
     </PropertyGroup>
 
     <ItemGroup>
