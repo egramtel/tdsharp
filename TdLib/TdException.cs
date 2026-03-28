@@ -4,6 +4,7 @@
 
 using System;
 using TdLib;
+using TdLib.TdApi.Objects;
 
 namespace TdLib
 {
@@ -12,9 +13,9 @@ namespace TdLib
     /// </summary>
     public class TdException : Exception
     {
-        public readonly TdApi.Error Error;
+        public readonly Error Error;
 
-        public TdException(TdApi.Error error) : base(error.Message)
+        public TdException(Error error) : base(error.Message)
         {
             Error = error;
         }

@@ -8,6 +8,8 @@ using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 using TdLib.Bindings;
+using TdLib.TdApi;
+using TdLib.TdApi.Objects;
 
 namespace TdLib.Samples.GetChats;
 
@@ -70,7 +72,7 @@ internal static class Program
     private static async Task HandleAuthentication()
     {
         // Setting phone number
-        await _client.ExecuteAsync(new TdApi.SetAuthenticationPhoneNumber
+        await _client.ExecuteAsync(new SetAuthenticationPhoneNumber
         {
             PhoneNumber = PhoneNumber
         });
@@ -79,7 +81,7 @@ internal static class Program
         Console.Write("Insert the login code: ");
         var code = Console.ReadLine();
 
-        await _client.ExecuteAsync(new TdApi.CheckAuthenticationCode
+        await _client.ExecuteAsync(new CheckAuthenticationCode
         {
             Code = code
         });
@@ -90,13 +92,13 @@ internal static class Program
         Console.Write("Insert the password: ");
         var password = Console.ReadLine();
 
-        await _client.ExecuteAsync(new TdApi.CheckAuthenticationPassword
+        await _client.ExecuteAsync(new CheckAuthenticationPassword
         {
             Password = password
         });
     }
 
-    private static async Task ProcessUpdates(TdApi.Update update)
+    private static async Task ProcessUpdates(Update update)
     {
         // Since Tdlib was made to be used in GUI application we need to struggle a bit and catch required events to determine our state.
         // Below you can find example of simple authentication handling.
@@ -104,11 +106,11 @@ internal static class Program
 
         switch (update)
         {
-            case TdApi.Update.UpdateAuthorizationState { AuthorizationState: TdApi.AuthorizationState.AuthorizationStateWaitTdlibParameters }:
+            case Update.UpdateAuthorizationState { AuthorizationState: AuthorizationState.AuthorizationStateWaitTdlibParameters }:
                 // TdLib creates database in the current directory.
                 // so create separate directory and switch to that dir.
                 var filesLocation = Path.Combine(AppContext.BaseDirectory, "db");
-                await _client.ExecuteAsync(new TdApi.SetTdlibParameters
+                await _client.ExecuteAsync(new SetTdlibParameters
                 {
                     ApiId = ApiId,
                     ApiHash = ApiHash,
@@ -121,23 +123,23 @@ internal static class Program
                 });
                 break;
 
-            case TdApi.Update.UpdateAuthorizationState { AuthorizationState: TdApi.AuthorizationState.AuthorizationStateWaitPhoneNumber }:
-            case TdApi.Update.UpdateAuthorizationState { AuthorizationState: TdApi.AuthorizationState.AuthorizationStateWaitCode }:
+            case Update.UpdateAuthorizationState { AuthorizationState: AuthorizationState.AuthorizationStateWaitPhoneNumber }:
+            case Update.UpdateAuthorizationState { AuthorizationState: AuthorizationState.AuthorizationStateWaitCode }:
                 _authNeeded = true;
                 ReadyToAuthenticate.Set();
                 break;
 
-            case TdApi.Update.UpdateAuthorizationState { AuthorizationState: TdApi.AuthorizationState.AuthorizationStateWaitPassword }:
+            case Update.UpdateAuthorizationState { AuthorizationState: AuthorizationState.AuthorizationStateWaitPassword }:
                 _authNeeded = true;
                 _passwordNeeded = true;
                 ReadyToAuthenticate.Set();
                 break;
 
-            case TdApi.Update.UpdateUser:
+            case Update.UpdateUser:
                 ReadyToAuthenticate.Set();
                 break;
 
-            case TdApi.Update.UpdateConnectionState { State: TdApi.ConnectionState.ConnectionStateReady }:
+            case Update.UpdateConnectionState { State: ConnectionState.ConnectionStateReady }:
                 // You may trigger additional event on connection state change
                 break;
 
@@ -149,12 +151,12 @@ internal static class Program
         }
     }
 
-    private static async Task<TdApi.User> GetCurrentUser()
+    private static async Task<User> GetCurrentUser()
     {
-        return await _client.ExecuteAsync(new TdApi.GetMe());
+        return await _client.ExecuteAsync(new GetMe());
     }
 
-    private static async IAsyncEnumerable<TdApi.Chat> GetChannels(int limit)
+    private static async IAsyncEnumerable<Chat> GetChannels(int limit)
     {
         var chats = await _client.ExecuteAsync(new TdApi.GetChats
         {
@@ -163,12 +165,12 @@ internal static class Program
 
         foreach (var chatId in chats.ChatIds)
         {
-            var chat = await _client.ExecuteAsync(new TdApi.GetChat
+            var chat = await _client.ExecuteAsync(new GetChat
             {
                 ChatId = chatId
             });
 
-            if (chat.Type is TdApi.ChatType.ChatTypeSupergroup or TdApi.ChatType.ChatTypeBasicGroup or TdApi.ChatType.ChatTypePrivate)
+            if (chat.Type is ChatType.ChatTypeSupergroup or ChatType.ChatTypeBasicGroup or ChatType.ChatTypePrivate)
             {
                 yield return chat;
             }

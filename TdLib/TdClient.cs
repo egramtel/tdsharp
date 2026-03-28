@@ -9,21 +9,24 @@ using System.Threading;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using TdLib.Bindings;
+using TdLib.TdApi;
+using TdLib.TdApi.Objects;
+using Object = TdLib.TdApi.Object;
 
 namespace TdLib
 {
     /// <summary>
     /// TDLib client for using with generated APIs
     /// </summary>
-    public class TdClient : TdApi.Client, IDisposable
+    public class TdClient : Client, IDisposable
     {
         private TdJsonClient _tdJsonClient;
 
         private int _taskId;
-        private readonly ConcurrentDictionary<int, Action<TdApi.Object>> _tasks;
+        private readonly ConcurrentDictionary<int, Action<Object>> _tasks;
 
         private Receiver _receiver;
-        private TdApi.AuthorizationState _authorizationState;
+        private AuthorizationState _authorizationState;
 
         public TdClient() : this(Interop.AutoDetectBindings()) {}
 
@@ -38,7 +41,7 @@ namespace TdLib
         {
             _tdJsonClient = new TdJsonClient(bindings);
 
-            _tasks = new ConcurrentDictionary<int, Action<TdApi.Object>>();
+            _tasks = new ConcurrentDictionary<int, Action<Object>>();
 
             _receiver = new Receiver(_tdJsonClient,receiverTimeOut);
             _receiver.Received += OnReceived;
@@ -56,7 +59,7 @@ namespace TdLib
         /// <summary>
         /// Provides updates from TDLib
         /// </summary>
-        public override event EventHandler<TdApi.Update> UpdateReceived
+        public override event EventHandler<Update> UpdateReceived
         {
             add
             {
@@ -82,14 +85,14 @@ namespace TdLib
             }
         }
 
-        private void OnReceived(object _, TdApi.Object obj)
+        private void OnReceived(object _, Object obj)
         {
             if (int.TryParse(obj.Extra, NumberStyles.Integer, CultureInfo.InvariantCulture, out int id)
                 && _tasks.TryRemove(id, out var action))
             {
                 action(obj);
             }
-            else if (obj is TdApi.Update update)
+            else if (obj is Update update)
             {
                 if (_updateReceiverCount == 0)
                 {
@@ -102,21 +105,21 @@ namespace TdLib
             }
         }
 
-        private void OnAuthorizationStateChanged(object sender, TdApi.AuthorizationState state)
+        private void OnAuthorizationStateChanged(object sender, AuthorizationState state)
         {
             _authorizationState = state;
         }
 
         private readonly object _disposeLock = new object();
         private readonly object _updateLock = new object();
-        private readonly ConcurrentQueue<TdApi.Update> _updateBuffer = new ConcurrentQueue<TdApi.Update>();
-        private EventHandler<TdApi.Update> _updateReceived;
+        private readonly ConcurrentQueue<Update> _updateBuffer = new ConcurrentQueue<Update>();
+        private EventHandler<Update> _updateReceived;
         private int _updateReceiverCount;
 
         /// <summary>
         /// Executes function and ignores response
         /// </summary>
-        public override void Send<TResut>(TdApi.Function<TResut> function)
+        public override void Send<TResut>(Function<TResut> function)
         {
             if (_receiver == null)
             {
@@ -130,7 +133,7 @@ namespace TdLib
         /// <summary>
         /// Synchronously executes function and returns response
         /// </summary>
-        public override TResult Execute<TResult>(TdApi.Function<TResult> function)
+        public override TResult Execute<TResult>(Function<TResult> function)
         {
             if (_receiver == null)
             {
@@ -139,9 +142,9 @@ namespace TdLib
 
             var data = JsonConvert.SerializeObject(function);
             data = _tdJsonClient.Execute(data);
-            var structure = JsonConvert.DeserializeObject<TdApi.Object>(data, new Converter());
+            var structure = JsonConvert.DeserializeObject<Object>(data, new Converter());
 
-            if (structure is TdApi.Error error)
+            if (structure is Error error)
             {
                 throw new TdException(error);
             }
@@ -152,7 +155,7 @@ namespace TdLib
         /// <summary>
         /// Asynchronously executes function and returns response
         /// </summary>
-        public override Task<TResult> ExecuteAsync<TResult>(TdApi.Function<TResult> function)
+        public override Task<TResult> ExecuteAsync<TResult>(Function<TResult> function)
         {
             if (_receiver == null)
             {
@@ -165,7 +168,7 @@ namespace TdLib
             function.Extra = id.ToString(CultureInfo.InvariantCulture);
             _tasks.TryAdd(id, structure =>
             {
-                if (structure is TdApi.Error error)
+                if (structure is Error error)
                 {
                     tcs.SetException(new TdException(error));
                 }
@@ -207,11 +210,11 @@ namespace TdLib
 
         private async Task CloseImplAsync()
         {
-            var tcs = new TaskCompletionSource<TdApi.AuthorizationState>(TaskCreationOptions.RunContinuationsAsynchronously);
+            var tcs = new TaskCompletionSource<AuthorizationState>(TaskCreationOptions.RunContinuationsAsynchronously);
 
-            EventHandler<TdApi.AuthorizationState> handler = (_, state) =>
+            EventHandler<AuthorizationState> handler = (_, state) =>
             {
-                if (state is TdApi.AuthorizationState.AuthorizationStateClosed)
+                if (state is AuthorizationState.AuthorizationStateClosed)
                 {
                     tcs.SetResult(state);
                 }
@@ -221,12 +224,12 @@ namespace TdLib
             {
                 _receiver.AuthorizationStateChanged += handler;
 
-                if (_authorizationState is TdApi.AuthorizationState.AuthorizationStateClosed)
+                if (_authorizationState is AuthorizationState.AuthorizationStateClosed)
                 {
                     return;
                 }
 
-                await ExecuteAsync(new TdApi.Close()).ConfigureAwait(false);
+                await ExecuteAsync(new Close()).ConfigureAwait(false);
                 await Task.WhenAny(tcs.Task, Task.Delay(TimeoutToClose)).ConfigureAwait(false);
             }
             finally

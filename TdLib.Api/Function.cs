@@ -2,12 +2,11 @@
 //
 // SPDX-License-Identifier: MIT
 
-using System.Threading.Tasks;
+using TdLib.TdApi;
 
 namespace TdLib
 {
-    public static partial class TdApi
-    {
+
         /// <summary>
         /// Base class for all functions
         /// </summary>
@@ -15,5 +14,4 @@ namespace TdLib
         public abstract class Function<T> : Object
         {
         }
-    }
 }

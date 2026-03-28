@@ -8,6 +8,8 @@ open System.Threading
 open System.Threading.Tasks
 open TdLib.Bindings
 open TdLib
+open TdLib.TdApi
+open TdLib.TdApi.Objects
 
 let apiId = 0
 let apiHash = ""
@@ -24,31 +26,31 @@ let mutable authNeeded = false
 let mutable passwordNeeded = false
 
 let handleAuthentication() = task {
-    do! client.ExecuteAsync(TdApi.SetAuthenticationPhoneNumber(PhoneNumber = phoneNumber)) :> Task
+    do! client.ExecuteAsync(SetAuthenticationPhoneNumber(PhoneNumber = phoneNumber)) :> Task
 
     // Telegram servers will send code to us
     printfn "Insert the login code: "
     let code = Console.ReadLine()
-    do! client.ExecuteAsync(TdApi.CheckAuthenticationCode(Code = code)) :> Task
+    do! client.ExecuteAsync(CheckAuthenticationCode(Code = code)) :> Task
 
     if passwordNeeded then
         // 2FA may be enabled. Cloud password is required in that case.
         printf "Insert the password: "
         let password = Console.ReadLine()
-        do! client.ExecuteAsync(TdApi.CheckAuthenticationPassword(Password = password)) :> Task
+        do! client.ExecuteAsync(CheckAuthenticationPassword(Password = password)) :> Task
 }
 
-let processUpdates (update : TdApi.Update) = task {
+let processUpdates (update : Update) = task {
     // Since Tdlib was made to be used in GUI application we need to struggle a bit and catch required events to determine our state.
     // Below you can find example of simple authentication handling.
     // Please note that AuthorizationStateWaitOtherDeviceConfirmation is not implemented.
     let filesLocation = Path.Combine(AppContext.BaseDirectory, "db")
 
     match update with
-    | :? TdApi.Update.UpdateAuthorizationState as update ->
+    | :? Update.UpdateAuthorizationState as update ->
         match update.AuthorizationState with
-        | :? TdApi.AuthorizationState.AuthorizationStateWaitTdlibParameters ->
-            do! client.ExecuteAsync(TdApi.SetTdlibParameters(
+        | :? AuthorizationState.AuthorizationStateWaitTdlibParameters ->
+            do! client.ExecuteAsync(SetTdlibParameters(
                 ApiId = apiId,
                 ApiHash = apiHash,
                 ApplicationVersion = applicationVersion,
@@ -56,35 +58,35 @@ let processUpdates (update : TdApi.Update) = task {
                 SystemLanguageCode = "en",
                 DatabaseDirectory = filesLocation,
                 FilesDirectory = filesLocation)) :> Task
-        | :? TdApi.AuthorizationState.AuthorizationStateWaitPhoneNumber
-        | :? TdApi.AuthorizationState.AuthorizationStateWaitCode ->
+        | :? AuthorizationState.AuthorizationStateWaitPhoneNumber
+        | :? AuthorizationState.AuthorizationStateWaitCode ->
             authNeeded <- true
             readyToAuthenticate.Set()
-        | :? TdApi.AuthorizationState.AuthorizationStateWaitPassword ->
+        | :? AuthorizationState.AuthorizationStateWaitPassword ->
             authNeeded <- true
             passwordNeeded <- true
             readyToAuthenticate.Set()
         | _ -> ()
-    | :? TdApi.Update.UpdateUser -> readyToAuthenticate.Set()
-    | :? TdApi.Update.UpdateConnectionState as update ->
+    | :? Update.UpdateUser -> readyToAuthenticate.Set()
+    | :? Update.UpdateConnectionState as update ->
         match update.State with
-        | :? TdApi.ConnectionState.ConnectionStateReady -> ()
+        | :? ConnectionState.ConnectionStateReady -> ()
             // You may trigger additional event on connection state change
         | _ -> ()
     | _ -> ()
 }
 
-let getCurrentUser() = client.ExecuteAsync(TdApi.GetMe())
+let getCurrentUser() = client.ExecuteAsync(GetMe())
 
 let getChannels limit = task {
-    let result = ResizeArray<TdApi.Chat>()
-    let! chats = client.ExecuteAsync(TdApi.GetChats(Limit = limit))
+    let result = ResizeArray<Chat>()
+    let! chats = client.ExecuteAsync(GetChats(Limit = limit))
     for chatId in chats.ChatIds do
-        let! chat = client.ExecuteAsync(TdApi.GetChat(ChatId = chatId))
+        let! chat = client.ExecuteAsync(GetChat(ChatId = chatId))
         match chat.Type with
-        | :? TdApi.ChatType.ChatTypeSupergroup
-        | :? TdApi.ChatType.ChatTypeBasicGroup
-        | :? TdApi.ChatType.ChatTypePrivate ->
+        | :? ChatType.ChatTypeSupergroup
+        | :? ChatType.ChatTypeBasicGroup
+        | :? ChatType.ChatTypePrivate ->
             result.Add chat
         | _ -> ()
 

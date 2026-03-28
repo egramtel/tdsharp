@@ -3,6 +3,7 @@
 // SPDX-License-Identifier: MIT
 
 using System.Threading.Tasks;
+using TdLib.TdApi.Objects;
 using Xunit;
 
 namespace TdLib.Tests
@@ -15,10 +16,10 @@ namespace TdLib.Tests
             using (var client = new TdClient())
             {
                 TdException exception = null;
-                
+
                 try
                 {
-                    await client.TestReturnErrorAsync(new TdApi.Error
+                    await client.TestReturnErrorAsync(new Error
                     {
                         Code = 0,
                         Message = "Error"
@@ -28,7 +29,7 @@ namespace TdLib.Tests
                 {
                     exception = e;
                 }
-                
+
                 Assert.NotNull(exception);
                 Assert.NotNull(exception.Error);
             }

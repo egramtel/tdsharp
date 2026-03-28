@@ -3,6 +3,8 @@
 // SPDX-License-Identifier: MIT
 
 using Newtonsoft.Json;
+using TdLib.TdApi;
+using TdLib.TdApi.Objects;
 using Xunit;
 using Xunit.Sdk;
 
@@ -69,10 +71,10 @@ public class ConverterTests
     }
 }
 """;
-        var data = JsonConvert.DeserializeObject<TdApi.Object>(json, Converter);
-        if (data is not TdApi.Update.UpdateNewMessage
+        var data = JsonConvert.DeserializeObject<Object>(json, Converter);
+        if (data is not Update.UpdateNewMessage
             {
-                Message.Content: TdApi.MessageContent.MessageSticker
+                Message.Content: MessageContent.MessageSticker
             })
         {
             throw new XunitException("Data is not a properly-formed message");
