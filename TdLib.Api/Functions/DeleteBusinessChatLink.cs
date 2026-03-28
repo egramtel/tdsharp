@@ -46,6 +46,29 @@ namespace TdLib
                 Link = link
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Deletes a business chat link of the current account
+                /// </summary>
+                public Task<Ok> DeleteBusinessChatLinkAsync(string link = default)
+                {
+                //test
+                    return ExecuteAsync(new DeleteBusinessChatLink
+                    {
+                        Link = link
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Deletes a business chat link of the current account
+                /// </summary>
+                Task<Ok> DeleteBusinessChatLinkAsync(string link = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

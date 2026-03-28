@@ -52,6 +52,29 @@ namespace TdLib
                 ChatList = chatList, ChatIds = chatIds
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes the order of pinned chats
+                /// </summary>
+                public Task<Ok> SetPinnedChatsAsync(ChatList chatList = default, long[] chatIds = default)
+                {
+                //test
+                    return ExecuteAsync(new SetPinnedChats
+                    {
+                        ChatList = chatList, ChatIds = chatIds
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes the order of pinned chats
+                /// </summary>
+                Task<Ok> SetPinnedChatsAsync(ChatList chatList = default, long[] chatIds = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

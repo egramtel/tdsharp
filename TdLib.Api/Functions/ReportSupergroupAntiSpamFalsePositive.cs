@@ -53,6 +53,29 @@ namespace TdLib
                 SupergroupId = supergroupId, MessageId = messageId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Reports a false deletion of a message by aggressive anti-spam checks; requires administrator rights in the supergroup. Can be called only for messages from chatEventMessageDeleted with can_report_anti_spam_false_positive == true
+                /// </summary>
+                public Task<Ok> ReportSupergroupAntiSpamFalsePositiveAsync(long supergroupId = default, long messageId = default)
+                {
+                //test
+                    return ExecuteAsync(new ReportSupergroupAntiSpamFalsePositive
+                    {
+                        SupergroupId = supergroupId, MessageId = messageId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Reports a false deletion of a message by aggressive anti-spam checks; requires administrator rights in the supergroup. Can be called only for messages from chatEventMessageDeleted with can_report_anti_spam_false_positive == true
+                /// </summary>
+                Task<Ok> ReportSupergroupAntiSpamFalsePositiveAsync(long supergroupId = default, long messageId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

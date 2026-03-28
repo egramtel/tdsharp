@@ -54,6 +54,31 @@ namespace TdLib
                 ShortcutName = shortcutName, MessageIds = messageIds
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Readds quick reply messages which failed to add. Can be called only for messages for which messageSendingStateFailed.can_retry is true and after specified in messageSendingStateFailed.retry_after time passed.
+                /// If a message is readded, the corresponding failed to send message is deleted. Returns the sent messages in the same order as the message identifiers passed in message_ids. If a message can't be readded, null will be returned instead of the message
+                /// </summary>
+                public Task<QuickReplyMessages> ReaddQuickReplyShortcutMessagesAsync(string shortcutName = default, long[] messageIds = default)
+                {
+                //test
+                    return ExecuteAsync(new ReaddQuickReplyShortcutMessages
+                    {
+                        ShortcutName = shortcutName, MessageIds = messageIds
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Readds quick reply messages which failed to add. Can be called only for messages for which messageSendingStateFailed.can_retry is true and after specified in messageSendingStateFailed.retry_after time passed.
+                /// If a message is readded, the corresponding failed to send message is deleted. Returns the sent messages in the same order as the message identifiers passed in message_ids. If a message can't be readded, null will be returned instead of the message
+                /// </summary>
+                Task<QuickReplyMessages> ReaddQuickReplyShortcutMessagesAsync(string shortcutName = default, long[] messageIds = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

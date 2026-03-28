@@ -46,6 +46,29 @@ namespace TdLib
                 GroupCallId = groupCallId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Starts a scheduled video chat
+                /// </summary>
+                public Task<Ok> StartScheduledVideoChatAsync(int groupCallId = default)
+                {
+                //test
+                    return ExecuteAsync(new StartScheduledVideoChat
+                    {
+                        GroupCallId = groupCallId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Starts a scheduled video chat
+                /// </summary>
+                Task<Ok> StartScheduledVideoChatAsync(int groupCallId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

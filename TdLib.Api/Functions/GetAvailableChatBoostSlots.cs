@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns the list of available chat boost slots for the current user
+                /// </summary>
+                public Task<ChatBoostSlots> GetAvailableChatBoostSlotsAsync()
+                {
+                //test
+                    return ExecuteAsync(new GetAvailableChatBoostSlots
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns the list of available chat boost slots for the current user
+                /// </summary>
+                Task<ChatBoostSlots> GetAvailableChatBoostSlotsAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

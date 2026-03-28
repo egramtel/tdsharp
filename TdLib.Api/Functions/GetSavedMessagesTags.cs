@@ -46,6 +46,29 @@ namespace TdLib
                 SavedMessagesTopicId = savedMessagesTopicId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns tags used in Saved Messages or a Saved Messages topic
+                /// </summary>
+                public Task<SavedMessagesTags> GetSavedMessagesTagsAsync(long savedMessagesTopicId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetSavedMessagesTags
+                    {
+                        SavedMessagesTopicId = savedMessagesTopicId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns tags used in Saved Messages or a Saved Messages topic
+                /// </summary>
+                Task<SavedMessagesTags> GetSavedMessagesTagsAsync(long savedMessagesTopicId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

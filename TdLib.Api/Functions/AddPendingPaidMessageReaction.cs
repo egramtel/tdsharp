@@ -67,6 +67,29 @@ namespace TdLib
                 ChatId = chatId, MessageId = messageId, StarCount = starCount, Type = type
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Adds the paid message reaction to a message. Use getMessageAvailableReactions to check whether the reaction is available for the message
+                /// </summary>
+                public Task<Ok> AddPendingPaidMessageReactionAsync(long chatId = default, long messageId = default, long starCount = default, PaidReactionType type = default)
+                {
+                //test
+                    return ExecuteAsync(new AddPendingPaidMessageReaction
+                    {
+                        ChatId = chatId, MessageId = messageId, StarCount = starCount, Type = type
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Adds the paid message reaction to a message. Use getMessageAvailableReactions to check whether the reaction is available for the message
+                /// </summary>
+                Task<Ok> AddPendingPaidMessageReactionAsync(long chatId = default, long messageId = default, long starCount = default, PaidReactionType type = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

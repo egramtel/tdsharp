@@ -46,6 +46,29 @@ namespace TdLib
                 ChatId = chatId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Removes the connected business bot from a specific chat by adding the chat to businessRecipients.excluded_chat_ids
+                /// </summary>
+                public Task<Ok> RemoveBusinessConnectedBotFromChatAsync(long chatId = default)
+                {
+                //test
+                    return ExecuteAsync(new RemoveBusinessConnectedBotFromChat
+                    {
+                        ChatId = chatId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Removes the connected business bot from a specific chat by adding the chat to businessRecipients.excluded_chat_ids
+                /// </summary>
+                Task<Ok> RemoveBusinessConnectedBotFromChatAsync(long chatId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

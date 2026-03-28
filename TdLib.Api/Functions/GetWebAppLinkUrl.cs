@@ -81,6 +81,29 @@ namespace TdLib
                 ChatId = chatId, BotUserId = botUserId, WebAppShortName = webAppShortName, StartParameter = startParameter, AllowWriteAccess = allowWriteAccess, Parameters = parameters
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns an HTTPS URL of a Web App to open after a link of the type internalLinkTypeWebApp is clicked
+                /// </summary>
+                public Task<HttpUrl> GetWebAppLinkUrlAsync(long chatId = default, long botUserId = default, string webAppShortName = default, string startParameter = default, bool allowWriteAccess = default, WebAppOpenParameters parameters = default)
+                {
+                //test
+                    return ExecuteAsync(new GetWebAppLinkUrl
+                    {
+                        ChatId = chatId, BotUserId = botUserId, WebAppShortName = webAppShortName, StartParameter = startParameter, AllowWriteAccess = allowWriteAccess, Parameters = parameters
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns an HTTPS URL of a Web App to open after a link of the type internalLinkTypeWebApp is clicked
+                /// </summary>
+                Task<HttpUrl> GetWebAppLinkUrlAsync(long chatId = default, long botUserId = default, string webAppShortName = default, string startParameter = default, bool allowWriteAccess = default, WebAppOpenParameters parameters = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

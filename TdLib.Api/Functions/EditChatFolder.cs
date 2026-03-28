@@ -53,6 +53,29 @@ namespace TdLib
                 ChatFolderId = chatFolderId, Folder = folder
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Edits existing chat folder. Returns information about the edited chat folder
+                /// </summary>
+                public Task<ChatFolderInfo> EditChatFolderAsync(int chatFolderId = default, ChatFolder folder = default)
+                {
+                //test
+                    return ExecuteAsync(new EditChatFolder
+                    {
+                        ChatFolderId = chatFolderId, Folder = folder
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Edits existing chat folder. Returns information about the edited chat folder
+                /// </summary>
+                Task<ChatFolderInfo> EditChatFolderAsync(int chatFolderId = default, ChatFolder folder = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

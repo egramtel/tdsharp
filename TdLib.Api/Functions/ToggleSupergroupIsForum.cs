@@ -60,6 +60,29 @@ namespace TdLib
                 SupergroupId = supergroupId, IsForum = isForum, HasForumTabs = hasForumTabs
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Toggles whether the supergroup is a forum; requires owner privileges in the supergroup. Discussion supergroups can't be converted to forums
+                /// </summary>
+                public Task<Ok> ToggleSupergroupIsForumAsync(long supergroupId = default, bool isForum = default, bool hasForumTabs = default)
+                {
+                //test
+                    return ExecuteAsync(new ToggleSupergroupIsForum
+                    {
+                        SupergroupId = supergroupId, IsForum = isForum, HasForumTabs = hasForumTabs
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Toggles whether the supergroup is a forum; requires owner privileges in the supergroup. Discussion supergroups can't be converted to forums
+                /// </summary>
+                Task<Ok> ToggleSupergroupIsForumAsync(long supergroupId = default, bool isForum = default, bool hasForumTabs = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

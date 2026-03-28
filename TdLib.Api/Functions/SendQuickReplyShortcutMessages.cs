@@ -60,6 +60,29 @@ namespace TdLib
                 ChatId = chatId, ShortcutId = shortcutId, SendingId = sendingId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Sends messages from a quick reply shortcut. Requires Telegram Business subscription. Can't be used to send paid messages
+                /// </summary>
+                public Task<Messages> SendQuickReplyShortcutMessagesAsync(long chatId = default, int shortcutId = default, int sendingId = default)
+                {
+                //test
+                    return ExecuteAsync(new SendQuickReplyShortcutMessages
+                    {
+                        ChatId = chatId, ShortcutId = shortcutId, SendingId = sendingId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Sends messages from a quick reply shortcut. Requires Telegram Business subscription. Can't be used to send paid messages
+                /// </summary>
+                Task<Messages> SendQuickReplyShortcutMessagesAsync(long chatId = default, int shortcutId = default, int sendingId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

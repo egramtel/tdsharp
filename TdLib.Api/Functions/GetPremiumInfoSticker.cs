@@ -46,6 +46,29 @@ namespace TdLib
                 MonthCount = monthCount
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns the sticker to be used as representation of the Telegram Premium subscription
+                /// </summary>
+                public Task<Sticker> GetPremiumInfoStickerAsync(int monthCount = default)
+                {
+                //test
+                    return ExecuteAsync(new GetPremiumInfoSticker
+                    {
+                        MonthCount = monthCount
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns the sticker to be used as representation of the Telegram Premium subscription
+                /// </summary>
+                Task<Sticker> GetPremiumInfoStickerAsync(int monthCount = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -46,6 +46,29 @@ namespace TdLib
                 MainProfileTab = mainProfileTab
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes the main profile tab of the current user
+                /// </summary>
+                public Task<Ok> SetMainProfileTabAsync(ProfileTab mainProfileTab = default)
+                {
+                //test
+                    return ExecuteAsync(new SetMainProfileTab
+                    {
+                        MainProfileTab = mainProfileTab
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes the main profile tab of the current user
+                /// </summary>
+                Task<Ok> SetMainProfileTabAsync(ProfileTab mainProfileTab = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

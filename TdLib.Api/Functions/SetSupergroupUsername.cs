@@ -53,6 +53,29 @@ namespace TdLib
                 SupergroupId = supergroupId, Username = username
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes the editable username of a supergroup or channel, requires owner privileges in the supergroup or channel
+                /// </summary>
+                public Task<Ok> SetSupergroupUsernameAsync(long supergroupId = default, string username = default)
+                {
+                //test
+                    return ExecuteAsync(new SetSupergroupUsername
+                    {
+                        SupergroupId = supergroupId, Username = username
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes the editable username of a supergroup or channel, requires owner privileges in the supergroup or channel
+                /// </summary>
+                Task<Ok> SetSupergroupUsernameAsync(long supergroupId = default, string username = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

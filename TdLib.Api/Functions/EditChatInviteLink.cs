@@ -85,6 +85,33 @@ namespace TdLib
                 ChatId = chatId, InviteLink = inviteLink, Name = name, ExpirationDate = expirationDate, MemberLimit = memberLimit, CreatesJoinRequest = createsJoinRequest
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Edits a non-primary invite link for a chat. Available for basic groups, supergroups, and channels.
+                /// If the link creates a subscription, then expiration_date, member_limit and creates_join_request must not be used.
+                /// Requires administrator privileges and can_invite_users right in the chat for own links and owner privileges for other links
+                /// </summary>
+                public Task<ChatInviteLink> EditChatInviteLinkAsync(long chatId = default, string inviteLink = default, string name = default, int expirationDate = default, int memberLimit = default, bool createsJoinRequest = default)
+                {
+                //test
+                    return ExecuteAsync(new EditChatInviteLink
+                    {
+                        ChatId = chatId, InviteLink = inviteLink, Name = name, ExpirationDate = expirationDate, MemberLimit = memberLimit, CreatesJoinRequest = createsJoinRequest
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Edits a non-primary invite link for a chat. Available for basic groups, supergroups, and channels.
+                /// If the link creates a subscription, then expiration_date, member_limit and creates_join_request must not be used.
+                /// Requires administrator privileges and can_invite_users right in the chat for own links and owner privileges for other links
+                /// </summary>
+                Task<ChatInviteLink> EditChatInviteLinkAsync(long chatId = default, string inviteLink = default, string name = default, int expirationDate = default, int memberLimit = default, bool createsJoinRequest = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

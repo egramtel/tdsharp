@@ -59,6 +59,29 @@ namespace TdLib
                 ChatId = chatId, MessageId = messageId, Tasks = tasks
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Adds tasks to a checklist in a message
+                /// </summary>
+                public Task<Ok> AddChecklistTasksAsync(long chatId = default, long messageId = default, InputChecklistTask[] tasks = default)
+                {
+                //test
+                    return ExecuteAsync(new AddChecklistTasks
+                    {
+                        ChatId = chatId, MessageId = messageId, Tasks = tasks
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Adds tasks to a checklist in a message
+                /// </summary>
+                Task<Ok> AddChecklistTasksAsync(long chatId = default, long messageId = default, InputChecklistTask[] tasks = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

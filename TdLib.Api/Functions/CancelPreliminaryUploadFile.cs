@@ -46,6 +46,29 @@ namespace TdLib
                 FileId = fileId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Stops the preliminary uploading of a file. Supported only for files uploaded by using preliminaryUploadFile
+                /// </summary>
+                public Task<Ok> CancelPreliminaryUploadFileAsync(int fileId = default)
+                {
+                //test
+                    return ExecuteAsync(new CancelPreliminaryUploadFile
+                    {
+                        FileId = fileId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Stops the preliminary uploading of a file. Supported only for files uploaded by using preliminaryUploadFile
+                /// </summary>
+                Task<Ok> CancelPreliminaryUploadFileAsync(int fileId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

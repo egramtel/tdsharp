@@ -46,6 +46,29 @@ namespace TdLib
                 Password = password
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns a 2-step verification recovery email address that was previously set up. This method can be used to verify a password provided by the user
+                /// </summary>
+                public Task<RecoveryEmailAddress> GetRecoveryEmailAddressAsync(string password = default)
+                {
+                //test
+                    return ExecuteAsync(new GetRecoveryEmailAddress
+                    {
+                        Password = password
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns a 2-step verification recovery email address that was previously set up. This method can be used to verify a password provided by the user
+                /// </summary>
+                Task<RecoveryEmailAddress> GetRecoveryEmailAddressAsync(string password = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

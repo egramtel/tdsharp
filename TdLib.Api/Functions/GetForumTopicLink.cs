@@ -53,6 +53,29 @@ namespace TdLib
                 ChatId = chatId, ForumTopicId = forumTopicId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns an HTTPS link to a topic in a forum supergroup chat. This is an offline method
+                /// </summary>
+                public Task<MessageLink> GetForumTopicLinkAsync(long chatId = default, int forumTopicId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetForumTopicLink
+                    {
+                        ChatId = chatId, ForumTopicId = forumTopicId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns an HTTPS link to a topic in a forum supergroup chat. This is an offline method
+                /// </summary>
+                Task<MessageLink> GetForumTopicLinkAsync(long chatId = default, int forumTopicId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

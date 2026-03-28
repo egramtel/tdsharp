@@ -46,6 +46,29 @@ namespace TdLib
                 ChatId = chatId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns the list of chat administrators with number of their invite links. Requires owner privileges in the chat
+                /// </summary>
+                public Task<ChatInviteLinkCounts> GetChatInviteLinkCountsAsync(long chatId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetChatInviteLinkCounts
+                    {
+                        ChatId = chatId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns the list of chat administrators with number of their invite links. Requires owner privileges in the chat
+                /// </summary>
+                Task<ChatInviteLinkCounts> GetChatInviteLinkCountsAsync(long chatId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

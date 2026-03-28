@@ -60,6 +60,29 @@ namespace TdLib
                 OnlyActive = onlyActive, OnlyCompleted = onlyCompleted, DeleteFromCache = deleteFromCache
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Removes all files from the file download list
+                /// </summary>
+                public Task<Ok> RemoveAllFilesFromDownloadsAsync(bool onlyActive = default, bool onlyCompleted = default, bool deleteFromCache = default)
+                {
+                //test
+                    return ExecuteAsync(new RemoveAllFilesFromDownloads
+                    {
+                        OnlyActive = onlyActive, OnlyCompleted = onlyCompleted, DeleteFromCache = deleteFromCache
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Removes all files from the file download list
+                /// </summary>
+                Task<Ok> RemoveAllFilesFromDownloadsAsync(bool onlyActive = default, bool onlyCompleted = default, bool deleteFromCache = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

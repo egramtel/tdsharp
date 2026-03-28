@@ -53,6 +53,29 @@ namespace TdLib
                 GroupCallId = groupCallId, EnabledStartNotification = enabledStartNotification
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Toggles whether the current user will receive a notification when the video chat starts; for scheduled video chats only
+                /// </summary>
+                public Task<Ok> ToggleVideoChatEnabledStartNotificationAsync(int groupCallId = default, bool enabledStartNotification = default)
+                {
+                //test
+                    return ExecuteAsync(new ToggleVideoChatEnabledStartNotification
+                    {
+                        GroupCallId = groupCallId, EnabledStartNotification = enabledStartNotification
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Toggles whether the current user will receive a notification when the video chat starts; for scheduled video chats only
+                /// </summary>
+                Task<Ok> ToggleVideoChatEnabledStartNotificationAsync(int groupCallId = default, bool enabledStartNotification = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

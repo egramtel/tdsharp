@@ -46,6 +46,29 @@ namespace TdLib
                 ChatFolderId = chatFolderId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns identifiers of pinned or always included chats from a chat folder, which are suggested to be left when the chat folder is deleted
+                /// </summary>
+                public Task<Chats> GetChatFolderChatsToLeaveAsync(int chatFolderId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetChatFolderChatsToLeave
+                    {
+                        ChatFolderId = chatFolderId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns identifiers of pinned or always included chats from a chat folder, which are suggested to be left when the chat folder is deleted
+                /// </summary>
+                Task<Chats> GetChatFolderChatsToLeaveAsync(int chatFolderId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -46,6 +46,29 @@ namespace TdLib
                 FileId = fileId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Removes an audio file from the profile audio files of the current user
+                /// </summary>
+                public Task<Ok> RemoveProfileAudioAsync(int fileId = default)
+                {
+                //test
+                    return ExecuteAsync(new RemoveProfileAudio
+                    {
+                        FileId = fileId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Removes an audio file from the profile audio files of the current user
+                /// </summary>
+                Task<Ok> RemoveProfileAudioAsync(int fileId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

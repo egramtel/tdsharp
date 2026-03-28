@@ -46,6 +46,29 @@ namespace TdLib
                 Link = link
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns information about an action to be done when the current user clicks an external link. Don't use this method for links from secret chats if link preview is disabled in secret chats
+                /// </summary>
+                public Task<LoginUrlInfo> GetExternalLinkInfoAsync(string link = default)
+                {
+                //test
+                    return ExecuteAsync(new GetExternalLinkInfo
+                    {
+                        Link = link
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns information about an action to be done when the current user clicks an external link. Don't use this method for links from secret chats if link preview is disabled in secret chats
+                /// </summary>
+                Task<LoginUrlInfo> GetExternalLinkInfoAsync(string link = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

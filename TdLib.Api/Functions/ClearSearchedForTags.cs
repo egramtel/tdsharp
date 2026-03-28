@@ -46,6 +46,29 @@ namespace TdLib
                 ClearCashtags = clearCashtags
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Clears the list of recently searched for hashtags or cashtags
+                /// </summary>
+                public Task<Ok> ClearSearchedForTagsAsync(bool clearCashtags = default)
+                {
+                //test
+                    return ExecuteAsync(new ClearSearchedForTags
+                    {
+                        ClearCashtags = clearCashtags
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Clears the list of recently searched for hashtags or cashtags
+                /// </summary>
+                Task<Ok> ClearSearchedForTagsAsync(bool clearCashtags = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

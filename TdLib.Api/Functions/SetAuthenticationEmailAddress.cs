@@ -46,6 +46,29 @@ namespace TdLib
                 EmailAddress = emailAddress
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Sets the email address of the user and sends an authentication code to the email address. Works only when the current authorization state is authorizationStateWaitEmailAddress
+                /// </summary>
+                public Task<Ok> SetAuthenticationEmailAddressAsync(string emailAddress = default)
+                {
+                //test
+                    return ExecuteAsync(new SetAuthenticationEmailAddress
+                    {
+                        EmailAddress = emailAddress
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Sets the email address of the user and sends an authentication code to the email address. Works only when the current authorization state is authorizationStateWaitEmailAddress
+                /// </summary>
+                Task<Ok> SetAuthenticationEmailAddressAsync(string emailAddress = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

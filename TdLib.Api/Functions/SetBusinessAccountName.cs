@@ -60,6 +60,29 @@ namespace TdLib
                 BusinessConnectionId = businessConnectionId, FirstName = firstName, LastName = lastName
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes the first and last name of a business account; for bots only
+                /// </summary>
+                public Task<Ok> SetBusinessAccountNameAsync(string businessConnectionId = default, string firstName = default, string lastName = default)
+                {
+                //test
+                    return ExecuteAsync(new SetBusinessAccountName
+                    {
+                        BusinessConnectionId = businessConnectionId, FirstName = firstName, LastName = lastName
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes the first and last name of a business account; for bots only
+                /// </summary>
+                Task<Ok> SetBusinessAccountNameAsync(string businessConnectionId = default, string firstName = default, string lastName = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

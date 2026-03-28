@@ -53,6 +53,29 @@ namespace TdLib
                 SupergroupId = supergroupId, UnrestrictBoostCount = unrestrictBoostCount
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes the number of times the supergroup must be boosted by a user to ignore slow mode and chat permission restrictions; requires can_restrict_members administrator right
+                /// </summary>
+                public Task<Ok> SetSupergroupUnrestrictBoostCountAsync(long supergroupId = default, int unrestrictBoostCount = default)
+                {
+                //test
+                    return ExecuteAsync(new SetSupergroupUnrestrictBoostCount
+                    {
+                        SupergroupId = supergroupId, UnrestrictBoostCount = unrestrictBoostCount
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes the number of times the supergroup must be boosted by a user to ignore slow mode and chat permission restrictions; requires can_restrict_members administrator right
+                /// </summary>
+                Task<Ok> SetSupergroupUnrestrictBoostCountAsync(long supergroupId = default, int unrestrictBoostCount = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

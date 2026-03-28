@@ -60,6 +60,29 @@ namespace TdLib
                 ChatId = chatId, MessageId = messageId, ToLanguageCode = toLanguageCode
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Extracts text or caption of the given message and translates it to the given language. If the current user is a Telegram Premium user, then text formatting is preserved
+                /// </summary>
+                public Task<FormattedText> TranslateMessageTextAsync(long chatId = default, long messageId = default, string toLanguageCode = default)
+                {
+                //test
+                    return ExecuteAsync(new TranslateMessageText
+                    {
+                        ChatId = chatId, MessageId = messageId, ToLanguageCode = toLanguageCode
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Extracts text or caption of the given message and translates it to the given language. If the current user is a Telegram Premium user, then text formatting is preserved
+                /// </summary>
+                Task<FormattedText> TranslateMessageTextAsync(long chatId = default, long messageId = default, string toLanguageCode = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

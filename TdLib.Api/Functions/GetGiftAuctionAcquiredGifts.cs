@@ -46,6 +46,29 @@ namespace TdLib
                 GiftId = giftId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns the gifts that were acquired by the current user on a gift auction
+                /// </summary>
+                public Task<GiftAuctionAcquiredGifts> GetGiftAuctionAcquiredGiftsAsync(long giftId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetGiftAuctionAcquiredGifts
+                    {
+                        GiftId = giftId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns the gifts that were acquired by the current user on a gift auction
+                /// </summary>
+                Task<GiftAuctionAcquiredGifts> GetGiftAuctionAcquiredGiftsAsync(long giftId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

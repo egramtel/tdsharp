@@ -60,6 +60,29 @@ namespace TdLib
                 FileId = fileId, Offset = offset, Count = count
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Reads a part of a file from the TDLib file cache and returns read bytes. This method is intended to be used only if the application has no direct access to TDLib's file system, because it is usually slower than a direct read from the file
+                /// </summary>
+                public Task<Data> ReadFilePartAsync(int fileId = default, long offset = default, long count = default)
+                {
+                //test
+                    return ExecuteAsync(new ReadFilePart
+                    {
+                        FileId = fileId, Offset = offset, Count = count
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Reads a part of a file from the TDLib file cache and returns read bytes. This method is intended to be used only if the application has no direct access to TDLib's file system, because it is usually slower than a direct read from the file
+                /// </summary>
+                Task<Data> ReadFilePartAsync(int fileId = default, long offset = default, long count = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -53,6 +53,29 @@ namespace TdLib
                 FileId = fileId, Offset = offset
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns file downloaded prefix size from a given offset, in bytes
+                /// </summary>
+                public Task<FileDownloadedPrefixSize> GetFileDownloadedPrefixSizeAsync(int fileId = default, long offset = default)
+                {
+                //test
+                    return ExecuteAsync(new GetFileDownloadedPrefixSize
+                    {
+                        FileId = fileId, Offset = offset
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns file downloaded prefix size from a given offset, in bytes
+                /// </summary>
+                Task<FileDownloadedPrefixSize> GetFileDownloadedPrefixSizeAsync(int fileId = default, long offset = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

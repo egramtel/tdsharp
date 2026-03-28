@@ -46,6 +46,29 @@ namespace TdLib
                 Payload = payload
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns a globally unique push notification subscription identifier for identification of an account, which has received a push notification. Can be called synchronously
+                /// </summary>
+                public Task<PushReceiverId> GetPushReceiverIdAsync(string payload = default)
+                {
+                //test
+                    return ExecuteAsync(new GetPushReceiverId
+                    {
+                        Payload = payload
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns a globally unique push notification subscription identifier for identification of an account, which has received a push notification. Can be called synchronously
+                /// </summary>
+                Task<PushReceiverId> GetPushReceiverIdAsync(string payload = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

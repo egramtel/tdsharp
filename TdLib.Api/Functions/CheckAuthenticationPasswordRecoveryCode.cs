@@ -46,6 +46,29 @@ namespace TdLib
                 RecoveryCode = recoveryCode
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Checks whether a 2-step verification password recovery code sent to an email address is valid. Works only when the current authorization state is authorizationStateWaitPassword
+                /// </summary>
+                public Task<Ok> CheckAuthenticationPasswordRecoveryCodeAsync(string recoveryCode = default)
+                {
+                //test
+                    return ExecuteAsync(new CheckAuthenticationPasswordRecoveryCode
+                    {
+                        RecoveryCode = recoveryCode
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Checks whether a 2-step verification password recovery code sent to an email address is valid. Works only when the current authorization state is authorizationStateWaitPassword
+                /// </summary>
+                Task<Ok> CheckAuthenticationPasswordRecoveryCodeAsync(string recoveryCode = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

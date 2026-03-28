@@ -57,6 +57,33 @@ namespace TdLib
                 PhoneNumber = phoneNumber, Settings = settings
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Sets the phone number of the user and sends an authentication code to the user. Works only when the current authorization state is authorizationStateWaitPhoneNumber,
+                /// or if there is no pending authentication query and the current authorization state is authorizationStateWaitPremiumPurchase, authorizationStateWaitEmailAddress,
+                /// authorizationStateWaitEmailCode, authorizationStateWaitCode, authorizationStateWaitRegistration, or authorizationStateWaitPassword
+                /// </summary>
+                public Task<Ok> SetAuthenticationPhoneNumberAsync(string phoneNumber = default, PhoneNumberAuthenticationSettings settings = default)
+                {
+                //test
+                    return ExecuteAsync(new SetAuthenticationPhoneNumber
+                    {
+                        PhoneNumber = phoneNumber, Settings = settings
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Sets the phone number of the user and sends an authentication code to the user. Works only when the current authorization state is authorizationStateWaitPhoneNumber,
+                /// or if there is no pending authentication query and the current authorization state is authorizationStateWaitPremiumPurchase, authorizationStateWaitEmailAddress,
+                /// authorizationStateWaitEmailCode, authorizationStateWaitCode, authorizationStateWaitRegistration, or authorizationStateWaitPassword
+                /// </summary>
+                Task<Ok> SetAuthenticationPhoneNumberAsync(string phoneNumber = default, PhoneNumberAuthenticationSettings settings = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

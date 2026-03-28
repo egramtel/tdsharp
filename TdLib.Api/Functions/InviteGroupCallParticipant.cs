@@ -62,6 +62,31 @@ namespace TdLib
                 GroupCallId = groupCallId, UserId = userId, IsVideo = isVideo
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Invites a user to an active group call; for group calls not bound to a chat only. Sends a service message of the type messageGroupCall.
+                /// The group call can have at most getOption("group_call_participant_count_max") participants
+                /// </summary>
+                public Task<InviteGroupCallParticipantResult> InviteGroupCallParticipantAsync(int groupCallId = default, long userId = default, bool isVideo = default)
+                {
+                //test
+                    return ExecuteAsync(new InviteGroupCallParticipant
+                    {
+                        GroupCallId = groupCallId, UserId = userId, IsVideo = isVideo
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Invites a user to an active group call; for group calls not bound to a chat only. Sends a service message of the type messageGroupCall.
+                /// The group call can have at most getOption("group_call_participant_count_max") participants
+                /// </summary>
+                Task<InviteGroupCallParticipantResult> InviteGroupCallParticipantAsync(int groupCallId = default, long userId = default, bool isVideo = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

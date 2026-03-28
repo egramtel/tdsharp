@@ -53,6 +53,29 @@ namespace TdLib
                 ChatId = chatId, TopicId = topicId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Deletes all messages in the topic in a channel direct messages chat administered by the current user
+                /// </summary>
+                public Task<Ok> DeleteDirectMessagesChatTopicHistoryAsync(long chatId = default, long topicId = default)
+                {
+                //test
+                    return ExecuteAsync(new DeleteDirectMessagesChatTopicHistory
+                    {
+                        ChatId = chatId, TopicId = topicId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Deletes all messages in the topic in a channel direct messages chat administered by the current user
+                /// </summary>
+                Task<Ok> DeleteDirectMessagesChatTopicHistoryAsync(long chatId = default, long topicId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -53,6 +53,29 @@ namespace TdLib
                 ChatId = chatId, Limit = limit
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns information about the recent locations of chat members that were sent to the chat. Returns up to 1 location message per user
+                /// </summary>
+                public Task<Messages> SearchChatRecentLocationMessagesAsync(long chatId = default, int limit = default)
+                {
+                //test
+                    return ExecuteAsync(new SearchChatRecentLocationMessages
+                    {
+                        ChatId = chatId, Limit = limit
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns information about the recent locations of chat members that were sent to the chat. Returns up to 1 location message per user
+                /// </summary>
+                Task<Messages> SearchChatRecentLocationMessagesAsync(long chatId = default, int limit = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

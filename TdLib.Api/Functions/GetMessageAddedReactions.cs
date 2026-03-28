@@ -74,6 +74,29 @@ namespace TdLib
                 ChatId = chatId, MessageId = messageId, ReactionType = reactionType, Offset = offset, Limit = limit
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns reactions added for a message, along with their sender
+                /// </summary>
+                public Task<AddedReactions> GetMessageAddedReactionsAsync(long chatId = default, long messageId = default, ReactionType reactionType = default, string offset = default, int limit = default)
+                {
+                //test
+                    return ExecuteAsync(new GetMessageAddedReactions
+                    {
+                        ChatId = chatId, MessageId = messageId, ReactionType = reactionType, Offset = offset, Limit = limit
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns reactions added for a message, along with their sender
+                /// </summary>
+                Task<AddedReactions> GetMessageAddedReactionsAsync(long chatId = default, long messageId = default, ReactionType reactionType = default, string offset = default, int limit = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

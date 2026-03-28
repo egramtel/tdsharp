@@ -53,6 +53,29 @@ namespace TdLib
                 ChatId = chatId, Username = username
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Checks whether a username can be set for a chat
+                /// </summary>
+                public Task<CheckChatUsernameResult> CheckChatUsernameAsync(long chatId = default, string username = default)
+                {
+                //test
+                    return ExecuteAsync(new CheckChatUsername
+                    {
+                        ChatId = chatId, Username = username
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Checks whether a username can be set for a chat
+                /// </summary>
+                Task<CheckChatUsernameResult> CheckChatUsernameAsync(long chatId = default, string username = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

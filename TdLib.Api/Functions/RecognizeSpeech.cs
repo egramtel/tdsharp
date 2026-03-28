@@ -53,6 +53,29 @@ namespace TdLib
                 ChatId = chatId, MessageId = messageId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Recognizes speech in a video note or a voice note message
+                /// </summary>
+                public Task<Ok> RecognizeSpeechAsync(long chatId = default, long messageId = default)
+                {
+                //test
+                    return ExecuteAsync(new RecognizeSpeech
+                    {
+                        ChatId = chatId, MessageId = messageId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Recognizes speech in a video note or a voice note message
+                /// </summary>
+                Task<Ok> RecognizeSpeechAsync(long chatId = default, long messageId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

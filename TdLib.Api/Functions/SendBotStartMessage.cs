@@ -62,6 +62,31 @@ namespace TdLib
                 BotUserId = botUserId, ChatId = chatId, Parameter = parameter
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Invites a bot to a chat (if it is not yet a member) and sends it the /start command; requires can_invite_users member right. Bots can't be invited to a private chat other than the chat with the bot.
+                /// Bots can't be invited to channels (although they can be added as admins) and secret chats. Returns the sent message
+                /// </summary>
+                public Task<Message> SendBotStartMessageAsync(long botUserId = default, long chatId = default, string parameter = default)
+                {
+                //test
+                    return ExecuteAsync(new SendBotStartMessage
+                    {
+                        BotUserId = botUserId, ChatId = chatId, Parameter = parameter
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Invites a bot to a chat (if it is not yet a member) and sends it the /start command; requires can_invite_users member right. Bots can't be invited to a private chat other than the chat with the bot.
+                /// Bots can't be invited to channels (although they can be added as admins) and secret chats. Returns the sent message
+                /// </summary>
+                Task<Message> SendBotStartMessageAsync(long botUserId = default, long chatId = default, string parameter = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

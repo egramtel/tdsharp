@@ -60,6 +60,29 @@ namespace TdLib
                 ChatId = chatId, StoryId = storyId, IsDark = isDark
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns detailed statistics about a story. Can be used only if story.can_get_statistics == true
+                /// </summary>
+                public Task<StoryStatistics> GetStoryStatisticsAsync(long chatId = default, int storyId = default, bool isDark = default)
+                {
+                //test
+                    return ExecuteAsync(new GetStoryStatistics
+                    {
+                        ChatId = chatId, StoryId = storyId, IsDark = isDark
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns detailed statistics about a story. Can be used only if story.can_get_statistics == true
+                /// </summary>
+                Task<StoryStatistics> GetStoryStatisticsAsync(long chatId = default, int storyId = default, bool isDark = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

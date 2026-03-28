@@ -46,6 +46,29 @@ namespace TdLib
                 Code = code
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Checks the login email address authentication
+                /// </summary>
+                public Task<Ok> CheckLoginEmailAddressCodeAsync(EmailAddressAuthentication code = default)
+                {
+                //test
+                    return ExecuteAsync(new CheckLoginEmailAddressCode
+                    {
+                        Code = code
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Checks the login email address authentication
+                /// </summary>
+                Task<Ok> CheckLoginEmailAddressCodeAsync(EmailAddressAuthentication code = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

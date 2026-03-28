@@ -60,6 +60,29 @@ namespace TdLib
                 StickerType = stickerType, Query = query, Limit = limit
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Searches for installed sticker sets by looking for specified query in their title and name
+                /// </summary>
+                public Task<StickerSets> SearchInstalledStickerSetsAsync(StickerType stickerType = default, string query = default, int limit = default)
+                {
+                //test
+                    return ExecuteAsync(new SearchInstalledStickerSets
+                    {
+                        StickerType = stickerType, Query = query, Limit = limit
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Searches for installed sticker sets by looking for specified query in their title and name
+                /// </summary>
+                Task<StickerSets> SearchInstalledStickerSetsAsync(StickerType stickerType = default, string query = default, int limit = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -67,6 +67,29 @@ namespace TdLib
                 BusinessConnectionId = businessConnectionId, ChatId = chatId, MessageId = messageId, IsPinned = isPinned
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Pins or unpins a message sent on behalf of a business account; for bots only
+                /// </summary>
+                public Task<Ok> SetBusinessMessageIsPinnedAsync(string businessConnectionId = default, long chatId = default, long messageId = default, bool isPinned = default)
+                {
+                //test
+                    return ExecuteAsync(new SetBusinessMessageIsPinned
+                    {
+                        BusinessConnectionId = businessConnectionId, ChatId = chatId, MessageId = messageId, IsPinned = isPinned
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Pins or unpins a message sent on behalf of a business account; for bots only
+                /// </summary>
+                Task<Ok> SetBusinessMessageIsPinnedAsync(string businessConnectionId = default, long chatId = default, long messageId = default, bool isPinned = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

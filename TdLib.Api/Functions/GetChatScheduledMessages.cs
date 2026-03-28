@@ -46,6 +46,29 @@ namespace TdLib
                 ChatId = chatId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns all scheduled messages in a chat. The messages are returned in reverse chronological order (i.e., in order of decreasing message_id)
+                /// </summary>
+                public Task<Messages> GetChatScheduledMessagesAsync(long chatId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetChatScheduledMessages
+                    {
+                        ChatId = chatId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns all scheduled messages in a chat. The messages are returned in reverse chronological order (i.e., in order of decreasing message_id)
+                /// </summary>
+                Task<Messages> GetChatScheduledMessagesAsync(long chatId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

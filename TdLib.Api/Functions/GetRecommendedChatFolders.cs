@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns recommended chat folders for the current user
+                /// </summary>
+                public Task<RecommendedChatFolders> GetRecommendedChatFoldersAsync()
+                {
+                //test
+                    return ExecuteAsync(new GetRecommendedChatFolders
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns recommended chat folders for the current user
+                /// </summary>
+                Task<RecommendedChatFolders> GetRecommendedChatFoldersAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

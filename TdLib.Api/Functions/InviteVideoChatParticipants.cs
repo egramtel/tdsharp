@@ -52,6 +52,29 @@ namespace TdLib
                 GroupCallId = groupCallId, UserIds = userIds
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Invites users to an active video chat. Sends a service message of the type messageInviteVideoChatParticipants to the chat bound to the group call
+                /// </summary>
+                public Task<Ok> InviteVideoChatParticipantsAsync(int groupCallId = default, long[] userIds = default)
+                {
+                //test
+                    return ExecuteAsync(new InviteVideoChatParticipants
+                    {
+                        GroupCallId = groupCallId, UserIds = userIds
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Invites users to an active video chat. Sends a service message of the type messageInviteVideoChatParticipants to the chat bound to the group call
+                /// </summary>
+                Task<Ok> InviteVideoChatParticipantsAsync(int groupCallId = default, long[] userIds = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -53,6 +53,29 @@ namespace TdLib
                 ChatId = chatId, ForumTopicId = forumTopicId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Removes all pinned messages from a topic in a forum supergroup chat or a chat with a bot with topics; requires can_pin_messages member right in the supergroup
+                /// </summary>
+                public Task<Ok> UnpinAllForumTopicMessagesAsync(long chatId = default, int forumTopicId = default)
+                {
+                //test
+                    return ExecuteAsync(new UnpinAllForumTopicMessages
+                    {
+                        ChatId = chatId, ForumTopicId = forumTopicId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Removes all pinned messages from a topic in a forum supergroup chat or a chat with a bot with topics; requires can_pin_messages member right in the supergroup
+                /// </summary>
+                Task<Ok> UnpinAllForumTopicMessagesAsync(long chatId = default, int forumTopicId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

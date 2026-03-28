@@ -46,6 +46,29 @@ namespace TdLib
                 ChatId = chatId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Marks all reactions in a chat as read
+                /// </summary>
+                public Task<Ok> ReadAllChatReactionsAsync(long chatId = default)
+                {
+                //test
+                    return ExecuteAsync(new ReadAllChatReactions
+                    {
+                        ChatId = chatId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Marks all reactions in a chat as read
+                /// </summary>
+                Task<Ok> ReadAllChatReactionsAsync(long chatId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

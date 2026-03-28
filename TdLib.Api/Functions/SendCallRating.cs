@@ -66,6 +66,29 @@ namespace TdLib
                 CallId = callId, Rating = rating, Comment = comment, Problems = problems
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Sends a call rating
+                /// </summary>
+                public Task<Ok> SendCallRatingAsync(InputCall callId = default, int rating = default, string comment = default, CallProblem[] problems = default)
+                {
+                //test
+                    return ExecuteAsync(new SendCallRating
+                    {
+                        CallId = callId, Rating = rating, Comment = comment, Problems = problems
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Sends a call rating
+                /// </summary>
+                Task<Ok> SendCallRatingAsync(InputCall callId = default, int rating = default, string comment = default, CallProblem[] problems = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -81,6 +81,29 @@ namespace TdLib
                 CallId = callId, IsDisconnected = isDisconnected, InviteLink = inviteLink, Duration = duration, IsVideo = isVideo, ConnectionId = connectionId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Discards a call
+                /// </summary>
+                public Task<Ok> DiscardCallAsync(int callId = default, bool isDisconnected = default, string inviteLink = default, int duration = default, bool isVideo = default, long connectionId = default)
+                {
+                //test
+                    return ExecuteAsync(new DiscardCall
+                    {
+                        CallId = callId, IsDisconnected = isDisconnected, InviteLink = inviteLink, Duration = duration, IsVideo = isVideo, ConnectionId = connectionId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Discards a call
+                /// </summary>
+                Task<Ok> DiscardCallAsync(int callId = default, bool isDisconnected = default, string inviteLink = default, int duration = default, bool isVideo = default, long connectionId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

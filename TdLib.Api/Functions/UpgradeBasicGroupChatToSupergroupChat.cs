@@ -46,6 +46,29 @@ namespace TdLib
                 ChatId = chatId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Creates a new supergroup from an existing basic group and sends a corresponding messageChatUpgradeTo and messageChatUpgradeFrom; requires owner privileges. Deactivates the original basic group
+                /// </summary>
+                public Task<Chat> UpgradeBasicGroupChatToSupergroupChatAsync(long chatId = default)
+                {
+                //test
+                    return ExecuteAsync(new UpgradeBasicGroupChatToSupergroupChat
+                    {
+                        ChatId = chatId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Creates a new supergroup from an existing basic group and sends a corresponding messageChatUpgradeTo and messageChatUpgradeFrom; requires owner privileges. Deactivates the original basic group
+                /// </summary>
+                Task<Chat> UpgradeBasicGroupChatToSupergroupChatAsync(long chatId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

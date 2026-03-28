@@ -46,6 +46,29 @@ namespace TdLib
                 BotUserId = botUserId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Allows the specified bot to send messages to the user
+                /// </summary>
+                public Task<Ok> AllowBotToSendMessagesAsync(long botUserId = default)
+                {
+                //test
+                    return ExecuteAsync(new AllowBotToSendMessages
+                    {
+                        BotUserId = botUserId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Allows the specified bot to send messages to the user
+                /// </summary>
+                Task<Ok> AllowBotToSendMessagesAsync(long botUserId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

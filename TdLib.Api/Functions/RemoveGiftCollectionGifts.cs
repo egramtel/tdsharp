@@ -59,6 +59,29 @@ namespace TdLib
                 OwnerId = ownerId, CollectionId = collectionId, ReceivedGiftIds = receivedGiftIds
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Removes gifts from a collection. If the collection is owned by a channel chat, then requires can_post_messages administrator right in the channel chat. Returns the changed collection
+                /// </summary>
+                public Task<GiftCollection> RemoveGiftCollectionGiftsAsync(MessageSender ownerId = default, int collectionId = default, string[] receivedGiftIds = default)
+                {
+                //test
+                    return ExecuteAsync(new RemoveGiftCollectionGifts
+                    {
+                        OwnerId = ownerId, CollectionId = collectionId, ReceivedGiftIds = receivedGiftIds
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Removes gifts from a collection. If the collection is owned by a channel chat, then requires can_post_messages administrator right in the channel chat. Returns the changed collection
+                /// </summary>
+                Task<GiftCollection> RemoveGiftCollectionGiftsAsync(MessageSender ownerId = default, int collectionId = default, string[] receivedGiftIds = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

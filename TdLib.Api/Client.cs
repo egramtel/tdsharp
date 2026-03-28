@@ -11,7 +11,7 @@ namespace TdLib
         /// <summary>
         /// Base class for API client
         /// </summary>
-        public abstract class Client : Object
+        public abstract partial class Client : Object,IClient
         {
             public abstract void Send<TResut>(Function<TResut> function);
 
@@ -21,5 +21,16 @@ namespace TdLib
             public abstract Task<TResult> ExecuteAsync<TResult>(Function<TResult> function)
                 where TResult : Object;
         }
+        public partial interface IClient
+        {
+            public void Send<TResut>(Function<TResut> function);
+
+            public TResult Execute<TResult>(Function<TResult> function)
+                where TResult : Object;
+
+            public Task<TResult> ExecuteAsync<TResult>(Function<TResult> function)
+                where TResult : Object;
+        }
     }
+
 }

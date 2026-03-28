@@ -59,6 +59,29 @@ namespace TdLib
                 StoryPosterChatId = storyPosterChatId, Name = name, StoryIds = storyIds
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Creates an album of stories; requires can_edit_stories administrator right for supergroup and channel chats
+                /// </summary>
+                public Task<StoryAlbum> CreateStoryAlbumAsync(long storyPosterChatId = default, string name = default, int[] storyIds = default)
+                {
+                //test
+                    return ExecuteAsync(new CreateStoryAlbum
+                    {
+                        StoryPosterChatId = storyPosterChatId, Name = name, StoryIds = storyIds
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Creates an album of stories; requires can_edit_stories administrator right for supergroup and channel chats
+                /// </summary>
+                Task<StoryAlbum> CreateStoryAlbumAsync(long storyPosterChatId = default, string name = default, int[] storyIds = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

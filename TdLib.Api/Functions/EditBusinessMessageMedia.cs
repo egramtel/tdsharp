@@ -74,6 +74,29 @@ namespace TdLib
                 BusinessConnectionId = businessConnectionId, ChatId = chatId, MessageId = messageId, ReplyMarkup = replyMarkup, InputMessageContent = inputMessageContent
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Edits the media content of a message with a text, an animation, an audio, a document, a photo or a video in a message sent on behalf of a business account; for bots only
+                /// </summary>
+                public Task<BusinessMessage> EditBusinessMessageMediaAsync(string businessConnectionId = default, long chatId = default, long messageId = default, ReplyMarkup replyMarkup = default, InputMessageContent inputMessageContent = default)
+                {
+                //test
+                    return ExecuteAsync(new EditBusinessMessageMedia
+                    {
+                        BusinessConnectionId = businessConnectionId, ChatId = chatId, MessageId = messageId, ReplyMarkup = replyMarkup, InputMessageContent = inputMessageContent
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Edits the media content of a message with a text, an animation, an audio, a document, a photo or a video in a message sent on behalf of a business account; for bots only
+                /// </summary>
+                Task<BusinessMessage> EditBusinessMessageMediaAsync(string businessConnectionId = default, long chatId = default, long messageId = default, ReplyMarkup replyMarkup = default, InputMessageContent inputMessageContent = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

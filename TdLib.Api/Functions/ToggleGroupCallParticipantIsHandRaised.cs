@@ -60,6 +60,29 @@ namespace TdLib
                 GroupCallId = groupCallId, ParticipantId = participantId, IsHandRaised = isHandRaised
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Toggles whether a group call participant hand is rased; for video chats only
+                /// </summary>
+                public Task<Ok> ToggleGroupCallParticipantIsHandRaisedAsync(int groupCallId = default, MessageSender participantId = default, bool isHandRaised = default)
+                {
+                //test
+                    return ExecuteAsync(new ToggleGroupCallParticipantIsHandRaised
+                    {
+                        GroupCallId = groupCallId, ParticipantId = participantId, IsHandRaised = isHandRaised
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Toggles whether a group call participant hand is rased; for video chats only
+                /// </summary>
+                Task<Ok> ToggleGroupCallParticipantIsHandRaisedAsync(int groupCallId = default, MessageSender participantId = default, bool isHandRaised = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

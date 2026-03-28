@@ -53,6 +53,29 @@ namespace TdLib
                 Scope = scope, Settings = settings
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Sets autosave settings for the given scope. The method is guaranteed to work only after at least one call to getAutosaveSettings
+                /// </summary>
+                public Task<Ok> SetAutosaveSettingsAsync(AutosaveSettingsScope scope = default, ScopeAutosaveSettings settings = default)
+                {
+                //test
+                    return ExecuteAsync(new SetAutosaveSettings
+                    {
+                        Scope = scope, Settings = settings
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Sets autosave settings for the given scope. The method is guaranteed to work only after at least one call to getAutosaveSettings
+                /// </summary>
+                Task<Ok> SetAutosaveSettingsAsync(AutosaveSettingsScope scope = default, ScopeAutosaveSettings settings = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

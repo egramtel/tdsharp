@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Disconnects all websites from the current user's Telegram account
+                /// </summary>
+                public Task<Ok> DisconnectAllWebsitesAsync()
+                {
+                //test
+                    return ExecuteAsync(new DisconnectAllWebsites
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Disconnects all websites from the current user's Telegram account
+                /// </summary>
+                Task<Ok> DisconnectAllWebsitesAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

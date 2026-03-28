@@ -46,6 +46,29 @@ namespace TdLib
                 ChatId = chatId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Adds a chat to the list of recently found chats. The chat is added to the beginning of the list. If the chat is already in the list, it will be removed from the list first
+                /// </summary>
+                public Task<Ok> AddRecentlyFoundChatAsync(long chatId = default)
+                {
+                //test
+                    return ExecuteAsync(new AddRecentlyFoundChat
+                    {
+                        ChatId = chatId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Adds a chat to the list of recently found chats. The chat is added to the beginning of the list. If the chat is already in the list, it will be removed from the list first
+                /// </summary>
+                Task<Ok> AddRecentlyFoundChatAsync(long chatId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

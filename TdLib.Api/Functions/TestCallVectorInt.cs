@@ -45,6 +45,29 @@ namespace TdLib
                 X = x
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns the received vector of numbers; for testing only. This is an offline method. Can be called before authorization
+                /// </summary>
+                public Task<TestVectorInt> TestCallVectorIntAsync(int[] x = default)
+                {
+                //test
+                    return ExecuteAsync(new TestCallVectorInt
+                    {
+                        X = x
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns the received vector of numbers; for testing only. This is an offline method. Can be called before authorization
+                /// </summary>
+                Task<TestVectorInt> TestCallVectorIntAsync(int[] x = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

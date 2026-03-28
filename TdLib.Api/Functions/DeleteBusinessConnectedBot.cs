@@ -46,6 +46,29 @@ namespace TdLib
                 BotUserId = botUserId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Deletes the business bot that is connected to the current user account
+                /// </summary>
+                public Task<Ok> DeleteBusinessConnectedBotAsync(long botUserId = default)
+                {
+                //test
+                    return ExecuteAsync(new DeleteBusinessConnectedBot
+                    {
+                        BotUserId = botUserId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Deletes the business bot that is connected to the current user account
+                /// </summary>
+                Task<Ok> DeleteBusinessConnectedBotAsync(long botUserId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

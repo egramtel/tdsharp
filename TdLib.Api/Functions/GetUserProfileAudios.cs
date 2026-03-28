@@ -60,6 +60,29 @@ namespace TdLib
                 UserId = userId, Offset = offset, Limit = limit
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns the list of profile audio files of a user
+                /// </summary>
+                public Task<Audios> GetUserProfileAudiosAsync(long userId = default, int offset = default, int limit = default)
+                {
+                //test
+                    return ExecuteAsync(new GetUserProfileAudios
+                    {
+                        UserId = userId, Offset = offset, Limit = limit
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns the list of profile audio files of a user
+                /// </summary>
+                Task<Audios> GetUserProfileAudiosAsync(long userId = default, int offset = default, int limit = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -53,6 +53,29 @@ namespace TdLib
                 UserId = userId, Note = note
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes a note of a contact user
+                /// </summary>
+                public Task<Ok> SetUserNoteAsync(long userId = default, FormattedText note = default)
+                {
+                //test
+                    return ExecuteAsync(new SetUserNote
+                    {
+                        UserId = userId, Note = note
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes a note of a contact user
+                /// </summary>
+                Task<Ok> SetUserNoteAsync(long userId = default, FormattedText note = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

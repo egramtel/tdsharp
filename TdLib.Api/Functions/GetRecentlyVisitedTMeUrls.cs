@@ -46,6 +46,29 @@ namespace TdLib
                 Referrer = referrer
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns t.me URLs recently visited by a newly registered user
+                /// </summary>
+                public Task<TMeUrls> GetRecentlyVisitedTMeUrlsAsync(string referrer = default)
+                {
+                //test
+                    return ExecuteAsync(new GetRecentlyVisitedTMeUrls
+                    {
+                        Referrer = referrer
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns t.me URLs recently visited by a newly registered user
+                /// </summary>
+                Task<TMeUrls> GetRecentlyVisitedTMeUrlsAsync(string referrer = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Removes 2-step verification password without previous password and access to recovery email address. The password can't be reset immediately and the request needs to be repeated after the specified time
+                /// </summary>
+                public Task<ResetPasswordResult> ResetPasswordAsync()
+                {
+                //test
+                    return ExecuteAsync(new ResetPassword
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Removes 2-step verification password without previous password and access to recovery email address. The password can't be reset immediately and the request needs to be repeated after the specified time
+                /// </summary>
+                Task<ResetPasswordResult> ResetPasswordAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

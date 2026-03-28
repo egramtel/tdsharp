@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Clears the list of recently found chats
+                /// </summary>
+                public Task<Ok> ClearRecentlyFoundChatsAsync()
+                {
+                //test
+                    return ExecuteAsync(new ClearRecentlyFoundChats
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Clears the list of recently found chats
+                /// </summary>
+                Task<Ok> ClearRecentlyFoundChatsAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -53,6 +53,29 @@ namespace TdLib
                 ChatId = chatId, TopicId = topicId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns the total number of Telegram Stars received by the channel chat for direct messages from the given topic
+                /// </summary>
+                public Task<StarCount> GetDirectMessagesChatTopicRevenueAsync(long chatId = default, long topicId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetDirectMessagesChatTopicRevenue
+                    {
+                        ChatId = chatId, TopicId = topicId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns the total number of Telegram Stars received by the channel chat for direct messages from the given topic
+                /// </summary>
+                Task<StarCount> GetDirectMessagesChatTopicRevenueAsync(long chatId = default, long topicId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

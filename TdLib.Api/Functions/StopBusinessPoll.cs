@@ -67,6 +67,29 @@ namespace TdLib
                 BusinessConnectionId = businessConnectionId, ChatId = chatId, MessageId = messageId, ReplyMarkup = replyMarkup
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Stops a poll sent on behalf of a business account; for bots only
+                /// </summary>
+                public Task<BusinessMessage> StopBusinessPollAsync(string businessConnectionId = default, long chatId = default, long messageId = default, ReplyMarkup replyMarkup = default)
+                {
+                //test
+                    return ExecuteAsync(new StopBusinessPoll
+                    {
+                        BusinessConnectionId = businessConnectionId, ChatId = chatId, MessageId = messageId, ReplyMarkup = replyMarkup
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Stops a poll sent on behalf of a business account; for bots only
+                /// </summary>
+                Task<BusinessMessage> StopBusinessPollAsync(string businessConnectionId = default, long chatId = default, long messageId = default, ReplyMarkup replyMarkup = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

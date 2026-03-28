@@ -74,6 +74,29 @@ namespace TdLib
                 BotUserId = botUserId, ChatId = chatId, UserLocation = userLocation, Query = query, Offset = offset
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Sends an inline query to a bot and returns its results. Returns an error with code 502 if the bot fails to answer the query before the query timeout expires
+                /// </summary>
+                public Task<InlineQueryResults> GetInlineQueryResultsAsync(long botUserId = default, long chatId = default, Location userLocation = default, string query = default, string offset = default)
+                {
+                //test
+                    return ExecuteAsync(new GetInlineQueryResults
+                    {
+                        BotUserId = botUserId, ChatId = chatId, UserLocation = userLocation, Query = query, Offset = offset
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Sends an inline query to a bot and returns its results. Returns an error with code 502 if the bot fails to answer the query before the query timeout expires
+                /// </summary>
+                Task<InlineQueryResults> GetInlineQueryResultsAsync(long botUserId = default, long chatId = default, Location userLocation = default, string query = default, string offset = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -53,6 +53,29 @@ namespace TdLib
                 Category = category, ChatId = chatId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Removes a chat from the list of frequently used chats. Supported only if the chat info database is enabled
+                /// </summary>
+                public Task<Ok> RemoveTopChatAsync(TopChatCategory category = default, long chatId = default)
+                {
+                //test
+                    return ExecuteAsync(new RemoveTopChat
+                    {
+                        Category = category, ChatId = chatId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Removes a chat from the list of frequently used chats. Supported only if the chat info database is enabled
+                /// </summary>
+                Task<Ok> RemoveTopChatAsync(TopChatCategory category = default, long chatId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

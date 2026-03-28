@@ -46,6 +46,29 @@ namespace TdLib
                 NotificationSoundId = notificationSoundId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Removes a notification sound from the list of saved notification sounds
+                /// </summary>
+                public Task<Ok> RemoveSavedNotificationSoundAsync(long notificationSoundId = default)
+                {
+                //test
+                    return ExecuteAsync(new RemoveSavedNotificationSound
+                    {
+                        NotificationSoundId = notificationSoundId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Removes a notification sound from the list of saved notification sounds
+                /// </summary>
+                Task<Ok> RemoveSavedNotificationSoundAsync(long notificationSoundId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

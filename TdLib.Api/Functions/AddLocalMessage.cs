@@ -74,6 +74,29 @@ namespace TdLib
                 ChatId = chatId, SenderId = senderId, ReplyTo = replyTo, DisableNotification = disableNotification, InputMessageContent = inputMessageContent
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Adds a local message to a chat. The message is persistent across application restarts only if the message database is used. Returns the added message
+                /// </summary>
+                public Task<Message> AddLocalMessageAsync(long chatId = default, MessageSender senderId = default, InputMessageReplyTo replyTo = default, bool disableNotification = default, InputMessageContent inputMessageContent = default)
+                {
+                //test
+                    return ExecuteAsync(new AddLocalMessage
+                    {
+                        ChatId = chatId, SenderId = senderId, ReplyTo = replyTo, DisableNotification = disableNotification, InputMessageContent = inputMessageContent
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Adds a local message to a chat. The message is persistent across application restarts only if the message database is used. Returns the added message
+                /// </summary>
+                Task<Message> AddLocalMessageAsync(long chatId = default, MessageSender senderId = default, InputMessageReplyTo replyTo = default, bool disableNotification = default, InputMessageContent inputMessageContent = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

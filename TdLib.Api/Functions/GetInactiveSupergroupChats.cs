@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns a list of recently inactive supergroups and channels. Can be used when user reaches limit on the number of joined supergroups and channels and receives the error "CHANNELS_TOO_MUCH". Also, the limit can be increased with Telegram Premium
+                /// </summary>
+                public Task<Chats> GetInactiveSupergroupChatsAsync()
+                {
+                //test
+                    return ExecuteAsync(new GetInactiveSupergroupChats
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns a list of recently inactive supergroups and channels. Can be used when user reaches limit on the number of joined supergroups and channels and receives the error "CHANNELS_TOO_MUCH". Also, the limit can be increased with Telegram Premium
+                /// </summary>
+                Task<Chats> GetInactiveSupergroupChatsAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

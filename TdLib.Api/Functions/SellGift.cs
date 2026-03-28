@@ -53,6 +53,29 @@ namespace TdLib
                 BusinessConnectionId = businessConnectionId, ReceivedGiftId = receivedGiftId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Sells a gift for Telegram Stars; requires owner privileges for gifts owned by a chat
+                /// </summary>
+                public Task<Ok> SellGiftAsync(string businessConnectionId = default, string receivedGiftId = default)
+                {
+                //test
+                    return ExecuteAsync(new SellGift
+                    {
+                        BusinessConnectionId = businessConnectionId, ReceivedGiftId = receivedGiftId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Sells a gift for Telegram Stars; requires owner privileges for gifts owned by a chat
+                /// </summary>
+                Task<Ok> SellGiftAsync(string businessConnectionId = default, string receivedGiftId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -52,6 +52,29 @@ namespace TdLib
                 SupergroupId = supergroupId, MessageIds = messageIds
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Reports messages in a supergroup as spam; requires administrator rights in the supergroup
+                /// </summary>
+                public Task<Ok> ReportSupergroupSpamAsync(long supergroupId = default, long[] messageIds = default)
+                {
+                //test
+                    return ExecuteAsync(new ReportSupergroupSpam
+                    {
+                        SupergroupId = supergroupId, MessageIds = messageIds
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Reports messages in a supergroup as spam; requires administrator rights in the supergroup
+                /// </summary>
+                Task<Ok> ReportSupergroupSpamAsync(long supergroupId = default, long[] messageIds = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

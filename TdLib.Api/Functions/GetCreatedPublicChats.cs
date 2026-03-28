@@ -46,6 +46,29 @@ namespace TdLib
                 Type = type
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns a list of public chats of the specified type, owned by the user
+                /// </summary>
+                public Task<Chats> GetCreatedPublicChatsAsync(PublicChatType type = default)
+                {
+                //test
+                    return ExecuteAsync(new GetCreatedPublicChats
+                    {
+                        Type = type
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns a list of public chats of the specified type, owned by the user
+                /// </summary>
+                Task<Chats> GetCreatedPublicChatsAsync(PublicChatType type = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

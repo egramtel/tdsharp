@@ -46,6 +46,29 @@ namespace TdLib
                 EmojiStatus = emojiStatus
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes the emoji status of the current user; for Telegram Premium users only
+                /// </summary>
+                public Task<Ok> SetEmojiStatusAsync(EmojiStatus emojiStatus = default)
+                {
+                //test
+                    return ExecuteAsync(new SetEmojiStatus
+                    {
+                        EmojiStatus = emojiStatus
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes the emoji status of the current user; for Telegram Premium users only
+                /// </summary>
+                Task<Ok> SetEmojiStatusAsync(EmojiStatus emojiStatus = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

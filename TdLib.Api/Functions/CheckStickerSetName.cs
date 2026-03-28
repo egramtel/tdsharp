@@ -46,6 +46,29 @@ namespace TdLib
                 Name = name
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Checks whether a name can be used for a new sticker set
+                /// </summary>
+                public Task<CheckStickerSetNameResult> CheckStickerSetNameAsync(string name = default)
+                {
+                //test
+                    return ExecuteAsync(new CheckStickerSetName
+                    {
+                        Name = name
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Checks whether a name can be used for a new sticker set
+                /// </summary>
+                Task<CheckStickerSetNameResult> CheckStickerSetNameAsync(string name = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -60,6 +60,29 @@ namespace TdLib
                 BusinessConnectionId = businessConnectionId, ChatId = chatId, MessageId = messageId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Reads a message on behalf of a business account; for bots only
+                /// </summary>
+                public Task<Ok> ReadBusinessMessageAsync(string businessConnectionId = default, long chatId = default, long messageId = default)
+                {
+                //test
+                    return ExecuteAsync(new ReadBusinessMessage
+                    {
+                        BusinessConnectionId = businessConnectionId, ChatId = chatId, MessageId = messageId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Reads a message on behalf of a business account; for bots only
+                /// </summary>
+                Task<Ok> ReadBusinessMessageAsync(string businessConnectionId = default, long chatId = default, long messageId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

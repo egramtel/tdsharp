@@ -53,6 +53,29 @@ namespace TdLib
                 InputGroupCall = inputGroupCall, JoinParameters = joinParameters
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Joins a regular group call that is not bound to a chat
+                /// </summary>
+                public Task<GroupCallInfo> JoinGroupCallAsync(InputGroupCall inputGroupCall = default, GroupCallJoinParameters joinParameters = default)
+                {
+                //test
+                    return ExecuteAsync(new JoinGroupCall
+                    {
+                        InputGroupCall = inputGroupCall, JoinParameters = joinParameters
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Joins a regular group call that is not bound to a chat
+                /// </summary>
+                Task<GroupCallInfo> JoinGroupCallAsync(InputGroupCall inputGroupCall = default, GroupCallJoinParameters joinParameters = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

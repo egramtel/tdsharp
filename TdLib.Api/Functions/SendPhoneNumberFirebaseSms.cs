@@ -46,6 +46,29 @@ namespace TdLib
                 Token = token
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Sends Firebase Authentication SMS to the specified phone number. Works only when received a code of the type authenticationCodeTypeFirebaseAndroid or authenticationCodeTypeFirebaseIos
+                /// </summary>
+                public Task<Ok> SendPhoneNumberFirebaseSmsAsync(string token = default)
+                {
+                //test
+                    return ExecuteAsync(new SendPhoneNumberFirebaseSms
+                    {
+                        Token = token
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Sends Firebase Authentication SMS to the specified phone number. Works only when received a code of the type authenticationCodeTypeFirebaseAndroid or authenticationCodeTypeFirebaseIos
+                /// </summary>
+                Task<Ok> SendPhoneNumberFirebaseSmsAsync(string token = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

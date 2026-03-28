@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns application config, provided by the server. Can be called before authorization
+                /// </summary>
+                public Task<JsonValue> GetApplicationConfigAsync()
+                {
+                //test
+                    return ExecuteAsync(new GetApplicationConfig
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns application config, provided by the server. Can be called before authorization
+                /// </summary>
+                Task<JsonValue> GetApplicationConfigAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Requests to send a 2-step verification password recovery code to an email address that was previously set up
+                /// </summary>
+                public Task<EmailAddressAuthenticationCodeInfo> RequestPasswordRecoveryAsync()
+                {
+                //test
+                    return ExecuteAsync(new RequestPasswordRecovery
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Requests to send a 2-step verification password recovery code to an email address that was previously set up
+                /// </summary>
+                Task<EmailAddressAuthenticationCodeInfo> RequestPasswordRecoveryAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

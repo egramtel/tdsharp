@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns the list of bots owned by the current user
+                /// </summary>
+                public Task<Users> GetOwnedBotsAsync()
+                {
+                //test
+                    return ExecuteAsync(new GetOwnedBots
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns the list of bots owned by the current user
+                /// </summary>
+                Task<Users> GetOwnedBotsAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -60,6 +60,29 @@ namespace TdLib
                 ChatId = chatId, UserId = userId, Password = password
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes the owner of a chat; for basic groups, supergroups and channel chats only; requires owner privileges in the chat. Use the method canTransferOwnership to check whether the ownership can be transferred from the current session
+                /// </summary>
+                public Task<Ok> TransferChatOwnershipAsync(long chatId = default, long userId = default, string password = default)
+                {
+                //test
+                    return ExecuteAsync(new TransferChatOwnership
+                    {
+                        ChatId = chatId, UserId = userId, Password = password
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes the owner of a chat; for basic groups, supergroups and channel chats only; requires owner privileges in the chat. Use the method canTransferOwnership to check whether the ownership can be transferred from the current session
+                /// </summary>
+                Task<Ok> TransferChatOwnershipAsync(long chatId = default, long userId = default, string password = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

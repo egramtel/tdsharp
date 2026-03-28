@@ -45,6 +45,29 @@ namespace TdLib
                 Usernames = usernames
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes order of active usernames of the current user
+                /// </summary>
+                public Task<Ok> ReorderActiveUsernamesAsync(string[] usernames = default)
+                {
+                //test
+                    return ExecuteAsync(new ReorderActiveUsernames
+                    {
+                        Usernames = usernames
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes order of active usernames of the current user
+                /// </summary>
+                Task<Ok> ReorderActiveUsernamesAsync(string[] usernames = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

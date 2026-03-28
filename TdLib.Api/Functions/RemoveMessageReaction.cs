@@ -60,6 +60,29 @@ namespace TdLib
                 ChatId = chatId, MessageId = messageId, ReactionType = reactionType
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Removes a reaction from a message. A chosen reaction can always be removed
+                /// </summary>
+                public Task<Ok> RemoveMessageReactionAsync(long chatId = default, long messageId = default, ReactionType reactionType = default)
+                {
+                //test
+                    return ExecuteAsync(new RemoveMessageReaction
+                    {
+                        ChatId = chatId, MessageId = messageId, ReactionType = reactionType
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Removes a reaction from a message. A chosen reaction can always be removed
+                /// </summary>
+                Task<Ok> RemoveMessageReactionAsync(long chatId = default, long messageId = default, ReactionType reactionType = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

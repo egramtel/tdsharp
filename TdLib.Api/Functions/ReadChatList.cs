@@ -46,6 +46,29 @@ namespace TdLib
                 ChatList = chatList
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Traverses all chats in a chat list and marks all messages in the chats as read
+                /// </summary>
+                public Task<Ok> ReadChatListAsync(ChatList chatList = default)
+                {
+                //test
+                    return ExecuteAsync(new ReadChatList
+                    {
+                        ChatList = chatList
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Traverses all chats in a chat list and marks all messages in the chats as read
+                /// </summary>
+                Task<Ok> ReadChatListAsync(ChatList chatList = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

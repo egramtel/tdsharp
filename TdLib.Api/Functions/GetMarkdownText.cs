@@ -46,6 +46,29 @@ namespace TdLib
                 Text = text
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Replaces text entities with Markdown formatting in a human-friendly format. Entities that can't be represented in Markdown unambiguously are kept as is. Can be called synchronously
+                /// </summary>
+                public Task<FormattedText> GetMarkdownTextAsync(FormattedText text = default)
+                {
+                //test
+                    return ExecuteAsync(new GetMarkdownText
+                    {
+                        Text = text
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Replaces text entities with Markdown formatting in a human-friendly format. Entities that can't be represented in Markdown unambiguously are kept as is. Can be called synchronously
+                /// </summary>
+                Task<FormattedText> GetMarkdownTextAsync(FormattedText text = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

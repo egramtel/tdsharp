@@ -53,6 +53,29 @@ namespace TdLib
                 IsChannel = isChannel, Level = level
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns the list of features available on the specific chat boost level. This is an offline method
+                /// </summary>
+                public Task<ChatBoostLevelFeatures> GetChatBoostLevelFeaturesAsync(bool isChannel = default, int level = default)
+                {
+                //test
+                    return ExecuteAsync(new GetChatBoostLevelFeatures
+                    {
+                        IsChannel = isChannel, Level = level
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns the list of features available on the specific chat boost level. This is an offline method
+                /// </summary>
+                Task<ChatBoostLevelFeatures> GetChatBoostLevelFeaturesAsync(bool isChannel = default, int level = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

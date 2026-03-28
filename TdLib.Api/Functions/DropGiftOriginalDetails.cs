@@ -53,6 +53,29 @@ namespace TdLib
                 ReceivedGiftId = receivedGiftId, StarCount = starCount
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Drops original details for an upgraded gift
+                /// </summary>
+                public Task<Ok> DropGiftOriginalDetailsAsync(string receivedGiftId = default, long starCount = default)
+                {
+                //test
+                    return ExecuteAsync(new DropGiftOriginalDetails
+                    {
+                        ReceivedGiftId = receivedGiftId, StarCount = starCount
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Drops original details for an upgraded gift
+                /// </summary>
+                Task<Ok> DropGiftOriginalDetailsAsync(string receivedGiftId = default, long starCount = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

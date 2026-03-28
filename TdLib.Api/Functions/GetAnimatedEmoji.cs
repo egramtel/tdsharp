@@ -46,6 +46,29 @@ namespace TdLib
                 Emoji = emoji
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns an animated emoji corresponding to a given emoji. Returns a 404 error if the emoji has no animated emoji
+                /// </summary>
+                public Task<AnimatedEmoji> GetAnimatedEmojiAsync(string emoji = default)
+                {
+                //test
+                    return ExecuteAsync(new GetAnimatedEmoji
+                    {
+                        Emoji = emoji
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns an animated emoji corresponding to a given emoji. Returns a 404 error if the emoji has no animated emoji
+                /// </summary>
+                Task<AnimatedEmoji> GetAnimatedEmojiAsync(string emoji = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

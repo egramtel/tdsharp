@@ -53,6 +53,29 @@ namespace TdLib
                 UserId = userId, TelegramPaymentChargeId = telegramPaymentChargeId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Refunds a previously done payment in Telegram Stars; for bots only
+                /// </summary>
+                public Task<Ok> RefundStarPaymentAsync(long userId = default, string telegramPaymentChargeId = default)
+                {
+                //test
+                    return ExecuteAsync(new RefundStarPayment
+                    {
+                        UserId = userId, TelegramPaymentChargeId = telegramPaymentChargeId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Refunds a previously done payment in Telegram Stars; for bots only
+                /// </summary>
+                Task<Ok> RefundStarPaymentAsync(long userId = default, string telegramPaymentChargeId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -67,6 +67,29 @@ namespace TdLib
                 BusinessConnectionId = businessConnectionId, ReceivedGiftId = receivedGiftId, NewOwnerId = newOwnerId, StarCount = starCount
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Sends an upgraded gift to another user or channel chat
+                /// </summary>
+                public Task<Ok> TransferGiftAsync(string businessConnectionId = default, string receivedGiftId = default, MessageSender newOwnerId = default, long starCount = default)
+                {
+                //test
+                    return ExecuteAsync(new TransferGift
+                    {
+                        BusinessConnectionId = businessConnectionId, ReceivedGiftId = receivedGiftId, NewOwnerId = newOwnerId, StarCount = starCount
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Sends an upgraded gift to another user or channel chat
+                /// </summary>
+                Task<Ok> TransferGiftAsync(string businessConnectionId = default, string receivedGiftId = default, MessageSender newOwnerId = default, long starCount = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

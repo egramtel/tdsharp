@@ -46,6 +46,29 @@ namespace TdLib
                 BankCardNumber = bankCardNumber
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns information about a bank card
+                /// </summary>
+                public Task<BankCardInfo> GetBankCardInfoAsync(string bankCardNumber = default)
+                {
+                //test
+                    return ExecuteAsync(new GetBankCardInfo
+                    {
+                        BankCardNumber = bankCardNumber
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns information about a bank card
+                /// </summary>
+                Task<BankCardInfo> GetBankCardInfoAsync(string bankCardNumber = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

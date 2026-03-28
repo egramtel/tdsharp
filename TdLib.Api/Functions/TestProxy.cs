@@ -60,6 +60,29 @@ namespace TdLib
                 Proxy = proxy, DcId = dcId, Timeout = timeout
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Sends a simple network request to the Telegram servers via proxy; for testing only. Can be called before authorization
+                /// </summary>
+                public Task<Ok> TestProxyAsync(Proxy proxy = default, int dcId = default, double? timeout = default)
+                {
+                //test
+                    return ExecuteAsync(new TestProxy
+                    {
+                        Proxy = proxy, DcId = dcId, Timeout = timeout
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Sends a simple network request to the Telegram servers via proxy; for testing only. Can be called before authorization
+                /// </summary>
+                Task<Ok> TestProxyAsync(Proxy proxy = default, int dcId = default, double? timeout = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

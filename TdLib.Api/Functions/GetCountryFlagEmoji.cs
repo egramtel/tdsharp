@@ -46,6 +46,29 @@ namespace TdLib
                 CountryCode = countryCode
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns an emoji for the given country. Returns an empty string on failure. Can be called synchronously
+                /// </summary>
+                public Task<Text> GetCountryFlagEmojiAsync(string countryCode = default)
+                {
+                //test
+                    return ExecuteAsync(new GetCountryFlagEmoji
+                    {
+                        CountryCode = countryCode
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns an emoji for the given country. Returns an empty string on failure. Can be called synchronously
+                /// </summary>
+                Task<Text> GetCountryFlagEmojiAsync(string countryCode = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

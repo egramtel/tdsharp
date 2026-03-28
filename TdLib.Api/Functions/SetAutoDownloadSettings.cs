@@ -53,6 +53,29 @@ namespace TdLib
                 Settings = settings, Type = type
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Sets auto-download settings
+                /// </summary>
+                public Task<Ok> SetAutoDownloadSettingsAsync(AutoDownloadSettings settings = default, NetworkType type = default)
+                {
+                //test
+                    return ExecuteAsync(new SetAutoDownloadSettings
+                    {
+                        Settings = settings, Type = type
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Sets auto-download settings
+                /// </summary>
+                Task<Ok> SetAutoDownloadSettingsAsync(AutoDownloadSettings settings = default, NetworkType type = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

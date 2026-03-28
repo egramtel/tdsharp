@@ -46,6 +46,29 @@ namespace TdLib
                 LinkInfo = linkInfo
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Creates a business chat link for the current account. Requires Telegram Business subscription. There can be up to getOption("business_chat_link_count_max") links created. Returns the created link
+                /// </summary>
+                public Task<BusinessChatLink> CreateBusinessChatLinkAsync(InputBusinessChatLink linkInfo = default)
+                {
+                //test
+                    return ExecuteAsync(new CreateBusinessChatLink
+                    {
+                        LinkInfo = linkInfo
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Creates a business chat link for the current account. Requires Telegram Business subscription. There can be up to getOption("business_chat_link_count_max") links created. Returns the created link
+                /// </summary>
+                Task<BusinessChatLink> CreateBusinessChatLinkAsync(InputBusinessChatLink linkInfo = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

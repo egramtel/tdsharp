@@ -46,6 +46,29 @@ namespace TdLib
                 BotUserId = botUserId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Checks whether the specified bot can send messages to the user. Returns a 404 error if can't and the access can be granted by call to allowBotToSendMessages
+                /// </summary>
+                public Task<Ok> CanBotSendMessagesAsync(long botUserId = default)
+                {
+                //test
+                    return ExecuteAsync(new CanBotSendMessages
+                    {
+                        BotUserId = botUserId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Checks whether the specified bot can send messages to the user. Returns a 404 error if can't and the access can be granted by call to allowBotToSendMessages
+                /// </summary>
+                Task<Ok> CanBotSendMessagesAsync(long botUserId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

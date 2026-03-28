@@ -46,6 +46,29 @@ namespace TdLib
                 GroupCallId = groupCallId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Leaves a group call
+                /// </summary>
+                public Task<Ok> LeaveGroupCallAsync(int groupCallId = default)
+                {
+                //test
+                    return ExecuteAsync(new LeaveGroupCall
+                    {
+                        GroupCallId = groupCallId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Leaves a group call
+                /// </summary>
+                Task<Ok> LeaveGroupCallAsync(int groupCallId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

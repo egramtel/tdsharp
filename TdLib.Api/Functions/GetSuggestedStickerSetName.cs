@@ -46,6 +46,29 @@ namespace TdLib
                 Title = title
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns a suggested name for a new sticker set with a given title
+                /// </summary>
+                public Task<Text> GetSuggestedStickerSetNameAsync(string title = default)
+                {
+                //test
+                    return ExecuteAsync(new GetSuggestedStickerSetName
+                    {
+                        Title = title
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns a suggested name for a new sticker set with a given title
+                /// </summary>
+                Task<Text> GetSuggestedStickerSetNameAsync(string title = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

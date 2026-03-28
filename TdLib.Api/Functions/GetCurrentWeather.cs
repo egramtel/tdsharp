@@ -46,6 +46,29 @@ namespace TdLib
                 Location = location
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns the current weather in the given location
+                /// </summary>
+                public Task<CurrentWeather> GetCurrentWeatherAsync(Location location = default)
+                {
+                //test
+                    return ExecuteAsync(new GetCurrentWeather
+                    {
+                        Location = location
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns the current weather in the given location
+                /// </summary>
+                Task<CurrentWeather> GetCurrentWeatherAsync(Location location = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

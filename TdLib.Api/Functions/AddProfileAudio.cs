@@ -46,6 +46,29 @@ namespace TdLib
                 FileId = fileId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Adds an audio file to the beginning of the profile audio files of the current user
+                /// </summary>
+                public Task<Ok> AddProfileAudioAsync(int fileId = default)
+                {
+                //test
+                    return ExecuteAsync(new AddProfileAudio
+                    {
+                        FileId = fileId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Adds an audio file to the beginning of the profile audio files of the current user
+                /// </summary>
+                Task<Ok> AddProfileAudioAsync(int fileId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

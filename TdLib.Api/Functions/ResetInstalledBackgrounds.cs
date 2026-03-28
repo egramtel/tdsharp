@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Resets list of installed backgrounds to its default value
+                /// </summary>
+                public Task<Ok> ResetInstalledBackgroundsAsync()
+                {
+                //test
+                    return ExecuteAsync(new ResetInstalledBackgrounds
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Resets list of installed backgrounds to its default value
+                /// </summary>
+                Task<Ok> ResetInstalledBackgroundsAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

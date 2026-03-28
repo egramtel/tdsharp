@@ -53,6 +53,29 @@ namespace TdLib
                 StoryPosterChatId = storyPosterChatId, StoryId = storyId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Informs TDLib that a story is closed by the user
+                /// </summary>
+                public Task<Ok> CloseStoryAsync(long storyPosterChatId = default, int storyId = default)
+                {
+                //test
+                    return ExecuteAsync(new CloseStory
+                    {
+                        StoryPosterChatId = storyPosterChatId, StoryId = storyId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Informs TDLib that a story is closed by the user
+                /// </summary>
+                Task<Ok> CloseStoryAsync(long storyPosterChatId = default, int storyId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

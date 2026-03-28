@@ -46,6 +46,29 @@ namespace TdLib
                 Theme = theme
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Converts a themeParameters object to corresponding JSON-serialized string. Can be called synchronously
+                /// </summary>
+                public Task<Text> GetThemeParametersJsonStringAsync(ThemeParameters theme = default)
+                {
+                //test
+                    return ExecuteAsync(new GetThemeParametersJsonString
+                    {
+                        Theme = theme
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Converts a themeParameters object to corresponding JSON-serialized string. Can be called synchronously
+                /// </summary>
+                Task<Text> GetThemeParametersJsonStringAsync(ThemeParameters theme = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

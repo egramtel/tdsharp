@@ -60,6 +60,29 @@ namespace TdLib
                 UserId = userId, TelegramPaymentChargeId = telegramPaymentChargeId, IsCanceled = isCanceled
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Cancels or re-enables Telegram Star subscription for a user; for bots only
+                /// </summary>
+                public Task<Ok> EditUserStarSubscriptionAsync(long userId = default, string telegramPaymentChargeId = default, bool isCanceled = default)
+                {
+                //test
+                    return ExecuteAsync(new EditUserStarSubscription
+                    {
+                        UserId = userId, TelegramPaymentChargeId = telegramPaymentChargeId, IsCanceled = isCanceled
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Cancels or re-enables Telegram Star subscription for a user; for bots only
+                /// </summary>
+                Task<Ok> EditUserStarSubscriptionAsync(long userId = default, string telegramPaymentChargeId = default, bool isCanceled = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

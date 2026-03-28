@@ -60,6 +60,29 @@ namespace TdLib
                 GroupCallId = groupCallId, AudioSource = audioSource, IsSpeaking = isSpeaking
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Informs TDLib that speaking state of a participant of an active group call has changed. Returns identifier of the participant if it is found
+                /// </summary>
+                public Task<MessageSender> SetGroupCallParticipantIsSpeakingAsync(int groupCallId = default, int audioSource = default, bool isSpeaking = default)
+                {
+                //test
+                    return ExecuteAsync(new SetGroupCallParticipantIsSpeaking
+                    {
+                        GroupCallId = groupCallId, AudioSource = audioSource, IsSpeaking = isSpeaking
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Informs TDLib that speaking state of a participant of an active group call has changed. Returns identifier of the participant if it is found
+                /// </summary>
+                Task<MessageSender> SetGroupCallParticipantIsSpeakingAsync(int groupCallId = default, int audioSource = default, bool isSpeaking = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

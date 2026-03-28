@@ -66,6 +66,29 @@ namespace TdLib
                 Strings = strings, Query = query, Limit = limit, ReturnNoneForEmptyQuery = returnNoneForEmptyQuery
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Searches specified query by word prefixes in the provided strings. Returns 0-based positions of strings that matched. Can be called synchronously
+                /// </summary>
+                public Task<FoundPositions> SearchStringsByPrefixAsync(string[] strings = default, string query = default, int limit = default, bool returnNoneForEmptyQuery = default)
+                {
+                //test
+                    return ExecuteAsync(new SearchStringsByPrefix
+                    {
+                        Strings = strings, Query = query, Limit = limit, ReturnNoneForEmptyQuery = returnNoneForEmptyQuery
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Searches specified query by word prefixes in the provided strings. Returns 0-based positions of strings that matched. Can be called synchronously
+                /// </summary>
+                Task<FoundPositions> SearchStringsByPrefixAsync(string[] strings = default, string query = default, int limit = default, bool returnNoneForEmptyQuery = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

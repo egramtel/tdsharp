@@ -55,6 +55,31 @@ namespace TdLib
                 Text = text, ParseMode = parseMode
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Parses Bold, Italic, Underline, Strikethrough, Spoiler, CustomEmoji, BlockQuote, ExpandableBlockQuote, Code, Pre, PreCode, TextUrl
+                /// and MentionName entities from a marked-up text. Can be called synchronously
+                /// </summary>
+                public Task<FormattedText> ParseTextEntitiesAsync(string text = default, TextParseMode parseMode = default)
+                {
+                //test
+                    return ExecuteAsync(new ParseTextEntities
+                    {
+                        Text = text, ParseMode = parseMode
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Parses Bold, Italic, Underline, Strikethrough, Spoiler, CustomEmoji, BlockQuote, ExpandableBlockQuote, Code, Pre, PreCode, TextUrl
+                /// and MentionName entities from a marked-up text. Can be called synchronously
+                /// </summary>
+                Task<FormattedText> ParseTextEntitiesAsync(string text = default, TextParseMode parseMode = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

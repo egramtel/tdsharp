@@ -67,6 +67,29 @@ namespace TdLib
                 Query = query, Offset = offset, Limit = limit, StarCount = starCount
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Searches for public channel posts using the given query. For optimal performance, the number of returned messages is chosen by TDLib and can be smaller than the specified limit
+                /// </summary>
+                public Task<FoundPublicPosts> SearchPublicPostsAsync(string query = default, string offset = default, int limit = default, long starCount = default)
+                {
+                //test
+                    return ExecuteAsync(new SearchPublicPosts
+                    {
+                        Query = query, Offset = offset, Limit = limit, StarCount = starCount
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Searches for public channel posts using the given query. For optimal performance, the number of returned messages is chosen by TDLib and can be smaller than the specified limit
+                /// </summary>
+                Task<FoundPublicPosts> SearchPublicPostsAsync(string query = default, string offset = default, int limit = default, long starCount = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

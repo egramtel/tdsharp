@@ -53,6 +53,29 @@ namespace TdLib
                 UserId = userId, EmojiStatus = emojiStatus
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes the emoji status of a user; for bots only
+                /// </summary>
+                public Task<Ok> SetUserEmojiStatusAsync(long userId = default, EmojiStatus emojiStatus = default)
+                {
+                //test
+                    return ExecuteAsync(new SetUserEmojiStatus
+                    {
+                        UserId = userId, EmojiStatus = emojiStatus
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes the emoji status of a user; for bots only
+                /// </summary>
+                Task<Ok> SetUserEmojiStatusAsync(long userId = default, EmojiStatus emojiStatus = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

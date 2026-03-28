@@ -53,6 +53,29 @@ namespace TdLib
                 SupergroupId = supergroupId, IsAllHistoryAvailable = isAllHistoryAvailable
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Toggles whether the message history of a supergroup is available to new members; requires can_change_info member right
+                /// </summary>
+                public Task<Ok> ToggleSupergroupIsAllHistoryAvailableAsync(long supergroupId = default, bool isAllHistoryAvailable = default)
+                {
+                //test
+                    return ExecuteAsync(new ToggleSupergroupIsAllHistoryAvailable
+                    {
+                        SupergroupId = supergroupId, IsAllHistoryAvailable = isAllHistoryAvailable
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Toggles whether the message history of a supergroup is available to new members; requires can_change_info member right
+                /// </summary>
+                Task<Ok> ToggleSupergroupIsAllHistoryAvailableAsync(long supergroupId = default, bool isAllHistoryAvailable = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

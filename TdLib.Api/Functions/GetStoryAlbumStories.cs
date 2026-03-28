@@ -67,6 +67,29 @@ namespace TdLib
                 ChatId = chatId, StoryAlbumId = storyAlbumId, Offset = offset, Limit = limit
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns the list of stories added to the given story album. For optimal performance, the number of returned stories is chosen by TDLib
+                /// </summary>
+                public Task<Stories> GetStoryAlbumStoriesAsync(long chatId = default, int storyAlbumId = default, int offset = default, int limit = default)
+                {
+                //test
+                    return ExecuteAsync(new GetStoryAlbumStories
+                    {
+                        ChatId = chatId, StoryAlbumId = storyAlbumId, Offset = offset, Limit = limit
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns the list of stories added to the given story album. For optimal performance, the number of returned stories is chosen by TDLib
+                /// </summary>
+                Task<Stories> GetStoryAlbumStoriesAsync(long chatId = default, int storyAlbumId = default, int offset = default, int limit = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

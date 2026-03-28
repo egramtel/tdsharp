@@ -55,6 +55,31 @@ namespace TdLib
                 ChatId = chatId, IsDark = isDark
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns detailed revenue statistics about a chat. Currently, this method can be used only
+                /// for channels if supergroupFullInfo.can_get_revenue_statistics == true or bots if userFullInfo.bot_info.can_get_revenue_statistics == true
+                /// </summary>
+                public Task<ChatRevenueStatistics> GetChatRevenueStatisticsAsync(long chatId = default, bool isDark = default)
+                {
+                //test
+                    return ExecuteAsync(new GetChatRevenueStatistics
+                    {
+                        ChatId = chatId, IsDark = isDark
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns detailed revenue statistics about a chat. Currently, this method can be used only
+                /// for channels if supergroupFullInfo.can_get_revenue_statistics == true or bots if userFullInfo.bot_info.can_get_revenue_statistics == true
+                /// </summary>
+                Task<ChatRevenueStatistics> GetChatRevenueStatisticsAsync(long chatId = default, bool isDark = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

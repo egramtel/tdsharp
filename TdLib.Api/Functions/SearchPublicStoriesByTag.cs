@@ -67,6 +67,29 @@ namespace TdLib
                 StoryPosterChatId = storyPosterChatId, Tag = tag, Offset = offset, Limit = limit
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Searches for public stories containing the given hashtag or cashtag. For optimal performance, the number of returned stories is chosen by TDLib and can be smaller than the specified limit
+                /// </summary>
+                public Task<FoundStories> SearchPublicStoriesByTagAsync(long storyPosterChatId = default, string tag = default, string offset = default, int limit = default)
+                {
+                //test
+                    return ExecuteAsync(new SearchPublicStoriesByTag
+                    {
+                        StoryPosterChatId = storyPosterChatId, Tag = tag, Offset = offset, Limit = limit
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Searches for public stories containing the given hashtag or cashtag. For optimal performance, the number of returned stories is chosen by TDLib and can be smaller than the specified limit
+                /// </summary>
+                Task<FoundStories> SearchPublicStoriesByTagAsync(long storyPosterChatId = default, string tag = default, string offset = default, int limit = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

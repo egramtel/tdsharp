@@ -45,6 +45,29 @@ namespace TdLib
                 StickerSetIds = stickerSetIds
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Informs the server that some trending sticker sets have been viewed by the user
+                /// </summary>
+                public Task<Ok> ViewTrendingStickerSetsAsync(long[] stickerSetIds = default)
+                {
+                //test
+                    return ExecuteAsync(new ViewTrendingStickerSets
+                    {
+                        StickerSetIds = stickerSetIds
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Informs the server that some trending sticker sets have been viewed by the user
+                /// </summary>
+                Task<Ok> ViewTrendingStickerSetsAsync(long[] stickerSetIds = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

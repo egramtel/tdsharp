@@ -53,6 +53,29 @@ namespace TdLib
                 ChatId = chatId, AvailableReactions = availableReactions
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes reactions, available in a chat. Available for basic groups, supergroups, and channels. Requires can_change_info member right
+                /// </summary>
+                public Task<Ok> SetChatAvailableReactionsAsync(long chatId = default, ChatAvailableReactions availableReactions = default)
+                {
+                //test
+                    return ExecuteAsync(new SetChatAvailableReactions
+                    {
+                        ChatId = chatId, AvailableReactions = availableReactions
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes reactions, available in a chat. Available for basic groups, supergroups, and channels. Requires can_change_info member right
+                /// </summary>
+                Task<Ok> SetChatAvailableReactionsAsync(long chatId = default, ChatAvailableReactions availableReactions = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

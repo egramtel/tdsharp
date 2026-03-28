@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns the total number of imported contacts
+                /// </summary>
+                public Task<Count> GetImportedContactCountAsync()
+                {
+                //test
+                    return ExecuteAsync(new GetImportedContactCount
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns the total number of imported contacts
+                /// </summary>
+                Task<Count> GetImportedContactCountAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

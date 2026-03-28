@@ -88,6 +88,29 @@ namespace TdLib
                 Title = title, IsForum = isForum, IsChannel = isChannel, Description = description, Location = location, MessageAutoDeleteTime = messageAutoDeleteTime, ForImport = forImport
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Creates a new supergroup or channel and sends a corresponding messageSupergroupChatCreate. Returns the newly created chat
+                /// </summary>
+                public Task<Chat> CreateNewSupergroupChatAsync(string title = default, bool isForum = default, bool isChannel = default, string description = default, ChatLocation location = default, int messageAutoDeleteTime = default, bool forImport = default)
+                {
+                //test
+                    return ExecuteAsync(new CreateNewSupergroupChat
+                    {
+                        Title = title, IsForum = isForum, IsChannel = isChannel, Description = description, Location = location, MessageAutoDeleteTime = messageAutoDeleteTime, ForImport = forImport
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Creates a new supergroup or channel and sends a corresponding messageSupergroupChatCreate. Returns the newly created chat
+                /// </summary>
+                Task<Chat> CreateNewSupergroupChatAsync(string title = default, bool isForum = default, bool isChannel = default, string description = default, ChatLocation location = default, int messageAutoDeleteTime = default, bool forImport = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

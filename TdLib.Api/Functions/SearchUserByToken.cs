@@ -46,6 +46,29 @@ namespace TdLib
                 Token = token
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Searches a user by a token from the user's link
+                /// </summary>
+                public Task<User> SearchUserByTokenAsync(string token = default)
+                {
+                //test
+                    return ExecuteAsync(new SearchUserByToken
+                    {
+                        Token = token
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Searches a user by a token from the user's link
+                /// </summary>
+                Task<User> SearchUserByTokenAsync(string token = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

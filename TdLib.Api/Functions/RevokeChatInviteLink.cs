@@ -55,6 +55,31 @@ namespace TdLib
                 ChatId = chatId, InviteLink = inviteLink
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Revokes invite link for a chat. Available for basic groups, supergroups, and channels. Requires administrator privileges and can_invite_users right in the chat for own links and owner privileges for other links.
+                /// If a primary link is revoked, then additionally to the revoked link returns new primary link
+                /// </summary>
+                public Task<ChatInviteLinks> RevokeChatInviteLinkAsync(long chatId = default, string inviteLink = default)
+                {
+                //test
+                    return ExecuteAsync(new RevokeChatInviteLink
+                    {
+                        ChatId = chatId, InviteLink = inviteLink
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Revokes invite link for a chat. Available for basic groups, supergroups, and channels. Requires administrator privileges and can_invite_users right in the chat for own links and owner privileges for other links.
+                /// If a primary link is revoked, then additionally to the revoked link returns new primary link
+                /// </summary>
+                Task<ChatInviteLinks> RevokeChatInviteLinkAsync(long chatId = default, string inviteLink = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

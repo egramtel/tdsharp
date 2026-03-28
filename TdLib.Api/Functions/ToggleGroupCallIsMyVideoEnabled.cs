@@ -53,6 +53,29 @@ namespace TdLib
                 GroupCallId = groupCallId, IsMyVideoEnabled = isMyVideoEnabled
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Toggles whether current user's video is enabled
+                /// </summary>
+                public Task<Ok> ToggleGroupCallIsMyVideoEnabledAsync(int groupCallId = default, bool isMyVideoEnabled = default)
+                {
+                //test
+                    return ExecuteAsync(new ToggleGroupCallIsMyVideoEnabled
+                    {
+                        GroupCallId = groupCallId, IsMyVideoEnabled = isMyVideoEnabled
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Toggles whether current user's video is enabled
+                /// </summary>
+                Task<Ok> ToggleGroupCallIsMyVideoEnabledAsync(int groupCallId = default, bool isMyVideoEnabled = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns default list of custom emoji stickers for placing on a profile photo
+                /// </summary>
+                public Task<Stickers> GetDefaultProfilePhotoCustomEmojiStickersAsync()
+                {
+                //test
+                    return ExecuteAsync(new GetDefaultProfilePhotoCustomEmojiStickers
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns default list of custom emoji stickers for placing on a profile photo
+                /// </summary>
+                Task<Stickers> GetDefaultProfilePhotoCustomEmojiStickersAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

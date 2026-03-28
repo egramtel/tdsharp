@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns examples of premium stickers for demonstration purposes
+                /// </summary>
+                public Task<Stickers> GetPremiumStickerExamplesAsync()
+                {
+                //test
+                    return ExecuteAsync(new GetPremiumStickerExamples
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns examples of premium stickers for demonstration purposes
+                /// </summary>
+                Task<Stickers> GetPremiumStickerExamplesAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

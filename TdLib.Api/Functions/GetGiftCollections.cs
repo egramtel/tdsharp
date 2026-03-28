@@ -46,6 +46,29 @@ namespace TdLib
                 OwnerId = ownerId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns collections of gifts owned by the given user or chat
+                /// </summary>
+                public Task<GiftCollections> GetGiftCollectionsAsync(MessageSender ownerId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetGiftCollections
+                    {
+                        OwnerId = ownerId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns collections of gifts owned by the given user or chat
+                /// </summary>
+                Task<GiftCollections> GetGiftCollectionsAsync(MessageSender ownerId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

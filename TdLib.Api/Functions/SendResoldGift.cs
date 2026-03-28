@@ -62,6 +62,31 @@ namespace TdLib
                 GiftName = giftName, OwnerId = ownerId, Price = price
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Sends an upgraded gift that is available for resale to another user or channel chat; gifts already owned by the current user
+                /// must be transferred using transferGift and can't be passed to the method
+                /// </summary>
+                public Task<GiftResaleResult> SendResoldGiftAsync(string giftName = default, MessageSender ownerId = default, GiftResalePrice price = default)
+                {
+                //test
+                    return ExecuteAsync(new SendResoldGift
+                    {
+                        GiftName = giftName, OwnerId = ownerId, Price = price
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Sends an upgraded gift that is available for resale to another user or channel chat; gifts already owned by the current user
+                /// must be transferred using transferGift and can't be passed to the method
+                /// </summary>
+                Task<GiftResaleResult> SendResoldGiftAsync(string giftName = default, MessageSender ownerId = default, GiftResalePrice price = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Does nothing; for testing only. This is an offline method. Can be called before authorization
+                /// </summary>
+                public Task<Ok> TestCallEmptyAsync()
+                {
+                //test
+                    return ExecuteAsync(new TestCallEmpty
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Does nothing; for testing only. This is an offline method. Can be called before authorization
+                /// </summary>
+                Task<Ok> TestCallEmptyAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

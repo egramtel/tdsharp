@@ -53,6 +53,29 @@ namespace TdLib
                 PendingUpdateCount = pendingUpdateCount, ErrorMessage = errorMessage
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Informs the server about the number of pending bot updates if they haven't been processed for a long time; for bots only
+                /// </summary>
+                public Task<Ok> SetBotUpdatesStatusAsync(int pendingUpdateCount = default, string errorMessage = default)
+                {
+                //test
+                    return ExecuteAsync(new SetBotUpdatesStatus
+                    {
+                        PendingUpdateCount = pendingUpdateCount, ErrorMessage = errorMessage
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Informs the server about the number of pending bot updates if they haven't been processed for a long time; for bots only
+                /// </summary>
+                Task<Ok> SetBotUpdatesStatusAsync(int pendingUpdateCount = default, string errorMessage = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

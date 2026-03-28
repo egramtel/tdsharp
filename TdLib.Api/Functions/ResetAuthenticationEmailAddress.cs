@@ -43,6 +43,31 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Resets the login email address. May return an error with a message "TASK_ALREADY_EXISTS" if reset is still pending.
+                /// Works only when the current authorization state is authorizationStateWaitEmailCode and authorization_state.can_reset_email_address == true
+                /// </summary>
+                public Task<Ok> ResetAuthenticationEmailAddressAsync()
+                {
+                //test
+                    return ExecuteAsync(new ResetAuthenticationEmailAddress
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Resets the login email address. May return an error with a message "TASK_ALREADY_EXISTS" if reset is still pending.
+                /// Works only when the current authorization state is authorizationStateWaitEmailCode and authorization_state.can_reset_email_address == true
+                /// </summary>
+                Task<Ok> ResetAuthenticationEmailAddressAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

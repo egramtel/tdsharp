@@ -60,6 +60,29 @@ namespace TdLib
                 Tag = tag, Offset = offset, Limit = limit
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Searches for public channel posts containing the given hashtag or cashtag. For optimal performance, the number of returned messages is chosen by TDLib and can be smaller than the specified limit
+                /// </summary>
+                public Task<FoundMessages> SearchPublicMessagesByTagAsync(string tag = default, string offset = default, int limit = default)
+                {
+                //test
+                    return ExecuteAsync(new SearchPublicMessagesByTag
+                    {
+                        Tag = tag, Offset = offset, Limit = limit
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Searches for public channel posts containing the given hashtag or cashtag. For optimal performance, the number of returned messages is chosen by TDLib and can be smaller than the specified limit
+                /// </summary>
+                Task<FoundMessages> SearchPublicMessagesByTagAsync(string tag = default, string offset = default, int limit = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

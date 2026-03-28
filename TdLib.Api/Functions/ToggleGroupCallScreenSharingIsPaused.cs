@@ -53,6 +53,29 @@ namespace TdLib
                 GroupCallId = groupCallId, IsPaused = isPaused
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Pauses or unpauses screen sharing in a joined group call; not supported in live stories
+                /// </summary>
+                public Task<Ok> ToggleGroupCallScreenSharingIsPausedAsync(int groupCallId = default, bool isPaused = default)
+                {
+                //test
+                    return ExecuteAsync(new ToggleGroupCallScreenSharingIsPaused
+                    {
+                        GroupCallId = groupCallId, IsPaused = isPaused
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Pauses or unpauses screen sharing in a joined group call; not supported in live stories
+                /// </summary>
+                Task<Ok> ToggleGroupCallScreenSharingIsPausedAsync(int groupCallId = default, bool isPaused = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

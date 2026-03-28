@@ -76,6 +76,31 @@ namespace TdLib
                 ShortcutName = shortcutName, ReplyToMessageId = replyToMessageId, QueryId = queryId, ResultId = resultId, HideViaBot = hideViaBot
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Adds a message to a quick reply shortcut via inline bot. If shortcut doesn't exist and there are less than getOption("quick_reply_shortcut_count_max") shortcuts, then a new shortcut is created.
+                /// The shortcut must not contain more than getOption("quick_reply_shortcut_message_count_max") messages after adding the new message. Returns the added message
+                /// </summary>
+                public Task<QuickReplyMessage> AddQuickReplyShortcutInlineQueryResultMessageAsync(string shortcutName = default, long replyToMessageId = default, long queryId = default, string resultId = default, bool hideViaBot = default)
+                {
+                //test
+                    return ExecuteAsync(new AddQuickReplyShortcutInlineQueryResultMessage
+                    {
+                        ShortcutName = shortcutName, ReplyToMessageId = replyToMessageId, QueryId = queryId, ResultId = resultId, HideViaBot = hideViaBot
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Adds a message to a quick reply shortcut via inline bot. If shortcut doesn't exist and there are less than getOption("quick_reply_shortcut_count_max") shortcuts, then a new shortcut is created.
+                /// The shortcut must not contain more than getOption("quick_reply_shortcut_message_count_max") messages after adding the new message. Returns the added message
+                /// </summary>
+                Task<QuickReplyMessage> AddQuickReplyShortcutInlineQueryResultMessageAsync(string shortcutName = default, long replyToMessageId = default, long queryId = default, string resultId = default, bool hideViaBot = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

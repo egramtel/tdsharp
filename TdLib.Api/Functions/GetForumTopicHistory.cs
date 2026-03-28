@@ -76,6 +76,31 @@ namespace TdLib
                 ChatId = chatId, ForumTopicId = forumTopicId, FromMessageId = fromMessageId, Offset = offset, Limit = limit
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns messages in a topic in a forum supergroup chat or a chat with a bot with topics. The messages are returned in reverse chronological order
+                /// (i.e., in order of decreasing message_id). For optimal performance, the number of returned messages is chosen by TDLib
+                /// </summary>
+                public Task<Messages> GetForumTopicHistoryAsync(long chatId = default, int forumTopicId = default, long fromMessageId = default, int offset = default, int limit = default)
+                {
+                //test
+                    return ExecuteAsync(new GetForumTopicHistory
+                    {
+                        ChatId = chatId, ForumTopicId = forumTopicId, FromMessageId = fromMessageId, Offset = offset, Limit = limit
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns messages in a topic in a forum supergroup chat or a chat with a bot with topics. The messages are returned in reverse chronological order
+                /// (i.e., in order of decreasing message_id). For optimal performance, the number of returned messages is chosen by TDLib
+                /// </summary>
+                Task<Messages> GetForumTopicHistoryAsync(long chatId = default, int forumTopicId = default, long fromMessageId = default, int offset = default, int limit = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

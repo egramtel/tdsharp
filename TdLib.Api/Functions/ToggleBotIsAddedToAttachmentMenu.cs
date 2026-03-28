@@ -60,6 +60,29 @@ namespace TdLib
                 BotUserId = botUserId, IsAdded = isAdded, AllowWriteAccess = allowWriteAccess
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Adds or removes a bot to attachment and side menu. Bot can be added to the menu, only if userTypeBot.can_be_added_to_attachment_menu == true
+                /// </summary>
+                public Task<Ok> ToggleBotIsAddedToAttachmentMenuAsync(long botUserId = default, bool isAdded = default, bool allowWriteAccess = default)
+                {
+                //test
+                    return ExecuteAsync(new ToggleBotIsAddedToAttachmentMenu
+                    {
+                        BotUserId = botUserId, IsAdded = isAdded, AllowWriteAccess = allowWriteAccess
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Adds or removes a bot to attachment and side menu. Bot can be added to the menu, only if userTypeBot.can_be_added_to_attachment_menu == true
+                /// </summary>
+                Task<Ok> ToggleBotIsAddedToAttachmentMenuAsync(long botUserId = default, bool isAdded = default, bool allowWriteAccess = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -46,6 +46,29 @@ namespace TdLib
                 InactiveSessionTtlDays = inactiveSessionTtlDays
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes the period of inactivity after which sessions will automatically be terminated
+                /// </summary>
+                public Task<Ok> SetInactiveSessionTtlAsync(int inactiveSessionTtlDays = default)
+                {
+                //test
+                    return ExecuteAsync(new SetInactiveSessionTtl
+                    {
+                        InactiveSessionTtlDays = inactiveSessionTtlDays
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes the period of inactivity after which sessions will automatically be terminated
+                /// </summary>
+                Task<Ok> SetInactiveSessionTtlAsync(int inactiveSessionTtlDays = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

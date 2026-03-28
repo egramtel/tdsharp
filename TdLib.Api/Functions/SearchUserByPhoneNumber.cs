@@ -53,6 +53,29 @@ namespace TdLib
                 PhoneNumber = phoneNumber, OnlyLocal = onlyLocal
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Searches a user by their phone number. Returns a 404 error if the user can't be found
+                /// </summary>
+                public Task<User> SearchUserByPhoneNumberAsync(string phoneNumber = default, bool onlyLocal = default)
+                {
+                //test
+                    return ExecuteAsync(new SearchUserByPhoneNumber
+                    {
+                        PhoneNumber = phoneNumber, OnlyLocal = onlyLocal
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Searches a user by their phone number. Returns a 404 error if the user can't be found
+                /// </summary>
+                Task<User> SearchUserByPhoneNumberAsync(string phoneNumber = default, bool onlyLocal = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -52,6 +52,29 @@ namespace TdLib
                 ChatId = chatId, SlotIds = slotIds
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Boosts a chat and returns the list of available chat boost slots for the current user after the boost
+                /// </summary>
+                public Task<ChatBoostSlots> BoostChatAsync(long chatId = default, int[] slotIds = default)
+                {
+                //test
+                    return ExecuteAsync(new BoostChat
+                    {
+                        ChatId = chatId, SlotIds = slotIds
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Boosts a chat and returns the list of available chat boost slots for the current user after the boost
+                /// </summary>
+                Task<ChatBoostSlots> BoostChatAsync(long chatId = default, int[] slotIds = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -54,6 +54,29 @@ namespace TdLib
                 ChatId = chatId, RestorePrevious = restorePrevious
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Deletes background in a specific chat
+                /// </summary>
+                public Task<Ok> DeleteChatBackgroundAsync(long chatId = default, bool restorePrevious = default)
+                {
+                //test
+                    return ExecuteAsync(new DeleteChatBackground
+                    {
+                        ChatId = chatId, RestorePrevious = restorePrevious
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Deletes background in a specific chat
+                /// </summary>
+                Task<Ok> DeleteChatBackgroundAsync(long chatId = default, bool restorePrevious = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

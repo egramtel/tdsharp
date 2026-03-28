@@ -46,6 +46,29 @@ namespace TdLib
                 ChatFolderId = chatFolderId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns invite links created by the current user for a shareable chat folder
+                /// </summary>
+                public Task<ChatFolderInviteLinks> GetChatFolderInviteLinksAsync(int chatFolderId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetChatFolderInviteLinks
+                    {
+                        ChatFolderId = chatFolderId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns invite links created by the current user for a shareable chat folder
+                /// </summary>
+                Task<ChatFolderInviteLinks> GetChatFolderInviteLinksAsync(int chatFolderId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

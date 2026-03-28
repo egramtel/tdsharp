@@ -53,6 +53,29 @@ namespace TdLib
                 ChatList = chatList, Limit = limit
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns an ordered list of chats from the beginning of a chat list. For informational purposes only. Use loadChats and updates processing instead to maintain chat lists in a consistent state
+                /// </summary>
+                public Task<Chats> GetChatsAsync(ChatList chatList = default, int limit = default)
+                {
+                //test
+                    return ExecuteAsync(new GetChats
+                    {
+                        ChatList = chatList, Limit = limit
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns an ordered list of chats from the beginning of a chat list. For informational purposes only. Use loadChats and updates processing instead to maintain chat lists in a consistent state
+                /// </summary>
+                Task<Chats> GetChatsAsync(ChatList chatList = default, int limit = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

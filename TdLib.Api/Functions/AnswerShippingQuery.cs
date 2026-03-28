@@ -59,6 +59,29 @@ namespace TdLib
                 ShippingQueryId = shippingQueryId, ShippingOptions = shippingOptions, ErrorMessage = errorMessage
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Sets the result of a shipping query; for bots only
+                /// </summary>
+                public Task<Ok> AnswerShippingQueryAsync(long shippingQueryId = default, ShippingOption[] shippingOptions = default, string errorMessage = default)
+                {
+                //test
+                    return ExecuteAsync(new AnswerShippingQuery
+                    {
+                        ShippingQueryId = shippingQueryId, ShippingOptions = shippingOptions, ErrorMessage = errorMessage
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Sets the result of a shipping query; for bots only
+                /// </summary>
+                Task<Ok> AnswerShippingQueryAsync(long shippingQueryId = default, ShippingOption[] shippingOptions = default, string errorMessage = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -74,6 +74,29 @@ namespace TdLib
                 ChatId = chatId, MessageId = messageId, OptionId = optionId, Offset = offset, Limit = limit
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns message senders voted for the specified option in a non-anonymous polls. For optimal performance, the number of returned users is chosen by TDLib
+                /// </summary>
+                public Task<PollVoters> GetPollVotersAsync(long chatId = default, long messageId = default, int optionId = default, int offset = default, int limit = default)
+                {
+                //test
+                    return ExecuteAsync(new GetPollVoters
+                    {
+                        ChatId = chatId, MessageId = messageId, OptionId = optionId, Offset = offset, Limit = limit
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns message senders voted for the specified option in a non-anonymous polls. For optimal performance, the number of returned users is chosen by TDLib
+                /// </summary>
+                Task<PollVoters> GetPollVotersAsync(long chatId = default, long messageId = default, int optionId = default, int offset = default, int limit = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

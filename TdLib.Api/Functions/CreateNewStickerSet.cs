@@ -87,6 +87,29 @@ namespace TdLib
                 UserId = userId, Title = title, Name = name, StickerType = stickerType, NeedsRepainting = needsRepainting, Stickers = stickers, Source = source
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Creates a new sticker set. Returns the newly created sticker set
+                /// </summary>
+                public Task<StickerSet> CreateNewStickerSetAsync(long userId = default, string title = default, string name = default, StickerType stickerType = default, bool needsRepainting = default, InputSticker[] stickers = default, string source = default)
+                {
+                //test
+                    return ExecuteAsync(new CreateNewStickerSet
+                    {
+                        UserId = userId, Title = title, Name = name, StickerType = stickerType, NeedsRepainting = needsRepainting, Stickers = stickers, Source = source
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Creates a new sticker set. Returns the newly created sticker set
+                /// </summary>
+                Task<StickerSet> CreateNewStickerSetAsync(long userId = default, string title = default, string name = default, StickerType stickerType = default, bool needsRepainting = default, InputSticker[] stickers = default, string source = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

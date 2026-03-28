@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns all close friends of the current user
+                /// </summary>
+                public Task<Users> GetCloseFriendsAsync()
+                {
+                //test
+                    return ExecuteAsync(new GetCloseFriends
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns all close friends of the current user
+                /// </summary>
+                Task<Users> GetCloseFriendsAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

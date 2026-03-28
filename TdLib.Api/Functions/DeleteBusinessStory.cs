@@ -53,6 +53,29 @@ namespace TdLib
                 BusinessConnectionId = businessConnectionId, StoryId = storyId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Deletes a story posted by the bot on behalf of a business account; for bots only
+                /// </summary>
+                public Task<Ok> DeleteBusinessStoryAsync(string businessConnectionId = default, int storyId = default)
+                {
+                //test
+                    return ExecuteAsync(new DeleteBusinessStory
+                    {
+                        BusinessConnectionId = businessConnectionId, StoryId = storyId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Deletes a story posted by the bot on behalf of a business account; for bots only
+                /// </summary>
+                Task<Ok> DeleteBusinessStoryAsync(string businessConnectionId = default, int storyId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

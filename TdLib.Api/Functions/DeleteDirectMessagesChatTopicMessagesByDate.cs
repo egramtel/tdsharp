@@ -67,6 +67,29 @@ namespace TdLib
                 ChatId = chatId, TopicId = topicId, MinDate = minDate, MaxDate = maxDate
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Deletes all messages between the specified dates in the topic in a channel direct messages chat administered by the current user. Messages sent in the last 30 seconds will not be deleted
+                /// </summary>
+                public Task<Ok> DeleteDirectMessagesChatTopicMessagesByDateAsync(long chatId = default, long topicId = default, int minDate = default, int maxDate = default)
+                {
+                //test
+                    return ExecuteAsync(new DeleteDirectMessagesChatTopicMessagesByDate
+                    {
+                        ChatId = chatId, TopicId = topicId, MinDate = minDate, MaxDate = maxDate
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Deletes all messages between the specified dates in the topic in a channel direct messages chat administered by the current user. Messages sent in the last 30 seconds will not be deleted
+                /// </summary>
+                Task<Ok> DeleteDirectMessagesChatTopicMessagesByDateAsync(long chatId = default, long topicId = default, int minDate = default, int maxDate = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

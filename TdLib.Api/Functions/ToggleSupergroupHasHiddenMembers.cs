@@ -53,6 +53,29 @@ namespace TdLib
                 SupergroupId = supergroupId, HasHiddenMembers = hasHiddenMembers
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Toggles whether non-administrators can receive only administrators and bots using getSupergroupMembers or searchChatMembers. Can be called only if supergroupFullInfo.can_hide_members == true
+                /// </summary>
+                public Task<Ok> ToggleSupergroupHasHiddenMembersAsync(long supergroupId = default, bool hasHiddenMembers = default)
+                {
+                //test
+                    return ExecuteAsync(new ToggleSupergroupHasHiddenMembers
+                    {
+                        SupergroupId = supergroupId, HasHiddenMembers = hasHiddenMembers
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Toggles whether non-administrators can receive only administrators and bots using getSupergroupMembers or searchChatMembers. Can be called only if supergroupFullInfo.can_hide_members == true
+                /// </summary>
+                Task<Ok> ToggleSupergroupHasHiddenMembersAsync(long supergroupId = default, bool hasHiddenMembers = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -52,6 +52,29 @@ namespace TdLib
                 UserId = userId, Errors = errors
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Informs the user who some of the elements in their Telegram Passport contain errors; for bots only. The user will not be able to resend the elements, until the errors are fixed
+                /// </summary>
+                public Task<Ok> SetPassportElementErrorsAsync(long userId = default, InputPassportElementError[] errors = default)
+                {
+                //test
+                    return ExecuteAsync(new SetPassportElementErrors
+                    {
+                        UserId = userId, Errors = errors
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Informs the user who some of the elements in their Telegram Passport contain errors; for bots only. The user will not be able to resend the elements, until the errors are fixed
+                /// </summary>
+                Task<Ok> SetPassportElementErrorsAsync(long userId = default, InputPassportElementError[] errors = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

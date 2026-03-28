@@ -46,6 +46,29 @@ namespace TdLib
                 LanguageCode = languageCode
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns an HTTP URL which can be used to automatically log in to the translation platform and suggest new emoji replacements. The URL will be valid for 30 seconds after generation
+                /// </summary>
+                public Task<HttpUrl> GetEmojiSuggestionsUrlAsync(string languageCode = default)
+                {
+                //test
+                    return ExecuteAsync(new GetEmojiSuggestionsUrl
+                    {
+                        LanguageCode = languageCode
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns an HTTP URL which can be used to automatically log in to the translation platform and suggest new emoji replacements. The URL will be valid for 30 seconds after generation
+                /// </summary>
+                Task<HttpUrl> GetEmojiSuggestionsUrlAsync(string languageCode = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

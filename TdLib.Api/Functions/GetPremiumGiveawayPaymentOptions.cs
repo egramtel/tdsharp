@@ -46,6 +46,29 @@ namespace TdLib
                 BoostedChatId = boostedChatId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns available options for creating of Telegram Premium giveaway or manual distribution of Telegram Premium among chat members
+                /// </summary>
+                public Task<PremiumGiveawayPaymentOptions> GetPremiumGiveawayPaymentOptionsAsync(long boostedChatId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetPremiumGiveawayPaymentOptions
+                    {
+                        BoostedChatId = boostedChatId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns available options for creating of Telegram Premium giveaway or manual distribution of Telegram Premium among chat members
+                /// </summary>
+                Task<PremiumGiveawayPaymentOptions> GetPremiumGiveawayPaymentOptionsAsync(long boostedChatId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

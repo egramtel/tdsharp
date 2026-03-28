@@ -81,6 +81,29 @@ namespace TdLib
                 ChatId = chatId, TopicId = topicId, ReplyTo = replyTo, Options = options, ReplyMarkup = replyMarkup, InputMessageContent = inputMessageContent
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Sends a message. Returns the sent message
+                /// </summary>
+                public Task<Message> SendMessageAsync(long chatId = default, MessageTopic topicId = default, InputMessageReplyTo replyTo = default, MessageSendOptions options = default, ReplyMarkup replyMarkup = default, InputMessageContent inputMessageContent = default)
+                {
+                //test
+                    return ExecuteAsync(new SendMessage
+                    {
+                        ChatId = chatId, TopicId = topicId, ReplyTo = replyTo, Options = options, ReplyMarkup = replyMarkup, InputMessageContent = inputMessageContent
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Sends a message. Returns the sent message
+                /// </summary>
+                Task<Message> SendMessageAsync(long chatId = default, MessageTopic topicId = default, InputMessageReplyTo replyTo = default, MessageSendOptions options = default, ReplyMarkup replyMarkup = default, InputMessageContent inputMessageContent = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

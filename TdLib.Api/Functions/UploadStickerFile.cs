@@ -60,6 +60,29 @@ namespace TdLib
                 UserId = userId, StickerFormat = stickerFormat, Sticker = sticker
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Uploads a file with a sticker; returns the uploaded file
+                /// </summary>
+                public Task<File> UploadStickerFileAsync(long userId = default, StickerFormat stickerFormat = default, InputFile sticker = default)
+                {
+                //test
+                    return ExecuteAsync(new UploadStickerFile
+                    {
+                        UserId = userId, StickerFormat = stickerFormat, Sticker = sticker
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Uploads a file with a sticker; returns the uploaded file
+                /// </summary>
+                Task<File> UploadStickerFileAsync(long userId = default, StickerFormat stickerFormat = default, InputFile sticker = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

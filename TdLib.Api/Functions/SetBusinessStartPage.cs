@@ -46,6 +46,29 @@ namespace TdLib
                 StartPage = startPage
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes the business start page of the current user. Requires Telegram Business subscription
+                /// </summary>
+                public Task<Ok> SetBusinessStartPageAsync(InputBusinessStartPage startPage = default)
+                {
+                //test
+                    return ExecuteAsync(new SetBusinessStartPage
+                    {
+                        StartPage = startPage
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes the business start page of the current user. Requires Telegram Business subscription
+                /// </summary>
+                Task<Ok> SetBusinessStartPageAsync(InputBusinessStartPage startPage = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

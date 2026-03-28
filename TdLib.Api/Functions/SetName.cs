@@ -53,6 +53,29 @@ namespace TdLib
                 FirstName = firstName, LastName = lastName
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes the first and last name of the current user
+                /// </summary>
+                public Task<Ok> SetNameAsync(string firstName = default, string lastName = default)
+                {
+                //test
+                    return ExecuteAsync(new SetName
+                    {
+                        FirstName = firstName, LastName = lastName
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes the first and last name of the current user
+                /// </summary>
+                Task<Ok> SetNameAsync(string firstName = default, string lastName = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

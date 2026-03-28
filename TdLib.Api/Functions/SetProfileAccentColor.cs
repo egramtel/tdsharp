@@ -53,6 +53,29 @@ namespace TdLib
                 ProfileAccentColorId = profileAccentColorId, ProfileBackgroundCustomEmojiId = profileBackgroundCustomEmojiId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes accent color and background custom emoji for profile of the current user; for Telegram Premium users only
+                /// </summary>
+                public Task<Ok> SetProfileAccentColorAsync(int profileAccentColorId = default, long profileBackgroundCustomEmojiId = default)
+                {
+                //test
+                    return ExecuteAsync(new SetProfileAccentColor
+                    {
+                        ProfileAccentColorId = profileAccentColorId, ProfileBackgroundCustomEmojiId = profileBackgroundCustomEmojiId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes accent color and background custom emoji for profile of the current user; for Telegram Premium users only
+                /// </summary>
+                Task<Ok> SetProfileAccentColorAsync(int profileAccentColorId = default, long profileBackgroundCustomEmojiId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

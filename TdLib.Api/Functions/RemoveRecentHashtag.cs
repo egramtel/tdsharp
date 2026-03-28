@@ -46,6 +46,29 @@ namespace TdLib
                 Hashtag = hashtag
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Removes a hashtag from the list of recently used hashtags
+                /// </summary>
+                public Task<Ok> RemoveRecentHashtagAsync(string hashtag = default)
+                {
+                //test
+                    return ExecuteAsync(new RemoveRecentHashtag
+                    {
+                        Hashtag = hashtag
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Removes a hashtag from the list of recently used hashtags
+                /// </summary>
+                Task<Ok> RemoveRecentHashtagAsync(string hashtag = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -53,6 +53,29 @@ namespace TdLib
                 ChatId = chatId, MessageId = messageId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns information about a giveaway
+                /// </summary>
+                public Task<GiveawayInfo> GetGiveawayInfoAsync(long chatId = default, long messageId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetGiveawayInfo
+                    {
+                        ChatId = chatId, MessageId = messageId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns information about a giveaway
+                /// </summary>
+                Task<GiveawayInfo> GetGiveawayInfoAsync(long chatId = default, long messageId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

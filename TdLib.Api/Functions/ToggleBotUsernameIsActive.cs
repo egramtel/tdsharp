@@ -62,6 +62,31 @@ namespace TdLib
                 BotUserId = botUserId, Username = username, IsActive = isActive
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes active state for a username of a bot. The editable username can be disabled only if there are other active usernames.
+                /// May return an error with a message "USERNAMES_ACTIVE_TOO_MUCH" if the maximum number of active usernames has been reached. Can be called only if userTypeBot.can_be_edited == true
+                /// </summary>
+                public Task<Ok> ToggleBotUsernameIsActiveAsync(long botUserId = default, string username = default, bool isActive = default)
+                {
+                //test
+                    return ExecuteAsync(new ToggleBotUsernameIsActive
+                    {
+                        BotUserId = botUserId, Username = username, IsActive = isActive
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes active state for a username of a bot. The editable username can be disabled only if there are other active usernames.
+                /// May return an error with a message "USERNAMES_ACTIVE_TOO_MUCH" if the maximum number of active usernames has been reached. Can be called only if userTypeBot.can_be_edited == true
+                /// </summary>
+                Task<Ok> ToggleBotUsernameIsActiveAsync(long botUserId = default, string username = default, bool isActive = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

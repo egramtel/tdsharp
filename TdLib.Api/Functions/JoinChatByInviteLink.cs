@@ -46,6 +46,29 @@ namespace TdLib
                 InviteLink = inviteLink
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Uses an invite link to add the current user to the chat if possible. May return an error with a message "INVITE_REQUEST_SENT" if only a join request was created
+                /// </summary>
+                public Task<Chat> JoinChatByInviteLinkAsync(string inviteLink = default)
+                {
+                //test
+                    return ExecuteAsync(new JoinChatByInviteLink
+                    {
+                        InviteLink = inviteLink
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Uses an invite link to add the current user to the chat if possible. May return an error with a message "INVITE_REQUEST_SENT" if only a join request was created
+                /// </summary>
+                Task<Chat> JoinChatByInviteLinkAsync(string inviteLink = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

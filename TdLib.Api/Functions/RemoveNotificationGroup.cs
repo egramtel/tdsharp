@@ -53,6 +53,29 @@ namespace TdLib
                 NotificationGroupId = notificationGroupId, MaxNotificationId = maxNotificationId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Removes a group of active notifications. Needs to be called only if the notification group is removed by the current user
+                /// </summary>
+                public Task<Ok> RemoveNotificationGroupAsync(int notificationGroupId = default, int maxNotificationId = default)
+                {
+                //test
+                    return ExecuteAsync(new RemoveNotificationGroup
+                    {
+                        NotificationGroupId = notificationGroupId, MaxNotificationId = maxNotificationId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Removes a group of active notifications. Needs to be called only if the notification group is removed by the current user
+                /// </summary>
+                Task<Ok> RemoveNotificationGroupAsync(int notificationGroupId = default, int maxNotificationId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

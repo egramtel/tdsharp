@@ -53,6 +53,29 @@ namespace TdLib
                 CallId = callId, LogFile = logFile
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Sends log file for a call to Telegram servers
+                /// </summary>
+                public Task<Ok> SendCallLogAsync(InputCall callId = default, InputFile logFile = default)
+                {
+                //test
+                    return ExecuteAsync(new SendCallLog
+                    {
+                        CallId = callId, LogFile = logFile
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Sends log file for a call to Telegram servers
+                /// </summary>
+                Task<Ok> SendCallLogAsync(InputCall callId = default, InputFile logFile = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

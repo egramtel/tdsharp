@@ -46,6 +46,29 @@ namespace TdLib
                 BackgroundId = backgroundId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Removes background from the list of installed backgrounds
+                /// </summary>
+                public Task<Ok> RemoveInstalledBackgroundAsync(long backgroundId = default)
+                {
+                //test
+                    return ExecuteAsync(new RemoveInstalledBackground
+                    {
+                        BackgroundId = backgroundId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Removes background from the list of installed backgrounds
+                /// </summary>
+                Task<Ok> RemoveInstalledBackgroundAsync(long backgroundId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

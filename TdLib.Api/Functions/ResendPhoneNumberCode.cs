@@ -46,6 +46,29 @@ namespace TdLib
                 Reason = reason
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Resends the authentication code sent to a phone number. Works only if the previously received authenticationCodeInfo next_code_type was not null and the server-specified timeout has passed
+                /// </summary>
+                public Task<AuthenticationCodeInfo> ResendPhoneNumberCodeAsync(ResendCodeReason reason = default)
+                {
+                //test
+                    return ExecuteAsync(new ResendPhoneNumberCode
+                    {
+                        Reason = reason
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Resends the authentication code sent to a phone number. Works only if the previously received authenticationCodeInfo next_code_type was not null and the server-specified timeout has passed
+                /// </summary>
+                Task<AuthenticationCodeInfo> ResendPhoneNumberCodeAsync(ResendCodeReason reason = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

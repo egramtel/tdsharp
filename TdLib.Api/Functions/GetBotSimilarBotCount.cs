@@ -53,6 +53,29 @@ namespace TdLib
                 BotUserId = botUserId, ReturnLocal = returnLocal
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns approximate number of bots similar to the given bot
+                /// </summary>
+                public Task<Count> GetBotSimilarBotCountAsync(long botUserId = default, bool returnLocal = default)
+                {
+                //test
+                    return ExecuteAsync(new GetBotSimilarBotCount
+                    {
+                        BotUserId = botUserId, ReturnLocal = returnLocal
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns approximate number of bots similar to the given bot
+                /// </summary>
+                Task<Count> GetBotSimilarBotCountAsync(long botUserId = default, bool returnLocal = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

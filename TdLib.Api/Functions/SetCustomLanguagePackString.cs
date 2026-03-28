@@ -53,6 +53,29 @@ namespace TdLib
                 LanguagePackId = languagePackId, NewString = newString
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Adds, edits or deletes a string in a custom local language pack. Can be called before authorization
+                /// </summary>
+                public Task<Ok> SetCustomLanguagePackStringAsync(string languagePackId = default, LanguagePackString newString = default)
+                {
+                //test
+                    return ExecuteAsync(new SetCustomLanguagePackString
+                    {
+                        LanguagePackId = languagePackId, NewString = newString
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Adds, edits or deletes a string in a custom local language pack. Can be called before authorization
+                /// </summary>
+                Task<Ok> SetCustomLanguagePackStringAsync(string languagePackId = default, LanguagePackString newString = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

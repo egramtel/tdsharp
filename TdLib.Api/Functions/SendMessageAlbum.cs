@@ -75,6 +75,31 @@ namespace TdLib
                 ChatId = chatId, TopicId = topicId, ReplyTo = replyTo, Options = options, InputMessageContents = inputMessageContents
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Sends 2-10 messages grouped together into an album. Currently, only audio, document, photo and video messages can be grouped into an album.
+                /// Documents and audio files can be only grouped in an album with messages of the same type. Returns sent messages
+                /// </summary>
+                public Task<Messages> SendMessageAlbumAsync(long chatId = default, MessageTopic topicId = default, InputMessageReplyTo replyTo = default, MessageSendOptions options = default, InputMessageContent[] inputMessageContents = default)
+                {
+                //test
+                    return ExecuteAsync(new SendMessageAlbum
+                    {
+                        ChatId = chatId, TopicId = topicId, ReplyTo = replyTo, Options = options, InputMessageContents = inputMessageContents
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Sends 2-10 messages grouped together into an album. Currently, only audio, document, photo and video messages can be grouped into an album.
+                /// Documents and audio files can be only grouped in an album with messages of the same type. Returns sent messages
+                /// </summary>
+                Task<Messages> SendMessageAlbumAsync(long chatId = default, MessageTopic topicId = default, InputMessageReplyTo replyTo = default, MessageSendOptions options = default, InputMessageContent[] inputMessageContents = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

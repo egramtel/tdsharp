@@ -62,6 +62,31 @@ namespace TdLib
                 ShortcutName = shortcutName, ReplyToMessageId = replyToMessageId, InputMessageContent = inputMessageContent
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Adds a message to a quick reply shortcut. If shortcut doesn't exist and there are less than getOption("quick_reply_shortcut_count_max") shortcuts, then a new shortcut is created.
+                /// The shortcut must not contain more than getOption("quick_reply_shortcut_message_count_max") messages after adding the new message. Returns the added message
+                /// </summary>
+                public Task<QuickReplyMessage> AddQuickReplyShortcutMessageAsync(string shortcutName = default, long replyToMessageId = default, InputMessageContent inputMessageContent = default)
+                {
+                //test
+                    return ExecuteAsync(new AddQuickReplyShortcutMessage
+                    {
+                        ShortcutName = shortcutName, ReplyToMessageId = replyToMessageId, InputMessageContent = inputMessageContent
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Adds a message to a quick reply shortcut. If shortcut doesn't exist and there are less than getOption("quick_reply_shortcut_count_max") shortcuts, then a new shortcut is created.
+                /// The shortcut must not contain more than getOption("quick_reply_shortcut_message_count_max") messages after adding the new message. Returns the added message
+                /// </summary>
+                Task<QuickReplyMessage> AddQuickReplyShortcutMessageAsync(string shortcutName = default, long replyToMessageId = default, InputMessageContent inputMessageContent = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

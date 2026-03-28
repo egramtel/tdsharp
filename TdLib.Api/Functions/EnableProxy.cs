@@ -46,6 +46,29 @@ namespace TdLib
                 ProxyId = proxyId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Enables a proxy. Only one proxy can be enabled at a time. Can be called before authorization
+                /// </summary>
+                public Task<Ok> EnableProxyAsync(int proxyId = default)
+                {
+                //test
+                    return ExecuteAsync(new EnableProxy
+                    {
+                        ProxyId = proxyId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Enables a proxy. Only one proxy can be enabled at a time. Can be called before authorization
+                /// </summary>
+                Task<Ok> EnableProxyAsync(int proxyId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

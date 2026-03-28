@@ -53,6 +53,29 @@ namespace TdLib
                 WebAppQueryId = webAppQueryId, Result = result
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Sets the result of interaction with a Web App and sends corresponding message on behalf of the user to the chat from which the query originated; for bots only
+                /// </summary>
+                public Task<SentWebAppMessage> AnswerWebAppQueryAsync(string webAppQueryId = default, InputInlineQueryResult result = default)
+                {
+                //test
+                    return ExecuteAsync(new AnswerWebAppQuery
+                    {
+                        WebAppQueryId = webAppQueryId, Result = result
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Sets the result of interaction with a Web App and sends corresponding message on behalf of the user to the chat from which the query originated; for bots only
+                /// </summary>
+                Task<SentWebAppMessage> AnswerWebAppQueryAsync(string webAppQueryId = default, InputInlineQueryResult result = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

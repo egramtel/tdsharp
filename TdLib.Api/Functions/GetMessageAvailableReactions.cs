@@ -60,6 +60,29 @@ namespace TdLib
                 ChatId = chatId, MessageId = messageId, RowSize = rowSize
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns reactions, which can be added to a message. The list can change after updateActiveEmojiReactions, updateChatAvailableReactions for the chat, or updateMessageInteractionInfo for the message
+                /// </summary>
+                public Task<AvailableReactions> GetMessageAvailableReactionsAsync(long chatId = default, long messageId = default, int rowSize = default)
+                {
+                //test
+                    return ExecuteAsync(new GetMessageAvailableReactions
+                    {
+                        ChatId = chatId, MessageId = messageId, RowSize = rowSize
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns reactions, which can be added to a message. The list can change after updateActiveEmojiReactions, updateChatAvailableReactions for the chat, or updateMessageInteractionInfo for the message
+                /// </summary>
+                Task<AvailableReactions> GetMessageAvailableReactionsAsync(long chatId = default, long messageId = default, int rowSize = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

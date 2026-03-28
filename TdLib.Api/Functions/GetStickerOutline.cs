@@ -60,6 +60,29 @@ namespace TdLib
                 StickerFileId = stickerFileId, ForAnimatedEmoji = forAnimatedEmoji, ForClickedAnimatedEmojiMessage = forClickedAnimatedEmojiMessage
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns outline of a sticker. This is an offline method. Returns a 404 error if the outline isn't known
+                /// </summary>
+                public Task<Outline> GetStickerOutlineAsync(int stickerFileId = default, bool forAnimatedEmoji = default, bool forClickedAnimatedEmojiMessage = default)
+                {
+                //test
+                    return ExecuteAsync(new GetStickerOutline
+                    {
+                        StickerFileId = stickerFileId, ForAnimatedEmoji = forAnimatedEmoji, ForClickedAnimatedEmojiMessage = forClickedAnimatedEmojiMessage
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns outline of a sticker. This is an offline method. Returns a 404 error if the outline isn't known
+                /// </summary>
+                Task<Outline> GetStickerOutlineAsync(int stickerFileId = default, bool forAnimatedEmoji = default, bool forClickedAnimatedEmojiMessage = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

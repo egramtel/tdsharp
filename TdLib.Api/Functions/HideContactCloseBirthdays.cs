@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Hides the list of contacts that have close birthdays for 24 hours
+                /// </summary>
+                public Task<Ok> HideContactCloseBirthdaysAsync()
+                {
+                //test
+                    return ExecuteAsync(new HideContactCloseBirthdays
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Hides the list of contacts that have close birthdays for 24 hours
+                /// </summary>
+                Task<Ok> HideContactCloseBirthdaysAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

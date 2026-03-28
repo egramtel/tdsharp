@@ -46,6 +46,29 @@ namespace TdLib
                 LanguagePackId = languagePackId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns information about a language pack. Returned language pack identifier may be different from a provided one. Can be called before authorization
+                /// </summary>
+                public Task<LanguagePackInfo> GetLanguagePackInfoAsync(string languagePackId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetLanguagePackInfo
+                    {
+                        LanguagePackId = languagePackId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns information about a language pack. Returned language pack identifier may be different from a provided one. Can be called before authorization
+                /// </summary>
+                Task<LanguagePackInfo> GetLanguagePackInfoAsync(string languagePackId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

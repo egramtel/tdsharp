@@ -53,6 +53,29 @@ namespace TdLib
                 ChatId = chatId, ClientData = clientData
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes application-specific data associated with a chat
+                /// </summary>
+                public Task<Ok> SetChatClientDataAsync(long chatId = default, string clientData = default)
+                {
+                //test
+                    return ExecuteAsync(new SetChatClientData
+                    {
+                        ChatId = chatId, ClientData = clientData
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes application-specific data associated with a chat
+                /// </summary>
+                Task<Ok> SetChatClientDataAsync(long chatId = default, string clientData = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

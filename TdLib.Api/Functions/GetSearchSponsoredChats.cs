@@ -46,6 +46,29 @@ namespace TdLib
                 Query = query
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns sponsored chats to be shown in the search results
+                /// </summary>
+                public Task<SponsoredChats> GetSearchSponsoredChatsAsync(string query = default)
+                {
+                //test
+                    return ExecuteAsync(new GetSearchSponsoredChats
+                    {
+                        Query = query
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns sponsored chats to be shown in the search results
+                /// </summary>
+                Task<SponsoredChats> GetSearchSponsoredChatsAsync(string query = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

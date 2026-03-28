@@ -55,6 +55,31 @@ namespace TdLib
                 ChatId = chatId, HasProtectedContent = hasProtectedContent
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes the ability of users to save, forward, or copy chat content. Requires owner privileges in basic groups, supergroups and channels.
+                /// Requires Telegram Premium to enable protected content in private chats. Not available in Saved Messages and private chats with bots or support accounts
+                /// </summary>
+                public Task<Ok> ToggleChatHasProtectedContentAsync(long chatId = default, bool hasProtectedContent = default)
+                {
+                //test
+                    return ExecuteAsync(new ToggleChatHasProtectedContent
+                    {
+                        ChatId = chatId, HasProtectedContent = hasProtectedContent
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes the ability of users to save, forward, or copy chat content. Requires owner privileges in basic groups, supergroups and channels.
+                /// Requires Telegram Premium to enable protected content in private chats. Not available in Saved Messages and private chats with bots or support accounts
+                /// </summary>
+                Task<Ok> ToggleChatHasProtectedContentAsync(long chatId = default, bool hasProtectedContent = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

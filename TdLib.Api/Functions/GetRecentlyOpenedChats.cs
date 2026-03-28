@@ -46,6 +46,29 @@ namespace TdLib
                 Limit = limit
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns recently opened chats. This is an offline method. Returns chats in the order of last opening
+                /// </summary>
+                public Task<Chats> GetRecentlyOpenedChatsAsync(int limit = default)
+                {
+                //test
+                    return ExecuteAsync(new GetRecentlyOpenedChats
+                    {
+                        Limit = limit
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns recently opened chats. This is an offline method. Returns chats in the order of last opening
+                /// </summary>
+                Task<Chats> GetRecentlyOpenedChatsAsync(int limit = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

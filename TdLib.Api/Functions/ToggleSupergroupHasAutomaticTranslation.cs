@@ -55,6 +55,31 @@ namespace TdLib
                 SupergroupId = supergroupId, HasAutomaticTranslation = hasAutomaticTranslation
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Toggles whether messages are automatically translated in the channel chat; requires can_change_info administrator right in the channel.
+                /// The chat must have at least chatBoostFeatures.min_automatic_translation_boost_level boost level to enable automatic translation
+                /// </summary>
+                public Task<Ok> ToggleSupergroupHasAutomaticTranslationAsync(long supergroupId = default, bool hasAutomaticTranslation = default)
+                {
+                //test
+                    return ExecuteAsync(new ToggleSupergroupHasAutomaticTranslation
+                    {
+                        SupergroupId = supergroupId, HasAutomaticTranslation = hasAutomaticTranslation
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Toggles whether messages are automatically translated in the channel chat; requires can_change_info administrator right in the channel.
+                /// The chat must have at least chatBoostFeatures.min_automatic_translation_boost_level boost level to enable automatic translation
+                /// </summary>
+                Task<Ok> ToggleSupergroupHasAutomaticTranslationAsync(long supergroupId = default, bool hasAutomaticTranslation = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

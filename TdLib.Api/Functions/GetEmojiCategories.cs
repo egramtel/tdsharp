@@ -46,6 +46,29 @@ namespace TdLib
                 Type = type
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns available emoji categories
+                /// </summary>
+                public Task<EmojiCategories> GetEmojiCategoriesAsync(EmojiCategoryType type = default)
+                {
+                //test
+                    return ExecuteAsync(new GetEmojiCategories
+                    {
+                        Type = type
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns available emoji categories
+                /// </summary>
+                Task<EmojiCategories> GetEmojiCategoriesAsync(EmojiCategoryType type = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

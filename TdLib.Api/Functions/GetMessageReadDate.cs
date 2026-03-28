@@ -53,6 +53,29 @@ namespace TdLib
                 ChatId = chatId, MessageId = messageId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns read date of a recent outgoing message in a private chat. The method can be called if messageProperties.can_get_read_date == true
+                /// </summary>
+                public Task<MessageReadDate> GetMessageReadDateAsync(long chatId = default, long messageId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetMessageReadDate
+                    {
+                        ChatId = chatId, MessageId = messageId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns read date of a recent outgoing message in a private chat. The method can be called if messageProperties.can_get_read_date == true
+                /// </summary>
+                Task<MessageReadDate> GetMessageReadDateAsync(long chatId = default, long messageId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

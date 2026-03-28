@@ -60,6 +60,29 @@ namespace TdLib
                 ProxyId = proxyId, Proxy = proxy, Enable = enable
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Edits an existing proxy server for network requests. Can be called before authorization
+                /// </summary>
+                public Task<AddedProxy> EditProxyAsync(int proxyId = default, Proxy proxy = default, bool enable = default)
+                {
+                //test
+                    return ExecuteAsync(new EditProxy
+                    {
+                        ProxyId = proxyId, Proxy = proxy, Enable = enable
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Edits an existing proxy server for network requests. Can be called before authorization
+                /// </summary>
+                Task<AddedProxy> EditProxyAsync(int proxyId = default, Proxy proxy = default, bool enable = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -53,6 +53,29 @@ namespace TdLib
                 ChatId = chatId, DefaultParticipantId = defaultParticipantId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes default participant identifier, on whose behalf a video chat in the chat will be joined
+                /// </summary>
+                public Task<Ok> SetVideoChatDefaultParticipantAsync(long chatId = default, MessageSender defaultParticipantId = default)
+                {
+                //test
+                    return ExecuteAsync(new SetVideoChatDefaultParticipant
+                    {
+                        ChatId = chatId, DefaultParticipantId = defaultParticipantId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes default participant identifier, on whose behalf a video chat in the chat will be joined
+                /// </summary>
+                Task<Ok> SetVideoChatDefaultParticipantAsync(long chatId = default, MessageSender defaultParticipantId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

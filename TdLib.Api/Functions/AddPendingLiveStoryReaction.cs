@@ -55,6 +55,31 @@ namespace TdLib
                 GroupCallId = groupCallId, StarCount = starCount
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Adds pending paid reaction in a live story group call. Can't be used in live stories posted by the current user.
+                /// Call commitPendingLiveStoryReactions or removePendingLiveStoryReactions to actually send all pending reactions when the undo timer is over or abort the sending
+                /// </summary>
+                public Task<Ok> AddPendingLiveStoryReactionAsync(int groupCallId = default, long starCount = default)
+                {
+                //test
+                    return ExecuteAsync(new AddPendingLiveStoryReaction
+                    {
+                        GroupCallId = groupCallId, StarCount = starCount
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Adds pending paid reaction in a live story group call. Can't be used in live stories posted by the current user.
+                /// Call commitPendingLiveStoryReactions or removePendingLiveStoryReactions to actually send all pending reactions when the undo timer is over or abort the sending
+                /// </summary>
+                Task<Ok> AddPendingLiveStoryReactionAsync(int groupCallId = default, long starCount = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

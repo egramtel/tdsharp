@@ -46,6 +46,29 @@ namespace TdLib
                 InviteLink = inviteLink
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Checks the validity of an invite link for a chat and returns information about the corresponding chat
+                /// </summary>
+                public Task<ChatInviteLinkInfo> CheckChatInviteLinkAsync(string inviteLink = default)
+                {
+                //test
+                    return ExecuteAsync(new CheckChatInviteLink
+                    {
+                        InviteLink = inviteLink
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Checks the validity of an invite link for a chat and returns information about the corresponding chat
+                /// </summary>
+                Task<ChatInviteLinkInfo> CheckChatInviteLinkAsync(string inviteLink = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

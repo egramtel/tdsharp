@@ -69,6 +69,31 @@ namespace TdLib
                 ChatId = chatId, MessageId = messageId, ButtonId = buttonId, AllowWriteAccess = allowWriteAccess
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns an HTTP URL which can be used to automatically authorize the user on a website after clicking an inline button of type inlineKeyboardButtonTypeLoginUrl.
+                /// Use the method getLoginUrlInfo to find whether a prior user confirmation is needed. If an error is returned, then the button must be handled as an ordinary URL button
+                /// </summary>
+                public Task<HttpUrl> GetLoginUrlAsync(long chatId = default, long messageId = default, long buttonId = default, bool allowWriteAccess = default)
+                {
+                //test
+                    return ExecuteAsync(new GetLoginUrl
+                    {
+                        ChatId = chatId, MessageId = messageId, ButtonId = buttonId, AllowWriteAccess = allowWriteAccess
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns an HTTP URL which can be used to automatically authorize the user on a website after clicking an inline button of type inlineKeyboardButtonTypeLoginUrl.
+                /// Use the method getLoginUrlInfo to find whether a prior user confirmation is needed. If an error is returned, then the button must be handled as an ordinary URL button
+                /// </summary>
+                Task<HttpUrl> GetLoginUrlAsync(long chatId = default, long messageId = default, long buttonId = default, bool allowWriteAccess = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

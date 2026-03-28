@@ -69,6 +69,31 @@ namespace TdLib
                 StoryPosterChatId = storyPosterChatId, StoryId = storyId, Offset = offset, Limit = limit
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns forwards of a story as a message to public chats and reposts by public channels. Can be used only if the story is posted on behalf of the current user or story.can_get_statistics == true.
+                /// For optimal performance, the number of returned messages and stories is chosen by TDLib
+                /// </summary>
+                public Task<PublicForwards> GetStoryPublicForwardsAsync(long storyPosterChatId = default, int storyId = default, string offset = default, int limit = default)
+                {
+                //test
+                    return ExecuteAsync(new GetStoryPublicForwards
+                    {
+                        StoryPosterChatId = storyPosterChatId, StoryId = storyId, Offset = offset, Limit = limit
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns forwards of a story as a message to public chats and reposts by public channels. Can be used only if the story is posted on behalf of the current user or story.can_get_statistics == true.
+                /// For optimal performance, the number of returned messages and stories is chosen by TDLib
+                /// </summary>
+                Task<PublicForwards> GetStoryPublicForwardsAsync(long storyPosterChatId = default, int storyId = default, string offset = default, int limit = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

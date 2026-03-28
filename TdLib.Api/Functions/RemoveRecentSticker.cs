@@ -53,6 +53,29 @@ namespace TdLib
                 IsAttached = isAttached, Sticker = sticker
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Removes a sticker from the list of recently used stickers
+                /// </summary>
+                public Task<Ok> RemoveRecentStickerAsync(bool isAttached = default, InputFile sticker = default)
+                {
+                //test
+                    return ExecuteAsync(new RemoveRecentSticker
+                    {
+                        IsAttached = isAttached, Sticker = sticker
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Removes a sticker from the list of recently used stickers
+                /// </summary>
+                Task<Ok> RemoveRecentStickerAsync(bool isAttached = default, InputFile sticker = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

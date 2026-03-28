@@ -60,6 +60,29 @@ namespace TdLib
                 StoryPosterChatId = storyPosterChatId, StoryId = storyId, OnlyLocal = onlyLocal
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns a story
+                /// </summary>
+                public Task<Story> GetStoryAsync(long storyPosterChatId = default, int storyId = default, bool onlyLocal = default)
+                {
+                //test
+                    return ExecuteAsync(new GetStory
+                    {
+                        StoryPosterChatId = storyPosterChatId, StoryId = storyId, OnlyLocal = onlyLocal
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns a story
+                /// </summary>
+                Task<Story> GetStoryAsync(long storyPosterChatId = default, int storyId = default, bool onlyLocal = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -46,6 +46,29 @@ namespace TdLib
                 LimitType = limitType
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns information about a limit, increased for Premium users. Returns a 404 error if the limit is unknown
+                /// </summary>
+                public Task<PremiumLimit> GetPremiumLimitAsync(PremiumLimitType limitType = default)
+                {
+                //test
+                    return ExecuteAsync(new GetPremiumLimit
+                    {
+                        LimitType = limitType
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns information about a limit, increased for Premium users. Returns a 404 error if the limit is unknown
+                /// </summary>
+                Task<PremiumLimit> GetPremiumLimitAsync(PremiumLimitType limitType = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

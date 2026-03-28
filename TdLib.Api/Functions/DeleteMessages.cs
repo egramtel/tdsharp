@@ -59,6 +59,29 @@ namespace TdLib
                 ChatId = chatId, MessageIds = messageIds, Revoke = revoke
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Deletes messages
+                /// </summary>
+                public Task<Ok> DeleteMessagesAsync(long chatId = default, long[] messageIds = default, bool revoke = default)
+                {
+                //test
+                    return ExecuteAsync(new DeleteMessages
+                    {
+                        ChatId = chatId, MessageIds = messageIds, Revoke = revoke
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Deletes messages
+                /// </summary>
+                Task<Ok> DeleteMessagesAsync(long chatId = default, long[] messageIds = default, bool revoke = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

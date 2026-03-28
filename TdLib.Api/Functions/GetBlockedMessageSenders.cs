@@ -60,6 +60,29 @@ namespace TdLib
                 BlockList = blockList, Offset = offset, Limit = limit
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns users and chats that were blocked by the current user
+                /// </summary>
+                public Task<MessageSenders> GetBlockedMessageSendersAsync(BlockList blockList = default, int offset = default, int limit = default)
+                {
+                //test
+                    return ExecuteAsync(new GetBlockedMessageSenders
+                    {
+                        BlockList = blockList, Offset = offset, Limit = limit
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns users and chats that were blocked by the current user
+                /// </summary>
+                Task<MessageSenders> GetBlockedMessageSendersAsync(BlockList blockList = default, int offset = default, int limit = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

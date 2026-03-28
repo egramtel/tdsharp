@@ -60,6 +60,29 @@ namespace TdLib
                 GroupCallId = groupCallId, ParticipantId = participantId, IsMuted = isMuted
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Toggles whether a participant of an active group call is muted, unmuted, or allowed to unmute themselves; not supported for live stories
+                /// </summary>
+                public Task<Ok> ToggleGroupCallParticipantIsMutedAsync(int groupCallId = default, MessageSender participantId = default, bool isMuted = default)
+                {
+                //test
+                    return ExecuteAsync(new ToggleGroupCallParticipantIsMuted
+                    {
+                        GroupCallId = groupCallId, ParticipantId = participantId, IsMuted = isMuted
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Toggles whether a participant of an active group call is muted, unmuted, or allowed to unmute themselves; not supported for live stories
+                /// </summary>
+                Task<Ok> ToggleGroupCallParticipantIsMutedAsync(int groupCallId = default, MessageSender participantId = default, bool isMuted = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

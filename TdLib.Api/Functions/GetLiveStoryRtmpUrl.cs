@@ -46,6 +46,29 @@ namespace TdLib
                 ChatId = chatId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns RTMP URL for streaming to a live story; requires can_post_stories administrator right for channel chats
+                /// </summary>
+                public Task<RtmpUrl> GetLiveStoryRtmpUrlAsync(long chatId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetLiveStoryRtmpUrl
+                    {
+                        ChatId = chatId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns RTMP URL for streaming to a live story; requires can_post_stories administrator right for channel chats
+                /// </summary>
+                Task<RtmpUrl> GetLiveStoryRtmpUrlAsync(long chatId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

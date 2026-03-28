@@ -53,6 +53,29 @@ namespace TdLib
                 UserId = userId, MenuButton = menuButton
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Sets menu button for the given user or for all users; for bots only
+                /// </summary>
+                public Task<Ok> SetMenuButtonAsync(long userId = default, BotMenuButton menuButton = default)
+                {
+                //test
+                    return ExecuteAsync(new SetMenuButton
+                    {
+                        UserId = userId, MenuButton = menuButton
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Sets menu button for the given user or for all users; for bots only
+                /// </summary>
+                Task<Ok> SetMenuButtonAsync(long userId = default, BotMenuButton menuButton = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

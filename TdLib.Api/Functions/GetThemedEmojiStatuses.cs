@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns up to 8 emoji statuses, which must be shown right after the default Premium Badge in the emoji status list for self status
+                /// </summary>
+                public Task<EmojiStatusCustomEmojis> GetThemedEmojiStatusesAsync()
+                {
+                //test
+                    return ExecuteAsync(new GetThemedEmojiStatuses
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns up to 8 emoji statuses, which must be shown right after the default Premium Badge in the emoji status list for self status
+                /// </summary>
+                Task<EmojiStatusCustomEmojis> GetThemedEmojiStatusesAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

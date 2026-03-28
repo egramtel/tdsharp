@@ -53,6 +53,29 @@ namespace TdLib
                 SupergroupId = supergroupId, JoinByRequest = joinByRequest
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Toggles whether all users directly joining the supergroup need to be approved by supergroup administrators; requires can_restrict_members administrator right
+                /// </summary>
+                public Task<Ok> ToggleSupergroupJoinByRequestAsync(long supergroupId = default, bool joinByRequest = default)
+                {
+                //test
+                    return ExecuteAsync(new ToggleSupergroupJoinByRequest
+                    {
+                        SupergroupId = supergroupId, JoinByRequest = joinByRequest
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Toggles whether all users directly joining the supergroup need to be approved by supergroup administrators; requires can_restrict_members administrator right
+                /// </summary>
+                Task<Ok> ToggleSupergroupJoinByRequestAsync(long supergroupId = default, bool joinByRequest = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

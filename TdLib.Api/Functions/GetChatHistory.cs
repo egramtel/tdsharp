@@ -77,6 +77,31 @@ namespace TdLib
                 ChatId = chatId, FromMessageId = fromMessageId, Offset = offset, Limit = limit, OnlyLocal = onlyLocal
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns messages in a chat. The messages are returned in reverse chronological order (i.e., in order of decreasing message_id).
+                /// For optimal performance, the number of returned messages is chosen by TDLib. This is an offline method if only_local is true
+                /// </summary>
+                public Task<Messages> GetChatHistoryAsync(long chatId = default, long fromMessageId = default, int offset = default, int limit = default, bool onlyLocal = default)
+                {
+                //test
+                    return ExecuteAsync(new GetChatHistory
+                    {
+                        ChatId = chatId, FromMessageId = fromMessageId, Offset = offset, Limit = limit, OnlyLocal = onlyLocal
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns messages in a chat. The messages are returned in reverse chronological order (i.e., in order of decreasing message_id).
+                /// For optimal performance, the number of returned messages is chosen by TDLib. This is an offline method if only_local is true
+                /// </summary>
+                Task<Messages> GetChatHistoryAsync(long chatId = default, long fromMessageId = default, int offset = default, int limit = default, bool onlyLocal = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

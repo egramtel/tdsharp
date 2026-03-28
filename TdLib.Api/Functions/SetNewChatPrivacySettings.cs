@@ -46,6 +46,29 @@ namespace TdLib
                 Settings = settings
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes privacy settings for new chat creation; can be used only if getOption("can_set_new_chat_privacy_settings")
+                /// </summary>
+                public Task<Ok> SetNewChatPrivacySettingsAsync(NewChatPrivacySettings settings = default)
+                {
+                //test
+                    return ExecuteAsync(new SetNewChatPrivacySettings
+                    {
+                        Settings = settings
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes privacy settings for new chat creation; can be used only if getOption("can_set_new_chat_privacy_settings")
+                /// </summary>
+                Task<Ok> SetNewChatPrivacySettingsAsync(NewChatPrivacySettings settings = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

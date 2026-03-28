@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Cancels verification of the 2-step verification recovery email address
+                /// </summary>
+                public Task<PasswordState> CancelRecoveryEmailAddressVerificationAsync()
+                {
+                //test
+                    return ExecuteAsync(new CancelRecoveryEmailAddressVerification
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Cancels verification of the 2-step verification recovery email address
+                /// </summary>
+                Task<PasswordState> CancelRecoveryEmailAddressVerificationAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

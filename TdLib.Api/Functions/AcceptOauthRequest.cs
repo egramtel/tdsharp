@@ -69,6 +69,31 @@ namespace TdLib
                 Url = url, MatchCode = matchCode, AllowWriteAccess = allowWriteAccess, AllowPhoneNumberAccess = allowPhoneNumberAccess
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Accepts an OAuth authorization request. Returns an HTTP URL to open after successful authorization.
+                /// May return an empty link if just a toast about successful login has to be shown
+                /// </summary>
+                public Task<HttpUrl> AcceptOauthRequestAsync(string url = default, string matchCode = default, bool allowWriteAccess = default, bool allowPhoneNumberAccess = default)
+                {
+                //test
+                    return ExecuteAsync(new AcceptOauthRequest
+                    {
+                        Url = url, MatchCode = matchCode, AllowWriteAccess = allowWriteAccess, AllowPhoneNumberAccess = allowPhoneNumberAccess
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Accepts an OAuth authorization request. Returns an HTTP URL to open after successful authorization.
+                /// May return an empty link if just a toast about successful login has to be shown
+                /// </summary>
+                Task<HttpUrl> AcceptOauthRequestAsync(string url = default, string matchCode = default, bool allowWriteAccess = default, bool allowPhoneNumberAccess = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

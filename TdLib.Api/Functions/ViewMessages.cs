@@ -68,6 +68,31 @@ namespace TdLib
                 ChatId = chatId, MessageIds = messageIds, Source = source, ForceRead = forceRead
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Informs TDLib that messages are being viewed by the user. Sponsored messages must be marked as viewed only when the entire text of the message is shown on the screen (excluding the button).
+                /// Many useful activities depend on whether the messages are currently being viewed or not (e.g., marking messages as read, incrementing a view counter, updating a view counter, removing deleted messages in supergroups and channels)
+                /// </summary>
+                public Task<Ok> ViewMessagesAsync(long chatId = default, long[] messageIds = default, MessageSource source = default, bool forceRead = default)
+                {
+                //test
+                    return ExecuteAsync(new ViewMessages
+                    {
+                        ChatId = chatId, MessageIds = messageIds, Source = source, ForceRead = forceRead
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Informs TDLib that messages are being viewed by the user. Sponsored messages must be marked as viewed only when the entire text of the message is shown on the screen (excluding the button).
+                /// Many useful activities depend on whether the messages are currently being viewed or not (e.g., marking messages as read, incrementing a view counter, updating a view counter, removing deleted messages in supergroups and channels)
+                /// </summary>
+                Task<Ok> ViewMessagesAsync(long chatId = default, long[] messageIds = default, MessageSource source = default, bool forceRead = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

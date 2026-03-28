@@ -46,6 +46,29 @@ namespace TdLib
                 Name = name
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Completely deletes a sticker set
+                /// </summary>
+                public Task<Ok> DeleteStickerSetAsync(string name = default)
+                {
+                //test
+                    return ExecuteAsync(new DeleteStickerSet
+                    {
+                        Name = name
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Completely deletes a sticker set
+                /// </summary>
+                Task<Ok> DeleteStickerSetAsync(string name = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

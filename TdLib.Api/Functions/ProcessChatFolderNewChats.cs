@@ -52,6 +52,29 @@ namespace TdLib
                 ChatFolderId = chatFolderId, AddedChatIds = addedChatIds
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Process new chats added to a shareable chat folder by its owner
+                /// </summary>
+                public Task<Ok> ProcessChatFolderNewChatsAsync(int chatFolderId = default, long[] addedChatIds = default)
+                {
+                //test
+                    return ExecuteAsync(new ProcessChatFolderNewChats
+                    {
+                        ChatFolderId = chatFolderId, AddedChatIds = addedChatIds
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Process new chats added to a shareable chat folder by its owner
+                /// </summary>
+                Task<Ok> ProcessChatFolderNewChatsAsync(int chatFolderId = default, long[] addedChatIds = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

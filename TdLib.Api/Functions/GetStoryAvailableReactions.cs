@@ -46,6 +46,29 @@ namespace TdLib
                 RowSize = rowSize
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns reactions, which can be chosen for a story
+                /// </summary>
+                public Task<AvailableReactions> GetStoryAvailableReactionsAsync(int rowSize = default)
+                {
+                //test
+                    return ExecuteAsync(new GetStoryAvailableReactions
+                    {
+                        RowSize = rowSize
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns reactions, which can be chosen for a story
+                /// </summary>
+                Task<AvailableReactions> GetStoryAvailableReactionsAsync(int rowSize = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

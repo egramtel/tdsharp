@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns the list of custom emoji, which can be used as forum topic icon by all users
+                /// </summary>
+                public Task<Stickers> GetForumTopicDefaultIconsAsync()
+                {
+                //test
+                    return ExecuteAsync(new GetForumTopicDefaultIcons
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns the list of custom emoji, which can be used as forum topic icon by all users
+                /// </summary>
+                Task<Stickers> GetForumTopicDefaultIconsAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

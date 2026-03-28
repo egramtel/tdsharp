@@ -74,6 +74,29 @@ namespace TdLib
                 InlineMessageId = inlineMessageId, EditMessage = editMessage, UserId = userId, Score = score, Force = force
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Updates the game score of the specified user in a game; for bots only
+                /// </summary>
+                public Task<Ok> SetInlineGameScoreAsync(string inlineMessageId = default, bool editMessage = default, long userId = default, int score = default, bool force = default)
+                {
+                //test
+                    return ExecuteAsync(new SetInlineGameScore
+                    {
+                        InlineMessageId = inlineMessageId, EditMessage = editMessage, UserId = userId, Score = score, Force = force
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Updates the game score of the specified user in a game; for bots only
+                /// </summary>
+                Task<Ok> SetInlineGameScoreAsync(string inlineMessageId = default, bool editMessage = default, long userId = default, int score = default, bool force = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

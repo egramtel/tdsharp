@@ -53,6 +53,29 @@ namespace TdLib
                 ChatId = chatId, UserId = userId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns the list of boosts applied to a chat by a given user; requires administrator rights in the chat; for bots only
+                /// </summary>
+                public Task<FoundChatBoosts> GetUserChatBoostsAsync(long chatId = default, long userId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetUserChatBoosts
+                    {
+                        ChatId = chatId, UserId = userId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns the list of boosts applied to a chat by a given user; requires administrator rights in the chat; for bots only
+                /// </summary>
+                Task<FoundChatBoosts> GetUserChatBoostsAsync(long chatId = default, long userId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

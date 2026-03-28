@@ -53,6 +53,29 @@ namespace TdLib
                 Name = name, IgnoreCache = ignoreCache
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Searches for a sticker set by its name
+                /// </summary>
+                public Task<StickerSet> SearchStickerSetAsync(string name = default, bool ignoreCache = default)
+                {
+                //test
+                    return ExecuteAsync(new SearchStickerSet
+                    {
+                        Name = name, IgnoreCache = ignoreCache
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Searches for a sticker set by its name
+                /// </summary>
+                Task<StickerSet> SearchStickerSetAsync(string name = default, bool ignoreCache = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

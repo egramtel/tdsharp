@@ -46,6 +46,29 @@ namespace TdLib
                 Url = url
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns information about a link to boost a chat. Can be called for any internal link of the type internalLinkTypeChatBoost
+                /// </summary>
+                public Task<ChatBoostLinkInfo> GetChatBoostLinkInfoAsync(string url = default)
+                {
+                //test
+                    return ExecuteAsync(new GetChatBoostLinkInfo
+                    {
+                        Url = url
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns information about a link to boost a chat. Can be called for any internal link of the type internalLinkTypeChatBoost
+                /// </summary>
+                Task<ChatBoostLinkInfo> GetChatBoostLinkInfoAsync(string url = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -53,6 +53,29 @@ namespace TdLib
                 ChatId = chatId, MessageId = messageId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Declines an invitation to an active group call via messageGroupCall. Can be called both by the sender and the receiver of the invitation
+                /// </summary>
+                public Task<Ok> DeclineGroupCallInvitationAsync(long chatId = default, long messageId = default)
+                {
+                //test
+                    return ExecuteAsync(new DeclineGroupCallInvitation
+                    {
+                        ChatId = chatId, MessageId = messageId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Declines an invitation to an active group call via messageGroupCall. Can be called both by the sender and the receiver of the invitation
+                /// </summary>
+                Task<Ok> DeclineGroupCallInvitationAsync(long chatId = default, long messageId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

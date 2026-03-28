@@ -45,6 +45,29 @@ namespace TdLib
                 UserIds = userIds
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Removes users from the contact list
+                /// </summary>
+                public Task<Ok> RemoveContactsAsync(long[] userIds = default)
+                {
+                //test
+                    return ExecuteAsync(new RemoveContacts
+                    {
+                        UserIds = userIds
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Removes users from the contact list
+                /// </summary>
+                Task<Ok> RemoveContactsAsync(long[] userIds = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

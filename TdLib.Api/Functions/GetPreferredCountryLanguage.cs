@@ -46,6 +46,29 @@ namespace TdLib
                 CountryCode = countryCode
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns an IETF language tag of the language preferred in the country, which must be used to fill native fields in Telegram Passport personal details. Returns a 404 error if unknown
+                /// </summary>
+                public Task<Text> GetPreferredCountryLanguageAsync(string countryCode = default)
+                {
+                //test
+                    return ExecuteAsync(new GetPreferredCountryLanguage
+                    {
+                        CountryCode = countryCode
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns an IETF language tag of the language preferred in the country, which must be used to fill native fields in Telegram Passport personal details. Returns a 404 error if unknown
+                /// </summary>
+                Task<Text> GetPreferredCountryLanguageAsync(string countryCode = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

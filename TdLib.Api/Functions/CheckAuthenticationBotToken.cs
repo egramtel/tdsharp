@@ -46,6 +46,29 @@ namespace TdLib
                 Token = token
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Checks the authentication token of a bot; to log in as a bot. Works only when the current authorization state is authorizationStateWaitPhoneNumber. Can be used instead of setAuthenticationPhoneNumber and checkAuthenticationCode to log in
+                /// </summary>
+                public Task<Ok> CheckAuthenticationBotTokenAsync(string token = default)
+                {
+                //test
+                    return ExecuteAsync(new CheckAuthenticationBotToken
+                    {
+                        Token = token
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Checks the authentication token of a bot; to log in as a bot. Works only when the current authorization state is authorizationStateWaitPhoneNumber. Can be used instead of setAuthenticationPhoneNumber and checkAuthenticationCode to log in
+                /// </summary>
+                Task<Ok> CheckAuthenticationBotTokenAsync(string token = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

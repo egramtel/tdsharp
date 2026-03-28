@@ -96,6 +96,29 @@ namespace TdLib
                 BusinessConnectionId = businessConnectionId, ChatId = chatId, MessageId = messageId, ReplyMarkup = replyMarkup, Location = location, LivePeriod = livePeriod, Heading = heading, ProximityAlertRadius = proximityAlertRadius
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Edits the content of a live location in a message sent on behalf of a business account; for bots only
+                /// </summary>
+                public Task<BusinessMessage> EditBusinessMessageLiveLocationAsync(string businessConnectionId = default, long chatId = default, long messageId = default, ReplyMarkup replyMarkup = default, Location location = default, int livePeriod = default, int heading = default, int proximityAlertRadius = default)
+                {
+                //test
+                    return ExecuteAsync(new EditBusinessMessageLiveLocation
+                    {
+                        BusinessConnectionId = businessConnectionId, ChatId = chatId, MessageId = messageId, ReplyMarkup = replyMarkup, Location = location, LivePeriod = livePeriod, Heading = heading, ProximityAlertRadius = proximityAlertRadius
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Edits the content of a live location in a message sent on behalf of a business account; for bots only
+                /// </summary>
+                Task<BusinessMessage> EditBusinessMessageLiveLocationAsync(string businessConnectionId = default, long chatId = default, long messageId = default, ReplyMarkup replyMarkup = default, Location location = default, int livePeriod = default, int heading = default, int proximityAlertRadius = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

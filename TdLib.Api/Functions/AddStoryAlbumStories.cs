@@ -61,6 +61,31 @@ namespace TdLib
                 ChatId = chatId, StoryAlbumId = storyAlbumId, StoryIds = storyIds
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Adds stories to the beginning of a previously created story album. If the album is owned by a supergroup or a channel chat, then
+                /// requires can_edit_stories administrator right in the chat. Returns the changed album
+                /// </summary>
+                public Task<StoryAlbum> AddStoryAlbumStoriesAsync(long chatId = default, int storyAlbumId = default, int[] storyIds = default)
+                {
+                //test
+                    return ExecuteAsync(new AddStoryAlbumStories
+                    {
+                        ChatId = chatId, StoryAlbumId = storyAlbumId, StoryIds = storyIds
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Adds stories to the beginning of a previously created story album. If the album is owned by a supergroup or a channel chat, then
+                /// requires can_edit_stories administrator right in the chat. Returns the changed album
+                /// </summary>
+                Task<StoryAlbum> AddStoryAlbumStoriesAsync(long chatId = default, int storyAlbumId = default, int[] storyIds = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

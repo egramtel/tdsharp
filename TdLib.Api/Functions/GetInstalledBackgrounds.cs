@@ -46,6 +46,29 @@ namespace TdLib
                 ForDarkTheme = forDarkTheme
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns backgrounds installed by the user
+                /// </summary>
+                public Task<Backgrounds> GetInstalledBackgroundsAsync(bool forDarkTheme = default)
+                {
+                //test
+                    return ExecuteAsync(new GetInstalledBackgrounds
+                    {
+                        ForDarkTheme = forDarkTheme
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns backgrounds installed by the user
+                /// </summary>
+                Task<Backgrounds> GetInstalledBackgroundsAsync(bool forDarkTheme = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

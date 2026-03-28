@@ -46,6 +46,29 @@ namespace TdLib
                 Query = query
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Checks public post search limits without actually performing the search
+                /// </summary>
+                public Task<PublicPostSearchLimits> GetPublicPostSearchLimitsAsync(string query = default)
+                {
+                //test
+                    return ExecuteAsync(new GetPublicPostSearchLimits
+                    {
+                        Query = query
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Checks public post search limits without actually performing the search
+                /// </summary>
+                Task<PublicPostSearchLimits> GetPublicPostSearchLimitsAsync(string query = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

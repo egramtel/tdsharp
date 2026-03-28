@@ -67,6 +67,29 @@ namespace TdLib
                 ChatId = chatId, TopicId = topicId, CanSendUnpaidMessages = canSendUnpaidMessages, RefundPayments = refundPayments
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Allows to send unpaid messages to the given topic of the channel direct messages chat administered by the current user
+                /// </summary>
+                public Task<Ok> ToggleDirectMessagesChatTopicCanSendUnpaidMessagesAsync(long chatId = default, long topicId = default, bool canSendUnpaidMessages = default, bool refundPayments = default)
+                {
+                //test
+                    return ExecuteAsync(new ToggleDirectMessagesChatTopicCanSendUnpaidMessages
+                    {
+                        ChatId = chatId, TopicId = topicId, CanSendUnpaidMessages = canSendUnpaidMessages, RefundPayments = refundPayments
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Allows to send unpaid messages to the given topic of the channel direct messages chat administered by the current user
+                /// </summary>
+                Task<Ok> ToggleDirectMessagesChatTopicCanSendUnpaidMessagesAsync(long chatId = default, long topicId = default, bool canSendUnpaidMessages = default, bool refundPayments = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

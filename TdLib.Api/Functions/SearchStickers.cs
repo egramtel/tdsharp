@@ -80,6 +80,29 @@ namespace TdLib
                 StickerType = stickerType, Emojis = emojis, Query = query, InputLanguageCodes = inputLanguageCodes, Offset = offset, Limit = limit
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Searches for stickers from public sticker sets that correspond to any of the given emoji
+                /// </summary>
+                public Task<Stickers> SearchStickersAsync(StickerType stickerType = default, string emojis = default, string query = default, string[] inputLanguageCodes = default, int offset = default, int limit = default)
+                {
+                //test
+                    return ExecuteAsync(new SearchStickers
+                    {
+                        StickerType = stickerType, Emojis = emojis, Query = query, InputLanguageCodes = inputLanguageCodes, Offset = offset, Limit = limit
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Searches for stickers from public sticker sets that correspond to any of the given emoji
+                /// </summary>
+                Task<Stickers> SearchStickersAsync(StickerType stickerType = default, string emojis = default, string query = default, string[] inputLanguageCodes = default, int offset = default, int limit = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

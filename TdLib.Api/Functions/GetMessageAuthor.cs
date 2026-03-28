@@ -53,6 +53,29 @@ namespace TdLib
                 ChatId = chatId, MessageId = messageId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns information about actual author of a message sent on behalf of a channel. The method can be called if messageProperties.can_get_author == true
+                /// </summary>
+                public Task<User> GetMessageAuthorAsync(long chatId = default, long messageId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetMessageAuthor
+                    {
+                        ChatId = chatId, MessageId = messageId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns information about actual author of a message sent on behalf of a channel. The method can be called if messageProperties.can_get_author == true
+                /// </summary>
+                Task<User> GetMessageAuthorAsync(long chatId = default, long messageId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

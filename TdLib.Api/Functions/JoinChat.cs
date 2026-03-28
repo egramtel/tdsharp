@@ -46,6 +46,29 @@ namespace TdLib
                 ChatId = chatId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Adds the current user as a new member to a chat. Private and secret chats can't be joined using this method. May return an error with a message "INVITE_REQUEST_SENT" if only a join request was created
+                /// </summary>
+                public Task<Ok> JoinChatAsync(long chatId = default)
+                {
+                //test
+                    return ExecuteAsync(new JoinChat
+                    {
+                        ChatId = chatId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Adds the current user as a new member to a chat. Private and secret chats can't be joined using this method. May return an error with a message "INVITE_REQUEST_SENT" if only a join request was created
+                /// </summary>
+                Task<Ok> JoinChatAsync(long chatId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

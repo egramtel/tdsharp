@@ -66,6 +66,29 @@ namespace TdLib
                 ChatId = chatId, OptionId = optionId, MessageIds = messageIds, Text = text
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Reports a chat to the Telegram moderators. A chat can be reported only from the chat action bar, or if chat.can_be_reported
+                /// </summary>
+                public Task<ReportChatResult> ReportChatAsync(long chatId = default, byte[] optionId = default, long[] messageIds = default, string text = default)
+                {
+                //test
+                    return ExecuteAsync(new ReportChat
+                    {
+                        ChatId = chatId, OptionId = optionId, MessageIds = messageIds, Text = text
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Reports a chat to the Telegram moderators. A chat can be reported only from the chat action bar, or if chat.can_be_reported
+                /// </summary>
+                Task<ReportChatResult> ReportChatAsync(long chatId = default, byte[] optionId = default, long[] messageIds = default, string text = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns the list of available TDLib internal log tags, for example, ["actor", "binlog", "connections", "notifications", "proxy"]. Can be called synchronously
+                /// </summary>
+                public Task<LogTags> GetLogTagsAsync()
+                {
+                //test
+                    return ExecuteAsync(new GetLogTags
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns the list of available TDLib internal log tags, for example, ["actor", "binlog", "connections", "notifications", "proxy"]. Can be called synchronously
+                /// </summary>
+                Task<LogTags> GetLogTagsAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

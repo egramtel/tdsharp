@@ -53,6 +53,29 @@ namespace TdLib
                 Query = query, Limit = limit
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Searches for outgoing messages with content of the type messageDocument in all chats except secret chats. Returns the results in reverse chronological order
+                /// </summary>
+                public Task<FoundMessages> SearchOutgoingDocumentMessagesAsync(string query = default, int limit = default)
+                {
+                //test
+                    return ExecuteAsync(new SearchOutgoingDocumentMessages
+                    {
+                        Query = query, Limit = limit
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Searches for outgoing messages with content of the type messageDocument in all chats except secret chats. Returns the results in reverse chronological order
+                /// </summary>
+                Task<FoundMessages> SearchOutgoingDocumentMessagesAsync(string query = default, int limit = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

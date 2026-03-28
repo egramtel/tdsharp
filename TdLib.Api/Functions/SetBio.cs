@@ -46,6 +46,29 @@ namespace TdLib
                 Bio = bio
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes the bio of the current user
+                /// </summary>
+                public Task<Ok> SetBioAsync(string bio = default)
+                {
+                //test
+                    return ExecuteAsync(new SetBio
+                    {
+                        Bio = bio
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes the bio of the current user
+                /// </summary>
+                Task<Ok> SetBioAsync(string bio = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

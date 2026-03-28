@@ -74,6 +74,29 @@ namespace TdLib
                 CallbackQueryId = callbackQueryId, Text = text, ShowAlert = showAlert, Url = url, CacheTime = cacheTime
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Sets the result of a callback query; for bots only
+                /// </summary>
+                public Task<Ok> AnswerCallbackQueryAsync(long callbackQueryId = default, string text = default, bool showAlert = default, string url = default, int cacheTime = default)
+                {
+                //test
+                    return ExecuteAsync(new AnswerCallbackQuery
+                    {
+                        CallbackQueryId = callbackQueryId, Text = text, ShowAlert = showAlert, Url = url, CacheTime = cacheTime
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Sets the result of a callback query; for bots only
+                /// </summary>
+                Task<Ok> AnswerCallbackQueryAsync(long callbackQueryId = default, string text = default, bool showAlert = default, string url = default, int cacheTime = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

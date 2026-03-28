@@ -46,6 +46,29 @@ namespace TdLib
                 SetId = setId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns information about a sticker set by its identifier
+                /// </summary>
+                public Task<StickerSet> GetStickerSetAsync(long setId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetStickerSet
+                    {
+                        SetId = setId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns information about a sticker set by its identifier
+                /// </summary>
+                Task<StickerSet> GetStickerSetAsync(long setId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -63,6 +63,31 @@ namespace TdLib
                 ChatId = chatId, MessageId = messageId, Options = options
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Sends a suggested post based on a previously sent message in a channel direct messages chat. Can be also used to suggest price or time change for an existing suggested post.
+                /// Returns the sent message
+                /// </summary>
+                public Task<Message> AddOfferAsync(long chatId = default, long messageId = default, MessageSendOptions options = default)
+                {
+                //test
+                    return ExecuteAsync(new AddOffer
+                    {
+                        ChatId = chatId, MessageId = messageId, Options = options
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Sends a suggested post based on a previously sent message in a channel direct messages chat. Can be also used to suggest price or time change for an existing suggested post.
+                /// Returns the sent message
+                /// </summary>
+                Task<Message> AddOfferAsync(long chatId = default, long messageId = default, MessageSendOptions options = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

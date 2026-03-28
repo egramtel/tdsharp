@@ -46,6 +46,29 @@ namespace TdLib
                 ChatId = chatId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns a list of administrators of the chat with their custom titles
+                /// </summary>
+                public Task<ChatAdministrators> GetChatAdministratorsAsync(long chatId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetChatAdministrators
+                    {
+                        ChatId = chatId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns a list of administrators of the chat with their custom titles
+                /// </summary>
+                Task<ChatAdministrators> GetChatAdministratorsAsync(long chatId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

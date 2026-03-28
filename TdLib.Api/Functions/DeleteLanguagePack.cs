@@ -48,6 +48,31 @@ namespace TdLib
                 LanguagePackId = languagePackId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Deletes all information about a language pack in the current localization target. The language pack which is currently in use (including base language pack) or is being synchronized can't be deleted.
+                /// Can be called before authorization
+                /// </summary>
+                public Task<Ok> DeleteLanguagePackAsync(string languagePackId = default)
+                {
+                //test
+                    return ExecuteAsync(new DeleteLanguagePack
+                    {
+                        LanguagePackId = languagePackId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Deletes all information about a language pack in the current localization target. The language pack which is currently in use (including base language pack) or is being synchronized can't be deleted.
+                /// Can be called before authorization
+                /// </summary>
+                Task<Ok> DeleteLanguagePackAsync(string languagePackId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

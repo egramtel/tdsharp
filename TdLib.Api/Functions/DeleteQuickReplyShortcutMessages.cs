@@ -52,6 +52,29 @@ namespace TdLib
                 ShortcutId = shortcutId, MessageIds = messageIds
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Deletes specified quick reply messages
+                /// </summary>
+                public Task<Ok> DeleteQuickReplyShortcutMessagesAsync(int shortcutId = default, long[] messageIds = default)
+                {
+                //test
+                    return ExecuteAsync(new DeleteQuickReplyShortcutMessages
+                    {
+                        ShortcutId = shortcutId, MessageIds = messageIds
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Deletes specified quick reply messages
+                /// </summary>
+                Task<Ok> DeleteQuickReplyShortcutMessagesAsync(int shortcutId = default, long[] messageIds = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

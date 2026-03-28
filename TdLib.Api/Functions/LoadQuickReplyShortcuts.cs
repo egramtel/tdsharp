@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Loads quick reply shortcuts created by the current user. The loaded data will be sent through updateQuickReplyShortcut and updateQuickReplyShortcuts
+                /// </summary>
+                public Task<Ok> LoadQuickReplyShortcutsAsync()
+                {
+                //test
+                    return ExecuteAsync(new LoadQuickReplyShortcuts
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Loads quick reply shortcuts created by the current user. The loaded data will be sent through updateQuickReplyShortcut and updateQuickReplyShortcuts
+                /// </summary>
+                Task<Ok> LoadQuickReplyShortcutsAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

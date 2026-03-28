@@ -60,6 +60,29 @@ namespace TdLib
                 BotUserId = botUserId, ButtonText = buttonText, Data = data
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Sends data received from a keyboardButtonTypeWebApp Web App to a bot
+                /// </summary>
+                public Task<Ok> SendWebAppDataAsync(long botUserId = default, string buttonText = default, string data = default)
+                {
+                //test
+                    return ExecuteAsync(new SendWebAppData
+                    {
+                        BotUserId = botUserId, ButtonText = buttonText, Data = data
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Sends data received from a keyboardButtonTypeWebApp Web App to a bot
+                /// </summary>
+                Task<Ok> SendWebAppDataAsync(long botUserId = default, string buttonText = default, string data = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

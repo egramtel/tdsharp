@@ -78,6 +78,33 @@ namespace TdLib
                 CredentialId = credentialId, ClientData = clientData, AuthenticatorData = authenticatorData, Signature = signature, UserHandle = userHandle
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Checks a passkey to log in to the corresponding account. Call getAuthenticationPasskeyParameters to get parameters for the passkey. Works only when the current authorization state is
+                /// authorizationStateWaitPhoneNumber or authorizationStateWaitOtherDeviceConfirmation, or if there is no pending authentication query and the current authorization state is
+                /// authorizationStateWaitPremiumPurchase, authorizationStateWaitEmailAddress, authorizationStateWaitEmailCode, authorizationStateWaitCode, authorizationStateWaitRegistration, or authorizationStateWaitPassword
+                /// </summary>
+                public Task<Ok> CheckAuthenticationPasskeyAsync(string credentialId = default, string clientData = default, byte[] authenticatorData = default, byte[] signature = default, byte[] userHandle = default)
+                {
+                //test
+                    return ExecuteAsync(new CheckAuthenticationPasskey
+                    {
+                        CredentialId = credentialId, ClientData = clientData, AuthenticatorData = authenticatorData, Signature = signature, UserHandle = userHandle
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Checks a passkey to log in to the corresponding account. Call getAuthenticationPasskeyParameters to get parameters for the passkey. Works only when the current authorization state is
+                /// authorizationStateWaitPhoneNumber or authorizationStateWaitOtherDeviceConfirmation, or if there is no pending authentication query and the current authorization state is
+                /// authorizationStateWaitPremiumPurchase, authorizationStateWaitEmailAddress, authorizationStateWaitEmailCode, authorizationStateWaitCode, authorizationStateWaitRegistration, or authorizationStateWaitPassword
+                /// </summary>
+                Task<Ok> CheckAuthenticationPasskeyAsync(string credentialId = default, string clientData = default, byte[] authenticatorData = default, byte[] signature = default, byte[] userHandle = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

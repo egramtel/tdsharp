@@ -46,6 +46,29 @@ namespace TdLib
                 Name = name
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns information about value of an upgraded gift by its name
+                /// </summary>
+                public Task<UpgradedGiftValueInfo> GetUpgradedGiftValueInfoAsync(string name = default)
+                {
+                //test
+                    return ExecuteAsync(new GetUpgradedGiftValueInfo
+                    {
+                        Name = name
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns information about value of an upgraded gift by its name
+                /// </summary>
+                Task<UpgradedGiftValueInfo> GetUpgradedGiftValueInfoAsync(string name = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

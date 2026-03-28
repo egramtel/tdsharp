@@ -46,6 +46,29 @@ namespace TdLib
                 LanguagePackId = languagePackId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Adds a custom server language pack to the list of installed language packs in current localization target. Can be called before authorization
+                /// </summary>
+                public Task<Ok> AddCustomServerLanguagePackAsync(string languagePackId = default)
+                {
+                //test
+                    return ExecuteAsync(new AddCustomServerLanguagePack
+                    {
+                        LanguagePackId = languagePackId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Adds a custom server language pack to the list of installed language packs in current localization target. Can be called before authorization
+                /// </summary>
+                Task<Ok> AddCustomServerLanguagePackAsync(string languagePackId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

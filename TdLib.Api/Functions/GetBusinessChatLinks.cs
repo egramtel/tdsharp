@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns business chat links created for the current account
+                /// </summary>
+                public Task<BusinessChatLinks> GetBusinessChatLinksAsync()
+                {
+                //test
+                    return ExecuteAsync(new GetBusinessChatLinks
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns business chat links created for the current account
+                /// </summary>
+                Task<BusinessChatLinks> GetBusinessChatLinksAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

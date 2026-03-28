@@ -54,6 +54,29 @@ namespace TdLib
                 ChatId = chatId, DiscussionChatId = discussionChatId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes the discussion group of a channel chat; requires can_change_info administrator right in the channel if it is specified
+                /// </summary>
+                public Task<Ok> SetChatDiscussionGroupAsync(long chatId = default, long discussionChatId = default)
+                {
+                //test
+                    return ExecuteAsync(new SetChatDiscussionGroup
+                    {
+                        ChatId = chatId, DiscussionChatId = discussionChatId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes the discussion group of a channel chat; requires can_change_info administrator right in the channel if it is specified
+                /// </summary>
+                Task<Ok> SetChatDiscussionGroupAsync(long chatId = default, long discussionChatId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -53,6 +53,29 @@ namespace TdLib
                 SupergroupId = supergroupId, StickerSetId = stickerSetId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes the sticker set of a supergroup; requires can_change_info administrator right
+                /// </summary>
+                public Task<Ok> SetSupergroupStickerSetAsync(long supergroupId = default, long stickerSetId = default)
+                {
+                //test
+                    return ExecuteAsync(new SetSupergroupStickerSet
+                    {
+                        SupergroupId = supergroupId, StickerSetId = stickerSetId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes the sticker set of a supergroup; requires can_change_info administrator right
+                /// </summary>
+                Task<Ok> SetSupergroupStickerSetAsync(long supergroupId = default, long stickerSetId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -52,6 +52,29 @@ namespace TdLib
                 LanguagePackId = languagePackId, Keys = keys
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns strings from a language pack in the current localization target by their keys. Can be called before authorization
+                /// </summary>
+                public Task<LanguagePackStrings> GetLanguagePackStringsAsync(string languagePackId = default, string[] keys = default)
+                {
+                //test
+                    return ExecuteAsync(new GetLanguagePackStrings
+                    {
+                        LanguagePackId = languagePackId, Keys = keys
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns strings from a language pack in the current localization target by their keys. Can be called before authorization
+                /// </summary>
+                Task<LanguagePackStrings> GetLanguagePackStringsAsync(string languagePackId = default, string[] keys = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

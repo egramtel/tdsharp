@@ -46,6 +46,29 @@ namespace TdLib
                 SecretChatId = secretChatId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns information about a secret chat by its identifier. This is an offline method
+                /// </summary>
+                public Task<SecretChat> GetSecretChatAsync(int secretChatId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetSecretChat
+                    {
+                        SecretChatId = secretChatId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns information about a secret chat by its identifier. This is an offline method
+                /// </summary>
+                Task<SecretChat> GetSecretChatAsync(int secretChatId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

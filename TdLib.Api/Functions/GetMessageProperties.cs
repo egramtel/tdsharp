@@ -53,6 +53,29 @@ namespace TdLib
                 ChatId = chatId, MessageId = messageId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns properties of a message. This is an offline method
+                /// </summary>
+                public Task<MessageProperties> GetMessagePropertiesAsync(long chatId = default, long messageId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetMessageProperties
+                    {
+                        ChatId = chatId, MessageId = messageId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns properties of a message. This is an offline method
+                /// </summary>
+                Task<MessageProperties> GetMessagePropertiesAsync(long chatId = default, long messageId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

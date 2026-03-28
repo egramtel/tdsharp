@@ -53,6 +53,29 @@ namespace TdLib
                 ChatId = chatId, AreEnabled = areEnabled
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Toggles whether notifications for new gifts received by a channel chat are sent to the current user; requires can_post_messages administrator right in the chat
+                /// </summary>
+                public Task<Ok> ToggleChatGiftNotificationsAsync(long chatId = default, bool areEnabled = default)
+                {
+                //test
+                    return ExecuteAsync(new ToggleChatGiftNotifications
+                    {
+                        ChatId = chatId, AreEnabled = areEnabled
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Toggles whether notifications for new gifts received by a channel chat are sent to the current user; requires can_post_messages administrator right in the chat
+                /// </summary>
+                Task<Ok> ToggleChatGiftNotificationsAsync(long chatId = default, bool areEnabled = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

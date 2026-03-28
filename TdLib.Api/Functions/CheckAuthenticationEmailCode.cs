@@ -46,6 +46,29 @@ namespace TdLib
                 Code = code
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Checks the authentication of an email address. Works only when the current authorization state is authorizationStateWaitEmailCode
+                /// </summary>
+                public Task<Ok> CheckAuthenticationEmailCodeAsync(EmailAddressAuthentication code = default)
+                {
+                //test
+                    return ExecuteAsync(new CheckAuthenticationEmailCode
+                    {
+                        Code = code
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Checks the authentication of an email address. Works only when the current authorization state is authorizationStateWaitEmailCode
+                /// </summary>
+                Task<Ok> CheckAuthenticationEmailCodeAsync(EmailAddressAuthentication code = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Clears the list of recently used emoji statuses for self status
+                /// </summary>
+                public Task<Ok> ClearRecentEmojiStatusesAsync()
+                {
+                //test
+                    return ExecuteAsync(new ClearRecentEmojiStatuses
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Clears the list of recently used emoji statuses for self status
+                /// </summary>
+                Task<Ok> ClearRecentEmojiStatusesAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

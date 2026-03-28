@@ -53,6 +53,29 @@ namespace TdLib
                 Offset = offset, Limit = limit
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns the most grossing Web App bots
+                /// </summary>
+                public Task<FoundUsers> GetGrossingWebAppBotsAsync(string offset = default, int limit = default)
+                {
+                //test
+                    return ExecuteAsync(new GetGrossingWebAppBots
+                    {
+                        Offset = offset, Limit = limit
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns the most grossing Web App bots
+                /// </summary>
+                Task<FoundUsers> GetGrossingWebAppBotsAsync(string offset = default, int limit = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

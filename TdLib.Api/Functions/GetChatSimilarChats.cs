@@ -46,6 +46,29 @@ namespace TdLib
                 ChatId = chatId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns a list of chats similar to the given chat
+                /// </summary>
+                public Task<Chats> GetChatSimilarChatsAsync(long chatId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetChatSimilarChats
+                    {
+                        ChatId = chatId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns a list of chats similar to the given chat
+                /// </summary>
+                Task<Chats> GetChatSimilarChatsAsync(long chatId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

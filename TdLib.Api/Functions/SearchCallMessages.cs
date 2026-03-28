@@ -60,6 +60,29 @@ namespace TdLib
                 Offset = offset, Limit = limit, OnlyMissed = onlyMissed
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Searches for call and group call messages. Returns the results in reverse chronological order (i.e., in order of decreasing message_id). For optimal performance, the number of returned messages is chosen by TDLib
+                /// </summary>
+                public Task<FoundMessages> SearchCallMessagesAsync(string offset = default, int limit = default, bool onlyMissed = default)
+                {
+                //test
+                    return ExecuteAsync(new SearchCallMessages
+                    {
+                        Offset = offset, Limit = limit, OnlyMissed = onlyMissed
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Searches for call and group call messages. Returns the results in reverse chronological order (i.e., in order of decreasing message_id). For optimal performance, the number of returned messages is chosen by TDLib
+                /// </summary>
+                Task<FoundMessages> SearchCallMessagesAsync(string offset = default, int limit = default, bool onlyMissed = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

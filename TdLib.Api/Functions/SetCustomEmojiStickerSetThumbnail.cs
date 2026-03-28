@@ -53,6 +53,29 @@ namespace TdLib
                 Name = name, CustomEmojiId = customEmojiId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Sets a custom emoji sticker set thumbnail
+                /// </summary>
+                public Task<Ok> SetCustomEmojiStickerSetThumbnailAsync(string name = default, long customEmojiId = default)
+                {
+                //test
+                    return ExecuteAsync(new SetCustomEmojiStickerSetThumbnail
+                    {
+                        Name = name, CustomEmojiId = customEmojiId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Sets a custom emoji sticker set thumbnail
+                /// </summary>
+                Task<Ok> SetCustomEmojiStickerSetThumbnailAsync(string name = default, long customEmojiId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

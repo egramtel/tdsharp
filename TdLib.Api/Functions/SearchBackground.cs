@@ -46,6 +46,29 @@ namespace TdLib
                 Name = name
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Searches for a background by its name
+                /// </summary>
+                public Task<Background> SearchBackgroundAsync(string name = default)
+                {
+                //test
+                    return ExecuteAsync(new SearchBackground
+                    {
+                        Name = name
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Searches for a background by its name
+                /// </summary>
+                Task<Background> SearchBackgroundAsync(string name = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

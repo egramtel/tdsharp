@@ -74,6 +74,29 @@ namespace TdLib
                 ChatId = chatId, MessageId = messageId, ReactionType = reactionType, IsBig = isBig, UpdateRecentReactions = updateRecentReactions
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Adds a reaction or a tag to a message. Use getMessageAvailableReactions to receive the list of available reactions for the message
+                /// </summary>
+                public Task<Ok> AddMessageReactionAsync(long chatId = default, long messageId = default, ReactionType reactionType = default, bool isBig = default, bool updateRecentReactions = default)
+                {
+                //test
+                    return ExecuteAsync(new AddMessageReaction
+                    {
+                        ChatId = chatId, MessageId = messageId, ReactionType = reactionType, IsBig = isBig, UpdateRecentReactions = updateRecentReactions
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Adds a reaction or a tag to a message. Use getMessageAvailableReactions to receive the list of available reactions for the message
+                /// </summary>
+                Task<Ok> AddMessageReactionAsync(long chatId = default, long messageId = default, ReactionType reactionType = default, bool isBig = default, bool updateRecentReactions = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

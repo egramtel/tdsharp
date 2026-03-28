@@ -46,6 +46,29 @@ namespace TdLib
                 BotUserId = botUserId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns information about a bot that can be added to attachment or side menu
+                /// </summary>
+                public Task<AttachmentMenuBot> GetAttachmentMenuBotAsync(long botUserId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetAttachmentMenuBot
+                    {
+                        BotUserId = botUserId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns information about a bot that can be added to attachment or side menu
+                /// </summary>
+                Task<AttachmentMenuBot> GetAttachmentMenuBotAsync(long botUserId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -46,6 +46,29 @@ namespace TdLib
                 MimeType = mimeType
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns the extension of a file, guessed by its MIME type. Returns an empty string on failure. Can be called synchronously
+                /// </summary>
+                public Task<Text> GetFileExtensionAsync(string mimeType = default)
+                {
+                //test
+                    return ExecuteAsync(new GetFileExtension
+                    {
+                        MimeType = mimeType
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns the extension of a file, guessed by its MIME type. Returns an empty string on failure. Can be called synchronously
+                /// </summary>
+                Task<Text> GetFileExtensionAsync(string mimeType = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

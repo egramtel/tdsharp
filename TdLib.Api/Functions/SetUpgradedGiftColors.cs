@@ -46,6 +46,29 @@ namespace TdLib
                 UpgradedGiftColorsId = upgradedGiftColorsId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes color scheme for the current user based on an owned or a hosted upgraded gift; for Telegram Premium users only
+                /// </summary>
+                public Task<Ok> SetUpgradedGiftColorsAsync(long upgradedGiftColorsId = default)
+                {
+                //test
+                    return ExecuteAsync(new SetUpgradedGiftColors
+                    {
+                        UpgradedGiftColorsId = upgradedGiftColorsId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes color scheme for the current user based on an owned or a hosted upgraded gift; for Telegram Premium users only
+                /// </summary>
+                Task<Ok> SetUpgradedGiftColorsAsync(long upgradedGiftColorsId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

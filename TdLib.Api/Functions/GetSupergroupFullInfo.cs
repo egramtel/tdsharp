@@ -46,6 +46,29 @@ namespace TdLib
                 SupergroupId = supergroupId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns full information about a supergroup or a channel by its identifier, cached for up to 1 minute
+                /// </summary>
+                public Task<SupergroupFullInfo> GetSupergroupFullInfoAsync(long supergroupId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetSupergroupFullInfo
+                    {
+                        SupergroupId = supergroupId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns full information about a supergroup or a channel by its identifier, cached for up to 1 minute
+                /// </summary>
+                Task<SupergroupFullInfo> GetSupergroupFullInfoAsync(long supergroupId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

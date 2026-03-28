@@ -54,6 +54,31 @@ namespace TdLib
                 ChatId = chatId, UserIds = userIds
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Adds multiple new members to a chat; requires can_invite_users member right. Currently, this method is only available for supergroups and channels.
+                /// This method can't be used to join a chat. Members can't be added to a channel if it has more than 200 members. Returns information about members that weren't added
+                /// </summary>
+                public Task<FailedToAddMembers> AddChatMembersAsync(long chatId = default, long[] userIds = default)
+                {
+                //test
+                    return ExecuteAsync(new AddChatMembers
+                    {
+                        ChatId = chatId, UserIds = userIds
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Adds multiple new members to a chat; requires can_invite_users member right. Currently, this method is only available for supergroups and channels.
+                /// This method can't be used to join a chat. Members can't be added to a channel if it has more than 200 members. Returns information about members that weren't added
+                /// </summary>
+                Task<FailedToAddMembers> AddChatMembersAsync(long chatId = default, long[] userIds = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

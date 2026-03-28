@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns the list of emoji statuses, which can't be used as chat emoji status, even if they are from a sticker set with is_allowed_as_chat_emoji_status == true
+                /// </summary>
+                public Task<EmojiStatusCustomEmojis> GetDisallowedChatEmojiStatusesAsync()
+                {
+                //test
+                    return ExecuteAsync(new GetDisallowedChatEmojiStatuses
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns the list of emoji statuses, which can't be used as chat emoji status, even if they are from a sticker set with is_allowed_as_chat_emoji_status == true
+                /// </summary>
+                Task<EmojiStatusCustomEmojis> GetDisallowedChatEmojiStatusesAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

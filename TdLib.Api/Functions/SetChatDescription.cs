@@ -53,6 +53,29 @@ namespace TdLib
                 ChatId = chatId, Description = description
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes information about a chat. Available for basic groups, supergroups, and channels. Requires can_change_info member right
+                /// </summary>
+                public Task<Ok> SetChatDescriptionAsync(long chatId = default, string description = default)
+                {
+                //test
+                    return ExecuteAsync(new SetChatDescription
+                    {
+                        ChatId = chatId, Description = description
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes information about a chat. Available for basic groups, supergroups, and channels. Requires can_change_info member right
+                /// </summary>
+                Task<Ok> SetChatDescriptionAsync(long chatId = default, string description = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

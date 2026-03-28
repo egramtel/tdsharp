@@ -74,6 +74,29 @@ namespace TdLib
                 OwnerId = ownerId, SubscriptionId = subscriptionId, Direction = direction, Offset = offset, Limit = limit
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns the list of Telegram Star transactions for the specified owner
+                /// </summary>
+                public Task<StarTransactions> GetStarTransactionsAsync(MessageSender ownerId = default, string subscriptionId = default, TransactionDirection direction = default, string offset = default, int limit = default)
+                {
+                //test
+                    return ExecuteAsync(new GetStarTransactions
+                    {
+                        OwnerId = ownerId, SubscriptionId = subscriptionId, Direction = direction, Offset = offset, Limit = limit
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns the list of Telegram Star transactions for the specified owner
+                /// </summary>
+                Task<StarTransactions> GetStarTransactionsAsync(MessageSender ownerId = default, string subscriptionId = default, TransactionDirection direction = default, string offset = default, int limit = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

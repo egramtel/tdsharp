@@ -53,6 +53,29 @@ namespace TdLib
                 LanguageCode = languageCode, PhoneNumberPrefix = phoneNumberPrefix
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns information about a phone number by its prefix synchronously. getCountries must be called at least once after changing localization to the specified language if properly localized country information is expected. Can be called synchronously
+                /// </summary>
+                public Task<PhoneNumberInfo> GetPhoneNumberInfoSyncAsync(string languageCode = default, string phoneNumberPrefix = default)
+                {
+                //test
+                    return ExecuteAsync(new GetPhoneNumberInfoSync
+                    {
+                        LanguageCode = languageCode, PhoneNumberPrefix = phoneNumberPrefix
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns information about a phone number by its prefix synchronously. getCountries must be called at least once after changing localization to the specified language if properly localized country information is expected. Can be called synchronously
+                /// </summary>
+                Task<PhoneNumberInfo> GetPhoneNumberInfoSyncAsync(string languageCode = default, string phoneNumberPrefix = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

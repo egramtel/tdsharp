@@ -53,6 +53,29 @@ namespace TdLib
                 FileId = fileId, Directory = directory
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns suggested name for saving a file in a given directory
+                /// </summary>
+                public Task<Text> GetSuggestedFileNameAsync(int fileId = default, string directory = default)
+                {
+                //test
+                    return ExecuteAsync(new GetSuggestedFileName
+                    {
+                        FileId = fileId, Directory = directory
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns suggested name for saving a file in a given directory
+                /// </summary>
+                Task<Text> GetSuggestedFileNameAsync(int fileId = default, string directory = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

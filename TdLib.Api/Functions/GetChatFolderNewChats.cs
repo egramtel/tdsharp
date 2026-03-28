@@ -46,6 +46,29 @@ namespace TdLib
                 ChatFolderId = chatFolderId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns new chats added to a shareable chat folder by its owner. The method must be called at most once in getOption("chat_folder_new_chats_update_period") for the given chat folder
+                /// </summary>
+                public Task<Chats> GetChatFolderNewChatsAsync(int chatFolderId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetChatFolderNewChats
+                    {
+                        ChatFolderId = chatFolderId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns new chats added to a shareable chat folder by its owner. The method must be called at most once in getOption("chat_folder_new_chats_update_period") for the given chat folder
+                /// </summary>
+                Task<Chats> GetChatFolderNewChatsAsync(int chatFolderId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

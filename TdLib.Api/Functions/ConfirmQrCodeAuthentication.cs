@@ -46,6 +46,29 @@ namespace TdLib
                 Link = link
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Confirms QR code authentication on another device. Returns created session on success
+                /// </summary>
+                public Task<Session> ConfirmQrCodeAuthenticationAsync(string link = default)
+                {
+                //test
+                    return ExecuteAsync(new ConfirmQrCodeAuthentication
+                    {
+                        Link = link
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Confirms QR code authentication on another device. Returns created session on success
+                /// </summary>
+                Task<Session> ConfirmQrCodeAuthenticationAsync(string link = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

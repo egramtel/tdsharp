@@ -62,6 +62,31 @@ namespace TdLib
                 ChatId = chatId, Offset = offset, Limit = limit
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns the list of revenue transactions for a chat. Currently, this method can be used only
+                /// for channels if supergroupFullInfo.can_get_revenue_statistics == true or bots if userFullInfo.bot_info.can_get_revenue_statistics == true
+                /// </summary>
+                public Task<ChatRevenueTransactions> GetChatRevenueTransactionsAsync(long chatId = default, string offset = default, int limit = default)
+                {
+                //test
+                    return ExecuteAsync(new GetChatRevenueTransactions
+                    {
+                        ChatId = chatId, Offset = offset, Limit = limit
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns the list of revenue transactions for a chat. Currently, this method can be used only
+                /// for channels if supergroupFullInfo.can_get_revenue_statistics == true or bots if userFullInfo.bot_info.can_get_revenue_statistics == true
+                /// </summary>
+                Task<ChatRevenueTransactions> GetChatRevenueTransactionsAsync(long chatId = default, string offset = default, int limit = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

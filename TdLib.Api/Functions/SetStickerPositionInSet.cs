@@ -53,6 +53,29 @@ namespace TdLib
                 Sticker = sticker, Position = position
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes the position of a sticker in the set to which it belongs. The sticker set must be owned by the current user
+                /// </summary>
+                public Task<Ok> SetStickerPositionInSetAsync(InputFile sticker = default, int position = default)
+                {
+                //test
+                    return ExecuteAsync(new SetStickerPositionInSet
+                    {
+                        Sticker = sticker, Position = position
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes the position of a sticker in the set to which it belongs. The sticker set must be owned by the current user
+                /// </summary>
+                Task<Ok> SetStickerPositionInSetAsync(InputFile sticker = default, int position = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

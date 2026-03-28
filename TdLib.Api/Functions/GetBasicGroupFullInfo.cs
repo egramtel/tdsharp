@@ -46,6 +46,29 @@ namespace TdLib
                 BasicGroupId = basicGroupId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns full information about a basic group by its identifier
+                /// </summary>
+                public Task<BasicGroupFullInfo> GetBasicGroupFullInfoAsync(long basicGroupId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetBasicGroupFullInfo
+                    {
+                        BasicGroupId = basicGroupId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns full information about a basic group by its identifier
+                /// </summary>
+                Task<BasicGroupFullInfo> GetBasicGroupFullInfoAsync(long basicGroupId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

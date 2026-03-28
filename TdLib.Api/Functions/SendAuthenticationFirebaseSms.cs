@@ -46,6 +46,29 @@ namespace TdLib
                 Token = token
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Sends Firebase Authentication SMS to the phone number of the user. Works only when the current authorization state is authorizationStateWaitCode and the server returned code of the type authenticationCodeTypeFirebaseAndroid or authenticationCodeTypeFirebaseIos
+                /// </summary>
+                public Task<Ok> SendAuthenticationFirebaseSmsAsync(string token = default)
+                {
+                //test
+                    return ExecuteAsync(new SendAuthenticationFirebaseSms
+                    {
+                        Token = token
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Sends Firebase Authentication SMS to the phone number of the user. Works only when the current authorization state is authorizationStateWaitCode and the server returned code of the type authenticationCodeTypeFirebaseAndroid or authenticationCodeTypeFirebaseIos
+                /// </summary>
+                Task<Ok> SendAuthenticationFirebaseSmsAsync(string token = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

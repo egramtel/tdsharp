@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns saved order information. Returns a 404 error if there is no saved order information
+                /// </summary>
+                public Task<OrderInfo> GetSavedOrderInfoAsync()
+                {
+                //test
+                    return ExecuteAsync(new GetSavedOrderInfo
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns saved order information. Returns a 404 error if there is no saved order information
+                /// </summary>
+                Task<OrderInfo> GetSavedOrderInfoAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -67,6 +67,29 @@ namespace TdLib
                 Affiliate = affiliate, SortOrder = sortOrder, Offset = offset, Limit = limit
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Searches affiliate programs that can be connected to the given affiliate
+                /// </summary>
+                public Task<FoundAffiliatePrograms> SearchAffiliateProgramsAsync(AffiliateType affiliate = default, AffiliateProgramSortOrder sortOrder = default, string offset = default, int limit = default)
+                {
+                //test
+                    return ExecuteAsync(new SearchAffiliatePrograms
+                    {
+                        Affiliate = affiliate, SortOrder = sortOrder, Offset = offset, Limit = limit
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Searches affiliate programs that can be connected to the given affiliate
+                /// </summary>
+                Task<FoundAffiliatePrograms> SearchAffiliateProgramsAsync(AffiliateType affiliate = default, AffiliateProgramSortOrder sortOrder = default, string offset = default, int limit = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

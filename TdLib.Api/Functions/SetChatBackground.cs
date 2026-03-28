@@ -74,6 +74,29 @@ namespace TdLib
                 ChatId = chatId, Background = background, Type = type, DarkThemeDimming = darkThemeDimming, OnlyForSelf = onlyForSelf
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Sets the background in a specific chat. Supported only in private and secret chats with non-deleted users, and in chats with sufficient boost level and can_change_info administrator right
+                /// </summary>
+                public Task<Ok> SetChatBackgroundAsync(long chatId = default, InputBackground background = default, BackgroundType type = default, int darkThemeDimming = default, bool onlyForSelf = default)
+                {
+                //test
+                    return ExecuteAsync(new SetChatBackground
+                    {
+                        ChatId = chatId, Background = background, Type = type, DarkThemeDimming = darkThemeDimming, OnlyForSelf = onlyForSelf
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Sets the background in a specific chat. Supported only in private and secret chats with non-deleted users, and in chats with sufficient boost level and can_change_info administrator right
+                /// </summary>
+                Task<Ok> SetChatBackgroundAsync(long chatId = default, InputBackground background = default, BackgroundType type = default, int darkThemeDimming = default, bool onlyForSelf = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

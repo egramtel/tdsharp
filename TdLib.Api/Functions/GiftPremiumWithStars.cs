@@ -67,6 +67,29 @@ namespace TdLib
                 UserId = userId, StarCount = starCount, MonthCount = monthCount, Text = text
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Allows to buy a Telegram Premium subscription for another user with payment in Telegram Stars; for bots only
+                /// </summary>
+                public Task<Ok> GiftPremiumWithStarsAsync(long userId = default, long starCount = default, int monthCount = default, FormattedText text = default)
+                {
+                //test
+                    return ExecuteAsync(new GiftPremiumWithStars
+                    {
+                        UserId = userId, StarCount = starCount, MonthCount = monthCount, Text = text
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Allows to buy a Telegram Premium subscription for another user with payment in Telegram Stars; for bots only
+                /// </summary>
+                Task<Ok> GiftPremiumWithStarsAsync(long userId = default, long starCount = default, int monthCount = default, FormattedText text = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns parameters for creating of a new passkey as JSON-serialized string
+                /// </summary>
+                public Task<Text> GetPasskeyParametersAsync()
+                {
+                //test
+                    return ExecuteAsync(new GetPasskeyParameters
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns parameters for creating of a new passkey as JSON-serialized string
+                /// </summary>
+                Task<Text> GetPasskeyParametersAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

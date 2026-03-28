@@ -88,6 +88,29 @@ namespace TdLib
                 ChatId = chatId, TopicId = topicId, ReplyTo = replyTo, Options = options, QueryId = queryId, ResultId = resultId, HideViaBot = hideViaBot
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Sends the result of an inline query as a message. Returns the sent message. Always clears a chat draft message
+                /// </summary>
+                public Task<Message> SendInlineQueryResultMessageAsync(long chatId = default, MessageTopic topicId = default, InputMessageReplyTo replyTo = default, MessageSendOptions options = default, long queryId = default, string resultId = default, bool hideViaBot = default)
+                {
+                //test
+                    return ExecuteAsync(new SendInlineQueryResultMessage
+                    {
+                        ChatId = chatId, TopicId = topicId, ReplyTo = replyTo, Options = options, QueryId = queryId, ResultId = resultId, HideViaBot = hideViaBot
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Sends the result of an inline query as a message. Returns the sent message. Always clears a chat draft message
+                /// </summary>
+                Task<Message> SendInlineQueryResultMessageAsync(long chatId = default, MessageTopic topicId = default, InputMessageReplyTo replyTo = default, MessageSendOptions options = default, long queryId = default, string resultId = default, bool hideViaBot = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

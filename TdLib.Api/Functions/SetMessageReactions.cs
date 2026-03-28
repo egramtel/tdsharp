@@ -66,6 +66,29 @@ namespace TdLib
                 ChatId = chatId, MessageId = messageId, ReactionTypes = reactionTypes, IsBig = isBig
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Sets reactions on a message; for bots only
+                /// </summary>
+                public Task<Ok> SetMessageReactionsAsync(long chatId = default, long messageId = default, ReactionType[] reactionTypes = default, bool isBig = default)
+                {
+                //test
+                    return ExecuteAsync(new SetMessageReactions
+                    {
+                        ChatId = chatId, MessageId = messageId, ReactionTypes = reactionTypes, IsBig = isBig
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Sets reactions on a message; for bots only
+                /// </summary>
+                Task<Ok> SetMessageReactionsAsync(long chatId = default, long messageId = default, ReactionType[] reactionTypes = default, bool isBig = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

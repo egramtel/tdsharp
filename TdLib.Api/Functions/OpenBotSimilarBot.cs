@@ -53,6 +53,29 @@ namespace TdLib
                 BotUserId = botUserId, OpenedBotUserId = openedBotUserId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Informs TDLib that a bot was opened from the list of similar bots
+                /// </summary>
+                public Task<Ok> OpenBotSimilarBotAsync(long botUserId = default, long openedBotUserId = default)
+                {
+                //test
+                    return ExecuteAsync(new OpenBotSimilarBot
+                    {
+                        BotUserId = botUserId, OpenedBotUserId = openedBotUserId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Informs TDLib that a bot was opened from the list of similar bots
+                /// </summary>
+                Task<Ok> OpenBotSimilarBotAsync(long botUserId = default, long openedBotUserId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

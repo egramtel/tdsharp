@@ -67,6 +67,29 @@ namespace TdLib
                 ChatId = chatId, MemberId = memberId, BannedUntilDate = bannedUntilDate, RevokeMessages = revokeMessages
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Bans a member in a chat; requires can_restrict_members administrator right. Members can't be banned in private or secret chats. In supergroups and channels, the user will not be able to return to the group on their own using invite links, etc., unless unbanned first
+                /// </summary>
+                public Task<Ok> BanChatMemberAsync(long chatId = default, MessageSender memberId = default, int bannedUntilDate = default, bool revokeMessages = default)
+                {
+                //test
+                    return ExecuteAsync(new BanChatMember
+                    {
+                        ChatId = chatId, MemberId = memberId, BannedUntilDate = bannedUntilDate, RevokeMessages = revokeMessages
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Bans a member in a chat; requires can_restrict_members administrator right. Members can't be banned in private or secret chats. In supergroups and channels, the user will not be able to return to the group on their own using invite links, etc., unless unbanned first
+                /// </summary>
+                Task<Ok> BanChatMemberAsync(long chatId = default, MessageSender memberId = default, int bannedUntilDate = default, bool revokeMessages = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

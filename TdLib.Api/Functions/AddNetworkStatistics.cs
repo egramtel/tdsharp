@@ -46,6 +46,29 @@ namespace TdLib
                 Entry = entry
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Adds the specified data to data usage statistics. Can be called before authorization
+                /// </summary>
+                public Task<Ok> AddNetworkStatisticsAsync(NetworkStatisticsEntry entry = default)
+                {
+                //test
+                    return ExecuteAsync(new AddNetworkStatistics
+                    {
+                        Entry = entry
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Adds the specified data to data usage statistics. Can be called before authorization
+                /// </summary>
+                Task<Ok> AddNetworkStatisticsAsync(NetworkStatisticsEntry entry = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

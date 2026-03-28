@@ -43,6 +43,31 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Activates stealth mode for stories, which hides all views of stories from the current user in the last "story_stealth_mode_past_period" seconds
+                /// and for the next "story_stealth_mode_future_period" seconds; for Telegram Premium users only
+                /// </summary>
+                public Task<Ok> ActivateStoryStealthModeAsync()
+                {
+                //test
+                    return ExecuteAsync(new ActivateStoryStealthMode
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Activates stealth mode for stories, which hides all views of stories from the current user in the last "story_stealth_mode_past_period" seconds
+                /// and for the next "story_stealth_mode_future_period" seconds; for Telegram Premium users only
+                /// </summary>
+                Task<Ok> ActivateStoryStealthModeAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

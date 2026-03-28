@@ -53,6 +53,29 @@ namespace TdLib
                 OnlyExpiring = onlyExpiring, Offset = offset
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns the list of Telegram Star subscriptions for the current user
+                /// </summary>
+                public Task<StarSubscriptions> GetStarSubscriptionsAsync(bool onlyExpiring = default, string offset = default)
+                {
+                //test
+                    return ExecuteAsync(new GetStarSubscriptions
+                    {
+                        OnlyExpiring = onlyExpiring, Offset = offset
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns the list of Telegram Star subscriptions for the current user
+                /// </summary>
+                Task<StarSubscriptions> GetStarSubscriptionsAsync(bool onlyExpiring = default, string offset = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

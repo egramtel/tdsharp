@@ -52,6 +52,29 @@ namespace TdLib
                 InviteLink = inviteLink, ChatIds = chatIds
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Adds a chat folder by an invite link
+                /// </summary>
+                public Task<Ok> AddChatFolderByInviteLinkAsync(string inviteLink = default, long[] chatIds = default)
+                {
+                //test
+                    return ExecuteAsync(new AddChatFolderByInviteLink
+                    {
+                        InviteLink = inviteLink, ChatIds = chatIds
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Adds a chat folder by an invite link
+                /// </summary>
+                Task<Ok> AddChatFolderByInviteLinkAsync(string inviteLink = default, long[] chatIds = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

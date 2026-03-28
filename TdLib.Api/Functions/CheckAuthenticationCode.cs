@@ -46,6 +46,29 @@ namespace TdLib
                 Code = code
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Checks the authentication code. Works only when the current authorization state is authorizationStateWaitCode
+                /// </summary>
+                public Task<Ok> CheckAuthenticationCodeAsync(string code = default)
+                {
+                //test
+                    return ExecuteAsync(new CheckAuthenticationCode
+                    {
+                        Code = code
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Checks the authentication code. Works only when the current authorization state is authorizationStateWaitCode
+                /// </summary>
+                Task<Ok> CheckAuthenticationCodeAsync(string code = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

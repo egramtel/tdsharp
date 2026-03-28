@@ -53,6 +53,29 @@ namespace TdLib
                 CallId = callId, DebugInformation = debugInformation
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Sends debug information for a call to Telegram servers
+                /// </summary>
+                public Task<Ok> SendCallDebugInformationAsync(InputCall callId = default, string debugInformation = default)
+                {
+                //test
+                    return ExecuteAsync(new SendCallDebugInformation
+                    {
+                        CallId = callId, DebugInformation = debugInformation
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Sends debug information for a call to Telegram servers
+                /// </summary>
+                Task<Ok> SendCallDebugInformationAsync(InputCall callId = default, string debugInformation = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

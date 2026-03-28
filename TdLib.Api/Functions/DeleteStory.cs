@@ -53,6 +53,29 @@ namespace TdLib
                 StoryPosterChatId = storyPosterChatId, StoryId = storyId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Deletes a previously posted story. Can be called only if story.can_be_deleted == true
+                /// </summary>
+                public Task<Ok> DeleteStoryAsync(long storyPosterChatId = default, int storyId = default)
+                {
+                //test
+                    return ExecuteAsync(new DeleteStory
+                    {
+                        StoryPosterChatId = storyPosterChatId, StoryId = storyId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Deletes a previously posted story. Can be called only if story.can_be_deleted == true
+                /// </summary>
+                Task<Ok> DeleteStoryAsync(long storyPosterChatId = default, int storyId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

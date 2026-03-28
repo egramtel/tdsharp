@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns information about the current temporary password
+                /// </summary>
+                public Task<TemporaryPasswordState> GetTemporaryPasswordStateAsync()
+                {
+                //test
+                    return ExecuteAsync(new GetTemporaryPasswordState
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns information about the current temporary password
+                /// </summary>
+                Task<TemporaryPasswordState> GetTemporaryPasswordStateAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

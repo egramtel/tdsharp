@@ -60,6 +60,29 @@ namespace TdLib
                 InlineMessageId = inlineMessageId, ReplyMarkup = replyMarkup, InputMessageContent = inputMessageContent
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Edits the media content of a message with a text, an animation, an audio, a document, a photo or a video in an inline message sent via a bot; for bots only
+                /// </summary>
+                public Task<Ok> EditInlineMessageMediaAsync(string inlineMessageId = default, ReplyMarkup replyMarkup = default, InputMessageContent inputMessageContent = default)
+                {
+                //test
+                    return ExecuteAsync(new EditInlineMessageMedia
+                    {
+                        InlineMessageId = inlineMessageId, ReplyMarkup = replyMarkup, InputMessageContent = inputMessageContent
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Edits the media content of a message with a text, an animation, an audio, a document, a photo or a video in an inline message sent via a bot; for bots only
+                /// </summary>
+                Task<Ok> EditInlineMessageMediaAsync(string inlineMessageId = default, ReplyMarkup replyMarkup = default, InputMessageContent inputMessageContent = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

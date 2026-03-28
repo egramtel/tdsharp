@@ -48,6 +48,31 @@ namespace TdLib
                 Password = password
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns a URL for Toncoin withdrawal from the current user's account. The user must have at least 10 toncoins to withdraw
+                /// and can withdraw up to 100000 Toncoins in one transaction
+                /// </summary>
+                public Task<HttpUrl> GetTonWithdrawalUrlAsync(string password = default)
+                {
+                //test
+                    return ExecuteAsync(new GetTonWithdrawalUrl
+                    {
+                        Password = password
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns a URL for Toncoin withdrawal from the current user's account. The user must have at least 10 toncoins to withdraw
+                /// and can withdraw up to 100000 Toncoins in one transaction
+                /// </summary>
+                Task<HttpUrl> GetTonWithdrawalUrlAsync(string password = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

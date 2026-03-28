@@ -46,6 +46,29 @@ namespace TdLib
                 NewEncryptionKey = newEncryptionKey
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes the database encryption key. Usually the encryption key is never changed and is stored in some OS keychain
+                /// </summary>
+                public Task<Ok> SetDatabaseEncryptionKeyAsync(byte[] newEncryptionKey = default)
+                {
+                //test
+                    return ExecuteAsync(new SetDatabaseEncryptionKey
+                    {
+                        NewEncryptionKey = newEncryptionKey
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes the database encryption key. Usually the encryption key is never changed and is stored in some OS keychain
+                /// </summary>
+                Task<Ok> SetDatabaseEncryptionKeyAsync(byte[] newEncryptionKey = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

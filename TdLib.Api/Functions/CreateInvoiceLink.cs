@@ -53,6 +53,29 @@ namespace TdLib
                 BusinessConnectionId = businessConnectionId, Invoice = invoice
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Creates a link for the given invoice; for bots only
+                /// </summary>
+                public Task<HttpUrl> CreateInvoiceLinkAsync(string businessConnectionId = default, InputMessageContent invoice = default)
+                {
+                //test
+                    return ExecuteAsync(new CreateInvoiceLink
+                    {
+                        BusinessConnectionId = businessConnectionId, Invoice = invoice
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Creates a link for the given invoice; for bots only
+                /// </summary>
+                Task<HttpUrl> CreateInvoiceLinkAsync(string businessConnectionId = default, InputMessageContent invoice = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

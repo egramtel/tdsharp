@@ -67,6 +67,29 @@ namespace TdLib
                 UserId = userId, Name = name, OldSticker = oldSticker, NewSticker = newSticker
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Replaces existing sticker in a set. The function is equivalent to removeStickerFromSet, then addStickerToSet, then setStickerPositionInSet
+                /// </summary>
+                public Task<Ok> ReplaceStickerInSetAsync(long userId = default, string name = default, InputFile oldSticker = default, InputSticker newSticker = default)
+                {
+                //test
+                    return ExecuteAsync(new ReplaceStickerInSet
+                    {
+                        UserId = userId, Name = name, OldSticker = oldSticker, NewSticker = newSticker
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Replaces existing sticker in a set. The function is equivalent to removeStickerFromSet, then addStickerToSet, then setStickerPositionInSet
+                /// </summary>
+                Task<Ok> ReplaceStickerInSetAsync(long userId = default, string name = default, InputFile oldSticker = default, InputSticker newSticker = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

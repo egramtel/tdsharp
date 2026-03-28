@@ -74,6 +74,29 @@ namespace TdLib
                 BusinessConnectionId = businessConnectionId, ChatId = chatId, MessageId = messageId, ReplyMarkup = replyMarkup, Checklist = checklist
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Edits the content of a checklist in a message sent on behalf of a business account; for bots only
+                /// </summary>
+                public Task<BusinessMessage> EditBusinessMessageChecklistAsync(string businessConnectionId = default, long chatId = default, long messageId = default, ReplyMarkup replyMarkup = default, InputChecklist checklist = default)
+                {
+                //test
+                    return ExecuteAsync(new EditBusinessMessageChecklist
+                    {
+                        BusinessConnectionId = businessConnectionId, ChatId = chatId, MessageId = messageId, ReplyMarkup = replyMarkup, Checklist = checklist
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Edits the content of a checklist in a message sent on behalf of a business account; for bots only
+                /// </summary>
+                Task<BusinessMessage> EditBusinessMessageChecklistAsync(string businessConnectionId = default, long chatId = default, long messageId = default, ReplyMarkup replyMarkup = default, InputChecklist checklist = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

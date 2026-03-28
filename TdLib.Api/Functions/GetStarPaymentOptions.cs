@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns available options for Telegram Stars purchase
+                /// </summary>
+                public Task<StarPaymentOptions> GetStarPaymentOptionsAsync()
+                {
+                //test
+                    return ExecuteAsync(new GetStarPaymentOptions
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns available options for Telegram Stars purchase
+                /// </summary>
+                Task<StarPaymentOptions> GetStarPaymentOptionsAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

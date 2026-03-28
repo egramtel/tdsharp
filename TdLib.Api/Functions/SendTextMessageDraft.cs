@@ -67,6 +67,29 @@ namespace TdLib
                 ChatId = chatId, ForumTopicId = forumTopicId, DraftId = draftId, Text = text
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Sends a draft for a being generated text message; for bots only
+                /// </summary>
+                public Task<Ok> SendTextMessageDraftAsync(long chatId = default, int forumTopicId = default, long draftId = default, FormattedText text = default)
+                {
+                //test
+                    return ExecuteAsync(new SendTextMessageDraft
+                    {
+                        ChatId = chatId, ForumTopicId = forumTopicId, DraftId = draftId, Text = text
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Sends a draft for a being generated text message; for bots only
+                /// </summary>
+                Task<Ok> SendTextMessageDraftAsync(long chatId = default, int forumTopicId = default, long draftId = default, FormattedText text = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

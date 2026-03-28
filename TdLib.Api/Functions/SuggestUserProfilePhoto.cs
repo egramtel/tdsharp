@@ -53,6 +53,29 @@ namespace TdLib
                 UserId = userId, Photo = photo
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Suggests a profile photo to another regular user with common messages and allowing non-paid messages
+                /// </summary>
+                public Task<Ok> SuggestUserProfilePhotoAsync(long userId = default, InputChatPhoto photo = default)
+                {
+                //test
+                    return ExecuteAsync(new SuggestUserProfilePhoto
+                    {
+                        UserId = userId, Photo = photo
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Suggests a profile photo to another regular user with common messages and allowing non-paid messages
+                /// </summary>
+                Task<Ok> SuggestUserProfilePhotoAsync(long userId = default, InputChatPhoto photo = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

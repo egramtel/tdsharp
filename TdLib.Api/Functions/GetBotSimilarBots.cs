@@ -46,6 +46,29 @@ namespace TdLib
                 BotUserId = botUserId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns a list of bots similar to the given bot
+                /// </summary>
+                public Task<Users> GetBotSimilarBotsAsync(long botUserId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetBotSimilarBots
+                    {
+                        BotUserId = botUserId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns a list of bots similar to the given bot
+                /// </summary>
+                Task<Users> GetBotSimilarBotsAsync(long botUserId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

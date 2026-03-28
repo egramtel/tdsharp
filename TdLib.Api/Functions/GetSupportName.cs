@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns localized name of the Telegram support user; for Telegram support only
+                /// </summary>
+                public Task<Text> GetSupportNameAsync()
+                {
+                //test
+                    return ExecuteAsync(new GetSupportName
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns localized name of the Telegram support user; for Telegram support only
+                /// </summary>
+                Task<Text> GetSupportNameAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -60,6 +60,29 @@ namespace TdLib
                 StoryPosterChatId = storyPosterChatId, StoryId = storyId, CoverFrameTimestamp = coverFrameTimestamp
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes cover of a video story. Can be called only if story.can_be_edited == true and the story isn't being edited now
+                /// </summary>
+                public Task<Ok> EditStoryCoverAsync(long storyPosterChatId = default, int storyId = default, double? coverFrameTimestamp = default)
+                {
+                //test
+                    return ExecuteAsync(new EditStoryCover
+                    {
+                        StoryPosterChatId = storyPosterChatId, StoryId = storyId, CoverFrameTimestamp = coverFrameTimestamp
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes cover of a video story. Can be called only if story.can_be_edited == true and the story isn't being edited now
+                /// </summary>
+                Task<Ok> EditStoryCoverAsync(long storyPosterChatId = default, int storyId = default, double? coverFrameTimestamp = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

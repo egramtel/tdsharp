@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns greeting stickers from regular sticker sets that can be used for the start page of other users
+                /// </summary>
+                public Task<Stickers> GetGreetingStickersAsync()
+                {
+                //test
+                    return ExecuteAsync(new GetGreetingStickers
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns greeting stickers from regular sticker sets that can be used for the start page of other users
+                /// </summary>
+                Task<Stickers> GetGreetingStickersAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

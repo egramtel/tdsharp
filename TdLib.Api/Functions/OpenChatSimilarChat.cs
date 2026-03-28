@@ -53,6 +53,29 @@ namespace TdLib
                 ChatId = chatId, OpenedChatId = openedChatId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Informs TDLib that a chat was opened from the list of similar chats. The method is independent of openChat and closeChat methods
+                /// </summary>
+                public Task<Ok> OpenChatSimilarChatAsync(long chatId = default, long openedChatId = default)
+                {
+                //test
+                    return ExecuteAsync(new OpenChatSimilarChat
+                    {
+                        ChatId = chatId, OpenedChatId = openedChatId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Informs TDLib that a chat was opened from the list of similar chats. The method is independent of openChat and closeChat methods
+                /// </summary>
+                Task<Ok> OpenChatSimilarChatAsync(long chatId = default, long openedChatId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

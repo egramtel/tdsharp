@@ -53,6 +53,29 @@ namespace TdLib
                 VerbosityLevel = verbosityLevel, Text = text
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Adds a message to TDLib internal log. Can be called synchronously
+                /// </summary>
+                public Task<Ok> AddLogMessageAsync(int verbosityLevel = default, string text = default)
+                {
+                //test
+                    return ExecuteAsync(new AddLogMessage
+                    {
+                        VerbosityLevel = verbosityLevel, Text = text
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Adds a message to TDLib internal log. Can be called synchronously
+                /// </summary>
+                Task<Ok> AddLogMessageAsync(int verbosityLevel = default, string text = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -46,6 +46,29 @@ namespace TdLib
                 Url = url
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns information about a public or private message link. Can be called for any internal link of the type internalLinkTypeMessage
+                /// </summary>
+                public Task<MessageLinkInfo> GetMessageLinkInfoAsync(string url = default)
+                {
+                //test
+                    return ExecuteAsync(new GetMessageLinkInfo
+                    {
+                        Url = url
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns information about a public or private message link. Can be called for any internal link of the type internalLinkTypeMessage
+                /// </summary>
+                Task<MessageLinkInfo> GetMessageLinkInfoAsync(string url = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

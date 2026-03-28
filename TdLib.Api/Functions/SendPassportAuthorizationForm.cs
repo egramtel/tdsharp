@@ -52,6 +52,29 @@ namespace TdLib
                 AuthorizationFormId = authorizationFormId, Types = types
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Sends a Telegram Passport authorization form, effectively sharing data with the service. This method must be called after getPassportAuthorizationFormAvailableElements if some previously available elements are going to be reused
+                /// </summary>
+                public Task<Ok> SendPassportAuthorizationFormAsync(int authorizationFormId = default, PassportElementType[] types = default)
+                {
+                //test
+                    return ExecuteAsync(new SendPassportAuthorizationForm
+                    {
+                        AuthorizationFormId = authorizationFormId, Types = types
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Sends a Telegram Passport authorization form, effectively sharing data with the service. This method must be called after getPassportAuthorizationFormAvailableElements if some previously available elements are going to be reused
+                /// </summary>
+                Task<Ok> SendPassportAuthorizationFormAsync(int authorizationFormId = default, PassportElementType[] types = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -46,6 +46,29 @@ namespace TdLib
                 Birthdate = birthdate
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes the birthdate of the current user
+                /// </summary>
+                public Task<Ok> SetBirthdateAsync(Birthdate birthdate = default)
+                {
+                //test
+                    return ExecuteAsync(new SetBirthdate
+                    {
+                        Birthdate = birthdate
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes the birthdate of the current user
+                /// </summary>
+                Task<Ok> SetBirthdateAsync(Birthdate birthdate = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

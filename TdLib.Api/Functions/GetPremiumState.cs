@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns state of Telegram Premium subscription and promotion videos for Premium features
+                /// </summary>
+                public Task<PremiumState> GetPremiumStateAsync()
+                {
+                //test
+                    return ExecuteAsync(new GetPremiumState
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns state of Telegram Premium subscription and promotion videos for Premium features
+                /// </summary>
+                Task<PremiumState> GetPremiumStateAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

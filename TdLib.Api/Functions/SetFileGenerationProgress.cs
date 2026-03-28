@@ -60,6 +60,29 @@ namespace TdLib
                 GenerationId = generationId, ExpectedSize = expectedSize, LocalPrefixSize = localPrefixSize
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Informs TDLib on a file generation progress
+                /// </summary>
+                public Task<Ok> SetFileGenerationProgressAsync(long generationId = default, long expectedSize = default, long localPrefixSize = default)
+                {
+                //test
+                    return ExecuteAsync(new SetFileGenerationProgress
+                    {
+                        GenerationId = generationId, ExpectedSize = expectedSize, LocalPrefixSize = localPrefixSize
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Informs TDLib on a file generation progress
+                /// </summary>
+                Task<Ok> SetFileGenerationProgressAsync(long generationId = default, long expectedSize = default, long localPrefixSize = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -53,6 +53,29 @@ namespace TdLib
                 GroupCallId = groupCallId, AreMessagesAllowed = areMessagesAllowed
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Toggles whether participants of a group call can send messages there. Requires groupCall.can_toggle_are_messages_allowed right
+                /// </summary>
+                public Task<Ok> ToggleGroupCallAreMessagesAllowedAsync(int groupCallId = default, bool areMessagesAllowed = default)
+                {
+                //test
+                    return ExecuteAsync(new ToggleGroupCallAreMessagesAllowed
+                    {
+                        GroupCallId = groupCallId, AreMessagesAllowed = areMessagesAllowed
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Toggles whether participants of a group call can send messages there. Requires groupCall.can_toggle_are_messages_allowed right
+                /// </summary>
+                Task<Ok> ToggleGroupCallAreMessagesAllowedAsync(int groupCallId = default, bool areMessagesAllowed = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -61,6 +61,29 @@ namespace TdLib
                 GroupCallId = groupCallId, Text = text, PaidMessageStarCount = paidMessageStarCount
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Sends a message to other participants of a group call. Requires groupCall.can_send_messages right
+                /// </summary>
+                public Task<Ok> SendGroupCallMessageAsync(int groupCallId = default, FormattedText text = default, long paidMessageStarCount = default)
+                {
+                //test
+                    return ExecuteAsync(new SendGroupCallMessage
+                    {
+                        GroupCallId = groupCallId, Text = text, PaidMessageStarCount = paidMessageStarCount
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Sends a message to other participants of a group call. Requires groupCall.can_send_messages right
+                /// </summary>
+                Task<Ok> SendGroupCallMessageAsync(int groupCallId = default, FormattedText text = default, long paidMessageStarCount = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

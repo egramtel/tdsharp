@@ -52,6 +52,29 @@ namespace TdLib
                 DeviceToken = deviceToken, OtherUserIds = otherUserIds
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Registers the currently used device for receiving push notifications. Returns a globally unique identifier of the push notification subscription
+                /// </summary>
+                public Task<PushReceiverId> RegisterDeviceAsync(DeviceToken deviceToken = default, long[] otherUserIds = default)
+                {
+                //test
+                    return ExecuteAsync(new RegisterDevice
+                    {
+                        DeviceToken = deviceToken, OtherUserIds = otherUserIds
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Registers the currently used device for receiving push notifications. Returns a globally unique identifier of the push notification subscription
+                /// </summary>
+                Task<PushReceiverId> RegisterDeviceAsync(DeviceToken deviceToken = default, long[] otherUserIds = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

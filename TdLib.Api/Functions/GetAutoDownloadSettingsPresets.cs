@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns auto-download settings presets for the current user
+                /// </summary>
+                public Task<AutoDownloadSettingsPresets> GetAutoDownloadSettingsPresetsAsync()
+                {
+                //test
+                    return ExecuteAsync(new GetAutoDownloadSettingsPresets
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns auto-download settings presets for the current user
+                /// </summary>
+                Task<AutoDownloadSettingsPresets> GetAutoDownloadSettingsPresetsAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

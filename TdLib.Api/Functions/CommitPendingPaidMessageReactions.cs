@@ -53,6 +53,29 @@ namespace TdLib
                 ChatId = chatId, MessageId = messageId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Applies all pending paid reactions on a message
+                /// </summary>
+                public Task<Ok> CommitPendingPaidMessageReactionsAsync(long chatId = default, long messageId = default)
+                {
+                //test
+                    return ExecuteAsync(new CommitPendingPaidMessageReactions
+                    {
+                        ChatId = chatId, MessageId = messageId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Applies all pending paid reactions on a message
+                /// </summary>
+                Task<Ok> CommitPendingPaidMessageReactionsAsync(long chatId = default, long messageId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

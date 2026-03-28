@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Disables the currently enabled proxy. Can be called before authorization
+                /// </summary>
+                public Task<Ok> DisableProxyAsync()
+                {
+                //test
+                    return ExecuteAsync(new DisableProxy
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Disables the currently enabled proxy. Can be called before authorization
+                /// </summary>
+                Task<Ok> DisableProxyAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

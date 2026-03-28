@@ -46,6 +46,29 @@ namespace TdLib
                 Password = password
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Checks the 2-step verification password for correctness. Works only when the current authorization state is authorizationStateWaitPassword
+                /// </summary>
+                public Task<Ok> CheckAuthenticationPasswordAsync(string password = default)
+                {
+                //test
+                    return ExecuteAsync(new CheckAuthenticationPassword
+                    {
+                        Password = password
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Checks the 2-step verification password for correctness. Works only when the current authorization state is authorizationStateWaitPassword
+                /// </summary>
+                Task<Ok> CheckAuthenticationPasswordAsync(string password = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

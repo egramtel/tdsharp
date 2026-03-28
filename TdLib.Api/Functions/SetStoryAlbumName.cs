@@ -60,6 +60,29 @@ namespace TdLib
                 ChatId = chatId, StoryAlbumId = storyAlbumId, Name = name
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes name of an album of stories. If the album is owned by a supergroup or a channel chat, then requires can_edit_stories administrator right in the chat. Returns the changed album
+                /// </summary>
+                public Task<StoryAlbum> SetStoryAlbumNameAsync(long chatId = default, int storyAlbumId = default, string name = default)
+                {
+                //test
+                    return ExecuteAsync(new SetStoryAlbumName
+                    {
+                        ChatId = chatId, StoryAlbumId = storyAlbumId, Name = name
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes name of an album of stories. If the album is owned by a supergroup or a channel chat, then requires can_edit_stories administrator right in the chat. Returns the changed album
+                /// </summary>
+                Task<StoryAlbum> SetStoryAlbumNameAsync(long chatId = default, int storyAlbumId = default, string name = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

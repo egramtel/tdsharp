@@ -53,6 +53,29 @@ namespace TdLib
                 Method = method, Parameters = parameters
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Sends a custom request; for bots only
+                /// </summary>
+                public Task<CustomRequestResult> SendCustomRequestAsync(string method = default, string parameters = default)
+                {
+                //test
+                    return ExecuteAsync(new SendCustomRequest
+                    {
+                        Method = method, Parameters = parameters
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Sends a custom request; for bots only
+                /// </summary>
+                Task<CustomRequestResult> SendCustomRequestAsync(string method = default, string parameters = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

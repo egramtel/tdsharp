@@ -53,6 +53,29 @@ namespace TdLib
                 TagPrefix = tagPrefix, Limit = limit
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns recently searched for hashtags or cashtags by their prefix
+                /// </summary>
+                public Task<Hashtags> GetSearchedForTagsAsync(string tagPrefix = default, int limit = default)
+                {
+                //test
+                    return ExecuteAsync(new GetSearchedForTags
+                    {
+                        TagPrefix = tagPrefix, Limit = limit
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns recently searched for hashtags or cashtags by their prefix
+                /// </summary>
+                Task<Hashtags> GetSearchedForTagsAsync(string tagPrefix = default, int limit = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -46,6 +46,29 @@ namespace TdLib
                 ChatId = chatId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Removes a chat action bar without any other action
+                /// </summary>
+                public Task<Ok> RemoveChatActionBarAsync(long chatId = default)
+                {
+                //test
+                    return ExecuteAsync(new RemoveChatActionBar
+                    {
+                        ChatId = chatId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Removes a chat action bar without any other action
+                /// </summary>
+                Task<Ok> RemoveChatActionBarAsync(long chatId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

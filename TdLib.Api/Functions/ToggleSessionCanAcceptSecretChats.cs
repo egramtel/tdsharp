@@ -53,6 +53,29 @@ namespace TdLib
                 SessionId = sessionId, CanAcceptSecretChats = canAcceptSecretChats
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Toggles whether a session can accept incoming secret chats
+                /// </summary>
+                public Task<Ok> ToggleSessionCanAcceptSecretChatsAsync(long sessionId = default, bool canAcceptSecretChats = default)
+                {
+                //test
+                    return ExecuteAsync(new ToggleSessionCanAcceptSecretChats
+                    {
+                        SessionId = sessionId, CanAcceptSecretChats = canAcceptSecretChats
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Toggles whether a session can accept incoming secret chats
+                /// </summary>
+                Task<Ok> ToggleSessionCanAcceptSecretChatsAsync(long sessionId = default, bool canAcceptSecretChats = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

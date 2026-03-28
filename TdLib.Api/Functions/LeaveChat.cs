@@ -46,6 +46,29 @@ namespace TdLib
                 ChatId = chatId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Removes the current user from chat members. Private and secret chats can't be left using this method
+                /// </summary>
+                public Task<Ok> LeaveChatAsync(long chatId = default)
+                {
+                //test
+                    return ExecuteAsync(new LeaveChat
+                    {
+                        ChatId = chatId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Removes the current user from chat members. Private and secret chats can't be left using this method
+                /// </summary>
+                Task<Ok> LeaveChatAsync(long chatId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

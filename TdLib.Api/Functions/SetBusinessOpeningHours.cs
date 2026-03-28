@@ -46,6 +46,29 @@ namespace TdLib
                 OpeningHours = openingHours
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes the business opening hours of the current user. Requires Telegram Business subscription
+                /// </summary>
+                public Task<Ok> SetBusinessOpeningHoursAsync(BusinessOpeningHours openingHours = default)
+                {
+                //test
+                    return ExecuteAsync(new SetBusinessOpeningHours
+                    {
+                        OpeningHours = openingHours
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes the business opening hours of the current user. Requires Telegram Business subscription
+                /// </summary>
+                Task<Ok> SetBusinessOpeningHoursAsync(BusinessOpeningHours openingHours = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

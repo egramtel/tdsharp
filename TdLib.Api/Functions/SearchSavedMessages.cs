@@ -86,6 +86,33 @@ namespace TdLib
                 SavedMessagesTopicId = savedMessagesTopicId, Tag = tag, Query = query, FromMessageId = fromMessageId, Offset = offset, Limit = limit
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Searches for messages tagged by the given reaction and with the given words in the Saved Messages chat; for Telegram Premium users only.
+                /// Returns the results in reverse chronological order, i.e. in order of decreasing message_id.
+                /// For optimal performance, the number of returned messages is chosen by TDLib and can be smaller than the specified limit
+                /// </summary>
+                public Task<FoundChatMessages> SearchSavedMessagesAsync(long savedMessagesTopicId = default, ReactionType tag = default, string query = default, long fromMessageId = default, int offset = default, int limit = default)
+                {
+                //test
+                    return ExecuteAsync(new SearchSavedMessages
+                    {
+                        SavedMessagesTopicId = savedMessagesTopicId, Tag = tag, Query = query, FromMessageId = fromMessageId, Offset = offset, Limit = limit
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Searches for messages tagged by the given reaction and with the given words in the Saved Messages chat; for Telegram Premium users only.
+                /// Returns the results in reverse chronological order, i.e. in order of decreasing message_id.
+                /// For optimal performance, the number of returned messages is chosen by TDLib and can be smaller than the specified limit
+                /// </summary>
+                Task<FoundChatMessages> SearchSavedMessagesAsync(long savedMessagesTopicId = default, ReactionType tag = default, string query = default, long fromMessageId = default, int offset = default, int limit = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

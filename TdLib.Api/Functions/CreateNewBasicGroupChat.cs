@@ -59,6 +59,29 @@ namespace TdLib
                 UserIds = userIds, Title = title, MessageAutoDeleteTime = messageAutoDeleteTime
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Creates a new basic group and sends a corresponding messageBasicGroupChatCreate. Returns information about the newly created chat
+                /// </summary>
+                public Task<CreatedBasicGroupChat> CreateNewBasicGroupChatAsync(long[] userIds = default, string title = default, int messageAutoDeleteTime = default)
+                {
+                //test
+                    return ExecuteAsync(new CreateNewBasicGroupChat
+                    {
+                        UserIds = userIds, Title = title, MessageAutoDeleteTime = messageAutoDeleteTime
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Creates a new basic group and sends a corresponding messageBasicGroupChatCreate. Returns information about the newly created chat
+                /// </summary>
+                Task<CreatedBasicGroupChat> CreateNewBasicGroupChatAsync(long[] userIds = default, string title = default, int messageAutoDeleteTime = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

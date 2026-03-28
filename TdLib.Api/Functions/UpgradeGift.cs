@@ -67,6 +67,29 @@ namespace TdLib
                 BusinessConnectionId = businessConnectionId, ReceivedGiftId = receivedGiftId, KeepOriginalDetails = keepOriginalDetails, StarCount = starCount
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Upgrades a regular gift
+                /// </summary>
+                public Task<UpgradeGiftResult> UpgradeGiftAsync(string businessConnectionId = default, string receivedGiftId = default, bool keepOriginalDetails = default, long starCount = default)
+                {
+                //test
+                    return ExecuteAsync(new UpgradeGift
+                    {
+                        BusinessConnectionId = businessConnectionId, ReceivedGiftId = receivedGiftId, KeepOriginalDetails = keepOriginalDetails, StarCount = starCount
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Upgrades a regular gift
+                /// </summary>
+                Task<UpgradeGiftResult> UpgradeGiftAsync(string businessConnectionId = default, string receivedGiftId = default, bool keepOriginalDetails = default, long starCount = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

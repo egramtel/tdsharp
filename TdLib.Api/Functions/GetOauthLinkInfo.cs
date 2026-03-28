@@ -53,6 +53,29 @@ namespace TdLib
                 Url = url, InAppOrigin = inAppOrigin
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns information about an OAuth deep link. Use checkOauthRequestMatchCode, acceptOauthRequest or declineOauthRequest to process the link
+                /// </summary>
+                public Task<OauthLinkInfo> GetOauthLinkInfoAsync(string url = default, string inAppOrigin = default)
+                {
+                //test
+                    return ExecuteAsync(new GetOauthLinkInfo
+                    {
+                        Url = url, InAppOrigin = inAppOrigin
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns information about an OAuth deep link. Use checkOauthRequestMatchCode, acceptOauthRequest or declineOauthRequest to process the link
+                /// </summary>
+                Task<OauthLinkInfo> GetOauthLinkInfoAsync(string url = default, string inAppOrigin = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

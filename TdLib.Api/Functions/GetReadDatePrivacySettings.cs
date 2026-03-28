@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns privacy settings for message read date
+                /// </summary>
+                public Task<ReadDatePrivacySettings> GetReadDatePrivacySettingsAsync()
+                {
+                //test
+                    return ExecuteAsync(new GetReadDatePrivacySettings
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns privacy settings for message read date
+                /// </summary>
+                Task<ReadDatePrivacySettings> GetReadDatePrivacySettingsAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

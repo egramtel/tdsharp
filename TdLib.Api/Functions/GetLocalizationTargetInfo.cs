@@ -46,6 +46,29 @@ namespace TdLib
                 OnlyLocal = onlyLocal
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns information about the current localization target. This is an offline method if only_local is true. Can be called before authorization
+                /// </summary>
+                public Task<LocalizationTargetInfo> GetLocalizationTargetInfoAsync(bool onlyLocal = default)
+                {
+                //test
+                    return ExecuteAsync(new GetLocalizationTargetInfo
+                    {
+                        OnlyLocal = onlyLocal
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns information about the current localization target. This is an offline method if only_local is true. Can be called before authorization
+                /// </summary>
+                Task<LocalizationTargetInfo> GetLocalizationTargetInfoAsync(bool onlyLocal = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

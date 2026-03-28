@@ -46,6 +46,29 @@ namespace TdLib
                 MobileNetworkCode = mobileNetworkCode
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Reports that authentication code wasn't delivered via SMS; for official mobile applications only. Works only when the current authorization state is authorizationStateWaitCode
+                /// </summary>
+                public Task<Ok> ReportAuthenticationCodeMissingAsync(string mobileNetworkCode = default)
+                {
+                //test
+                    return ExecuteAsync(new ReportAuthenticationCodeMissing
+                    {
+                        MobileNetworkCode = mobileNetworkCode
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Reports that authentication code wasn't delivered via SMS; for official mobile applications only. Works only when the current authorization state is authorizationStateWaitCode
+                /// </summary>
+                Task<Ok> ReportAuthenticationCodeMissingAsync(string mobileNetworkCode = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

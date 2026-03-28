@@ -60,6 +60,29 @@ namespace TdLib
                 Text = text, Quote = quote, QuotePosition = quotePosition
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Searches for a given quote in a text. Returns found quote start position in UTF-16 code units. Returns a 404 error if the quote is not found. Can be called synchronously
+                /// </summary>
+                public Task<FoundPosition> SearchQuoteAsync(FormattedText text = default, FormattedText quote = default, int quotePosition = default)
+                {
+                //test
+                    return ExecuteAsync(new SearchQuote
+                    {
+                        Text = text, Quote = quote, QuotePosition = quotePosition
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Searches for a given quote in a text. Returns found quote start position in UTF-16 code units. Returns a 404 error if the quote is not found. Can be called synchronously
+                /// </summary>
+                Task<FoundPosition> SearchQuoteAsync(FormattedText text = default, FormattedText quote = default, int quotePosition = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

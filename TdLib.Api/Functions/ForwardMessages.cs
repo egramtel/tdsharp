@@ -88,6 +88,29 @@ namespace TdLib
                 ChatId = chatId, TopicId = topicId, FromChatId = fromChatId, MessageIds = messageIds, Options = options, SendCopy = sendCopy, RemoveCaption = removeCaption
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Forwards previously sent messages. Returns the forwarded messages in the same order as the message identifiers passed in message_ids. If a message can't be forwarded, null will be returned instead of the message
+                /// </summary>
+                public Task<Messages> ForwardMessagesAsync(long chatId = default, MessageTopic topicId = default, long fromChatId = default, long[] messageIds = default, MessageSendOptions options = default, bool sendCopy = default, bool removeCaption = default)
+                {
+                //test
+                    return ExecuteAsync(new ForwardMessages
+                    {
+                        ChatId = chatId, TopicId = topicId, FromChatId = fromChatId, MessageIds = messageIds, Options = options, SendCopy = sendCopy, RemoveCaption = removeCaption
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Forwards previously sent messages. Returns the forwarded messages in the same order as the message identifiers passed in message_ids. If a message can't be forwarded, null will be returned instead of the message
+                /// </summary>
+                Task<Messages> ForwardMessagesAsync(long chatId = default, MessageTopic topicId = default, long fromChatId = default, long[] messageIds = default, MessageSendOptions options = default, bool sendCopy = default, bool removeCaption = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -53,6 +53,29 @@ namespace TdLib
                 SupergroupId = supergroupId, HasAggressiveAntiSpamEnabled = hasAggressiveAntiSpamEnabled
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Toggles whether aggressive anti-spam checks are enabled in the supergroup. Can be called only if supergroupFullInfo.can_toggle_aggressive_anti_spam == true
+                /// </summary>
+                public Task<Ok> ToggleSupergroupHasAggressiveAntiSpamEnabledAsync(long supergroupId = default, bool hasAggressiveAntiSpamEnabled = default)
+                {
+                //test
+                    return ExecuteAsync(new ToggleSupergroupHasAggressiveAntiSpamEnabled
+                    {
+                        SupergroupId = supergroupId, HasAggressiveAntiSpamEnabled = hasAggressiveAntiSpamEnabled
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Toggles whether aggressive anti-spam checks are enabled in the supergroup. Can be called only if supergroupFullInfo.can_toggle_aggressive_anti_spam == true
+                /// </summary>
+                Task<Ok> ToggleSupergroupHasAggressiveAntiSpamEnabledAsync(long supergroupId = default, bool hasAggressiveAntiSpamEnabled = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

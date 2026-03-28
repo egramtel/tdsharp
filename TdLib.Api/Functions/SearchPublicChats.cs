@@ -48,6 +48,31 @@ namespace TdLib
                 Query = query
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Searches public chats by looking for specified query in their username and title. Currently, only private chats, supergroups and channels can be public. Returns a meaningful number of results.
+                /// Excludes private chats with contacts and chats from the chat list from the results
+                /// </summary>
+                public Task<Chats> SearchPublicChatsAsync(string query = default)
+                {
+                //test
+                    return ExecuteAsync(new SearchPublicChats
+                    {
+                        Query = query
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Searches public chats by looking for specified query in their username and title. Currently, only private chats, supergroups and channels can be public. Returns a meaningful number of results.
+                /// Excludes private chats with contacts and chats from the chat list from the results
+                /// </summary>
+                Task<Chats> SearchPublicChatsAsync(string query = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

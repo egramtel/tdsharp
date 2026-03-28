@@ -53,6 +53,29 @@ namespace TdLib
                 Type = type, Password = password
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns one of the available Telegram Passport elements
+                /// </summary>
+                public Task<PassportElement> GetPassportElementAsync(PassportElementType type = default, string password = default)
+                {
+                //test
+                    return ExecuteAsync(new GetPassportElement
+                    {
+                        Type = type, Password = password
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns one of the available Telegram Passport elements
+                /// </summary>
+                Task<PassportElement> GetPassportElementAsync(PassportElementType type = default, string password = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

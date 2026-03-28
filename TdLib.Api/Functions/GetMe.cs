@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns the current user
+                /// </summary>
+                public Task<User> GetMeAsync()
+                {
+                //test
+                    return ExecuteAsync(new GetMe
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns the current user
+                /// </summary>
+                Task<User> GetMeAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

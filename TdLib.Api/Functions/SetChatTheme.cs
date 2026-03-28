@@ -53,6 +53,29 @@ namespace TdLib
                 ChatId = chatId, Theme = theme
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes the chat theme. Supported only in private and secret chats
+                /// </summary>
+                public Task<Ok> SetChatThemeAsync(long chatId = default, InputChatTheme theme = default)
+                {
+                //test
+                    return ExecuteAsync(new SetChatTheme
+                    {
+                        ChatId = chatId, Theme = theme
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes the chat theme. Supported only in private and secret chats
+                /// </summary>
+                Task<Ok> SetChatThemeAsync(long chatId = default, InputChatTheme theme = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

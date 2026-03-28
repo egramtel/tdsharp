@@ -55,6 +55,31 @@ namespace TdLib
                 ChatId = chatId, MessageId = messageId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Informs TDLib that the message content has been opened (e.g., the user has opened a photo, video, document, location or venue, or has listened to an audio file or voice note message).
+                /// An updateMessageContentOpened update will be generated if something has changed
+                /// </summary>
+                public Task<Ok> OpenMessageContentAsync(long chatId = default, long messageId = default)
+                {
+                //test
+                    return ExecuteAsync(new OpenMessageContent
+                    {
+                        ChatId = chatId, MessageId = messageId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Informs TDLib that the message content has been opened (e.g., the user has opened a photo, video, document, location or venue, or has listened to an audio file or voice note message).
+                /// An updateMessageContentOpened update will be generated if something has changed
+                /// </summary>
+                Task<Ok> OpenMessageContentAsync(long chatId = default, long messageId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

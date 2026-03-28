@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns up to 20 recently used inline bots in the order of their last usage
+                /// </summary>
+                public Task<Users> GetRecentInlineBotsAsync()
+                {
+                //test
+                    return ExecuteAsync(new GetRecentInlineBots
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns up to 20 recently used inline bots in the order of their last usage
+                /// </summary>
+                Task<Users> GetRecentInlineBotsAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -67,6 +67,29 @@ namespace TdLib
                 ChatId = chatId, TopicId = topicId, BusinessConnectionId = businessConnectionId, Action = action
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Sends a notification about user activity in a chat
+                /// </summary>
+                public Task<Ok> SendChatActionAsync(long chatId = default, MessageTopic topicId = default, string businessConnectionId = default, ChatAction action = default)
+                {
+                //test
+                    return ExecuteAsync(new SendChatAction
+                    {
+                        ChatId = chatId, TopicId = topicId, BusinessConnectionId = businessConnectionId, Action = action
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Sends a notification about user activity in a chat
+                /// </summary>
+                Task<Ok> SendChatActionAsync(long chatId = default, MessageTopic topicId = default, string businessConnectionId = default, ChatAction action = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

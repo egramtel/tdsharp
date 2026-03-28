@@ -53,6 +53,29 @@ namespace TdLib
                 GroupCallId = groupCallId, MuteNewParticipants = muteNewParticipants
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Toggles whether new participants of a video chat can be unmuted only by administrators of the video chat. Requires groupCall.can_toggle_mute_new_participants right
+                /// </summary>
+                public Task<Ok> ToggleVideoChatMuteNewParticipantsAsync(int groupCallId = default, bool muteNewParticipants = default)
+                {
+                //test
+                    return ExecuteAsync(new ToggleVideoChatMuteNewParticipants
+                    {
+                        GroupCallId = groupCallId, MuteNewParticipants = muteNewParticipants
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Toggles whether new participants of a video chat can be unmuted only by administrators of the video chat. Requires groupCall.can_toggle_mute_new_participants right
+                /// </summary>
+                Task<Ok> ToggleVideoChatMuteNewParticipantsAsync(int groupCallId = default, bool muteNewParticipants = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

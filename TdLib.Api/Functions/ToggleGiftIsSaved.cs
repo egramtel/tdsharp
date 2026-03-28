@@ -53,6 +53,29 @@ namespace TdLib
                 ReceivedGiftId = receivedGiftId, IsSaved = isSaved
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Toggles whether a gift is shown on the current user's or the channel's profile page; requires can_post_messages administrator right in the channel chat
+                /// </summary>
+                public Task<Ok> ToggleGiftIsSavedAsync(string receivedGiftId = default, bool isSaved = default)
+                {
+                //test
+                    return ExecuteAsync(new ToggleGiftIsSaved
+                    {
+                        ReceivedGiftId = receivedGiftId, IsSaved = isSaved
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Toggles whether a gift is shown on the current user's or the channel's profile page; requires can_post_messages administrator right in the channel chat
+                /// </summary>
+                Task<Ok> ToggleGiftIsSavedAsync(string receivedGiftId = default, bool isSaved = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

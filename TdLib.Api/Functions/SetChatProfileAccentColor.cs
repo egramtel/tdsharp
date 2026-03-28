@@ -61,6 +61,29 @@ namespace TdLib
                 ChatId = chatId, ProfileAccentColorId = profileAccentColorId, ProfileBackgroundCustomEmojiId = profileBackgroundCustomEmojiId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes accent color and background custom emoji for profile of a supergroup or channel chat. Requires can_change_info administrator right
+                /// </summary>
+                public Task<Ok> SetChatProfileAccentColorAsync(long chatId = default, int profileAccentColorId = default, long profileBackgroundCustomEmojiId = default)
+                {
+                //test
+                    return ExecuteAsync(new SetChatProfileAccentColor
+                    {
+                        ChatId = chatId, ProfileAccentColorId = profileAccentColorId, ProfileBackgroundCustomEmojiId = profileBackgroundCustomEmojiId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes accent color and background custom emoji for profile of a supergroup or channel chat. Requires can_change_info administrator right
+                /// </summary>
+                Task<Ok> SetChatProfileAccentColorAsync(long chatId = default, int profileAccentColorId = default, long profileBackgroundCustomEmojiId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

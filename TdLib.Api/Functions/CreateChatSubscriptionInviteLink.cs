@@ -60,6 +60,29 @@ namespace TdLib
                 ChatId = chatId, Name = name, SubscriptionPricing = subscriptionPricing
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Creates a new subscription invite link for a channel chat. Requires can_invite_users right in the chat
+                /// </summary>
+                public Task<ChatInviteLink> CreateChatSubscriptionInviteLinkAsync(long chatId = default, string name = default, StarSubscriptionPricing subscriptionPricing = default)
+                {
+                //test
+                    return ExecuteAsync(new CreateChatSubscriptionInviteLink
+                    {
+                        ChatId = chatId, Name = name, SubscriptionPricing = subscriptionPricing
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Creates a new subscription invite link for a channel chat. Requires can_invite_users right in the chat
+                /// </summary>
+                Task<ChatInviteLink> CreateChatSubscriptionInviteLinkAsync(long chatId = default, string name = default, StarSubscriptionPricing subscriptionPricing = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

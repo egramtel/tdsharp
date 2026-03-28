@@ -53,6 +53,29 @@ namespace TdLib
                 InputGroupCall = inputGroupCall, Limit = limit
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns information about participants of a non-joined group call that is not bound to a chat
+                /// </summary>
+                public Task<GroupCallParticipants> GetGroupCallParticipantsAsync(InputGroupCall inputGroupCall = default, int limit = default)
+                {
+                //test
+                    return ExecuteAsync(new GetGroupCallParticipants
+                    {
+                        InputGroupCall = inputGroupCall, Limit = limit
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns information about participants of a non-joined group call that is not bound to a chat
+                /// </summary>
+                Task<GroupCallParticipants> GetGroupCallParticipantsAsync(InputGroupCall inputGroupCall = default, int limit = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

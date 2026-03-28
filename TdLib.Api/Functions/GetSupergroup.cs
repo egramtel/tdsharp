@@ -46,6 +46,29 @@ namespace TdLib
                 SupergroupId = supergroupId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns information about a supergroup or a channel by its identifier. This is an offline method if the current user is not a bot
+                /// </summary>
+                public Task<Supergroup> GetSupergroupAsync(long supergroupId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetSupergroup
+                    {
+                        SupergroupId = supergroupId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns information about a supergroup or a channel by its identifier. This is an offline method if the current user is not a bot
+                /// </summary>
+                Task<Supergroup> GetSupergroupAsync(long supergroupId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

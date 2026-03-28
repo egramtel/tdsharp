@@ -74,6 +74,29 @@ namespace TdLib
                 ChatId = chatId, Name = name, ExpirationDate = expirationDate, MemberLimit = memberLimit, CreatesJoinRequest = createsJoinRequest
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Creates a new invite link for a chat. Available for basic groups, supergroups, and channels. Requires administrator privileges and can_invite_users right in the chat
+                /// </summary>
+                public Task<ChatInviteLink> CreateChatInviteLinkAsync(long chatId = default, string name = default, int expirationDate = default, int memberLimit = default, bool createsJoinRequest = default)
+                {
+                //test
+                    return ExecuteAsync(new CreateChatInviteLink
+                    {
+                        ChatId = chatId, Name = name, ExpirationDate = expirationDate, MemberLimit = memberLimit, CreatesJoinRequest = createsJoinRequest
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Creates a new invite link for a chat. Available for basic groups, supergroups, and channels. Requires administrator privileges and can_invite_users right in the chat
+                /// </summary>
+                Task<ChatInviteLink> CreateChatInviteLinkAsync(long chatId = default, string name = default, int expirationDate = default, int memberLimit = default, bool createsJoinRequest = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

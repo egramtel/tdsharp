@@ -60,6 +60,29 @@ namespace TdLib
                 ChatId = chatId, MessageId = messageId, IsDark = isDark
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns detailed statistics about a message. Can be used only if messageProperties.can_get_statistics == true
+                /// </summary>
+                public Task<MessageStatistics> GetMessageStatisticsAsync(long chatId = default, long messageId = default, bool isDark = default)
+                {
+                //test
+                    return ExecuteAsync(new GetMessageStatistics
+                    {
+                        ChatId = chatId, MessageId = messageId, IsDark = isDark
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns detailed statistics about a message. Can be used only if messageProperties.can_get_statistics == true
+                /// </summary>
+                Task<MessageStatistics> GetMessageStatisticsAsync(long chatId = default, long messageId = default, bool isDark = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

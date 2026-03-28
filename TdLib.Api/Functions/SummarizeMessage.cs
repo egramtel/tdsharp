@@ -60,6 +60,29 @@ namespace TdLib
                 ChatId = chatId, MessageId = messageId, TranslateToLanguageCode = translateToLanguageCode
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Summarizes content of the message with non-empty summary_language_code
+                /// </summary>
+                public Task<FormattedText> SummarizeMessageAsync(long chatId = default, long messageId = default, string translateToLanguageCode = default)
+                {
+                //test
+                    return ExecuteAsync(new SummarizeMessage
+                    {
+                        ChatId = chatId, MessageId = messageId, TranslateToLanguageCode = translateToLanguageCode
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Summarizes content of the message with non-empty summary_language_code
+                /// </summary>
+                Task<FormattedText> SummarizeMessageAsync(long chatId = default, long messageId = default, string translateToLanguageCode = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

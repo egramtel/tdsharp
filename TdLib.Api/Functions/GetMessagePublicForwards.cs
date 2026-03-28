@@ -67,6 +67,29 @@ namespace TdLib
                 ChatId = chatId, MessageId = messageId, Offset = offset, Limit = limit
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns forwarded copies of a channel message to different public channels and public reposts as a story. Can be used only if messageProperties.can_get_statistics == true. For optimal performance, the number of returned messages and stories is chosen by TDLib
+                /// </summary>
+                public Task<PublicForwards> GetMessagePublicForwardsAsync(long chatId = default, long messageId = default, string offset = default, int limit = default)
+                {
+                //test
+                    return ExecuteAsync(new GetMessagePublicForwards
+                    {
+                        ChatId = chatId, MessageId = messageId, Offset = offset, Limit = limit
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns forwarded copies of a channel message to different public channels and public reposts as a story. Can be used only if messageProperties.can_get_statistics == true. For optimal performance, the number of returned messages and stories is chosen by TDLib
+                /// </summary>
+                Task<PublicForwards> GetMessagePublicForwardsAsync(long chatId = default, long messageId = default, string offset = default, int limit = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

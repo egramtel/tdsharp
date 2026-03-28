@@ -60,6 +60,29 @@ namespace TdLib
                 ChatId = chatId, IsEnabled = isEnabled, PaidMessageStarCount = paidMessageStarCount
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes direct messages group settings for a channel chat; requires owner privileges in the chat
+                /// </summary>
+                public Task<Ok> SetChatDirectMessagesGroupAsync(long chatId = default, bool isEnabled = default, long paidMessageStarCount = default)
+                {
+                //test
+                    return ExecuteAsync(new SetChatDirectMessagesGroup
+                    {
+                        ChatId = chatId, IsEnabled = isEnabled, PaidMessageStarCount = paidMessageStarCount
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes direct messages group settings for a channel chat; requires owner privileges in the chat
+                /// </summary>
+                Task<Ok> SetChatDirectMessagesGroupAsync(long chatId = default, bool isEnabled = default, long paidMessageStarCount = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

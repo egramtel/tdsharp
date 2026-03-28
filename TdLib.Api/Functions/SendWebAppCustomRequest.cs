@@ -60,6 +60,29 @@ namespace TdLib
                 BotUserId = botUserId, Method = method, Parameters = parameters
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Sends a custom request from a Web App
+                /// </summary>
+                public Task<CustomRequestResult> SendWebAppCustomRequestAsync(long botUserId = default, string method = default, string parameters = default)
+                {
+                //test
+                    return ExecuteAsync(new SendWebAppCustomRequest
+                    {
+                        BotUserId = botUserId, Method = method, Parameters = parameters
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Sends a custom request from a Web App
+                /// </summary>
+                Task<CustomRequestResult> SendWebAppCustomRequestAsync(long botUserId = default, string method = default, string parameters = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

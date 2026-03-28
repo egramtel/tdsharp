@@ -46,6 +46,29 @@ namespace TdLib
                 Limit = limit
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Loads more Saved Messages topics. The loaded topics will be sent through updateSavedMessagesTopic. Topics are sorted by their topic.order in descending order. Returns a 404 error if all topics have been loaded
+                /// </summary>
+                public Task<Ok> LoadSavedMessagesTopicsAsync(int limit = default)
+                {
+                //test
+                    return ExecuteAsync(new LoadSavedMessagesTopics
+                    {
+                        Limit = limit
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Loads more Saved Messages topics. The loaded topics will be sent through updateSavedMessagesTopic. Topics are sorted by their topic.order in descending order. Returns a 404 error if all topics have been loaded
+                /// </summary>
+                Task<Ok> LoadSavedMessagesTopicsAsync(int limit = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

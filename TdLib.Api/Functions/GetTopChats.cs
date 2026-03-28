@@ -53,6 +53,29 @@ namespace TdLib
                 Category = category, Limit = limit
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns a list of frequently used chats
+                /// </summary>
+                public Task<Chats> GetTopChatsAsync(TopChatCategory category = default, int limit = default)
+                {
+                //test
+                    return ExecuteAsync(new GetTopChats
+                    {
+                        Category = category, Limit = limit
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns a list of frequently used chats
+                /// </summary>
+                Task<Chats> GetTopChatsAsync(TopChatCategory category = default, int limit = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

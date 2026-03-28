@@ -46,6 +46,29 @@ namespace TdLib
                 FileId = fileId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Deletes a file from the TDLib file cache
+                /// </summary>
+                public Task<Ok> DeleteFileAsync(int fileId = default)
+                {
+                //test
+                    return ExecuteAsync(new DeleteFile
+                    {
+                        FileId = fileId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Deletes a file from the TDLib file cache
+                /// </summary>
+                Task<Ok> DeleteFileAsync(int fileId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

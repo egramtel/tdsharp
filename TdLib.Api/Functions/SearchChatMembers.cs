@@ -67,6 +67,29 @@ namespace TdLib
                 ChatId = chatId, Query = query, Limit = limit, Filter = filter
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Searches for a specified query in the first name, last name and usernames of the members of a specified chat. Requires administrator rights if the chat is a channel
+                /// </summary>
+                public Task<ChatMembers> SearchChatMembersAsync(long chatId = default, string query = default, int limit = default, ChatMembersFilter filter = default)
+                {
+                //test
+                    return ExecuteAsync(new SearchChatMembers
+                    {
+                        ChatId = chatId, Query = query, Limit = limit, Filter = filter
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Searches for a specified query in the first name, last name and usernames of the members of a specified chat. Requires administrator rights if the chat is a channel
+                /// </summary>
+                Task<ChatMembers> SearchChatMembersAsync(long chatId = default, string query = default, int limit = default, ChatMembersFilter filter = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -46,6 +46,29 @@ namespace TdLib
                 PasskeyId = passkeyId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Removes a passkey from the list of passkeys allowed to be used for the login by the current user
+                /// </summary>
+                public Task<Ok> RemoveLoginPasskeyAsync(string passkeyId = default)
+                {
+                //test
+                    return ExecuteAsync(new RemoveLoginPasskey
+                    {
+                        PasskeyId = passkeyId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Removes a passkey from the list of passkeys allowed to be used for the login by the current user
+                /// </summary>
+                Task<Ok> RemoveLoginPasskeyAsync(string passkeyId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

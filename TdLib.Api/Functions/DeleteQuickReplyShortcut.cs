@@ -46,6 +46,29 @@ namespace TdLib
                 ShortcutId = shortcutId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Deletes a quick reply shortcut
+                /// </summary>
+                public Task<Ok> DeleteQuickReplyShortcutAsync(int shortcutId = default)
+                {
+                //test
+                    return ExecuteAsync(new DeleteQuickReplyShortcut
+                    {
+                        ShortcutId = shortcutId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Deletes a quick reply shortcut
+                /// </summary>
+                Task<Ok> DeleteQuickReplyShortcutAsync(int shortcutId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

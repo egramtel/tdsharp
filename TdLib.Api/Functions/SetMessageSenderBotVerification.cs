@@ -60,6 +60,29 @@ namespace TdLib
                 BotUserId = botUserId, VerifiedId = verifiedId, CustomDescription = customDescription
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes the verification status of a user or a chat by an owned bot
+                /// </summary>
+                public Task<Ok> SetMessageSenderBotVerificationAsync(long botUserId = default, MessageSender verifiedId = default, string customDescription = default)
+                {
+                //test
+                    return ExecuteAsync(new SetMessageSenderBotVerification
+                    {
+                        BotUserId = botUserId, VerifiedId = verifiedId, CustomDescription = customDescription
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes the verification status of a user or a chat by an owned bot
+                /// </summary>
+                Task<Ok> SetMessageSenderBotVerificationAsync(long botUserId = default, MessageSender verifiedId = default, string customDescription = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

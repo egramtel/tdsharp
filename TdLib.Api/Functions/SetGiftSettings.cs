@@ -46,6 +46,29 @@ namespace TdLib
                 Settings = settings
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes settings for gift receiving for the current user
+                /// </summary>
+                public Task<Ok> SetGiftSettingsAsync(GiftSettings settings = default)
+                {
+                //test
+                    return ExecuteAsync(new SetGiftSettings
+                    {
+                        Settings = settings
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes settings for gift receiving for the current user
+                /// </summary>
+                Task<Ok> SetGiftSettingsAsync(GiftSettings settings = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

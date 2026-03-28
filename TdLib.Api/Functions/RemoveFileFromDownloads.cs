@@ -53,6 +53,29 @@ namespace TdLib
                 FileId = fileId, DeleteFromCache = deleteFromCache
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Removes a file from the file download list
+                /// </summary>
+                public Task<Ok> RemoveFileFromDownloadsAsync(int fileId = default, bool deleteFromCache = default)
+                {
+                //test
+                    return ExecuteAsync(new RemoveFileFromDownloads
+                    {
+                        FileId = fileId, DeleteFromCache = deleteFromCache
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Removes a file from the file download list
+                /// </summary>
+                Task<Ok> RemoveFileFromDownloadsAsync(int fileId = default, bool deleteFromCache = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

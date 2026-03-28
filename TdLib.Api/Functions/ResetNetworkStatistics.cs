@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Resets all network data usage statistics to zero. Can be called before authorization
+                /// </summary>
+                public Task<Ok> ResetNetworkStatisticsAsync()
+                {
+                //test
+                    return ExecuteAsync(new ResetNetworkStatistics
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Resets all network data usage statistics to zero. Can be called before authorization
+                /// </summary>
+                Task<Ok> ResetNetworkStatisticsAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

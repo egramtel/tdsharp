@@ -46,6 +46,29 @@ namespace TdLib
                 SessionId = sessionId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Confirms an unconfirmed session of the current user from another device
+                /// </summary>
+                public Task<Ok> ConfirmSessionAsync(long sessionId = default)
+                {
+                //test
+                    return ExecuteAsync(new ConfirmSession
+                    {
+                        SessionId = sessionId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Confirms an unconfirmed session of the current user from another device
+                /// </summary>
+                Task<Ok> ConfirmSessionAsync(long sessionId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

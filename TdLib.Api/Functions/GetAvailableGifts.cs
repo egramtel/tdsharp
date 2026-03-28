@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns gifts that can be sent to other users and channel chats
+                /// </summary>
+                public Task<AvailableGifts> GetAvailableGiftsAsync()
+                {
+                //test
+                    return ExecuteAsync(new GetAvailableGifts
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns gifts that can be sent to other users and channel chats
+                /// </summary>
+                Task<AvailableGifts> GetAvailableGiftsAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

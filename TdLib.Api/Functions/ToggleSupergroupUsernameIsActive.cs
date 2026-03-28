@@ -62,6 +62,31 @@ namespace TdLib
                 SupergroupId = supergroupId, Username = username, IsActive = isActive
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes active state for a username of a supergroup or channel, requires owner privileges in the supergroup or channel. The editable username can't be disabled.
+                /// May return an error with a message "USERNAMES_ACTIVE_TOO_MUCH" if the maximum number of active usernames has been reached
+                /// </summary>
+                public Task<Ok> ToggleSupergroupUsernameIsActiveAsync(long supergroupId = default, string username = default, bool isActive = default)
+                {
+                //test
+                    return ExecuteAsync(new ToggleSupergroupUsernameIsActive
+                    {
+                        SupergroupId = supergroupId, Username = username, IsActive = isActive
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes active state for a username of a supergroup or channel, requires owner privileges in the supergroup or channel. The editable username can't be disabled.
+                /// May return an error with a message "USERNAMES_ACTIVE_TOO_MUCH" if the maximum number of active usernames has been reached
+                /// </summary>
+                Task<Ok> ToggleSupergroupUsernameIsActiveAsync(long supergroupId = default, string username = default, bool isActive = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -46,6 +46,29 @@ namespace TdLib
                 Location = location
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes the business location of the current user. Requires Telegram Business subscription
+                /// </summary>
+                public Task<Ok> SetBusinessLocationAsync(BusinessLocation location = default)
+                {
+                //test
+                    return ExecuteAsync(new SetBusinessLocation
+                    {
+                        Location = location
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes the business location of the current user. Requires Telegram Business subscription
+                /// </summary>
+                Task<Ok> SetBusinessLocationAsync(BusinessLocation location = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

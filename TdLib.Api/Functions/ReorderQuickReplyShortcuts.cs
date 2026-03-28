@@ -45,6 +45,29 @@ namespace TdLib
                 ShortcutIds = shortcutIds
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes the order of quick reply shortcuts
+                /// </summary>
+                public Task<Ok> ReorderQuickReplyShortcutsAsync(int[] shortcutIds = default)
+                {
+                //test
+                    return ExecuteAsync(new ReorderQuickReplyShortcuts
+                    {
+                        ShortcutIds = shortcutIds
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes the order of quick reply shortcuts
+                /// </summary>
+                Task<Ok> ReorderQuickReplyShortcutsAsync(int[] shortcutIds = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

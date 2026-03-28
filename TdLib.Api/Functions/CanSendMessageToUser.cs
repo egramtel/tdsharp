@@ -53,6 +53,29 @@ namespace TdLib
                 UserId = userId, OnlyLocal = onlyLocal
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Checks whether the current user can message another user or try to create a chat with them
+                /// </summary>
+                public Task<CanSendMessageToUserResult> CanSendMessageToUserAsync(long userId = default, bool onlyLocal = default)
+                {
+                //test
+                    return ExecuteAsync(new CanSendMessageToUser
+                    {
+                        UserId = userId, OnlyLocal = onlyLocal
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Checks whether the current user can message another user or try to create a chat with them
+                /// </summary>
+                Task<CanSendMessageToUserResult> CanSendMessageToUserAsync(long userId = default, bool onlyLocal = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

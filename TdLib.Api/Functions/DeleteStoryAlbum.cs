@@ -53,6 +53,29 @@ namespace TdLib
                 ChatId = chatId, StoryAlbumId = storyAlbumId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Deletes a story album. If the album is owned by a supergroup or a channel chat, then requires can_edit_stories administrator right in the chat
+                /// </summary>
+                public Task<Ok> DeleteStoryAlbumAsync(long chatId = default, int storyAlbumId = default)
+                {
+                //test
+                    return ExecuteAsync(new DeleteStoryAlbum
+                    {
+                        ChatId = chatId, StoryAlbumId = storyAlbumId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Deletes a story album. If the album is owned by a supergroup or a channel chat, then requires can_edit_stories administrator right in the chat
+                /// </summary>
+                Task<Ok> DeleteStoryAlbumAsync(long chatId = default, int storyAlbumId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

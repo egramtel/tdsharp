@@ -55,6 +55,29 @@ namespace TdLib
                 ReceivedGiftId = receivedGiftId, Price = price
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes resale price of a unique gift owned by the current user
+                /// </summary>
+                public Task<Ok> SetGiftResalePriceAsync(string receivedGiftId = default, GiftResalePrice price = default)
+                {
+                //test
+                    return ExecuteAsync(new SetGiftResalePrice
+                    {
+                        ReceivedGiftId = receivedGiftId, Price = price
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes resale price of a unique gift owned by the current user
+                /// </summary>
+                Task<Ok> SetGiftResalePriceAsync(string receivedGiftId = default, GiftResalePrice price = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

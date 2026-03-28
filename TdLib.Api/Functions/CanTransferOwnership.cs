@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Checks whether the current session can be used to transfer a chat ownership to another user
+                /// </summary>
+                public Task<CanTransferOwnershipResult> CanTransferOwnershipAsync()
+                {
+                //test
+                    return ExecuteAsync(new CanTransferOwnership
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Checks whether the current session can be used to transfer a chat ownership to another user
+                /// </summary>
+                Task<CanTransferOwnershipResult> CanTransferOwnershipAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

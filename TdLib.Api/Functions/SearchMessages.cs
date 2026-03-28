@@ -97,6 +97,31 @@ namespace TdLib
                 ChatList = chatList, Query = query, Offset = offset, Limit = limit, Filter = filter, ChatTypeFilter = chatTypeFilter, MinDate = minDate, MaxDate = maxDate
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Searches for messages in all chats except secret chats. Returns the results in reverse chronological order (i.e., in order of decreasing (date, chat_id, message_id)).
+                /// For optimal performance, the number of returned messages is chosen by TDLib and can be smaller than the specified limit
+                /// </summary>
+                public Task<FoundMessages> SearchMessagesAsync(ChatList chatList = default, string query = default, string offset = default, int limit = default, SearchMessagesFilter filter = default, SearchMessagesChatTypeFilter chatTypeFilter = default, int minDate = default, int maxDate = default)
+                {
+                //test
+                    return ExecuteAsync(new SearchMessages
+                    {
+                        ChatList = chatList, Query = query, Offset = offset, Limit = limit, Filter = filter, ChatTypeFilter = chatTypeFilter, MinDate = minDate, MaxDate = maxDate
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Searches for messages in all chats except secret chats. Returns the results in reverse chronological order (i.e., in order of decreasing (date, chat_id, message_id)).
+                /// For optimal performance, the number of returned messages is chosen by TDLib and can be smaller than the specified limit
+                /// </summary>
+                Task<FoundMessages> SearchMessagesAsync(ChatList chatList = default, string query = default, string offset = default, int limit = default, SearchMessagesFilter filter = default, SearchMessagesChatTypeFilter chatTypeFilter = default, int minDate = default, int maxDate = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

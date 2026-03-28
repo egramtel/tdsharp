@@ -52,6 +52,29 @@ namespace TdLib
                 SupergroupId = supergroupId, Usernames = usernames
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes order of active usernames of a supergroup or channel, requires owner privileges in the supergroup or channel
+                /// </summary>
+                public Task<Ok> ReorderSupergroupActiveUsernamesAsync(long supergroupId = default, string[] usernames = default)
+                {
+                //test
+                    return ExecuteAsync(new ReorderSupergroupActiveUsernames
+                    {
+                        SupergroupId = supergroupId, Usernames = usernames
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes order of active usernames of a supergroup or channel, requires owner privileges in the supergroup or channel
+                /// </summary>
+                Task<Ok> ReorderSupergroupActiveUsernamesAsync(long supergroupId = default, string[] usernames = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

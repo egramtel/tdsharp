@@ -53,6 +53,29 @@ namespace TdLib
                 InlineMessageId = inlineMessageId, UserId = userId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns game high scores and some part of the high score table in the range of the specified user; for bots only
+                /// </summary>
+                public Task<GameHighScores> GetInlineGameHighScoresAsync(string inlineMessageId = default, long userId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetInlineGameHighScores
+                    {
+                        InlineMessageId = inlineMessageId, UserId = userId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns game high scores and some part of the high score table in the range of the specified user; for bots only
+                /// </summary>
+                Task<GameHighScores> GetInlineGameHighScoresAsync(string inlineMessageId = default, long userId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

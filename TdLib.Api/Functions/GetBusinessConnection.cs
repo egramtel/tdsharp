@@ -46,6 +46,29 @@ namespace TdLib
                 ConnectionId = connectionId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns information about a business connection by its identifier; for bots only
+                /// </summary>
+                public Task<BusinessConnection> GetBusinessConnectionAsync(string connectionId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetBusinessConnection
+                    {
+                        ConnectionId = connectionId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns information about a business connection by its identifier; for bots only
+                /// </summary>
+                Task<BusinessConnection> GetBusinessConnectionAsync(string connectionId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

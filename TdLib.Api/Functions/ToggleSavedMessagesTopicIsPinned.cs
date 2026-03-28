@@ -53,6 +53,29 @@ namespace TdLib
                 SavedMessagesTopicId = savedMessagesTopicId, IsPinned = isPinned
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes the pinned state of a Saved Messages topic. There can be up to getOption("pinned_saved_messages_topic_count_max") pinned topics. The limit can be increased with Telegram Premium
+                /// </summary>
+                public Task<Ok> ToggleSavedMessagesTopicIsPinnedAsync(long savedMessagesTopicId = default, bool isPinned = default)
+                {
+                //test
+                    return ExecuteAsync(new ToggleSavedMessagesTopicIsPinned
+                    {
+                        SavedMessagesTopicId = savedMessagesTopicId, IsPinned = isPinned
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes the pinned state of a Saved Messages topic. There can be up to getOption("pinned_saved_messages_topic_count_max") pinned topics. The limit can be increased with Telegram Premium
+                /// </summary>
+                Task<Ok> ToggleSavedMessagesTopicIsPinnedAsync(long savedMessagesTopicId = default, bool isPinned = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

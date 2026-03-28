@@ -52,6 +52,29 @@ namespace TdLib
                 BusinessConnectionId = businessConnectionId, MessageIds = messageIds
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Deletes messages on behalf of a business account; for bots only
+                /// </summary>
+                public Task<Ok> DeleteBusinessMessagesAsync(string businessConnectionId = default, long[] messageIds = default)
+                {
+                //test
+                    return ExecuteAsync(new DeleteBusinessMessages
+                    {
+                        BusinessConnectionId = businessConnectionId, MessageIds = messageIds
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Deletes messages on behalf of a business account; for bots only
+                /// </summary>
+                Task<Ok> DeleteBusinessMessagesAsync(string businessConnectionId = default, long[] messageIds = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

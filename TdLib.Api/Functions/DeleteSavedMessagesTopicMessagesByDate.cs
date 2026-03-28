@@ -60,6 +60,29 @@ namespace TdLib
                 SavedMessagesTopicId = savedMessagesTopicId, MinDate = minDate, MaxDate = maxDate
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Deletes all messages between the specified dates in a Saved Messages topic. Messages sent in the last 30 seconds will not be deleted
+                /// </summary>
+                public Task<Ok> DeleteSavedMessagesTopicMessagesByDateAsync(long savedMessagesTopicId = default, int minDate = default, int maxDate = default)
+                {
+                //test
+                    return ExecuteAsync(new DeleteSavedMessagesTopicMessagesByDate
+                    {
+                        SavedMessagesTopicId = savedMessagesTopicId, MinDate = minDate, MaxDate = maxDate
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Deletes all messages between the specified dates in a Saved Messages topic. Messages sent in the last 30 seconds will not be deleted
+                /// </summary>
+                Task<Ok> DeleteSavedMessagesTopicMessagesByDateAsync(long savedMessagesTopicId = default, int minDate = default, int maxDate = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

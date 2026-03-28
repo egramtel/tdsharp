@@ -53,6 +53,29 @@ namespace TdLib
                 Setting = setting, Rules = rules
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes user privacy settings
+                /// </summary>
+                public Task<Ok> SetUserPrivacySettingRulesAsync(UserPrivacySetting setting = default, UserPrivacySettingRules rules = default)
+                {
+                //test
+                    return ExecuteAsync(new SetUserPrivacySettingRules
+                    {
+                        Setting = setting, Rules = rules
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes user privacy settings
+                /// </summary>
+                Task<Ok> SetUserPrivacySettingRulesAsync(UserPrivacySetting setting = default, UserPrivacySettingRules rules = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

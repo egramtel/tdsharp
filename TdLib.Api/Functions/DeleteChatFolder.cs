@@ -52,6 +52,29 @@ namespace TdLib
                 ChatFolderId = chatFolderId, LeaveChatIds = leaveChatIds
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Deletes existing chat folder
+                /// </summary>
+                public Task<Ok> DeleteChatFolderAsync(int chatFolderId = default, long[] leaveChatIds = default)
+                {
+                //test
+                    return ExecuteAsync(new DeleteChatFolder
+                    {
+                        ChatFolderId = chatFolderId, LeaveChatIds = leaveChatIds
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Deletes existing chat folder
+                /// </summary>
+                Task<Ok> DeleteChatFolderAsync(int chatFolderId = default, long[] leaveChatIds = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

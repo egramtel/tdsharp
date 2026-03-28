@@ -205,7 +205,7 @@ namespace TdLib
             }
         }
 
-        private async Task CloseAsync()
+        private async Task CloseImplAsync()
         {
             var tcs = new TaskCompletionSource<TdApi.AuthorizationState>(TaskCreationOptions.RunContinuationsAsynchronously);
 
@@ -237,7 +237,7 @@ namespace TdLib
 
         private void CloseSynchronously()
         {
-            CloseAsync().GetAwaiter().GetResult();
+            CloseImplAsync().GetAwaiter().GetResult();
         }
     }
 }

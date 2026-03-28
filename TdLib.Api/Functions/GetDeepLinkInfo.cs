@@ -46,6 +46,29 @@ namespace TdLib
                 Link = link
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns information about a tg:// deep link. Use "tg://need_update_for_some_feature" or "tg:some_unsupported_feature" for testing. Returns a 404 error for unknown links. Can be called before authorization
+                /// </summary>
+                public Task<DeepLinkInfo> GetDeepLinkInfoAsync(string link = default)
+                {
+                //test
+                    return ExecuteAsync(new GetDeepLinkInfo
+                    {
+                        Link = link
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns information about a tg:// deep link. Use "tg://need_update_for_some_feature" or "tg:some_unsupported_feature" for testing. Returns a 404 error for unknown links. Can be called before authorization
+                /// </summary>
+                Task<DeepLinkInfo> GetDeepLinkInfoAsync(string link = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

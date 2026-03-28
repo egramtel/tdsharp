@@ -52,6 +52,29 @@ namespace TdLib
                 ChatId = chatId, ForumTopicIds = forumTopicIds
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes the order of pinned topics in a forum supergroup chat or a chat with a bot with topics; requires can_manage_topics administrator right in the supergroup
+                /// </summary>
+                public Task<Ok> SetPinnedForumTopicsAsync(long chatId = default, int[] forumTopicIds = default)
+                {
+                //test
+                    return ExecuteAsync(new SetPinnedForumTopics
+                    {
+                        ChatId = chatId, ForumTopicIds = forumTopicIds
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes the order of pinned topics in a forum supergroup chat or a chat with a bot with topics; requires can_manage_topics administrator right in the supergroup
+                /// </summary>
+                Task<Ok> SetPinnedForumTopicsAsync(long chatId = default, int[] forumTopicIds = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

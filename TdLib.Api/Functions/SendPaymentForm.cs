@@ -81,6 +81,29 @@ namespace TdLib
                 InputInvoice = inputInvoice, PaymentFormId = paymentFormId, OrderInfoId = orderInfoId, ShippingOptionId = shippingOptionId, Credentials = credentials, TipAmount = tipAmount
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Sends a filled-out payment form to the bot for final verification
+                /// </summary>
+                public Task<PaymentResult> SendPaymentFormAsync(InputInvoice inputInvoice = default, long paymentFormId = default, string orderInfoId = default, string shippingOptionId = default, InputCredentials credentials = default, long tipAmount = default)
+                {
+                //test
+                    return ExecuteAsync(new SendPaymentForm
+                    {
+                        InputInvoice = inputInvoice, PaymentFormId = paymentFormId, OrderInfoId = orderInfoId, ShippingOptionId = shippingOptionId, Credentials = credentials, TipAmount = tipAmount
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Sends a filled-out payment form to the bot for final verification
+                /// </summary>
+                Task<PaymentResult> SendPaymentFormAsync(InputInvoice inputInvoice = default, long paymentFormId = default, string orderInfoId = default, string shippingOptionId = default, InputCredentials credentials = default, long tipAmount = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

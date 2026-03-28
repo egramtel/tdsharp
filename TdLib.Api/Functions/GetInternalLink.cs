@@ -53,6 +53,29 @@ namespace TdLib
                 Type = type, IsHttp = isHttp
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns an HTTPS or a tg: link with the given type. Can be called before authorization
+                /// </summary>
+                public Task<HttpUrl> GetInternalLinkAsync(InternalLinkType type = default, bool isHttp = default)
+                {
+                //test
+                    return ExecuteAsync(new GetInternalLink
+                    {
+                        Type = type, IsHttp = isHttp
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns an HTTPS or a tg: link with the given type. Can be called before authorization
+                /// </summary>
+                Task<HttpUrl> GetInternalLinkAsync(InternalLinkType type = default, bool isHttp = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

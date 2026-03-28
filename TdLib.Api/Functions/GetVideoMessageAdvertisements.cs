@@ -53,6 +53,29 @@ namespace TdLib
                 ChatId = chatId, MessageId = messageId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns advertisements to be shown while a video from a message is watched. Available only if messageProperties.can_get_video_advertisements
+                /// </summary>
+                public Task<VideoMessageAdvertisements> GetVideoMessageAdvertisementsAsync(long chatId = default, long messageId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetVideoMessageAdvertisements
+                    {
+                        ChatId = chatId, MessageId = messageId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns advertisements to be shown while a video from a message is watched. Available only if messageProperties.can_get_video_advertisements
+                /// </summary>
+                Task<VideoMessageAdvertisements> GetVideoMessageAdvertisementsAsync(long chatId = default, long messageId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

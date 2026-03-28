@@ -46,6 +46,29 @@ namespace TdLib
                 ProfilePhotoId = profilePhotoId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Deletes a profile photo
+                /// </summary>
+                public Task<Ok> DeleteProfilePhotoAsync(long profilePhotoId = default)
+                {
+                //test
+                    return ExecuteAsync(new DeleteProfilePhoto
+                    {
+                        ProfilePhotoId = profilePhotoId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Deletes a profile photo
+                /// </summary>
+                Task<Ok> DeleteProfilePhotoAsync(long profilePhotoId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

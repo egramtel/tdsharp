@@ -60,6 +60,29 @@ namespace TdLib
                 ChatId = chatId, UserId = userId, ForwardLimit = forwardLimit
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Adds a new member to a chat; requires can_invite_users member right. Members can't be added to private or secret chats. Returns information about members that weren't added
+                /// </summary>
+                public Task<FailedToAddMembers> AddChatMemberAsync(long chatId = default, long userId = default, int forwardLimit = default)
+                {
+                //test
+                    return ExecuteAsync(new AddChatMember
+                    {
+                        ChatId = chatId, UserId = userId, ForwardLimit = forwardLimit
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Adds a new member to a chat; requires can_invite_users member right. Members can't be added to private or secret chats. Returns information about members that weren't added
+                /// </summary>
+                Task<FailedToAddMembers> AddChatMemberAsync(long chatId = default, long userId = default, int forwardLimit = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

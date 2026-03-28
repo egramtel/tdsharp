@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns saved animations
+                /// </summary>
+                public Task<Animations> GetSavedAnimationsAsync()
+                {
+                //test
+                    return ExecuteAsync(new GetSavedAnimations
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns saved animations
+                /// </summary>
+                Task<Animations> GetSavedAnimationsAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

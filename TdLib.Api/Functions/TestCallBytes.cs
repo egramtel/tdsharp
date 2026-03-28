@@ -46,6 +46,29 @@ namespace TdLib
                 X = x
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns the received bytes; for testing only. This is an offline method. Can be called before authorization
+                /// </summary>
+                public Task<TestBytes> TestCallBytesAsync(byte[] x = default)
+                {
+                //test
+                    return ExecuteAsync(new TestCallBytes
+                    {
+                        X = x
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns the received bytes; for testing only. This is an offline method. Can be called before authorization
+                /// </summary>
+                Task<TestBytes> TestCallBytesAsync(byte[] x = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

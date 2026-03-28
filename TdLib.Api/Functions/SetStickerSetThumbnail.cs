@@ -67,6 +67,29 @@ namespace TdLib
                 UserId = userId, Name = name, Thumbnail = thumbnail, Format = format
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Sets a sticker set thumbnail
+                /// </summary>
+                public Task<Ok> SetStickerSetThumbnailAsync(long userId = default, string name = default, InputFile thumbnail = default, StickerFormat format = default)
+                {
+                //test
+                    return ExecuteAsync(new SetStickerSetThumbnail
+                    {
+                        UserId = userId, Name = name, Thumbnail = thumbnail, Format = format
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Sets a sticker set thumbnail
+                /// </summary>
+                Task<Ok> SetStickerSetThumbnailAsync(long userId = default, string name = default, InputFile thumbnail = default, StickerFormat format = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -60,6 +60,29 @@ namespace TdLib
                 GroupCallId = groupCallId, AudioSourceId = audioSourceId, Payload = payload
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Starts screen sharing in a joined group call; not supported in live stories. Returns join response payload for tgcalls
+                /// </summary>
+                public Task<Text> StartGroupCallScreenSharingAsync(int groupCallId = default, int audioSourceId = default, string payload = default)
+                {
+                //test
+                    return ExecuteAsync(new StartGroupCallScreenSharing
+                    {
+                        GroupCallId = groupCallId, AudioSourceId = audioSourceId, Payload = payload
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Starts screen sharing in a joined group call; not supported in live stories. Returns join response payload for tgcalls
+                /// </summary>
+                Task<Text> StartGroupCallScreenSharingAsync(int groupCallId = default, int audioSourceId = default, string payload = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

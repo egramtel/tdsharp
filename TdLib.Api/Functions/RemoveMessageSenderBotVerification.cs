@@ -53,6 +53,29 @@ namespace TdLib
                 BotUserId = botUserId, VerifiedId = verifiedId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Removes the verification status of a user or a chat by an owned bot
+                /// </summary>
+                public Task<Ok> RemoveMessageSenderBotVerificationAsync(long botUserId = default, MessageSender verifiedId = default)
+                {
+                //test
+                    return ExecuteAsync(new RemoveMessageSenderBotVerification
+                    {
+                        BotUserId = botUserId, VerifiedId = verifiedId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Removes the verification status of a user or a chat by an owned bot
+                /// </summary>
+                Task<Ok> RemoveMessageSenderBotVerificationAsync(long botUserId = default, MessageSender verifiedId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -53,6 +53,29 @@ namespace TdLib
                 ChatId = chatId, NotificationSettings = notificationSettings
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes the notification settings of a chat. Notification settings of a chat with the current user (Saved Messages) can't be changed
+                /// </summary>
+                public Task<Ok> SetChatNotificationSettingsAsync(long chatId = default, ChatNotificationSettings notificationSettings = default)
+                {
+                //test
+                    return ExecuteAsync(new SetChatNotificationSettings
+                    {
+                        ChatId = chatId, NotificationSettings = notificationSettings
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes the notification settings of a chat. Notification settings of a chat with the current user (Saved Messages) can't be changed
+                /// </summary>
+                Task<Ok> SetChatNotificationSettingsAsync(long chatId = default, ChatNotificationSettings notificationSettings = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

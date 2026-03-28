@@ -89,6 +89,31 @@ namespace TdLib
                 BusinessConnectionId = businessConnectionId, ChatId = chatId, ReplyTo = replyTo, DisableNotification = disableNotification, ProtectContent = protectContent, EffectId = effectId, InputMessageContents = inputMessageContents
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Sends 2-10 messages grouped together into an album on behalf of a business account; for bots only. Currently, only audio, document, photo and video messages can be grouped into an album.
+                /// Documents and audio files can be only grouped in an album with messages of the same type. Returns sent messages
+                /// </summary>
+                public Task<BusinessMessages> SendBusinessMessageAlbumAsync(string businessConnectionId = default, long chatId = default, InputMessageReplyTo replyTo = default, bool disableNotification = default, bool protectContent = default, long effectId = default, InputMessageContent[] inputMessageContents = default)
+                {
+                //test
+                    return ExecuteAsync(new SendBusinessMessageAlbum
+                    {
+                        BusinessConnectionId = businessConnectionId, ChatId = chatId, ReplyTo = replyTo, DisableNotification = disableNotification, ProtectContent = protectContent, EffectId = effectId, InputMessageContents = inputMessageContents
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Sends 2-10 messages grouped together into an album on behalf of a business account; for bots only. Currently, only audio, document, photo and video messages can be grouped into an album.
+                /// Documents and audio files can be only grouped in an album with messages of the same type. Returns sent messages
+                /// </summary>
+                Task<BusinessMessages> SendBusinessMessageAlbumAsync(string businessConnectionId = default, long chatId = default, InputMessageReplyTo replyTo = default, bool disableNotification = default, bool protectContent = default, long effectId = default, InputMessageContent[] inputMessageContents = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

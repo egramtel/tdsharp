@@ -46,6 +46,29 @@ namespace TdLib
                 BusinessConnectionId = businessConnectionId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns the Telegram Star amount owned by a business account; for bots only
+                /// </summary>
+                public Task<StarAmount> GetBusinessAccountStarAmountAsync(string businessConnectionId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetBusinessAccountStarAmount
+                    {
+                        BusinessConnectionId = businessConnectionId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns the Telegram Star amount owned by a business account; for bots only
+                /// </summary>
+                Task<StarAmount> GetBusinessAccountStarAmountAsync(string businessConnectionId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

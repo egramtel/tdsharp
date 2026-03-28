@@ -52,6 +52,29 @@ namespace TdLib
                 BotUserId = botUserId, Usernames = usernames
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes order of active usernames of a bot. Can be called only if userTypeBot.can_be_edited == true
+                /// </summary>
+                public Task<Ok> ReorderBotActiveUsernamesAsync(long botUserId = default, string[] usernames = default)
+                {
+                //test
+                    return ExecuteAsync(new ReorderBotActiveUsernames
+                    {
+                        BotUserId = botUserId, Usernames = usernames
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes order of active usernames of a bot. Can be called only if userTypeBot.can_be_edited == true
+                /// </summary>
+                Task<Ok> ReorderBotActiveUsernamesAsync(long botUserId = default, string[] usernames = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

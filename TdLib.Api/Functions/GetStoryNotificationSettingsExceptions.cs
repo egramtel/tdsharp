@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns the list of chats with non-default notification settings for stories
+                /// </summary>
+                public Task<Chats> GetStoryNotificationSettingsExceptionsAsync()
+                {
+                //test
+                    return ExecuteAsync(new GetStoryNotificationSettingsExceptions
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns the list of chats with non-default notification settings for stories
+                /// </summary>
+                Task<Chats> GetStoryNotificationSettingsExceptionsAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

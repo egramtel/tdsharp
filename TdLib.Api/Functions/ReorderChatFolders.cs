@@ -52,6 +52,29 @@ namespace TdLib
                 ChatFolderIds = chatFolderIds, MainChatListPosition = mainChatListPosition
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes the order of chat folders
+                /// </summary>
+                public Task<Ok> ReorderChatFoldersAsync(int[] chatFolderIds = default, int mainChatListPosition = default)
+                {
+                //test
+                    return ExecuteAsync(new ReorderChatFolders
+                    {
+                        ChatFolderIds = chatFolderIds, MainChatListPosition = mainChatListPosition
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes the order of chat folders
+                /// </summary>
+                Task<Ok> ReorderChatFoldersAsync(int[] chatFolderIds = default, int mainChatListPosition = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

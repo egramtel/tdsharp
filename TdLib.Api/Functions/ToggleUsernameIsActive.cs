@@ -53,6 +53,29 @@ namespace TdLib
                 Username = username, IsActive = isActive
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes active state for a username of the current user. The editable username can't be disabled. May return an error with a message "USERNAMES_ACTIVE_TOO_MUCH" if the maximum number of active usernames has been reached
+                /// </summary>
+                public Task<Ok> ToggleUsernameIsActiveAsync(string username = default, bool isActive = default)
+                {
+                //test
+                    return ExecuteAsync(new ToggleUsernameIsActive
+                    {
+                        Username = username, IsActive = isActive
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes active state for a username of the current user. The editable username can't be disabled. May return an error with a message "USERNAMES_ACTIVE_TOO_MUCH" if the maximum number of active usernames has been reached
+                /// </summary>
+                Task<Ok> ToggleUsernameIsActiveAsync(string username = default, bool isActive = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

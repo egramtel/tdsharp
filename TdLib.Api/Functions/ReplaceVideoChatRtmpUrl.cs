@@ -46,6 +46,29 @@ namespace TdLib
                 ChatId = chatId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Replaces the current RTMP URL for streaming to the video chat of a chat; requires owner privileges in the chat
+                /// </summary>
+                public Task<RtmpUrl> ReplaceVideoChatRtmpUrlAsync(long chatId = default)
+                {
+                //test
+                    return ExecuteAsync(new ReplaceVideoChatRtmpUrl
+                    {
+                        ChatId = chatId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Replaces the current RTMP URL for streaming to the video chat of a chat; requires owner privileges in the chat
+                /// </summary>
+                Task<RtmpUrl> ReplaceVideoChatRtmpUrlAsync(long chatId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -67,6 +67,43 @@ namespace TdLib
                 ChatId = chatId, MessageId = messageId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns information about a non-bundled message that is replied by a given message. Also, returns the pinned message for messagePinMessage,
+                /// the game message for messageGameScore, the invoice message for messagePaymentSuccessful, the message with a previously set same background for messageChatSetBackground,
+                /// the giveaway message for messageGiveawayCompleted, the checklist message for messageChecklistTasksDone, messageChecklistTasksAdded, the message with suggested post information
+                /// for messageSuggestedPostApprovalFailed, messageSuggestedPostApproved, messageSuggestedPostDeclined, messageSuggestedPostPaid, messageSuggestedPostRefunded,
+                /// the message with the regular gift that was upgraded for messageUpgradedGift with origin of the type upgradedGiftOriginUpgrade,
+                /// the message with gift purchase offer for messageUpgradedGiftPurchaseOfferRejected,
+                /// the message with the request to disable content protection for messageChatHasProtectedContentToggled,
+                /// and the topic creation message for topic messages without non-bundled replied message. Returns a 404 error if the message doesn't exist
+                /// </summary>
+                public Task<Message> GetRepliedMessageAsync(long chatId = default, long messageId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetRepliedMessage
+                    {
+                        ChatId = chatId, MessageId = messageId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns information about a non-bundled message that is replied by a given message. Also, returns the pinned message for messagePinMessage,
+                /// the game message for messageGameScore, the invoice message for messagePaymentSuccessful, the message with a previously set same background for messageChatSetBackground,
+                /// the giveaway message for messageGiveawayCompleted, the checklist message for messageChecklistTasksDone, messageChecklistTasksAdded, the message with suggested post information
+                /// for messageSuggestedPostApprovalFailed, messageSuggestedPostApproved, messageSuggestedPostDeclined, messageSuggestedPostPaid, messageSuggestedPostRefunded,
+                /// the message with the regular gift that was upgraded for messageUpgradedGift with origin of the type upgradedGiftOriginUpgrade,
+                /// the message with gift purchase offer for messageUpgradedGiftPurchaseOfferRejected,
+                /// the message with the request to disable content protection for messageChatHasProtectedContentToggled,
+                /// and the topic creation message for topic messages without non-bundled replied message. Returns a 404 error if the message doesn't exist
+                /// </summary>
+                Task<Message> GetRepliedMessageAsync(long chatId = default, long messageId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

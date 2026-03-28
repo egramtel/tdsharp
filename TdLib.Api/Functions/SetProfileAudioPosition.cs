@@ -53,6 +53,29 @@ namespace TdLib
                 FileId = fileId, AfterFileId = afterFileId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes position of an audio file in the profile audio files of the current user
+                /// </summary>
+                public Task<Ok> SetProfileAudioPositionAsync(int fileId = default, int afterFileId = default)
+                {
+                //test
+                    return ExecuteAsync(new SetProfileAudioPosition
+                    {
+                        FileId = fileId, AfterFileId = afterFileId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes position of an audio file in the profile audio files of the current user
+                /// </summary>
+                Task<Ok> SetProfileAudioPositionAsync(int fileId = default, int afterFileId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

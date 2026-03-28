@@ -60,6 +60,29 @@ namespace TdLib
                 ChatId = chatId, MessageId = messageId, ReplyMarkup = replyMarkup
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Edits the message reply markup; for bots only. Returns the edited message after the edit is completed on the server side
+                /// </summary>
+                public Task<Message> EditMessageReplyMarkupAsync(long chatId = default, long messageId = default, ReplyMarkup replyMarkup = default)
+                {
+                //test
+                    return ExecuteAsync(new EditMessageReplyMarkup
+                    {
+                        ChatId = chatId, MessageId = messageId, ReplyMarkup = replyMarkup
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Edits the message reply markup; for bots only. Returns the edited message after the edit is completed on the server side
+                /// </summary>
+                Task<Message> EditMessageReplyMarkupAsync(long chatId = default, long messageId = default, ReplyMarkup replyMarkup = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

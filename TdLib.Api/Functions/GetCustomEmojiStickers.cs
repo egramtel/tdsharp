@@ -45,6 +45,29 @@ namespace TdLib
                 CustomEmojiIds = customEmojiIds
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns the list of custom emoji stickers by their identifiers. Stickers are returned in arbitrary order. Only found stickers are returned
+                /// </summary>
+                public Task<Stickers> GetCustomEmojiStickersAsync(long[] customEmojiIds = default)
+                {
+                //test
+                    return ExecuteAsync(new GetCustomEmojiStickers
+                    {
+                        CustomEmojiIds = customEmojiIds
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns the list of custom emoji stickers by their identifiers. Stickers are returned in arbitrary order. Only found stickers are returned
+                /// </summary>
+                Task<Stickers> GetCustomEmojiStickersAsync(long[] customEmojiIds = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

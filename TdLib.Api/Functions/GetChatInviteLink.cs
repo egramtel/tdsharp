@@ -53,6 +53,29 @@ namespace TdLib
                 ChatId = chatId, InviteLink = inviteLink
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns information about an invite link. Requires administrator privileges and can_invite_users right in the chat to get own links and owner privileges to get other links
+                /// </summary>
+                public Task<ChatInviteLink> GetChatInviteLinkAsync(long chatId = default, string inviteLink = default)
+                {
+                //test
+                    return ExecuteAsync(new GetChatInviteLink
+                    {
+                        ChatId = chatId, InviteLink = inviteLink
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns information about an invite link. Requires administrator privileges and can_invite_users right in the chat to get own links and owner privileges to get other links
+                /// </summary>
+                Task<ChatInviteLink> GetChatInviteLinkAsync(long chatId = default, string inviteLink = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

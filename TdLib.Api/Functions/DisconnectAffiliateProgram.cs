@@ -53,6 +53,29 @@ namespace TdLib
                 Affiliate = affiliate, Url = url
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Disconnects an affiliate program from the given affiliate and immediately deactivates its referral link. Returns updated information about the disconnected affiliate program
+                /// </summary>
+                public Task<ConnectedAffiliateProgram> DisconnectAffiliateProgramAsync(AffiliateType affiliate = default, string url = default)
+                {
+                //test
+                    return ExecuteAsync(new DisconnectAffiliateProgram
+                    {
+                        Affiliate = affiliate, Url = url
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Disconnects an affiliate program from the given affiliate and immediately deactivates its referral link. Returns updated information about the disconnected affiliate program
+                /// </summary>
+                Task<ConnectedAffiliateProgram> DisconnectAffiliateProgramAsync(AffiliateType affiliate = default, string url = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

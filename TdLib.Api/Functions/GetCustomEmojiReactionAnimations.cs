@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns TGS stickers with generic animations for custom emoji reactions
+                /// </summary>
+                public Task<Stickers> GetCustomEmojiReactionAnimationsAsync()
+                {
+                //test
+                    return ExecuteAsync(new GetCustomEmojiReactionAnimations
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns TGS stickers with generic animations for custom emoji reactions
+                /// </summary>
+                Task<Stickers> GetCustomEmojiReactionAnimationsAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

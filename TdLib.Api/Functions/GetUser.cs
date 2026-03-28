@@ -46,6 +46,29 @@ namespace TdLib
                 UserId = userId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns information about a user by their identifier. This is an offline method if the current user is not a bot
+                /// </summary>
+                public Task<User> GetUserAsync(long userId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetUser
+                    {
+                        UserId = userId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns information about a user by their identifier. This is an offline method if the current user is not a bot
+                /// </summary>
+                Task<User> GetUserAsync(long userId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

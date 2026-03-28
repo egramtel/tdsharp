@@ -67,6 +67,29 @@ namespace TdLib
                 ChatId = chatId, MessageId = messageId, DisableNotification = disableNotification, OnlyForSelf = onlyForSelf
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Pins a message in a chat. A message can be pinned only if messageProperties.can_be_pinned
+                /// </summary>
+                public Task<Ok> PinChatMessageAsync(long chatId = default, long messageId = default, bool disableNotification = default, bool onlyForSelf = default)
+                {
+                //test
+                    return ExecuteAsync(new PinChatMessage
+                    {
+                        ChatId = chatId, MessageId = messageId, DisableNotification = disableNotification, OnlyForSelf = onlyForSelf
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Pins a message in a chat. A message can be pinned only if messageProperties.can_be_pinned
+                /// </summary>
+                Task<Ok> PinChatMessageAsync(long chatId = default, long messageId = default, bool disableNotification = default, bool onlyForSelf = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

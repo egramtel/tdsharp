@@ -53,6 +53,29 @@ namespace TdLib
                 Name = name, Type = type
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Constructs a persistent HTTP URL for a background
+                /// </summary>
+                public Task<HttpUrl> GetBackgroundUrlAsync(string name = default, BackgroundType type = default)
+                {
+                //test
+                    return ExecuteAsync(new GetBackgroundUrl
+                    {
+                        Name = name, Type = type
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Constructs a persistent HTTP URL for a background
+                /// </summary>
+                Task<HttpUrl> GetBackgroundUrlAsync(string name = default, BackgroundType type = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

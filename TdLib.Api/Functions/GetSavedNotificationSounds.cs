@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns the list of saved notification sounds. If a sound isn't in the list, then default sound needs to be used
+                /// </summary>
+                public Task<NotificationSounds> GetSavedNotificationSoundsAsync()
+                {
+                //test
+                    return ExecuteAsync(new GetSavedNotificationSounds
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns the list of saved notification sounds. If a sound isn't in the list, then default sound needs to be used
+                /// </summary>
+                Task<NotificationSounds> GetSavedNotificationSoundsAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Informs TDLib that the user clicked Premium subscription button on the Premium features screen
+                /// </summary>
+                public Task<Ok> ClickPremiumSubscriptionButtonAsync()
+                {
+                //test
+                    return ExecuteAsync(new ClickPremiumSubscriptionButton
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Informs TDLib that the user clicked Premium subscription button on the Premium features screen
+                /// </summary>
+                Task<Ok> ClickPremiumSubscriptionButtonAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

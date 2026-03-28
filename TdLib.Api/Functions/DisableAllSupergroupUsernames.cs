@@ -46,6 +46,29 @@ namespace TdLib
                 SupergroupId = supergroupId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Disables all active non-editable usernames of a supergroup or channel, requires owner privileges in the supergroup or channel
+                /// </summary>
+                public Task<Ok> DisableAllSupergroupUsernamesAsync(long supergroupId = default)
+                {
+                //test
+                    return ExecuteAsync(new DisableAllSupergroupUsernames
+                    {
+                        SupergroupId = supergroupId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Disables all active non-editable usernames of a supergroup or channel, requires owner privileges in the supergroup or channel
+                /// </summary>
+                Task<Ok> DisableAllSupergroupUsernamesAsync(long supergroupId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

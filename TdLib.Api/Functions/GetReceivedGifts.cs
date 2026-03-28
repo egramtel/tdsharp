@@ -137,6 +137,29 @@ namespace TdLib
                 BusinessConnectionId = businessConnectionId, OwnerId = ownerId, CollectionId = collectionId, ExcludeUnsaved = excludeUnsaved, ExcludeSaved = excludeSaved, ExcludeUnlimited = excludeUnlimited, ExcludeUpgradable = excludeUpgradable, ExcludeNonUpgradable = excludeNonUpgradable, ExcludeUpgraded = excludeUpgraded, ExcludeWithoutColors = excludeWithoutColors, ExcludeHosted = excludeHosted, SortByPrice = sortByPrice, Offset = offset, Limit = limit
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns gifts received by the given user or chat
+                /// </summary>
+                public Task<ReceivedGifts> GetReceivedGiftsAsync(string businessConnectionId = default, MessageSender ownerId = default, int collectionId = default, bool excludeUnsaved = default, bool excludeSaved = default, bool excludeUnlimited = default, bool excludeUpgradable = default, bool excludeNonUpgradable = default, bool excludeUpgraded = default, bool excludeWithoutColors = default, bool excludeHosted = default, bool sortByPrice = default, string offset = default, int limit = default)
+                {
+                //test
+                    return ExecuteAsync(new GetReceivedGifts
+                    {
+                        BusinessConnectionId = businessConnectionId, OwnerId = ownerId, CollectionId = collectionId, ExcludeUnsaved = excludeUnsaved, ExcludeSaved = excludeSaved, ExcludeUnlimited = excludeUnlimited, ExcludeUpgradable = excludeUpgradable, ExcludeNonUpgradable = excludeNonUpgradable, ExcludeUpgraded = excludeUpgraded, ExcludeWithoutColors = excludeWithoutColors, ExcludeHosted = excludeHosted, SortByPrice = sortByPrice, Offset = offset, Limit = limit
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns gifts received by the given user or chat
+                /// </summary>
+                Task<ReceivedGifts> GetReceivedGiftsAsync(string businessConnectionId = default, MessageSender ownerId = default, int collectionId = default, bool excludeUnsaved = default, bool excludeSaved = default, bool excludeUnlimited = default, bool excludeUpgradable = default, bool excludeNonUpgradable = default, bool excludeUpgraded = default, bool excludeWithoutColors = default, bool excludeHosted = default, bool sortByPrice = default, string offset = default, int limit = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

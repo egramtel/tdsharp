@@ -54,6 +54,29 @@ namespace TdLib
                 ChatId = chatId, PaidMessageStarCount = paidMessageStarCount
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes the Telegram Star amount that must be paid to send a message to a supergroup chat; requires can_restrict_members administrator right and supergroupFullInfo.can_enable_paid_messages
+                /// </summary>
+                public Task<Ok> SetChatPaidMessageStarCountAsync(long chatId = default, long paidMessageStarCount = default)
+                {
+                //test
+                    return ExecuteAsync(new SetChatPaidMessageStarCount
+                    {
+                        ChatId = chatId, PaidMessageStarCount = paidMessageStarCount
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes the Telegram Star amount that must be paid to send a message to a supergroup chat; requires can_restrict_members administrator right and supergroupFullInfo.can_enable_paid_messages
+                /// </summary>
+                Task<Ok> SetChatPaidMessageStarCountAsync(long chatId = default, long paidMessageStarCount = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

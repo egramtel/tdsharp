@@ -67,6 +67,29 @@ namespace TdLib
                 ChatId = chatId, TopicId = topicId, Filter = filter, ReturnLocal = returnLocal
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns approximate number of messages of the specified type in the chat or its topic
+                /// </summary>
+                public Task<Count> GetChatMessageCountAsync(long chatId = default, MessageTopic topicId = default, SearchMessagesFilter filter = default, bool returnLocal = default)
+                {
+                //test
+                    return ExecuteAsync(new GetChatMessageCount
+                    {
+                        ChatId = chatId, TopicId = topicId, Filter = filter, ReturnLocal = returnLocal
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns approximate number of messages of the specified type in the chat or its topic
+                /// </summary>
+                Task<Count> GetChatMessageCountAsync(long chatId = default, MessageTopic topicId = default, SearchMessagesFilter filter = default, bool returnLocal = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

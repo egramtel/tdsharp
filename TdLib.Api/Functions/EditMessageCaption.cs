@@ -74,6 +74,29 @@ namespace TdLib
                 ChatId = chatId, MessageId = messageId, ReplyMarkup = replyMarkup, Caption = caption, ShowCaptionAboveMedia = showCaptionAboveMedia
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Edits the message content caption. Returns the edited message after the edit is completed on the server side
+                /// </summary>
+                public Task<Message> EditMessageCaptionAsync(long chatId = default, long messageId = default, ReplyMarkup replyMarkup = default, FormattedText caption = default, bool showCaptionAboveMedia = default)
+                {
+                //test
+                    return ExecuteAsync(new EditMessageCaption
+                    {
+                        ChatId = chatId, MessageId = messageId, ReplyMarkup = replyMarkup, Caption = caption, ShowCaptionAboveMedia = showCaptionAboveMedia
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Edits the message content caption. Returns the edited message after the edit is completed on the server side
+                /// </summary>
+                Task<Message> EditMessageCaptionAsync(long chatId = default, long messageId = default, ReplyMarkup replyMarkup = default, FormattedText caption = default, bool showCaptionAboveMedia = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

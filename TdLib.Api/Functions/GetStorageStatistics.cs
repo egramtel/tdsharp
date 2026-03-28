@@ -46,6 +46,29 @@ namespace TdLib
                 ChatLimit = chatLimit
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns storage usage statistics. Can be called before authorization
+                /// </summary>
+                public Task<StorageStatistics> GetStorageStatisticsAsync(int chatLimit = default)
+                {
+                //test
+                    return ExecuteAsync(new GetStorageStatistics
+                    {
+                        ChatLimit = chatLimit
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns storage usage statistics. Can be called before authorization
+                /// </summary>
+                Task<StorageStatistics> GetStorageStatisticsAsync(int chatLimit = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

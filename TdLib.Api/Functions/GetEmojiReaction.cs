@@ -46,6 +46,29 @@ namespace TdLib
                 Emoji = emoji
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns information about an emoji reaction. Returns a 404 error if the reaction is not found
+                /// </summary>
+                public Task<EmojiReaction> GetEmojiReactionAsync(string emoji = default)
+                {
+                //test
+                    return ExecuteAsync(new GetEmojiReaction
+                    {
+                        Emoji = emoji
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns information about an emoji reaction. Returns a 404 error if the reaction is not found
+                /// </summary>
+                Task<EmojiReaction> GetEmojiReactionAsync(string emoji = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

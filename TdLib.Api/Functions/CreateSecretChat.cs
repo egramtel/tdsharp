@@ -46,6 +46,29 @@ namespace TdLib
                 SecretChatId = secretChatId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns an existing chat corresponding to a known secret chat
+                /// </summary>
+                public Task<Chat> CreateSecretChatAsync(int secretChatId = default)
+                {
+                //test
+                    return ExecuteAsync(new CreateSecretChat
+                    {
+                        SecretChatId = secretChatId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns an existing chat corresponding to a known secret chat
+                /// </summary>
+                Task<Chat> CreateSecretChatAsync(int secretChatId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

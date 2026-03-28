@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns privacy settings for new chat creation
+                /// </summary>
+                public Task<NewChatPrivacySettings> GetNewChatPrivacySettingsAsync()
+                {
+                //test
+                    return ExecuteAsync(new GetNewChatPrivacySettings
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns privacy settings for new chat creation
+                /// </summary>
+                Task<NewChatPrivacySettings> GetNewChatPrivacySettingsAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -53,6 +53,29 @@ namespace TdLib
                 GroupCallId = groupCallId, PaidMessageStarCount = paidMessageStarCount
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes the minimum number of Telegram Stars that must be paid by general participant for each sent message to a live story call. Requires groupCall.can_be_managed right
+                /// </summary>
+                public Task<Ok> SetGroupCallPaidMessageStarCountAsync(int groupCallId = default, long paidMessageStarCount = default)
+                {
+                //test
+                    return ExecuteAsync(new SetGroupCallPaidMessageStarCount
+                    {
+                        GroupCallId = groupCallId, PaidMessageStarCount = paidMessageStarCount
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes the minimum number of Telegram Stars that must be paid by general participant for each sent message to a live story call. Requires groupCall.can_be_managed right
+                /// </summary>
+                Task<Ok> SetGroupCallPaidMessageStarCountAsync(int groupCallId = default, long paidMessageStarCount = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

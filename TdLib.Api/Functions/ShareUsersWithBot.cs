@@ -73,6 +73,29 @@ namespace TdLib
                 ChatId = chatId, MessageId = messageId, ButtonId = buttonId, SharedUserIds = sharedUserIds, OnlyCheck = onlyCheck
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Shares users after pressing a keyboardButtonTypeRequestUsers button with the bot
+                /// </summary>
+                public Task<Ok> ShareUsersWithBotAsync(long chatId = default, long messageId = default, int buttonId = default, long[] sharedUserIds = default, bool onlyCheck = default)
+                {
+                //test
+                    return ExecuteAsync(new ShareUsersWithBot
+                    {
+                        ChatId = chatId, MessageId = messageId, ButtonId = buttonId, SharedUserIds = sharedUserIds, OnlyCheck = onlyCheck
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Shares users after pressing a keyboardButtonTypeRequestUsers button with the bot
+                /// </summary>
+                Task<Ok> ShareUsersWithBotAsync(long chatId = default, long messageId = default, int buttonId = default, long[] sharedUserIds = default, bool onlyCheck = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

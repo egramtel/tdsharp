@@ -67,6 +67,29 @@ namespace TdLib
                 ChatId = chatId, FileId = fileId, Reason = reason, Text = text
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Reports a chat photo to the Telegram moderators. A chat photo can be reported only if chat.can_be_reported
+                /// </summary>
+                public Task<Ok> ReportChatPhotoAsync(long chatId = default, int fileId = default, ReportReason reason = default, string text = default)
+                {
+                //test
+                    return ExecuteAsync(new ReportChatPhoto
+                    {
+                        ChatId = chatId, FileId = fileId, Reason = reason, Text = text
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Reports a chat photo to the Telegram moderators. A chat photo can be reported only if chat.can_be_reported
+                /// </summary>
+                Task<Ok> ReportChatPhotoAsync(long chatId = default, int fileId = default, ReportReason reason = default, string text = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

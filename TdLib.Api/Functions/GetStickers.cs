@@ -67,6 +67,29 @@ namespace TdLib
                 StickerType = stickerType, Query = query, Limit = limit, ChatId = chatId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns stickers from the installed sticker sets that correspond to any of the given emoji or can be found by sticker-specific keywords. If the query is non-empty, then favorite, recently used or trending stickers may also be returned
+                /// </summary>
+                public Task<Stickers> GetStickersAsync(StickerType stickerType = default, string query = default, int limit = default, long chatId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetStickers
+                    {
+                        StickerType = stickerType, Query = query, Limit = limit, ChatId = chatId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns stickers from the installed sticker sets that correspond to any of the given emoji or can be found by sticker-specific keywords. If the query is non-empty, then favorite, recently used or trending stickers may also be returned
+                /// </summary>
+                Task<Stickers> GetStickersAsync(StickerType stickerType = default, string query = default, int limit = default, long chatId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

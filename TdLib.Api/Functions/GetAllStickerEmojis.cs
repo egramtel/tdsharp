@@ -67,6 +67,29 @@ namespace TdLib
                 StickerType = stickerType, Query = query, ChatId = chatId, ReturnOnlyMainEmoji = returnOnlyMainEmoji
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns unique emoji that correspond to stickers to be found by the getStickers(sticker_type, query, 1000000, chat_id)
+                /// </summary>
+                public Task<Emojis> GetAllStickerEmojisAsync(StickerType stickerType = default, string query = default, long chatId = default, bool returnOnlyMainEmoji = default)
+                {
+                //test
+                    return ExecuteAsync(new GetAllStickerEmojis
+                    {
+                        StickerType = stickerType, Query = query, ChatId = chatId, ReturnOnlyMainEmoji = returnOnlyMainEmoji
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns unique emoji that correspond to stickers to be found by the getStickers(sticker_type, query, 1000000, chat_id)
+                /// </summary>
+                Task<Emojis> GetAllStickerEmojisAsync(StickerType stickerType = default, string query = default, long chatId = default, bool returnOnlyMainEmoji = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

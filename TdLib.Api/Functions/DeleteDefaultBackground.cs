@@ -46,6 +46,29 @@ namespace TdLib
                 ForDarkTheme = forDarkTheme
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Deletes default background for chats
+                /// </summary>
+                public Task<Ok> DeleteDefaultBackgroundAsync(bool forDarkTheme = default)
+                {
+                //test
+                    return ExecuteAsync(new DeleteDefaultBackground
+                    {
+                        ForDarkTheme = forDarkTheme
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Deletes default background for chats
+                /// </summary>
+                Task<Ok> DeleteDefaultBackgroundAsync(bool forDarkTheme = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

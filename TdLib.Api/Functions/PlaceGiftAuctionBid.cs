@@ -75,6 +75,29 @@ namespace TdLib
                 GiftId = giftId, StarCount = starCount, UserId = userId, Text = text, IsPrivate = isPrivate
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Places a bid on an auction gift
+                /// </summary>
+                public Task<Ok> PlaceGiftAuctionBidAsync(long giftId = default, long starCount = default, long userId = default, FormattedText text = default, bool isPrivate = default)
+                {
+                //test
+                    return ExecuteAsync(new PlaceGiftAuctionBid
+                    {
+                        GiftId = giftId, StarCount = starCount, UserId = userId, Text = text, IsPrivate = isPrivate
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Places a bid on an auction gift
+                /// </summary>
+                Task<Ok> PlaceGiftAuctionBidAsync(long giftId = default, long starCount = default, long userId = default, FormattedText text = default, bool isPrivate = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

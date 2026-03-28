@@ -53,6 +53,29 @@ namespace TdLib
                 BusinessConnectionId = businessConnectionId, Bio = bio
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes the bio of a business account; for bots only
+                /// </summary>
+                public Task<Ok> SetBusinessAccountBioAsync(string businessConnectionId = default, string bio = default)
+                {
+                //test
+                    return ExecuteAsync(new SetBusinessAccountBio
+                    {
+                        BusinessConnectionId = businessConnectionId, Bio = bio
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes the bio of a business account; for bots only
+                /// </summary>
+                Task<Ok> SetBusinessAccountBioAsync(string businessConnectionId = default, string bio = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

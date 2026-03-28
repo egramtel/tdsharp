@@ -46,6 +46,29 @@ namespace TdLib
                 LinkName = linkName
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns information about a business chat link
+                /// </summary>
+                public Task<BusinessChatLinkInfo> GetBusinessChatLinkInfoAsync(string linkName = default)
+                {
+                //test
+                    return ExecuteAsync(new GetBusinessChatLinkInfo
+                    {
+                        LinkName = linkName
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns information about a business chat link
+                /// </summary>
+                Task<BusinessChatLinkInfo> GetBusinessChatLinkInfoAsync(string linkName = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

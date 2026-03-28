@@ -53,6 +53,29 @@ namespace TdLib
                 InputInvoice = inputInvoice, Theme = theme
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns an invoice payment form. This method must be called when the user presses inline button of the type inlineKeyboardButtonTypeBuy, or wants to buy access to media in a messagePaidMedia message
+                /// </summary>
+                public Task<PaymentForm> GetPaymentFormAsync(InputInvoice inputInvoice = default, ThemeParameters theme = default)
+                {
+                //test
+                    return ExecuteAsync(new GetPaymentForm
+                    {
+                        InputInvoice = inputInvoice, Theme = theme
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns an invoice payment form. This method must be called when the user presses inline button of the type inlineKeyboardButtonTypeBuy, or wants to buy access to media in a messagePaidMedia message
+                /// </summary>
+                Task<PaymentForm> GetPaymentFormAsync(InputInvoice inputInvoice = default, ThemeParameters theme = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

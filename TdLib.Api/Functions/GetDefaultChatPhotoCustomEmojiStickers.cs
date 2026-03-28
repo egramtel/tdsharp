@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns default list of custom emoji stickers for placing on a chat photo
+                /// </summary>
+                public Task<Stickers> GetDefaultChatPhotoCustomEmojiStickersAsync()
+                {
+                //test
+                    return ExecuteAsync(new GetDefaultChatPhotoCustomEmojiStickers
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns default list of custom emoji stickers for placing on a chat photo
+                /// </summary>
+                Task<Stickers> GetDefaultChatPhotoCustomEmojiStickersAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -53,6 +53,29 @@ namespace TdLib
                 AdvertisementUniqueId = advertisementUniqueId, OptionId = optionId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Reports a video message advertisement to Telegram moderators
+                /// </summary>
+                public Task<ReportSponsoredResult> ReportVideoMessageAdvertisementAsync(long advertisementUniqueId = default, byte[] optionId = default)
+                {
+                //test
+                    return ExecuteAsync(new ReportVideoMessageAdvertisement
+                    {
+                        AdvertisementUniqueId = advertisementUniqueId, OptionId = optionId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Reports a video message advertisement to Telegram moderators
+                /// </summary>
+                Task<ReportSponsoredResult> ReportVideoMessageAdvertisementAsync(long advertisementUniqueId = default, byte[] optionId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

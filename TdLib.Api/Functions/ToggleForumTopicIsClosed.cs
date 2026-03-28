@@ -60,6 +60,29 @@ namespace TdLib
                 ChatId = chatId, ForumTopicId = forumTopicId, IsClosed = isClosed
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Toggles whether a topic is closed in a forum supergroup chat; requires can_manage_topics administrator right in the supergroup unless the user is creator of the topic
+                /// </summary>
+                public Task<Ok> ToggleForumTopicIsClosedAsync(long chatId = default, int forumTopicId = default, bool isClosed = default)
+                {
+                //test
+                    return ExecuteAsync(new ToggleForumTopicIsClosed
+                    {
+                        ChatId = chatId, ForumTopicId = forumTopicId, IsClosed = isClosed
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Toggles whether a topic is closed in a forum supergroup chat; requires can_manage_topics administrator right in the supergroup unless the user is creator of the topic
+                /// </summary>
+                Task<Ok> ToggleForumTopicIsClosedAsync(long chatId = default, int forumTopicId = default, bool isClosed = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

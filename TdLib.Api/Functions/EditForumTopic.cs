@@ -76,6 +76,31 @@ namespace TdLib
                 ChatId = chatId, ForumTopicId = forumTopicId, Name = name, EditIconCustomEmoji = editIconCustomEmoji, IconCustomEmojiId = iconCustomEmojiId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Edits title and icon of a topic in a forum supergroup chat or a chat with a bot with topics; for supergroup chats requires can_manage_topics administrator right
+                /// unless the user is creator of the topic
+                /// </summary>
+                public Task<Ok> EditForumTopicAsync(long chatId = default, int forumTopicId = default, string name = default, bool editIconCustomEmoji = default, long iconCustomEmojiId = default)
+                {
+                //test
+                    return ExecuteAsync(new EditForumTopic
+                    {
+                        ChatId = chatId, ForumTopicId = forumTopicId, Name = name, EditIconCustomEmoji = editIconCustomEmoji, IconCustomEmojiId = iconCustomEmojiId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Edits title and icon of a topic in a forum supergroup chat or a chat with a bot with topics; for supergroup chats requires can_manage_topics administrator right
+                /// unless the user is creator of the topic
+                /// </summary>
+                Task<Ok> EditForumTopicAsync(long chatId = default, int forumTopicId = default, string name = default, bool editIconCustomEmoji = default, long iconCustomEmojiId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

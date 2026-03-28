@@ -52,6 +52,29 @@ namespace TdLib
                 GroupCallId = groupCallId, UserIds = userIds
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Bans users from a group call not bound to a chat; requires groupCall.is_owned. Only the owner of the group call can invite the banned users back
+                /// </summary>
+                public Task<Ok> BanGroupCallParticipantsAsync(int groupCallId = default, long[] userIds = default)
+                {
+                //test
+                    return ExecuteAsync(new BanGroupCallParticipants
+                    {
+                        GroupCallId = groupCallId, UserIds = userIds
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Bans users from a group call not bound to a chat; requires groupCall.is_owned. Only the owner of the group call can invite the banned users back
+                /// </summary>
+                Task<Ok> BanGroupCallParticipantsAsync(int groupCallId = default, long[] userIds = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

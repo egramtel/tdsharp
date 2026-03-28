@@ -64,6 +64,33 @@ namespace TdLib
                 ChatId = chatId, MemberId = memberId, Status = status
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes the status of a chat member; requires can_invite_users member right to add a chat member, can_promote_members administrator right to change administrator rights of the member,
+                /// and can_restrict_members administrator right to change restrictions of a user. This function is currently not suitable for transferring chat ownership; use transferChatOwnership instead.
+                /// Use addChatMember or banChatMember if some additional parameters needs to be passed
+                /// </summary>
+                public Task<Ok> SetChatMemberStatusAsync(long chatId = default, MessageSender memberId = default, ChatMemberStatus status = default)
+                {
+                //test
+                    return ExecuteAsync(new SetChatMemberStatus
+                    {
+                        ChatId = chatId, MemberId = memberId, Status = status
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes the status of a chat member; requires can_invite_users member right to add a chat member, can_promote_members administrator right to change administrator rights of the member,
+                /// and can_restrict_members administrator right to change restrictions of a user. This function is currently not suitable for transferring chat ownership; use transferChatOwnership instead.
+                /// Use addChatMember or banChatMember if some additional parameters needs to be passed
+                /// </summary>
+                Task<Ok> SetChatMemberStatusAsync(long chatId = default, MessageSender memberId = default, ChatMemberStatus status = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

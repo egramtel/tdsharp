@@ -46,6 +46,29 @@ namespace TdLib
                 ChatId = chatId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns the list of active stories posted by the given chat
+                /// </summary>
+                public Task<ChatActiveStories> GetChatActiveStoriesAsync(long chatId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetChatActiveStories
+                    {
+                        ChatId = chatId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns the list of active stories posted by the given chat
+                /// </summary>
+                Task<ChatActiveStories> GetChatActiveStoriesAsync(long chatId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

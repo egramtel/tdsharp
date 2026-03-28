@@ -60,6 +60,29 @@ namespace TdLib
                 ChatId = chatId, InviteLink = inviteLink, Name = name
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Edits a subscription invite link for a channel chat. Requires can_invite_users right in the chat for own links and owner privileges for other links
+                /// </summary>
+                public Task<ChatInviteLink> EditChatSubscriptionInviteLinkAsync(long chatId = default, string inviteLink = default, string name = default)
+                {
+                //test
+                    return ExecuteAsync(new EditChatSubscriptionInviteLink
+                    {
+                        ChatId = chatId, InviteLink = inviteLink, Name = name
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Edits a subscription invite link for a channel chat. Requires can_invite_users right in the chat for own links and owner privileges for other links
+                /// </summary>
+                Task<ChatInviteLink> EditChatSubscriptionInviteLinkAsync(long chatId = default, string inviteLink = default, string name = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

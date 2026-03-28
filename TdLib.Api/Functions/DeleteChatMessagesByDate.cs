@@ -67,6 +67,29 @@ namespace TdLib
                 ChatId = chatId, MinDate = minDate, MaxDate = maxDate, Revoke = revoke
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Deletes all messages between the specified dates in a chat. Supported only for private chats and basic groups. Messages sent in the last 30 seconds will not be deleted
+                /// </summary>
+                public Task<Ok> DeleteChatMessagesByDateAsync(long chatId = default, int minDate = default, int maxDate = default, bool revoke = default)
+                {
+                //test
+                    return ExecuteAsync(new DeleteChatMessagesByDate
+                    {
+                        ChatId = chatId, MinDate = minDate, MaxDate = maxDate, Revoke = revoke
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Deletes all messages between the specified dates in a chat. Supported only for private chats and basic groups. Messages sent in the last 30 seconds will not be deleted
+                /// </summary>
+                Task<Ok> DeleteChatMessagesByDateAsync(long chatId = default, int minDate = default, int maxDate = default, bool revoke = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -46,6 +46,29 @@ namespace TdLib
                 GroupCallId = groupCallId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns information about the user or the chat that streams to a live story; for live stories that aren't an RTMP stream only
+                /// </summary>
+                public Task<GroupCallParticipant> GetLiveStoryStreamerAsync(int groupCallId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetLiveStoryStreamer
+                    {
+                        GroupCallId = groupCallId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns information about the user or the chat that streams to a live story; for live stories that aren't an RTMP stream only
+                /// </summary>
+                Task<GroupCallParticipant> GetLiveStoryStreamerAsync(int groupCallId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

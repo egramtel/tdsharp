@@ -46,6 +46,29 @@ namespace TdLib
                 DefaultGroupAdministratorRights = defaultGroupAdministratorRights
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Sets default administrator rights for adding the bot to basic group and supergroup chats; for bots only
+                /// </summary>
+                public Task<Ok> SetDefaultGroupAdministratorRightsAsync(ChatAdministratorRights defaultGroupAdministratorRights = default)
+                {
+                //test
+                    return ExecuteAsync(new SetDefaultGroupAdministratorRights
+                    {
+                        DefaultGroupAdministratorRights = defaultGroupAdministratorRights
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Sets default administrator rights for adding the bot to basic group and supergroup chats; for bots only
+                /// </summary>
+                Task<Ok> SetDefaultGroupAdministratorRightsAsync(ChatAdministratorRights defaultGroupAdministratorRights = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

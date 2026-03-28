@@ -46,6 +46,29 @@ namespace TdLib
                 Revoke = revoke
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Deletes all call messages
+                /// </summary>
+                public Task<Ok> DeleteAllCallMessagesAsync(bool revoke = default)
+                {
+                //test
+                    return ExecuteAsync(new DeleteAllCallMessages
+                    {
+                        Revoke = revoke
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Deletes all call messages
+                /// </summary>
+                Task<Ok> DeleteAllCallMessagesAsync(bool revoke = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

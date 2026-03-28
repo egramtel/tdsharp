@@ -60,6 +60,29 @@ namespace TdLib
                 ChatId = chatId, MessageId = messageId, SchedulingState = schedulingState
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Edits the time when a scheduled message will be sent. Scheduling state of all messages in the same album or forwarded together with the message will be also changed
+                /// </summary>
+                public Task<Ok> EditMessageSchedulingStateAsync(long chatId = default, long messageId = default, MessageSchedulingState schedulingState = default)
+                {
+                //test
+                    return ExecuteAsync(new EditMessageSchedulingState
+                    {
+                        ChatId = chatId, MessageId = messageId, SchedulingState = schedulingState
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Edits the time when a scheduled message will be sent. Scheduling state of all messages in the same album or forwarded together with the message will be also changed
+                /// </summary>
+                Task<Ok> EditMessageSchedulingStateAsync(long chatId = default, long messageId = default, MessageSchedulingState schedulingState = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

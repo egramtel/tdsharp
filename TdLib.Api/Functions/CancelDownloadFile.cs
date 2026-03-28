@@ -53,6 +53,29 @@ namespace TdLib
                 FileId = fileId, OnlyIfPending = onlyIfPending
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Stops the downloading of a file. If a file has already been downloaded, does nothing
+                /// </summary>
+                public Task<Ok> CancelDownloadFileAsync(int fileId = default, bool onlyIfPending = default)
+                {
+                //test
+                    return ExecuteAsync(new CancelDownloadFile
+                    {
+                        FileId = fileId, OnlyIfPending = onlyIfPending
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Stops the downloading of a file. If a file has already been downloaded, does nothing
+                /// </summary>
+                Task<Ok> CancelDownloadFileAsync(int fileId = default, bool onlyIfPending = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

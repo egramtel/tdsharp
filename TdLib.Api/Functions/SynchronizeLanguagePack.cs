@@ -48,6 +48,31 @@ namespace TdLib
                 LanguagePackId = languagePackId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Fetches the latest versions of all strings from a language pack in the current localization target from the server.
+                /// This method doesn't need to be called explicitly for the current used/base language packs. Can be called before authorization
+                /// </summary>
+                public Task<Ok> SynchronizeLanguagePackAsync(string languagePackId = default)
+                {
+                //test
+                    return ExecuteAsync(new SynchronizeLanguagePack
+                    {
+                        LanguagePackId = languagePackId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Fetches the latest versions of all strings from a language pack in the current localization target from the server.
+                /// This method doesn't need to be called explicitly for the current used/base language packs. Can be called before authorization
+                /// </summary>
+                Task<Ok> SynchronizeLanguagePackAsync(string languagePackId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

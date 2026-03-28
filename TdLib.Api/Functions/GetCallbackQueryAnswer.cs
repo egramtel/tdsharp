@@ -60,6 +60,29 @@ namespace TdLib
                 ChatId = chatId, MessageId = messageId, Payload = payload
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Sends a callback query to a bot and returns an answer. Returns an error with code 502 if the bot fails to answer the query before the query timeout expires
+                /// </summary>
+                public Task<CallbackQueryAnswer> GetCallbackQueryAnswerAsync(long chatId = default, long messageId = default, CallbackQueryPayload payload = default)
+                {
+                //test
+                    return ExecuteAsync(new GetCallbackQueryAnswer
+                    {
+                        ChatId = chatId, MessageId = messageId, Payload = payload
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Sends a callback query to a bot and returns an answer. Returns an error with code 502 if the bot fails to answer the query before the query timeout expires
+                /// </summary>
+                Task<CallbackQueryAnswer> GetCallbackQueryAnswerAsync(long chatId = default, long messageId = default, CallbackQueryPayload payload = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

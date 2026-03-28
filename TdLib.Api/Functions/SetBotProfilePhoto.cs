@@ -53,6 +53,29 @@ namespace TdLib
                 BotUserId = botUserId, Photo = photo
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes a profile photo for a bot
+                /// </summary>
+                public Task<Ok> SetBotProfilePhotoAsync(long botUserId = default, InputChatPhoto photo = default)
+                {
+                //test
+                    return ExecuteAsync(new SetBotProfilePhoto
+                    {
+                        BotUserId = botUserId, Photo = photo
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes a profile photo for a bot
+                /// </summary>
+                Task<Ok> SetBotProfilePhotoAsync(long botUserId = default, InputChatPhoto photo = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

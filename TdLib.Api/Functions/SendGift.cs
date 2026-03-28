@@ -74,6 +74,29 @@ namespace TdLib
                 GiftId = giftId, OwnerId = ownerId, Text = text, IsPrivate = isPrivate, PayForUpgrade = payForUpgrade
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Sends a gift to another user or channel chat. May return an error with a message "STARGIFT_USAGE_LIMITED" if the gift was sold out
+                /// </summary>
+                public Task<Ok> SendGiftAsync(long giftId = default, MessageSender ownerId = default, FormattedText text = default, bool isPrivate = default, bool payForUpgrade = default)
+                {
+                //test
+                    return ExecuteAsync(new SendGift
+                    {
+                        GiftId = giftId, OwnerId = ownerId, Text = text, IsPrivate = isPrivate, PayForUpgrade = payForUpgrade
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Sends a gift to another user or channel chat. May return an error with a message "STARGIFT_USAGE_LIMITED" if the gift was sold out
+                /// </summary>
+                Task<Ok> SendGiftAsync(long giftId = default, MessageSender ownerId = default, FormattedText text = default, bool isPrivate = default, bool payForUpgrade = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

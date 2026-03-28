@@ -46,6 +46,29 @@ namespace TdLib
                 SubscriptionId = subscriptionId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Reuses an active Telegram Star subscription to a channel chat and joins the chat again
+                /// </summary>
+                public Task<Ok> ReuseStarSubscriptionAsync(string subscriptionId = default)
+                {
+                //test
+                    return ExecuteAsync(new ReuseStarSubscription
+                    {
+                        SubscriptionId = subscriptionId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Reuses an active Telegram Star subscription to a channel chat and joins the chat again
+                /// </summary>
+                Task<Ok> ReuseStarSubscriptionAsync(string subscriptionId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -60,6 +60,29 @@ namespace TdLib
                 BusinessConnectionId = businessConnectionId, Photo = photo, IsPublic = isPublic
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes a profile photo of a business account; for bots only
+                /// </summary>
+                public Task<Ok> SetBusinessAccountProfilePhotoAsync(string businessConnectionId = default, InputChatPhoto photo = default, bool isPublic = default)
+                {
+                //test
+                    return ExecuteAsync(new SetBusinessAccountProfilePhoto
+                    {
+                        BusinessConnectionId = businessConnectionId, Photo = photo, IsPublic = isPublic
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes a profile photo of a business account; for bots only
+                /// </summary>
+                Task<Ok> SetBusinessAccountProfilePhotoAsync(string businessConnectionId = default, InputChatPhoto photo = default, bool isPublic = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

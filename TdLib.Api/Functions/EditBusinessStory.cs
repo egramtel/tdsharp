@@ -81,6 +81,29 @@ namespace TdLib
                 StoryPosterChatId = storyPosterChatId, StoryId = storyId, Content = content, Areas = areas, Caption = caption, PrivacySettings = privacySettings
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes a story posted by the bot on behalf of a business account; for bots only
+                /// </summary>
+                public Task<Story> EditBusinessStoryAsync(long storyPosterChatId = default, int storyId = default, InputStoryContent content = default, InputStoryAreas areas = default, FormattedText caption = default, StoryPrivacySettings privacySettings = default)
+                {
+                //test
+                    return ExecuteAsync(new EditBusinessStory
+                    {
+                        StoryPosterChatId = storyPosterChatId, StoryId = storyId, Content = content, Areas = areas, Caption = caption, PrivacySettings = privacySettings
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes a story posted by the bot on behalf of a business account; for bots only
+                /// </summary>
+                Task<Story> EditBusinessStoryAsync(long storyPosterChatId = default, int storyId = default, InputStoryContent content = default, InputStoryAreas areas = default, FormattedText caption = default, StoryPrivacySettings privacySettings = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

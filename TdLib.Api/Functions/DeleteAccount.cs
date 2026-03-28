@@ -55,6 +55,31 @@ namespace TdLib
                 Reason = reason, Password = password
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Deletes the account of the current user, deleting all information associated with the user from the server. The phone number of the account can be used to create a new account.
+                /// Can be called before authorization when the current authorization state is authorizationStateWaitPassword
+                /// </summary>
+                public Task<Ok> DeleteAccountAsync(string reason = default, string password = default)
+                {
+                //test
+                    return ExecuteAsync(new DeleteAccount
+                    {
+                        Reason = reason, Password = password
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Deletes the account of the current user, deleting all information associated with the user from the server. The phone number of the account can be used to create a new account.
+                /// Can be called before authorization when the current authorization state is authorizationStateWaitPassword
+                /// </summary>
+                Task<Ok> DeleteAccountAsync(string reason = default, string password = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

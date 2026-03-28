@@ -60,6 +60,29 @@ namespace TdLib
                 UserId = userId, OffsetChatId = offsetChatId, Limit = limit
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns a list of common group chats with a given user. Chats are sorted by their type and creation date
+                /// </summary>
+                public Task<Chats> GetGroupsInCommonAsync(long userId = default, long offsetChatId = default, int limit = default)
+                {
+                //test
+                    return ExecuteAsync(new GetGroupsInCommon
+                    {
+                        UserId = userId, OffsetChatId = offsetChatId, Limit = limit
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns a list of common group chats with a given user. Chats are sorted by their type and creation date
+                /// </summary>
+                Task<Chats> GetGroupsInCommonAsync(long userId = default, long offsetChatId = default, int limit = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

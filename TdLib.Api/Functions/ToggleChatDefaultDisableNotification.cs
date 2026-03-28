@@ -53,6 +53,29 @@ namespace TdLib
                 ChatId = chatId, DefaultDisableNotification = defaultDisableNotification
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes the value of the default disable_notification parameter, used when a message is sent to a chat
+                /// </summary>
+                public Task<Ok> ToggleChatDefaultDisableNotificationAsync(long chatId = default, bool defaultDisableNotification = default)
+                {
+                //test
+                    return ExecuteAsync(new ToggleChatDefaultDisableNotification
+                    {
+                        ChatId = chatId, DefaultDisableNotification = defaultDisableNotification
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes the value of the default disable_notification parameter, used when a message is sent to a chat
+                /// </summary>
+                Task<Ok> ToggleChatDefaultDisableNotificationAsync(long chatId = default, bool defaultDisableNotification = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

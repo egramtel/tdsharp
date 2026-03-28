@@ -53,6 +53,29 @@ namespace TdLib
                 BusinessConnectionId = businessConnectionId, Settings = settings
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes settings for gift receiving of a business account; for bots only
+                /// </summary>
+                public Task<Ok> SetBusinessAccountGiftSettingsAsync(string businessConnectionId = default, GiftSettings settings = default)
+                {
+                //test
+                    return ExecuteAsync(new SetBusinessAccountGiftSettings
+                    {
+                        BusinessConnectionId = businessConnectionId, Settings = settings
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes settings for gift receiving of a business account; for bots only
+                /// </summary>
+                Task<Ok> SetBusinessAccountGiftSettingsAsync(string businessConnectionId = default, GiftSettings settings = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

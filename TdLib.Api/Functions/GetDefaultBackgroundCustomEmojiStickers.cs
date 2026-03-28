@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns default list of custom emoji stickers for reply background
+                /// </summary>
+                public Task<Stickers> GetDefaultBackgroundCustomEmojiStickersAsync()
+                {
+                //test
+                    return ExecuteAsync(new GetDefaultBackgroundCustomEmojiStickers
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns default list of custom emoji stickers for reply background
+                /// </summary>
+                Task<Stickers> GetDefaultBackgroundCustomEmojiStickersAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

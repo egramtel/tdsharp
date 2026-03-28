@@ -53,6 +53,29 @@ namespace TdLib
                 SavedMessagesTopicId = savedMessagesTopicId, Date = date
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns the last message sent in a Saved Messages topic no later than the specified date
+                /// </summary>
+                public Task<Message> GetSavedMessagesTopicMessageByDateAsync(long savedMessagesTopicId = default, int date = default)
+                {
+                //test
+                    return ExecuteAsync(new GetSavedMessagesTopicMessageByDate
+                    {
+                        SavedMessagesTopicId = savedMessagesTopicId, Date = date
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns the last message sent in a Saved Messages topic no later than the specified date
+                /// </summary>
+                Task<Message> GetSavedMessagesTopicMessageByDateAsync(long savedMessagesTopicId = default, int date = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

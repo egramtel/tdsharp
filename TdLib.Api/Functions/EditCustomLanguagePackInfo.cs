@@ -46,6 +46,29 @@ namespace TdLib
                 Info = info
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Edits information about a custom local language pack in the current localization target. Can be called before authorization
+                /// </summary>
+                public Task<Ok> EditCustomLanguagePackInfoAsync(LanguagePackInfo info = default)
+                {
+                //test
+                    return ExecuteAsync(new EditCustomLanguagePackInfo
+                    {
+                        Info = info
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Edits information about a custom local language pack in the current localization target. Can be called before authorization
+                /// </summary>
+                Task<Ok> EditCustomLanguagePackInfoAsync(LanguagePackInfo info = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

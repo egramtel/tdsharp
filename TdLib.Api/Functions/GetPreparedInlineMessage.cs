@@ -53,6 +53,29 @@ namespace TdLib
                 BotUserId = botUserId, PreparedMessageId = preparedMessageId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Saves an inline message to be sent by the given user
+                /// </summary>
+                public Task<PreparedInlineMessage> GetPreparedInlineMessageAsync(long botUserId = default, string preparedMessageId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetPreparedInlineMessage
+                    {
+                        BotUserId = botUserId, PreparedMessageId = preparedMessageId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Saves an inline message to be sent by the given user
+                /// </summary>
+                Task<PreparedInlineMessage> GetPreparedInlineMessageAsync(long botUserId = default, string preparedMessageId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

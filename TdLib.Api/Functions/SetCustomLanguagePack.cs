@@ -52,6 +52,29 @@ namespace TdLib
                 Info = info, Strings = strings
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Adds or changes a custom local language pack to the current localization target
+                /// </summary>
+                public Task<Ok> SetCustomLanguagePackAsync(LanguagePackInfo info = default, LanguagePackString[] strings = default)
+                {
+                //test
+                    return ExecuteAsync(new SetCustomLanguagePack
+                    {
+                        Info = info, Strings = strings
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Adds or changes a custom local language pack to the current localization target
+                /// </summary>
+                Task<Ok> SetCustomLanguagePackAsync(LanguagePackInfo info = default, LanguagePackString[] strings = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

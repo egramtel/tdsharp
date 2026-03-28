@@ -46,6 +46,29 @@ namespace TdLib
                 Setting = setting
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns the current privacy settings
+                /// </summary>
+                public Task<UserPrivacySettingRules> GetUserPrivacySettingRulesAsync(UserPrivacySetting setting = default)
+                {
+                //test
+                    return ExecuteAsync(new GetUserPrivacySettingRules
+                    {
+                        Setting = setting
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns the current privacy settings
+                /// </summary>
+                Task<UserPrivacySettingRules> GetUserPrivacySettingRulesAsync(UserPrivacySetting setting = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

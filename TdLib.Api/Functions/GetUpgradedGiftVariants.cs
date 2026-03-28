@@ -60,6 +60,29 @@ namespace TdLib
                 RegularGiftId = regularGiftId, ReturnUpgradeModels = returnUpgradeModels, ReturnCraftModels = returnCraftModels
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns all possible variants of upgraded gifts for a regular gift
+                /// </summary>
+                public Task<GiftUpgradeVariants> GetUpgradedGiftVariantsAsync(long regularGiftId = default, bool returnUpgradeModels = default, bool returnCraftModels = default)
+                {
+                //test
+                    return ExecuteAsync(new GetUpgradedGiftVariants
+                    {
+                        RegularGiftId = regularGiftId, ReturnUpgradeModels = returnUpgradeModels, ReturnCraftModels = returnCraftModels
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns all possible variants of upgraded gifts for a regular gift
+                /// </summary>
+                Task<GiftUpgradeVariants> GetUpgradedGiftVariantsAsync(long regularGiftId = default, bool returnUpgradeModels = default, bool returnCraftModels = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

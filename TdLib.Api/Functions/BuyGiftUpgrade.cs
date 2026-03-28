@@ -60,6 +60,29 @@ namespace TdLib
                 OwnerId = ownerId, PrepaidUpgradeHash = prepaidUpgradeHash, StarCount = starCount
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Pays for upgrade of a regular gift that is owned by another user or channel chat
+                /// </summary>
+                public Task<Ok> BuyGiftUpgradeAsync(MessageSender ownerId = default, string prepaidUpgradeHash = default, long starCount = default)
+                {
+                //test
+                    return ExecuteAsync(new BuyGiftUpgrade
+                    {
+                        OwnerId = ownerId, PrepaidUpgradeHash = prepaidUpgradeHash, StarCount = starCount
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Pays for upgrade of a regular gift that is owned by another user or channel chat
+                /// </summary>
+                Task<Ok> BuyGiftUpgradeAsync(MessageSender ownerId = default, string prepaidUpgradeHash = default, long starCount = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

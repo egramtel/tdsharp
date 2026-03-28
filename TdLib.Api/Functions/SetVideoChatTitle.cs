@@ -53,6 +53,29 @@ namespace TdLib
                 GroupCallId = groupCallId, Title = title
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Sets title of a video chat; requires groupCall.can_be_managed right
+                /// </summary>
+                public Task<Ok> SetVideoChatTitleAsync(int groupCallId = default, string title = default)
+                {
+                //test
+                    return ExecuteAsync(new SetVideoChatTitle
+                    {
+                        GroupCallId = groupCallId, Title = title
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Sets title of a video chat; requires groupCall.can_be_managed right
+                /// </summary>
+                Task<Ok> SetVideoChatTitleAsync(int groupCallId = default, string title = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

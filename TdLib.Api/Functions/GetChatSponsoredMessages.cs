@@ -46,6 +46,29 @@ namespace TdLib
                 ChatId = chatId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns sponsored messages to be shown in a chat; for channel chats and chats with bots only
+                /// </summary>
+                public Task<SponsoredMessages> GetChatSponsoredMessagesAsync(long chatId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetChatSponsoredMessages
+                    {
+                        ChatId = chatId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns sponsored messages to be shown in a chat; for channel chats and chats with bots only
+                /// </summary>
+                Task<SponsoredMessages> GetChatSponsoredMessagesAsync(long chatId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

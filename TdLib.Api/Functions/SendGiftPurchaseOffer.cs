@@ -74,6 +74,29 @@ namespace TdLib
                 OwnerId = ownerId, GiftName = giftName, Price = price, Duration = duration, PaidMessageStarCount = paidMessageStarCount
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Sends an offer to purchase an upgraded gift
+                /// </summary>
+                public Task<Ok> SendGiftPurchaseOfferAsync(MessageSender ownerId = default, string giftName = default, GiftResalePrice price = default, int duration = default, long paidMessageStarCount = default)
+                {
+                //test
+                    return ExecuteAsync(new SendGiftPurchaseOffer
+                    {
+                        OwnerId = ownerId, GiftName = giftName, Price = price, Duration = duration, PaidMessageStarCount = paidMessageStarCount
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Sends an offer to purchase an upgraded gift
+                /// </summary>
+                Task<Ok> SendGiftPurchaseOfferAsync(MessageSender ownerId = default, string giftName = default, GiftResalePrice price = default, int duration = default, long paidMessageStarCount = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -53,6 +53,29 @@ namespace TdLib
                 ChatId = chatId, Permissions = permissions
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes the chat members permissions. Supported only for basic groups and supergroups. Requires can_restrict_members administrator right
+                /// </summary>
+                public Task<Ok> SetChatPermissionsAsync(long chatId = default, ChatPermissions permissions = default)
+                {
+                //test
+                    return ExecuteAsync(new SetChatPermissions
+                    {
+                        ChatId = chatId, Permissions = permissions
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes the chat members permissions. Supported only for basic groups and supergroups. Requires can_restrict_members administrator right
+                /// </summary>
+                Task<Ok> SetChatPermissionsAsync(long chatId = default, ChatPermissions permissions = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

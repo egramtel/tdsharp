@@ -60,6 +60,29 @@ namespace TdLib
                 ChatId = chatId, TopicId = topicId, IsMarkedAsUnread = isMarkedAsUnread
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes the marked as unread state of the topic in a channel direct messages chat administered by the current user
+                /// </summary>
+                public Task<Ok> SetDirectMessagesChatTopicIsMarkedAsUnreadAsync(long chatId = default, long topicId = default, bool isMarkedAsUnread = default)
+                {
+                //test
+                    return ExecuteAsync(new SetDirectMessagesChatTopicIsMarkedAsUnread
+                    {
+                        ChatId = chatId, TopicId = topicId, IsMarkedAsUnread = isMarkedAsUnread
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes the marked as unread state of the topic in a channel direct messages chat administered by the current user
+                /// </summary>
+                Task<Ok> SetDirectMessagesChatTopicIsMarkedAsUnreadAsync(long chatId = default, long topicId = default, bool isMarkedAsUnread = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

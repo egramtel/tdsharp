@@ -53,6 +53,29 @@ namespace TdLib
                 MessageId = messageId, Accept = accept
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Handles a pending gift purchase offer
+                /// </summary>
+                public Task<Ok> ProcessGiftPurchaseOfferAsync(long messageId = default, bool accept = default)
+                {
+                //test
+                    return ExecuteAsync(new ProcessGiftPurchaseOffer
+                    {
+                        MessageId = messageId, Accept = accept
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Handles a pending gift purchase offer
+                /// </summary>
+                Task<Ok> ProcessGiftPurchaseOfferAsync(long messageId = default, bool accept = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

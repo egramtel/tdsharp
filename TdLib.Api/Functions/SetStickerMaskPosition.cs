@@ -53,6 +53,29 @@ namespace TdLib
                 Sticker = sticker, MaskPosition = maskPosition
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes the mask position of a mask sticker. The sticker must belong to a mask sticker set that is owned by the current user
+                /// </summary>
+                public Task<Ok> SetStickerMaskPositionAsync(InputFile sticker = default, MaskPosition maskPosition = default)
+                {
+                //test
+                    return ExecuteAsync(new SetStickerMaskPosition
+                    {
+                        Sticker = sticker, MaskPosition = maskPosition
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes the mask position of a mask sticker. The sticker must belong to a mask sticker set that is owned by the current user
+                /// </summary>
+                Task<Ok> SetStickerMaskPositionAsync(InputFile sticker = default, MaskPosition maskPosition = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

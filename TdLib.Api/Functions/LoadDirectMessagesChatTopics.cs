@@ -55,6 +55,31 @@ namespace TdLib
                 ChatId = chatId, Limit = limit
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Loads more topics in a channel direct messages chat administered by the current user. The loaded topics will be sent through updateDirectMessagesChatTopic.
+                /// Topics are sorted by their topic.order in descending order. Returns a 404 error if all topics have been loaded
+                /// </summary>
+                public Task<Ok> LoadDirectMessagesChatTopicsAsync(long chatId = default, int limit = default)
+                {
+                //test
+                    return ExecuteAsync(new LoadDirectMessagesChatTopics
+                    {
+                        ChatId = chatId, Limit = limit
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Loads more topics in a channel direct messages chat administered by the current user. The loaded topics will be sent through updateDirectMessagesChatTopic.
+                /// Topics are sorted by their topic.order in descending order. Returns a 404 error if all topics have been loaded
+                /// </summary>
+                Task<Ok> LoadDirectMessagesChatTopicsAsync(long chatId = default, int limit = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

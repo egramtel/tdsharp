@@ -46,6 +46,29 @@ namespace TdLib
                 ChatId = chatId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns information about a newest pinned message in the chat. Returns a 404 error if the message doesn't exist
+                /// </summary>
+                public Task<Message> GetChatPinnedMessageAsync(long chatId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetChatPinnedMessage
+                    {
+                        ChatId = chatId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns information about a newest pinned message in the chat. Returns a 404 error if the message doesn't exist
+                /// </summary>
+                Task<Message> GetChatPinnedMessageAsync(long chatId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

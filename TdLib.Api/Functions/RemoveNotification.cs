@@ -53,6 +53,29 @@ namespace TdLib
                 NotificationGroupId = notificationGroupId, NotificationId = notificationId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Removes an active notification from notification list. Needs to be called only if the notification is removed by the current user
+                /// </summary>
+                public Task<Ok> RemoveNotificationAsync(int notificationGroupId = default, int notificationId = default)
+                {
+                //test
+                    return ExecuteAsync(new RemoveNotification
+                    {
+                        NotificationGroupId = notificationGroupId, NotificationId = notificationId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Removes an active notification from notification list. Needs to be called only if the notification is removed by the current user
+                /// </summary>
+                Task<Ok> RemoveNotificationAsync(int notificationGroupId = default, int notificationId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

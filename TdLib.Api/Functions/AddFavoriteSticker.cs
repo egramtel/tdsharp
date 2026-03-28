@@ -48,6 +48,31 @@ namespace TdLib
                 Sticker = sticker
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Adds a new sticker to the list of favorite stickers. The new sticker is added to the top of the list. If the sticker was already in the list, it is removed from the list first.
+                /// Only stickers belonging to a sticker set or in WEBP or WEBM format can be added to this list. Emoji stickers can't be added to favorite stickers
+                /// </summary>
+                public Task<Ok> AddFavoriteStickerAsync(InputFile sticker = default)
+                {
+                //test
+                    return ExecuteAsync(new AddFavoriteSticker
+                    {
+                        Sticker = sticker
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Adds a new sticker to the list of favorite stickers. The new sticker is added to the top of the list. If the sticker was already in the list, it is removed from the list first.
+                /// Only stickers belonging to a sticker set or in WEBP or WEBM format can be added to this list. Emoji stickers can't be added to favorite stickers
+                /// </summary>
+                Task<Ok> AddFavoriteStickerAsync(InputFile sticker = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

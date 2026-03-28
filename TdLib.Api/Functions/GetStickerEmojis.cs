@@ -46,6 +46,29 @@ namespace TdLib
                 Sticker = sticker
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns emoji corresponding to a sticker. The list is only for informational purposes, because a sticker is always sent with a fixed emoji from the corresponding Sticker object
+                /// </summary>
+                public Task<Emojis> GetStickerEmojisAsync(InputFile sticker = default)
+                {
+                //test
+                    return ExecuteAsync(new GetStickerEmojis
+                    {
+                        Sticker = sticker
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns emoji corresponding to a sticker. The list is only for informational purposes, because a sticker is always sent with a fixed emoji from the corresponding Sticker object
+                /// </summary>
+                Task<Emojis> GetStickerEmojisAsync(InputFile sticker = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

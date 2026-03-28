@@ -46,6 +46,29 @@ namespace TdLib
                 BasicGroupId = basicGroupId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns information about a basic group by its identifier. This is an offline method if the current user is not a bot
+                /// </summary>
+                public Task<BasicGroup> GetBasicGroupAsync(long basicGroupId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetBasicGroup
+                    {
+                        BasicGroupId = basicGroupId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns information about a basic group by its identifier. This is an offline method if the current user is not a bot
+                /// </summary>
+                Task<BasicGroup> GetBasicGroupAsync(long basicGroupId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

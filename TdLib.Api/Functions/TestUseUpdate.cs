@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Does nothing and ensures that the Update object is used; for testing only. This is an offline method. Can be called before authorization
+                /// </summary>
+                public Task<Update> TestUseUpdateAsync()
+                {
+                //test
+                    return ExecuteAsync(new TestUseUpdate
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Does nothing and ensures that the Update object is used; for testing only. This is an offline method. Can be called before authorization
+                /// </summary>
+                Task<Update> TestUseUpdateAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

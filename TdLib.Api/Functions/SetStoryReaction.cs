@@ -67,6 +67,29 @@ namespace TdLib
                 StoryPosterChatId = storyPosterChatId, StoryId = storyId, ReactionType = reactionType, UpdateRecentReactions = updateRecentReactions
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes chosen reaction on a story that has already been sent; not supported for live stories
+                /// </summary>
+                public Task<Ok> SetStoryReactionAsync(long storyPosterChatId = default, int storyId = default, ReactionType reactionType = default, bool updateRecentReactions = default)
+                {
+                //test
+                    return ExecuteAsync(new SetStoryReaction
+                    {
+                        StoryPosterChatId = storyPosterChatId, StoryId = storyId, ReactionType = reactionType, UpdateRecentReactions = updateRecentReactions
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes chosen reaction on a story that has already been sent; not supported for live stories
+                /// </summary>
+                Task<Ok> SetStoryReactionAsync(long storyPosterChatId = default, int storyId = default, ReactionType reactionType = default, bool updateRecentReactions = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

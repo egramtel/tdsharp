@@ -67,6 +67,29 @@ namespace TdLib
                 LanguagePackDatabasePath = languagePackDatabasePath, LocalizationTarget = localizationTarget, LanguagePackId = languagePackId, Key = key
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns a string stored in the local database from the specified localization target and language pack by its key. Returns a 404 error if the string is not found. Can be called synchronously
+                /// </summary>
+                public Task<LanguagePackStringValue> GetLanguagePackStringAsync(string languagePackDatabasePath = default, string localizationTarget = default, string languagePackId = default, string key = default)
+                {
+                //test
+                    return ExecuteAsync(new GetLanguagePackString
+                    {
+                        LanguagePackDatabasePath = languagePackDatabasePath, LocalizationTarget = localizationTarget, LanguagePackId = languagePackId, Key = key
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns a string stored in the local database from the specified localization target and language pack by its key. Returns a 404 error if the string is not found. Can be called synchronously
+                /// </summary>
+                Task<LanguagePackStringValue> GetLanguagePackStringAsync(string languagePackDatabasePath = default, string localizationTarget = default, string languagePackId = default, string key = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

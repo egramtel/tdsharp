@@ -41,6 +41,29 @@ $FUNC_FIELDS
                 $FUNC_ARGS
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// $FUNC_DESCRIPTION
+                /// </summary>
+                public Task<$RETURN_TYPE_NAME> $FUNC_NAMEAsync($FUNC_PARAMS_PARTIALS)
+                {
+                //test
+                    return ExecuteAsync(new $FUNC_NAME
+                    {
+                        $FUNC_ARGS
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// $FUNC_DESCRIPTION
+                /// </summary>
+                Task<$RETURN_TYPE_NAME> $FUNC_NAMEAsync($FUNC_PARAMS_PARTIALS);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

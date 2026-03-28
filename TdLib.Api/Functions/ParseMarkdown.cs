@@ -46,6 +46,29 @@ namespace TdLib
                 Text = text
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Parses Markdown entities in a human-friendly format, ignoring markup errors. Can be called synchronously
+                /// </summary>
+                public Task<FormattedText> ParseMarkdownAsync(FormattedText text = default)
+                {
+                //test
+                    return ExecuteAsync(new ParseMarkdown
+                    {
+                        Text = text
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Parses Markdown entities in a human-friendly format, ignoring markup errors. Can be called synchronously
+                /// </summary>
+                Task<FormattedText> ParseMarkdownAsync(FormattedText text = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

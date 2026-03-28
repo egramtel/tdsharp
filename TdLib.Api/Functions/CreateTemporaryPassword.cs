@@ -53,6 +53,29 @@ namespace TdLib
                 Password = password, ValidFor = validFor
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Creates a new temporary password for processing payments
+                /// </summary>
+                public Task<TemporaryPasswordState> CreateTemporaryPasswordAsync(string password = default, int validFor = default)
+                {
+                //test
+                    return ExecuteAsync(new CreateTemporaryPassword
+                    {
+                        Password = password, ValidFor = validFor
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Creates a new temporary password for processing payments
+                /// </summary>
+                Task<TemporaryPasswordState> CreateTemporaryPasswordAsync(string password = default, int validFor = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

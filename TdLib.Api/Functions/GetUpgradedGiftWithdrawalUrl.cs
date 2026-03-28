@@ -53,6 +53,29 @@ namespace TdLib
                 ReceivedGiftId = receivedGiftId, Password = password
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns a URL for upgraded gift withdrawal in the TON blockchain as an NFT; requires owner privileges for gifts owned by a chat
+                /// </summary>
+                public Task<HttpUrl> GetUpgradedGiftWithdrawalUrlAsync(string receivedGiftId = default, string password = default)
+                {
+                //test
+                    return ExecuteAsync(new GetUpgradedGiftWithdrawalUrl
+                    {
+                        ReceivedGiftId = receivedGiftId, Password = password
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns a URL for upgraded gift withdrawal in the TON blockchain as an NFT; requires owner privileges for gifts owned by a chat
+                /// </summary>
+                Task<HttpUrl> GetUpgradedGiftWithdrawalUrlAsync(string receivedGiftId = default, string password = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

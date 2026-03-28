@@ -46,6 +46,29 @@ namespace TdLib
                 X = x
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns the received string; for testing only. This is an offline method. Can be called before authorization
+                /// </summary>
+                public Task<TestString> TestCallStringAsync(string x = default)
+                {
+                //test
+                    return ExecuteAsync(new TestCallString
+                    {
+                        X = x
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns the received string; for testing only. This is an offline method. Can be called before authorization
+                /// </summary>
+                Task<TestString> TestCallStringAsync(string x = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -60,6 +60,29 @@ namespace TdLib
                 GenerationId = generationId, Offset = offset, Data = data
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Writes a part of a generated file. This method is intended to be used only if the application has no direct access to TDLib's file system, because it is usually slower than a direct write to the destination file
+                /// </summary>
+                public Task<Ok> WriteGeneratedFilePartAsync(long generationId = default, long offset = default, byte[] data = default)
+                {
+                //test
+                    return ExecuteAsync(new WriteGeneratedFilePart
+                    {
+                        GenerationId = generationId, Offset = offset, Data = data
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Writes a part of a generated file. This method is intended to be used only if the application has no direct access to TDLib's file system, because it is usually slower than a direct write to the destination file
+                /// </summary>
+                Task<Ok> WriteGeneratedFilePartAsync(long generationId = default, long offset = default, byte[] data = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -46,6 +46,29 @@ namespace TdLib
                 InviteLink = inviteLink
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Checks the validity of an invite link for a chat folder and returns information about the corresponding chat folder
+                /// </summary>
+                public Task<ChatFolderInviteLinkInfo> CheckChatFolderInviteLinkAsync(string inviteLink = default)
+                {
+                //test
+                    return ExecuteAsync(new CheckChatFolderInviteLink
+                    {
+                        InviteLink = inviteLink
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Checks the validity of an invite link for a chat folder and returns information about the corresponding chat folder
+                /// </summary>
+                Task<ChatFolderInviteLinkInfo> CheckChatFolderInviteLinkAsync(string inviteLink = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -53,6 +53,29 @@ namespace TdLib
                 BusinessConnectionId = businessConnectionId, Username = username
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes the editable username of a business account; for bots only
+                /// </summary>
+                public Task<Ok> SetBusinessAccountUsernameAsync(string businessConnectionId = default, string username = default)
+                {
+                //test
+                    return ExecuteAsync(new SetBusinessAccountUsername
+                    {
+                        BusinessConnectionId = businessConnectionId, Username = username
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes the editable username of a business account; for bots only
+                /// </summary>
+                Task<Ok> SetBusinessAccountUsernameAsync(string businessConnectionId = default, string username = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

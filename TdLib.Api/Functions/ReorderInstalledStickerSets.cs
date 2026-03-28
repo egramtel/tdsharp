@@ -52,6 +52,29 @@ namespace TdLib
                 StickerType = stickerType, StickerSetIds = stickerSetIds
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes the order of installed sticker sets
+                /// </summary>
+                public Task<Ok> ReorderInstalledStickerSetsAsync(StickerType stickerType = default, long[] stickerSetIds = default)
+                {
+                //test
+                    return ExecuteAsync(new ReorderInstalledStickerSets
+                    {
+                        StickerType = stickerType, StickerSetIds = stickerSetIds
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes the order of installed sticker sets
+                /// </summary>
+                Task<Ok> ReorderInstalledStickerSetsAsync(StickerType stickerType = default, long[] stickerSetIds = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

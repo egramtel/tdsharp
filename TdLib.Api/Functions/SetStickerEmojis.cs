@@ -53,6 +53,29 @@ namespace TdLib
                 Sticker = sticker, Emojis = emojis
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes the list of emojis corresponding to a sticker. The sticker must belong to a regular or custom emoji sticker set that is owned by the current user
+                /// </summary>
+                public Task<Ok> SetStickerEmojisAsync(InputFile sticker = default, string emojis = default)
+                {
+                //test
+                    return ExecuteAsync(new SetStickerEmojis
+                    {
+                        Sticker = sticker, Emojis = emojis
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes the list of emojis corresponding to a sticker. The sticker must belong to a regular or custom emoji sticker set that is owned by the current user
+                /// </summary>
+                Task<Ok> SetStickerEmojisAsync(InputFile sticker = default, string emojis = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

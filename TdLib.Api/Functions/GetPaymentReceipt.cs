@@ -53,6 +53,29 @@ namespace TdLib
                 ChatId = chatId, MessageId = messageId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns information about a successful payment
+                /// </summary>
+                public Task<PaymentReceipt> GetPaymentReceiptAsync(long chatId = default, long messageId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetPaymentReceipt
+                    {
+                        ChatId = chatId, MessageId = messageId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns information about a successful payment
+                /// </summary>
+                Task<PaymentReceipt> GetPaymentReceiptAsync(long chatId = default, long messageId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

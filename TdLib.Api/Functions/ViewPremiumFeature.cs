@@ -46,6 +46,29 @@ namespace TdLib
                 Feature = feature
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Informs TDLib that the user viewed detailed information about a Premium feature on the Premium features screen
+                /// </summary>
+                public Task<Ok> ViewPremiumFeatureAsync(PremiumFeature feature = default)
+                {
+                //test
+                    return ExecuteAsync(new ViewPremiumFeature
+                    {
+                        Feature = feature
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Informs TDLib that the user viewed detailed information about a Premium feature on the Premium features screen
+                /// </summary>
+                Task<Ok> ViewPremiumFeatureAsync(PremiumFeature feature = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

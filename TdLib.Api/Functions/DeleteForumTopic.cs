@@ -55,6 +55,31 @@ namespace TdLib
                 ChatId = chatId, ForumTopicId = forumTopicId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Deletes all messages from a topic in a forum supergroup chat or a chat with a bot with topics; requires can_delete_messages administrator right in the supergroup
+                /// unless the user is creator of the topic, the topic has no messages from other users and has at most 11 messages
+                /// </summary>
+                public Task<Ok> DeleteForumTopicAsync(long chatId = default, int forumTopicId = default)
+                {
+                //test
+                    return ExecuteAsync(new DeleteForumTopic
+                    {
+                        ChatId = chatId, ForumTopicId = forumTopicId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Deletes all messages from a topic in a forum supergroup chat or a chat with a bot with topics; requires can_delete_messages administrator right in the supergroup
+                /// unless the user is creator of the topic, the topic has no messages from other users and has at most 11 messages
+                /// </summary>
+                Task<Ok> DeleteForumTopicAsync(long chatId = default, int forumTopicId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

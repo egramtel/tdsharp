@@ -54,6 +54,29 @@ namespace TdLib
                 VerificationId = verificationId, Token = token
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Informs TDLib that application or reCAPTCHA verification has been completed. Can be called before authorization
+                /// </summary>
+                public Task<Ok> SetApplicationVerificationTokenAsync(long verificationId = default, string token = default)
+                {
+                //test
+                    return ExecuteAsync(new SetApplicationVerificationToken
+                    {
+                        VerificationId = verificationId, Token = token
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Informs TDLib that application or reCAPTCHA verification has been completed. Can be called before authorization
+                /// </summary>
+                Task<Ok> SetApplicationVerificationTokenAsync(long verificationId = default, string token = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

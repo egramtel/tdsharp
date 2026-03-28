@@ -46,6 +46,29 @@ namespace TdLib
                 Type = type
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Checks whether the maximum number of owned public chats has been reached. Returns corresponding error if the limit was reached. The limit can be increased with Telegram Premium
+                /// </summary>
+                public Task<Ok> CheckCreatedPublicChatsLimitAsync(PublicChatType type = default)
+                {
+                //test
+                    return ExecuteAsync(new CheckCreatedPublicChatsLimit
+                    {
+                        Type = type
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Checks whether the maximum number of owned public chats has been reached. Returns corresponding error if the limit was reached. The limit can be increased with Telegram Premium
+                /// </summary>
+                Task<Ok> CheckCreatedPublicChatsLimitAsync(PublicChatType type = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

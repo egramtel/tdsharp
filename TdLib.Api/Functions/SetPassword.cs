@@ -74,6 +74,29 @@ namespace TdLib
                 OldPassword = oldPassword, NewPassword = newPassword, NewHint = newHint, SetRecoveryEmailAddress = setRecoveryEmailAddress, NewRecoveryEmailAddress = newRecoveryEmailAddress
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes the 2-step verification password for the current user. If a new recovery email address is specified, then the change will not be applied until the new recovery email address is confirmed
+                /// </summary>
+                public Task<PasswordState> SetPasswordAsync(string oldPassword = default, string newPassword = default, string newHint = default, bool setRecoveryEmailAddress = default, string newRecoveryEmailAddress = default)
+                {
+                //test
+                    return ExecuteAsync(new SetPassword
+                    {
+                        OldPassword = oldPassword, NewPassword = newPassword, NewHint = newHint, SetRecoveryEmailAddress = setRecoveryEmailAddress, NewRecoveryEmailAddress = newRecoveryEmailAddress
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes the 2-step verification password for the current user. If a new recovery email address is specified, then the change will not be applied until the new recovery email address is confirmed
+                /// </summary>
+                Task<PasswordState> SetPasswordAsync(string oldPassword = default, string newPassword = default, string newHint = default, bool setRecoveryEmailAddress = default, string newRecoveryEmailAddress = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -53,6 +53,29 @@ namespace TdLib
                 UserId = userId, RefundPayments = refundPayments
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Allows the specified user to send unpaid private messages to the current user by adding a rule to userPrivacySettingAllowUnpaidMessages
+                /// </summary>
+                public Task<Ok> AllowUnpaidMessagesFromUserAsync(long userId = default, bool refundPayments = default)
+                {
+                //test
+                    return ExecuteAsync(new AllowUnpaidMessagesFromUser
+                    {
+                        UserId = userId, RefundPayments = refundPayments
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Allows the specified user to send unpaid private messages to the current user by adding a rule to userPrivacySettingAllowUnpaidMessages
+                /// </summary>
+                Task<Ok> AllowUnpaidMessagesFromUserAsync(long userId = default, bool refundPayments = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

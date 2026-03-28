@@ -53,6 +53,29 @@ namespace TdLib
                 SupergroupId = supergroupId, JoinToSendMessages = joinToSendMessages
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Toggles whether joining is mandatory to send messages to a discussion supergroup; requires can_restrict_members administrator right
+                /// </summary>
+                public Task<Ok> ToggleSupergroupJoinToSendMessagesAsync(long supergroupId = default, bool joinToSendMessages = default)
+                {
+                //test
+                    return ExecuteAsync(new ToggleSupergroupJoinToSendMessages
+                    {
+                        SupergroupId = supergroupId, JoinToSendMessages = joinToSendMessages
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Toggles whether joining is mandatory to send messages to a discussion supergroup; requires can_restrict_members administrator right
+                /// </summary>
+                Task<Ok> ToggleSupergroupJoinToSendMessagesAsync(long supergroupId = default, bool joinToSendMessages = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -46,6 +46,29 @@ namespace TdLib
                 ChatId = chatId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns the list of participant identifiers, on whose behalf a video chat in the chat can be joined
+                /// </summary>
+                public Task<MessageSenders> GetVideoChatAvailableParticipantsAsync(long chatId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetVideoChatAvailableParticipants
+                    {
+                        ChatId = chatId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns the list of participant identifiers, on whose behalf a video chat in the chat can be joined
+                /// </summary>
+                Task<MessageSenders> GetVideoChatAvailableParticipantsAsync(long chatId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

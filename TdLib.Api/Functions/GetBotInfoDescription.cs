@@ -53,6 +53,29 @@ namespace TdLib
                 BotUserId = botUserId, LanguageCode = languageCode
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns the text shown in the chat with a bot if the chat is empty in the given language. Can be called only if userTypeBot.can_be_edited == true
+                /// </summary>
+                public Task<Text> GetBotInfoDescriptionAsync(long botUserId = default, string languageCode = default)
+                {
+                //test
+                    return ExecuteAsync(new GetBotInfoDescription
+                    {
+                        BotUserId = botUserId, LanguageCode = languageCode
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns the text shown in the chat with a bot if the chat is empty in the given language. Can be called only if userTypeBot.can_be_edited == true
+                /// </summary>
+                Task<Text> GetBotInfoDescriptionAsync(long botUserId = default, string languageCode = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

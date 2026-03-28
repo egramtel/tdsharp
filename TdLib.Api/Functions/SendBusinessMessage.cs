@@ -95,6 +95,29 @@ namespace TdLib
                 BusinessConnectionId = businessConnectionId, ChatId = chatId, ReplyTo = replyTo, DisableNotification = disableNotification, ProtectContent = protectContent, EffectId = effectId, ReplyMarkup = replyMarkup, InputMessageContent = inputMessageContent
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Sends a message on behalf of a business account; for bots only. Returns the message after it was sent
+                /// </summary>
+                public Task<BusinessMessage> SendBusinessMessageAsync(string businessConnectionId = default, long chatId = default, InputMessageReplyTo replyTo = default, bool disableNotification = default, bool protectContent = default, long effectId = default, ReplyMarkup replyMarkup = default, InputMessageContent inputMessageContent = default)
+                {
+                //test
+                    return ExecuteAsync(new SendBusinessMessage
+                    {
+                        BusinessConnectionId = businessConnectionId, ChatId = chatId, ReplyTo = replyTo, DisableNotification = disableNotification, ProtectContent = protectContent, EffectId = effectId, ReplyMarkup = replyMarkup, InputMessageContent = inputMessageContent
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Sends a message on behalf of a business account; for bots only. Returns the message after it was sent
+                /// </summary>
+                Task<BusinessMessage> SendBusinessMessageAsync(string businessConnectionId = default, long chatId = default, InputMessageReplyTo replyTo = default, bool disableNotification = default, bool protectContent = default, long effectId = default, ReplyMarkup replyMarkup = default, InputMessageContent inputMessageContent = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

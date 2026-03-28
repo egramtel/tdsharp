@@ -53,6 +53,29 @@ namespace TdLib
                 ChatId = chatId, IsTranslatable = isTranslatable
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes the translatable state of a chat
+                /// </summary>
+                public Task<Ok> ToggleChatIsTranslatableAsync(long chatId = default, bool isTranslatable = default)
+                {
+                //test
+                    return ExecuteAsync(new ToggleChatIsTranslatable
+                    {
+                        ChatId = chatId, IsTranslatable = isTranslatable
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes the translatable state of a chat
+                /// </summary>
+                Task<Ok> ToggleChatIsTranslatableAsync(long chatId = default, bool isTranslatable = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

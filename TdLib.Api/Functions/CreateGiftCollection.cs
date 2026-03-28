@@ -61,6 +61,31 @@ namespace TdLib
                 OwnerId = ownerId, Name = name, ReceivedGiftIds = receivedGiftIds
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Creates a collection from gifts on the current user's or a channel's profile page; requires can_post_messages administrator right in the channel chat.
+                /// An owner can have up to getOption("gift_collection_count_max") gift collections. The new collection will be added to the end of the gift collection list of the owner. Returns the created collection
+                /// </summary>
+                public Task<GiftCollection> CreateGiftCollectionAsync(MessageSender ownerId = default, string name = default, string[] receivedGiftIds = default)
+                {
+                //test
+                    return ExecuteAsync(new CreateGiftCollection
+                    {
+                        OwnerId = ownerId, Name = name, ReceivedGiftIds = receivedGiftIds
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Creates a collection from gifts on the current user's or a channel's profile page; requires can_post_messages administrator right in the channel chat.
+                /// An owner can have up to getOption("gift_collection_count_max") gift collections. The new collection will be added to the end of the gift collection list of the owner. Returns the created collection
+                /// </summary>
+                Task<GiftCollection> CreateGiftCollectionAsync(MessageSender ownerId = default, string name = default, string[] receivedGiftIds = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

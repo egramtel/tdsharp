@@ -67,6 +67,29 @@ namespace TdLib
                 BotUserId = botUserId, Scope = scope, PublicKey = publicKey, Nonce = nonce
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns a Telegram Passport authorization form for sharing data with a service
+                /// </summary>
+                public Task<PassportAuthorizationForm> GetPassportAuthorizationFormAsync(long botUserId = default, string scope = default, string publicKey = default, string nonce = default)
+                {
+                //test
+                    return ExecuteAsync(new GetPassportAuthorizationForm
+                    {
+                        BotUserId = botUserId, Scope = scope, PublicKey = publicKey, Nonce = nonce
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns a Telegram Passport authorization form for sharing data with a service
+                /// </summary>
+                Task<PassportAuthorizationForm> GetPassportAuthorizationFormAsync(long botUserId = default, string scope = default, string publicKey = default, string nonce = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

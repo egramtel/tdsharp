@@ -90,6 +90,31 @@ namespace TdLib
                 ChatId = chatId, MessageId = messageId, ReplyMarkup = replyMarkup, Location = location, LivePeriod = livePeriod, Heading = heading, ProximityAlertRadius = proximityAlertRadius
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Edits the message content of a live location. Messages can be edited for a limited period of time specified in the live location.
+                /// Returns the edited message after the edit is completed on the server side
+                /// </summary>
+                public Task<Message> EditMessageLiveLocationAsync(long chatId = default, long messageId = default, ReplyMarkup replyMarkup = default, Location location = default, int livePeriod = default, int heading = default, int proximityAlertRadius = default)
+                {
+                //test
+                    return ExecuteAsync(new EditMessageLiveLocation
+                    {
+                        ChatId = chatId, MessageId = messageId, ReplyMarkup = replyMarkup, Location = location, LivePeriod = livePeriod, Heading = heading, ProximityAlertRadius = proximityAlertRadius
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Edits the message content of a live location. Messages can be edited for a limited period of time specified in the live location.
+                /// Returns the edited message after the edit is completed on the server side
+                /// </summary>
+                Task<Message> EditMessageLiveLocationAsync(long chatId = default, long messageId = default, ReplyMarkup replyMarkup = default, Location location = default, int livePeriod = default, int heading = default, int proximityAlertRadius = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -48,6 +48,31 @@ namespace TdLib
                 ChatId = chatId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Deletes a chat along with all messages in the corresponding chat for all chat members. For group chats this will release the usernames and remove all members.
+                /// Use the field chat.can_be_deleted_for_all_users to find whether the method can be applied to the chat
+                /// </summary>
+                public Task<Ok> DeleteChatAsync(long chatId = default)
+                {
+                //test
+                    return ExecuteAsync(new DeleteChat
+                    {
+                        ChatId = chatId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Deletes a chat along with all messages in the corresponding chat for all chat members. For group chats this will release the usernames and remove all members.
+                /// Use the field chat.can_be_deleted_for_all_users to find whether the method can be applied to the chat
+                /// </summary>
+                Task<Ok> DeleteChatAsync(long chatId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

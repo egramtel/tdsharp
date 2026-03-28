@@ -53,6 +53,29 @@ namespace TdLib
                 ChatId = chatId, Date = date
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns the last message sent in a chat no later than the specified date. Returns a 404 error if such message doesn't exist
+                /// </summary>
+                public Task<Message> GetChatMessageByDateAsync(long chatId = default, int date = default)
+                {
+                //test
+                    return ExecuteAsync(new GetChatMessageByDate
+                    {
+                        ChatId = chatId, Date = date
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns the last message sent in a chat no later than the specified date. Returns a 404 error if such message doesn't exist
+                /// </summary>
+                Task<Message> GetChatMessageByDateAsync(long chatId = default, int date = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -46,6 +46,29 @@ namespace TdLib
                 X = x
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns the squared received number; for testing only. This is an offline method. Can be called before authorization
+                /// </summary>
+                public Task<TestInt> TestSquareIntAsync(int x = default)
+                {
+                //test
+                    return ExecuteAsync(new TestSquareInt
+                    {
+                        X = x
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns the squared received number; for testing only. This is an offline method. Can be called before authorization
+                /// </summary>
+                Task<TestInt> TestSquareIntAsync(int x = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

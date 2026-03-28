@@ -46,6 +46,29 @@ namespace TdLib
                 ChatId = chatId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Removes a chat from the list of recently found chats
+                /// </summary>
+                public Task<Ok> RemoveRecentlyFoundChatAsync(long chatId = default)
+                {
+                //test
+                    return ExecuteAsync(new RemoveRecentlyFoundChat
+                    {
+                        ChatId = chatId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Removes a chat from the list of recently found chats
+                /// </summary>
+                Task<Ok> RemoveRecentlyFoundChatAsync(long chatId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

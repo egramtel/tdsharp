@@ -46,6 +46,29 @@ namespace TdLib
                 ChatId = chatId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Informs TDLib that the chat is closed by the user. Many useful activities depend on the chat being opened or closed
+                /// </summary>
+                public Task<Ok> CloseChatAsync(long chatId = default)
+                {
+                //test
+                    return ExecuteAsync(new CloseChat
+                    {
+                        ChatId = chatId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Informs TDLib that the chat is closed by the user. Many useful activities depend on the chat being opened or closed
+                /// </summary>
+                Task<Ok> CloseChatAsync(long chatId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

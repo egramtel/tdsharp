@@ -46,6 +46,29 @@ namespace TdLib
                 Link = link
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns information about the type of internal link. Returns a 404 error if the link is not internal. Can be called before authorization
+                /// </summary>
+                public Task<InternalLinkType> GetInternalLinkTypeAsync(string link = default)
+                {
+                //test
+                    return ExecuteAsync(new GetInternalLinkType
+                    {
+                        Link = link
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns information about the type of internal link. Returns a 404 error if the link is not internal. Can be called before authorization
+                /// </summary>
+                Task<InternalLinkType> GetInternalLinkTypeAsync(string link = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

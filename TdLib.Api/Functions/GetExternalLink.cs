@@ -55,6 +55,31 @@ namespace TdLib
                 Link = link, AllowWriteAccess = allowWriteAccess
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns an HTTP URL which can be used to automatically authorize the current user on a website after clicking an HTTP link.
+                /// Use the method getExternalLinkInfo to find whether a prior user confirmation is needed. May return an empty link if just a toast about successful login has to be shown
+                /// </summary>
+                public Task<HttpUrl> GetExternalLinkAsync(string link = default, bool allowWriteAccess = default)
+                {
+                //test
+                    return ExecuteAsync(new GetExternalLink
+                    {
+                        Link = link, AllowWriteAccess = allowWriteAccess
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns an HTTP URL which can be used to automatically authorize the current user on a website after clicking an HTTP link.
+                /// Use the method getExternalLinkInfo to find whether a prior user confirmation is needed. May return an empty link if just a toast about successful login has to be shown
+                /// </summary>
+                Task<HttpUrl> GetExternalLinkAsync(string link = default, bool allowWriteAccess = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

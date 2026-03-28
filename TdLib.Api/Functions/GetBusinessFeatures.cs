@@ -46,6 +46,29 @@ namespace TdLib
                 Source = source
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns information about features, available to Business users
+                /// </summary>
+                public Task<BusinessFeatures> GetBusinessFeaturesAsync(BusinessFeature source = default)
+                {
+                //test
+                    return ExecuteAsync(new GetBusinessFeatures
+                    {
+                        Source = source
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns information about features, available to Business users
+                /// </summary>
+                Task<BusinessFeatures> GetBusinessFeaturesAsync(BusinessFeature source = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

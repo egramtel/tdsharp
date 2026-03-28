@@ -53,6 +53,29 @@ namespace TdLib
                 SponsoredChatUniqueId = sponsoredChatUniqueId, OptionId = optionId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Reports a sponsored chat to Telegram moderators
+                /// </summary>
+                public Task<ReportSponsoredResult> ReportSponsoredChatAsync(long sponsoredChatUniqueId = default, byte[] optionId = default)
+                {
+                //test
+                    return ExecuteAsync(new ReportSponsoredChat
+                    {
+                        SponsoredChatUniqueId = sponsoredChatUniqueId, OptionId = optionId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Reports a sponsored chat to Telegram moderators
+                /// </summary>
+                Task<ReportSponsoredResult> ReportSponsoredChatAsync(long sponsoredChatUniqueId = default, byte[] optionId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

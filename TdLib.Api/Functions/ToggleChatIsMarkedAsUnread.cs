@@ -53,6 +53,29 @@ namespace TdLib
                 ChatId = chatId, IsMarkedAsUnread = isMarkedAsUnread
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes the marked as unread state of a chat
+                /// </summary>
+                public Task<Ok> ToggleChatIsMarkedAsUnreadAsync(long chatId = default, bool isMarkedAsUnread = default)
+                {
+                //test
+                    return ExecuteAsync(new ToggleChatIsMarkedAsUnread
+                    {
+                        ChatId = chatId, IsMarkedAsUnread = isMarkedAsUnread
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes the marked as unread state of a chat
+                /// </summary>
+                Task<Ok> ToggleChatIsMarkedAsUnreadAsync(long chatId = default, bool isMarkedAsUnread = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

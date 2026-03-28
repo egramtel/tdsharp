@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns an HTTPS link, which can be used to get information about the current user
+                /// </summary>
+                public Task<UserLink> GetUserLinkAsync()
+                {
+                //test
+                    return ExecuteAsync(new GetUserLink
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns an HTTPS link, which can be used to get information about the current user
+                /// </summary>
+                Task<UserLink> GetUserLinkAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

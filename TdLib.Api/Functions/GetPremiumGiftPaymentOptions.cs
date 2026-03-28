@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns available options for gifting Telegram Premium to a user
+                /// </summary>
+                public Task<PremiumGiftPaymentOptions> GetPremiumGiftPaymentOptionsAsync()
+                {
+                //test
+                    return ExecuteAsync(new GetPremiumGiftPaymentOptions
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns available options for gifting Telegram Premium to a user
+                /// </summary>
+                Task<PremiumGiftPaymentOptions> GetPremiumGiftPaymentOptionsAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

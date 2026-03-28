@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Cancels reset of 2-step verification password. The method can be called if passwordState.pending_reset_date &gt; 0
+                /// </summary>
+                public Task<Ok> CancelPasswordResetAsync()
+                {
+                //test
+                    return ExecuteAsync(new CancelPasswordReset
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Cancels reset of 2-step verification password. The method can be called if passwordState.pending_reset_date &gt; 0
+                /// </summary>
+                Task<Ok> CancelPasswordResetAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

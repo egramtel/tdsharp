@@ -46,6 +46,29 @@ namespace TdLib
                 SupergroupId = supergroupId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Upgrades supergroup to a broadcast group; requires owner privileges in the supergroup
+                /// </summary>
+                public Task<Ok> ToggleSupergroupIsBroadcastGroupAsync(long supergroupId = default)
+                {
+                //test
+                    return ExecuteAsync(new ToggleSupergroupIsBroadcastGroup
+                    {
+                        SupergroupId = supergroupId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Upgrades supergroup to a broadcast group; requires owner privileges in the supergroup
+                /// </summary>
+                Task<Ok> ToggleSupergroupIsBroadcastGroupAsync(long supergroupId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

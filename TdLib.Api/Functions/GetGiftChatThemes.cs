@@ -53,6 +53,29 @@ namespace TdLib
                 Offset = offset, Limit = limit
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns available to the current user gift chat themes
+                /// </summary>
+                public Task<GiftChatThemes> GetGiftChatThemesAsync(string offset = default, int limit = default)
+                {
+                //test
+                    return ExecuteAsync(new GetGiftChatThemes
+                    {
+                        Offset = offset, Limit = limit
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns available to the current user gift chat themes
+                /// </summary>
+                Task<GiftChatThemes> GetGiftChatThemesAsync(string offset = default, int limit = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

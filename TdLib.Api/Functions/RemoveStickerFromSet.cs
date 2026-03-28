@@ -46,6 +46,29 @@ namespace TdLib
                 Sticker = sticker
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Removes a sticker from the set to which it belongs. The sticker set must be owned by the current user
+                /// </summary>
+                public Task<Ok> RemoveStickerFromSetAsync(InputFile sticker = default)
+                {
+                //test
+                    return ExecuteAsync(new RemoveStickerFromSet
+                    {
+                        Sticker = sticker
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Removes a sticker from the set to which it belongs. The sticker set must be owned by the current user
+                /// </summary>
+                Task<Ok> RemoveStickerFromSetAsync(InputFile sticker = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

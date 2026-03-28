@@ -83,6 +83,31 @@ namespace TdLib
                 ChatId = chatId, BotUserId = botUserId, Url = url, TopicId = topicId, ReplyTo = replyTo, Parameters = parameters
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Informs TDLib that a Web App is being opened from the attachment menu, a botMenuButton button, an internalLinkTypeAttachmentMenuBot link, or an inlineKeyboardButtonTypeWebApp button.
+                /// For each bot, a confirmation alert about data sent to the bot must be shown once
+                /// </summary>
+                public Task<WebAppInfo> OpenWebAppAsync(long chatId = default, long botUserId = default, string url = default, MessageTopic topicId = default, InputMessageReplyTo replyTo = default, WebAppOpenParameters parameters = default)
+                {
+                //test
+                    return ExecuteAsync(new OpenWebApp
+                    {
+                        ChatId = chatId, BotUserId = botUserId, Url = url, TopicId = topicId, ReplyTo = replyTo, Parameters = parameters
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Informs TDLib that a Web App is being opened from the attachment menu, a botMenuButton button, an internalLinkTypeAttachmentMenuBot link, or an inlineKeyboardButtonTypeWebApp button.
+                /// For each bot, a confirmation alert about data sent to the bot must be shown once
+                /// </summary>
+                Task<WebAppInfo> OpenWebAppAsync(long chatId = default, long botUserId = default, string url = default, MessageTopic topicId = default, InputMessageReplyTo replyTo = default, WebAppOpenParameters parameters = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

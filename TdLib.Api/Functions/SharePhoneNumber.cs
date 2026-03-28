@@ -46,6 +46,29 @@ namespace TdLib
                 UserId = userId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Shares the phone number of the current user with a mutual contact. Supposed to be called when the user clicks on chatActionBarSharePhoneNumber
+                /// </summary>
+                public Task<Ok> SharePhoneNumberAsync(long userId = default)
+                {
+                //test
+                    return ExecuteAsync(new SharePhoneNumber
+                    {
+                        UserId = userId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Shares the phone number of the current user with a mutual contact. Supposed to be called when the user clicks on chatActionBarSharePhoneNumber
+                /// </summary>
+                Task<Ok> SharePhoneNumberAsync(long userId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

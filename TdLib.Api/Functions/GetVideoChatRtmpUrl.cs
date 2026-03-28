@@ -46,6 +46,29 @@ namespace TdLib
                 ChatId = chatId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns RTMP URL for streaming to the video chat of a chat; requires can_manage_video_chats administrator right
+                /// </summary>
+                public Task<RtmpUrl> GetVideoChatRtmpUrlAsync(long chatId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetVideoChatRtmpUrl
+                    {
+                        ChatId = chatId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns RTMP URL for streaming to the video chat of a chat; requires can_manage_video_chats administrator right
+                /// </summary>
+                Task<RtmpUrl> GetVideoChatRtmpUrlAsync(long chatId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -46,6 +46,29 @@ namespace TdLib
                 ChatId = chatId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Checks whether the current user can post a story on behalf of a chat; requires can_post_stories administrator right for supergroup and channel chats
+                /// </summary>
+                public Task<CanPostStoryResult> CanPostStoryAsync(long chatId = default)
+                {
+                //test
+                    return ExecuteAsync(new CanPostStory
+                    {
+                        ChatId = chatId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Checks whether the current user can post a story on behalf of a chat; requires can_post_stories administrator right for supergroup and channel chats
+                /// </summary>
+                Task<CanPostStoryResult> CanPostStoryAsync(long chatId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

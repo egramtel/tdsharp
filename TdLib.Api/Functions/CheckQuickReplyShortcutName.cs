@@ -46,6 +46,29 @@ namespace TdLib
                 Name = name
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Checks validness of a name for a quick reply shortcut. Can be called synchronously
+                /// </summary>
+                public Task<Ok> CheckQuickReplyShortcutNameAsync(string name = default)
+                {
+                //test
+                    return ExecuteAsync(new CheckQuickReplyShortcutName
+                    {
+                        Name = name
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Checks validness of a name for a quick reply shortcut. Can be called synchronously
+                /// </summary>
+                Task<Ok> CheckQuickReplyShortcutNameAsync(string name = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

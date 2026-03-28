@@ -48,6 +48,31 @@ namespace TdLib
                 StoryList = storyList
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Loads more active stories from a story list. The loaded stories will be sent through updates. Active stories are sorted by
+                /// the pair (active_stories.order, active_stories.story_poster_chat_id) in descending order. Returns a 404 error if all active stories have been loaded
+                /// </summary>
+                public Task<Ok> LoadActiveStoriesAsync(StoryList storyList = default)
+                {
+                //test
+                    return ExecuteAsync(new LoadActiveStories
+                    {
+                        StoryList = storyList
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Loads more active stories from a story list. The loaded stories will be sent through updates. Active stories are sorted by
+                /// the pair (active_stories.order, active_stories.story_poster_chat_id) in descending order. Returns a 404 error if all active stories have been loaded
+                /// </summary>
+                Task<Ok> LoadActiveStoriesAsync(StoryList storyList = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

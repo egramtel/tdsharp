@@ -62,6 +62,31 @@ namespace TdLib
                 ChatId = chatId, FromStoryId = fromStoryId, Limit = limit
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns the list of stories that posted by the given chat to its chat page. If from_story_id == 0, then pinned stories are returned first.
+                /// Then, stories are returned in reverse chronological order (i.e., in order of decreasing story_id). For optimal performance, the number of returned stories is chosen by TDLib
+                /// </summary>
+                public Task<Stories> GetChatPostedToChatPageStoriesAsync(long chatId = default, int fromStoryId = default, int limit = default)
+                {
+                //test
+                    return ExecuteAsync(new GetChatPostedToChatPageStories
+                    {
+                        ChatId = chatId, FromStoryId = fromStoryId, Limit = limit
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns the list of stories that posted by the given chat to its chat page. If from_story_id == 0, then pinned stories are returned first.
+                /// Then, stories are returned in reverse chronological order (i.e., in order of decreasing story_id). For optimal performance, the number of returned stories is chosen by TDLib
+                /// </summary>
+                Task<Stories> GetChatPostedToChatPageStoriesAsync(long chatId = default, int fromStoryId = default, int limit = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

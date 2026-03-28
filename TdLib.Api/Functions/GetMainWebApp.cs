@@ -67,6 +67,29 @@ namespace TdLib
                 ChatId = chatId, BotUserId = botUserId, StartParameter = startParameter, Parameters = parameters
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns information needed to open the main Web App of a bot
+                /// </summary>
+                public Task<MainWebApp> GetMainWebAppAsync(long chatId = default, long botUserId = default, string startParameter = default, WebAppOpenParameters parameters = default)
+                {
+                //test
+                    return ExecuteAsync(new GetMainWebApp
+                    {
+                        ChatId = chatId, BotUserId = botUserId, StartParameter = startParameter, Parameters = parameters
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns information needed to open the main Web App of a bot
+                /// </summary>
+                Task<MainWebApp> GetMainWebAppAsync(long chatId = default, long botUserId = default, string startParameter = default, WebAppOpenParameters parameters = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

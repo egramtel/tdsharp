@@ -46,6 +46,29 @@ namespace TdLib
                 AreTagsEnabled = areTagsEnabled
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Toggles whether chat folder tags are enabled
+                /// </summary>
+                public Task<Ok> ToggleChatFolderTagsAsync(bool areTagsEnabled = default)
+                {
+                //test
+                    return ExecuteAsync(new ToggleChatFolderTags
+                    {
+                        AreTagsEnabled = areTagsEnabled
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Toggles whether chat folder tags are enabled
+                /// </summary>
+                Task<Ok> ToggleChatFolderTagsAsync(bool areTagsEnabled = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

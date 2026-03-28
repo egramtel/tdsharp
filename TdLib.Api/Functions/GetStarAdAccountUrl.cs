@@ -46,6 +46,29 @@ namespace TdLib
                 OwnerId = ownerId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns a URL for a Telegram Ad platform account that can be used to set up advertisements for the chat paid in the owned Telegram Stars
+                /// </summary>
+                public Task<HttpUrl> GetStarAdAccountUrlAsync(MessageSender ownerId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetStarAdAccountUrl
+                    {
+                        OwnerId = ownerId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns a URL for a Telegram Ad platform account that can be used to set up advertisements for the chat paid in the owned Telegram Stars
+                /// </summary>
+                Task<HttpUrl> GetStarAdAccountUrlAsync(MessageSender ownerId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

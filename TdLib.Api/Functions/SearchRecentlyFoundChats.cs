@@ -53,6 +53,29 @@ namespace TdLib
                 Query = query, Limit = limit
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Searches for the specified query in the title and username of up to 50 recently found chats. This is an offline method
+                /// </summary>
+                public Task<Chats> SearchRecentlyFoundChatsAsync(string query = default, int limit = default)
+                {
+                //test
+                    return ExecuteAsync(new SearchRecentlyFoundChats
+                    {
+                        Query = query, Limit = limit
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Searches for the specified query in the title and username of up to 50 recently found chats. This is an offline method
+                /// </summary>
+                Task<Chats> SearchRecentlyFoundChatsAsync(string query = default, int limit = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

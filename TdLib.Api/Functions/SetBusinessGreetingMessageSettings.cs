@@ -46,6 +46,29 @@ namespace TdLib
                 GreetingMessageSettings = greetingMessageSettings
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes the business greeting message settings of the current user. Requires Telegram Business subscription
+                /// </summary>
+                public Task<Ok> SetBusinessGreetingMessageSettingsAsync(BusinessGreetingMessageSettings greetingMessageSettings = default)
+                {
+                //test
+                    return ExecuteAsync(new SetBusinessGreetingMessageSettings
+                    {
+                        GreetingMessageSettings = greetingMessageSettings
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes the business greeting message settings of the current user. Requires Telegram Business subscription
+                /// </summary>
+                Task<Ok> SetBusinessGreetingMessageSettingsAsync(BusinessGreetingMessageSettings greetingMessageSettings = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

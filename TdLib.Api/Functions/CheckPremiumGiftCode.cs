@@ -46,6 +46,29 @@ namespace TdLib
                 Code = code
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns information about a Telegram Premium gift code
+                /// </summary>
+                public Task<PremiumGiftCodeInfo> CheckPremiumGiftCodeAsync(string code = default)
+                {
+                //test
+                    return ExecuteAsync(new CheckPremiumGiftCode
+                    {
+                        Code = code
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns information about a Telegram Premium gift code
+                /// </summary>
+                Task<PremiumGiftCodeInfo> CheckPremiumGiftCodeAsync(string code = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

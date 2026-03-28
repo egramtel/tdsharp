@@ -53,6 +53,29 @@ namespace TdLib
                 GroupCallId = groupCallId, CanSelfUnmute = canSelfUnmute
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns invite link to a video chat in a public chat
+                /// </summary>
+                public Task<HttpUrl> GetVideoChatInviteLinkAsync(int groupCallId = default, bool canSelfUnmute = default)
+                {
+                //test
+                    return ExecuteAsync(new GetVideoChatInviteLink
+                    {
+                        GroupCallId = groupCallId, CanSelfUnmute = canSelfUnmute
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns invite link to a video chat in a public chat
+                /// </summary>
+                Task<HttpUrl> GetVideoChatInviteLinkAsync(int groupCallId = default, bool canSelfUnmute = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

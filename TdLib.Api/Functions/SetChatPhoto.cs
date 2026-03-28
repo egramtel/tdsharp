@@ -53,6 +53,29 @@ namespace TdLib
                 ChatId = chatId, Photo = photo
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes the photo of a chat. Supported only for basic groups, supergroups and channels. Requires can_change_info member right
+                /// </summary>
+                public Task<Ok> SetChatPhotoAsync(long chatId = default, InputChatPhoto photo = default)
+                {
+                //test
+                    return ExecuteAsync(new SetChatPhoto
+                    {
+                        ChatId = chatId, Photo = photo
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes the photo of a chat. Supported only for basic groups, supergroups and channels. Requires can_change_info member right
+                /// </summary>
+                Task<Ok> SetChatPhotoAsync(long chatId = default, InputChatPhoto photo = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

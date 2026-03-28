@@ -46,6 +46,29 @@ namespace TdLib
                 Action = action
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Hides a suggested action
+                /// </summary>
+                public Task<Ok> HideSuggestedActionAsync(SuggestedAction action = default)
+                {
+                //test
+                    return ExecuteAsync(new HideSuggestedAction
+                    {
+                        Action = action
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Hides a suggested action
+                /// </summary>
+                Task<Ok> HideSuggestedActionAsync(SuggestedAction action = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

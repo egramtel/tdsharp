@@ -59,6 +59,29 @@ namespace TdLib
                 ChatFolderId = chatFolderId, Name = name, ChatIds = chatIds
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Creates a new invite link for a chat folder. A link can be created for a chat folder if it has only pinned and included chats
+                /// </summary>
+                public Task<ChatFolderInviteLink> CreateChatFolderInviteLinkAsync(int chatFolderId = default, string name = default, long[] chatIds = default)
+                {
+                //test
+                    return ExecuteAsync(new CreateChatFolderInviteLink
+                    {
+                        ChatFolderId = chatFolderId, Name = name, ChatIds = chatIds
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Creates a new invite link for a chat folder. A link can be created for a chat folder if it has only pinned and included chats
+                /// </summary>
+                Task<ChatFolderInviteLink> CreateChatFolderInviteLinkAsync(int chatFolderId = default, string name = default, long[] chatIds = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

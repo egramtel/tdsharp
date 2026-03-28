@@ -60,6 +60,29 @@ namespace TdLib
                 UserId = userId, Offset = offset, Limit = limit
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns the profile photos of a user. Personal and public photo aren't returned
+                /// </summary>
+                public Task<ChatPhotos> GetUserProfilePhotosAsync(long userId = default, int offset = default, int limit = default)
+                {
+                //test
+                    return ExecuteAsync(new GetUserProfilePhotos
+                    {
+                        UserId = userId, Offset = offset, Limit = limit
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns the profile photos of a user. Personal and public photo aren't returned
+                /// </summary>
+                Task<ChatPhotos> GetUserProfilePhotosAsync(long userId = default, int offset = default, int limit = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Resets all chat and scope notification settings to their default values. By default, all chats are unmuted and message previews are shown
+                /// </summary>
+                public Task<Ok> ResetAllNotificationSettingsAsync()
+                {
+                //test
+                    return ExecuteAsync(new ResetAllNotificationSettings
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Resets all chat and scope notification settings to their default values. By default, all chats are unmuted and message previews are shown
+                /// </summary>
+                Task<Ok> ResetAllNotificationSettingsAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

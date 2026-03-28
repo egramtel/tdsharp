@@ -55,6 +55,31 @@ namespace TdLib
                 ChatId = chatId, MessageAutoDeleteTime = messageAutoDeleteTime
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes the message auto-delete or self-destruct (for secret chats) time in a chat. Requires change_info administrator right in basic groups, supergroups and channels.
+                /// Message auto-delete time can't be changed in a chat with the current user (Saved Messages) and the chat 777000 (Telegram).
+                /// </summary>
+                public Task<Ok> SetChatMessageAutoDeleteTimeAsync(long chatId = default, int messageAutoDeleteTime = default)
+                {
+                //test
+                    return ExecuteAsync(new SetChatMessageAutoDeleteTime
+                    {
+                        ChatId = chatId, MessageAutoDeleteTime = messageAutoDeleteTime
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes the message auto-delete or self-destruct (for secret chats) time in a chat. Requires change_info administrator right in basic groups, supergroups and channels.
+                /// Message auto-delete time can't be changed in a chat with the current user (Saved Messages) and the chat 777000 (Telegram).
+                /// </summary>
+                Task<Ok> SetChatMessageAutoDeleteTimeAsync(long chatId = default, int messageAutoDeleteTime = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

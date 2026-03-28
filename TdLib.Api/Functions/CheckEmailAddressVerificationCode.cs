@@ -46,6 +46,29 @@ namespace TdLib
                 Code = code
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Checks the email address verification code for Telegram Passport
+                /// </summary>
+                public Task<Ok> CheckEmailAddressVerificationCodeAsync(string code = default)
+                {
+                //test
+                    return ExecuteAsync(new CheckEmailAddressVerificationCode
+                    {
+                        Code = code
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Checks the email address verification code for Telegram Passport
+                /// </summary>
+                Task<Ok> CheckEmailAddressVerificationCodeAsync(string code = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -67,6 +67,29 @@ namespace TdLib
                 ChatId = chatId, MessageId = messageId, ReplyMarkup = replyMarkup, Checklist = checklist
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Edits the message content of a checklist. Returns the edited message after the edit is completed on the server side
+                /// </summary>
+                public Task<Message> EditMessageChecklistAsync(long chatId = default, long messageId = default, ReplyMarkup replyMarkup = default, InputChecklist checklist = default)
+                {
+                //test
+                    return ExecuteAsync(new EditMessageChecklist
+                    {
+                        ChatId = chatId, MessageId = messageId, ReplyMarkup = replyMarkup, Checklist = checklist
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Edits the message content of a checklist. Returns the edited message after the edit is completed on the server side
+                /// </summary>
+                Task<Message> EditMessageChecklistAsync(long chatId = default, long messageId = default, ReplyMarkup replyMarkup = default, InputChecklist checklist = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

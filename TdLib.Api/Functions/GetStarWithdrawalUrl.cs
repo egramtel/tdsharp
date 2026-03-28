@@ -60,6 +60,29 @@ namespace TdLib
                 OwnerId = ownerId, StarCount = starCount, Password = password
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns a URL for Telegram Star withdrawal
+                /// </summary>
+                public Task<HttpUrl> GetStarWithdrawalUrlAsync(MessageSender ownerId = default, long starCount = default, string password = default)
+                {
+                //test
+                    return ExecuteAsync(new GetStarWithdrawalUrl
+                    {
+                        OwnerId = ownerId, StarCount = starCount, Password = password
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns a URL for Telegram Star withdrawal
+                /// </summary>
+                Task<HttpUrl> GetStarWithdrawalUrlAsync(MessageSender ownerId = default, long starCount = default, string password = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

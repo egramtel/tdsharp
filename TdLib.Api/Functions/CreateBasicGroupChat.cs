@@ -53,6 +53,29 @@ namespace TdLib
                 BasicGroupId = basicGroupId, Force = force
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns an existing chat corresponding to a known basic group
+                /// </summary>
+                public Task<Chat> CreateBasicGroupChatAsync(long basicGroupId = default, bool force = default)
+                {
+                //test
+                    return ExecuteAsync(new CreateBasicGroupChat
+                    {
+                        BasicGroupId = basicGroupId, Force = force
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns an existing chat corresponding to a known basic group
+                /// </summary>
+                Task<Chat> CreateBasicGroupChatAsync(long basicGroupId = default, bool force = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

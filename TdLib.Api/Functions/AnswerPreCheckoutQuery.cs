@@ -53,6 +53,29 @@ namespace TdLib
                 PreCheckoutQueryId = preCheckoutQueryId, ErrorMessage = errorMessage
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Sets the result of a pre-checkout query; for bots only
+                /// </summary>
+                public Task<Ok> AnswerPreCheckoutQueryAsync(long preCheckoutQueryId = default, string errorMessage = default)
+                {
+                //test
+                    return ExecuteAsync(new AnswerPreCheckoutQuery
+                    {
+                        PreCheckoutQueryId = preCheckoutQueryId, ErrorMessage = errorMessage
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Sets the result of a pre-checkout query; for bots only
+                /// </summary>
+                Task<Ok> AnswerPreCheckoutQueryAsync(long preCheckoutQueryId = default, string errorMessage = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

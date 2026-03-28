@@ -46,6 +46,29 @@ namespace TdLib
                 Limit = limit
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns premium stickers from regular sticker sets
+                /// </summary>
+                public Task<Stickers> GetPremiumStickersAsync(int limit = default)
+                {
+                //test
+                    return ExecuteAsync(new GetPremiumStickers
+                    {
+                        Limit = limit
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns premium stickers from regular sticker sets
+                /// </summary>
+                Task<Stickers> GetPremiumStickersAsync(int limit = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -60,6 +60,29 @@ namespace TdLib
                 UserId = userId, Result = result, ChatTypes = chatTypes
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Saves an inline message to be sent by the given user; for bots only
+                /// </summary>
+                public Task<PreparedInlineMessageId> SavePreparedInlineMessageAsync(long userId = default, InputInlineQueryResult result = default, TargetChatTypes chatTypes = default)
+                {
+                //test
+                    return ExecuteAsync(new SavePreparedInlineMessage
+                    {
+                        UserId = userId, Result = result, ChatTypes = chatTypes
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Saves an inline message to be sent by the given user; for bots only
+                /// </summary>
+                Task<PreparedInlineMessageId> SavePreparedInlineMessageAsync(long userId = default, InputInlineQueryResult result = default, TargetChatTypes chatTypes = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

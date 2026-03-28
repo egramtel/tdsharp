@@ -67,6 +67,29 @@ namespace TdLib
                 InlineMessageId = inlineMessageId, ReplyMarkup = replyMarkup, Caption = caption, ShowCaptionAboveMedia = showCaptionAboveMedia
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Edits the caption of an inline message sent via a bot; for bots only
+                /// </summary>
+                public Task<Ok> EditInlineMessageCaptionAsync(string inlineMessageId = default, ReplyMarkup replyMarkup = default, FormattedText caption = default, bool showCaptionAboveMedia = default)
+                {
+                //test
+                    return ExecuteAsync(new EditInlineMessageCaption
+                    {
+                        InlineMessageId = inlineMessageId, ReplyMarkup = replyMarkup, Caption = caption, ShowCaptionAboveMedia = showCaptionAboveMedia
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Edits the caption of an inline message sent via a bot; for bots only
+                /// </summary>
+                Task<Ok> EditInlineMessageCaptionAsync(string inlineMessageId = default, ReplyMarkup replyMarkup = default, FormattedText caption = default, bool showCaptionAboveMedia = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

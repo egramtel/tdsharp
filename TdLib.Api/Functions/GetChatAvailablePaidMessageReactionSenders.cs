@@ -46,6 +46,29 @@ namespace TdLib
                 ChatId = chatId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns the list of message sender identifiers, which can be used to send a paid reaction in a chat
+                /// </summary>
+                public Task<MessageSenders> GetChatAvailablePaidMessageReactionSendersAsync(long chatId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetChatAvailablePaidMessageReactionSenders
+                    {
+                        ChatId = chatId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns the list of message sender identifiers, which can be used to send a paid reaction in a chat
+                /// </summary>
+                Task<MessageSenders> GetChatAvailablePaidMessageReactionSendersAsync(long chatId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

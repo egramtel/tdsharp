@@ -49,6 +49,33 @@ namespace TdLib
                 OtherUserIds = otherUserIds
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Requests QR code authentication by scanning a QR code on another logged in device. Works only when the current authorization state is authorizationStateWaitPhoneNumber,
+                /// or if there is no pending authentication query and the current authorization state is authorizationStateWaitPremiumPurchase, authorizationStateWaitEmailAddress,
+                /// authorizationStateWaitEmailCode, authorizationStateWaitCode, authorizationStateWaitRegistration, or authorizationStateWaitPassword
+                /// </summary>
+                public Task<Ok> RequestQrCodeAuthenticationAsync(long[] otherUserIds = default)
+                {
+                //test
+                    return ExecuteAsync(new RequestQrCodeAuthentication
+                    {
+                        OtherUserIds = otherUserIds
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Requests QR code authentication by scanning a QR code on another logged in device. Works only when the current authorization state is authorizationStateWaitPhoneNumber,
+                /// or if there is no pending authentication query and the current authorization state is authorizationStateWaitPremiumPurchase, authorizationStateWaitEmailAddress,
+                /// authorizationStateWaitEmailCode, authorizationStateWaitCode, authorizationStateWaitRegistration, or authorizationStateWaitPassword
+                /// </summary>
+                Task<Ok> RequestQrCodeAuthenticationAsync(long[] otherUserIds = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

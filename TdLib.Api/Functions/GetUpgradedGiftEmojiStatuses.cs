@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns available upgraded gift emoji statuses for self status
+                /// </summary>
+                public Task<EmojiStatuses> GetUpgradedGiftEmojiStatusesAsync()
+                {
+                //test
+                    return ExecuteAsync(new GetUpgradedGiftEmojiStatuses
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns available upgraded gift emoji statuses for self status
+                /// </summary>
+                Task<EmojiStatuses> GetUpgradedGiftEmojiStatusesAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

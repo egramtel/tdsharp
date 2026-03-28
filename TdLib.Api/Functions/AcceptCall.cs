@@ -53,6 +53,29 @@ namespace TdLib
                 CallId = callId, Protocol = protocol
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Accepts an incoming call
+                /// </summary>
+                public Task<Ok> AcceptCallAsync(int callId = default, CallProtocol protocol = default)
+                {
+                //test
+                    return ExecuteAsync(new AcceptCall
+                    {
+                        CallId = callId, Protocol = protocol
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Accepts an incoming call
+                /// </summary>
+                Task<Ok> AcceptCallAsync(int callId = default, CallProtocol protocol = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

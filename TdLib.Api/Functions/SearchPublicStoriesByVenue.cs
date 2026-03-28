@@ -67,6 +67,29 @@ namespace TdLib
                 VenueProvider = venueProvider, VenueId = venueId, Offset = offset, Limit = limit
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Searches for public stories from the given venue. For optimal performance, the number of returned stories is chosen by TDLib and can be smaller than the specified limit
+                /// </summary>
+                public Task<FoundStories> SearchPublicStoriesByVenueAsync(string venueProvider = default, string venueId = default, string offset = default, int limit = default)
+                {
+                //test
+                    return ExecuteAsync(new SearchPublicStoriesByVenue
+                    {
+                        VenueProvider = venueProvider, VenueId = venueId, Offset = offset, Limit = limit
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Searches for public stories from the given venue. For optimal performance, the number of returned stories is chosen by TDLib and can be smaller than the specified limit
+                /// </summary>
+                Task<FoundStories> SearchPublicStoriesByVenueAsync(string venueProvider = default, string venueId = default, string offset = default, int limit = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

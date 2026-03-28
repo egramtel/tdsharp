@@ -46,6 +46,29 @@ namespace TdLib
                 Sticker = sticker
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Removes a sticker from the list of favorite stickers
+                /// </summary>
+                public Task<Ok> RemoveFavoriteStickerAsync(InputFile sticker = default)
+                {
+                //test
+                    return ExecuteAsync(new RemoveFavoriteSticker
+                    {
+                        Sticker = sticker
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Removes a sticker from the list of favorite stickers
+                /// </summary>
+                Task<Ok> RemoveFavoriteStickerAsync(InputFile sticker = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

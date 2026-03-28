@@ -81,6 +81,29 @@ namespace TdLib
                 BusinessConnectionId = businessConnectionId, ChatId = chatId, MessageId = messageId, ReplyMarkup = replyMarkup, Caption = caption, ShowCaptionAboveMedia = showCaptionAboveMedia
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Edits the caption of a message sent on behalf of a business account; for bots only
+                /// </summary>
+                public Task<BusinessMessage> EditBusinessMessageCaptionAsync(string businessConnectionId = default, long chatId = default, long messageId = default, ReplyMarkup replyMarkup = default, FormattedText caption = default, bool showCaptionAboveMedia = default)
+                {
+                //test
+                    return ExecuteAsync(new EditBusinessMessageCaption
+                    {
+                        BusinessConnectionId = businessConnectionId, ChatId = chatId, MessageId = messageId, ReplyMarkup = replyMarkup, Caption = caption, ShowCaptionAboveMedia = showCaptionAboveMedia
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Edits the caption of a message sent on behalf of a business account; for bots only
+                /// </summary>
+                Task<BusinessMessage> EditBusinessMessageCaptionAsync(string businessConnectionId = default, long chatId = default, long messageId = default, ReplyMarkup replyMarkup = default, FormattedText caption = default, bool showCaptionAboveMedia = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

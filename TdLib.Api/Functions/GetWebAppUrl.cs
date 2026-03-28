@@ -60,6 +60,29 @@ namespace TdLib
                 BotUserId = botUserId, Url = url, Parameters = parameters
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns an HTTPS URL of a Web App to open from the side menu, a keyboardButtonTypeWebApp button, or an inlineQueryResultsButtonTypeWebApp button
+                /// </summary>
+                public Task<HttpUrl> GetWebAppUrlAsync(long botUserId = default, string url = default, WebAppOpenParameters parameters = default)
+                {
+                //test
+                    return ExecuteAsync(new GetWebAppUrl
+                    {
+                        BotUserId = botUserId, Url = url, Parameters = parameters
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns an HTTPS URL of a Web App to open from the side menu, a keyboardButtonTypeWebApp button, or an inlineQueryResultsButtonTypeWebApp button
+                /// </summary>
+                Task<HttpUrl> GetWebAppUrlAsync(long botUserId = default, string url = default, WebAppOpenParameters parameters = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

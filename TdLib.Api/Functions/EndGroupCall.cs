@@ -46,6 +46,29 @@ namespace TdLib
                 GroupCallId = groupCallId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Ends a group call. Requires groupCall.can_be_managed right for video chats and live stories or groupCall.is_owned otherwise
+                /// </summary>
+                public Task<Ok> EndGroupCallAsync(int groupCallId = default)
+                {
+                //test
+                    return ExecuteAsync(new EndGroupCall
+                    {
+                        GroupCallId = groupCallId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Ends a group call. Requires groupCall.can_be_managed right for video chats and live stories or groupCall.is_owned otherwise
+                /// </summary>
+                Task<Ok> EndGroupCallAsync(int groupCallId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

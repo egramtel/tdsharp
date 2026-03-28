@@ -81,6 +81,29 @@ namespace TdLib
                 ChatId = chatId, CreatorUserId = creatorUserId, IsRevoked = isRevoked, OffsetDate = offsetDate, OffsetInviteLink = offsetInviteLink, Limit = limit
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns invite links for a chat created by specified administrator. Requires administrator privileges and can_invite_users right in the chat to get own links and owner privileges to get other links
+                /// </summary>
+                public Task<ChatInviteLinks> GetChatInviteLinksAsync(long chatId = default, long creatorUserId = default, bool isRevoked = default, int offsetDate = default, string offsetInviteLink = default, int limit = default)
+                {
+                //test
+                    return ExecuteAsync(new GetChatInviteLinks
+                    {
+                        ChatId = chatId, CreatorUserId = creatorUserId, IsRevoked = isRevoked, OffsetDate = offsetDate, OffsetInviteLink = offsetInviteLink, Limit = limit
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns invite links for a chat created by specified administrator. Requires administrator privileges and can_invite_users right in the chat to get own links and owner privileges to get other links
+                /// </summary>
+                Task<ChatInviteLinks> GetChatInviteLinksAsync(long chatId = default, long creatorUserId = default, bool isRevoked = default, int offsetDate = default, string offsetInviteLink = default, int limit = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -48,6 +48,31 @@ namespace TdLib
                 Reason = reason
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Resends an authentication code to the user. Works only when the current authorization state is authorizationStateWaitCode, the next_code_type of the result is not null
+                /// and the server-specified timeout has passed, or when the current authorization state is authorizationStateWaitEmailCode
+                /// </summary>
+                public Task<Ok> ResendAuthenticationCodeAsync(ResendCodeReason reason = default)
+                {
+                //test
+                    return ExecuteAsync(new ResendAuthenticationCode
+                    {
+                        Reason = reason
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Resends an authentication code to the user. Works only when the current authorization state is authorizationStateWaitCode, the next_code_type of the result is not null
+                /// and the server-specified timeout has passed, or when the current authorization state is authorizationStateWaitEmailCode
+                /// </summary>
+                Task<Ok> ResendAuthenticationCodeAsync(ResendCodeReason reason = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

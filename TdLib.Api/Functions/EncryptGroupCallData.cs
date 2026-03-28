@@ -67,6 +67,29 @@ namespace TdLib
                 GroupCallId = groupCallId, DataChannel = dataChannel, Data = data, UnencryptedPrefixSize = unencryptedPrefixSize
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Encrypts group call data before sending them over network using tgcalls
+                /// </summary>
+                public Task<Data> EncryptGroupCallDataAsync(int groupCallId = default, GroupCallDataChannel dataChannel = default, byte[] data = default, int unencryptedPrefixSize = default)
+                {
+                //test
+                    return ExecuteAsync(new EncryptGroupCallData
+                    {
+                        GroupCallId = groupCallId, DataChannel = dataChannel, Data = data, UnencryptedPrefixSize = unencryptedPrefixSize
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Encrypts group call data before sending them over network using tgcalls
+                /// </summary>
+                Task<Data> EncryptGroupCallDataAsync(int groupCallId = default, GroupCallDataChannel dataChannel = default, byte[] data = default, int unencryptedPrefixSize = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

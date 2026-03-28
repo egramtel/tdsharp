@@ -53,6 +53,29 @@ namespace TdLib
                 Link = link, LinkInfo = linkInfo
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Edits a business chat link of the current account. Requires Telegram Business subscription. Returns the edited link
+                /// </summary>
+                public Task<BusinessChatLink> EditBusinessChatLinkAsync(string link = default, InputBusinessChatLink linkInfo = default)
+                {
+                //test
+                    return ExecuteAsync(new EditBusinessChatLink
+                    {
+                        Link = link, LinkInfo = linkInfo
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Edits a business chat link of the current account. Requires Telegram Business subscription. Returns the edited link
+                /// </summary>
+                Task<BusinessChatLink> EditBusinessChatLinkAsync(string link = default, InputBusinessChatLink linkInfo = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

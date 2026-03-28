@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Resends the login email address verification code
+                /// </summary>
+                public Task<EmailAddressAuthenticationCodeInfo> ResendLoginEmailAddressCodeAsync()
+                {
+                //test
+                    return ExecuteAsync(new ResendLoginEmailAddressCode
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Resends the login email address verification code
+                /// </summary>
+                Task<EmailAddressAuthenticationCodeInfo> ResendLoginEmailAddressCodeAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

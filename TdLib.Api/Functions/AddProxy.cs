@@ -53,6 +53,29 @@ namespace TdLib
                 Proxy = proxy, Enable = enable
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Adds a proxy server for network requests. Can be called before authorization
+                /// </summary>
+                public Task<AddedProxy> AddProxyAsync(Proxy proxy = default, bool enable = default)
+                {
+                //test
+                    return ExecuteAsync(new AddProxy
+                    {
+                        Proxy = proxy, Enable = enable
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Adds a proxy server for network requests. Can be called before authorization
+                /// </summary>
+                Task<AddedProxy> AddProxyAsync(Proxy proxy = default, bool enable = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

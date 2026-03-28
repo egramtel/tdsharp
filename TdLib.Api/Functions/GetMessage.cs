@@ -53,6 +53,29 @@ namespace TdLib
                 ChatId = chatId, MessageId = messageId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns information about a message. Returns a 404 error if the message doesn't exist
+                /// </summary>
+                public Task<Message> GetMessageAsync(long chatId = default, long messageId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetMessage
+                    {
+                        ChatId = chatId, MessageId = messageId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns information about a message. Returns a 404 error if the message doesn't exist
+                /// </summary>
+                Task<Message> GetMessageAsync(long chatId = default, long messageId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

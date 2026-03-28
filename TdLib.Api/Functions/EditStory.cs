@@ -74,6 +74,29 @@ namespace TdLib
                 StoryPosterChatId = storyPosterChatId, StoryId = storyId, Content = content, Areas = areas, Caption = caption
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes content and caption of a story. Can be called only if story.can_be_edited == true
+                /// </summary>
+                public Task<Ok> EditStoryAsync(long storyPosterChatId = default, int storyId = default, InputStoryContent content = default, InputStoryAreas areas = default, FormattedText caption = default)
+                {
+                //test
+                    return ExecuteAsync(new EditStory
+                    {
+                        StoryPosterChatId = storyPosterChatId, StoryId = storyId, Content = content, Areas = areas, Caption = caption
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes content and caption of a story. Can be called only if story.can_be_edited == true
+                /// </summary>
+                Task<Ok> EditStoryAsync(long storyPosterChatId = default, int storyId = default, InputStoryContent content = default, InputStoryAreas areas = default, FormattedText caption = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

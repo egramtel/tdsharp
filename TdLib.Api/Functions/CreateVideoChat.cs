@@ -67,6 +67,29 @@ namespace TdLib
                 ChatId = chatId, Title = title, StartDate = startDate, IsRtmpStream = isRtmpStream
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Creates a video chat (a group call bound to a chat); for basic groups, supergroups and channels only; requires can_manage_video_chats administrator right
+                /// </summary>
+                public Task<GroupCallId> CreateVideoChatAsync(long chatId = default, string title = default, int startDate = default, bool isRtmpStream = default)
+                {
+                //test
+                    return ExecuteAsync(new CreateVideoChat
+                    {
+                        ChatId = chatId, Title = title, StartDate = startDate, IsRtmpStream = isRtmpStream
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Creates a video chat (a group call bound to a chat); for basic groups, supergroups and channels only; requires can_manage_video_chats administrator right
+                /// </summary>
+                Task<GroupCallId> CreateVideoChatAsync(long chatId = default, string title = default, int startDate = default, bool isRtmpStream = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

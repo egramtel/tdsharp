@@ -46,6 +46,29 @@ namespace TdLib
                 ChatId = chatId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns the list of message sender identifiers, which can be used to send messages in a chat
+                /// </summary>
+                public Task<ChatMessageSenders> GetChatAvailableMessageSendersAsync(long chatId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetChatAvailableMessageSenders
+                    {
+                        ChatId = chatId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns the list of message sender identifiers, which can be used to send messages in a chat
+                /// </summary>
+                Task<ChatMessageSenders> GetChatAvailableMessageSendersAsync(long chatId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

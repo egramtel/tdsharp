@@ -53,6 +53,29 @@ namespace TdLib
                 ChatId = chatId, ForumTopicId = forumTopicId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns information about a topic in a forum supergroup chat or a chat with a bot with topics
+                /// </summary>
+                public Task<ForumTopic> GetForumTopicAsync(long chatId = default, int forumTopicId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetForumTopic
+                    {
+                        ChatId = chatId, ForumTopicId = forumTopicId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns information about a topic in a forum supergroup chat or a chat with a bot with topics
+                /// </summary>
+                Task<ForumTopic> GetForumTopicAsync(long chatId = default, int forumTopicId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -46,6 +46,29 @@ namespace TdLib
                 SponsoredChatUniqueId = sponsoredChatUniqueId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Informs TDLib that the user opened a sponsored chat
+                /// </summary>
+                public Task<Ok> OpenSponsoredChatAsync(long sponsoredChatUniqueId = default)
+                {
+                //test
+                    return ExecuteAsync(new OpenSponsoredChat
+                    {
+                        SponsoredChatUniqueId = sponsoredChatUniqueId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Informs TDLib that the user opened a sponsored chat
+                /// </summary>
+                Task<Ok> OpenSponsoredChatAsync(long sponsoredChatUniqueId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

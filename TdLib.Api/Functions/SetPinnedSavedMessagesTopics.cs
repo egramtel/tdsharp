@@ -45,6 +45,29 @@ namespace TdLib
                 SavedMessagesTopicIds = savedMessagesTopicIds
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes the order of pinned Saved Messages topics
+                /// </summary>
+                public Task<Ok> SetPinnedSavedMessagesTopicsAsync(long[] savedMessagesTopicIds = default)
+                {
+                //test
+                    return ExecuteAsync(new SetPinnedSavedMessagesTopics
+                    {
+                        SavedMessagesTopicIds = savedMessagesTopicIds
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes the order of pinned Saved Messages topics
+                /// </summary>
+                Task<Ok> SetPinnedSavedMessagesTopicsAsync(long[] savedMessagesTopicIds = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

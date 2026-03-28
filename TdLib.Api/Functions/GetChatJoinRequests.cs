@@ -74,6 +74,29 @@ namespace TdLib
                 ChatId = chatId, InviteLink = inviteLink, Query = query, OffsetRequest = offsetRequest, Limit = limit
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns pending join requests in a chat
+                /// </summary>
+                public Task<ChatJoinRequests> GetChatJoinRequestsAsync(long chatId = default, string inviteLink = default, string query = default, ChatJoinRequest offsetRequest = default, int limit = default)
+                {
+                //test
+                    return ExecuteAsync(new GetChatJoinRequests
+                    {
+                        ChatId = chatId, InviteLink = inviteLink, Query = query, OffsetRequest = offsetRequest, Limit = limit
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns pending join requests in a chat
+                /// </summary>
+                Task<ChatJoinRequests> GetChatJoinRequestsAsync(long chatId = default, string inviteLink = default, string query = default, ChatJoinRequest offsetRequest = default, int limit = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -46,6 +46,29 @@ namespace TdLib
                 Tag = tag
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Removes a hashtag or a cashtag from the list of recently searched for hashtags or cashtags
+                /// </summary>
+                public Task<Ok> RemoveSearchedForTagAsync(string tag = default)
+                {
+                //test
+                    return ExecuteAsync(new RemoveSearchedForTag
+                    {
+                        Tag = tag
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Removes a hashtag or a cashtag from the list of recently searched for hashtags or cashtags
+                /// </summary>
+                Task<Ok> RemoveSearchedForTagAsync(string tag = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

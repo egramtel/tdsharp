@@ -46,6 +46,29 @@ namespace TdLib
                 Settings = settings
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes settings for automatic moving of chats to and from the Archive chat lists
+                /// </summary>
+                public Task<Ok> SetArchiveChatListSettingsAsync(ArchiveChatListSettings settings = default)
+                {
+                //test
+                    return ExecuteAsync(new SetArchiveChatListSettings
+                    {
+                        Settings = settings
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes settings for automatic moving of chats to and from the Archive chat lists
+                /// </summary>
+                Task<Ok> SetArchiveChatListSettingsAsync(ArchiveChatListSettings settings = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

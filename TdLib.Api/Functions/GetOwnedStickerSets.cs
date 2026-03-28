@@ -53,6 +53,29 @@ namespace TdLib
                 OffsetStickerSetId = offsetStickerSetId, Limit = limit
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns sticker sets owned by the current user
+                /// </summary>
+                public Task<StickerSets> GetOwnedStickerSetsAsync(long offsetStickerSetId = default, int limit = default)
+                {
+                //test
+                    return ExecuteAsync(new GetOwnedStickerSets
+                    {
+                        OffsetStickerSetId = offsetStickerSetId, Limit = limit
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns sticker sets owned by the current user
+                /// </summary>
+                Task<StickerSets> GetOwnedStickerSetsAsync(long offsetStickerSetId = default, int limit = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

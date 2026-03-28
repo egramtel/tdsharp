@@ -52,6 +52,29 @@ namespace TdLib
                 ChatId = chatId, StoryIds = storyIds
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes the list of pinned stories on a chat page; requires can_edit_stories administrator right in the chat
+                /// </summary>
+                public Task<Ok> SetChatPinnedStoriesAsync(long chatId = default, int[] storyIds = default)
+                {
+                //test
+                    return ExecuteAsync(new SetChatPinnedStories
+                    {
+                        ChatId = chatId, StoryIds = storyIds
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes the list of pinned stories on a chat page; requires can_edit_stories administrator right in the chat
+                /// </summary>
+                Task<Ok> SetChatPinnedStoriesAsync(long chatId = default, int[] storyIds = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

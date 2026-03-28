@@ -99,6 +99,29 @@ namespace TdLib
                 Size = size, Ttl = ttl, Count = count, ImmunityDelay = immunityDelay, FileTypes = fileTypes, ChatIds = chatIds, ExcludeChatIds = excludeChatIds, ReturnDeletedFileStatistics = returnDeletedFileStatistics, ChatLimit = chatLimit
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Optimizes storage usage, i.e. deletes some files and returns new storage usage statistics. Secret thumbnails can't be deleted
+                /// </summary>
+                public Task<StorageStatistics> OptimizeStorageAsync(long size = default, int ttl = default, int count = default, int immunityDelay = default, FileType[] fileTypes = default, long[] chatIds = default, long[] excludeChatIds = default, bool returnDeletedFileStatistics = default, int chatLimit = default)
+                {
+                //test
+                    return ExecuteAsync(new OptimizeStorage
+                    {
+                        Size = size, Ttl = ttl, Count = count, ImmunityDelay = immunityDelay, FileTypes = fileTypes, ChatIds = chatIds, ExcludeChatIds = excludeChatIds, ReturnDeletedFileStatistics = returnDeletedFileStatistics, ChatLimit = chatLimit
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Optimizes storage usage, i.e. deletes some files and returns new storage usage statistics. Secret thumbnails can't be deleted
+                /// </summary>
+                Task<StorageStatistics> OptimizeStorageAsync(long size = default, int ttl = default, int count = default, int immunityDelay = default, FileType[] fileTypes = default, long[] chatIds = default, long[] excludeChatIds = default, bool returnDeletedFileStatistics = default, int chatLimit = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

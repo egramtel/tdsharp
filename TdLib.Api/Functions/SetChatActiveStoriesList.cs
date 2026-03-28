@@ -53,6 +53,29 @@ namespace TdLib
                 ChatId = chatId, StoryList = storyList
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes story list in which stories from the chat are shown
+                /// </summary>
+                public Task<Ok> SetChatActiveStoriesListAsync(long chatId = default, StoryList storyList = default)
+                {
+                //test
+                    return ExecuteAsync(new SetChatActiveStoriesList
+                    {
+                        ChatId = chatId, StoryList = storyList
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes story list in which stories from the chat are shown
+                /// </summary>
+                Task<Ok> SetChatActiveStoriesListAsync(long chatId = default, StoryList storyList = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

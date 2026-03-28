@@ -53,6 +53,29 @@ namespace TdLib
                 Tag = tag, Label = label
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes label of a Saved Messages tag; for Telegram Premium users only
+                /// </summary>
+                public Task<Ok> SetSavedMessagesTagLabelAsync(ReactionType tag = default, string label = default)
+                {
+                //test
+                    return ExecuteAsync(new SetSavedMessagesTagLabel
+                    {
+                        Tag = tag, Label = label
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes label of a Saved Messages tag; for Telegram Premium users only
+                /// </summary>
+                Task<Ok> SetSavedMessagesTagLabelAsync(ReactionType tag = default, string label = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

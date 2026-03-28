@@ -53,6 +53,29 @@ namespace TdLib
                 ChatId = chatId, ChatList = chatList
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Adds a chat to a chat list. A chat can't be simultaneously in Main and Archive chat lists, so it is automatically removed from another one if needed
+                /// </summary>
+                public Task<Ok> AddChatToListAsync(long chatId = default, ChatList chatList = default)
+                {
+                //test
+                    return ExecuteAsync(new AddChatToList
+                    {
+                        ChatId = chatId, ChatList = chatList
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Adds a chat to a chat list. A chat can't be simultaneously in Main and Archive chat lists, so it is automatically removed from another one if needed
+                /// </summary>
+                Task<Ok> AddChatToListAsync(long chatId = default, ChatList chatList = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

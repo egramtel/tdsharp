@@ -53,6 +53,29 @@ namespace TdLib
                 CustomQueryId = customQueryId, Data = data
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Answers a custom query; for bots only
+                /// </summary>
+                public Task<Ok> AnswerCustomQueryAsync(long customQueryId = default, string data = default)
+                {
+                //test
+                    return ExecuteAsync(new AnswerCustomQuery
+                    {
+                        CustomQueryId = customQueryId, Data = data
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Answers a custom query; for bots only
+                /// </summary>
+                Task<Ok> AnswerCustomQueryAsync(long customQueryId = default, string data = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

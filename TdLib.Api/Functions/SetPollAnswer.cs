@@ -59,6 +59,29 @@ namespace TdLib
                 ChatId = chatId, MessageId = messageId, OptionIds = optionIds
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes the user answer to a poll. A poll in quiz mode can be answered only once
+                /// </summary>
+                public Task<Ok> SetPollAnswerAsync(long chatId = default, long messageId = default, int[] optionIds = default)
+                {
+                //test
+                    return ExecuteAsync(new SetPollAnswer
+                    {
+                        ChatId = chatId, MessageId = messageId, OptionIds = optionIds
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes the user answer to a poll. A poll in quiz mode can be answered only once
+                /// </summary>
+                Task<Ok> SetPollAnswerAsync(long chatId = default, long messageId = default, int[] optionIds = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

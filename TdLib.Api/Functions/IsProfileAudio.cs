@@ -46,6 +46,29 @@ namespace TdLib
                 FileId = fileId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Checks whether a file is in the profile audio files of the current user. Returns a 404 error if it isn't
+                /// </summary>
+                public Task<Ok> IsProfileAudioAsync(int fileId = default)
+                {
+                //test
+                    return ExecuteAsync(new IsProfileAudio
+                    {
+                        FileId = fileId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Checks whether a file is in the profile audio files of the current user. Returns a 404 error if it isn't
+                /// </summary>
+                Task<Ok> IsProfileAudioAsync(int fileId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

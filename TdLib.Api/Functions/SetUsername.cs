@@ -46,6 +46,29 @@ namespace TdLib
                 Username = username
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes the editable username of the current user
+                /// </summary>
+                public Task<Ok> SetUsernameAsync(string username = default)
+                {
+                //test
+                    return ExecuteAsync(new SetUsername
+                    {
+                        Username = username
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes the editable username of the current user
+                /// </summary>
+                Task<Ok> SetUsernameAsync(string username = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

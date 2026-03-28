@@ -47,6 +47,31 @@ namespace TdLib
                 Contacts = contacts
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes imported contacts using the list of contacts saved on the device. Imports newly added contacts and, if at least the file database is enabled, deletes recently deleted contacts.
+                /// Query result depends on the result of the previous query, so only one query is possible at the same time
+                /// </summary>
+                public Task<ImportedContacts> ChangeImportedContactsAsync(ImportedContact[] contacts = default)
+                {
+                //test
+                    return ExecuteAsync(new ChangeImportedContacts
+                    {
+                        Contacts = contacts
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes imported contacts using the list of contacts saved on the device. Imports newly added contacts and, if at least the file database is enabled, deletes recently deleted contacts.
+                /// Query result depends on the result of the previous query, so only one query is possible at the same time
+                /// </summary>
+                Task<ImportedContacts> ChangeImportedContactsAsync(ImportedContact[] contacts = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -46,6 +46,29 @@ namespace TdLib
                 GroupCallId = groupCallId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns the list of top live story donors
+                /// </summary>
+                public Task<LiveStoryDonors> GetLiveStoryTopDonorsAsync(int groupCallId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetLiveStoryTopDonors
+                    {
+                        GroupCallId = groupCallId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns the list of top live story donors
+                /// </summary>
+                Task<LiveStoryDonors> GetLiveStoryTopDonorsAsync(int groupCallId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

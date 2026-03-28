@@ -53,6 +53,29 @@ namespace TdLib
                 ChatId = chatId, EmojiStatus = emojiStatus
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes the emoji status of a chat. Use chatBoostLevelFeatures.can_set_emoji_status to check whether an emoji status can be set. Requires can_change_info administrator right
+                /// </summary>
+                public Task<Ok> SetChatEmojiStatusAsync(long chatId = default, EmojiStatus emojiStatus = default)
+                {
+                //test
+                    return ExecuteAsync(new SetChatEmojiStatus
+                    {
+                        ChatId = chatId, EmojiStatus = emojiStatus
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes the emoji status of a chat. Use chatBoostLevelFeatures.can_set_emoji_status to check whether an emoji status can be set. Requires can_change_info administrator right
+                /// </summary>
+                Task<Ok> SetChatEmojiStatusAsync(long chatId = default, EmojiStatus emojiStatus = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

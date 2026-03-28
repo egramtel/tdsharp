@@ -46,6 +46,29 @@ namespace TdLib
                 ChatFolderId = chatFolderId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns information about a chat folder by its identifier
+                /// </summary>
+                public Task<ChatFolder> GetChatFolderAsync(int chatFolderId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetChatFolder
+                    {
+                        ChatFolderId = chatFolderId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns information about a chat folder by its identifier
+                /// </summary>
+                Task<ChatFolder> GetChatFolderAsync(int chatFolderId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

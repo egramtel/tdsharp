@@ -46,6 +46,29 @@ namespace TdLib
                 Folder = folder
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns default icon name for a folder. Can be called synchronously
+                /// </summary>
+                public Task<ChatFolderIcon> GetChatFolderDefaultIconNameAsync(ChatFolder folder = default)
+                {
+                //test
+                    return ExecuteAsync(new GetChatFolderDefaultIconName
+                    {
+                        Folder = folder
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns default icon name for a folder. Can be called synchronously
+                /// </summary>
+                Task<ChatFolderIcon> GetChatFolderDefaultIconNameAsync(ChatFolder folder = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

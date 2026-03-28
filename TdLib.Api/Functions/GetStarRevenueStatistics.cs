@@ -53,6 +53,29 @@ namespace TdLib
                 OwnerId = ownerId, IsDark = isDark
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns detailed Telegram Star revenue statistics
+                /// </summary>
+                public Task<StarRevenueStatistics> GetStarRevenueStatisticsAsync(MessageSender ownerId = default, bool isDark = default)
+                {
+                //test
+                    return ExecuteAsync(new GetStarRevenueStatistics
+                    {
+                        OwnerId = ownerId, IsDark = isDark
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns detailed Telegram Star revenue statistics
+                /// </summary>
+                Task<StarRevenueStatistics> GetStarRevenueStatisticsAsync(MessageSender ownerId = default, bool isDark = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

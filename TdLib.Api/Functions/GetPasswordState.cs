@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns the current state of 2-step verification
+                /// </summary>
+                public Task<PasswordState> GetPasswordStateAsync()
+                {
+                //test
+                    return ExecuteAsync(new GetPasswordState
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns the current state of 2-step verification
+                /// </summary>
+                Task<PasswordState> GetPasswordStateAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

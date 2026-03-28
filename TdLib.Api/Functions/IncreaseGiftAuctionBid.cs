@@ -53,6 +53,29 @@ namespace TdLib
                 GiftId = giftId, StarCount = starCount
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Increases a bid for an auction gift without changing gift text and receiver
+                /// </summary>
+                public Task<Ok> IncreaseGiftAuctionBidAsync(long giftId = default, long starCount = default)
+                {
+                //test
+                    return ExecuteAsync(new IncreaseGiftAuctionBid
+                    {
+                        GiftId = giftId, StarCount = starCount
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Increases a bid for an auction gift without changing gift text and receiver
+                /// </summary>
+                Task<Ok> IncreaseGiftAuctionBidAsync(long giftId = default, long starCount = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

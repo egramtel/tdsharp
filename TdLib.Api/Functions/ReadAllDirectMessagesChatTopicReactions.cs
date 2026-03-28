@@ -53,6 +53,29 @@ namespace TdLib
                 ChatId = chatId, TopicId = topicId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Removes all unread reactions in the topic in a channel direct messages chat administered by the current user
+                /// </summary>
+                public Task<Ok> ReadAllDirectMessagesChatTopicReactionsAsync(long chatId = default, long topicId = default)
+                {
+                //test
+                    return ExecuteAsync(new ReadAllDirectMessagesChatTopicReactions
+                    {
+                        ChatId = chatId, TopicId = topicId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Removes all unread reactions in the topic in a channel direct messages chat administered by the current user
+                /// </summary>
+                Task<Ok> ReadAllDirectMessagesChatTopicReactionsAsync(long chatId = default, long topicId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

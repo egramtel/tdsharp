@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns a list of channel chats, which can be used as a personal chat
+                /// </summary>
+                public Task<Chats> GetSuitablePersonalChatsAsync()
+                {
+                //test
+                    return ExecuteAsync(new GetSuitablePersonalChats
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns a list of channel chats, which can be used as a personal chat
+                /// </summary>
+                Task<Chats> GetSuitablePersonalChatsAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

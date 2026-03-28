@@ -53,6 +53,29 @@ namespace TdLib
                 Photo = photo, IsPublic = isPublic
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes a profile photo for the current user
+                /// </summary>
+                public Task<Ok> SetProfilePhotoAsync(InputChatPhoto photo = default, bool isPublic = default)
+                {
+                //test
+                    return ExecuteAsync(new SetProfilePhoto
+                    {
+                        Photo = photo, IsPublic = isPublic
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes a profile photo for the current user
+                /// </summary>
+                Task<Ok> SetProfilePhotoAsync(InputChatPhoto photo = default, bool isPublic = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

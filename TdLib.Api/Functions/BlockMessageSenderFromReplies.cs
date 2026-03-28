@@ -67,6 +67,29 @@ namespace TdLib
                 MessageId = messageId, DeleteMessage = deleteMessage, DeleteAllMessages = deleteAllMessages, ReportSpam = reportSpam
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Blocks an original sender of a message in the Replies chat
+                /// </summary>
+                public Task<Ok> BlockMessageSenderFromRepliesAsync(long messageId = default, bool deleteMessage = default, bool deleteAllMessages = default, bool reportSpam = default)
+                {
+                //test
+                    return ExecuteAsync(new BlockMessageSenderFromReplies
+                    {
+                        MessageId = messageId, DeleteMessage = deleteMessage, DeleteAllMessages = deleteAllMessages, ReportSpam = reportSpam
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Blocks an original sender of a message in the Replies chat
+                /// </summary>
+                Task<Ok> BlockMessageSenderFromRepliesAsync(long messageId = default, bool deleteMessage = default, bool deleteAllMessages = default, bool reportSpam = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -53,6 +53,29 @@ namespace TdLib
                 ChatFolderId = chatFolderId, InviteLink = inviteLink
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Deletes an invite link for a chat folder
+                /// </summary>
+                public Task<Ok> DeleteChatFolderInviteLinkAsync(int chatFolderId = default, string inviteLink = default)
+                {
+                //test
+                    return ExecuteAsync(new DeleteChatFolderInviteLink
+                    {
+                        ChatFolderId = chatFolderId, InviteLink = inviteLink
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Deletes an invite link for a chat folder
+                /// </summary>
+                Task<Ok> DeleteChatFolderInviteLinkAsync(int chatFolderId = default, string inviteLink = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

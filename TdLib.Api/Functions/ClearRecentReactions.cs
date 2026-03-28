@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Clears the list of recently used reactions
+                /// </summary>
+                public Task<Ok> ClearRecentReactionsAsync()
+                {
+                //test
+                    return ExecuteAsync(new ClearRecentReactions
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Clears the list of recently used reactions
+                /// </summary>
+                Task<Ok> ClearRecentReactionsAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

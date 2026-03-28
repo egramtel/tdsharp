@@ -60,6 +60,29 @@ namespace TdLib
                 GroupCallId = groupCallId, SenderId = senderId, ReportSpam = reportSpam
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Deletes all messages sent by the specified message sender in a group call; for live story calls only. Requires groupCall.can_delete_messages right
+                /// </summary>
+                public Task<Ok> DeleteGroupCallMessagesBySenderAsync(int groupCallId = default, MessageSender senderId = default, bool reportSpam = default)
+                {
+                //test
+                    return ExecuteAsync(new DeleteGroupCallMessagesBySender
+                    {
+                        GroupCallId = groupCallId, SenderId = senderId, ReportSpam = reportSpam
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Deletes all messages sent by the specified message sender in a group call; for live story calls only. Requires groupCall.can_delete_messages right
+                /// </summary>
+                Task<Ok> DeleteGroupCallMessagesBySenderAsync(int groupCallId = default, MessageSender senderId = default, bool reportSpam = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

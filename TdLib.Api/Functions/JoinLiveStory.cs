@@ -53,6 +53,29 @@ namespace TdLib
                 GroupCallId = groupCallId, JoinParameters = joinParameters
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Joins a group call of an active live story. Returns join response payload for tgcalls
+                /// </summary>
+                public Task<Text> JoinLiveStoryAsync(int groupCallId = default, GroupCallJoinParameters joinParameters = default)
+                {
+                //test
+                    return ExecuteAsync(new JoinLiveStory
+                    {
+                        GroupCallId = groupCallId, JoinParameters = joinParameters
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Joins a group call of an active live story. Returns join response payload for tgcalls
+                /// </summary>
+                Task<Text> JoinLiveStoryAsync(int groupCallId = default, GroupCallJoinParameters joinParameters = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

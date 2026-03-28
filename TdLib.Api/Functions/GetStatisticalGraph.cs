@@ -60,6 +60,29 @@ namespace TdLib
                 ChatId = chatId, Token = token, X = x
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Loads an asynchronous or a zoomed in statistical graph
+                /// </summary>
+                public Task<StatisticalGraph> GetStatisticalGraphAsync(long chatId = default, string token = default, long x = default)
+                {
+                //test
+                    return ExecuteAsync(new GetStatisticalGraph
+                    {
+                        ChatId = chatId, Token = token, X = x
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Loads an asynchronous or a zoomed in statistical graph
+                /// </summary>
+                Task<StatisticalGraph> GetStatisticalGraphAsync(long chatId = default, string token = default, long x = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

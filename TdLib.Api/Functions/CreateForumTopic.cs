@@ -67,6 +67,29 @@ namespace TdLib
                 ChatId = chatId, Name = name, IsNameImplicit = isNameImplicit, Icon = icon
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Creates a topic in a forum supergroup chat or a chat with a bot with topics; requires can_manage_topics administrator or can_create_topics member right in the supergroup
+                /// </summary>
+                public Task<ForumTopicInfo> CreateForumTopicAsync(long chatId = default, string name = default, bool isNameImplicit = default, ForumTopicIcon icon = default)
+                {
+                //test
+                    return ExecuteAsync(new CreateForumTopic
+                    {
+                        ChatId = chatId, Name = name, IsNameImplicit = isNameImplicit, Icon = icon
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Creates a topic in a forum supergroup chat or a chat with a bot with topics; requires can_manage_topics administrator or can_create_topics member right in the supergroup
+                /// </summary>
+                Task<ForumTopicInfo> CreateForumTopicAsync(long chatId = default, string name = default, bool isNameImplicit = default, ForumTopicIcon icon = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

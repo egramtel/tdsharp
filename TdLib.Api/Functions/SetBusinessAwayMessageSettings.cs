@@ -46,6 +46,29 @@ namespace TdLib
                 AwayMessageSettings = awayMessageSettings
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes the business away message settings of the current user. Requires Telegram Business subscription
+                /// </summary>
+                public Task<Ok> SetBusinessAwayMessageSettingsAsync(BusinessAwayMessageSettings awayMessageSettings = default)
+                {
+                //test
+                    return ExecuteAsync(new SetBusinessAwayMessageSettings
+                    {
+                        AwayMessageSettings = awayMessageSettings
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes the business away message settings of the current user. Requires Telegram Business subscription
+                /// </summary>
+                Task<Ok> SetBusinessAwayMessageSettingsAsync(BusinessAwayMessageSettings awayMessageSettings = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

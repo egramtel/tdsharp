@@ -46,6 +46,29 @@ namespace TdLib
                 ReceivedGiftId = receivedGiftId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns information about a received gift
+                /// </summary>
+                public Task<ReceivedGift> GetReceivedGiftAsync(string receivedGiftId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetReceivedGift
+                    {
+                        ReceivedGiftId = receivedGiftId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns information about a received gift
+                /// </summary>
+                Task<ReceivedGift> GetReceivedGiftAsync(string receivedGiftId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

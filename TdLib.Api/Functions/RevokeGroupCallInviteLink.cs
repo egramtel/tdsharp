@@ -46,6 +46,29 @@ namespace TdLib
                 GroupCallId = groupCallId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Revokes invite link for a group call. Requires groupCall.can_be_managed right for video chats or groupCall.is_owned otherwise
+                /// </summary>
+                public Task<Ok> RevokeGroupCallInviteLinkAsync(int groupCallId = default)
+                {
+                //test
+                    return ExecuteAsync(new RevokeGroupCallInviteLink
+                    {
+                        GroupCallId = groupCallId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Revokes invite link for a group call. Requires groupCall.can_be_managed right for video chats or groupCall.is_owned otherwise
+                /// </summary>
+                Task<Ok> RevokeGroupCallInviteLinkAsync(int groupCallId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

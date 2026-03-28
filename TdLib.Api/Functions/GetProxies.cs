@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns the list of proxies that are currently set up. Can be called before authorization
+                /// </summary>
+                public Task<AddedProxies> GetProxiesAsync()
+                {
+                //test
+                    return ExecuteAsync(new GetProxies
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns the list of proxies that are currently set up. Can be called before authorization
+                /// </summary>
+                Task<AddedProxies> GetProxiesAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

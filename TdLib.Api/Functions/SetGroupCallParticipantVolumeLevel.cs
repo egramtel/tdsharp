@@ -62,6 +62,31 @@ namespace TdLib
                 GroupCallId = groupCallId, ParticipantId = participantId, VolumeLevel = volumeLevel
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes volume level of a participant of an active group call; not supported for live stories. If the current user can manage the group call or is the owner of the group call,
+                /// then the participant's volume level will be changed for all users with the default volume level
+                /// </summary>
+                public Task<Ok> SetGroupCallParticipantVolumeLevelAsync(int groupCallId = default, MessageSender participantId = default, int volumeLevel = default)
+                {
+                //test
+                    return ExecuteAsync(new SetGroupCallParticipantVolumeLevel
+                    {
+                        GroupCallId = groupCallId, ParticipantId = participantId, VolumeLevel = volumeLevel
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes volume level of a participant of an active group call; not supported for live stories. If the current user can manage the group call or is the owner of the group call,
+                /// then the participant's volume level will be changed for all users with the default volume level
+                /// </summary>
+                Task<Ok> SetGroupCallParticipantVolumeLevelAsync(int groupCallId = default, MessageSender participantId = default, int volumeLevel = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

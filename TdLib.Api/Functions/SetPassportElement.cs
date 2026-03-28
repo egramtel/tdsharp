@@ -53,6 +53,29 @@ namespace TdLib
                 Element = element, Password = password
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Adds an element to the user's Telegram Passport. May return an error with a message "PHONE_VERIFICATION_NEEDED" or "EMAIL_VERIFICATION_NEEDED" if the chosen phone number or the chosen email address must be verified first
+                /// </summary>
+                public Task<PassportElement> SetPassportElementAsync(InputPassportElement element = default, string password = default)
+                {
+                //test
+                    return ExecuteAsync(new SetPassportElement
+                    {
+                        Element = element, Password = password
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Adds an element to the user's Telegram Passport. May return an error with a message "PHONE_VERIFICATION_NEEDED" or "EMAIL_VERIFICATION_NEEDED" if the chosen phone number or the chosen email address must be verified first
+                /// </summary>
+                Task<PassportElement> SetPassportElementAsync(InputPassportElement element = default, string password = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

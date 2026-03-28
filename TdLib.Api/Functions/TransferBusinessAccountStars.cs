@@ -53,6 +53,29 @@ namespace TdLib
                 BusinessConnectionId = businessConnectionId, StarCount = starCount
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Transfers Telegram Stars from the business account to the business bot; for bots only
+                /// </summary>
+                public Task<Ok> TransferBusinessAccountStarsAsync(string businessConnectionId = default, long starCount = default)
+                {
+                //test
+                    return ExecuteAsync(new TransferBusinessAccountStars
+                    {
+                        BusinessConnectionId = businessConnectionId, StarCount = starCount
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Transfers Telegram Stars from the business account to the business bot; for bots only
+                /// </summary>
+                Task<Ok> TransferBusinessAccountStarsAsync(string businessConnectionId = default, long starCount = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

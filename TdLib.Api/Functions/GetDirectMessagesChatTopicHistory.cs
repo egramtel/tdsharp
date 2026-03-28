@@ -74,6 +74,29 @@ namespace TdLib
                 ChatId = chatId, TopicId = topicId, FromMessageId = fromMessageId, Offset = offset, Limit = limit
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns messages in the topic in a channel direct messages chat administered by the current user. The messages are returned in reverse chronological order (i.e., in order of decreasing message_id)
+                /// </summary>
+                public Task<Messages> GetDirectMessagesChatTopicHistoryAsync(long chatId = default, long topicId = default, long fromMessageId = default, int offset = default, int limit = default)
+                {
+                //test
+                    return ExecuteAsync(new GetDirectMessagesChatTopicHistory
+                    {
+                        ChatId = chatId, TopicId = topicId, FromMessageId = fromMessageId, Offset = offset, Limit = limit
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns messages in the topic in a channel direct messages chat administered by the current user. The messages are returned in reverse chronological order (i.e., in order of decreasing message_id)
+                /// </summary>
+                Task<Messages> GetDirectMessagesChatTopicHistoryAsync(long chatId = default, long topicId = default, long fromMessageId = default, int offset = default, int limit = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

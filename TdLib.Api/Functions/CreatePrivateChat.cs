@@ -53,6 +53,29 @@ namespace TdLib
                 UserId = userId, Force = force
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns an existing chat corresponding to a given user
+                /// </summary>
+                public Task<Chat> CreatePrivateChatAsync(long userId = default, bool force = default)
+                {
+                //test
+                    return ExecuteAsync(new CreatePrivateChat
+                    {
+                        UserId = userId, Force = force
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns an existing chat corresponding to a given user
+                /// </summary>
+                Task<Chat> CreatePrivateChatAsync(long userId = default, bool force = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

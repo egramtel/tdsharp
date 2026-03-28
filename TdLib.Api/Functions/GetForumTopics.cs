@@ -81,6 +81,29 @@ namespace TdLib
                 ChatId = chatId, Query = query, OffsetDate = offsetDate, OffsetMessageId = offsetMessageId, OffsetForumTopicId = offsetForumTopicId, Limit = limit
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns found forum topics in a forum supergroup chat or a chat with a bot with topics. This is a temporary method for getting information about topic list from the server
+                /// </summary>
+                public Task<ForumTopics> GetForumTopicsAsync(long chatId = default, string query = default, int offsetDate = default, long offsetMessageId = default, int offsetForumTopicId = default, int limit = default)
+                {
+                //test
+                    return ExecuteAsync(new GetForumTopics
+                    {
+                        ChatId = chatId, Query = query, OffsetDate = offsetDate, OffsetMessageId = offsetMessageId, OffsetForumTopicId = offsetForumTopicId, Limit = limit
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns found forum topics in a forum supergroup chat or a chat with a bot with topics. This is a temporary method for getting information about topic list from the server
+                /// </summary>
+                Task<ForumTopics> GetForumTopicsAsync(long chatId = default, string query = default, int offsetDate = default, long offsetMessageId = default, int offsetForumTopicId = default, int limit = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

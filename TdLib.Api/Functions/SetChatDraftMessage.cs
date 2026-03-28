@@ -60,6 +60,29 @@ namespace TdLib
                 ChatId = chatId, TopicId = topicId, DraftMessage = draftMessage
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes the draft message in a chat or a topic
+                /// </summary>
+                public Task<Ok> SetChatDraftMessageAsync(long chatId = default, MessageTopic topicId = default, DraftMessage draftMessage = default)
+                {
+                //test
+                    return ExecuteAsync(new SetChatDraftMessage
+                    {
+                        ChatId = chatId, TopicId = topicId, DraftMessage = draftMessage
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes the draft message in a chat or a topic
+                /// </summary>
+                Task<Ok> SetChatDraftMessageAsync(long chatId = default, MessageTopic topicId = default, DraftMessage draftMessage = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

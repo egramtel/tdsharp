@@ -52,6 +52,29 @@ namespace TdLib
                 Text = text, InputLanguageCodes = inputLanguageCodes
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns emojis matching the keyword. Supported only if the file database is enabled. Order of results is unspecified
+                /// </summary>
+                public Task<Emojis> GetKeywordEmojisAsync(string text = default, string[] inputLanguageCodes = default)
+                {
+                //test
+                    return ExecuteAsync(new GetKeywordEmojis
+                    {
+                        Text = text, InputLanguageCodes = inputLanguageCodes
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns emojis matching the keyword. Supported only if the file database is enabled. Order of results is unspecified
+                /// </summary>
+                Task<Emojis> GetKeywordEmojisAsync(string text = default, string[] inputLanguageCodes = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

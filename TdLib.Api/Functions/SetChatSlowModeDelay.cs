@@ -53,6 +53,29 @@ namespace TdLib
                 ChatId = chatId, SlowModeDelay = slowModeDelay
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes the slow mode delay of a chat. Available only for supergroups; requires can_restrict_members administrator right
+                /// </summary>
+                public Task<Ok> SetChatSlowModeDelayAsync(long chatId = default, int slowModeDelay = default)
+                {
+                //test
+                    return ExecuteAsync(new SetChatSlowModeDelay
+                    {
+                        ChatId = chatId, SlowModeDelay = slowModeDelay
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes the slow mode delay of a chat. Available only for supergroups; requires can_restrict_members administrator right
+                /// </summary>
+                Task<Ok> SetChatSlowModeDelayAsync(long chatId = default, int slowModeDelay = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

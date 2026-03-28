@@ -53,6 +53,29 @@ namespace TdLib
                 Name = name, Value = value
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Sets the value of an option. (Check the list of available options on https://core.telegram.org/tdlib/options.) Only writable options can be set. Can be called before authorization
+                /// </summary>
+                public Task<Ok> SetOptionAsync(string name = default, OptionValue value = default)
+                {
+                //test
+                    return ExecuteAsync(new SetOption
+                    {
+                        Name = name, Value = value
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Sets the value of an option. (Check the list of available options on https://core.telegram.org/tdlib/options.) Only writable options can be set. Can be called before authorization
+                /// </summary>
+                Task<Ok> SetOptionAsync(string name = default, OptionValue value = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -57,6 +57,29 @@ namespace TdLib
                 Text = text, ToLanguageCode = toLanguageCode
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Translates a text to the given language. If the current user is a Telegram Premium user, then text formatting is preserved
+                /// </summary>
+                public Task<FormattedText> TranslateTextAsync(FormattedText text = default, string toLanguageCode = default)
+                {
+                //test
+                    return ExecuteAsync(new TranslateText
+                    {
+                        Text = text, ToLanguageCode = toLanguageCode
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Translates a text to the given language. If the current user is a Telegram Premium user, then text formatting is preserved
+                /// </summary>
+                Task<FormattedText> TranslateTextAsync(FormattedText text = default, string toLanguageCode = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

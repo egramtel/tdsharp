@@ -53,6 +53,29 @@ namespace TdLib
                 Affiliate = affiliate, BotUserId = botUserId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns an affiliate program that was connected to the given affiliate by identifier of the bot that created the program
+                /// </summary>
+                public Task<ConnectedAffiliateProgram> GetConnectedAffiliateProgramAsync(AffiliateType affiliate = default, long botUserId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetConnectedAffiliateProgram
+                    {
+                        Affiliate = affiliate, BotUserId = botUserId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns an affiliate program that was connected to the given affiliate by identifier of the bot that created the program
+                /// </summary>
+                Task<ConnectedAffiliateProgram> GetConnectedAffiliateProgramAsync(AffiliateType affiliate = default, long botUserId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

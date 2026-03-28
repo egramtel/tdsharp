@@ -67,6 +67,29 @@ namespace TdLib
                 GroupCallId = groupCallId, ParticipantId = participantId, DataChannel = dataChannel, Data = data
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Decrypts group call data received by tgcalls
+                /// </summary>
+                public Task<Data> DecryptGroupCallDataAsync(int groupCallId = default, MessageSender participantId = default, GroupCallDataChannel dataChannel = default, byte[] data = default)
+                {
+                //test
+                    return ExecuteAsync(new DecryptGroupCallData
+                    {
+                        GroupCallId = groupCallId, ParticipantId = participantId, DataChannel = dataChannel, Data = data
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Decrypts group call data received by tgcalls
+                /// </summary>
+                Task<Data> DecryptGroupCallDataAsync(int groupCallId = default, MessageSender participantId = default, GroupCallDataChannel dataChannel = default, byte[] data = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

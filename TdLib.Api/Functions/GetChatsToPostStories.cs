@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns supergroup and channel chats in which the current user has the right to post stories. The chats must be rechecked with canPostStory before actually trying to post a story there
+                /// </summary>
+                public Task<Chats> GetChatsToPostStoriesAsync()
+                {
+                //test
+                    return ExecuteAsync(new GetChatsToPostStories
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns supergroup and channel chats in which the current user has the right to post stories. The chats must be rechecked with canPostStory before actually trying to post a story there
+                /// </summary>
+                Task<Chats> GetChatsToPostStoriesAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

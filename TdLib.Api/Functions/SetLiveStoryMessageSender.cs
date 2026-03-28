@@ -53,6 +53,29 @@ namespace TdLib
                 GroupCallId = groupCallId, MessageSenderId = messageSenderId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Selects a message sender to send messages in a live story call
+                /// </summary>
+                public Task<Ok> SetLiveStoryMessageSenderAsync(int groupCallId = default, MessageSender messageSenderId = default)
+                {
+                //test
+                    return ExecuteAsync(new SetLiveStoryMessageSender
+                    {
+                        GroupCallId = groupCallId, MessageSenderId = messageSenderId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Selects a message sender to send messages in a live story call
+                /// </summary>
+                Task<Ok> SetLiveStoryMessageSenderAsync(int groupCallId = default, MessageSender messageSenderId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns promotional anumation for upgraded gifts
+                /// </summary>
+                public Task<Animation> GetUpgradedGiftsPromotionalAnimationAsync()
+                {
+                //test
+                    return ExecuteAsync(new GetUpgradedGiftsPromotionalAnimation
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns promotional anumation for upgraded gifts
+                /// </summary>
+                Task<Animation> GetUpgradedGiftsPromotionalAnimationAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -60,6 +60,29 @@ namespace TdLib
                 ChatId = chatId, MessageId = messageId, ForAlbum = forAlbum
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns an HTML code for embedding the message. Available only if messageProperties.can_get_embedding_code
+                /// </summary>
+                public Task<Text> GetMessageEmbeddingCodeAsync(long chatId = default, long messageId = default, bool forAlbum = default)
+                {
+                //test
+                    return ExecuteAsync(new GetMessageEmbeddingCode
+                    {
+                        ChatId = chatId, MessageId = messageId, ForAlbum = forAlbum
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns an HTML code for embedding the message. Available only if messageProperties.can_get_embedding_code
+                /// </summary>
+                Task<Text> GetMessageEmbeddingCodeAsync(long chatId = default, long messageId = default, bool forAlbum = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Closes the TDLib instance after a proper logout. Requires an available network connection. All local data will be destroyed. After the logout completes, updateAuthorizationState with authorizationStateClosed will be sent
+                /// </summary>
+                public Task<Ok> LogOutAsync()
+                {
+                //test
+                    return ExecuteAsync(new LogOut
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Closes the TDLib instance after a proper logout. Requires an available network connection. All local data will be destroyed. After the logout completes, updateAuthorizationState with authorizationStateClosed will be sent
+                /// </summary>
+                Task<Ok> LogOutAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

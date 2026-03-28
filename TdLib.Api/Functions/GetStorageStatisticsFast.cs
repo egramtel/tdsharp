@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Quickly returns approximate storage usage statistics. Can be called before authorization
+                /// </summary>
+                public Task<StorageStatisticsFast> GetStorageStatisticsFastAsync()
+                {
+                //test
+                    return ExecuteAsync(new GetStorageStatisticsFast
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Quickly returns approximate storage usage statistics. Can be called before authorization
+                /// </summary>
+                Task<StorageStatisticsFast> GetStorageStatisticsFastAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

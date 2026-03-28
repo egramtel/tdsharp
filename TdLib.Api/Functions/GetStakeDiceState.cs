@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns the current state of stake dice
+                /// </summary>
+                public Task<StakeDiceState> GetStakeDiceStateAsync()
+                {
+                //test
+                    return ExecuteAsync(new GetStakeDiceState
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns the current state of stake dice
+                /// </summary>
+                Task<StakeDiceState> GetStakeDiceStateAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

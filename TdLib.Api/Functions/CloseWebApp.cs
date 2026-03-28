@@ -46,6 +46,29 @@ namespace TdLib
                 WebAppLaunchId = webAppLaunchId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Informs TDLib that a previously opened Web App was closed
+                /// </summary>
+                public Task<Ok> CloseWebAppAsync(long webAppLaunchId = default)
+                {
+                //test
+                    return ExecuteAsync(new CloseWebApp
+                    {
+                        WebAppLaunchId = webAppLaunchId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Informs TDLib that a previously opened Web App was closed
+                /// </summary>
+                Task<Ok> CloseWebAppAsync(long webAppLaunchId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

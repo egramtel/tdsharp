@@ -60,6 +60,29 @@ namespace TdLib
                 ChatId = chatId, ForumTopicId = forumTopicId, NotificationSettings = notificationSettings
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes the notification settings of a forum topic in a forum supergroup chat or a chat with a bot with topics
+                /// </summary>
+                public Task<Ok> SetForumTopicNotificationSettingsAsync(long chatId = default, int forumTopicId = default, ChatNotificationSettings notificationSettings = default)
+                {
+                //test
+                    return ExecuteAsync(new SetForumTopicNotificationSettings
+                    {
+                        ChatId = chatId, ForumTopicId = forumTopicId, NotificationSettings = notificationSettings
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes the notification settings of a forum topic in a forum supergroup chat or a chat with a bot with topics
+                /// </summary>
+                Task<Ok> SetForumTopicNotificationSettingsAsync(long chatId = default, int forumTopicId = default, ChatNotificationSettings notificationSettings = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

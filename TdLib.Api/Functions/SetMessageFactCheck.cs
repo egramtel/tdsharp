@@ -60,6 +60,29 @@ namespace TdLib
                 ChatId = chatId, MessageId = messageId, Text = text
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes the fact-check of a message. Can be only used if messageProperties.can_set_fact_check == true
+                /// </summary>
+                public Task<Ok> SetMessageFactCheckAsync(long chatId = default, long messageId = default, FormattedText text = default)
+                {
+                //test
+                    return ExecuteAsync(new SetMessageFactCheck
+                    {
+                        ChatId = chatId, MessageId = messageId, Text = text
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes the fact-check of a message. Can be only used if messageProperties.can_set_fact_check == true
+                /// </summary>
+                Task<Ok> SetMessageFactCheckAsync(long chatId = default, long messageId = default, FormattedText text = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

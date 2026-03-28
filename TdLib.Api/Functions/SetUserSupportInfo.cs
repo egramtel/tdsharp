@@ -53,6 +53,29 @@ namespace TdLib
                 UserId = userId, Message = message
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Sets support information for the given user; for Telegram support only
+                /// </summary>
+                public Task<UserSupportInfo> SetUserSupportInfoAsync(long userId = default, FormattedText message = default)
+                {
+                //test
+                    return ExecuteAsync(new SetUserSupportInfo
+                    {
+                        UserId = userId, Message = message
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Sets support information for the given user; for Telegram support only
+                /// </summary>
+                Task<UserSupportInfo> SetUserSupportInfoAsync(long userId = default, FormattedText message = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

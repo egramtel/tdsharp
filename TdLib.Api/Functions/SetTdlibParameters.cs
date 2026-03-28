@@ -137,6 +137,29 @@ namespace TdLib
                 UseTestDc = useTestDc, DatabaseDirectory = databaseDirectory, FilesDirectory = filesDirectory, DatabaseEncryptionKey = databaseEncryptionKey, UseFileDatabase = useFileDatabase, UseChatInfoDatabase = useChatInfoDatabase, UseMessageDatabase = useMessageDatabase, UseSecretChats = useSecretChats, ApiId = apiId, ApiHash = apiHash, SystemLanguageCode = systemLanguageCode, DeviceModel = deviceModel, SystemVersion = systemVersion, ApplicationVersion = applicationVersion
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Sets the parameters for TDLib initialization. Works only when the current authorization state is authorizationStateWaitTdlibParameters
+                /// </summary>
+                public Task<Ok> SetTdlibParametersAsync(bool useTestDc = default, string databaseDirectory = default, string filesDirectory = default, byte[] databaseEncryptionKey = default, bool useFileDatabase = default, bool useChatInfoDatabase = default, bool useMessageDatabase = default, bool useSecretChats = default, int apiId = default, string apiHash = default, string systemLanguageCode = default, string deviceModel = default, string systemVersion = default, string applicationVersion = default)
+                {
+                //test
+                    return ExecuteAsync(new SetTdlibParameters
+                    {
+                        UseTestDc = useTestDc, DatabaseDirectory = databaseDirectory, FilesDirectory = filesDirectory, DatabaseEncryptionKey = databaseEncryptionKey, UseFileDatabase = useFileDatabase, UseChatInfoDatabase = useChatInfoDatabase, UseMessageDatabase = useMessageDatabase, UseSecretChats = useSecretChats, ApiId = apiId, ApiHash = apiHash, SystemLanguageCode = systemLanguageCode, DeviceModel = deviceModel, SystemVersion = systemVersion, ApplicationVersion = applicationVersion
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Sets the parameters for TDLib initialization. Works only when the current authorization state is authorizationStateWaitTdlibParameters
+                /// </summary>
+                Task<Ok> SetTdlibParametersAsync(bool useTestDc = default, string databaseDirectory = default, string filesDirectory = default, byte[] databaseEncryptionKey = default, bool useFileDatabase = default, bool useChatInfoDatabase = default, bool useMessageDatabase = default, bool useSecretChats = default, int apiId = default, string apiHash = default, string systemLanguageCode = default, string deviceModel = default, string systemVersion = default, string applicationVersion = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

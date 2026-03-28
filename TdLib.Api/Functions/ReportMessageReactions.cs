@@ -60,6 +60,29 @@ namespace TdLib
                 ChatId = chatId, MessageId = messageId, SenderId = senderId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Reports reactions set on a message to the Telegram moderators. Reactions on a message can be reported only if messageProperties.can_report_reactions
+                /// </summary>
+                public Task<Ok> ReportMessageReactionsAsync(long chatId = default, long messageId = default, MessageSender senderId = default)
+                {
+                //test
+                    return ExecuteAsync(new ReportMessageReactions
+                    {
+                        ChatId = chatId, MessageId = messageId, SenderId = senderId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Reports reactions set on a message to the Telegram moderators. Reactions on a message can be reported only if messageProperties.can_report_reactions
+                /// </summary>
+                Task<Ok> ReportMessageReactionsAsync(long chatId = default, long messageId = default, MessageSender senderId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

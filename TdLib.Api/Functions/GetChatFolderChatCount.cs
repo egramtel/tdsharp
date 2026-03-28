@@ -46,6 +46,29 @@ namespace TdLib
                 Folder = folder
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns approximate number of chats in a being created chat folder. Main and archive chat lists must be fully preloaded for this function to work correctly
+                /// </summary>
+                public Task<Count> GetChatFolderChatCountAsync(ChatFolder folder = default)
+                {
+                //test
+                    return ExecuteAsync(new GetChatFolderChatCount
+                    {
+                        Folder = folder
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns approximate number of chats in a being created chat folder. Main and archive chat lists must be fully preloaded for this function to work correctly
+                /// </summary>
+                Task<Count> GetChatFolderChatCountAsync(ChatFolder folder = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

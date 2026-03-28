@@ -60,6 +60,29 @@ namespace TdLib
                 UserId = userId, Contact = contact, SharePhoneNumber = sharePhoneNumber
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Adds a user to the contact list or edits an existing contact by their user identifier
+                /// </summary>
+                public Task<Ok> AddContactAsync(long userId = default, ImportedContact contact = default, bool sharePhoneNumber = default)
+                {
+                //test
+                    return ExecuteAsync(new AddContact
+                    {
+                        UserId = userId, Contact = contact, SharePhoneNumber = sharePhoneNumber
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Adds a user to the contact list or edits an existing contact by their user identifier
+                /// </summary>
+                Task<Ok> AddContactAsync(long userId = default, ImportedContact contact = default, bool sharePhoneNumber = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

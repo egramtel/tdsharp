@@ -52,6 +52,29 @@ namespace TdLib
                 Sticker = sticker, Keywords = keywords
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes the list of keywords of a sticker. The sticker must belong to a regular or custom emoji sticker set that is owned by the current user
+                /// </summary>
+                public Task<Ok> SetStickerKeywordsAsync(InputFile sticker = default, string[] keywords = default)
+                {
+                //test
+                    return ExecuteAsync(new SetStickerKeywords
+                    {
+                        Sticker = sticker, Keywords = keywords
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes the list of keywords of a sticker. The sticker must belong to a regular or custom emoji sticker set that is owned by the current user
+                /// </summary>
+                Task<Ok> SetStickerKeywordsAsync(InputFile sticker = default, string[] keywords = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

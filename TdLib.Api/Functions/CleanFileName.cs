@@ -46,6 +46,29 @@ namespace TdLib
                 FileName = fileName
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Removes potentially dangerous characters from the name of a file. Returns an empty string on failure. Can be called synchronously
+                /// </summary>
+                public Task<Text> CleanFileNameAsync(string fileName = default)
+                {
+                //test
+                    return ExecuteAsync(new CleanFileName
+                    {
+                        FileName = fileName
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Removes potentially dangerous characters from the name of a file. Returns an empty string on failure. Can be called synchronously
+                /// </summary>
+                Task<Text> CleanFileNameAsync(string fileName = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

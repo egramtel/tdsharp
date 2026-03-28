@@ -69,6 +69,31 @@ namespace TdLib
                 FileId = fileId, ChatId = chatId, MessageId = messageId, Priority = priority
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Adds a file from a message to the list of file downloads. Download progress and completion of the download will be notified through updateFile updates.
+                /// If message database is used, the list of file downloads is persistent across application restarts. The downloading is independent of download using downloadFile, i.e. it continues if downloadFile is canceled or is used to download a part of the file
+                /// </summary>
+                public Task<File> AddFileToDownloadsAsync(int fileId = default, long chatId = default, long messageId = default, int priority = default)
+                {
+                //test
+                    return ExecuteAsync(new AddFileToDownloads
+                    {
+                        FileId = fileId, ChatId = chatId, MessageId = messageId, Priority = priority
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Adds a file from a message to the list of file downloads. Download progress and completion of the download will be notified through updateFile updates.
+                /// If message database is used, the list of file downloads is persistent across application restarts. The downloading is independent of download using downloadFile, i.e. it continues if downloadFile is canceled or is used to download a part of the file
+                /// </summary>
+                Task<File> AddFileToDownloadsAsync(int fileId = default, long chatId = default, long messageId = default, int priority = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -46,6 +46,29 @@ namespace TdLib
                 GroupCallId = groupCallId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Applies all pending paid reactions in a live story group call
+                /// </summary>
+                public Task<Ok> CommitPendingLiveStoryReactionsAsync(int groupCallId = default)
+                {
+                //test
+                    return ExecuteAsync(new CommitPendingLiveStoryReactions
+                    {
+                        GroupCallId = groupCallId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Applies all pending paid reactions in a live story group call
+                /// </summary>
+                Task<Ok> CommitPendingLiveStoryReactionsAsync(int groupCallId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

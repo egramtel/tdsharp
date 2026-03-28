@@ -53,6 +53,29 @@ namespace TdLib
                 ChatId = chatId, IsHidden = isHidden
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Toggles whether a General topic is hidden in a forum supergroup chat; requires can_manage_topics administrator right in the supergroup
+                /// </summary>
+                public Task<Ok> ToggleGeneralForumTopicIsHiddenAsync(long chatId = default, bool isHidden = default)
+                {
+                //test
+                    return ExecuteAsync(new ToggleGeneralForumTopicIsHidden
+                    {
+                        ChatId = chatId, IsHidden = isHidden
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Toggles whether a General topic is hidden in a forum supergroup chat; requires can_manage_topics administrator right in the supergroup
+                /// </summary>
+                Task<Ok> ToggleGeneralForumTopicIsHiddenAsync(long chatId = default, bool isHidden = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

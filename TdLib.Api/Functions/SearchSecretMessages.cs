@@ -74,6 +74,29 @@ namespace TdLib
                 ChatId = chatId, Query = query, Offset = offset, Limit = limit, Filter = filter
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Searches for messages in secret chats. Returns the results in reverse chronological order. For optimal performance, the number of returned messages is chosen by TDLib
+                /// </summary>
+                public Task<FoundMessages> SearchSecretMessagesAsync(long chatId = default, string query = default, string offset = default, int limit = default, SearchMessagesFilter filter = default)
+                {
+                //test
+                    return ExecuteAsync(new SearchSecretMessages
+                    {
+                        ChatId = chatId, Query = query, Offset = offset, Limit = limit, Filter = filter
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Searches for messages in secret chats. Returns the results in reverse chronological order. For optimal performance, the number of returned messages is chosen by TDLib
+                /// </summary>
+                Task<FoundMessages> SearchSecretMessagesAsync(long chatId = default, string query = default, string offset = default, int limit = default, SearchMessagesFilter filter = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Deletes saved order information
+                /// </summary>
+                public Task<Ok> DeleteSavedOrderInfoAsync()
+                {
+                //test
+                    return ExecuteAsync(new DeleteSavedOrderInfo
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Deletes saved order information
+                /// </summary>
+                Task<Ok> DeleteSavedOrderInfoAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

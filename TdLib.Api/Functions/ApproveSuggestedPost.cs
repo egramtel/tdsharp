@@ -60,6 +60,29 @@ namespace TdLib
                 ChatId = chatId, MessageId = messageId, SendDate = sendDate
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Approves a suggested post in a channel direct messages chat
+                /// </summary>
+                public Task<Ok> ApproveSuggestedPostAsync(long chatId = default, long messageId = default, int sendDate = default)
+                {
+                //test
+                    return ExecuteAsync(new ApproveSuggestedPost
+                    {
+                        ChatId = chatId, MessageId = messageId, SendDate = sendDate
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Approves a suggested post in a channel direct messages chat
+                /// </summary>
+                Task<Ok> ApproveSuggestedPostAsync(long chatId = default, long messageId = default, int sendDate = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

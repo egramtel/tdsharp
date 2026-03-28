@@ -53,6 +53,29 @@ namespace TdLib
                 UserId = userId, Photo = photo
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes a personal profile photo of a contact user
+                /// </summary>
+                public Task<Ok> SetUserPersonalProfilePhotoAsync(long userId = default, InputChatPhoto photo = default)
+                {
+                //test
+                    return ExecuteAsync(new SetUserPersonalProfilePhoto
+                    {
+                        UserId = userId, Photo = photo
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes a personal profile photo of a contact user
+                /// </summary>
+                Task<Ok> SetUserPersonalProfilePhotoAsync(long userId = default, InputChatPhoto photo = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

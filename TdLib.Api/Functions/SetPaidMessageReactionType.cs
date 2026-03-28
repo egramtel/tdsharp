@@ -60,6 +60,29 @@ namespace TdLib
                 ChatId = chatId, MessageId = messageId, Type = type
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes type of paid message reaction of the current user on a message. The message must have paid reaction added by the current user
+                /// </summary>
+                public Task<Ok> SetPaidMessageReactionTypeAsync(long chatId = default, long messageId = default, PaidReactionType type = default)
+                {
+                //test
+                    return ExecuteAsync(new SetPaidMessageReactionType
+                    {
+                        ChatId = chatId, MessageId = messageId, Type = type
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes type of paid message reaction of the current user on a message. The message must have paid reaction added by the current user
+                /// </summary>
+                Task<Ok> SetPaidMessageReactionTypeAsync(long chatId = default, long messageId = default, PaidReactionType type = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

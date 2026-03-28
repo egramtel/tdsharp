@@ -65,6 +65,29 @@ namespace TdLib
                 ChatId = chatId, MessageId = messageId, MarkedAsDoneTaskIds = markedAsDoneTaskIds, MarkedAsNotDoneTaskIds = markedAsNotDoneTaskIds
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Adds tasks of a checklist in a message as done or not done
+                /// </summary>
+                public Task<Ok> MarkChecklistTasksAsDoneAsync(long chatId = default, long messageId = default, int[] markedAsDoneTaskIds = default, int[] markedAsNotDoneTaskIds = default)
+                {
+                //test
+                    return ExecuteAsync(new MarkChecklistTasksAsDone
+                    {
+                        ChatId = chatId, MessageId = messageId, MarkedAsDoneTaskIds = markedAsDoneTaskIds, MarkedAsNotDoneTaskIds = markedAsNotDoneTaskIds
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Adds tasks of a checklist in a message as done or not done
+                /// </summary>
+                Task<Ok> MarkChecklistTasksAsDoneAsync(long chatId = default, long messageId = default, int[] markedAsDoneTaskIds = default, int[] markedAsNotDoneTaskIds = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

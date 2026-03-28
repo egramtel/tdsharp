@@ -67,6 +67,29 @@ namespace TdLib
                 GroupCallId = groupCallId, Title = title, RecordVideo = recordVideo, UsePortraitOrientation = usePortraitOrientation
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Starts recording of an active group call; for video chats only. Requires groupCall.can_be_managed right
+                /// </summary>
+                public Task<Ok> StartGroupCallRecordingAsync(int groupCallId = default, string title = default, bool recordVideo = default, bool usePortraitOrientation = default)
+                {
+                //test
+                    return ExecuteAsync(new StartGroupCallRecording
+                    {
+                        GroupCallId = groupCallId, Title = title, RecordVideo = recordVideo, UsePortraitOrientation = usePortraitOrientation
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Starts recording of an active group call; for video chats only. Requires groupCall.can_be_managed right
+                /// </summary>
+                Task<Ok> StartGroupCallRecordingAsync(int groupCallId = default, string title = default, bool recordVideo = default, bool usePortraitOrientation = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

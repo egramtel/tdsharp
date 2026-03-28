@@ -81,6 +81,29 @@ namespace TdLib
                 Location = location, Zoom = zoom, Width = width, Height = height, Scale = scale, ChatId = chatId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns information about a file with a map thumbnail in PNG format. Only map thumbnail files with size less than 1MB can be downloaded
+                /// </summary>
+                public Task<File> GetMapThumbnailFileAsync(Location location = default, int zoom = default, int width = default, int height = default, int scale = default, long chatId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetMapThumbnailFile
+                    {
+                        Location = location, Zoom = zoom, Width = width, Height = height, Scale = scale, ChatId = chatId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns information about a file with a map thumbnail in PNG format. Only map thumbnail files with size less than 1MB can be downloaded
+                /// </summary>
+                Task<File> GetMapThumbnailFileAsync(Location location = default, int zoom = default, int width = default, int height = default, int scale = default, long chatId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

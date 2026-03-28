@@ -53,6 +53,29 @@ namespace TdLib
                 ChatId = chatId, MemberId = memberId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns information about a single member of a chat
+                /// </summary>
+                public Task<ChatMember> GetChatMemberAsync(long chatId = default, MessageSender memberId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetChatMember
+                    {
+                        ChatId = chatId, MemberId = memberId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns information about a single member of a chat
+                /// </summary>
+                Task<ChatMember> GetChatMemberAsync(long chatId = default, MessageSender memberId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

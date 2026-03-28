@@ -52,6 +52,29 @@ namespace TdLib
                 OwnerId = ownerId, ReceivedGiftIds = receivedGiftIds
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes the list of pinned gifts on the current user's or the channel's profile page; requires can_post_messages administrator right in the channel chat
+                /// </summary>
+                public Task<Ok> SetPinnedGiftsAsync(MessageSender ownerId = default, string[] receivedGiftIds = default)
+                {
+                //test
+                    return ExecuteAsync(new SetPinnedGifts
+                    {
+                        OwnerId = ownerId, ReceivedGiftIds = receivedGiftIds
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes the list of pinned gifts on the current user's or the channel's profile page; requires can_post_messages administrator right in the channel chat
+                /// </summary>
+                Task<Ok> SetPinnedGiftsAsync(MessageSender ownerId = default, string[] receivedGiftIds = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

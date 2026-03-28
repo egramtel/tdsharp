@@ -53,6 +53,29 @@ namespace TdLib
                 GenerationId = generationId, Error = error
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Finishes the file generation
+                /// </summary>
+                public Task<Ok> FinishFileGenerationAsync(long generationId = default, Error error = default)
+                {
+                //test
+                    return ExecuteAsync(new FinishFileGeneration
+                    {
+                        GenerationId = generationId, Error = error
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Finishes the file generation
+                /// </summary>
+                Task<Ok> FinishFileGenerationAsync(long generationId = default, Error error = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

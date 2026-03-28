@@ -60,6 +60,29 @@ namespace TdLib
                 ChatId = chatId, RequestMessageId = requestMessageId, Approve = approve
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Processes request to disable has_protected_content in a chat
+                /// </summary>
+                public Task<Ok> ProcessChatHasProtectedContentDisableRequestAsync(long chatId = default, long requestMessageId = default, bool approve = default)
+                {
+                //test
+                    return ExecuteAsync(new ProcessChatHasProtectedContentDisableRequest
+                    {
+                        ChatId = chatId, RequestMessageId = requestMessageId, Approve = approve
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Processes request to disable has_protected_content in a chat
+                /// </summary>
+                Task<Ok> ProcessChatHasProtectedContentDisableRequestAsync(long chatId = default, long requestMessageId = default, bool approve = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

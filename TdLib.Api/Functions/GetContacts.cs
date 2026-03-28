@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns all contacts of the user
+                /// </summary>
+                public Task<Users> GetContactsAsync()
+                {
+                //test
+                    return ExecuteAsync(new GetContacts
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns all contacts of the user
+                /// </summary>
+                Task<Users> GetContactsAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

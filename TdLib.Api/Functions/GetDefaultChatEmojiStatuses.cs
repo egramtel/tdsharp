@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns default emoji statuses for chats
+                /// </summary>
+                public Task<EmojiStatusCustomEmojis> GetDefaultChatEmojiStatusesAsync()
+                {
+                //test
+                    return ExecuteAsync(new GetDefaultChatEmojiStatuses
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns default emoji statuses for chats
+                /// </summary>
+                Task<EmojiStatusCustomEmojis> GetDefaultChatEmojiStatusesAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

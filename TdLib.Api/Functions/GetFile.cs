@@ -46,6 +46,29 @@ namespace TdLib
                 FileId = fileId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns information about a file. This is an offline method
+                /// </summary>
+                public Task<File> GetFileAsync(int fileId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetFile
+                    {
+                        FileId = fileId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns information about a file. This is an offline method
+                /// </summary>
+                Task<File> GetFileAsync(int fileId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

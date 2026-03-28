@@ -53,6 +53,29 @@ namespace TdLib
                 BotUserId = botUserId, LanguageCode = languageCode
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns the text shown on a bot's profile page and sent together with the link when users share the bot in the given language. Can be called only if userTypeBot.can_be_edited == true
+                /// </summary>
+                public Task<Text> GetBotInfoShortDescriptionAsync(long botUserId = default, string languageCode = default)
+                {
+                //test
+                    return ExecuteAsync(new GetBotInfoShortDescription
+                    {
+                        BotUserId = botUserId, LanguageCode = languageCode
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns the text shown on a bot's profile page and sent together with the link when users share the bot in the given language. Can be called only if userTypeBot.can_be_edited == true
+                /// </summary>
+                Task<Text> GetBotInfoShortDescriptionAsync(long botUserId = default, string languageCode = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

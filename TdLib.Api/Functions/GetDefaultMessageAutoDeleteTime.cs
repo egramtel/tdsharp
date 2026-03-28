@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns default message auto-delete time setting for new chats
+                /// </summary>
+                public Task<MessageAutoDeleteTime> GetDefaultMessageAutoDeleteTimeAsync()
+                {
+                //test
+                    return ExecuteAsync(new GetDefaultMessageAutoDeleteTime
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns default message auto-delete time setting for new chats
+                /// </summary>
+                Task<MessageAutoDeleteTime> GetDefaultMessageAutoDeleteTimeAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -46,6 +46,29 @@ namespace TdLib
                 ExcludeSecretChats = excludeSecretChats
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Clears message drafts in all chats
+                /// </summary>
+                public Task<Ok> ClearAllDraftMessagesAsync(bool excludeSecretChats = default)
+                {
+                //test
+                    return ExecuteAsync(new ClearAllDraftMessages
+                    {
+                        ExcludeSecretChats = excludeSecretChats
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Clears message drafts in all chats
+                /// </summary>
+                Task<Ok> ClearAllDraftMessagesAsync(bool excludeSecretChats = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

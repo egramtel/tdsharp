@@ -46,6 +46,29 @@ namespace TdLib
                 SecretChatId = secretChatId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Closes a secret chat, effectively transferring its state to secretChatStateClosed
+                /// </summary>
+                public Task<Ok> CloseSecretChatAsync(int secretChatId = default)
+                {
+                //test
+                    return ExecuteAsync(new CloseSecretChat
+                    {
+                        SecretChatId = secretChatId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Closes a secret chat, effectively transferring its state to secretChatStateClosed
+                /// </summary>
+                Task<Ok> CloseSecretChatAsync(int secretChatId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Deletes saved credentials for all payment provider bots
+                /// </summary>
+                public Task<Ok> DeleteSavedCredentialsAsync()
+                {
+                //test
+                    return ExecuteAsync(new DeleteSavedCredentials
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Deletes saved credentials for all payment provider bots
+                /// </summary>
+                Task<Ok> DeleteSavedCredentialsAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

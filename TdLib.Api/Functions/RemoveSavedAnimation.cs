@@ -46,6 +46,29 @@ namespace TdLib
                 Animation = animation
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Removes an animation from the list of saved animations
+                /// </summary>
+                public Task<Ok> RemoveSavedAnimationAsync(InputFile animation = default)
+                {
+                //test
+                    return ExecuteAsync(new RemoveSavedAnimation
+                    {
+                        Animation = animation
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Removes an animation from the list of saved animations
+                /// </summary>
+                Task<Ok> RemoveSavedAnimationAsync(InputFile animation = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

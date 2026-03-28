@@ -53,6 +53,29 @@ namespace TdLib
                 CallId = callId, Data = data
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Sends call signaling data
+                /// </summary>
+                public Task<Ok> SendCallSignalingDataAsync(int callId = default, byte[] data = default)
+                {
+                //test
+                    return ExecuteAsync(new SendCallSignalingData
+                    {
+                        CallId = callId, Data = data
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Sends call signaling data
+                /// </summary>
+                Task<Ok> SendCallSignalingDataAsync(int callId = default, byte[] data = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

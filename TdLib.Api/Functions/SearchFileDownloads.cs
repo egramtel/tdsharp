@@ -74,6 +74,29 @@ namespace TdLib
                 Query = query, OnlyActive = onlyActive, OnlyCompleted = onlyCompleted, Offset = offset, Limit = limit
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Searches for files in the file download list or recently downloaded files from the list
+                /// </summary>
+                public Task<FoundFileDownloads> SearchFileDownloadsAsync(string query = default, bool onlyActive = default, bool onlyCompleted = default, string offset = default, int limit = default)
+                {
+                //test
+                    return ExecuteAsync(new SearchFileDownloads
+                    {
+                        Query = query, OnlyActive = onlyActive, OnlyCompleted = onlyCompleted, Offset = offset, Limit = limit
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Searches for files in the file download list or recently downloaded files from the list
+                /// </summary>
+                Task<FoundFileDownloads> SearchFileDownloadsAsync(string query = default, bool onlyActive = default, bool onlyCompleted = default, string offset = default, int limit = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

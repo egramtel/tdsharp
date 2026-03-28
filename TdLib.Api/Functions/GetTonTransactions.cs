@@ -60,6 +60,29 @@ namespace TdLib
                 Direction = direction, Offset = offset, Limit = limit
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns the list of Toncoin transactions of the current user
+                /// </summary>
+                public Task<TonTransactions> GetTonTransactionsAsync(TransactionDirection direction = default, string offset = default, int limit = default)
+                {
+                //test
+                    return ExecuteAsync(new GetTonTransactions
+                    {
+                        Direction = direction, Offset = offset, Limit = limit
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns the list of Toncoin transactions of the current user
+                /// </summary>
+                Task<TonTransactions> GetTonTransactionsAsync(TransactionDirection direction = default, string offset = default, int limit = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

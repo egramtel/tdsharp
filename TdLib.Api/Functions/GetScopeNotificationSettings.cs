@@ -46,6 +46,29 @@ namespace TdLib
                 Scope = scope
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns the notification settings for chats of a given type
+                /// </summary>
+                public Task<ScopeNotificationSettings> GetScopeNotificationSettingsAsync(NotificationSettingsScope scope = default)
+                {
+                //test
+                    return ExecuteAsync(new GetScopeNotificationSettings
+                    {
+                        Scope = scope
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns the notification settings for chats of a given type
+                /// </summary>
+                Task<ScopeNotificationSettings> GetScopeNotificationSettingsAsync(NotificationSettingsScope scope = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

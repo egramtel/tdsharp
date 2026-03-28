@@ -61,6 +61,31 @@ namespace TdLib
                 ChatId = chatId, StoryAlbumId = storyAlbumId, StoryIds = storyIds
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes order of stories in an album. If the album is owned by a supergroup or a channel chat, then
+                /// requires can_edit_stories administrator right in the chat. Returns the changed album
+                /// </summary>
+                public Task<StoryAlbum> ReorderStoryAlbumStoriesAsync(long chatId = default, int storyAlbumId = default, int[] storyIds = default)
+                {
+                //test
+                    return ExecuteAsync(new ReorderStoryAlbumStories
+                    {
+                        ChatId = chatId, StoryAlbumId = storyAlbumId, StoryIds = storyIds
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes order of stories in an album. If the album is owned by a supergroup or a channel chat, then
+                /// requires can_edit_stories administrator right in the chat. Returns the changed album
+                /// </summary>
+                Task<StoryAlbum> ReorderStoryAlbumStoriesAsync(long chatId = default, int storyAlbumId = default, int[] storyIds = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

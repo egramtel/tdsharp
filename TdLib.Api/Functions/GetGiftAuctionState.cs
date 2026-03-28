@@ -46,6 +46,29 @@ namespace TdLib
                 AuctionId = auctionId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns auction state for a gift
+                /// </summary>
+                public Task<GiftAuctionState> GetGiftAuctionStateAsync(string auctionId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetGiftAuctionState
+                    {
+                        AuctionId = auctionId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns auction state for a gift
+                /// </summary>
+                Task<GiftAuctionState> GetGiftAuctionStateAsync(string auctionId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -60,6 +60,29 @@ namespace TdLib
                 Type = type, ChatId = chatId, Data = data
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Saves application log event on the server. Can be called before authorization
+                /// </summary>
+                public Task<Ok> SaveApplicationLogEventAsync(string type = default, long chatId = default, JsonValue data = default)
+                {
+                //test
+                    return ExecuteAsync(new SaveApplicationLogEvent
+                    {
+                        Type = type, ChatId = chatId, Data = data
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Saves application log event on the server. Can be called before authorization
+                /// </summary>
+                Task<Ok> SaveApplicationLogEventAsync(string type = default, long chatId = default, JsonValue data = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

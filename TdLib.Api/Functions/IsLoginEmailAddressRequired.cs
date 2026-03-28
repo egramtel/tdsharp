@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Checks whether the current user is required to set login email address
+                /// </summary>
+                public Task<Ok> IsLoginEmailAddressRequiredAsync()
+                {
+                //test
+                    return ExecuteAsync(new IsLoginEmailAddressRequired
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Checks whether the current user is required to set login email address
+                /// </summary>
+                Task<Ok> IsLoginEmailAddressRequiredAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

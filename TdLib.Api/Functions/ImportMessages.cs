@@ -59,6 +59,29 @@ namespace TdLib
                 ChatId = chatId, MessageFile = messageFile, AttachedFiles = attachedFiles
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Imports messages exported from another app
+                /// </summary>
+                public Task<Ok> ImportMessagesAsync(long chatId = default, InputFile messageFile = default, InputFile[] attachedFiles = default)
+                {
+                //test
+                    return ExecuteAsync(new ImportMessages
+                    {
+                        ChatId = chatId, MessageFile = messageFile, AttachedFiles = attachedFiles
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Imports messages exported from another app
+                /// </summary>
+                Task<Ok> ImportMessagesAsync(long chatId = default, InputFile messageFile = default, InputFile[] attachedFiles = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

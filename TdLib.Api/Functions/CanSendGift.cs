@@ -46,6 +46,29 @@ namespace TdLib
                 GiftId = giftId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Checks whether a gift with next_send_date in the future can be sent already
+                /// </summary>
+                public Task<CanSendGiftResult> CanSendGiftAsync(long giftId = default)
+                {
+                //test
+                    return ExecuteAsync(new CanSendGift
+                    {
+                        GiftId = giftId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Checks whether a gift with next_send_date in the future can be sent already
+                /// </summary>
+                Task<CanSendGiftResult> CanSendGiftAsync(long giftId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -60,6 +60,29 @@ namespace TdLib
                 SetId = setId, IsInstalled = isInstalled, IsArchived = isArchived
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Installs/uninstalls or activates/archives a sticker set
+                /// </summary>
+                public Task<Ok> ChangeStickerSetAsync(long setId = default, bool isInstalled = default, bool isArchived = default)
+                {
+                //test
+                    return ExecuteAsync(new ChangeStickerSet
+                    {
+                        SetId = setId, IsInstalled = isInstalled, IsArchived = isArchived
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Installs/uninstalls or activates/archives a sticker set
+                /// </summary>
+                Task<Ok> ChangeStickerSetAsync(long setId = default, bool isInstalled = default, bool isArchived = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -60,6 +60,29 @@ namespace TdLib
                 ChatId = chatId, InviteLink = inviteLink, Approve = approve
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Handles all pending join requests for a given link in a chat
+                /// </summary>
+                public Task<Ok> ProcessChatJoinRequestsAsync(long chatId = default, string inviteLink = default, bool approve = default)
+                {
+                //test
+                    return ExecuteAsync(new ProcessChatJoinRequests
+                    {
+                        ChatId = chatId, InviteLink = inviteLink, Approve = approve
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Handles all pending join requests for a given link in a chat
+                /// </summary>
+                Task<Ok> ProcessChatJoinRequestsAsync(long chatId = default, string inviteLink = default, bool approve = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

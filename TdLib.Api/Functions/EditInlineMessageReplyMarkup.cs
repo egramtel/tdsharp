@@ -53,6 +53,29 @@ namespace TdLib
                 InlineMessageId = inlineMessageId, ReplyMarkup = replyMarkup
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Edits the reply markup of an inline message sent via a bot; for bots only
+                /// </summary>
+                public Task<Ok> EditInlineMessageReplyMarkupAsync(string inlineMessageId = default, ReplyMarkup replyMarkup = default)
+                {
+                //test
+                    return ExecuteAsync(new EditInlineMessageReplyMarkup
+                    {
+                        InlineMessageId = inlineMessageId, ReplyMarkup = replyMarkup
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Edits the reply markup of an inline message sent via a bot; for bots only
+                /// </summary>
+                Task<Ok> EditInlineMessageReplyMarkupAsync(string inlineMessageId = default, ReplyMarkup replyMarkup = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

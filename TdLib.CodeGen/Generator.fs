@@ -144,7 +144,12 @@ let generateFunc (def: Parser.TlDef) (annotations: Parser.TlAnnotation list) =
                                    Utils.toCamelCase field.FieldName Utils.LowerCase))
         |> List.map (fun (t, n) -> sprintf "%s %s = default" t n)
         |> List.fold (fun acc a -> acc + ", " + a) ""
-
+    let funcParamsPartials =
+        fields
+        |> List.map (fun field -> (getDotNetType field.TypeName,
+                                   Utils.toCamelCase field.FieldName Utils.LowerCase))
+        |> List.map (fun (t, n) -> sprintf "%s %s = default" t n)
+        |> String.concat ", "
     let funcArgs =
         fields
         |> List.map (fun field -> (Utils.toCamelCase field.FieldName Utils.UpperCase,
@@ -156,9 +161,11 @@ let generateFunc (def: Parser.TlDef) (annotations: Parser.TlAnnotation list) =
     lines |> Seq.map (fun line ->
         (withDescription line "$FUNC_DESCRIPTION" 0 (Utils.xmlEncode description))
             .Replace("$FUNC_NAME", funcTypeName)
+
             .Replace("$TL_FUNC_NAME", tlFuncTypeName)
             .Replace("$RETURN_TYPE_NAME", returnTypeName)
             .Replace("$FUNC_FIELDS", funcFields)
+            .Replace("$FUNC_PARAMS_PARTIALS", funcParamsPartials)
             .Replace("$FUNC_PARAMS", funcParams)
             .Replace("$FUNC_ARGS", funcArgs))
         |> String.concat "\n"

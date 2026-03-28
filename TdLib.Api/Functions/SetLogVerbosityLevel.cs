@@ -46,6 +46,29 @@ namespace TdLib
                 NewVerbosityLevel = newVerbosityLevel
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Sets the verbosity level of the internal logging of TDLib. Can be called synchronously
+                /// </summary>
+                public Task<Ok> SetLogVerbosityLevelAsync(int newVerbosityLevel = default)
+                {
+                //test
+                    return ExecuteAsync(new SetLogVerbosityLevel
+                    {
+                        NewVerbosityLevel = newVerbosityLevel
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Sets the verbosity level of the internal logging of TDLib. Can be called synchronously
+                /// </summary>
+                Task<Ok> SetLogVerbosityLevelAsync(int newVerbosityLevel = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

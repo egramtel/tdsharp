@@ -67,6 +67,29 @@ namespace TdLib
                 StoryPosterChatId = storyPosterChatId, StoryId = storyId, OptionId = optionId, Text = text
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Reports a story to the Telegram moderators
+                /// </summary>
+                public Task<ReportStoryResult> ReportStoryAsync(long storyPosterChatId = default, int storyId = default, byte[] optionId = default, string text = default)
+                {
+                //test
+                    return ExecuteAsync(new ReportStory
+                    {
+                        StoryPosterChatId = storyPosterChatId, StoryId = storyId, OptionId = optionId, Text = text
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Reports a story to the Telegram moderators
+                /// </summary>
+                Task<ReportStoryResult> ReportStoryAsync(long storyPosterChatId = default, int storyId = default, byte[] optionId = default, string text = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

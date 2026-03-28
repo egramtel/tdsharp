@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Clears all imported contacts, contact list remains unchanged
+                /// </summary>
+                public Task<Ok> ClearImportedContactsAsync()
+                {
+                //test
+                    return ExecuteAsync(new ClearImportedContacts
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Clears all imported contacts, contact list remains unchanged
+                /// </summary>
+                Task<Ok> ClearImportedContactsAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

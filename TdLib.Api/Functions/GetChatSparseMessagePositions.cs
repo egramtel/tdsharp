@@ -76,6 +76,31 @@ namespace TdLib
                 ChatId = chatId, Filter = filter, FromMessageId = fromMessageId, Limit = limit, SavedMessagesTopicId = savedMessagesTopicId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns sparse positions of messages of the specified type in the chat to be used for shared media scroll implementation. Returns the results in reverse chronological order (i.e., in order of decreasing message_id).
+                /// Cannot be used in secret chats or with searchMessagesFilterFailedToSend filter without an enabled message database
+                /// </summary>
+                public Task<MessagePositions> GetChatSparseMessagePositionsAsync(long chatId = default, SearchMessagesFilter filter = default, long fromMessageId = default, int limit = default, long savedMessagesTopicId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetChatSparseMessagePositions
+                    {
+                        ChatId = chatId, Filter = filter, FromMessageId = fromMessageId, Limit = limit, SavedMessagesTopicId = savedMessagesTopicId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns sparse positions of messages of the specified type in the chat to be used for shared media scroll implementation. Returns the results in reverse chronological order (i.e., in order of decreasing message_id).
+                /// Cannot be used in secret chats or with searchMessagesFilterFailedToSend filter without an enabled message database
+                /// </summary>
+                Task<MessagePositions> GetChatSparseMessagePositionsAsync(long chatId = default, SearchMessagesFilter filter = default, long fromMessageId = default, int limit = default, long savedMessagesTopicId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

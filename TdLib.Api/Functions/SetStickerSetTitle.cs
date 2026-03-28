@@ -53,6 +53,29 @@ namespace TdLib
                 Name = name, Title = title
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Sets a sticker set title
+                /// </summary>
+                public Task<Ok> SetStickerSetTitleAsync(string name = default, string title = default)
+                {
+                //test
+                    return ExecuteAsync(new SetStickerSetTitle
+                    {
+                        Name = name, Title = title
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Sets a sticker set title
+                /// </summary>
+                Task<Ok> SetStickerSetTitleAsync(string name = default, string title = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

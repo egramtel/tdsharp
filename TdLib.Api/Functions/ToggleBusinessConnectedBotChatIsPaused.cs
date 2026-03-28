@@ -53,6 +53,29 @@ namespace TdLib
                 ChatId = chatId, IsPaused = isPaused
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Pauses or resumes the connected business bot in a specific chat
+                /// </summary>
+                public Task<Ok> ToggleBusinessConnectedBotChatIsPausedAsync(long chatId = default, bool isPaused = default)
+                {
+                //test
+                    return ExecuteAsync(new ToggleBusinessConnectedBotChatIsPaused
+                    {
+                        ChatId = chatId, IsPaused = isPaused
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Pauses or resumes the connected business bot in a specific chat
+                /// </summary>
+                Task<Ok> ToggleBusinessConnectedBotChatIsPausedAsync(long chatId = default, bool isPaused = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

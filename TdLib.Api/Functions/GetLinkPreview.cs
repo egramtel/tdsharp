@@ -53,6 +53,29 @@ namespace TdLib
                 Text = text, LinkPreviewOptions = linkPreviewOptions
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns a link preview by the text of a message. Do not call this function too often. Returns a 404 error if the text has no link preview
+                /// </summary>
+                public Task<LinkPreview> GetLinkPreviewAsync(FormattedText text = default, LinkPreviewOptions linkPreviewOptions = default)
+                {
+                //test
+                    return ExecuteAsync(new GetLinkPreview
+                    {
+                        Text = text, LinkPreviewOptions = linkPreviewOptions
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns a link preview by the text of a message. Do not call this function too often. Returns a 404 error if the text has no link preview
+                /// </summary>
+                Task<LinkPreview> GetLinkPreviewAsync(FormattedText text = default, LinkPreviewOptions linkPreviewOptions = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

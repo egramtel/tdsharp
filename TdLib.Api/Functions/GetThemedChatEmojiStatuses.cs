@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns up to 8 emoji statuses, which must be shown in the emoji status list for chats
+                /// </summary>
+                public Task<EmojiStatusCustomEmojis> GetThemedChatEmojiStatusesAsync()
+                {
+                //test
+                    return ExecuteAsync(new GetThemedChatEmojiStatuses
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns up to 8 emoji statuses, which must be shown in the emoji status list for chats
+                /// </summary>
+                Task<EmojiStatusCustomEmojis> GetThemedChatEmojiStatusesAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -60,6 +60,29 @@ namespace TdLib
                 UserId = userId, Name = name, Sticker = sticker
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Adds a new sticker to a set
+                /// </summary>
+                public Task<Ok> AddStickerToSetAsync(long userId = default, string name = default, InputSticker sticker = default)
+                {
+                //test
+                    return ExecuteAsync(new AddStickerToSet
+                    {
+                        UserId = userId, Name = name, Sticker = sticker
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Adds a new sticker to a set
+                /// </summary>
+                Task<Ok> AddStickerToSetAsync(long userId = default, string name = default, InputSticker sticker = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

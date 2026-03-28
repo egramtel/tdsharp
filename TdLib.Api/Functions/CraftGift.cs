@@ -45,6 +45,29 @@ namespace TdLib
                 ReceivedGiftIds = receivedGiftIds
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Crafts a new gift from other gifts that will be permanently lost
+                /// </summary>
+                public Task<CraftGiftResult> CraftGiftAsync(string[] receivedGiftIds = default)
+                {
+                //test
+                    return ExecuteAsync(new CraftGift
+                    {
+                        ReceivedGiftIds = receivedGiftIds
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Crafts a new gift from other gifts that will be permanently lost
+                /// </summary>
+                Task<CraftGiftResult> CraftGiftAsync(string[] receivedGiftIds = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

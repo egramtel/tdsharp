@@ -53,6 +53,29 @@ namespace TdLib
                 ChatId = chatId, MessageId = messageId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns information about a message thread. Can be used only if messageProperties.can_get_message_thread == true
+                /// </summary>
+                public Task<MessageThreadInfo> GetMessageThreadAsync(long chatId = default, long messageId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetMessageThread
+                    {
+                        ChatId = chatId, MessageId = messageId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns information about a message thread. Can be used only if messageProperties.can_get_message_thread == true
+                /// </summary>
+                Task<MessageThreadInfo> GetMessageThreadAsync(long chatId = default, long messageId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

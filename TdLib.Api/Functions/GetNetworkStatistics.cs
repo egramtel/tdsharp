@@ -46,6 +46,29 @@ namespace TdLib
                 OnlyCurrent = onlyCurrent
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns network data usage statistics. Can be called before authorization
+                /// </summary>
+                public Task<NetworkStatistics> GetNetworkStatisticsAsync(bool onlyCurrent = default)
+                {
+                //test
+                    return ExecuteAsync(new GetNetworkStatistics
+                    {
+                        OnlyCurrent = onlyCurrent
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns network data usage statistics. Can be called before authorization
+                /// </summary>
+                Task<NetworkStatistics> GetNetworkStatisticsAsync(bool onlyCurrent = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

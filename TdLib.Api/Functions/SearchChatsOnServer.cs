@@ -53,6 +53,29 @@ namespace TdLib
                 Query = query, Limit = limit
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Searches for the specified query in the title and username of already known chats via request to the server. Returns chats in the order seen in the main chat list
+                /// </summary>
+                public Task<Chats> SearchChatsOnServerAsync(string query = default, int limit = default)
+                {
+                //test
+                    return ExecuteAsync(new SearchChatsOnServer
+                    {
+                        Query = query, Limit = limit
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Searches for the specified query in the title and username of already known chats via request to the server. Returns chats in the order seen in the main chat list
+                /// </summary>
+                Task<Chats> SearchChatsOnServerAsync(string query = default, int limit = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

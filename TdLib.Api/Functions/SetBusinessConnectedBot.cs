@@ -46,6 +46,29 @@ namespace TdLib
                 Bot = bot
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Adds or changes business bot that is connected to the current user account
+                /// </summary>
+                public Task<Ok> SetBusinessConnectedBotAsync(BusinessConnectedBot bot = default)
+                {
+                //test
+                    return ExecuteAsync(new SetBusinessConnectedBot
+                    {
+                        Bot = bot
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Adds or changes business bot that is connected to the current user account
+                /// </summary>
+                Task<Ok> SetBusinessConnectedBotAsync(BusinessConnectedBot bot = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

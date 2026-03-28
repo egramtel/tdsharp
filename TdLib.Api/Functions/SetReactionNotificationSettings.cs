@@ -46,6 +46,29 @@ namespace TdLib
                 NotificationSettings = notificationSettings
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes notification settings for reactions
+                /// </summary>
+                public Task<Ok> SetReactionNotificationSettingsAsync(ReactionNotificationSettings notificationSettings = default)
+                {
+                //test
+                    return ExecuteAsync(new SetReactionNotificationSettings
+                    {
+                        NotificationSettings = notificationSettings
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes notification settings for reactions
+                /// </summary>
+                Task<Ok> SetReactionNotificationSettingsAsync(ReactionNotificationSettings notificationSettings = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

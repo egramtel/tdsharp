@@ -46,6 +46,29 @@ namespace TdLib
                 ProxyId = proxyId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Removes a proxy server. Can be called before authorization
+                /// </summary>
+                public Task<Ok> RemoveProxyAsync(int proxyId = default)
+                {
+                //test
+                    return ExecuteAsync(new RemoveProxy
+                    {
+                        ProxyId = proxyId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Removes a proxy server. Can be called before authorization
+                /// </summary>
+                Task<Ok> RemoveProxyAsync(int proxyId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

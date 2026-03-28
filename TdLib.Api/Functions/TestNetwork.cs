@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Sends a simple network request to the Telegram servers; for testing only. Can be called before authorization
+                /// </summary>
+                public Task<Ok> TestNetworkAsync()
+                {
+                //test
+                    return ExecuteAsync(new TestNetwork
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Sends a simple network request to the Telegram servers; for testing only. Can be called before authorization
+                /// </summary>
+                Task<Ok> TestNetworkAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

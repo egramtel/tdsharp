@@ -60,6 +60,29 @@ namespace TdLib
                 ChatId = chatId, AccentColorId = accentColorId, BackgroundCustomEmojiId = backgroundCustomEmojiId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes accent color and background custom emoji of a channel chat. Requires can_change_info administrator right
+                /// </summary>
+                public Task<Ok> SetChatAccentColorAsync(long chatId = default, int accentColorId = default, long backgroundCustomEmojiId = default)
+                {
+                //test
+                    return ExecuteAsync(new SetChatAccentColor
+                    {
+                        ChatId = chatId, AccentColorId = accentColorId, BackgroundCustomEmojiId = backgroundCustomEmojiId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes accent color and background custom emoji of a channel chat. Requires can_change_info administrator right
+                /// </summary>
+                Task<Ok> SetChatAccentColorAsync(long chatId = default, int accentColorId = default, long backgroundCustomEmojiId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

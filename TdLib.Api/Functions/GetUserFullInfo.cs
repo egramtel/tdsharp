@@ -46,6 +46,29 @@ namespace TdLib
                 UserId = userId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns full information about a user by their identifier
+                /// </summary>
+                public Task<UserFullInfo> GetUserFullInfoAsync(long userId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetUserFullInfo
+                    {
+                        UserId = userId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns full information about a user by their identifier
+                /// </summary>
+                Task<UserFullInfo> GetUserFullInfoAsync(long userId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

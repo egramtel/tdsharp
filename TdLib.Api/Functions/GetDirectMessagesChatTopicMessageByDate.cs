@@ -60,6 +60,29 @@ namespace TdLib
                 ChatId = chatId, TopicId = topicId, Date = date
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns the last message sent in the topic in a channel direct messages chat administered by the current user no later than the specified date
+                /// </summary>
+                public Task<Message> GetDirectMessagesChatTopicMessageByDateAsync(long chatId = default, long topicId = default, int date = default)
+                {
+                //test
+                    return ExecuteAsync(new GetDirectMessagesChatTopicMessageByDate
+                    {
+                        ChatId = chatId, TopicId = topicId, Date = date
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns the last message sent in the topic in a channel direct messages chat administered by the current user no later than the specified date
+                /// </summary>
+                Task<Message> GetDirectMessagesChatTopicMessageByDateAsync(long chatId = default, long topicId = default, int date = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

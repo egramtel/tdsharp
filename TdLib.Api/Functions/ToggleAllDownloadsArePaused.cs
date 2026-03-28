@@ -46,6 +46,29 @@ namespace TdLib
                 ArePaused = arePaused
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes pause state of all files in the file download list
+                /// </summary>
+                public Task<Ok> ToggleAllDownloadsArePausedAsync(bool arePaused = default)
+                {
+                //test
+                    return ExecuteAsync(new ToggleAllDownloadsArePaused
+                    {
+                        ArePaused = arePaused
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes pause state of all files in the file download list
+                /// </summary>
+                Task<Ok> ToggleAllDownloadsArePausedAsync(bool arePaused = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

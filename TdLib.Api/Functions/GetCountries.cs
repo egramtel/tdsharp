@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns information about existing countries. Can be called before authorization
+                /// </summary>
+                public Task<Countries> GetCountriesAsync()
+                {
+                //test
+                    return ExecuteAsync(new GetCountries
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns information about existing countries. Can be called before authorization
+                /// </summary>
+                Task<Countries> GetCountriesAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

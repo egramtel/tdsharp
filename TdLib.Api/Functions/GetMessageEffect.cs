@@ -46,6 +46,29 @@ namespace TdLib
                 EffectId = effectId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns information about a message effect. Returns a 404 error if the effect is not found
+                /// </summary>
+                public Task<MessageEffect> GetMessageEffectAsync(long effectId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetMessageEffect
+                    {
+                        EffectId = effectId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns information about a message effect. Returns a 404 error if the effect is not found
+                /// </summary>
+                Task<MessageEffect> GetMessageEffectAsync(long effectId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

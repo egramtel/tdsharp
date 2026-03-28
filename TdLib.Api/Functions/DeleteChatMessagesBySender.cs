@@ -53,6 +53,29 @@ namespace TdLib
                 ChatId = chatId, SenderId = senderId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Deletes all messages sent by the specified message sender in a chat. Supported only for supergroups; requires can_delete_messages administrator right
+                /// </summary>
+                public Task<Ok> DeleteChatMessagesBySenderAsync(long chatId = default, MessageSender senderId = default)
+                {
+                //test
+                    return ExecuteAsync(new DeleteChatMessagesBySender
+                    {
+                        ChatId = chatId, SenderId = senderId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Deletes all messages sent by the specified message sender in a chat. Supported only for supergroups; requires can_delete_messages administrator right
+                /// </summary>
+                Task<Ok> DeleteChatMessagesBySenderAsync(long chatId = default, MessageSender senderId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

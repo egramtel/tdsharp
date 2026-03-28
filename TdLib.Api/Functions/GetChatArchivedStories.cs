@@ -62,6 +62,31 @@ namespace TdLib
                 ChatId = chatId, FromStoryId = fromStoryId, Limit = limit
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns the list of all stories posted by the given chat; requires can_edit_stories administrator right in the chat.
+                /// The stories are returned in reverse chronological order (i.e., in order of decreasing story_id). For optimal performance, the number of returned stories is chosen by TDLib
+                /// </summary>
+                public Task<Stories> GetChatArchivedStoriesAsync(long chatId = default, int fromStoryId = default, int limit = default)
+                {
+                //test
+                    return ExecuteAsync(new GetChatArchivedStories
+                    {
+                        ChatId = chatId, FromStoryId = fromStoryId, Limit = limit
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns the list of all stories posted by the given chat; requires can_edit_stories administrator right in the chat.
+                /// The stories are returned in reverse chronological order (i.e., in order of decreasing story_id). For optimal performance, the number of returned stories is chosen by TDLib
+                /// </summary>
+                Task<Stories> GetChatArchivedStoriesAsync(long chatId = default, int fromStoryId = default, int limit = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

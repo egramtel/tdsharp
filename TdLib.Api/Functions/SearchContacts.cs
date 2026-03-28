@@ -53,6 +53,29 @@ namespace TdLib
                 Query = query, Limit = limit
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Searches for the specified query in the first names, last names and usernames of the known user contacts
+                /// </summary>
+                public Task<Users> SearchContactsAsync(string query = default, int limit = default)
+                {
+                //test
+                    return ExecuteAsync(new SearchContacts
+                    {
+                        Query = query, Limit = limit
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Searches for the specified query in the first names, last names and usernames of the known user contacts
+                /// </summary>
+                Task<Users> SearchContactsAsync(string query = default, int limit = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

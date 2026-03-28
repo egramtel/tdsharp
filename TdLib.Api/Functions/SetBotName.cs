@@ -60,6 +60,29 @@ namespace TdLib
                 BotUserId = botUserId, LanguageCode = languageCode, Name = name
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Sets the name of a bot. Can be called only if userTypeBot.can_be_edited == true
+                /// </summary>
+                public Task<Ok> SetBotNameAsync(long botUserId = default, string languageCode = default, string name = default)
+                {
+                //test
+                    return ExecuteAsync(new SetBotName
+                    {
+                        BotUserId = botUserId, LanguageCode = languageCode, Name = name
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Sets the name of a bot. Can be called only if userTypeBot.can_be_edited == true
+                /// </summary>
+                Task<Ok> SetBotNameAsync(long botUserId = default, string languageCode = default, string name = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

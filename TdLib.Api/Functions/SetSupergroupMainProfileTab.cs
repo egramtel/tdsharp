@@ -53,6 +53,29 @@ namespace TdLib
                 SupergroupId = supergroupId, MainProfileTab = mainProfileTab
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes the main profile tab of the channel; requires can_change_info administrator right
+                /// </summary>
+                public Task<Ok> SetSupergroupMainProfileTabAsync(long supergroupId = default, ProfileTab mainProfileTab = default)
+                {
+                //test
+                    return ExecuteAsync(new SetSupergroupMainProfileTab
+                    {
+                        SupergroupId = supergroupId, MainProfileTab = mainProfileTab
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes the main profile tab of the channel; requires can_change_info administrator right
+                /// </summary>
+                Task<Ok> SetSupergroupMainProfileTabAsync(long supergroupId = default, ProfileTab mainProfileTab = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

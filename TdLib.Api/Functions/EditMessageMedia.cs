@@ -69,6 +69,31 @@ namespace TdLib
                 ChatId = chatId, MessageId = messageId, ReplyMarkup = replyMarkup, InputMessageContent = inputMessageContent
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Edits the media content of a message, including message caption. If only the caption needs to be edited, use editMessageCaption instead.
+                /// The type of message content in an album can't be changed with exception of replacing a photo with a video or vice versa. Returns the edited message after the edit is completed on the server side
+                /// </summary>
+                public Task<Message> EditMessageMediaAsync(long chatId = default, long messageId = default, ReplyMarkup replyMarkup = default, InputMessageContent inputMessageContent = default)
+                {
+                //test
+                    return ExecuteAsync(new EditMessageMedia
+                    {
+                        ChatId = chatId, MessageId = messageId, ReplyMarkup = replyMarkup, InputMessageContent = inputMessageContent
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Edits the media content of a message, including message caption. If only the caption needs to be edited, use editMessageCaption instead.
+                /// The type of message content in an album can't be changed with exception of replacing a photo with a video or vice versa. Returns the edited message after the edit is completed on the server side
+                /// </summary>
+                Task<Message> EditMessageMediaAsync(long chatId = default, long messageId = default, ReplyMarkup replyMarkup = default, InputMessageContent inputMessageContent = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

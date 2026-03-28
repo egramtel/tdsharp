@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Clears the list of all autosave settings exceptions. The method is guaranteed to work only after at least one call to getAutosaveSettings
+                /// </summary>
+                public Task<Ok> ClearAutosaveSettingsExceptionsAsync()
+                {
+                //test
+                    return ExecuteAsync(new ClearAutosaveSettingsExceptions
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Clears the list of all autosave settings exceptions. The method is guaranteed to work only after at least one call to getAutosaveSettings
+                /// </summary>
+                Task<Ok> ClearAutosaveSettingsExceptionsAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

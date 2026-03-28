@@ -46,6 +46,29 @@ namespace TdLib
                 Seconds = seconds
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Succeeds after a specified amount of time has passed. Can be called before initialization
+                /// </summary>
+                public Task<Ok> SetAlarmAsync(double? seconds = default)
+                {
+                //test
+                    return ExecuteAsync(new SetAlarm
+                    {
+                        Seconds = seconds
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Succeeds after a specified amount of time has passed. Can be called before initialization
+                /// </summary>
+                Task<Ok> SetAlarmAsync(double? seconds = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

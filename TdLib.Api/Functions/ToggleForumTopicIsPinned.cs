@@ -62,6 +62,31 @@ namespace TdLib
                 ChatId = chatId, ForumTopicId = forumTopicId, IsPinned = isPinned
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes the pinned state of a topic in a forum supergroup chat or a chat with a bot with topics; requires can_manage_topics administrator right in the supergroup.
+                /// There can be up to getOption("pinned_forum_topic_count_max") pinned forum topics
+                /// </summary>
+                public Task<Ok> ToggleForumTopicIsPinnedAsync(long chatId = default, int forumTopicId = default, bool isPinned = default)
+                {
+                //test
+                    return ExecuteAsync(new ToggleForumTopicIsPinned
+                    {
+                        ChatId = chatId, ForumTopicId = forumTopicId, IsPinned = isPinned
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes the pinned state of a topic in a forum supergroup chat or a chat with a bot with topics; requires can_manage_topics administrator right in the supergroup.
+                /// There can be up to getOption("pinned_forum_topic_count_max") pinned forum topics
+                /// </summary>
+                Task<Ok> ToggleForumTopicIsPinnedAsync(long chatId = default, int forumTopicId = default, bool isPinned = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

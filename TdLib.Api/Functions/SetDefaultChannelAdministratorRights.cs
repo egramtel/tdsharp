@@ -46,6 +46,29 @@ namespace TdLib
                 DefaultChannelAdministratorRights = defaultChannelAdministratorRights
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Sets default administrator rights for adding the bot to channel chats; for bots only
+                /// </summary>
+                public Task<Ok> SetDefaultChannelAdministratorRightsAsync(ChatAdministratorRights defaultChannelAdministratorRights = default)
+                {
+                //test
+                    return ExecuteAsync(new SetDefaultChannelAdministratorRights
+                    {
+                        DefaultChannelAdministratorRights = defaultChannelAdministratorRights
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Sets default administrator rights for adding the bot to channel chats; for bots only
+                /// </summary>
+                Task<Ok> SetDefaultChannelAdministratorRightsAsync(ChatAdministratorRights defaultChannelAdministratorRights = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -46,6 +46,29 @@ namespace TdLib
                 StickerType = stickerType
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns a list of installed sticker sets
+                /// </summary>
+                public Task<StickerSets> GetInstalledStickerSetsAsync(StickerType stickerType = default)
+                {
+                //test
+                    return ExecuteAsync(new GetInstalledStickerSets
+                    {
+                        StickerType = stickerType
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns a list of installed sticker sets
+                /// </summary>
+                Task<StickerSets> GetInstalledStickerSetsAsync(StickerType stickerType = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -60,6 +60,29 @@ namespace TdLib
                 ChatId = chatId, MessageId = messageId, Comment = comment
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Declines a suggested post in a channel direct messages chat
+                /// </summary>
+                public Task<Ok> DeclineSuggestedPostAsync(long chatId = default, long messageId = default, string comment = default)
+                {
+                //test
+                    return ExecuteAsync(new DeclineSuggestedPost
+                    {
+                        ChatId = chatId, MessageId = messageId, Comment = comment
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Declines a suggested post in a channel direct messages chat
+                /// </summary>
+                Task<Ok> DeclineSuggestedPostAsync(long chatId = default, long messageId = default, string comment = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

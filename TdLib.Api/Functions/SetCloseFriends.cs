@@ -45,6 +45,29 @@ namespace TdLib
                 UserIds = userIds
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes the list of close friends of the current user
+                /// </summary>
+                public Task<Ok> SetCloseFriendsAsync(long[] userIds = default)
+                {
+                //test
+                    return ExecuteAsync(new SetCloseFriends
+                    {
+                        UserIds = userIds
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes the list of close friends of the current user
+                /// </summary>
+                Task<Ok> SetCloseFriendsAsync(long[] userIds = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

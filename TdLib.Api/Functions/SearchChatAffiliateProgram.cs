@@ -53,6 +53,29 @@ namespace TdLib
                 Username = username, Referrer = referrer
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Searches a chat with an affiliate program. Returns the chat if found and the program is active
+                /// </summary>
+                public Task<Chat> SearchChatAffiliateProgramAsync(string username = default, string referrer = default)
+                {
+                //test
+                    return ExecuteAsync(new SearchChatAffiliateProgram
+                    {
+                        Username = username, Referrer = referrer
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Searches a chat with an affiliate program. Returns the chat if found and the program is active
+                /// </summary>
+                Task<Chat> SearchChatAffiliateProgramAsync(string username = default, string referrer = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns the list of supported time zones
+                /// </summary>
+                public Task<TimeZones> GetTimeZonesAsync()
+                {
+                //test
+                    return ExecuteAsync(new GetTimeZones
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns the list of supported time zones
+                /// </summary>
+                Task<TimeZones> GetTimeZonesAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -46,6 +46,29 @@ namespace TdLib
                 ChatId = chatId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns chat lists to which the chat can be added. This is an offline method
+                /// </summary>
+                public Task<ChatLists> GetChatListsToAddChatAsync(long chatId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetChatListsToAddChat
+                    {
+                        ChatId = chatId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns chat lists to which the chat can be added. This is an offline method
+                /// </summary>
+                Task<ChatLists> GetChatListsToAddChatAsync(long chatId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

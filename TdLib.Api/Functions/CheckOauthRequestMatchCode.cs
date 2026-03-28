@@ -55,6 +55,31 @@ namespace TdLib
                 Url = url, MatchCode = matchCode
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Checks a match-code for an OAuth authorization request. If fails, then the authorization request has failed. Otherwise,
+                /// authorization confirmation dialog must be shown and the link must be processed using acceptOauthRequest or declineOauthRequest
+                /// </summary>
+                public Task<Ok> CheckOauthRequestMatchCodeAsync(string url = default, string matchCode = default)
+                {
+                //test
+                    return ExecuteAsync(new CheckOauthRequestMatchCode
+                    {
+                        Url = url, MatchCode = matchCode
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Checks a match-code for an OAuth authorization request. If fails, then the authorization request has failed. Otherwise,
+                /// authorization confirmation dialog must be shown and the link must be processed using acceptOauthRequest or declineOauthRequest
+                /// </summary>
+                Task<Ok> CheckOauthRequestMatchCodeAsync(string url = default, string matchCode = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -7,8 +7,9 @@ SPDX-License-Identifier: MIT
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net9.0</TargetFramework>
+        <TargetFramework>net10.0</TargetFramework>
         <GenerateProgramFile>false</GenerateProgramFile>
+        <LangVersion>10.0</LangVersion>
     </PropertyGroup>
 
     <ItemGroup>
@@ -29,6 +30,7 @@ SPDX-License-Identifier: MIT
     <ItemGroup>
         <PackageReference Include="FParsec" />
         <PackageReference Include="FSharp.Core" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" />
         <PackageReference Include="Microsoft.NET.Test.Sdk" />
         <PackageReference Include="xunit" />
         <PackageReference Include="xunit.runner.visualstudio">

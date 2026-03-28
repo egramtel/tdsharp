@@ -53,6 +53,29 @@ namespace TdLib
                 SupergroupId = supergroupId, CustomEmojiStickerSetId = customEmojiStickerSetId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes the custom emoji sticker set of a supergroup; requires can_change_info administrator right. The chat must have at least chatBoostFeatures.min_custom_emoji_sticker_set_boost_level boost level to pass the corresponding color
+                /// </summary>
+                public Task<Ok> SetSupergroupCustomEmojiStickerSetAsync(long supergroupId = default, long customEmojiStickerSetId = default)
+                {
+                //test
+                    return ExecuteAsync(new SetSupergroupCustomEmojiStickerSet
+                    {
+                        SupergroupId = supergroupId, CustomEmojiStickerSetId = customEmojiStickerSetId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes the custom emoji sticker set of a supergroup; requires can_change_info administrator right. The chat must have at least chatBoostFeatures.min_custom_emoji_sticker_set_boost_level boost level to pass the corresponding color
+                /// </summary>
+                Task<Ok> SetSupergroupCustomEmojiStickerSetAsync(long supergroupId = default, long customEmojiStickerSetId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -46,6 +46,29 @@ namespace TdLib
                 MessageFileHead = messageFileHead
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns information about a file with messages exported from another application
+                /// </summary>
+                public Task<MessageFileType> GetMessageFileTypeAsync(string messageFileHead = default)
+                {
+                //test
+                    return ExecuteAsync(new GetMessageFileType
+                    {
+                        MessageFileHead = messageFileHead
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns information about a file with messages exported from another application
+                /// </summary>
+                Task<MessageFileType> GetMessageFileTypeAsync(string messageFileHead = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

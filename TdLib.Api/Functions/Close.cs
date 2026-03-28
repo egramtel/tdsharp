@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Closes the TDLib instance. All databases will be flushed to disk and properly closed. After the close completes, updateAuthorizationState with authorizationStateClosed will be sent. Can be called before initialization
+                /// </summary>
+                public Task<Ok> CloseAsync()
+                {
+                //test
+                    return ExecuteAsync(new Close
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Closes the TDLib instance. All databases will be flushed to disk and properly closed. After the close completes, updateAuthorizationState with authorizationStateClosed will be sent. Can be called before initialization
+                /// </summary>
+                Task<Ok> CloseAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

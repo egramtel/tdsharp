@@ -46,6 +46,29 @@ namespace TdLib
                 ChatId = chatId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns information about a chat by its identifier. This is an offline method if the current user is not a bot
+                /// </summary>
+                public Task<Chat> GetChatAsync(long chatId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetChat
+                    {
+                        ChatId = chatId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns information about a chat by its identifier. This is an offline method if the current user is not a bot
+                /// </summary>
+                Task<Chat> GetChatAsync(long chatId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

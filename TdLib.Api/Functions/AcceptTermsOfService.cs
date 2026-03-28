@@ -46,6 +46,29 @@ namespace TdLib
                 TermsOfServiceId = termsOfServiceId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Accepts Telegram terms of services
+                /// </summary>
+                public Task<Ok> AcceptTermsOfServiceAsync(string termsOfServiceId = default)
+                {
+                //test
+                    return ExecuteAsync(new AcceptTermsOfService
+                    {
+                        TermsOfServiceId = termsOfServiceId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Accepts Telegram terms of services
+                /// </summary>
+                Task<Ok> AcceptTermsOfServiceAsync(string termsOfServiceId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

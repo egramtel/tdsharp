@@ -46,6 +46,29 @@ namespace TdLib
                 JsonValue = jsonValue
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Converts a JsonValue object to corresponding JSON-serialized string. Can be called synchronously
+                /// </summary>
+                public Task<Text> GetJsonStringAsync(JsonValue jsonValue = default)
+                {
+                //test
+                    return ExecuteAsync(new GetJsonString
+                    {
+                        JsonValue = jsonValue
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Converts a JsonValue object to corresponding JSON-serialized string. Can be called synchronously
+                /// </summary>
+                Task<Text> GetJsonStringAsync(JsonValue jsonValue = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

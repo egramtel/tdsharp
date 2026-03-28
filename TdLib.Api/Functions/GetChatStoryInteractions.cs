@@ -81,6 +81,29 @@ namespace TdLib
                 StoryPosterChatId = storyPosterChatId, StoryId = storyId, ReactionType = reactionType, PreferForwards = preferForwards, Offset = offset, Limit = limit
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns interactions with a story posted in a chat. Can be used only if story is posted on behalf of a chat and the user is an administrator in the chat
+                /// </summary>
+                public Task<StoryInteractions> GetChatStoryInteractionsAsync(long storyPosterChatId = default, int storyId = default, ReactionType reactionType = default, bool preferForwards = default, string offset = default, int limit = default)
+                {
+                //test
+                    return ExecuteAsync(new GetChatStoryInteractions
+                    {
+                        StoryPosterChatId = storyPosterChatId, StoryId = storyId, ReactionType = reactionType, PreferForwards = preferForwards, Offset = offset, Limit = limit
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns interactions with a story posted in a chat. Can be used only if story is posted on behalf of a chat and the user is an administrator in the chat
+                /// </summary>
+                Task<StoryInteractions> GetChatStoryInteractionsAsync(long storyPosterChatId = default, int storyId = default, ReactionType reactionType = default, bool preferForwards = default, string offset = default, int limit = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

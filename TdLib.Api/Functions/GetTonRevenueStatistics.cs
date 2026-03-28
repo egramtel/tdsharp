@@ -46,6 +46,29 @@ namespace TdLib
                 IsDark = isDark
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns detailed Toncoin revenue statistics of the current user
+                /// </summary>
+                public Task<TonRevenueStatistics> GetTonRevenueStatisticsAsync(bool isDark = default)
+                {
+                //test
+                    return ExecuteAsync(new GetTonRevenueStatistics
+                    {
+                        IsDark = isDark
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns detailed Toncoin revenue statistics of the current user
+                /// </summary>
+                Task<TonRevenueStatistics> GetTonRevenueStatisticsAsync(bool isDark = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

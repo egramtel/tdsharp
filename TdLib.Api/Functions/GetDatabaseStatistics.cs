@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns database statistics
+                /// </summary>
+                public Task<DatabaseStatistics> GetDatabaseStatisticsAsync()
+                {
+                //test
+                    return ExecuteAsync(new GetDatabaseStatistics
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns database statistics
+                /// </summary>
+                Task<DatabaseStatistics> GetDatabaseStatisticsAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

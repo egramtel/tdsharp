@@ -60,6 +60,29 @@ namespace TdLib
                 StoryPosterChatId = storyPosterChatId, StoryId = storyId, IsPostedToChatPage = isPostedToChatPage
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Toggles whether a story is accessible after expiration. Can be called only if story.can_toggle_is_posted_to_chat_page == true
+                /// </summary>
+                public Task<Ok> ToggleStoryIsPostedToChatPageAsync(long storyPosterChatId = default, int storyId = default, bool isPostedToChatPage = default)
+                {
+                //test
+                    return ExecuteAsync(new ToggleStoryIsPostedToChatPage
+                    {
+                        StoryPosterChatId = storyPosterChatId, StoryId = storyId, IsPostedToChatPage = isPostedToChatPage
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Toggles whether a story is accessible after expiration. Can be called only if story.can_toggle_is_posted_to_chat_page == true
+                /// </summary>
+                Task<Ok> ToggleStoryIsPostedToChatPageAsync(long storyPosterChatId = default, int storyId = default, bool isPostedToChatPage = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

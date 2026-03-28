@@ -60,6 +60,29 @@ namespace TdLib
                 RegularGiftId = regularGiftId, Offset = offset, Limit = limit
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns upgraded gifts of the current user who can be used to craft another gifts
+                /// </summary>
+                public Task<GiftsForCrafting> GetGiftsForCraftingAsync(long regularGiftId = default, string offset = default, int limit = default)
+                {
+                //test
+                    return ExecuteAsync(new GetGiftsForCrafting
+                    {
+                        RegularGiftId = regularGiftId, Offset = offset, Limit = limit
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns upgraded gifts of the current user who can be used to craft another gifts
+                /// </summary>
+                Task<GiftsForCrafting> GetGiftsForCraftingAsync(long regularGiftId = default, string offset = default, int limit = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

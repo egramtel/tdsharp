@@ -53,6 +53,29 @@ namespace TdLib
                 ChatId = chatId, Title = title
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes the chat title. Supported only for basic groups, supergroups and channels. Requires can_change_info member right
+                /// </summary>
+                public Task<Ok> SetChatTitleAsync(long chatId = default, string title = default)
+                {
+                //test
+                    return ExecuteAsync(new SetChatTitle
+                    {
+                        ChatId = chatId, Title = title
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes the chat title. Supported only for basic groups, supergroups and channels. Requires can_change_info member right
+                /// </summary>
+                Task<Ok> SetChatTitleAsync(long chatId = default, string title = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

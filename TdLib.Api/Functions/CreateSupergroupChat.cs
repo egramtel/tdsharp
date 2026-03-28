@@ -53,6 +53,29 @@ namespace TdLib
                 SupergroupId = supergroupId, Force = force
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns an existing chat corresponding to a known supergroup or channel
+                /// </summary>
+                public Task<Chat> CreateSupergroupChatAsync(long supergroupId = default, bool force = default)
+                {
+                //test
+                    return ExecuteAsync(new CreateSupergroupChat
+                    {
+                        SupergroupId = supergroupId, Force = force
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns an existing chat corresponding to a known supergroup or channel
+                /// </summary>
+                Task<Chat> CreateSupergroupChatAsync(long supergroupId = default, bool force = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

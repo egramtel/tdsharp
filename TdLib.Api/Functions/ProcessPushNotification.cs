@@ -46,6 +46,29 @@ namespace TdLib
                 Payload = payload
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Handles a push notification. Returns error with code 406 if the push notification is not supported and connection to the server is required to fetch new data. Can be called before authorization
+                /// </summary>
+                public Task<Ok> ProcessPushNotificationAsync(string payload = default)
+                {
+                //test
+                    return ExecuteAsync(new ProcessPushNotification
+                    {
+                        Payload = payload
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Handles a push notification. Returns error with code 406 if the push notification is not supported and connection to the server is required to fetch new data. Can be called before authorization
+                /// </summary>
+                Task<Ok> ProcessPushNotificationAsync(string payload = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

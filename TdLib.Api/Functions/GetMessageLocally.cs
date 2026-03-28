@@ -53,6 +53,29 @@ namespace TdLib
                 ChatId = chatId, MessageId = messageId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns information about a message, if it is available without sending network request. Returns a 404 error if message isn't available locally. This is an offline method
+                /// </summary>
+                public Task<Message> GetMessageLocallyAsync(long chatId = default, long messageId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetMessageLocally
+                    {
+                        ChatId = chatId, MessageId = messageId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns information about a message, if it is available without sending network request. Returns a 404 error if message isn't available locally. This is an offline method
+                /// </summary>
+                Task<Message> GetMessageLocallyAsync(long chatId = default, long messageId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns the business bot that is connected to the current user account. Returns a 404 error if there is no connected bot
+                /// </summary>
+                public Task<BusinessConnectedBot> GetBusinessConnectedBotAsync()
+                {
+                //test
+                    return ExecuteAsync(new GetBusinessConnectedBot
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns the business bot that is connected to the current user account. Returns a 404 error if there is no connected bot
+                /// </summary>
+                Task<BusinessConnectedBot> GetBusinessConnectedBotAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

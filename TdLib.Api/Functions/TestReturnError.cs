@@ -46,6 +46,29 @@ namespace TdLib
                 Error = error
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns the specified error and ensures that the Error object is used; for testing only. Can be called synchronously
+                /// </summary>
+                public Task<Error> TestReturnErrorAsync(Error error = default)
+                {
+                //test
+                    return ExecuteAsync(new TestReturnError
+                    {
+                        Error = error
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns the specified error and ensures that the Error object is used; for testing only. Can be called synchronously
+                /// </summary>
+                Task<Error> TestReturnErrorAsync(Error error = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

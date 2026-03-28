@@ -81,6 +81,29 @@ namespace TdLib
                 ChatId = chatId, PrivacySettings = privacySettings, ProtectContent = protectContent, IsRtmpStream = isRtmpStream, EnableMessages = enableMessages, PaidMessageStarCount = paidMessageStarCount
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Starts a new live story on behalf of a chat; requires can_post_stories administrator right for channel chats
+                /// </summary>
+                public Task<StartLiveStoryResult> StartLiveStoryAsync(long chatId = default, StoryPrivacySettings privacySettings = default, bool protectContent = default, bool isRtmpStream = default, bool enableMessages = default, long paidMessageStarCount = default)
+                {
+                //test
+                    return ExecuteAsync(new StartLiveStory
+                    {
+                        ChatId = chatId, PrivacySettings = privacySettings, ProtectContent = protectContent, IsRtmpStream = isRtmpStream, EnableMessages = enableMessages, PaidMessageStarCount = paidMessageStarCount
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Starts a new live story on behalf of a chat; requires can_post_stories administrator right for channel chats
+                /// </summary>
+                Task<StartLiveStoryResult> StartLiveStoryAsync(long chatId = default, StoryPrivacySettings privacySettings = default, bool protectContent = default, bool isRtmpStream = default, bool enableMessages = default, long paidMessageStarCount = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

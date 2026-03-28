@@ -67,6 +67,29 @@ namespace TdLib
                 ChatId = chatId, TopicId = topicId, Filter = filter, MessageId = messageId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns approximate 1-based position of a message among messages, which can be found by the specified filter in the chat and topic. Cannot be used in secret chats
+                /// </summary>
+                public Task<Count> GetChatMessagePositionAsync(long chatId = default, MessageTopic topicId = default, SearchMessagesFilter filter = default, long messageId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetChatMessagePosition
+                    {
+                        ChatId = chatId, TopicId = topicId, Filter = filter, MessageId = messageId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns approximate 1-based position of a message among messages, which can be found by the specified filter in the chat and topic. Cannot be used in secret chats
+                /// </summary>
+                Task<Count> GetChatMessagePositionAsync(long chatId = default, MessageTopic topicId = default, SearchMessagesFilter filter = default, long messageId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -46,6 +46,29 @@ namespace TdLib
                 GroupCallId = groupCallId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns information about available streams in a video chat or a live story
+                /// </summary>
+                public Task<GroupCallStreams> GetGroupCallStreamsAsync(int groupCallId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetGroupCallStreams
+                    {
+                        GroupCallId = groupCallId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns information about available streams in a video chat or a live story
+                /// </summary>
+                Task<GroupCallStreams> GetGroupCallStreamsAsync(int groupCallId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

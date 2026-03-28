@@ -46,6 +46,29 @@ namespace TdLib
                 ShortcutId = shortcutId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Loads quick reply messages that can be sent by a given quick reply shortcut. The loaded messages will be sent through updateQuickReplyShortcutMessages
+                /// </summary>
+                public Task<Ok> LoadQuickReplyShortcutMessagesAsync(int shortcutId = default)
+                {
+                //test
+                    return ExecuteAsync(new LoadQuickReplyShortcutMessages
+                    {
+                        ShortcutId = shortcutId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Loads quick reply messages that can be sent by a given quick reply shortcut. The loaded messages will be sent through updateQuickReplyShortcutMessages
+                /// </summary>
+                Task<Ok> LoadQuickReplyShortcutMessagesAsync(int shortcutId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

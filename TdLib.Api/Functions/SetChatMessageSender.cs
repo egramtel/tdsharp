@@ -53,6 +53,29 @@ namespace TdLib
                 ChatId = chatId, MessageSenderId = messageSenderId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Selects a message sender to send messages in a chat
+                /// </summary>
+                public Task<Ok> SetChatMessageSenderAsync(long chatId = default, MessageSender messageSenderId = default)
+                {
+                //test
+                    return ExecuteAsync(new SetChatMessageSender
+                    {
+                        ChatId = chatId, MessageSenderId = messageSenderId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Selects a message sender to send messages in a chat
+                /// </summary>
+                Task<Ok> SetChatMessageSenderAsync(long chatId = default, MessageSender messageSenderId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

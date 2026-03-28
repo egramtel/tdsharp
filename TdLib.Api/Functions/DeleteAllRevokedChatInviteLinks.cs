@@ -53,6 +53,29 @@ namespace TdLib
                 ChatId = chatId, CreatorUserId = creatorUserId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Deletes all revoked chat invite links created by a given chat administrator. Requires administrator privileges and can_invite_users right in the chat for own links and owner privileges for other links
+                /// </summary>
+                public Task<Ok> DeleteAllRevokedChatInviteLinksAsync(long chatId = default, long creatorUserId = default)
+                {
+                //test
+                    return ExecuteAsync(new DeleteAllRevokedChatInviteLinks
+                    {
+                        ChatId = chatId, CreatorUserId = creatorUserId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Deletes all revoked chat invite links created by a given chat administrator. Requires administrator privileges and can_invite_users right in the chat for own links and owner privileges for other links
+                /// </summary>
+                Task<Ok> DeleteAllRevokedChatInviteLinksAsync(long chatId = default, long creatorUserId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

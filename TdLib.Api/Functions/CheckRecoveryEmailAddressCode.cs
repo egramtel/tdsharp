@@ -46,6 +46,29 @@ namespace TdLib
                 Code = code
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Checks the 2-step verification recovery email address verification code
+                /// </summary>
+                public Task<PasswordState> CheckRecoveryEmailAddressCodeAsync(string code = default)
+                {
+                //test
+                    return ExecuteAsync(new CheckRecoveryEmailAddressCode
+                    {
+                        Code = code
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Checks the 2-step verification recovery email address verification code
+                /// </summary>
+                Task<PasswordState> CheckRecoveryEmailAddressCodeAsync(string code = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

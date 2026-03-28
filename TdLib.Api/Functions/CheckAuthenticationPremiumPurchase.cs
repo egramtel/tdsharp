@@ -53,6 +53,29 @@ namespace TdLib
                 Currency = currency, Amount = amount
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Checks whether an in-store purchase of Telegram Premium is possible before authorization. Works only when the current authorization state is authorizationStateWaitPremiumPurchase
+                /// </summary>
+                public Task<Ok> CheckAuthenticationPremiumPurchaseAsync(string currency = default, long amount = default)
+                {
+                //test
+                    return ExecuteAsync(new CheckAuthenticationPremiumPurchase
+                    {
+                        Currency = currency, Amount = amount
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Checks whether an in-store purchase of Telegram Premium is possible before authorization. Works only when the current authorization state is authorizationStateWaitPremiumPurchase
+                /// </summary>
+                Task<Ok> CheckAuthenticationPremiumPurchaseAsync(string currency = default, long amount = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

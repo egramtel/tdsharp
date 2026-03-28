@@ -53,6 +53,29 @@ namespace TdLib
                 ClientData = clientData, AttestationObject = attestationObject
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Adds a passkey allowed to be used for the login by the current user and returns the added passkey. Call getPasskeyParameters to get parameters for creating of the passkey
+                /// </summary>
+                public Task<Passkey> AddLoginPasskeyAsync(string clientData = default, byte[] attestationObject = default)
+                {
+                //test
+                    return ExecuteAsync(new AddLoginPasskey
+                    {
+                        ClientData = clientData, AttestationObject = attestationObject
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Adds a passkey allowed to be used for the login by the current user and returns the added passkey. Call getPasskeyParameters to get parameters for creating of the passkey
+                /// </summary>
+                Task<Passkey> AddLoginPasskeyAsync(string clientData = default, byte[] attestationObject = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

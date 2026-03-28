@@ -46,6 +46,29 @@ namespace TdLib
                 Type = type
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Deletes a Telegram Passport element
+                /// </summary>
+                public Task<Ok> DeletePassportElementAsync(PassportElementType type = default)
+                {
+                //test
+                    return ExecuteAsync(new DeletePassportElement
+                    {
+                        Type = type
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Deletes a Telegram Passport element
+                /// </summary>
+                Task<Ok> DeletePassportElementAsync(PassportElementType type = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

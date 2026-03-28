@@ -53,6 +53,29 @@ namespace TdLib
                 SessionId = sessionId, CanAcceptCalls = canAcceptCalls
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Toggles whether a session can accept incoming calls
+                /// </summary>
+                public Task<Ok> ToggleSessionCanAcceptCallsAsync(long sessionId = default, bool canAcceptCalls = default)
+                {
+                //test
+                    return ExecuteAsync(new ToggleSessionCanAcceptCalls
+                    {
+                        SessionId = sessionId, CanAcceptCalls = canAcceptCalls
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Toggles whether a session can accept incoming calls
+                /// </summary>
+                Task<Ok> ToggleSessionCanAcceptCallsAsync(long sessionId = default, bool canAcceptCalls = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

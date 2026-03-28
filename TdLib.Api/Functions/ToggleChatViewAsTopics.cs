@@ -53,6 +53,29 @@ namespace TdLib
                 ChatId = chatId, ViewAsTopics = viewAsTopics
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes the view_as_topics setting of a forum chat or Saved Messages
+                /// </summary>
+                public Task<Ok> ToggleChatViewAsTopicsAsync(long chatId = default, bool viewAsTopics = default)
+                {
+                //test
+                    return ExecuteAsync(new ToggleChatViewAsTopics
+                    {
+                        ChatId = chatId, ViewAsTopics = viewAsTopics
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes the view_as_topics setting of a forum chat or Saved Messages
+                /// </summary>
+                Task<Ok> ToggleChatViewAsTopicsAsync(long chatId = default, bool viewAsTopics = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -46,6 +46,29 @@ namespace TdLib
                 Text = text
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns all entities (mentions, hashtags, cashtags, bot commands, bank card numbers, URLs, and email addresses) found in the text. Can be called synchronously
+                /// </summary>
+                public Task<TextEntities> GetTextEntitiesAsync(string text = default)
+                {
+                //test
+                    return ExecuteAsync(new GetTextEntities
+                    {
+                        Text = text
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns all entities (mentions, hashtags, cashtags, bot commands, bank card numbers, URLs, and email addresses) found in the text. Can be called synchronously
+                /// </summary>
+                Task<TextEntities> GetTextEntitiesAsync(string text = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

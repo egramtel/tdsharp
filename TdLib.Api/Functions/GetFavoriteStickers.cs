@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns favorite stickers
+                /// </summary>
+                public Task<Stickers> GetFavoriteStickersAsync()
+                {
+                //test
+                    return ExecuteAsync(new GetFavoriteStickers
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns favorite stickers
+                /// </summary>
+                Task<Stickers> GetFavoriteStickersAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

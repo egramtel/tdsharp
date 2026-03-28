@@ -74,6 +74,29 @@ namespace TdLib
                 FileId = fileId, Priority = priority, Offset = offset, Limit = limit, Synchronous = synchronous
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Downloads a file from the cloud. Download progress and completion of the download will be notified through updateFile updates
+                /// </summary>
+                public Task<File> DownloadFileAsync(int fileId = default, int priority = default, long offset = default, long limit = default, bool synchronous = default)
+                {
+                //test
+                    return ExecuteAsync(new DownloadFile
+                    {
+                        FileId = fileId, Priority = priority, Offset = offset, Limit = limit, Synchronous = synchronous
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Downloads a file from the cloud. Download progress and completion of the download will be notified through updateFile updates
+                /// </summary>
+                Task<File> DownloadFileAsync(int fileId = default, int priority = default, long offset = default, long limit = default, bool synchronous = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

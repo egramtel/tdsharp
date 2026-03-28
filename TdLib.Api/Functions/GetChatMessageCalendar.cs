@@ -67,6 +67,29 @@ namespace TdLib
                 ChatId = chatId, TopicId = topicId, Filter = filter, FromMessageId = fromMessageId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns information about the next messages of the specified type in the chat split by days. Returns the results in reverse chronological order. Can return partial result for the last returned day. Behavior of this method depends on the value of the option "utc_time_offset"
+                /// </summary>
+                public Task<MessageCalendar> GetChatMessageCalendarAsync(long chatId = default, MessageTopic topicId = default, SearchMessagesFilter filter = default, long fromMessageId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetChatMessageCalendar
+                    {
+                        ChatId = chatId, TopicId = topicId, Filter = filter, FromMessageId = fromMessageId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns information about the next messages of the specified type in the chat split by days. Returns the results in reverse chronological order. Can return partial result for the last returned day. Behavior of this method depends on the value of the option "utc_time_offset"
+                /// </summary>
+                Task<MessageCalendar> GetChatMessageCalendarAsync(long chatId = default, MessageTopic topicId = default, SearchMessagesFilter filter = default, long fromMessageId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

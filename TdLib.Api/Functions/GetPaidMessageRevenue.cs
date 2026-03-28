@@ -46,6 +46,29 @@ namespace TdLib
                 UserId = userId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns the total number of Telegram Stars received by the current user for paid messages from the given user
+                /// </summary>
+                public Task<StarCount> GetPaidMessageRevenueAsync(long userId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetPaidMessageRevenue
+                    {
+                        UserId = userId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns the total number of Telegram Stars received by the current user for paid messages from the given user
+                /// </summary>
+                Task<StarCount> GetPaidMessageRevenueAsync(long userId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

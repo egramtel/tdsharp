@@ -67,6 +67,29 @@ namespace TdLib
                 GroupCallId = groupCallId, ParticipantId = participantId, JoinParameters = joinParameters, InviteHash = inviteHash
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Joins an active video chat. Returns join response payload for tgcalls
+                /// </summary>
+                public Task<Text> JoinVideoChatAsync(int groupCallId = default, MessageSender participantId = default, GroupCallJoinParameters joinParameters = default, string inviteHash = default)
+                {
+                //test
+                    return ExecuteAsync(new JoinVideoChat
+                    {
+                        GroupCallId = groupCallId, ParticipantId = participantId, JoinParameters = joinParameters, InviteHash = inviteHash
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Joins an active video chat. Returns join response payload for tgcalls
+                /// </summary>
+                Task<Text> JoinVideoChatAsync(int groupCallId = default, MessageSender participantId = default, GroupCallJoinParameters joinParameters = default, string inviteHash = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -53,6 +53,29 @@ namespace TdLib
                 BotUserId = botUserId, CanManageEmojiStatus = canManageEmojiStatus
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Toggles whether the bot can manage emoji status of the current user
+                /// </summary>
+                public Task<Ok> ToggleBotCanManageEmojiStatusAsync(long botUserId = default, bool canManageEmojiStatus = default)
+                {
+                //test
+                    return ExecuteAsync(new ToggleBotCanManageEmojiStatus
+                    {
+                        BotUserId = botUserId, CanManageEmojiStatus = canManageEmojiStatus
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Toggles whether the bot can manage emoji status of the current user
+                /// </summary>
+                Task<Ok> ToggleBotCanManageEmojiStatusAsync(long botUserId = default, bool canManageEmojiStatus = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

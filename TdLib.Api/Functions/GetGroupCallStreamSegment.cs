@@ -74,6 +74,29 @@ namespace TdLib
                 GroupCallId = groupCallId, TimeOffset = timeOffset, Scale = scale, ChannelId = channelId, VideoQuality = videoQuality
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns a file with a segment of a video chat or live story in a modified OGG format for audio or MPEG-4 format for video
+                /// </summary>
+                public Task<Data> GetGroupCallStreamSegmentAsync(int groupCallId = default, long timeOffset = default, int scale = default, int channelId = default, GroupCallVideoQuality videoQuality = default)
+                {
+                //test
+                    return ExecuteAsync(new GetGroupCallStreamSegment
+                    {
+                        GroupCallId = groupCallId, TimeOffset = timeOffset, Scale = scale, ChannelId = channelId, VideoQuality = videoQuality
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns a file with a segment of a video chat or live story in a modified OGG format for audio or MPEG-4 format for video
+                /// </summary>
+                Task<Data> GetGroupCallStreamSegmentAsync(int groupCallId = default, long timeOffset = default, int scale = default, int channelId = default, GroupCallVideoQuality videoQuality = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

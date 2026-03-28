@@ -53,6 +53,29 @@ namespace TdLib
                 ChatId = chatId, ReturnLocal = returnLocal
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns approximate number of chats similar to the given chat
+                /// </summary>
+                public Task<Count> GetChatSimilarChatCountAsync(long chatId = default, bool returnLocal = default)
+                {
+                //test
+                    return ExecuteAsync(new GetChatSimilarChatCount
+                    {
+                        ChatId = chatId, ReturnLocal = returnLocal
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns approximate number of chats similar to the given chat
+                /// </summary>
+                Task<Count> GetChatSimilarChatCountAsync(long chatId = default, bool returnLocal = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

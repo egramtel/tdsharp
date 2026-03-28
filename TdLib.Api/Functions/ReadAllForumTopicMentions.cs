@@ -53,6 +53,29 @@ namespace TdLib
                 ChatId = chatId, ForumTopicId = forumTopicId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Marks all mentions in a topic in a forum supergroup chat as read
+                /// </summary>
+                public Task<Ok> ReadAllForumTopicMentionsAsync(long chatId = default, int forumTopicId = default)
+                {
+                //test
+                    return ExecuteAsync(new ReadAllForumTopicMentions
+                    {
+                        ChatId = chatId, ForumTopicId = forumTopicId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Marks all mentions in a topic in a forum supergroup chat as read
+                /// </summary>
+                Task<Ok> ReadAllForumTopicMentionsAsync(long chatId = default, int forumTopicId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

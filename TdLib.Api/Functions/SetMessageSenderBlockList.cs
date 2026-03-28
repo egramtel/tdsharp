@@ -53,6 +53,29 @@ namespace TdLib
                 SenderId = senderId, BlockList = blockList
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes the block list of a message sender. Currently, only users and supergroup chats can be blocked
+                /// </summary>
+                public Task<Ok> SetMessageSenderBlockListAsync(MessageSender senderId = default, BlockList blockList = default)
+                {
+                //test
+                    return ExecuteAsync(new SetMessageSenderBlockList
+                    {
+                        SenderId = senderId, BlockList = blockList
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes the block list of a message sender. Currently, only users and supergroup chats can be blocked
+                /// </summary>
+                Task<Ok> SetMessageSenderBlockListAsync(MessageSender senderId = default, BlockList blockList = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

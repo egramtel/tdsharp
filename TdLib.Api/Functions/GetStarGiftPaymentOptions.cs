@@ -46,6 +46,29 @@ namespace TdLib
                 UserId = userId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns available options for Telegram Stars gifting
+                /// </summary>
+                public Task<StarPaymentOptions> GetStarGiftPaymentOptionsAsync(long userId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetStarGiftPaymentOptions
+                    {
+                        UserId = userId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns available options for Telegram Stars gifting
+                /// </summary>
+                Task<StarPaymentOptions> GetStarGiftPaymentOptionsAsync(long userId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

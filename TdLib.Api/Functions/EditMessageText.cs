@@ -67,6 +67,29 @@ namespace TdLib
                 ChatId = chatId, MessageId = messageId, ReplyMarkup = replyMarkup, InputMessageContent = inputMessageContent
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Edits the text of a message (or a text of a game message). Returns the edited message after the edit is completed on the server side
+                /// </summary>
+                public Task<Message> EditMessageTextAsync(long chatId = default, long messageId = default, ReplyMarkup replyMarkup = default, InputMessageContent inputMessageContent = default)
+                {
+                //test
+                    return ExecuteAsync(new EditMessageText
+                    {
+                        ChatId = chatId, MessageId = messageId, ReplyMarkup = replyMarkup, InputMessageContent = inputMessageContent
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Edits the text of a message (or a text of a game message). Returns the edited message after the edit is completed on the server side
+                /// </summary>
+                Task<Message> EditMessageTextAsync(long chatId = default, long messageId = default, ReplyMarkup replyMarkup = default, InputMessageContent inputMessageContent = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

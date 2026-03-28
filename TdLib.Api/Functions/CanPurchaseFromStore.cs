@@ -46,6 +46,29 @@ namespace TdLib
                 Purpose = purpose
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Checks whether an in-store purchase is possible. Must be called before any in-store purchase. For official applications only
+                /// </summary>
+                public Task<Ok> CanPurchaseFromStoreAsync(StorePaymentPurpose purpose = default)
+                {
+                //test
+                    return ExecuteAsync(new CanPurchaseFromStore
+                    {
+                        Purpose = purpose
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Checks whether an in-store purchase is possible. Must be called before any in-store purchase. For official applications only
+                /// </summary>
+                Task<Ok> CanPurchaseFromStoreAsync(StorePaymentPurpose purpose = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

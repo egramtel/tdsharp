@@ -54,6 +54,29 @@ namespace TdLib
                 ChatId = chatId, Parameters = parameters
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes affiliate program for a bot
+                /// </summary>
+                public Task<Ok> SetChatAffiliateProgramAsync(long chatId = default, AffiliateProgramParameters parameters = default)
+                {
+                //test
+                    return ExecuteAsync(new SetChatAffiliateProgram
+                    {
+                        ChatId = chatId, Parameters = parameters
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes affiliate program for a bot
+                /// </summary>
+                Task<Ok> SetChatAffiliateProgramAsync(long chatId = default, AffiliateProgramParameters parameters = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

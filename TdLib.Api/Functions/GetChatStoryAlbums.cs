@@ -46,6 +46,29 @@ namespace TdLib
                 ChatId = chatId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns the list of story albums owned by the given chat
+                /// </summary>
+                public Task<StoryAlbums> GetChatStoryAlbumsAsync(long chatId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetChatStoryAlbums
+                    {
+                        ChatId = chatId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns the list of story albums owned by the given chat
+                /// </summary>
+                Task<StoryAlbums> GetChatStoryAlbumsAsync(long chatId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Terminates all other sessions of the current user
+                /// </summary>
+                public Task<Ok> TerminateAllOtherSessionsAsync()
+                {
+                //test
+                    return ExecuteAsync(new TerminateAllOtherSessions
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Terminates all other sessions of the current user
+                /// </summary>
+                Task<Ok> TerminateAllOtherSessionsAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

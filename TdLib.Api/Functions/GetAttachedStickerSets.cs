@@ -46,6 +46,29 @@ namespace TdLib
                 FileId = fileId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns a list of sticker sets attached to a file, including regular, mask, and emoji sticker sets. Currently, only animations, photos, and videos can have attached sticker sets
+                /// </summary>
+                public Task<StickerSets> GetAttachedStickerSetsAsync(int fileId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetAttachedStickerSets
+                    {
+                        FileId = fileId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns a list of sticker sets attached to a file, including regular, mask, and emoji sticker sets. Currently, only animations, photos, and videos can have attached sticker sets
+                /// </summary>
+                Task<StickerSets> GetAttachedStickerSetsAsync(int fileId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -60,6 +60,29 @@ namespace TdLib
                 InputInvoice = inputInvoice, OrderInfo = orderInfo, AllowSave = allowSave
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Validates the order information provided by a user and returns the available shipping options for a flexible invoice
+                /// </summary>
+                public Task<ValidatedOrderInfo> ValidateOrderInfoAsync(InputInvoice inputInvoice = default, OrderInfo orderInfo = default, bool allowSave = default)
+                {
+                //test
+                    return ExecuteAsync(new ValidateOrderInfo
+                    {
+                        InputInvoice = inputInvoice, OrderInfo = orderInfo, AllowSave = allowSave
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Validates the order information provided by a user and returns the available shipping options for a flexible invoice
+                /// </summary>
+                Task<ValidatedOrderInfo> ValidateOrderInfoAsync(InputInvoice inputInvoice = default, OrderInfo orderInfo = default, bool allowSave = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

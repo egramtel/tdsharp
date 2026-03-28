@@ -46,6 +46,29 @@ namespace TdLib
                 BotUserId = botUserId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns a default placeholder for Web Apps of a bot. This is an offline method. Returns a 404 error if the placeholder isn't known
+                /// </summary>
+                public Task<Outline> GetWebAppPlaceholderAsync(long botUserId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetWebAppPlaceholder
+                    {
+                        BotUserId = botUserId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns a default placeholder for Web Apps of a bot. This is an offline method. Returns a 404 error if the placeholder isn't known
+                /// </summary>
+                Task<Outline> GetWebAppPlaceholderAsync(long botUserId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -46,6 +46,29 @@ namespace TdLib
                 ChatId = chatId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns a confirmation text to be shown to the user before starting message import
+                /// </summary>
+                public Task<Text> GetMessageImportConfirmationTextAsync(long chatId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetMessageImportConfirmationText
+                    {
+                        ChatId = chatId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns a confirmation text to be shown to the user before starting message import
+                /// </summary>
+                Task<Text> GetMessageImportConfirmationTextAsync(long chatId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

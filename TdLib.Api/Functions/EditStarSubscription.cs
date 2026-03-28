@@ -53,6 +53,29 @@ namespace TdLib
                 SubscriptionId = subscriptionId, IsCanceled = isCanceled
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Cancels or re-enables Telegram Star subscription
+                /// </summary>
+                public Task<Ok> EditStarSubscriptionAsync(string subscriptionId = default, bool isCanceled = default)
+                {
+                //test
+                    return ExecuteAsync(new EditStarSubscription
+                    {
+                        SubscriptionId = subscriptionId, IsCanceled = isCanceled
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Cancels or re-enables Telegram Star subscription
+                /// </summary>
+                Task<Ok> EditStarSubscriptionAsync(string subscriptionId = default, bool isCanceled = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

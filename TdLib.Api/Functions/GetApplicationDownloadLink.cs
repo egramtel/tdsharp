@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns the link for downloading official Telegram application to be used when the current user invites friends to Telegram
+                /// </summary>
+                public Task<HttpUrl> GetApplicationDownloadLinkAsync()
+                {
+                //test
+                    return ExecuteAsync(new GetApplicationDownloadLink
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns the link for downloading official Telegram application to be used when the current user invites friends to Telegram
+                /// </summary>
+                Task<HttpUrl> GetApplicationDownloadLinkAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

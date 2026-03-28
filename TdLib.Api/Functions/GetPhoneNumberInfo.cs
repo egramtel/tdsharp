@@ -46,6 +46,29 @@ namespace TdLib
                 PhoneNumberPrefix = phoneNumberPrefix
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns information about a phone number by its prefix. Can be called before authorization
+                /// </summary>
+                public Task<PhoneNumberInfo> GetPhoneNumberInfoAsync(string phoneNumberPrefix = default)
+                {
+                //test
+                    return ExecuteAsync(new GetPhoneNumberInfo
+                    {
+                        PhoneNumberPrefix = phoneNumberPrefix
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns information about a phone number by its prefix. Can be called before authorization
+                /// </summary>
+                Task<PhoneNumberInfo> GetPhoneNumberInfoAsync(string phoneNumberPrefix = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

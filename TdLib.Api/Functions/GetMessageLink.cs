@@ -74,6 +74,29 @@ namespace TdLib
                 ChatId = chatId, MessageId = messageId, MediaTimestamp = mediaTimestamp, ForAlbum = forAlbum, InMessageThread = inMessageThread
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns an HTTPS link to a message in a chat. Available only if messageProperties.can_get_link, or if messageProperties.can_get_media_timestamp_links and a media timestamp link is generated. This is an offline method
+                /// </summary>
+                public Task<MessageLink> GetMessageLinkAsync(long chatId = default, long messageId = default, int mediaTimestamp = default, bool forAlbum = default, bool inMessageThread = default)
+                {
+                //test
+                    return ExecuteAsync(new GetMessageLink
+                    {
+                        ChatId = chatId, MessageId = messageId, MediaTimestamp = mediaTimestamp, ForAlbum = forAlbum, InMessageThread = inMessageThread
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns an HTTPS link to a message in a chat. Available only if messageProperties.can_get_link, or if messageProperties.can_get_media_timestamp_links and a media timestamp link is generated. This is an offline method
+                /// </summary>
+                Task<MessageLink> GetMessageLinkAsync(long chatId = default, long messageId = default, int mediaTimestamp = default, bool forAlbum = default, bool inMessageThread = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

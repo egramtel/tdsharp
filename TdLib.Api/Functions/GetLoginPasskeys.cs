@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns the list of passkeys allowed to be used for the login by the current user
+                /// </summary>
+                public Task<Passkeys> GetLoginPasskeysAsync()
+                {
+                //test
+                    return ExecuteAsync(new GetLoginPasskeys
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns the list of passkeys allowed to be used for the login by the current user
+                /// </summary>
+                Task<Passkeys> GetLoginPasskeysAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

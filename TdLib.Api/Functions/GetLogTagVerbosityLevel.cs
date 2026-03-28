@@ -46,6 +46,29 @@ namespace TdLib
                 Tag = tag
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns current verbosity level for a specified TDLib internal log tag. Can be called synchronously
+                /// </summary>
+                public Task<LogVerbosityLevel> GetLogTagVerbosityLevelAsync(string tag = default)
+                {
+                //test
+                    return ExecuteAsync(new GetLogTagVerbosityLevel
+                    {
+                        Tag = tag
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns current verbosity level for a specified TDLib internal log tag. Can be called synchronously
+                /// </summary>
+                Task<LogVerbosityLevel> GetLogTagVerbosityLevelAsync(string tag = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

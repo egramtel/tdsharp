@@ -81,6 +81,29 @@ namespace TdLib
                 GiftId = giftId, Order = order, ForCrafting = forCrafting, Attributes = attributes, Offset = offset, Limit = limit
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns upgraded gifts that can be bought from other owners using sendResoldGift
+                /// </summary>
+                public Task<GiftsForResale> SearchGiftsForResaleAsync(long giftId = default, GiftForResaleOrder order = default, bool forCrafting = default, UpgradedGiftAttributeId[] attributes = default, string offset = default, int limit = default)
+                {
+                //test
+                    return ExecuteAsync(new SearchGiftsForResale
+                    {
+                        GiftId = giftId, Order = order, ForCrafting = forCrafting, Attributes = attributes, Offset = offset, Limit = limit
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns upgraded gifts that can be bought from other owners using sendResoldGift
+                /// </summary>
+                Task<GiftsForResale> SearchGiftsForResaleAsync(long giftId = default, GiftForResaleOrder order = default, bool forCrafting = default, UpgradedGiftAttributeId[] attributes = default, string offset = default, int limit = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

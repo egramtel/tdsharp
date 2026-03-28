@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns all website where the current user used Telegram to log in
+                /// </summary>
+                public Task<ConnectedWebsites> GetConnectedWebsitesAsync()
+                {
+                //test
+                    return ExecuteAsync(new GetConnectedWebsites
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns all website where the current user used Telegram to log in
+                /// </summary>
+                Task<ConnectedWebsites> GetConnectedWebsitesAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -46,6 +46,29 @@ namespace TdLib
                 Proxy = proxy
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Computes time needed to receive a response from a Telegram server through a proxy. Can be called before authorization
+                /// </summary>
+                public Task<Seconds> PingProxyAsync(Proxy proxy = default)
+                {
+                //test
+                    return ExecuteAsync(new PingProxy
+                    {
+                        Proxy = proxy
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Computes time needed to receive a response from a Telegram server through a proxy. Can be called before authorization
+                /// </summary>
+                Task<Seconds> PingProxyAsync(Proxy proxy = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

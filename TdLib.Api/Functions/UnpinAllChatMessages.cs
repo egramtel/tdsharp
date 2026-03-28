@@ -46,6 +46,29 @@ namespace TdLib
                 ChatId = chatId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Removes all pinned messages from a chat; requires can_pin_messages member right if the chat is a basic group or supergroup, or can_edit_messages administrator right if the chat is a channel
+                /// </summary>
+                public Task<Ok> UnpinAllChatMessagesAsync(long chatId = default)
+                {
+                //test
+                    return ExecuteAsync(new UnpinAllChatMessages
+                    {
+                        ChatId = chatId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Removes all pinned messages from a chat; requires can_pin_messages member right if the chat is a basic group or supergroup, or can_edit_messages administrator right if the chat is a channel
+                /// </summary>
+                Task<Ok> UnpinAllChatMessagesAsync(long chatId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

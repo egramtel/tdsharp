@@ -46,6 +46,29 @@ namespace TdLib
                 HasSponsoredMessagesEnabled = hasSponsoredMessagesEnabled
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Toggles whether the current user has sponsored messages enabled. The setting has no effect for users without Telegram Premium for which sponsored messages are always enabled
+                /// </summary>
+                public Task<Ok> ToggleHasSponsoredMessagesEnabledAsync(bool hasSponsoredMessagesEnabled = default)
+                {
+                //test
+                    return ExecuteAsync(new ToggleHasSponsoredMessagesEnabled
+                    {
+                        HasSponsoredMessagesEnabled = hasSponsoredMessagesEnabled
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Toggles whether the current user has sponsored messages enabled. The setting has no effect for users without Telegram Premium for which sponsored messages are always enabled
+                /// </summary>
+                Task<Ok> ToggleHasSponsoredMessagesEnabledAsync(bool hasSponsoredMessagesEnabled = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

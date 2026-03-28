@@ -46,6 +46,29 @@ namespace TdLib
                 GroupCallId = groupCallId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Ends screen sharing in a joined group call; not supported in live stories
+                /// </summary>
+                public Task<Ok> EndGroupCallScreenSharingAsync(int groupCallId = default)
+                {
+                //test
+                    return ExecuteAsync(new EndGroupCallScreenSharing
+                    {
+                        GroupCallId = groupCallId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Ends screen sharing in a joined group call; not supported in live stories
+                /// </summary>
+                Task<Ok> EndGroupCallScreenSharingAsync(int groupCallId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

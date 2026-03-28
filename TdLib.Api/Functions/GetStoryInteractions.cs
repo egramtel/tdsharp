@@ -88,6 +88,29 @@ namespace TdLib
                 StoryId = storyId, Query = query, OnlyContacts = onlyContacts, PreferForwards = preferForwards, PreferWithReaction = preferWithReaction, Offset = offset, Limit = limit
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns interactions with a story. The method can be called only for stories posted on behalf of the current user
+                /// </summary>
+                public Task<StoryInteractions> GetStoryInteractionsAsync(int storyId = default, string query = default, bool onlyContacts = default, bool preferForwards = default, bool preferWithReaction = default, string offset = default, int limit = default)
+                {
+                //test
+                    return ExecuteAsync(new GetStoryInteractions
+                    {
+                        StoryId = storyId, Query = query, OnlyContacts = onlyContacts, PreferForwards = preferForwards, PreferWithReaction = preferWithReaction, Offset = offset, Limit = limit
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns interactions with a story. The method can be called only for stories posted on behalf of the current user
+                /// </summary>
+                Task<StoryInteractions> GetStoryInteractionsAsync(int storyId = default, string query = default, bool onlyContacts = default, bool preferForwards = default, bool preferWithReaction = default, string offset = default, int limit = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

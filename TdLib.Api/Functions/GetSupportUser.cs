@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns a user who can be contacted to get support
+                /// </summary>
+                public Task<User> GetSupportUserAsync()
+                {
+                //test
+                    return ExecuteAsync(new GetSupportUser
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns a user who can be contacted to get support
+                /// </summary>
+                Task<User> GetSupportUserAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

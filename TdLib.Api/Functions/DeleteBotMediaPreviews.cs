@@ -59,6 +59,29 @@ namespace TdLib
                 BotUserId = botUserId, LanguageCode = languageCode, FileIds = fileIds
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Deletes media previews from the list of media previews of a bot
+                /// </summary>
+                public Task<Ok> DeleteBotMediaPreviewsAsync(long botUserId = default, string languageCode = default, int[] fileIds = default)
+                {
+                //test
+                    return ExecuteAsync(new DeleteBotMediaPreviews
+                    {
+                        BotUserId = botUserId, LanguageCode = languageCode, FileIds = fileIds
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Deletes media previews from the list of media previews of a bot
+                /// </summary>
+                Task<Ok> DeleteBotMediaPreviewsAsync(long botUserId = default, string languageCode = default, int[] fileIds = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

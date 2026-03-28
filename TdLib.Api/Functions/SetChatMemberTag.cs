@@ -60,6 +60,29 @@ namespace TdLib
                 ChatId = chatId, UserId = userId, Tag = tag
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes the tag or custom title of a chat member; requires can_manage_tags administrator right to change tag of other users; for basic groups and supergroups only
+                /// </summary>
+                public Task<Ok> SetChatMemberTagAsync(long chatId = default, long userId = default, string tag = default)
+                {
+                //test
+                    return ExecuteAsync(new SetChatMemberTag
+                    {
+                        ChatId = chatId, UserId = userId, Tag = tag
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes the tag or custom title of a chat member; requires can_manage_tags administrator right to change tag of other users; for basic groups and supergroups only
+                /// </summary>
+                Task<Ok> SetChatMemberTagAsync(long chatId = default, long userId = default, string tag = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

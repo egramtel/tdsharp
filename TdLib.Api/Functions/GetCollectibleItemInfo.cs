@@ -46,6 +46,29 @@ namespace TdLib
                 Type = type
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns information about a given collectible item that was purchased at https://fragment.com
+                /// </summary>
+                public Task<CollectibleItemInfo> GetCollectibleItemInfoAsync(CollectibleItemType type = default)
+                {
+                //test
+                    return ExecuteAsync(new GetCollectibleItemInfo
+                    {
+                        Type = type
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns information about a given collectible item that was purchased at https://fragment.com
+                /// </summary>
+                Task<CollectibleItemInfo> GetCollectibleItemInfoAsync(CollectibleItemType type = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

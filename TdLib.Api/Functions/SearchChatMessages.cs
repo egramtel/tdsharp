@@ -99,6 +99,33 @@ namespace TdLib
                 ChatId = chatId, TopicId = topicId, Query = query, SenderId = senderId, FromMessageId = fromMessageId, Offset = offset, Limit = limit, Filter = filter
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Searches for messages with given words in the chat. Returns the results in reverse chronological order, i.e. in order of decreasing message_id. Cannot be used in secret chats with a non-empty query
+                /// (searchSecretMessages must be used instead), or without an enabled message database. For optimal performance, the number of returned messages is chosen by TDLib and can be smaller than the specified limit.
+                /// A combination of query, sender_id, filter and topic_id search criteria is expected to be supported, only if it is required for Telegram official application implementation
+                /// </summary>
+                public Task<FoundChatMessages> SearchChatMessagesAsync(long chatId = default, MessageTopic topicId = default, string query = default, MessageSender senderId = default, long fromMessageId = default, int offset = default, int limit = default, SearchMessagesFilter filter = default)
+                {
+                //test
+                    return ExecuteAsync(new SearchChatMessages
+                    {
+                        ChatId = chatId, TopicId = topicId, Query = query, SenderId = senderId, FromMessageId = fromMessageId, Offset = offset, Limit = limit, Filter = filter
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Searches for messages with given words in the chat. Returns the results in reverse chronological order, i.e. in order of decreasing message_id. Cannot be used in secret chats with a non-empty query
+                /// (searchSecretMessages must be used instead), or without an enabled message database. For optimal performance, the number of returned messages is chosen by TDLib and can be smaller than the specified limit.
+                /// A combination of query, sender_id, filter and topic_id search criteria is expected to be supported, only if it is required for Telegram official application implementation
+                /// </summary>
+                Task<FoundChatMessages> SearchChatMessagesAsync(long chatId = default, MessageTopic topicId = default, string query = default, MessageSender senderId = default, long fromMessageId = default, int offset = default, int limit = default, SearchMessagesFilter filter = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

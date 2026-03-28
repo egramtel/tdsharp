@@ -60,6 +60,29 @@ namespace TdLib
                 ChatId = chatId, MessageId = messageId, ReplyMarkup = replyMarkup
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Stops a poll
+                /// </summary>
+                public Task<Ok> StopPollAsync(long chatId = default, long messageId = default, ReplyMarkup replyMarkup = default)
+                {
+                //test
+                    return ExecuteAsync(new StopPoll
+                    {
+                        ChatId = chatId, MessageId = messageId, ReplyMarkup = replyMarkup
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Stops a poll
+                /// </summary>
+                Task<Ok> StopPollAsync(long chatId = default, long messageId = default, ReplyMarkup replyMarkup = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

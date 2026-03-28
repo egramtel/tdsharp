@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Forces an updates.getDifference call to the Telegram servers; for testing only
+                /// </summary>
+                public Task<Ok> TestGetDifferenceAsync()
+                {
+                //test
+                    return ExecuteAsync(new TestGetDifference
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Forces an updates.getDifference call to the Telegram servers; for testing only
+                /// </summary>
+                Task<Ok> TestGetDifferenceAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

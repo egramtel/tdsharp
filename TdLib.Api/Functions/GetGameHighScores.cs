@@ -60,6 +60,29 @@ namespace TdLib
                 ChatId = chatId, MessageId = messageId, UserId = userId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns the high scores for a game and some part of the high score table in the range of the specified user; for bots only
+                /// </summary>
+                public Task<GameHighScores> GetGameHighScoresAsync(long chatId = default, long messageId = default, long userId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetGameHighScores
+                    {
+                        ChatId = chatId, MessageId = messageId, UserId = userId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns the high scores for a game and some part of the high score table in the range of the specified user; for bots only
+                /// </summary>
+                Task<GameHighScores> GetGameHighScoresAsync(long chatId = default, long messageId = default, long userId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

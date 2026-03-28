@@ -76,6 +76,31 @@ namespace TdLib
                 ChatId = chatId, MessageId = messageId, FromMessageId = fromMessageId, Offset = offset, Limit = limit
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns messages in a message thread of a message. Can be used only if messageProperties.can_get_message_thread == true. Message thread of a channel message is in the channel's linked supergroup.
+                /// The messages are returned in reverse chronological order (i.e., in order of decreasing message_id). For optimal performance, the number of returned messages is chosen by TDLib
+                /// </summary>
+                public Task<Messages> GetMessageThreadHistoryAsync(long chatId = default, long messageId = default, long fromMessageId = default, int offset = default, int limit = default)
+                {
+                //test
+                    return ExecuteAsync(new GetMessageThreadHistory
+                    {
+                        ChatId = chatId, MessageId = messageId, FromMessageId = fromMessageId, Offset = offset, Limit = limit
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns messages in a message thread of a message. Can be used only if messageProperties.can_get_message_thread == true. Message thread of a channel message is in the channel's linked supergroup.
+                /// The messages are returned in reverse chronological order (i.e., in order of decreasing message_id). For optimal performance, the number of returned messages is chosen by TDLib
+                /// </summary>
+                Task<Messages> GetMessageThreadHistoryAsync(long chatId = default, long messageId = default, long fromMessageId = default, int offset = default, int limit = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

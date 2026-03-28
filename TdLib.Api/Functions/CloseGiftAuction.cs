@@ -46,6 +46,29 @@ namespace TdLib
                 GiftId = giftId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Informs TDLib that a gift auction was closed by the user
+                /// </summary>
+                public Task<Ok> CloseGiftAuctionAsync(long giftId = default)
+                {
+                //test
+                    return ExecuteAsync(new CloseGiftAuction
+                    {
+                        GiftId = giftId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Informs TDLib that a gift auction was closed by the user
+                /// </summary>
+                Task<Ok> CloseGiftAuctionAsync(long giftId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

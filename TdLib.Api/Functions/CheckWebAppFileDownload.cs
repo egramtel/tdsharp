@@ -60,6 +60,29 @@ namespace TdLib
                 BotUserId = botUserId, FileName = fileName, Url = url
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Checks whether a file can be downloaded and saved locally by Web App request
+                /// </summary>
+                public Task<Ok> CheckWebAppFileDownloadAsync(long botUserId = default, string fileName = default, string url = default)
+                {
+                //test
+                    return ExecuteAsync(new CheckWebAppFileDownload
+                    {
+                        BotUserId = botUserId, FileName = fileName, Url = url
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Checks whether a file can be downloaded and saved locally by Web App request
+                /// </summary>
+                Task<Ok> CheckWebAppFileDownloadAsync(long botUserId = default, string fileName = default, string url = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -53,6 +53,29 @@ namespace TdLib
                 UserId = userId, Birthdate = birthdate
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Suggests a birthdate to another regular user with common messages and allowing non-paid messages
+                /// </summary>
+                public Task<Ok> SuggestUserBirthdateAsync(long userId = default, Birthdate birthdate = default)
+                {
+                //test
+                    return ExecuteAsync(new SuggestUserBirthdate
+                    {
+                        UserId = userId, Birthdate = birthdate
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Suggests a birthdate to another regular user with common messages and allowing non-paid messages
+                /// </summary>
+                Task<Ok> SuggestUserBirthdateAsync(long userId = default, Birthdate birthdate = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

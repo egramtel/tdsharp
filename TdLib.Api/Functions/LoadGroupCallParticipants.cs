@@ -55,6 +55,31 @@ namespace TdLib
                 GroupCallId = groupCallId, Limit = limit
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Loads more participants of a group call; not supported in live stories. The loaded participants will be received through updates.
+                /// Use the field groupCall.loaded_all_participants to check whether all participants have already been loaded
+                /// </summary>
+                public Task<Ok> LoadGroupCallParticipantsAsync(int groupCallId = default, int limit = default)
+                {
+                //test
+                    return ExecuteAsync(new LoadGroupCallParticipants
+                    {
+                        GroupCallId = groupCallId, Limit = limit
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Loads more participants of a group call; not supported in live stories. The loaded participants will be received through updates.
+                /// Use the field groupCall.loaded_all_participants to check whether all participants have already been loaded
+                /// </summary>
+                Task<Ok> LoadGroupCallParticipantsAsync(int groupCallId = default, int limit = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

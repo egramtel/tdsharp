@@ -64,6 +64,33 @@ namespace TdLib
                 ShortcutId = shortcutId, MessageId = messageId, InputMessageContent = inputMessageContent
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Asynchronously edits the text, media or caption of a quick reply message. Use quickReplyMessage.can_be_edited to check whether a message can be edited.
+                /// Media message can be edited only to a media message. Checklist messages can be edited only to a checklist message.
+                /// The type of message content in an album can't be changed with exception of replacing a photo with a video or vice versa
+                /// </summary>
+                public Task<Ok> EditQuickReplyMessageAsync(int shortcutId = default, long messageId = default, InputMessageContent inputMessageContent = default)
+                {
+                //test
+                    return ExecuteAsync(new EditQuickReplyMessage
+                    {
+                        ShortcutId = shortcutId, MessageId = messageId, InputMessageContent = inputMessageContent
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Asynchronously edits the text, media or caption of a quick reply message. Use quickReplyMessage.can_be_edited to check whether a message can be edited.
+                /// Media message can be edited only to a media message. Checklist messages can be edited only to a checklist message.
+                /// The type of message content in an album can't be changed with exception of replacing a photo with a video or vice versa
+                /// </summary>
+                Task<Ok> EditQuickReplyMessageAsync(int shortcutId = default, long messageId = default, InputMessageContent inputMessageContent = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

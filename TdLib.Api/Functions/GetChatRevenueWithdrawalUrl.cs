@@ -55,6 +55,31 @@ namespace TdLib
                 ChatId = chatId, Password = password
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns a URL for chat revenue withdrawal; requires owner privileges in the channel chat or the bot. Currently, this method can be used only
+                /// if getOption("can_withdraw_chat_revenue") for channels with supergroupFullInfo.can_get_revenue_statistics == true or bots with userFullInfo.bot_info.can_get_revenue_statistics == true
+                /// </summary>
+                public Task<HttpUrl> GetChatRevenueWithdrawalUrlAsync(long chatId = default, string password = default)
+                {
+                //test
+                    return ExecuteAsync(new GetChatRevenueWithdrawalUrl
+                    {
+                        ChatId = chatId, Password = password
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns a URL for chat revenue withdrawal; requires owner privileges in the channel chat or the bot. Currently, this method can be used only
+                /// if getOption("can_withdraw_chat_revenue") for channels with supergroupFullInfo.can_get_revenue_statistics == true or bots with userFullInfo.bot_info.can_get_revenue_statistics == true
+                /// </summary>
+                Task<HttpUrl> GetChatRevenueWithdrawalUrlAsync(long chatId = default, string password = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

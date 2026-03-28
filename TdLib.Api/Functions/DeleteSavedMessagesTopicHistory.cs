@@ -46,6 +46,29 @@ namespace TdLib
                 SavedMessagesTopicId = savedMessagesTopicId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Deletes all messages in a Saved Messages topic
+                /// </summary>
+                public Task<Ok> DeleteSavedMessagesTopicHistoryAsync(long savedMessagesTopicId = default)
+                {
+                //test
+                    return ExecuteAsync(new DeleteSavedMessagesTopicHistory
+                    {
+                        SavedMessagesTopicId = savedMessagesTopicId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Deletes all messages in a Saved Messages topic
+                /// </summary>
+                Task<Ok> DeleteSavedMessagesTopicHistoryAsync(long savedMessagesTopicId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

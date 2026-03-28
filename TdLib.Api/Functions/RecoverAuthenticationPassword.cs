@@ -60,6 +60,29 @@ namespace TdLib
                 RecoveryCode = recoveryCode, NewPassword = newPassword, NewHint = newHint
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Recovers the 2-step verification password with a password recovery code sent to an email address that was previously set up. Works only when the current authorization state is authorizationStateWaitPassword
+                /// </summary>
+                public Task<Ok> RecoverAuthenticationPasswordAsync(string recoveryCode = default, string newPassword = default, string newHint = default)
+                {
+                //test
+                    return ExecuteAsync(new RecoverAuthenticationPassword
+                    {
+                        RecoveryCode = recoveryCode, NewPassword = newPassword, NewHint = newHint
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Recovers the 2-step verification password with a password recovery code sent to an email address that was previously set up. Works only when the current authorization state is authorizationStateWaitPassword
+                /// </summary>
+                Task<Ok> RecoverAuthenticationPasswordAsync(string recoveryCode = default, string newPassword = default, string newHint = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

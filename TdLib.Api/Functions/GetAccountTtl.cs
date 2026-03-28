@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns the period of inactivity after which the account of the current user will automatically be deleted
+                /// </summary>
+                public Task<AccountTtl> GetAccountTtlAsync()
+                {
+                //test
+                    return ExecuteAsync(new GetAccountTtl
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns the period of inactivity after which the account of the current user will automatically be deleted
+                /// </summary>
+                Task<AccountTtl> GetAccountTtlAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

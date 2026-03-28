@@ -80,6 +80,29 @@ namespace TdLib
                 InlineQueryId = inlineQueryId, IsPersonal = isPersonal, Button = button, Results = results, CacheTime = cacheTime, NextOffset = nextOffset
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Sets the result of an inline query; for bots only
+                /// </summary>
+                public Task<Ok> AnswerInlineQueryAsync(long inlineQueryId = default, bool isPersonal = default, InlineQueryResultsButton button = default, InputInlineQueryResult[] results = default, int cacheTime = default, string nextOffset = default)
+                {
+                //test
+                    return ExecuteAsync(new AnswerInlineQuery
+                    {
+                        InlineQueryId = inlineQueryId, IsPersonal = isPersonal, Button = button, Results = results, CacheTime = cacheTime, NextOffset = nextOffset
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Sets the result of an inline query; for bots only
+                /// </summary>
+                Task<Ok> AnswerInlineQueryAsync(long inlineQueryId = default, bool isPersonal = default, InlineQueryResultsButton button = default, InputInlineQueryResult[] results = default, int cacheTime = default, string nextOffset = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

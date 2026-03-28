@@ -46,6 +46,29 @@ namespace TdLib
                 MobileNetworkCode = mobileNetworkCode
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Reports that authentication code wasn't delivered via SMS to the specified phone number; for official mobile applications only
+                /// </summary>
+                public Task<Ok> ReportPhoneNumberCodeMissingAsync(string mobileNetworkCode = default)
+                {
+                //test
+                    return ExecuteAsync(new ReportPhoneNumberCodeMissing
+                    {
+                        MobileNetworkCode = mobileNetworkCode
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Reports that authentication code wasn't delivered via SMS to the specified phone number; for official mobile applications only
+                /// </summary>
+                Task<Ok> ReportPhoneNumberCodeMissingAsync(string mobileNetworkCode = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

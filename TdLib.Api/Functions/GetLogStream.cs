@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns information about currently used log stream for internal logging of TDLib. Can be called synchronously
+                /// </summary>
+                public Task<LogStream> GetLogStreamAsync()
+                {
+                //test
+                    return ExecuteAsync(new GetLogStream
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns information about currently used log stream for internal logging of TDLib. Can be called synchronously
+                /// </summary>
+                Task<LogStream> GetLogStreamAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

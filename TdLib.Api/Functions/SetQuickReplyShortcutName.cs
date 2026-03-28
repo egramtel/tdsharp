@@ -53,6 +53,29 @@ namespace TdLib
                 ShortcutId = shortcutId, Name = name
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes name of a quick reply shortcut
+                /// </summary>
+                public Task<Ok> SetQuickReplyShortcutNameAsync(int shortcutId = default, string name = default)
+                {
+                //test
+                    return ExecuteAsync(new SetQuickReplyShortcutName
+                    {
+                        ShortcutId = shortcutId, Name = name
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes name of a quick reply shortcut
+                /// </summary>
+                Task<Ok> SetQuickReplyShortcutNameAsync(int shortcutId = default, string name = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

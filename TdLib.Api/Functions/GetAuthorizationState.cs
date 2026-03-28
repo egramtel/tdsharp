@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns the current authorization state. This is an offline method. For informational purposes only. Use updateAuthorizationState instead to maintain the current authorization state. Can be called before initialization
+                /// </summary>
+                public Task<AuthorizationState> GetAuthorizationStateAsync()
+                {
+                //test
+                    return ExecuteAsync(new GetAuthorizationState
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns the current authorization state. This is an offline method. For informational purposes only. Use updateAuthorizationState instead to maintain the current authorization state. Can be called before initialization
+                /// </summary>
+                Task<AuthorizationState> GetAuthorizationStateAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

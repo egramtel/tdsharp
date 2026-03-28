@@ -53,6 +53,29 @@ namespace TdLib
                 Url = url, OnlyLocal = onlyLocal
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns an instant view version of a web page if available. This is an offline method if only_local is true. Returns a 404 error if the web page has no instant view page
+                /// </summary>
+                public Task<WebPageInstantView> GetWebPageInstantViewAsync(string url = default, bool onlyLocal = default)
+                {
+                //test
+                    return ExecuteAsync(new GetWebPageInstantView
+                    {
+                        Url = url, OnlyLocal = onlyLocal
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns an instant view version of a web page if available. This is an offline method if only_local is true. Returns a 404 error if the web page has no instant view page
+                /// </summary>
+                Task<WebPageInstantView> GetWebPageInstantViewAsync(string url = default, bool onlyLocal = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

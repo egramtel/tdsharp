@@ -60,6 +60,29 @@ namespace TdLib
                 PhoneNumber = phoneNumber, Settings = settings, Type = type
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Sends a code to the specified phone number. Aborts previous phone number verification if there was one. On success, returns information about the sent code
+                /// </summary>
+                public Task<AuthenticationCodeInfo> SendPhoneNumberCodeAsync(string phoneNumber = default, PhoneNumberAuthenticationSettings settings = default, PhoneNumberCodeType type = default)
+                {
+                //test
+                    return ExecuteAsync(new SendPhoneNumberCode
+                    {
+                        PhoneNumber = phoneNumber, Settings = settings, Type = type
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Sends a code to the specified phone number. Aborts previous phone number verification if there was one. On success, returns information about the sent code
+                /// </summary>
+                Task<AuthenticationCodeInfo> SendPhoneNumberCodeAsync(string phoneNumber = default, PhoneNumberAuthenticationSettings settings = default, PhoneNumberCodeType type = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

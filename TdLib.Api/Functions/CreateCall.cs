@@ -60,6 +60,29 @@ namespace TdLib
                 UserId = userId, Protocol = protocol, IsVideo = isVideo
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Creates a new call
+                /// </summary>
+                public Task<CallId> CreateCallAsync(long userId = default, CallProtocol protocol = default, bool isVideo = default)
+                {
+                //test
+                    return ExecuteAsync(new CreateCall
+                    {
+                        UserId = userId, Protocol = protocol, IsVideo = isVideo
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Creates a new call
+                /// </summary>
+                Task<CallId> CreateCallAsync(long userId = default, CallProtocol protocol = default, bool isVideo = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

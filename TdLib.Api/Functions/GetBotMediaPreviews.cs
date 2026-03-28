@@ -46,6 +46,29 @@ namespace TdLib
                 BotUserId = botUserId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns the list of media previews of a bot
+                /// </summary>
+                public Task<BotMediaPreviews> GetBotMediaPreviewsAsync(long botUserId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetBotMediaPreviews
+                    {
+                        BotUserId = botUserId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns the list of media previews of a bot
+                /// </summary>
+                Task<BotMediaPreviews> GetBotMediaPreviewsAsync(long botUserId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

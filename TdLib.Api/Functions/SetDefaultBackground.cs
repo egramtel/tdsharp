@@ -60,6 +60,29 @@ namespace TdLib
                 Background = background, Type = type, ForDarkTheme = forDarkTheme
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Sets default background for chats; adds the background to the list of installed backgrounds
+                /// </summary>
+                public Task<Background> SetDefaultBackgroundAsync(InputBackground background = default, BackgroundType type = default, bool forDarkTheme = default)
+                {
+                //test
+                    return ExecuteAsync(new SetDefaultBackground
+                    {
+                        Background = background, Type = type, ForDarkTheme = forDarkTheme
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Sets default background for chats; adds the background to the list of installed backgrounds
+                /// </summary>
+                Task<Background> SetDefaultBackgroundAsync(InputBackground background = default, BackgroundType type = default, bool forDarkTheme = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

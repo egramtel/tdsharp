@@ -67,6 +67,29 @@ namespace TdLib
                 GiveawayId = giveawayId, Parameters = parameters, WinnerCount = winnerCount, StarCount = starCount
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Launches a prepaid giveaway
+                /// </summary>
+                public Task<Ok> LaunchPrepaidGiveawayAsync(long giveawayId = default, GiveawayParameters parameters = default, int winnerCount = default, long starCount = default)
+                {
+                //test
+                    return ExecuteAsync(new LaunchPrepaidGiveaway
+                    {
+                        GiveawayId = giveawayId, Parameters = parameters, WinnerCount = winnerCount, StarCount = starCount
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Launches a prepaid giveaway
+                /// </summary>
+                Task<Ok> LaunchPrepaidGiveawayAsync(long giveawayId = default, GiveawayParameters parameters = default, int winnerCount = default, long starCount = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

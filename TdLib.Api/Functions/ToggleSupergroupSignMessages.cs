@@ -60,6 +60,29 @@ namespace TdLib
                 SupergroupId = supergroupId, SignMessages = signMessages, ShowMessageSender = showMessageSender
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Toggles whether sender signature or link to the account is added to sent messages in a channel; requires can_change_info member right
+                /// </summary>
+                public Task<Ok> ToggleSupergroupSignMessagesAsync(long supergroupId = default, bool signMessages = default, bool showMessageSender = default)
+                {
+                //test
+                    return ExecuteAsync(new ToggleSupergroupSignMessages
+                    {
+                        SupergroupId = supergroupId, SignMessages = signMessages, ShowMessageSender = showMessageSender
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Toggles whether sender signature or link to the account is added to sent messages in a channel; requires can_change_info member right
+                /// </summary>
+                Task<Ok> ToggleSupergroupSignMessagesAsync(long supergroupId = default, bool signMessages = default, bool showMessageSender = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

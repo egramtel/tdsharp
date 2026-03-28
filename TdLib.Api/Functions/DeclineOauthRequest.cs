@@ -46,6 +46,29 @@ namespace TdLib
                 Url = url
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Declines an OAuth authorization request
+                /// </summary>
+                public Task<Ok> DeclineOauthRequestAsync(string url = default)
+                {
+                //test
+                    return ExecuteAsync(new DeclineOauthRequest
+                    {
+                        Url = url
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Declines an OAuth authorization request
+                /// </summary>
+                Task<Ok> DeclineOauthRequestAsync(string url = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

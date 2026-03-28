@@ -53,6 +53,29 @@ namespace TdLib
                 Scope = scope, LanguageCode = languageCode
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns the list of commands supported by the bot for the given user scope and language; for bots only
+                /// </summary>
+                public Task<BotCommands> GetCommandsAsync(BotCommandScope scope = default, string languageCode = default)
+                {
+                //test
+                    return ExecuteAsync(new GetCommands
+                    {
+                        Scope = scope, LanguageCode = languageCode
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns the list of commands supported by the bot for the given user scope and language; for bots only
+                /// </summary>
+                Task<BotCommands> GetCommandsAsync(BotCommandScope scope = default, string languageCode = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -68,6 +68,29 @@ namespace TdLib
                 SavedMessagesTopicId = savedMessagesTopicId, FromMessageId = fromMessageId, Offset = offset, Limit = limit
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns messages in a Saved Messages topic. The messages are returned in reverse chronological order (i.e., in order of decreasing message_id)
+                /// </summary>
+                public Task<Messages> GetSavedMessagesTopicHistoryAsync(long savedMessagesTopicId = default, long fromMessageId = default, int offset = default, int limit = default)
+                {
+                //test
+                    return ExecuteAsync(new GetSavedMessagesTopicHistory
+                    {
+                        SavedMessagesTopicId = savedMessagesTopicId, FromMessageId = fromMessageId, Offset = offset, Limit = limit
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns messages in a Saved Messages topic. The messages are returned in reverse chronological order (i.e., in order of decreasing message_id)
+                /// </summary>
+                Task<Messages> GetSavedMessagesTopicHistoryAsync(long savedMessagesTopicId = default, long fromMessageId = default, int offset = default, int limit = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

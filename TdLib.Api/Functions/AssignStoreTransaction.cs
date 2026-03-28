@@ -53,6 +53,29 @@ namespace TdLib
                 Transaction = transaction, Purpose = purpose
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Informs server about an in-store purchase. For official applications only
+                /// </summary>
+                public Task<Ok> AssignStoreTransactionAsync(StoreTransaction transaction = default, StorePaymentPurpose purpose = default)
+                {
+                //test
+                    return ExecuteAsync(new AssignStoreTransaction
+                    {
+                        Transaction = transaction, Purpose = purpose
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Informs server about an in-store purchase. For official applications only
+                /// </summary>
+                Task<Ok> AssignStoreTransactionAsync(StoreTransaction transaction = default, StorePaymentPurpose purpose = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

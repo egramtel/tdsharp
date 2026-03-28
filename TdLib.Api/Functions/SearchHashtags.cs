@@ -53,6 +53,29 @@ namespace TdLib
                 Prefix = prefix, Limit = limit
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Searches for recently used hashtags by their prefix
+                /// </summary>
+                public Task<Hashtags> SearchHashtagsAsync(string prefix = default, int limit = default)
+                {
+                //test
+                    return ExecuteAsync(new SearchHashtags
+                    {
+                        Prefix = prefix, Limit = limit
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Searches for recently used hashtags by their prefix
+                /// </summary>
+                Task<Hashtags> SearchHashtagsAsync(string prefix = default, int limit = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

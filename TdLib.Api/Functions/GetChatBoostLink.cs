@@ -46,6 +46,29 @@ namespace TdLib
                 ChatId = chatId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns an HTTPS link to boost the specified supergroup or channel chat
+                /// </summary>
+                public Task<ChatBoostLink> GetChatBoostLinkAsync(long chatId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetChatBoostLink
+                    {
+                        ChatId = chatId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns an HTTPS link to boost the specified supergroup or channel chat
+                /// </summary>
+                Task<ChatBoostLink> GetChatBoostLinkAsync(long chatId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -52,6 +52,29 @@ namespace TdLib
                 ChatId = chatId, MessageIds = messageIds
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns information about messages. If a message is not found, returns null on the corresponding position of the result
+                /// </summary>
+                public Task<Messages> GetMessagesAsync(long chatId = default, long[] messageIds = default)
+                {
+                //test
+                    return ExecuteAsync(new GetMessages
+                    {
+                        ChatId = chatId, MessageIds = messageIds
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns information about messages. If a message is not found, returns null on the corresponding position of the result
+                /// </summary>
+                Task<Messages> GetMessagesAsync(long chatId = default, long[] messageIds = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

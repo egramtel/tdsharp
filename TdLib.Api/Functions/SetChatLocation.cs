@@ -53,6 +53,29 @@ namespace TdLib
                 ChatId = chatId, Location = location
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes the location of a chat. Available only for some location-based supergroups, use supergroupFullInfo.can_set_location to check whether the method is allowed to use
+                /// </summary>
+                public Task<Ok> SetChatLocationAsync(long chatId = default, ChatLocation location = default)
+                {
+                //test
+                    return ExecuteAsync(new SetChatLocation
+                    {
+                        ChatId = chatId, Location = location
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes the location of a chat. Available only for some location-based supergroups, use supergroupFullInfo.can_set_location to check whether the method is allowed to use
+                /// </summary>
+                Task<Ok> SetChatLocationAsync(long chatId = default, ChatLocation location = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

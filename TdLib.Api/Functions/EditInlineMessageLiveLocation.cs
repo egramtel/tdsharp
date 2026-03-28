@@ -82,6 +82,29 @@ namespace TdLib
                 InlineMessageId = inlineMessageId, ReplyMarkup = replyMarkup, Location = location, LivePeriod = livePeriod, Heading = heading, ProximityAlertRadius = proximityAlertRadius
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Edits the content of a live location in an inline message sent via a bot; for bots only
+                /// </summary>
+                public Task<Ok> EditInlineMessageLiveLocationAsync(string inlineMessageId = default, ReplyMarkup replyMarkup = default, Location location = default, int livePeriod = default, int heading = default, int proximityAlertRadius = default)
+                {
+                //test
+                    return ExecuteAsync(new EditInlineMessageLiveLocation
+                    {
+                        InlineMessageId = inlineMessageId, ReplyMarkup = replyMarkup, Location = location, LivePeriod = livePeriod, Heading = heading, ProximityAlertRadius = proximityAlertRadius
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Edits the content of a live location in an inline message sent via a bot; for bots only
+                /// </summary>
+                Task<Ok> EditInlineMessageLiveLocationAsync(string inlineMessageId = default, ReplyMarkup replyMarkup = default, Location location = default, int livePeriod = default, int heading = default, int proximityAlertRadius = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

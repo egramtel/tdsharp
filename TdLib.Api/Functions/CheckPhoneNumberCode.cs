@@ -46,6 +46,29 @@ namespace TdLib
                 Code = code
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Checks the authentication code and completes the request for which the code was sent if appropriate
+                /// </summary>
+                public Task<Ok> CheckPhoneNumberCodeAsync(string code = default)
+                {
+                //test
+                    return ExecuteAsync(new CheckPhoneNumberCode
+                    {
+                        Code = code
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Checks the authentication code and completes the request for which the code was sent if appropriate
+                /// </summary>
+                Task<Ok> CheckPhoneNumberCodeAsync(string code = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

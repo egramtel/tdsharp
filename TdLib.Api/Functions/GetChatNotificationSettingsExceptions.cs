@@ -53,6 +53,29 @@ namespace TdLib
                 Scope = scope, CompareSound = compareSound
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns the list of chats with non-default notification settings for new messages
+                /// </summary>
+                public Task<Chats> GetChatNotificationSettingsExceptionsAsync(NotificationSettingsScope scope = default, bool compareSound = default)
+                {
+                //test
+                    return ExecuteAsync(new GetChatNotificationSettingsExceptions
+                    {
+                        Scope = scope, CompareSound = compareSound
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns the list of chats with non-default notification settings for new messages
+                /// </summary>
+                Task<Chats> GetChatNotificationSettingsExceptionsAsync(NotificationSettingsScope scope = default, bool compareSound = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -46,6 +46,29 @@ namespace TdLib
                 GroupCallId = groupCallId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns the list of message sender identifiers, on whose behalf messages can be sent to a live story
+                /// </summary>
+                public Task<ChatMessageSenders> GetLiveStoryAvailableMessageSendersAsync(int groupCallId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetLiveStoryAvailableMessageSenders
+                    {
+                        GroupCallId = groupCallId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns the list of message sender identifiers, on whose behalf messages can be sent to a live story
+                /// </summary>
+                Task<ChatMessageSenders> GetLiveStoryAvailableMessageSendersAsync(int groupCallId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

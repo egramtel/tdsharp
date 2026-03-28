@@ -46,6 +46,29 @@ namespace TdLib
                 NotificationSoundId = notificationSoundId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns saved notification sound by its identifier. Returns a 404 error if there is no saved notification sound with the specified identifier
+                /// </summary>
+                public Task<NotificationSounds> GetSavedNotificationSoundAsync(long notificationSoundId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetSavedNotificationSound
+                    {
+                        NotificationSoundId = notificationSoundId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns saved notification sound by its identifier. Returns a 404 error if there is no saved notification sound with the specified identifier
+                /// </summary>
+                Task<NotificationSounds> GetSavedNotificationSoundAsync(long notificationSoundId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

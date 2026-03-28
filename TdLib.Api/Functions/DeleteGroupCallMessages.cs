@@ -59,6 +59,29 @@ namespace TdLib
                 GroupCallId = groupCallId, MessageIds = messageIds, ReportSpam = reportSpam
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Deletes messages in a group call; for live story calls only. Requires groupCallMessage.can_be_deleted right
+                /// </summary>
+                public Task<Ok> DeleteGroupCallMessagesAsync(int groupCallId = default, int[] messageIds = default, bool reportSpam = default)
+                {
+                //test
+                    return ExecuteAsync(new DeleteGroupCallMessages
+                    {
+                        GroupCallId = groupCallId, MessageIds = messageIds, ReportSpam = reportSpam
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Deletes messages in a group call; for live story calls only. Requires groupCallMessage.can_be_deleted right
+                /// </summary>
+                Task<Ok> DeleteGroupCallMessagesAsync(int groupCallId = default, int[] messageIds = default, bool reportSpam = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

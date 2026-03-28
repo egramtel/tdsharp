@@ -60,6 +60,29 @@ namespace TdLib
                 FirstName = firstName, LastName = lastName, DisableNotification = disableNotification
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Finishes user registration. Works only when the current authorization state is authorizationStateWaitRegistration
+                /// </summary>
+                public Task<Ok> RegisterUserAsync(string firstName = default, string lastName = default, bool disableNotification = default)
+                {
+                //test
+                    return ExecuteAsync(new RegisterUser
+                    {
+                        FirstName = firstName, LastName = lastName, DisableNotification = disableNotification
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Finishes user registration. Works only when the current authorization state is authorizationStateWaitRegistration
+                /// </summary>
+                Task<Ok> RegisterUserAsync(string firstName = default, string lastName = default, bool disableNotification = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

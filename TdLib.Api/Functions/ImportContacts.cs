@@ -45,6 +45,29 @@ namespace TdLib
                 Contacts = contacts
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Adds new contacts or edits existing contacts by their phone numbers; contacts' user identifiers are ignored
+                /// </summary>
+                public Task<ImportedContacts> ImportContactsAsync(ImportedContact[] contacts = default)
+                {
+                //test
+                    return ExecuteAsync(new ImportContacts
+                    {
+                        Contacts = contacts
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Adds new contacts or edits existing contacts by their phone numbers; contacts' user identifiers are ignored
+                /// </summary>
+                Task<ImportedContacts> ImportContactsAsync(ImportedContact[] contacts = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

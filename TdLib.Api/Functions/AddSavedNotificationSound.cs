@@ -46,6 +46,29 @@ namespace TdLib
                 Sound = sound
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Adds a new notification sound to the list of saved notification sounds. The new notification sound is added to the top of the list. If it is already in the list, its position isn't changed
+                /// </summary>
+                public Task<NotificationSound> AddSavedNotificationSoundAsync(InputFile sound = default)
+                {
+                //test
+                    return ExecuteAsync(new AddSavedNotificationSound
+                    {
+                        Sound = sound
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Adds a new notification sound to the list of saved notification sounds. The new notification sound is added to the top of the list. If it is already in the list, its position isn't changed
+                /// </summary>
+                Task<NotificationSound> AddSavedNotificationSoundAsync(InputFile sound = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

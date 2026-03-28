@@ -67,6 +67,29 @@ namespace TdLib
                 ChatId = chatId, OnlyGiftCodes = onlyGiftCodes, Offset = offset, Limit = limit
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns the list of boosts applied to a chat; requires administrator rights in the chat
+                /// </summary>
+                public Task<FoundChatBoosts> GetChatBoostsAsync(long chatId = default, bool onlyGiftCodes = default, string offset = default, int limit = default)
+                {
+                //test
+                    return ExecuteAsync(new GetChatBoosts
+                    {
+                        ChatId = chatId, OnlyGiftCodes = onlyGiftCodes, Offset = offset, Limit = limit
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns the list of boosts applied to a chat; requires administrator rights in the chat
+                /// </summary>
+                Task<FoundChatBoosts> GetChatBoostsAsync(long chatId = default, bool onlyGiftCodes = default, string offset = default, int limit = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -46,6 +46,29 @@ namespace TdLib
                 SessionId = sessionId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Terminates a session of the current user
+                /// </summary>
+                public Task<Ok> TerminateSessionAsync(long sessionId = default)
+                {
+                //test
+                    return ExecuteAsync(new TerminateSession
+                    {
+                        SessionId = sessionId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Terminates a session of the current user
+                /// </summary>
+                Task<Ok> TerminateSessionAsync(long sessionId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

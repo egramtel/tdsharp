@@ -108,6 +108,29 @@ namespace TdLib
                 ChatId = chatId, Content = content, Areas = areas, Caption = caption, PrivacySettings = privacySettings, AlbumIds = albumIds, ActivePeriod = activePeriod, FromStoryFullId = fromStoryFullId, IsPostedToChatPage = isPostedToChatPage, ProtectContent = protectContent
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Posts a new story on behalf of a chat; requires can_post_stories administrator right for supergroup and channel chats. Returns a temporary story
+                /// </summary>
+                public Task<Story> PostStoryAsync(long chatId = default, InputStoryContent content = default, InputStoryAreas areas = default, FormattedText caption = default, StoryPrivacySettings privacySettings = default, int[] albumIds = default, int activePeriod = default, StoryFullId fromStoryFullId = default, bool isPostedToChatPage = default, bool protectContent = default)
+                {
+                //test
+                    return ExecuteAsync(new PostStory
+                    {
+                        ChatId = chatId, Content = content, Areas = areas, Caption = caption, PrivacySettings = privacySettings, AlbumIds = albumIds, ActivePeriod = activePeriod, FromStoryFullId = fromStoryFullId, IsPostedToChatPage = isPostedToChatPage, ProtectContent = protectContent
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Posts a new story on behalf of a chat; requires can_post_stories administrator right for supergroup and channel chats. Returns a temporary story
+                /// </summary>
+                Task<Story> PostStoryAsync(long chatId = default, InputStoryContent content = default, InputStoryAreas areas = default, FormattedText caption = default, StoryPrivacySettings privacySettings = default, int[] albumIds = default, int activePeriod = default, StoryFullId fromStoryFullId = default, bool isPostedToChatPage = default, bool protectContent = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

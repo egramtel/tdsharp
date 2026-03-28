@@ -46,6 +46,29 @@ namespace TdLib
                 RegularGiftId = regularGiftId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns examples of possible upgraded gifts for a regular gift
+                /// </summary>
+                public Task<GiftUpgradePreview> GetGiftUpgradePreviewAsync(long regularGiftId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetGiftUpgradePreview
+                    {
+                        RegularGiftId = regularGiftId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns examples of possible upgraded gifts for a regular gift
+                /// </summary>
+                Task<GiftUpgradePreview> GetGiftUpgradePreviewAsync(long regularGiftId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

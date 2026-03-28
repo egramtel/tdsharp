@@ -60,6 +60,29 @@ namespace TdLib
                 ChatId = chatId, MessageId = messageId, CallbackQueryId = callbackQueryId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns information about a message with the callback button that originated a callback query; for bots only
+                /// </summary>
+                public Task<Message> GetCallbackQueryMessageAsync(long chatId = default, long messageId = default, long callbackQueryId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetCallbackQueryMessage
+                    {
+                        ChatId = chatId, MessageId = messageId, CallbackQueryId = callbackQueryId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns information about a message with the callback button that originated a callback query; for bots only
+                /// </summary>
+                Task<Message> GetCallbackQueryMessageAsync(long chatId = default, long messageId = default, long callbackQueryId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

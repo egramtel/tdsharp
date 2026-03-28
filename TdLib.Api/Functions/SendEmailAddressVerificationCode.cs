@@ -46,6 +46,29 @@ namespace TdLib
                 EmailAddress = emailAddress
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Sends a code to verify an email address to be added to a user's Telegram Passport
+                /// </summary>
+                public Task<EmailAddressAuthenticationCodeInfo> SendEmailAddressVerificationCodeAsync(string emailAddress = default)
+                {
+                //test
+                    return ExecuteAsync(new SendEmailAddressVerificationCode
+                    {
+                        EmailAddress = emailAddress
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Sends a code to verify an email address to be added to a user's Telegram Passport
+                /// </summary>
+                Task<EmailAddressAuthenticationCodeInfo> SendEmailAddressVerificationCodeAsync(string emailAddress = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

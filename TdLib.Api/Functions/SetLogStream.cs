@@ -46,6 +46,29 @@ namespace TdLib
                 LogStream = logStream
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Sets new log stream for internal logging of TDLib. Can be called synchronously
+                /// </summary>
+                public Task<Ok> SetLogStreamAsync(LogStream logStream = default)
+                {
+                //test
+                    return ExecuteAsync(new SetLogStream
+                    {
+                        LogStream = logStream
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Sets new log stream for internal logging of TDLib. Can be called synchronously
+                /// </summary>
+                Task<Ok> SetLogStreamAsync(LogStream logStream = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

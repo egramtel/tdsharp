@@ -46,6 +46,29 @@ namespace TdLib
                 ChatId = chatId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Replaces current primary invite link for a chat with a new primary invite link. Available for basic groups, supergroups, and channels. Requires administrator privileges and can_invite_users right
+                /// </summary>
+                public Task<ChatInviteLink> ReplacePrimaryChatInviteLinkAsync(long chatId = default)
+                {
+                //test
+                    return ExecuteAsync(new ReplacePrimaryChatInviteLink
+                    {
+                        ChatId = chatId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Replaces current primary invite link for a chat with a new primary invite link. Available for basic groups, supergroups, and channels. Requires administrator privileges and can_invite_users right
+                /// </summary>
+                Task<ChatInviteLink> ReplacePrimaryChatInviteLinkAsync(long chatId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

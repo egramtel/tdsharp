@@ -46,6 +46,29 @@ namespace TdLib
                 AdvertisementUniqueId = advertisementUniqueId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Informs TDLib that the user viewed a video message advertisement
+                /// </summary>
+                public Task<Ok> ViewVideoMessageAdvertisementAsync(long advertisementUniqueId = default)
+                {
+                //test
+                    return ExecuteAsync(new ViewVideoMessageAdvertisement
+                    {
+                        AdvertisementUniqueId = advertisementUniqueId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Informs TDLib that the user viewed a video message advertisement
+                /// </summary>
+                Task<Ok> ViewVideoMessageAdvertisementAsync(long advertisementUniqueId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

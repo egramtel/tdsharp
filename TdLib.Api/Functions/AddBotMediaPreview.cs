@@ -61,6 +61,29 @@ namespace TdLib
                 BotUserId = botUserId, LanguageCode = languageCode, Content = content
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Adds a new media preview to the beginning of the list of media previews of a bot. Returns the added preview after addition is completed server-side. The total number of previews must not exceed getOption("bot_media_preview_count_max") for the given language
+                /// </summary>
+                public Task<BotMediaPreview> AddBotMediaPreviewAsync(long botUserId = default, string languageCode = default, InputStoryContent content = default)
+                {
+                //test
+                    return ExecuteAsync(new AddBotMediaPreview
+                    {
+                        BotUserId = botUserId, LanguageCode = languageCode, Content = content
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Adds a new media preview to the beginning of the list of media previews of a bot. Returns the added preview after addition is completed server-side. The total number of previews must not exceed getOption("bot_media_preview_count_max") for the given language
+                /// </summary>
+                Task<BotMediaPreview> AddBotMediaPreviewAsync(long botUserId = default, string languageCode = default, InputStoryContent content = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

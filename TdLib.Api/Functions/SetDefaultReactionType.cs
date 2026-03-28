@@ -46,6 +46,29 @@ namespace TdLib
                 ReactionType = reactionType
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Changes type of default reaction for the current user
+                /// </summary>
+                public Task<Ok> SetDefaultReactionTypeAsync(ReactionType reactionType = default)
+                {
+                //test
+                    return ExecuteAsync(new SetDefaultReactionType
+                    {
+                        ReactionType = reactionType
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Changes type of default reaction for the current user
+                /// </summary>
+                Task<Ok> SetDefaultReactionTypeAsync(ReactionType reactionType = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

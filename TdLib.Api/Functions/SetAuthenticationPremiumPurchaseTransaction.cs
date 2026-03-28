@@ -67,6 +67,29 @@ namespace TdLib
                 Transaction = transaction, IsRestore = isRestore, Currency = currency, Amount = amount
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Informs server about an in-store purchase of Telegram Premium before authorization. Works only when the current authorization state is authorizationStateWaitPremiumPurchase
+                /// </summary>
+                public Task<Ok> SetAuthenticationPremiumPurchaseTransactionAsync(StoreTransaction transaction = default, bool isRestore = default, string currency = default, long amount = default)
+                {
+                //test
+                    return ExecuteAsync(new SetAuthenticationPremiumPurchaseTransaction
+                    {
+                        Transaction = transaction, IsRestore = isRestore, Currency = currency, Amount = amount
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Informs server about an in-store purchase of Telegram Premium before authorization. Works only when the current authorization state is authorizationStateWaitPremiumPurchase
+                /// </summary>
+                Task<Ok> SetAuthenticationPremiumPurchaseTransactionAsync(StoreTransaction transaction = default, bool isRestore = default, string currency = default, long amount = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

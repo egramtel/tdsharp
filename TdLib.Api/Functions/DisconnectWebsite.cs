@@ -46,6 +46,29 @@ namespace TdLib
                 WebsiteId = websiteId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Disconnects website from the current user's Telegram account
+                /// </summary>
+                public Task<Ok> DisconnectWebsiteAsync(long websiteId = default)
+                {
+                //test
+                    return ExecuteAsync(new DisconnectWebsite
+                    {
+                        WebsiteId = websiteId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Disconnects website from the current user's Telegram account
+                /// </summary>
+                Task<Ok> DisconnectWebsiteAsync(long websiteId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

@@ -41,6 +41,29 @@ namespace TdLib
                 
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns a list of channel chats recommended to the current user
+                /// </summary>
+                public Task<Chats> GetRecommendedChatsAsync()
+                {
+                //test
+                    return ExecuteAsync(new GetRecommendedChats
+                    {
+                        
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns a list of channel chats recommended to the current user
+                /// </summary>
+                Task<Chats> GetRecommendedChatsAsync();
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd

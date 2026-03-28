@@ -60,6 +60,29 @@ namespace TdLib
                 ChatId = chatId, MessageId = messageId, ButtonId = buttonId
             });
         }
+          public partial class Client
+            {
+                /// <summary>
+                /// Returns information about a button of type inlineKeyboardButtonTypeLoginUrl. The method needs to be called when the user presses the button
+                /// </summary>
+                public Task<LoginUrlInfo> GetLoginUrlInfoAsync(long chatId = default, long messageId = default, long buttonId = default)
+                {
+                //test
+                    return ExecuteAsync(new GetLoginUrlInfo
+                    {
+                        ChatId = chatId, MessageId = messageId, ButtonId = buttonId
+                    });
+                }
+            }
+            public partial interface IClient
+            {
+                /// <summary>
+                /// Returns information about a button of type inlineKeyboardButtonTypeLoginUrl. The method needs to be called when the user presses the button
+                /// </summary>
+                Task<LoginUrlInfo> GetLoginUrlInfoAsync(long chatId = default, long messageId = default, long buttonId = default);
+            }
     }
+
+
 }
 // REUSE-IgnoreEnd
