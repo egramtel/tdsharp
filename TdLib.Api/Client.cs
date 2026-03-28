@@ -2,6 +2,7 @@
 //
 // SPDX-License-Identifier: MIT
 
+using System;
 using System.Threading.Tasks;
 
 namespace TdLib
@@ -11,8 +12,9 @@ namespace TdLib
         /// <summary>
         /// Base class for API client
         /// </summary>
-        public abstract partial class Client : Object,IClient
+        public abstract partial class Client : Object, IClient
         {
+            public abstract event EventHandler<TdApi.Update> UpdateReceived;
             public abstract void Send<TResut>(Function<TResut> function);
 
             public abstract TResult Execute<TResult>(Function<TResult> function)
@@ -23,6 +25,7 @@ namespace TdLib
         }
         public partial interface IClient
         {
+            public event EventHandler<TdApi.Update> UpdateReceived;
             public void Send<TResut>(Function<TResut> function);
 
             public TResult Execute<TResult>(Function<TResult> function)
