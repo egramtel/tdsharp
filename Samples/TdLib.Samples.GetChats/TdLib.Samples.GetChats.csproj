@@ -14,7 +14,7 @@ SPDX-License-Identifier: MIT
 
     <ItemGroup>
         <ProjectReference Include="..\..\TdLib\TdLib.csproj" />
-        <PackageReference Include="tdlib.native" Version="1.8.45" />
+        <PackageReference Include="tdlib.native" />
     </ItemGroup>
 
 </Project>

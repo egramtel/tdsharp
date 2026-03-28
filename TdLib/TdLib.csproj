@@ -23,12 +23,12 @@ SPDX-License-Identifier: MIT
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="ChangelogAutomation.MSBuild" Version="2.0.0" PrivateAssets="All" />
-        <PackageReference Include="Meziantou.Analyzer" Version="2.0.188">
+        <PackageReference Include="ChangelogAutomation.MSBuild" PrivateAssets="All" />
+        <PackageReference Include="Meziantou.Analyzer">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-        <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+        <PackageReference Include="Newtonsoft.Json" />
     </ItemGroup>
     <ItemGroup>
         <ProjectReference Include="..\TdLib.Api\TdLib.Api.csproj" />
