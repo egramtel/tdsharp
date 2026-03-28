@@ -1,0 +1,23 @@
+<!--
+SPDX-FileCopyrightText: 2024-2026 tdsharp contributors <https://github.com/egramtel/tdsharp>
+
+SPDX-License-Identifier: MIT
+-->
+<Project>
+    <PropertyGroup>
+        <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+        <CentralPackageTransitivePinningEnabled>false</CentralPackageTransitivePinningEnabled>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageVersion Include="ChangelogAutomation.MSBuild" Version="2.0.0" />
+        <PackageVersion Include="FParsec" Version="1.1.1" />
+        <PackageVersion Include="FSharp.Core" Version="10.1.201" />
+        <PackageVersion Include="Meziantou.Analyzer" Version="2.0.188" />
+        <PackageVersion Include="Microsoft.Extensions.Configuration.Abstractions" Version="10.0.5" />
+        <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.13.0" />
+        <PackageVersion Include="Newtonsoft.Json" Version="13.0.4" />
+        <PackageVersion Include="tdlib.native" Version="1.8.45" />
+        <PackageVersion Include="xunit" Version="2.9.3" />
+        <PackageVersion Include="xunit.runner.visualstudio" Version="3.0.2" />
+    </ItemGroup>
+</Project>
