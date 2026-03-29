@@ -10,7 +10,7 @@ namespace TdLib
     /// <summary>
     /// Plain text (JSON) client for TDLib
     /// </summary>
-    public class TdJsonClient : IDisposable
+    public class TdJsonClient : ITdJsonClient
     {
         public ITdLibBindings Bindings { get; }
         private IntPtr _handle;

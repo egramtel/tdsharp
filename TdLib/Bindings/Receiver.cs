@@ -17,7 +17,7 @@ namespace TdLib.Bindings
 
         void Start();
     }
-    public sealed class Receiver(TdJsonClient tdJsonClient, TimeSpan receiverTimeOut) : IReceiver
+    public sealed class Receiver(ITdJsonClient tdJsonClient, TimeSpan receiverTimeOut) : IReceiver
     {
         private readonly Converter _converter = new();
         private readonly double _receiverTimeOutSeconds = receiverTimeOut.TotalSeconds;
