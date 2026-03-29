@@ -9,27 +9,27 @@ using Newtonsoft.Json;
 
 namespace TdLib.Bindings
 {
-    internal class Receiver : IDisposable
+    public interface IReceiver: IDisposable
     {
-        private readonly Converter _converter;
-        private readonly TdJsonClient _tdJsonClient;
-        private readonly double _receiverTimeOutSeconds;
+        event EventHandler<TdApi.Object> Received;
+        event EventHandler<TdApi.AuthorizationState> AuthorizationStateChanged;
+        event EventHandler<Exception> ExceptionThrown;
+
+        void Start();
+    }
+    public sealed class Receiver(TdJsonClient tdJsonClient, TimeSpan receiverTimeOut) : IReceiver
+    {
+        private readonly Converter _converter = new();
+        private readonly double _receiverTimeOutSeconds = receiverTimeOut.TotalSeconds;
 
         private readonly CancellationTokenSource _cts = new CancellationTokenSource();
         private readonly ManualResetEventSlim _stopped = new ManualResetEventSlim(false);
 
-        internal event EventHandler<TdApi.Object> Received;
-        internal event EventHandler<TdApi.AuthorizationState> AuthorizationStateChanged;
-        internal event EventHandler<Exception> ExceptionThrown;
+        public event EventHandler<TdApi.Object> Received;
+        public event EventHandler<TdApi.AuthorizationState> AuthorizationStateChanged;
+        public event EventHandler<Exception> ExceptionThrown;
 
-        internal Receiver(TdJsonClient tdJsonClient, TimeSpan receiverTimeOut)
-        {
-            _converter = new Converter();
-            _tdJsonClient = tdJsonClient;
-            _receiverTimeOutSeconds = receiverTimeOut.TotalSeconds;
-        }
-
-        internal void Start()
+        public void Start()
         {
             _ = Task.Factory.StartNew(async () =>
                 {
@@ -51,7 +51,7 @@ namespace TdLib.Bindings
             var ct = _cts.Token;
             while (!ct.IsCancellationRequested)
             {
-                var data = _tdJsonClient.Receive(_receiverTimeOutSeconds);
+                var data = tdJsonClient.Receive(_receiverTimeOutSeconds);
 
                 if (!string.IsNullOrEmpty(data))
                 {

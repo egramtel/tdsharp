@@ -22,7 +22,7 @@ namespace TdLib
         private int _taskId;
         private readonly ConcurrentDictionary<int, Action<TdApi.Object>> _tasks;
 
-        private Receiver _receiver;
+        private IReceiver _receiver;
         private TdApi.AuthorizationState _authorizationState;
 
         public TdClient() : this(Interop.AutoDetectBindings()) {}
@@ -45,7 +45,17 @@ namespace TdLib
             _receiver.AuthorizationStateChanged += OnAuthorizationStateChanged;
             _receiver.Start();
         }
+        /// <param name="bindings">Bidings for the client to call functions of TDLib.</param>
+        /// <param name="receiverTimeOut">Timeout for <c>td_json_client_receive</c>.</param>
+        public TdClient(IReceiver receiver)
+        {
+            _tasks = new ConcurrentDictionary<int, Action<TdApi.Object>>();
 
+            _receiver = receiver;
+            _receiver.Received += OnReceived;
+            _receiver.AuthorizationStateChanged += OnAuthorizationStateChanged;
+            _receiver.Start();
+        }
         public ITdLibBindings Bindings => _tdJsonClient.Bindings;
 
         /// <summary>
