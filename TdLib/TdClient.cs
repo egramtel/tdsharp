@@ -17,7 +17,7 @@ namespace TdLib
     /// </summary>
     public class TdClient : TdApi.Client, IDisposable
     {
-        private TdJsonClient _tdJsonClient;
+        private ITdJsonClient _tdJsonClient;
 
         private int _taskId;
         private readonly ConcurrentDictionary<int, Action<TdApi.Object>> _tasks;
