@@ -130,7 +130,7 @@ namespace TdLib
         /// Returns gifts received by the given user or chat
         /// </summary>
         public static Task<ReceivedGifts> GetReceivedGiftsAsync(
-            this Client client, string businessConnectionId = default, MessageSender ownerId = default, int collectionId = default, bool excludeUnsaved = default, bool excludeSaved = default, bool excludeUnlimited = default, bool excludeUpgradable = default, bool excludeNonUpgradable = default, bool excludeUpgraded = default, bool excludeWithoutColors = default, bool excludeHosted = default, bool sortByPrice = default, string offset = default, int limit = default)
+            this IClient client, string businessConnectionId = default, MessageSender ownerId = default, int collectionId = default, bool excludeUnsaved = default, bool excludeSaved = default, bool excludeUnlimited = default, bool excludeUpgradable = default, bool excludeNonUpgradable = default, bool excludeUpgraded = default, bool excludeWithoutColors = default, bool excludeHosted = default, bool sortByPrice = default, string offset = default, int limit = default)
         {
             return client.ExecuteAsync(new GetReceivedGifts
             {

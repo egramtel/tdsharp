@@ -62,7 +62,7 @@ namespace TdLib
         /// If message database is used, the list of file downloads is persistent across application restarts. The downloading is independent of download using downloadFile, i.e. it continues if downloadFile is canceled or is used to download a part of the file
         /// </summary>
         public static Task<File> AddFileToDownloadsAsync(
-            this Client client, int fileId = default, long chatId = default, long messageId = default, int priority = default)
+            this IClient client, int fileId = default, long chatId = default, long messageId = default, int priority = default)
         {
             return client.ExecuteAsync(new AddFileToDownloads
             {

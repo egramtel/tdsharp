@@ -60,7 +60,7 @@ namespace TdLib
         /// Replaces media preview in the list of media previews of a bot. Returns the new preview after edit is completed server-side
         /// </summary>
         public static Task<BotMediaPreview> EditBotMediaPreviewAsync(
-            this Client client, long botUserId = default, string languageCode = default, int fileId = default, InputStoryContent content = default)
+            this IClient client, long botUserId = default, string languageCode = default, int fileId = default, InputStoryContent content = default)
         {
             return client.ExecuteAsync(new EditBotMediaPreview
             {

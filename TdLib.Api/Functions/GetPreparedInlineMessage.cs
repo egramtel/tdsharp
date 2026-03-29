@@ -46,7 +46,7 @@ namespace TdLib
         /// Saves an inline message to be sent by the given user
         /// </summary>
         public static Task<PreparedInlineMessage> GetPreparedInlineMessageAsync(
-            this Client client, long botUserId = default, string preparedMessageId = default)
+            this IClient client, long botUserId = default, string preparedMessageId = default)
         {
             return client.ExecuteAsync(new GetPreparedInlineMessage
             {

@@ -52,7 +52,7 @@ namespace TdLib
         /// Sets the list of commands supported by the bot for the given user scope and language; for bots only
         /// </summary>
         public static Task<Ok> SetCommandsAsync(
-            this Client client, BotCommandScope scope = default, string languageCode = default, BotCommand[] commands = default)
+            this IClient client, BotCommandScope scope = default, string languageCode = default, BotCommand[] commands = default)
         {
             return client.ExecuteAsync(new SetCommands
             {

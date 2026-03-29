@@ -81,7 +81,7 @@ namespace TdLib
         /// Forwards previously sent messages. Returns the forwarded messages in the same order as the message identifiers passed in message_ids. If a message can't be forwarded, null will be returned instead of the message
         /// </summary>
         public static Task<Messages> ForwardMessagesAsync(
-            this Client client, long chatId = default, MessageTopic topicId = default, long fromChatId = default, long[] messageIds = default, MessageSendOptions options = default, bool sendCopy = default, bool removeCaption = default)
+            this IClient client, long chatId = default, MessageTopic topicId = default, long fromChatId = default, long[] messageIds = default, MessageSendOptions options = default, bool sendCopy = default, bool removeCaption = default)
         {
             return client.ExecuteAsync(new ForwardMessages
             {

@@ -39,7 +39,7 @@ namespace TdLib
         /// Confirms an unconfirmed session of the current user from another device
         /// </summary>
         public static Task<Ok> ConfirmSessionAsync(
-            this Client client, long sessionId = default)
+            this IClient client, long sessionId = default)
         {
             return client.ExecuteAsync(new ConfirmSession
             {

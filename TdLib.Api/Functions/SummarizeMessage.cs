@@ -53,7 +53,7 @@ namespace TdLib
         /// Summarizes content of the message with non-empty summary_language_code
         /// </summary>
         public static Task<FormattedText> SummarizeMessageAsync(
-            this Client client, long chatId = default, long messageId = default, string translateToLanguageCode = default)
+            this IClient client, long chatId = default, long messageId = default, string translateToLanguageCode = default)
         {
             return client.ExecuteAsync(new SummarizeMessage
             {

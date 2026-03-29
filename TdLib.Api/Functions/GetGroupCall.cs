@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns information about a group call
         /// </summary>
         public static Task<GroupCall> GetGroupCallAsync(
-            this Client client, int groupCallId = default)
+            this IClient client, int groupCallId = default)
         {
             return client.ExecuteAsync(new GetGroupCall
             {

@@ -67,7 +67,7 @@ namespace TdLib
         /// Adds a local message to a chat. The message is persistent across application restarts only if the message database is used. Returns the added message
         /// </summary>
         public static Task<Message> AddLocalMessageAsync(
-            this Client client, long chatId = default, MessageSender senderId = default, InputMessageReplyTo replyTo = default, bool disableNotification = default, InputMessageContent inputMessageContent = default)
+            this IClient client, long chatId = default, MessageSender senderId = default, InputMessageReplyTo replyTo = default, bool disableNotification = default, InputMessageContent inputMessageContent = default)
         {
             return client.ExecuteAsync(new AddLocalMessage
             {

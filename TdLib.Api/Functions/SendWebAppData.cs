@@ -53,7 +53,7 @@ namespace TdLib
         /// Sends data received from a keyboardButtonTypeWebApp Web App to a bot
         /// </summary>
         public static Task<Ok> SendWebAppDataAsync(
-            this Client client, long botUserId = default, string buttonText = default, string data = default)
+            this IClient client, long botUserId = default, string buttonText = default, string data = default)
         {
             return client.ExecuteAsync(new SendWebAppData
             {

@@ -53,7 +53,7 @@ namespace TdLib
         /// Changes the tag or custom title of a chat member; requires can_manage_tags administrator right to change tag of other users; for basic groups and supergroups only
         /// </summary>
         public static Task<Ok> SetChatMemberTagAsync(
-            this Client client, long chatId = default, long userId = default, string tag = default)
+            this IClient client, long chatId = default, long userId = default, string tag = default)
         {
             return client.ExecuteAsync(new SetChatMemberTag
             {

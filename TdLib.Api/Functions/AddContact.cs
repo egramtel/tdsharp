@@ -53,7 +53,7 @@ namespace TdLib
         /// Adds a user to the contact list or edits an existing contact by their user identifier
         /// </summary>
         public static Task<Ok> AddContactAsync(
-            this Client client, long userId = default, ImportedContact contact = default, bool sharePhoneNumber = default)
+            this IClient client, long userId = default, ImportedContact contact = default, bool sharePhoneNumber = default)
         {
             return client.ExecuteAsync(new AddContact
             {

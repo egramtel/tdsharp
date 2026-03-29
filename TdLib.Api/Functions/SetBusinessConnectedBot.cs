@@ -39,7 +39,7 @@ namespace TdLib
         /// Adds or changes business bot that is connected to the current user account
         /// </summary>
         public static Task<Ok> SetBusinessConnectedBotAsync(
-            this Client client, BusinessConnectedBot bot = default)
+            this IClient client, BusinessConnectedBot bot = default)
         {
             return client.ExecuteAsync(new SetBusinessConnectedBot
             {

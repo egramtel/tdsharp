@@ -39,7 +39,7 @@ namespace TdLib
         /// Checks whether a 2-step verification password recovery code sent to an email address is valid. Works only when the current authorization state is authorizationStateWaitPassword
         /// </summary>
         public static Task<Ok> CheckAuthenticationPasswordRecoveryCodeAsync(
-            this Client client, string recoveryCode = default)
+            this IClient client, string recoveryCode = default)
         {
             return client.ExecuteAsync(new CheckAuthenticationPasswordRecoveryCode
             {

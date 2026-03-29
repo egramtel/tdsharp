@@ -46,7 +46,7 @@ namespace TdLib
         /// Returns the total number of Telegram Stars received by the channel chat for direct messages from the given topic
         /// </summary>
         public static Task<StarCount> GetDirectMessagesChatTopicRevenueAsync(
-            this Client client, long chatId = default, long topicId = default)
+            this IClient client, long chatId = default, long topicId = default)
         {
             return client.ExecuteAsync(new GetDirectMessagesChatTopicRevenue
             {

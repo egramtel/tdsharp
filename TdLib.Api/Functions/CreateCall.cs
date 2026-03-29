@@ -53,7 +53,7 @@ namespace TdLib
         /// Creates a new call
         /// </summary>
         public static Task<CallId> CreateCallAsync(
-            this Client client, long userId = default, CallProtocol protocol = default, bool isVideo = default)
+            this IClient client, long userId = default, CallProtocol protocol = default, bool isVideo = default)
         {
             return client.ExecuteAsync(new CreateCall
             {

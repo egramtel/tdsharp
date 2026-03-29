@@ -46,7 +46,7 @@ namespace TdLib
         /// Searches for the specified query in the first names, last names and usernames of the known user contacts
         /// </summary>
         public static Task<Users> SearchContactsAsync(
-            this Client client, string query = default, int limit = default)
+            this IClient client, string query = default, int limit = default)
         {
             return client.ExecuteAsync(new SearchContacts
             {

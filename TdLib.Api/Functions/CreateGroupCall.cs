@@ -39,7 +39,7 @@ namespace TdLib
         /// Creates a new group call that isn't bound to a chat
         /// </summary>
         public static Task<GroupCallInfo> CreateGroupCallAsync(
-            this Client client, GroupCallJoinParameters joinParameters = default)
+            this IClient client, GroupCallJoinParameters joinParameters = default)
         {
             return client.ExecuteAsync(new CreateGroupCall
             {

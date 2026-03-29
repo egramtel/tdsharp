@@ -46,7 +46,7 @@ namespace TdLib
         /// Changes the emoji status of a chat. Use chatBoostLevelFeatures.can_set_emoji_status to check whether an emoji status can be set. Requires can_change_info administrator right
         /// </summary>
         public static Task<Ok> SetChatEmojiStatusAsync(
-            this Client client, long chatId = default, EmojiStatus emojiStatus = default)
+            this IClient client, long chatId = default, EmojiStatus emojiStatus = default)
         {
             return client.ExecuteAsync(new SetChatEmojiStatus
             {

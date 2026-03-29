@@ -46,7 +46,7 @@ namespace TdLib
         /// Returns the list of media previews for the given language and the list of languages for which the bot has dedicated previews
         /// </summary>
         public static Task<BotMediaPreviewInfo> GetBotMediaPreviewInfoAsync(
-            this Client client, long botUserId = default, string languageCode = default)
+            this IClient client, long botUserId = default, string languageCode = default)
         {
             return client.ExecuteAsync(new GetBotMediaPreviewInfo
             {

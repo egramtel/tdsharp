@@ -39,7 +39,7 @@ namespace TdLib
         /// Starts a scheduled video chat
         /// </summary>
         public static Task<Ok> StartScheduledVideoChatAsync(
-            this Client client, int groupCallId = default)
+            this IClient client, int groupCallId = default)
         {
             return client.ExecuteAsync(new StartScheduledVideoChat
             {

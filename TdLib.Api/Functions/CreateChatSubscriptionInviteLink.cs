@@ -53,7 +53,7 @@ namespace TdLib
         /// Creates a new subscription invite link for a channel chat. Requires can_invite_users right in the chat
         /// </summary>
         public static Task<ChatInviteLink> CreateChatSubscriptionInviteLinkAsync(
-            this Client client, long chatId = default, string name = default, StarSubscriptionPricing subscriptionPricing = default)
+            this IClient client, long chatId = default, string name = default, StarSubscriptionPricing subscriptionPricing = default)
         {
             return client.ExecuteAsync(new CreateChatSubscriptionInviteLink
             {

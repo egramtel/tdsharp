@@ -46,7 +46,7 @@ namespace TdLib
         /// Returns properties of a message. This is an offline method
         /// </summary>
         public static Task<MessageProperties> GetMessagePropertiesAsync(
-            this Client client, long chatId = default, long messageId = default)
+            this IClient client, long chatId = default, long messageId = default)
         {
             return client.ExecuteAsync(new GetMessageProperties
             {

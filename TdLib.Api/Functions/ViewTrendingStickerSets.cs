@@ -38,7 +38,7 @@ namespace TdLib
         /// Informs the server that some trending sticker sets have been viewed by the user
         /// </summary>
         public static Task<Ok> ViewTrendingStickerSetsAsync(
-            this Client client, long[] stickerSetIds = default)
+            this IClient client, long[] stickerSetIds = default)
         {
             return client.ExecuteAsync(new ViewTrendingStickerSets
             {

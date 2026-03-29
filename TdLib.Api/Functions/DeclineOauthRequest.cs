@@ -39,7 +39,7 @@ namespace TdLib
         /// Declines an OAuth authorization request
         /// </summary>
         public static Task<Ok> DeclineOauthRequestAsync(
-            this Client client, string url = default)
+            this IClient client, string url = default)
         {
             return client.ExecuteAsync(new DeclineOauthRequest
             {

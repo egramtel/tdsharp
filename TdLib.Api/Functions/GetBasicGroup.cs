@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns information about a basic group by its identifier. This is an offline method if the current user is not a bot
         /// </summary>
         public static Task<BasicGroup> GetBasicGroupAsync(
-            this Client client, long basicGroupId = default)
+            this IClient client, long basicGroupId = default)
         {
             return client.ExecuteAsync(new GetBasicGroup
             {

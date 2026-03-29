@@ -46,7 +46,7 @@ namespace TdLib
         /// Informs server about an in-store purchase. For official applications only
         /// </summary>
         public static Task<Ok> AssignStoreTransactionAsync(
-            this Client client, StoreTransaction transaction = default, StorePaymentPurpose purpose = default)
+            this IClient client, StoreTransaction transaction = default, StorePaymentPurpose purpose = default)
         {
             return client.ExecuteAsync(new AssignStoreTransaction
             {

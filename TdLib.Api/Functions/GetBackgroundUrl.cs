@@ -46,7 +46,7 @@ namespace TdLib
         /// Constructs a persistent HTTP URL for a background
         /// </summary>
         public static Task<HttpUrl> GetBackgroundUrlAsync(
-            this Client client, string name = default, BackgroundType type = default)
+            this IClient client, string name = default, BackgroundType type = default)
         {
             return client.ExecuteAsync(new GetBackgroundUrl
             {

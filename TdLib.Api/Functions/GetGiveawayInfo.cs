@@ -46,7 +46,7 @@ namespace TdLib
         /// Returns information about a giveaway
         /// </summary>
         public static Task<GiveawayInfo> GetGiveawayInfoAsync(
-            this Client client, long chatId = default, long messageId = default)
+            this IClient client, long chatId = default, long messageId = default)
         {
             return client.ExecuteAsync(new GetGiveawayInfo
             {

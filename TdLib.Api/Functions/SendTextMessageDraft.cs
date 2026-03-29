@@ -60,7 +60,7 @@ namespace TdLib
         /// Sends a draft for a being generated text message; for bots only
         /// </summary>
         public static Task<Ok> SendTextMessageDraftAsync(
-            this Client client, long chatId = default, int forumTopicId = default, long draftId = default, FormattedText text = default)
+            this IClient client, long chatId = default, int forumTopicId = default, long draftId = default, FormattedText text = default)
         {
             return client.ExecuteAsync(new SendTextMessageDraft
             {

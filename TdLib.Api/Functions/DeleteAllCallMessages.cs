@@ -39,7 +39,7 @@ namespace TdLib
         /// Deletes all call messages
         /// </summary>
         public static Task<Ok> DeleteAllCallMessagesAsync(
-            this Client client, bool revoke = default)
+            this IClient client, bool revoke = default)
         {
             return client.ExecuteAsync(new DeleteAllCallMessages
             {

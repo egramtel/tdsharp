@@ -74,7 +74,7 @@ namespace TdLib
         /// Sends a filled-out payment form to the bot for final verification
         /// </summary>
         public static Task<PaymentResult> SendPaymentFormAsync(
-            this Client client, InputInvoice inputInvoice = default, long paymentFormId = default, string orderInfoId = default, string shippingOptionId = default, InputCredentials credentials = default, long tipAmount = default)
+            this IClient client, InputInvoice inputInvoice = default, long paymentFormId = default, string orderInfoId = default, string shippingOptionId = default, InputCredentials credentials = default, long tipAmount = default)
         {
             return client.ExecuteAsync(new SendPaymentForm
             {

@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns information about a public or private message link. Can be called for any internal link of the type internalLinkTypeMessage
         /// </summary>
         public static Task<MessageLinkInfo> GetMessageLinkInfoAsync(
-            this Client client, string url = default)
+            this IClient client, string url = default)
         {
             return client.ExecuteAsync(new GetMessageLinkInfo
             {

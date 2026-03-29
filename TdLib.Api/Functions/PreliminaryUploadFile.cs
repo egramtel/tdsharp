@@ -57,7 +57,7 @@ namespace TdLib
         /// The upload will not be completed until the file is sent in a message
         /// </summary>
         public static Task<File> PreliminaryUploadFileAsync(
-            this Client client, InputFile file = default, FileType fileType = default, int priority = default)
+            this IClient client, InputFile file = default, FileType fileType = default, int priority = default)
         {
             return client.ExecuteAsync(new PreliminaryUploadFile
             {

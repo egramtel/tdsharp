@@ -46,7 +46,7 @@ namespace TdLib
         /// Searches a user by their phone number. Returns a 404 error if the user can't be found
         /// </summary>
         public static Task<User> SearchUserByPhoneNumberAsync(
-            this Client client, string phoneNumber = default, bool onlyLocal = default)
+            this IClient client, string phoneNumber = default, bool onlyLocal = default)
         {
             return client.ExecuteAsync(new SearchUserByPhoneNumber
             {

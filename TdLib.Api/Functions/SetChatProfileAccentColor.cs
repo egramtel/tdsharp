@@ -54,7 +54,7 @@ namespace TdLib
         /// Changes accent color and background custom emoji for profile of a supergroup or channel chat. Requires can_change_info administrator right
         /// </summary>
         public static Task<Ok> SetChatProfileAccentColorAsync(
-            this Client client, long chatId = default, int profileAccentColorId = default, long profileBackgroundCustomEmojiId = default)
+            this IClient client, long chatId = default, int profileAccentColorId = default, long profileBackgroundCustomEmojiId = default)
         {
             return client.ExecuteAsync(new SetChatProfileAccentColor
             {

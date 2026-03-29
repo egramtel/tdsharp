@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns the list of media previews of a bot
         /// </summary>
         public static Task<BotMediaPreviews> GetBotMediaPreviewsAsync(
-            this Client client, long botUserId = default)
+            this IClient client, long botUserId = default)
         {
             return client.ExecuteAsync(new GetBotMediaPreviews
             {

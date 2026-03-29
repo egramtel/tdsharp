@@ -67,7 +67,7 @@ namespace TdLib
         /// Sets the background in a specific chat. Supported only in private and secret chats with non-deleted users, and in chats with sufficient boost level and can_change_info administrator right
         /// </summary>
         public static Task<Ok> SetChatBackgroundAsync(
-            this Client client, long chatId = default, InputBackground background = default, BackgroundType type = default, int darkThemeDimming = default, bool onlyForSelf = default)
+            this IClient client, long chatId = default, InputBackground background = default, BackgroundType type = default, int darkThemeDimming = default, bool onlyForSelf = default)
         {
             return client.ExecuteAsync(new SetChatBackground
             {

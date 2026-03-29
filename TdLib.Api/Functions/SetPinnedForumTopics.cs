@@ -45,7 +45,7 @@ namespace TdLib
         /// Changes the order of pinned topics in a forum supergroup chat or a chat with a bot with topics; requires can_manage_topics administrator right in the supergroup
         /// </summary>
         public static Task<Ok> SetPinnedForumTopicsAsync(
-            this Client client, long chatId = default, int[] forumTopicIds = default)
+            this IClient client, long chatId = default, int[] forumTopicIds = default)
         {
             return client.ExecuteAsync(new SetPinnedForumTopics
             {

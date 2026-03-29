@@ -39,7 +39,7 @@ namespace TdLib
         /// Changes type of default reaction for the current user
         /// </summary>
         public static Task<Ok> SetDefaultReactionTypeAsync(
-            this Client client, ReactionType reactionType = default)
+            this IClient client, ReactionType reactionType = default)
         {
             return client.ExecuteAsync(new SetDefaultReactionType
             {

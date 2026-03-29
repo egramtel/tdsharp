@@ -60,7 +60,7 @@ namespace TdLib
         /// Pins a message in a chat. A message can be pinned only if messageProperties.can_be_pinned
         /// </summary>
         public static Task<Ok> PinChatMessageAsync(
-            this Client client, long chatId = default, long messageId = default, bool disableNotification = default, bool onlyForSelf = default)
+            this IClient client, long chatId = default, long messageId = default, bool disableNotification = default, bool onlyForSelf = default)
         {
             return client.ExecuteAsync(new PinChatMessage
             {

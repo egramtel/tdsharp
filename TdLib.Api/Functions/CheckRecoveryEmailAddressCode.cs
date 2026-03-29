@@ -39,7 +39,7 @@ namespace TdLib
         /// Checks the 2-step verification recovery email address verification code
         /// </summary>
         public static Task<PasswordState> CheckRecoveryEmailAddressCodeAsync(
-            this Client client, string code = default)
+            this IClient client, string code = default)
         {
             return client.ExecuteAsync(new CheckRecoveryEmailAddressCode
             {

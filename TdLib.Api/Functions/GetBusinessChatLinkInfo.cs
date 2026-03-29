@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns information about a business chat link
         /// </summary>
         public static Task<BusinessChatLinkInfo> GetBusinessChatLinkInfoAsync(
-            this Client client, string linkName = default)
+            this IClient client, string linkName = default)
         {
             return client.ExecuteAsync(new GetBusinessChatLinkInfo
             {

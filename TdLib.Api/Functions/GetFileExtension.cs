@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns the extension of a file, guessed by its MIME type. Returns an empty string on failure. Can be called synchronously
         /// </summary>
         public static Task<Text> GetFileExtensionAsync(
-            this Client client, string mimeType = default)
+            this IClient client, string mimeType = default)
         {
             return client.ExecuteAsync(new GetFileExtension
             {

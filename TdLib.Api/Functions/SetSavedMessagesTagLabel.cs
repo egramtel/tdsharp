@@ -46,7 +46,7 @@ namespace TdLib
         /// Changes label of a Saved Messages tag; for Telegram Premium users only
         /// </summary>
         public static Task<Ok> SetSavedMessagesTagLabelAsync(
-            this Client client, ReactionType tag = default, string label = default)
+            this IClient client, ReactionType tag = default, string label = default)
         {
             return client.ExecuteAsync(new SetSavedMessagesTagLabel
             {

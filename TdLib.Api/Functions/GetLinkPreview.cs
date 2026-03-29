@@ -46,7 +46,7 @@ namespace TdLib
         /// Returns a link preview by the text of a message. Do not call this function too often. Returns a 404 error if the text has no link preview
         /// </summary>
         public static Task<LinkPreview> GetLinkPreviewAsync(
-            this Client client, FormattedText text = default, LinkPreviewOptions linkPreviewOptions = default)
+            this IClient client, FormattedText text = default, LinkPreviewOptions linkPreviewOptions = default)
         {
             return client.ExecuteAsync(new GetLinkPreview
             {

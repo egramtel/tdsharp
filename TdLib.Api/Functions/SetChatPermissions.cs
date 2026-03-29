@@ -46,7 +46,7 @@ namespace TdLib
         /// Changes the chat members permissions. Supported only for basic groups and supergroups. Requires can_restrict_members administrator right
         /// </summary>
         public static Task<Ok> SetChatPermissionsAsync(
-            this Client client, long chatId = default, ChatPermissions permissions = default)
+            this IClient client, long chatId = default, ChatPermissions permissions = default)
         {
             return client.ExecuteAsync(new SetChatPermissions
             {

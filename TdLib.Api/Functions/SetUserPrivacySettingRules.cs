@@ -46,7 +46,7 @@ namespace TdLib
         /// Changes user privacy settings
         /// </summary>
         public static Task<Ok> SetUserPrivacySettingRulesAsync(
-            this Client client, UserPrivacySetting setting = default, UserPrivacySettingRules rules = default)
+            this IClient client, UserPrivacySetting setting = default, UserPrivacySettingRules rules = default)
         {
             return client.ExecuteAsync(new SetUserPrivacySettingRules
             {

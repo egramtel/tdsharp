@@ -67,7 +67,7 @@ namespace TdLib
         /// Returns chat members joined a chat via an invite link. Requires administrator privileges and can_invite_users right in the chat for own links and owner privileges for other links
         /// </summary>
         public static Task<ChatInviteLinkMembers> GetChatInviteLinkMembersAsync(
-            this Client client, long chatId = default, string inviteLink = default, bool onlyWithExpiredSubscription = default, ChatInviteLinkMember offsetMember = default, int limit = default)
+            this IClient client, long chatId = default, string inviteLink = default, bool onlyWithExpiredSubscription = default, ChatInviteLinkMember offsetMember = default, int limit = default)
         {
             return client.ExecuteAsync(new GetChatInviteLinkMembers
             {

@@ -34,7 +34,7 @@ namespace TdLib
         /// Returns a list of recently inactive supergroups and channels. Can be used when user reaches limit on the number of joined supergroups and channels and receives the error "CHANNELS_TOO_MUCH". Also, the limit can be increased with Telegram Premium
         /// </summary>
         public static Task<Chats> GetInactiveSupergroupChatsAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new GetInactiveSupergroupChats
             {

@@ -39,7 +39,7 @@ namespace TdLib
         /// Sets the email address of the user and sends an authentication code to the email address. Works only when the current authorization state is authorizationStateWaitEmailAddress
         /// </summary>
         public static Task<Ok> SetAuthenticationEmailAddressAsync(
-            this Client client, string emailAddress = default)
+            this IClient client, string emailAddress = default)
         {
             return client.ExecuteAsync(new SetAuthenticationEmailAddress
             {

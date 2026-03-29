@@ -52,7 +52,7 @@ namespace TdLib
         /// Changes the user answer to a poll. A poll in quiz mode can be answered only once
         /// </summary>
         public static Task<Ok> SetPollAnswerAsync(
-            this Client client, long chatId = default, long messageId = default, int[] optionIds = default)
+            this IClient client, long chatId = default, long messageId = default, int[] optionIds = default)
         {
             return client.ExecuteAsync(new SetPollAnswer
             {

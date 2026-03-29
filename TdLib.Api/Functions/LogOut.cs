@@ -34,7 +34,7 @@ namespace TdLib
         /// Closes the TDLib instance after a proper logout. Requires an available network connection. All local data will be destroyed. After the logout completes, updateAuthorizationState with authorizationStateClosed will be sent
         /// </summary>
         public static Task<Ok> LogOutAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new LogOut
             {

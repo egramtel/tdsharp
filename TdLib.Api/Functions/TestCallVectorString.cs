@@ -38,7 +38,7 @@ namespace TdLib
         /// Returns the received vector of strings; for testing only. This is an offline method. Can be called before authorization
         /// </summary>
         public static Task<TestVectorString> TestCallVectorStringAsync(
-            this Client client, string[] x = default)
+            this IClient client, string[] x = default)
         {
             return client.ExecuteAsync(new TestCallVectorString
             {

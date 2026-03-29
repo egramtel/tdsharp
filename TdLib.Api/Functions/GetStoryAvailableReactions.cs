@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns reactions, which can be chosen for a story
         /// </summary>
         public static Task<AvailableReactions> GetStoryAvailableReactionsAsync(
-            this Client client, int rowSize = default)
+            this IClient client, int rowSize = default)
         {
             return client.ExecuteAsync(new GetStoryAvailableReactions
             {

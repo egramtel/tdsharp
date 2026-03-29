@@ -48,7 +48,7 @@ namespace TdLib
         /// Use the field groupCall.loaded_all_participants to check whether all participants have already been loaded
         /// </summary>
         public static Task<Ok> LoadGroupCallParticipantsAsync(
-            this Client client, int groupCallId = default, int limit = default)
+            this IClient client, int groupCallId = default, int limit = default)
         {
             return client.ExecuteAsync(new LoadGroupCallParticipants
             {

@@ -46,7 +46,7 @@ namespace TdLib
         /// Returns information about an OAuth deep link. Use checkOauthRequestMatchCode, acceptOauthRequest or declineOauthRequest to process the link
         /// </summary>
         public static Task<OauthLinkInfo> GetOauthLinkInfoAsync(
-            this Client client, string url = default, string inAppOrigin = default)
+            this IClient client, string url = default, string inAppOrigin = default)
         {
             return client.ExecuteAsync(new GetOauthLinkInfo
             {

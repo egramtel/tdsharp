@@ -46,7 +46,7 @@ namespace TdLib
         /// Changes the sticker set of a supergroup; requires can_change_info administrator right
         /// </summary>
         public static Task<Ok> SetSupergroupStickerSetAsync(
-            this Client client, long supergroupId = default, long stickerSetId = default)
+            this IClient client, long supergroupId = default, long stickerSetId = default)
         {
             return client.ExecuteAsync(new SetSupergroupStickerSet
             {

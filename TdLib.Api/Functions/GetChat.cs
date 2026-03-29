@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns information about a chat by its identifier. This is an offline method if the current user is not a bot
         /// </summary>
         public static Task<Chat> GetChatAsync(
-            this Client client, long chatId = default)
+            this IClient client, long chatId = default)
         {
             return client.ExecuteAsync(new GetChat
             {

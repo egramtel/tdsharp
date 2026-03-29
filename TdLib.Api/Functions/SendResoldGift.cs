@@ -55,7 +55,7 @@ namespace TdLib
         /// must be transferred using transferGift and can't be passed to the method
         /// </summary>
         public static Task<GiftResaleResult> SendResoldGiftAsync(
-            this Client client, string giftName = default, MessageSender ownerId = default, GiftResalePrice price = default)
+            this IClient client, string giftName = default, MessageSender ownerId = default, GiftResalePrice price = default)
         {
             return client.ExecuteAsync(new SendResoldGift
             {

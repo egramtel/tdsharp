@@ -39,7 +39,7 @@ namespace TdLib
         /// Clears message drafts in all chats
         /// </summary>
         public static Task<Ok> ClearAllDraftMessagesAsync(
-            this Client client, bool excludeSecretChats = default)
+            this IClient client, bool excludeSecretChats = default)
         {
             return client.ExecuteAsync(new ClearAllDraftMessages
             {

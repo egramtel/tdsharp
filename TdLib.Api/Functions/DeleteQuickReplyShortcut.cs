@@ -39,7 +39,7 @@ namespace TdLib
         /// Deletes a quick reply shortcut
         /// </summary>
         public static Task<Ok> DeleteQuickReplyShortcutAsync(
-            this Client client, int shortcutId = default)
+            this IClient client, int shortcutId = default)
         {
             return client.ExecuteAsync(new DeleteQuickReplyShortcut
             {

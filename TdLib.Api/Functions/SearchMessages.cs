@@ -90,7 +90,7 @@ namespace TdLib
         /// For optimal performance, the number of returned messages is chosen by TDLib and can be smaller than the specified limit
         /// </summary>
         public static Task<FoundMessages> SearchMessagesAsync(
-            this Client client, ChatList chatList = default, string query = default, string offset = default, int limit = default, SearchMessagesFilter filter = default, SearchMessagesChatTypeFilter chatTypeFilter = default, int minDate = default, int maxDate = default)
+            this IClient client, ChatList chatList = default, string query = default, string offset = default, int limit = default, SearchMessagesFilter filter = default, SearchMessagesChatTypeFilter chatTypeFilter = default, int minDate = default, int maxDate = default)
         {
             return client.ExecuteAsync(new SearchMessages
             {

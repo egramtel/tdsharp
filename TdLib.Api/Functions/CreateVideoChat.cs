@@ -60,7 +60,7 @@ namespace TdLib
         /// Creates a video chat (a group call bound to a chat); for basic groups, supergroups and channels only; requires can_manage_video_chats administrator right
         /// </summary>
         public static Task<GroupCallId> CreateVideoChatAsync(
-            this Client client, long chatId = default, string title = default, int startDate = default, bool isRtmpStream = default)
+            this IClient client, long chatId = default, string title = default, int startDate = default, bool isRtmpStream = default)
         {
             return client.ExecuteAsync(new CreateVideoChat
             {

@@ -74,7 +74,7 @@ namespace TdLib
         /// Returns found forum topics in a forum supergroup chat or a chat with a bot with topics. This is a temporary method for getting information about topic list from the server
         /// </summary>
         public static Task<ForumTopics> GetForumTopicsAsync(
-            this Client client, long chatId = default, string query = default, int offsetDate = default, long offsetMessageId = default, int offsetForumTopicId = default, int limit = default)
+            this IClient client, long chatId = default, string query = default, int offsetDate = default, long offsetMessageId = default, int offsetForumTopicId = default, int limit = default)
         {
             return client.ExecuteAsync(new GetForumTopics
             {

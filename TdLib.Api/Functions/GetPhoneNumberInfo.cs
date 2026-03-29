@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns information about a phone number by its prefix. Can be called before authorization
         /// </summary>
         public static Task<PhoneNumberInfo> GetPhoneNumberInfoAsync(
-            this Client client, string phoneNumberPrefix = default)
+            this IClient client, string phoneNumberPrefix = default)
         {
             return client.ExecuteAsync(new GetPhoneNumberInfo
             {

@@ -46,7 +46,7 @@ namespace TdLib
         /// Allows the specified user to send unpaid private messages to the current user by adding a rule to userPrivacySettingAllowUnpaidMessages
         /// </summary>
         public static Task<Ok> AllowUnpaidMessagesFromUserAsync(
-            this Client client, long userId = default, bool refundPayments = default)
+            this IClient client, long userId = default, bool refundPayments = default)
         {
             return client.ExecuteAsync(new AllowUnpaidMessagesFromUser
             {

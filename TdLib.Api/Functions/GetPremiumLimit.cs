@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns information about a limit, increased for Premium users. Returns a 404 error if the limit is unknown
         /// </summary>
         public static Task<PremiumLimit> GetPremiumLimitAsync(
-            this Client client, PremiumLimitType limitType = default)
+            this IClient client, PremiumLimitType limitType = default)
         {
             return client.ExecuteAsync(new GetPremiumLimit
             {

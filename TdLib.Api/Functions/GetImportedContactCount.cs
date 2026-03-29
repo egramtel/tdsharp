@@ -34,7 +34,7 @@ namespace TdLib
         /// Returns the total number of imported contacts
         /// </summary>
         public static Task<Count> GetImportedContactCountAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new GetImportedContactCount
             {

@@ -46,7 +46,7 @@ namespace TdLib
         /// Sets the value of an option. (Check the list of available options on https://core.telegram.org/tdlib/options.) Only writable options can be set. Can be called before authorization
         /// </summary>
         public static Task<Ok> SetOptionAsync(
-            this Client client, string name = default, OptionValue value = default)
+            this IClient client, string name = default, OptionValue value = default)
         {
             return client.ExecuteAsync(new SetOption
             {

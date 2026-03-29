@@ -46,7 +46,7 @@ namespace TdLib
         /// Changes name of a quick reply shortcut
         /// </summary>
         public static Task<Ok> SetQuickReplyShortcutNameAsync(
-            this Client client, int shortcutId = default, string name = default)
+            this IClient client, int shortcutId = default, string name = default)
         {
             return client.ExecuteAsync(new SetQuickReplyShortcutName
             {

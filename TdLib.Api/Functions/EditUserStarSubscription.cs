@@ -53,7 +53,7 @@ namespace TdLib
         /// Cancels or re-enables Telegram Star subscription for a user; for bots only
         /// </summary>
         public static Task<Ok> EditUserStarSubscriptionAsync(
-            this Client client, long userId = default, string telegramPaymentChargeId = default, bool isCanceled = default)
+            this IClient client, long userId = default, string telegramPaymentChargeId = default, bool isCanceled = default)
         {
             return client.ExecuteAsync(new EditUserStarSubscription
             {

@@ -41,7 +41,7 @@ namespace TdLib
         /// Available only for supergroups and channel chats
         /// </summary>
         public static Task<User> GetChatOwnerAfterLeavingAsync(
-            this Client client, long chatId = default)
+            this IClient client, long chatId = default)
         {
             return client.ExecuteAsync(new GetChatOwnerAfterLeaving
             {

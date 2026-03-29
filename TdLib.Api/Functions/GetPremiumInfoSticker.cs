@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns the sticker to be used as representation of the Telegram Premium subscription
         /// </summary>
         public static Task<Sticker> GetPremiumInfoStickerAsync(
-            this Client client, int monthCount = default)
+            this IClient client, int monthCount = default)
         {
             return client.ExecuteAsync(new GetPremiumInfoSticker
             {

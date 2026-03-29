@@ -39,7 +39,7 @@ namespace TdLib
         /// Changes the period of inactivity after which sessions will automatically be terminated
         /// </summary>
         public static Task<Ok> SetInactiveSessionTtlAsync(
-            this Client client, int inactiveSessionTtlDays = default)
+            this IClient client, int inactiveSessionTtlDays = default)
         {
             return client.ExecuteAsync(new SetInactiveSessionTtl
             {

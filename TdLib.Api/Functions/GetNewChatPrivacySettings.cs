@@ -34,7 +34,7 @@ namespace TdLib
         /// Returns privacy settings for new chat creation
         /// </summary>
         public static Task<NewChatPrivacySettings> GetNewChatPrivacySettingsAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new GetNewChatPrivacySettings
             {

@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns the current boost status for a supergroup or a channel chat
         /// </summary>
         public static Task<ChatBoostStatus> GetChatBoostStatusAsync(
-            this Client client, long chatId = default)
+            this IClient client, long chatId = default)
         {
             return client.ExecuteAsync(new GetChatBoostStatus
             {

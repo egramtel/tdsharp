@@ -39,7 +39,7 @@ namespace TdLib
         /// Changes the business greeting message settings of the current user. Requires Telegram Business subscription
         /// </summary>
         public static Task<Ok> SetBusinessGreetingMessageSettingsAsync(
-            this Client client, BusinessGreetingMessageSettings greetingMessageSettings = default)
+            this IClient client, BusinessGreetingMessageSettings greetingMessageSettings = default)
         {
             return client.ExecuteAsync(new SetBusinessGreetingMessageSettings
             {

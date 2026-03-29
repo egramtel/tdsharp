@@ -46,7 +46,7 @@ namespace TdLib
         /// Selects a message sender to send messages in a chat
         /// </summary>
         public static Task<Ok> SetChatMessageSenderAsync(
-            this Client client, long chatId = default, MessageSender messageSenderId = default)
+            this IClient client, long chatId = default, MessageSender messageSenderId = default)
         {
             return client.ExecuteAsync(new SetChatMessageSender
             {

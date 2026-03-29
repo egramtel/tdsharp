@@ -59,7 +59,7 @@ namespace TdLib
         /// Sets reactions on a message; for bots only
         /// </summary>
         public static Task<Ok> SetMessageReactionsAsync(
-            this Client client, long chatId = default, long messageId = default, ReactionType[] reactionTypes = default, bool isBig = default)
+            this IClient client, long chatId = default, long messageId = default, ReactionType[] reactionTypes = default, bool isBig = default)
         {
             return client.ExecuteAsync(new SetMessageReactions
             {

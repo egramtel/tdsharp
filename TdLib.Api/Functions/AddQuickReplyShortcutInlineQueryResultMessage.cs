@@ -69,7 +69,7 @@ namespace TdLib
         /// The shortcut must not contain more than getOption("quick_reply_shortcut_message_count_max") messages after adding the new message. Returns the added message
         /// </summary>
         public static Task<QuickReplyMessage> AddQuickReplyShortcutInlineQueryResultMessageAsync(
-            this Client client, string shortcutName = default, long replyToMessageId = default, long queryId = default, string resultId = default, bool hideViaBot = default)
+            this IClient client, string shortcutName = default, long replyToMessageId = default, long queryId = default, string resultId = default, bool hideViaBot = default)
         {
             return client.ExecuteAsync(new AddQuickReplyShortcutInlineQueryResultMessage
             {

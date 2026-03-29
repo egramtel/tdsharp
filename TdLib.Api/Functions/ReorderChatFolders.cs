@@ -45,7 +45,7 @@ namespace TdLib
         /// Changes the order of chat folders
         /// </summary>
         public static Task<Ok> ReorderChatFoldersAsync(
-            this Client client, int[] chatFolderIds = default, int mainChatListPosition = default)
+            this IClient client, int[] chatFolderIds = default, int mainChatListPosition = default)
         {
             return client.ExecuteAsync(new ReorderChatFolders
             {

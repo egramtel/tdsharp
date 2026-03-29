@@ -41,7 +41,7 @@ namespace TdLib
         /// and the server-specified timeout has passed, or when the current authorization state is authorizationStateWaitEmailCode
         /// </summary>
         public static Task<Ok> ResendAuthenticationCodeAsync(
-            this Client client, ResendCodeReason reason = default)
+            this IClient client, ResendCodeReason reason = default)
         {
             return client.ExecuteAsync(new ResendAuthenticationCode
             {

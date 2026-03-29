@@ -46,7 +46,7 @@ namespace TdLib
         /// Returns information about a message. Returns a 404 error if the message doesn't exist
         /// </summary>
         public static Task<Message> GetMessageAsync(
-            this Client client, long chatId = default, long messageId = default)
+            this IClient client, long chatId = default, long messageId = default)
         {
             return client.ExecuteAsync(new GetMessage
             {

@@ -46,7 +46,7 @@ namespace TdLib
         /// Returns the list of commands supported by the bot for the given user scope and language; for bots only
         /// </summary>
         public static Task<BotCommands> GetCommandsAsync(
-            this Client client, BotCommandScope scope = default, string languageCode = default)
+            this IClient client, BotCommandScope scope = default, string languageCode = default)
         {
             return client.ExecuteAsync(new GetCommands
             {

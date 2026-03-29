@@ -34,7 +34,7 @@ namespace TdLib
         /// Terminates all other sessions of the current user
         /// </summary>
         public static Task<Ok> TerminateAllOtherSessionsAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new TerminateAllOtherSessions
             {

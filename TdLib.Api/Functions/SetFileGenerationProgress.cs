@@ -53,7 +53,7 @@ namespace TdLib
         /// Informs TDLib on a file generation progress
         /// </summary>
         public static Task<Ok> SetFileGenerationProgressAsync(
-            this Client client, long generationId = default, long expectedSize = default, long localPrefixSize = default)
+            this IClient client, long generationId = default, long expectedSize = default, long localPrefixSize = default)
         {
             return client.ExecuteAsync(new SetFileGenerationProgress
             {

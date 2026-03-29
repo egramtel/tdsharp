@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns information about a newest pinned message in the chat. Returns a 404 error if the message doesn't exist
         /// </summary>
         public static Task<Message> GetChatPinnedMessageAsync(
-            this Client client, long chatId = default)
+            this IClient client, long chatId = default)
         {
             return client.ExecuteAsync(new GetChatPinnedMessage
             {

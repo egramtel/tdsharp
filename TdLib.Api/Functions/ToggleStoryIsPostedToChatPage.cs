@@ -53,7 +53,7 @@ namespace TdLib
         /// Toggles whether a story is accessible after expiration. Can be called only if story.can_toggle_is_posted_to_chat_page == true
         /// </summary>
         public static Task<Ok> ToggleStoryIsPostedToChatPageAsync(
-            this Client client, long storyPosterChatId = default, int storyId = default, bool isPostedToChatPage = default)
+            this IClient client, long storyPosterChatId = default, int storyId = default, bool isPostedToChatPage = default)
         {
             return client.ExecuteAsync(new ToggleStoryIsPostedToChatPage
             {

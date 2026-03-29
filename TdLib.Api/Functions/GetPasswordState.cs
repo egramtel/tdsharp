@@ -34,7 +34,7 @@ namespace TdLib
         /// Returns the current state of 2-step verification
         /// </summary>
         public static Task<PasswordState> GetPasswordStateAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new GetPasswordState
             {

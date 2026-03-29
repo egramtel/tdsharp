@@ -45,7 +45,7 @@ namespace TdLib
         /// Returns emojis matching the keyword. Supported only if the file database is enabled. Order of results is unspecified
         /// </summary>
         public static Task<Emojis> GetKeywordEmojisAsync(
-            this Client client, string text = default, string[] inputLanguageCodes = default)
+            this IClient client, string text = default, string[] inputLanguageCodes = default)
         {
             return client.ExecuteAsync(new GetKeywordEmojis
             {

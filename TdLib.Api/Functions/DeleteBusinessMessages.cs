@@ -45,7 +45,7 @@ namespace TdLib
         /// Deletes messages on behalf of a business account; for bots only
         /// </summary>
         public static Task<Ok> DeleteBusinessMessagesAsync(
-            this Client client, string businessConnectionId = default, long[] messageIds = default)
+            this IClient client, string businessConnectionId = default, long[] messageIds = default)
         {
             return client.ExecuteAsync(new DeleteBusinessMessages
             {

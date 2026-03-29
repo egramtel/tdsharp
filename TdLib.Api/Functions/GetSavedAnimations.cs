@@ -34,7 +34,7 @@ namespace TdLib
         /// Returns saved animations
         /// </summary>
         public static Task<Animations> GetSavedAnimationsAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new GetSavedAnimations
             {

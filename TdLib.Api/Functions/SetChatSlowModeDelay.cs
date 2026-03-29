@@ -46,7 +46,7 @@ namespace TdLib
         /// Changes the slow mode delay of a chat. Available only for supergroups; requires can_restrict_members administrator right
         /// </summary>
         public static Task<Ok> SetChatSlowModeDelayAsync(
-            this Client client, long chatId = default, int slowModeDelay = default)
+            this IClient client, long chatId = default, int slowModeDelay = default)
         {
             return client.ExecuteAsync(new SetChatSlowModeDelay
             {

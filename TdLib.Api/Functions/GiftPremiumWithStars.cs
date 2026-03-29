@@ -60,7 +60,7 @@ namespace TdLib
         /// Allows to buy a Telegram Premium subscription for another user with payment in Telegram Stars; for bots only
         /// </summary>
         public static Task<Ok> GiftPremiumWithStarsAsync(
-            this Client client, long userId = default, long starCount = default, int monthCount = default, FormattedText text = default)
+            this IClient client, long userId = default, long starCount = default, int monthCount = default, FormattedText text = default)
         {
             return client.ExecuteAsync(new GiftPremiumWithStars
             {

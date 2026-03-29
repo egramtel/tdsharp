@@ -46,7 +46,7 @@ namespace TdLib
         /// Returns the list of boosts applied to a chat by a given user; requires administrator rights in the chat; for bots only
         /// </summary>
         public static Task<FoundChatBoosts> GetUserChatBoostsAsync(
-            this Client client, long chatId = default, long userId = default)
+            this IClient client, long chatId = default, long userId = default)
         {
             return client.ExecuteAsync(new GetUserChatBoosts
             {

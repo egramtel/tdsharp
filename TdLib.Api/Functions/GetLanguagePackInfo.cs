@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns information about a language pack. Returned language pack identifier may be different from a provided one. Can be called before authorization
         /// </summary>
         public static Task<LanguagePackInfo> GetLanguagePackInfoAsync(
-            this Client client, string languagePackId = default)
+            this IClient client, string languagePackId = default)
         {
             return client.ExecuteAsync(new GetLanguagePackInfo
             {

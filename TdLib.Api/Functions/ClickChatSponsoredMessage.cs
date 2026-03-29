@@ -60,7 +60,7 @@ namespace TdLib
         /// Informs TDLib that the user opened the sponsored chat via the button, the name, the chat photo, a mention in the sponsored message text, or the media in the sponsored message
         /// </summary>
         public static Task<Ok> ClickChatSponsoredMessageAsync(
-            this Client client, long chatId = default, long messageId = default, bool isMediaClick = default, bool fromFullscreen = default)
+            this IClient client, long chatId = default, long messageId = default, bool isMediaClick = default, bool fromFullscreen = default)
         {
             return client.ExecuteAsync(new ClickChatSponsoredMessage
             {

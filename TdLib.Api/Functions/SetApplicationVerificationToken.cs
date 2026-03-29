@@ -47,7 +47,7 @@ namespace TdLib
         /// Informs TDLib that application or reCAPTCHA verification has been completed. Can be called before authorization
         /// </summary>
         public static Task<Ok> SetApplicationVerificationTokenAsync(
-            this Client client, long verificationId = default, string token = default)
+            this IClient client, long verificationId = default, string token = default)
         {
             return client.ExecuteAsync(new SetApplicationVerificationToken
             {

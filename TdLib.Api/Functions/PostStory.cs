@@ -101,7 +101,7 @@ namespace TdLib
         /// Posts a new story on behalf of a chat; requires can_post_stories administrator right for supergroup and channel chats. Returns a temporary story
         /// </summary>
         public static Task<Story> PostStoryAsync(
-            this Client client, long chatId = default, InputStoryContent content = default, InputStoryAreas areas = default, FormattedText caption = default, StoryPrivacySettings privacySettings = default, int[] albumIds = default, int activePeriod = default, StoryFullId fromStoryFullId = default, bool isPostedToChatPage = default, bool protectContent = default)
+            this IClient client, long chatId = default, InputStoryContent content = default, InputStoryAreas areas = default, FormattedText caption = default, StoryPrivacySettings privacySettings = default, int[] albumIds = default, int activePeriod = default, StoryFullId fromStoryFullId = default, bool isPostedToChatPage = default, bool protectContent = default)
         {
             return client.ExecuteAsync(new PostStory
             {

@@ -46,7 +46,7 @@ namespace TdLib
         /// Creates a link for the given invoice; for bots only
         /// </summary>
         public static Task<HttpUrl> CreateInvoiceLinkAsync(
-            this Client client, string businessConnectionId = default, InputMessageContent invoice = default)
+            this IClient client, string businessConnectionId = default, InputMessageContent invoice = default)
         {
             return client.ExecuteAsync(new CreateInvoiceLink
             {

@@ -39,7 +39,7 @@ namespace TdLib
         /// Closes a secret chat, effectively transferring its state to secretChatStateClosed
         /// </summary>
         public static Task<Ok> CloseSecretChatAsync(
-            this Client client, int secretChatId = default)
+            this IClient client, int secretChatId = default)
         {
             return client.ExecuteAsync(new CloseSecretChat
             {

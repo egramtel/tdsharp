@@ -34,7 +34,7 @@ namespace TdLib
         /// Resets list of installed backgrounds to its default value
         /// </summary>
         public static Task<Ok> ResetInstalledBackgroundsAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new ResetInstalledBackgrounds
             {

@@ -34,7 +34,7 @@ namespace TdLib
         /// Returns information about currently used log stream for internal logging of TDLib. Can be called synchronously
         /// </summary>
         public static Task<LogStream> GetLogStreamAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new GetLogStream
             {

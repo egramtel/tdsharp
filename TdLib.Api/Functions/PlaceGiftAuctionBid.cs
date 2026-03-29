@@ -68,7 +68,7 @@ namespace TdLib
         /// Places a bid on an auction gift
         /// </summary>
         public static Task<Ok> PlaceGiftAuctionBidAsync(
-            this Client client, long giftId = default, long starCount = default, long userId = default, FormattedText text = default, bool isPrivate = default)
+            this IClient client, long giftId = default, long starCount = default, long userId = default, FormattedText text = default, bool isPrivate = default)
         {
             return client.ExecuteAsync(new PlaceGiftAuctionBid
             {

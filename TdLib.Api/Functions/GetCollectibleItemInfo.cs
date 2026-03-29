@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns information about a given collectible item that was purchased at https://fragment.com
         /// </summary>
         public static Task<CollectibleItemInfo> GetCollectibleItemInfoAsync(
-            this Client client, CollectibleItemType type = default)
+            this IClient client, CollectibleItemType type = default)
         {
             return client.ExecuteAsync(new GetCollectibleItemInfo
             {

@@ -53,7 +53,7 @@ namespace TdLib
         /// Sets the name of a bot. Can be called only if userTypeBot.can_be_edited == true
         /// </summary>
         public static Task<Ok> SetBotNameAsync(
-            this Client client, long botUserId = default, string languageCode = default, string name = default)
+            this IClient client, long botUserId = default, string languageCode = default, string name = default)
         {
             return client.ExecuteAsync(new SetBotName
             {

@@ -46,7 +46,7 @@ namespace TdLib
         /// Changes the pinned state of a Saved Messages topic. There can be up to getOption("pinned_saved_messages_topic_count_max") pinned topics. The limit can be increased with Telegram Premium
         /// </summary>
         public static Task<Ok> ToggleSavedMessagesTopicIsPinnedAsync(
-            this Client client, long savedMessagesTopicId = default, bool isPinned = default)
+            this IClient client, long savedMessagesTopicId = default, bool isPinned = default)
         {
             return client.ExecuteAsync(new ToggleSavedMessagesTopicIsPinned
             {

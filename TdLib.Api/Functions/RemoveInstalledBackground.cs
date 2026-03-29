@@ -39,7 +39,7 @@ namespace TdLib
         /// Removes background from the list of installed backgrounds
         /// </summary>
         public static Task<Ok> RemoveInstalledBackgroundAsync(
-            this Client client, long backgroundId = default)
+            this IClient client, long backgroundId = default)
         {
             return client.ExecuteAsync(new RemoveInstalledBackground
             {

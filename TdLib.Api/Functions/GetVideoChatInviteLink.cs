@@ -46,7 +46,7 @@ namespace TdLib
         /// Returns invite link to a video chat in a public chat
         /// </summary>
         public static Task<HttpUrl> GetVideoChatInviteLinkAsync(
-            this Client client, int groupCallId = default, bool canSelfUnmute = default)
+            this IClient client, int groupCallId = default, bool canSelfUnmute = default)
         {
             return client.ExecuteAsync(new GetVideoChatInviteLink
             {

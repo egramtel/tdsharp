@@ -53,7 +53,7 @@ namespace TdLib
         /// Returns upgraded gifts of the current user who can be used to craft another gifts
         /// </summary>
         public static Task<GiftsForCrafting> GetGiftsForCraftingAsync(
-            this Client client, long regularGiftId = default, string offset = default, int limit = default)
+            this IClient client, long regularGiftId = default, string offset = default, int limit = default)
         {
             return client.ExecuteAsync(new GetGiftsForCrafting
             {

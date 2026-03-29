@@ -34,7 +34,7 @@ namespace TdLib
         /// Deletes saved order information
         /// </summary>
         public static Task<Ok> DeleteSavedOrderInfoAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new DeleteSavedOrderInfo
             {

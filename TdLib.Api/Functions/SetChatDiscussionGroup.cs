@@ -47,7 +47,7 @@ namespace TdLib
         /// Changes the discussion group of a channel chat; requires can_change_info administrator right in the channel if it is specified
         /// </summary>
         public static Task<Ok> SetChatDiscussionGroupAsync(
-            this Client client, long chatId = default, long discussionChatId = default)
+            this IClient client, long chatId = default, long discussionChatId = default)
         {
             return client.ExecuteAsync(new SetChatDiscussionGroup
             {

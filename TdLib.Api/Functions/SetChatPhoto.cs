@@ -46,7 +46,7 @@ namespace TdLib
         /// Changes the photo of a chat. Supported only for basic groups, supergroups and channels. Requires can_change_info member right
         /// </summary>
         public static Task<Ok> SetChatPhotoAsync(
-            this Client client, long chatId = default, InputChatPhoto photo = default)
+            this IClient client, long chatId = default, InputChatPhoto photo = default)
         {
             return client.ExecuteAsync(new SetChatPhoto
             {

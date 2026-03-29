@@ -60,7 +60,7 @@ namespace TdLib
         /// Sends a notification about user activity in a chat
         /// </summary>
         public static Task<Ok> SendChatActionAsync(
-            this Client client, long chatId = default, MessageTopic topicId = default, string businessConnectionId = default, ChatAction action = default)
+            this IClient client, long chatId = default, MessageTopic topicId = default, string businessConnectionId = default, ChatAction action = default)
         {
             return client.ExecuteAsync(new SendChatAction
             {

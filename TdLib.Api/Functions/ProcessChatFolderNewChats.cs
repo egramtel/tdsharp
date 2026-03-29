@@ -45,7 +45,7 @@ namespace TdLib
         /// Process new chats added to a shareable chat folder by its owner
         /// </summary>
         public static Task<Ok> ProcessChatFolderNewChatsAsync(
-            this Client client, int chatFolderId = default, long[] addedChatIds = default)
+            this IClient client, int chatFolderId = default, long[] addedChatIds = default)
         {
             return client.ExecuteAsync(new ProcessChatFolderNewChats
             {

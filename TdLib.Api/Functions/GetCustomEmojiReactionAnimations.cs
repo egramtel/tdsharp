@@ -34,7 +34,7 @@ namespace TdLib
         /// Returns TGS stickers with generic animations for custom emoji reactions
         /// </summary>
         public static Task<Stickers> GetCustomEmojiReactionAnimationsAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new GetCustomEmojiReactionAnimations
             {

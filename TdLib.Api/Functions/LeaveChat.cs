@@ -39,7 +39,7 @@ namespace TdLib
         /// Removes the current user from chat members. Private and secret chats can't be left using this method
         /// </summary>
         public static Task<Ok> LeaveChatAsync(
-            this Client client, long chatId = default)
+            this IClient client, long chatId = default)
         {
             return client.ExecuteAsync(new LeaveChat
             {

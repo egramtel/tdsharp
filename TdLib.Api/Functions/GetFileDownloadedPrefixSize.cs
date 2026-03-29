@@ -46,7 +46,7 @@ namespace TdLib
         /// Returns file downloaded prefix size from a given offset, in bytes
         /// </summary>
         public static Task<FileDownloadedPrefixSize> GetFileDownloadedPrefixSizeAsync(
-            this Client client, int fileId = default, long offset = default)
+            this IClient client, int fileId = default, long offset = default)
         {
             return client.ExecuteAsync(new GetFileDownloadedPrefixSize
             {

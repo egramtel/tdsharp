@@ -46,7 +46,7 @@ namespace TdLib
         /// Returns the most grossing Web App bots
         /// </summary>
         public static Task<FoundUsers> GetGrossingWebAppBotsAsync(
-            this Client client, string offset = default, int limit = default)
+            this IClient client, string offset = default, int limit = default)
         {
             return client.ExecuteAsync(new GetGrossingWebAppBots
             {

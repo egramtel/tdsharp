@@ -46,7 +46,7 @@ namespace TdLib
         /// Toggles whether all users directly joining the supergroup need to be approved by supergroup administrators; requires can_restrict_members administrator right
         /// </summary>
         public static Task<Ok> ToggleSupergroupJoinByRequestAsync(
-            this Client client, long supergroupId = default, bool joinByRequest = default)
+            this IClient client, long supergroupId = default, bool joinByRequest = default)
         {
             return client.ExecuteAsync(new ToggleSupergroupJoinByRequest
             {

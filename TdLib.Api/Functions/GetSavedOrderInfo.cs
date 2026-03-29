@@ -34,7 +34,7 @@ namespace TdLib
         /// Returns saved order information. Returns a 404 error if there is no saved order information
         /// </summary>
         public static Task<OrderInfo> GetSavedOrderInfoAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new GetSavedOrderInfo
             {

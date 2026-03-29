@@ -39,7 +39,7 @@ namespace TdLib
         /// Terminates a session of the current user
         /// </summary>
         public static Task<Ok> TerminateSessionAsync(
-            this Client client, long sessionId = default)
+            this IClient client, long sessionId = default)
         {
             return client.ExecuteAsync(new TerminateSession
             {

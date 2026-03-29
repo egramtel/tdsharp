@@ -46,7 +46,7 @@ namespace TdLib
         /// Deletes an invite link for a chat folder
         /// </summary>
         public static Task<Ok> DeleteChatFolderInviteLinkAsync(
-            this Client client, int chatFolderId = default, string inviteLink = default)
+            this IClient client, int chatFolderId = default, string inviteLink = default)
         {
             return client.ExecuteAsync(new DeleteChatFolderInviteLink
             {

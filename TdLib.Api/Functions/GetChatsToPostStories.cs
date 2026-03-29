@@ -34,7 +34,7 @@ namespace TdLib
         /// Returns supergroup and channel chats in which the current user has the right to post stories. The chats must be rechecked with canPostStory before actually trying to post a story there
         /// </summary>
         public static Task<Chats> GetChatsToPostStoriesAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new GetChatsToPostStories
             {

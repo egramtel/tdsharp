@@ -60,7 +60,7 @@ namespace TdLib
         /// Launches a prepaid giveaway
         /// </summary>
         public static Task<Ok> LaunchPrepaidGiveawayAsync(
-            this Client client, long giveawayId = default, GiveawayParameters parameters = default, int winnerCount = default, long starCount = default)
+            this IClient client, long giveawayId = default, GiveawayParameters parameters = default, int winnerCount = default, long starCount = default)
         {
             return client.ExecuteAsync(new LaunchPrepaidGiveaway
             {

@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns all scheduled messages in a chat. The messages are returned in reverse chronological order (i.e., in order of decreasing message_id)
         /// </summary>
         public static Task<Messages> GetChatScheduledMessagesAsync(
-            this Client client, long chatId = default)
+            this IClient client, long chatId = default)
         {
             return client.ExecuteAsync(new GetChatScheduledMessages
             {

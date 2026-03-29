@@ -53,7 +53,7 @@ namespace TdLib
         /// Edits the text of an inline text or game message sent via a bot; for bots only
         /// </summary>
         public static Task<Ok> EditInlineMessageTextAsync(
-            this Client client, string inlineMessageId = default, ReplyMarkup replyMarkup = default, InputMessageContent inputMessageContent = default)
+            this IClient client, string inlineMessageId = default, ReplyMarkup replyMarkup = default, InputMessageContent inputMessageContent = default)
         {
             return client.ExecuteAsync(new EditInlineMessageText
             {

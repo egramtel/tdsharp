@@ -39,7 +39,7 @@ namespace TdLib
         /// Searches a user by a token from the user's link
         /// </summary>
         public static Task<User> SearchUserByTokenAsync(
-            this Client client, string token = default)
+            this IClient client, string token = default)
         {
             return client.ExecuteAsync(new SearchUserByToken
             {

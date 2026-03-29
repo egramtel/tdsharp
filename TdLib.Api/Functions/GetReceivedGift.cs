@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns information about a received gift
         /// </summary>
         public static Task<ReceivedGift> GetReceivedGiftAsync(
-            this Client client, string receivedGiftId = default)
+            this IClient client, string receivedGiftId = default)
         {
             return client.ExecuteAsync(new GetReceivedGift
             {

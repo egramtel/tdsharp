@@ -46,7 +46,7 @@ namespace TdLib
         /// Returns information about a successful payment
         /// </summary>
         public static Task<PaymentReceipt> GetPaymentReceiptAsync(
-            this Client client, long chatId = default, long messageId = default)
+            this IClient client, long chatId = default, long messageId = default)
         {
             return client.ExecuteAsync(new GetPaymentReceipt
             {

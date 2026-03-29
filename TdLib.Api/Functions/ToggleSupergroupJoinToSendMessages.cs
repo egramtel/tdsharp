@@ -46,7 +46,7 @@ namespace TdLib
         /// Toggles whether joining is mandatory to send messages to a discussion supergroup; requires can_restrict_members administrator right
         /// </summary>
         public static Task<Ok> ToggleSupergroupJoinToSendMessagesAsync(
-            this Client client, long supergroupId = default, bool joinToSendMessages = default)
+            this IClient client, long supergroupId = default, bool joinToSendMessages = default)
         {
             return client.ExecuteAsync(new ToggleSupergroupJoinToSendMessages
             {

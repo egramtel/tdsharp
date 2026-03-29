@@ -34,7 +34,7 @@ namespace TdLib
         /// Returns an HTTPS link, which can be used to get information about the current user
         /// </summary>
         public static Task<UserLink> GetUserLinkAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new GetUserLink
             {

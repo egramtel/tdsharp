@@ -46,7 +46,7 @@ namespace TdLib
         /// Returns the name of a bot in the given language. Can be called only if userTypeBot.can_be_edited == true
         /// </summary>
         public static Task<Text> GetBotNameAsync(
-            this Client client, long botUserId = default, string languageCode = default)
+            this IClient client, long botUserId = default, string languageCode = default)
         {
             return client.ExecuteAsync(new GetBotName
             {

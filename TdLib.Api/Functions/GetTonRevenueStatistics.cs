@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns detailed Toncoin revenue statistics of the current user
         /// </summary>
         public static Task<TonRevenueStatistics> GetTonRevenueStatisticsAsync(
-            this Client client, bool isDark = default)
+            this IClient client, bool isDark = default)
         {
             return client.ExecuteAsync(new GetTonRevenueStatistics
             {

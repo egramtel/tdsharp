@@ -46,7 +46,7 @@ namespace TdLib
         /// Changes information about a chat. Available for basic groups, supergroups, and channels. Requires can_change_info member right
         /// </summary>
         public static Task<Ok> SetChatDescriptionAsync(
-            this Client client, long chatId = default, string description = default)
+            this IClient client, long chatId = default, string description = default)
         {
             return client.ExecuteAsync(new SetChatDescription
             {

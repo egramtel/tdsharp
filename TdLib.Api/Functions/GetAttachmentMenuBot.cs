@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns information about a bot that can be added to attachment or side menu
         /// </summary>
         public static Task<AttachmentMenuBot> GetAttachmentMenuBotAsync(
-            this Client client, long botUserId = default)
+            this IClient client, long botUserId = default)
         {
             return client.ExecuteAsync(new GetAttachmentMenuBot
             {

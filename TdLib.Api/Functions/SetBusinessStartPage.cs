@@ -39,7 +39,7 @@ namespace TdLib
         /// Changes the business start page of the current user. Requires Telegram Business subscription
         /// </summary>
         public static Task<Ok> SetBusinessStartPageAsync(
-            this Client client, InputBusinessStartPage startPage = default)
+            this IClient client, InputBusinessStartPage startPage = default)
         {
             return client.ExecuteAsync(new SetBusinessStartPage
             {

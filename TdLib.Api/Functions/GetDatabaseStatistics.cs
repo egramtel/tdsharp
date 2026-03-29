@@ -34,7 +34,7 @@ namespace TdLib
         /// Returns database statistics
         /// </summary>
         public static Task<DatabaseStatistics> GetDatabaseStatisticsAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new GetDatabaseStatistics
             {

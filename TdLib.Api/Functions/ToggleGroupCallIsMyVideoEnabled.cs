@@ -46,7 +46,7 @@ namespace TdLib
         /// Toggles whether current user's video is enabled
         /// </summary>
         public static Task<Ok> ToggleGroupCallIsMyVideoEnabledAsync(
-            this Client client, int groupCallId = default, bool isMyVideoEnabled = default)
+            this IClient client, int groupCallId = default, bool isMyVideoEnabled = default)
         {
             return client.ExecuteAsync(new ToggleGroupCallIsMyVideoEnabled
             {

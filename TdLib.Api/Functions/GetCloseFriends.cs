@@ -34,7 +34,7 @@ namespace TdLib
         /// Returns all close friends of the current user
         /// </summary>
         public static Task<Users> GetCloseFriendsAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new GetCloseFriends
             {

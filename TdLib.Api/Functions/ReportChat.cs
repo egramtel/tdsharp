@@ -59,7 +59,7 @@ namespace TdLib
         /// Reports a chat to the Telegram moderators. A chat can be reported only from the chat action bar, or if chat.can_be_reported
         /// </summary>
         public static Task<ReportChatResult> ReportChatAsync(
-            this Client client, long chatId = default, byte[] optionId = default, long[] messageIds = default, string text = default)
+            this IClient client, long chatId = default, byte[] optionId = default, long[] messageIds = default, string text = default)
         {
             return client.ExecuteAsync(new ReportChat
             {

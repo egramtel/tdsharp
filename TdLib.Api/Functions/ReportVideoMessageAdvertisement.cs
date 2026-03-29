@@ -46,7 +46,7 @@ namespace TdLib
         /// Reports a video message advertisement to Telegram moderators
         /// </summary>
         public static Task<ReportSponsoredResult> ReportVideoMessageAdvertisementAsync(
-            this Client client, long advertisementUniqueId = default, byte[] optionId = default)
+            this IClient client, long advertisementUniqueId = default, byte[] optionId = default)
         {
             return client.ExecuteAsync(new ReportVideoMessageAdvertisement
             {

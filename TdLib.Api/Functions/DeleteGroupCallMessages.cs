@@ -52,7 +52,7 @@ namespace TdLib
         /// Deletes messages in a group call; for live story calls only. Requires groupCallMessage.can_be_deleted right
         /// </summary>
         public static Task<Ok> DeleteGroupCallMessagesAsync(
-            this Client client, int groupCallId = default, int[] messageIds = default, bool reportSpam = default)
+            this IClient client, int groupCallId = default, int[] messageIds = default, bool reportSpam = default)
         {
             return client.ExecuteAsync(new DeleteGroupCallMessages
             {

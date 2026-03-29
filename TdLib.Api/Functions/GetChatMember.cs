@@ -46,7 +46,7 @@ namespace TdLib
         /// Returns information about a single member of a chat
         /// </summary>
         public static Task<ChatMember> GetChatMemberAsync(
-            this Client client, long chatId = default, MessageSender memberId = default)
+            this IClient client, long chatId = default, MessageSender memberId = default)
         {
             return client.ExecuteAsync(new GetChatMember
             {

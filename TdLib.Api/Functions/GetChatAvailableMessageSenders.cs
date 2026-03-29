@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns the list of message sender identifiers, which can be used to send messages in a chat
         /// </summary>
         public static Task<ChatMessageSenders> GetChatAvailableMessageSendersAsync(
-            this Client client, long chatId = default)
+            this IClient client, long chatId = default)
         {
             return client.ExecuteAsync(new GetChatAvailableMessageSenders
             {

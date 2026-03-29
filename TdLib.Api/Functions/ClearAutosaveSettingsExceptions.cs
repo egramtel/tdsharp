@@ -34,7 +34,7 @@ namespace TdLib
         /// Clears the list of all autosave settings exceptions. The method is guaranteed to work only after at least one call to getAutosaveSettings
         /// </summary>
         public static Task<Ok> ClearAutosaveSettingsExceptionsAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new ClearAutosaveSettingsExceptions
             {

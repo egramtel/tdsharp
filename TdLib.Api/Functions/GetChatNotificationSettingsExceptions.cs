@@ -46,7 +46,7 @@ namespace TdLib
         /// Returns the list of chats with non-default notification settings for new messages
         /// </summary>
         public static Task<Chats> GetChatNotificationSettingsExceptionsAsync(
-            this Client client, NotificationSettingsScope scope = default, bool compareSound = default)
+            this IClient client, NotificationSettingsScope scope = default, bool compareSound = default)
         {
             return client.ExecuteAsync(new GetChatNotificationSettingsExceptions
             {

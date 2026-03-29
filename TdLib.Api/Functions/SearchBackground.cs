@@ -39,7 +39,7 @@ namespace TdLib
         /// Searches for a background by its name
         /// </summary>
         public static Task<Background> SearchBackgroundAsync(
-            this Client client, string name = default)
+            this IClient client, string name = default)
         {
             return client.ExecuteAsync(new SearchBackground
             {

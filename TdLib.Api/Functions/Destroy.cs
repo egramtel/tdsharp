@@ -36,7 +36,7 @@ namespace TdLib
         /// After the destruction completes updateAuthorizationState with authorizationStateClosed will be sent. Can be called before authorization
         /// </summary>
         public static Task<Ok> DestroyAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new Destroy
             {

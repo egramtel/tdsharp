@@ -46,7 +46,7 @@ namespace TdLib
         /// Adds, edits or deletes a string in a custom local language pack. Can be called before authorization
         /// </summary>
         public static Task<Ok> SetCustomLanguagePackStringAsync(
-            this Client client, string languagePackId = default, LanguagePackString newString = default)
+            this IClient client, string languagePackId = default, LanguagePackString newString = default)
         {
             return client.ExecuteAsync(new SetCustomLanguagePackString
             {

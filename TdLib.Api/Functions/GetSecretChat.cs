@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns information about a secret chat by its identifier. This is an offline method
         /// </summary>
         public static Task<SecretChat> GetSecretChatAsync(
-            this Client client, int secretChatId = default)
+            this IClient client, int secretChatId = default)
         {
             return client.ExecuteAsync(new GetSecretChat
             {

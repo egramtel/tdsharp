@@ -39,7 +39,7 @@ namespace TdLib
         /// Shares the phone number of the current user with a mutual contact. Supposed to be called when the user clicks on chatActionBarSharePhoneNumber
         /// </summary>
         public static Task<Ok> SharePhoneNumberAsync(
-            this Client client, long userId = default)
+            this IClient client, long userId = default)
         {
             return client.ExecuteAsync(new SharePhoneNumber
             {

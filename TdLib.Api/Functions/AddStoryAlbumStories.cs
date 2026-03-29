@@ -54,7 +54,7 @@ namespace TdLib
         /// requires can_edit_stories administrator right in the chat. Returns the changed album
         /// </summary>
         public static Task<StoryAlbum> AddStoryAlbumStoriesAsync(
-            this Client client, long chatId = default, int storyAlbumId = default, int[] storyIds = default)
+            this IClient client, long chatId = default, int storyAlbumId = default, int[] storyIds = default)
         {
             return client.ExecuteAsync(new AddStoryAlbumStories
             {

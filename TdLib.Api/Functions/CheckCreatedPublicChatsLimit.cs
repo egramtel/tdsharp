@@ -39,7 +39,7 @@ namespace TdLib
         /// Checks whether the maximum number of owned public chats has been reached. Returns corresponding error if the limit was reached. The limit can be increased with Telegram Premium
         /// </summary>
         public static Task<Ok> CheckCreatedPublicChatsLimitAsync(
-            this Client client, PublicChatType type = default)
+            this IClient client, PublicChatType type = default)
         {
             return client.ExecuteAsync(new CheckCreatedPublicChatsLimit
             {

@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns an IETF language tag of the language preferred in the country, which must be used to fill native fields in Telegram Passport personal details. Returns a 404 error if unknown
         /// </summary>
         public static Task<Text> GetPreferredCountryLanguageAsync(
-            this Client client, string countryCode = default)
+            this IClient client, string countryCode = default)
         {
             return client.ExecuteAsync(new GetPreferredCountryLanguage
             {

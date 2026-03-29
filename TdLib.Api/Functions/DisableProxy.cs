@@ -34,7 +34,7 @@ namespace TdLib
         /// Disables the currently enabled proxy. Can be called before authorization
         /// </summary>
         public static Task<Ok> DisableProxyAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new DisableProxy
             {

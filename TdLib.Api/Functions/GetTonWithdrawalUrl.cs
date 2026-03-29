@@ -41,7 +41,7 @@ namespace TdLib
         /// and can withdraw up to 100000 Toncoins in one transaction
         /// </summary>
         public static Task<HttpUrl> GetTonWithdrawalUrlAsync(
-            this Client client, string password = default)
+            this IClient client, string password = default)
         {
             return client.ExecuteAsync(new GetTonWithdrawalUrl
             {

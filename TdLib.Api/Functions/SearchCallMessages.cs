@@ -53,7 +53,7 @@ namespace TdLib
         /// Searches for call and group call messages. Returns the results in reverse chronological order (i.e., in order of decreasing message_id). For optimal performance, the number of returned messages is chosen by TDLib
         /// </summary>
         public static Task<FoundMessages> SearchCallMessagesAsync(
-            this Client client, string offset = default, int limit = default, bool onlyMissed = default)
+            this IClient client, string offset = default, int limit = default, bool onlyMissed = default)
         {
             return client.ExecuteAsync(new SearchCallMessages
             {

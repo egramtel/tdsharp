@@ -52,7 +52,7 @@ namespace TdLib
         /// Deletes media previews from the list of media previews of a bot
         /// </summary>
         public static Task<Ok> DeleteBotMediaPreviewsAsync(
-            this Client client, long botUserId = default, string languageCode = default, int[] fileIds = default)
+            this IClient client, long botUserId = default, string languageCode = default, int[] fileIds = default)
         {
             return client.ExecuteAsync(new DeleteBotMediaPreviews
             {

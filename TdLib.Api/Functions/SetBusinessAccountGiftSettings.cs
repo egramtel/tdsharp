@@ -46,7 +46,7 @@ namespace TdLib
         /// Changes settings for gift receiving of a business account; for bots only
         /// </summary>
         public static Task<Ok> SetBusinessAccountGiftSettingsAsync(
-            this Client client, string businessConnectionId = default, GiftSettings settings = default)
+            this IClient client, string businessConnectionId = default, GiftSettings settings = default)
         {
             return client.ExecuteAsync(new SetBusinessAccountGiftSettings
             {

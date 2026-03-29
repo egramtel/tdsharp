@@ -60,7 +60,7 @@ namespace TdLib
         /// Starts recording of an active group call; for video chats only. Requires groupCall.can_be_managed right
         /// </summary>
         public static Task<Ok> StartGroupCallRecordingAsync(
-            this Client client, int groupCallId = default, string title = default, bool recordVideo = default, bool usePortraitOrientation = default)
+            this IClient client, int groupCallId = default, string title = default, bool recordVideo = default, bool usePortraitOrientation = default)
         {
             return client.ExecuteAsync(new StartGroupCallRecording
             {

@@ -39,7 +39,7 @@ namespace TdLib
         /// Replaces the current RTMP URL for streaming to the video chat of a chat; requires owner privileges in the chat
         /// </summary>
         public static Task<RtmpUrl> ReplaceVideoChatRtmpUrlAsync(
-            this Client client, long chatId = default)
+            this IClient client, long chatId = default)
         {
             return client.ExecuteAsync(new ReplaceVideoChatRtmpUrl
             {

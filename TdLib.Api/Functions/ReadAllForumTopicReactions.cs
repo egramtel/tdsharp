@@ -46,7 +46,7 @@ namespace TdLib
         /// Marks all reactions in a topic in a forum supergroup chat or a chat with a bot with topics as read
         /// </summary>
         public static Task<Ok> ReadAllForumTopicReactionsAsync(
-            this Client client, long chatId = default, int forumTopicId = default)
+            this IClient client, long chatId = default, int forumTopicId = default)
         {
             return client.ExecuteAsync(new ReadAllForumTopicReactions
             {

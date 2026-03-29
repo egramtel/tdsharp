@@ -34,7 +34,7 @@ namespace TdLib
         /// Returns promotional anumation for upgraded gifts
         /// </summary>
         public static Task<Animation> GetUpgradedGiftsPromotionalAnimationAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new GetUpgradedGiftsPromotionalAnimation
             {

@@ -46,7 +46,7 @@ namespace TdLib
         /// Toggles whether new participants of a video chat can be unmuted only by administrators of the video chat. Requires groupCall.can_toggle_mute_new_participants right
         /// </summary>
         public static Task<Ok> ToggleVideoChatMuteNewParticipantsAsync(
-            this Client client, int groupCallId = default, bool muteNewParticipants = default)
+            this IClient client, int groupCallId = default, bool muteNewParticipants = default)
         {
             return client.ExecuteAsync(new ToggleVideoChatMuteNewParticipants
             {

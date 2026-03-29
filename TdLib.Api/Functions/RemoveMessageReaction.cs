@@ -53,7 +53,7 @@ namespace TdLib
         /// Removes a reaction from a message. A chosen reaction can always be removed
         /// </summary>
         public static Task<Ok> RemoveMessageReactionAsync(
-            this Client client, long chatId = default, long messageId = default, ReactionType reactionType = default)
+            this IClient client, long chatId = default, long messageId = default, ReactionType reactionType = default)
         {
             return client.ExecuteAsync(new RemoveMessageReaction
             {

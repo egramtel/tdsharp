@@ -41,7 +41,7 @@ namespace TdLib
         /// Excludes private chats with contacts and chats from the chat list from the results
         /// </summary>
         public static Task<Chats> SearchPublicChatsAsync(
-            this Client client, string query = default)
+            this IClient client, string query = default)
         {
             return client.ExecuteAsync(new SearchPublicChats
             {

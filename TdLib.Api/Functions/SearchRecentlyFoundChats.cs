@@ -46,7 +46,7 @@ namespace TdLib
         /// Searches for the specified query in the title and username of up to 50 recently found chats. This is an offline method
         /// </summary>
         public static Task<Chats> SearchRecentlyFoundChatsAsync(
-            this Client client, string query = default, int limit = default)
+            this IClient client, string query = default, int limit = default)
         {
             return client.ExecuteAsync(new SearchRecentlyFoundChats
             {

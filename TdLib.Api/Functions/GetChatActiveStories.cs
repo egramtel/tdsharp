@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns the list of active stories posted by the given chat
         /// </summary>
         public static Task<ChatActiveStories> GetChatActiveStoriesAsync(
-            this Client client, long chatId = default)
+            this IClient client, long chatId = default)
         {
             return client.ExecuteAsync(new GetChatActiveStories
             {

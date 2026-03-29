@@ -46,7 +46,7 @@ namespace TdLib
         /// Adds a passkey allowed to be used for the login by the current user and returns the added passkey. Call getPasskeyParameters to get parameters for creating of the passkey
         /// </summary>
         public static Task<Passkey> AddLoginPasskeyAsync(
-            this Client client, string clientData = default, byte[] attestationObject = default)
+            this IClient client, string clientData = default, byte[] attestationObject = default)
         {
             return client.ExecuteAsync(new AddLoginPasskey
             {

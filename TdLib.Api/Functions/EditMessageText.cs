@@ -60,7 +60,7 @@ namespace TdLib
         /// Edits the text of a message (or a text of a game message). Returns the edited message after the edit is completed on the server side
         /// </summary>
         public static Task<Message> EditMessageTextAsync(
-            this Client client, long chatId = default, long messageId = default, ReplyMarkup replyMarkup = default, InputMessageContent inputMessageContent = default)
+            this IClient client, long chatId = default, long messageId = default, ReplyMarkup replyMarkup = default, InputMessageContent inputMessageContent = default)
         {
             return client.ExecuteAsync(new EditMessageText
             {

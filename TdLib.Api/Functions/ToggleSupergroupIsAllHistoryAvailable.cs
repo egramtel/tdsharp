@@ -46,7 +46,7 @@ namespace TdLib
         /// Toggles whether the message history of a supergroup is available to new members; requires can_change_info member right
         /// </summary>
         public static Task<Ok> ToggleSupergroupIsAllHistoryAvailableAsync(
-            this Client client, long supergroupId = default, bool isAllHistoryAvailable = default)
+            this IClient client, long supergroupId = default, bool isAllHistoryAvailable = default)
         {
             return client.ExecuteAsync(new ToggleSupergroupIsAllHistoryAvailable
             {

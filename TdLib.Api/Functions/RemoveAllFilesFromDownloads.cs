@@ -53,7 +53,7 @@ namespace TdLib
         /// Removes all files from the file download list
         /// </summary>
         public static Task<Ok> RemoveAllFilesFromDownloadsAsync(
-            this Client client, bool onlyActive = default, bool onlyCompleted = default, bool deleteFromCache = default)
+            this IClient client, bool onlyActive = default, bool onlyCompleted = default, bool deleteFromCache = default)
         {
             return client.ExecuteAsync(new RemoveAllFilesFromDownloads
             {

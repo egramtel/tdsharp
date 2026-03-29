@@ -39,7 +39,7 @@ namespace TdLib
         /// Removes a chat action bar without any other action
         /// </summary>
         public static Task<Ok> RemoveChatActionBarAsync(
-            this Client client, long chatId = default)
+            this IClient client, long chatId = default)
         {
             return client.ExecuteAsync(new RemoveChatActionBar
             {

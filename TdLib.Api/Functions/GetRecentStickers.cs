@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns a list of recently used stickers
         /// </summary>
         public static Task<Stickers> GetRecentStickersAsync(
-            this Client client, bool isAttached = default)
+            this IClient client, bool isAttached = default)
         {
             return client.ExecuteAsync(new GetRecentStickers
             {

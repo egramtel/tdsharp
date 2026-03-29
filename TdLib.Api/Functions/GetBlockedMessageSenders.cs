@@ -53,7 +53,7 @@ namespace TdLib
         /// Returns users and chats that were blocked by the current user
         /// </summary>
         public static Task<MessageSenders> GetBlockedMessageSendersAsync(
-            this Client client, BlockList blockList = default, int offset = default, int limit = default)
+            this IClient client, BlockList blockList = default, int offset = default, int limit = default)
         {
             return client.ExecuteAsync(new GetBlockedMessageSenders
             {

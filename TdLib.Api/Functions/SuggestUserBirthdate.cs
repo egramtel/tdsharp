@@ -46,7 +46,7 @@ namespace TdLib
         /// Suggests a birthdate to another regular user with common messages and allowing non-paid messages
         /// </summary>
         public static Task<Ok> SuggestUserBirthdateAsync(
-            this Client client, long userId = default, Birthdate birthdate = default)
+            this IClient client, long userId = default, Birthdate birthdate = default)
         {
             return client.ExecuteAsync(new SuggestUserBirthdate
             {

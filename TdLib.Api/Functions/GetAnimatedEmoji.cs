@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns an animated emoji corresponding to a given emoji. Returns a 404 error if the emoji has no animated emoji
         /// </summary>
         public static Task<AnimatedEmoji> GetAnimatedEmojiAsync(
-            this Client client, string emoji = default)
+            this IClient client, string emoji = default)
         {
             return client.ExecuteAsync(new GetAnimatedEmoji
             {

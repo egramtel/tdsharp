@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns sponsored chats to be shown in the search results
         /// </summary>
         public static Task<SponsoredChats> GetSearchSponsoredChatsAsync(
-            this Client client, string query = default)
+            this IClient client, string query = default)
         {
             return client.ExecuteAsync(new GetSearchSponsoredChats
             {

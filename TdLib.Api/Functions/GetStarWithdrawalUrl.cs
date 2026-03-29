@@ -53,7 +53,7 @@ namespace TdLib
         /// Returns a URL for Telegram Star withdrawal
         /// </summary>
         public static Task<HttpUrl> GetStarWithdrawalUrlAsync(
-            this Client client, MessageSender ownerId = default, long starCount = default, string password = default)
+            this IClient client, MessageSender ownerId = default, long starCount = default, string password = default)
         {
             return client.ExecuteAsync(new GetStarWithdrawalUrl
             {

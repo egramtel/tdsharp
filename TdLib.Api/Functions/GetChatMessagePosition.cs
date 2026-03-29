@@ -60,7 +60,7 @@ namespace TdLib
         /// Returns approximate 1-based position of a message among messages, which can be found by the specified filter in the chat and topic. Cannot be used in secret chats
         /// </summary>
         public static Task<Count> GetChatMessagePositionAsync(
-            this Client client, long chatId = default, MessageTopic topicId = default, SearchMessagesFilter filter = default, long messageId = default)
+            this IClient client, long chatId = default, MessageTopic topicId = default, SearchMessagesFilter filter = default, long messageId = default)
         {
             return client.ExecuteAsync(new GetChatMessagePosition
             {

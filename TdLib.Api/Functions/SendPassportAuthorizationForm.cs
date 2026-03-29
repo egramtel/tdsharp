@@ -45,7 +45,7 @@ namespace TdLib
         /// Sends a Telegram Passport authorization form, effectively sharing data with the service. This method must be called after getPassportAuthorizationFormAvailableElements if some previously available elements are going to be reused
         /// </summary>
         public static Task<Ok> SendPassportAuthorizationFormAsync(
-            this Client client, int authorizationFormId = default, PassportElementType[] types = default)
+            this IClient client, int authorizationFormId = default, PassportElementType[] types = default)
         {
             return client.ExecuteAsync(new SendPassportAuthorizationForm
             {

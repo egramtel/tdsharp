@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns information about an emoji reaction. Returns a 404 error if the reaction is not found
         /// </summary>
         public static Task<EmojiReaction> GetEmojiReactionAsync(
-            this Client client, string emoji = default)
+            this IClient client, string emoji = default)
         {
             return client.ExecuteAsync(new GetEmojiReaction
             {

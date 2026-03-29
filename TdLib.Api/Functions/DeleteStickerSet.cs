@@ -39,7 +39,7 @@ namespace TdLib
         /// Completely deletes a sticker set
         /// </summary>
         public static Task<Ok> DeleteStickerSetAsync(
-            this Client client, string name = default)
+            this IClient client, string name = default)
         {
             return client.ExecuteAsync(new DeleteStickerSet
             {

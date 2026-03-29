@@ -34,7 +34,7 @@ namespace TdLib
         /// Resets all chat and scope notification settings to their default values. By default, all chats are unmuted and message previews are shown
         /// </summary>
         public static Task<Ok> ResetAllNotificationSettingsAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new ResetAllNotificationSettings
             {

@@ -46,7 +46,7 @@ namespace TdLib
         /// Handles a pending gift purchase offer
         /// </summary>
         public static Task<Ok> ProcessGiftPurchaseOfferAsync(
-            this Client client, long messageId = default, bool accept = default)
+            this IClient client, long messageId = default, bool accept = default)
         {
             return client.ExecuteAsync(new ProcessGiftPurchaseOffer
             {

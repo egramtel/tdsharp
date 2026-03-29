@@ -34,7 +34,7 @@ namespace TdLib
         /// Clears the list of recently used reactions
         /// </summary>
         public static Task<Ok> ClearRecentReactionsAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new ClearRecentReactions
             {

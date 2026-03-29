@@ -39,7 +39,7 @@ namespace TdLib
         /// Checks the authentication code and completes the request for which the code was sent if appropriate
         /// </summary>
         public static Task<Ok> CheckPhoneNumberCodeAsync(
-            this Client client, string code = default)
+            this IClient client, string code = default)
         {
             return client.ExecuteAsync(new CheckPhoneNumberCode
             {

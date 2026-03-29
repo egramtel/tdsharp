@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns a list of bots similar to the given bot
         /// </summary>
         public static Task<Users> GetBotSimilarBotsAsync(
-            this Client client, long botUserId = default)
+            this IClient client, long botUserId = default)
         {
             return client.ExecuteAsync(new GetBotSimilarBots
             {

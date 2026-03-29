@@ -46,7 +46,7 @@ namespace TdLib
         /// Returns available to the current user gift chat themes
         /// </summary>
         public static Task<GiftChatThemes> GetGiftChatThemesAsync(
-            this Client client, string offset = default, int limit = default)
+            this IClient client, string offset = default, int limit = default)
         {
             return client.ExecuteAsync(new GetGiftChatThemes
             {

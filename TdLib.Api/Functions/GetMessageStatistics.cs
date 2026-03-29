@@ -53,7 +53,7 @@ namespace TdLib
         /// Returns detailed statistics about a message. Can be used only if messageProperties.can_get_statistics == true
         /// </summary>
         public static Task<MessageStatistics> GetMessageStatisticsAsync(
-            this Client client, long chatId = default, long messageId = default, bool isDark = default)
+            this IClient client, long chatId = default, long messageId = default, bool isDark = default)
         {
             return client.ExecuteAsync(new GetMessageStatistics
             {

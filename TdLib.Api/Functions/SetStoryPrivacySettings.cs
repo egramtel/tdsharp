@@ -46,7 +46,7 @@ namespace TdLib
         /// Changes privacy settings of a story. The method can be called only for stories posted on behalf of the current user and if story.can_set_privacy_settings == true
         /// </summary>
         public static Task<Ok> SetStoryPrivacySettingsAsync(
-            this Client client, int storyId = default, StoryPrivacySettings privacySettings = default)
+            this IClient client, int storyId = default, StoryPrivacySettings privacySettings = default)
         {
             return client.ExecuteAsync(new SetStoryPrivacySettings
             {

@@ -39,7 +39,7 @@ namespace TdLib
         /// Changes the business location of the current user. Requires Telegram Business subscription
         /// </summary>
         public static Task<Ok> SetBusinessLocationAsync(
-            this Client client, BusinessLocation location = default)
+            this IClient client, BusinessLocation location = default)
         {
             return client.ExecuteAsync(new SetBusinessLocation
             {

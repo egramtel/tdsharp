@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns default icon name for a folder. Can be called synchronously
         /// </summary>
         public static Task<ChatFolderIcon> GetChatFolderDefaultIconNameAsync(
-            this Client client, ChatFolder folder = default)
+            this IClient client, ChatFolder folder = default)
         {
             return client.ExecuteAsync(new GetChatFolderDefaultIconName
             {

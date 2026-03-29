@@ -34,7 +34,7 @@ namespace TdLib
         /// Returns localized name of the Telegram support user; for Telegram support only
         /// </summary>
         public static Task<Text> GetSupportNameAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new GetSupportName
             {

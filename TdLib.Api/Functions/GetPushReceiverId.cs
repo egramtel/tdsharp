@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns a globally unique push notification subscription identifier for identification of an account, which has received a push notification. Can be called synchronously
         /// </summary>
         public static Task<PushReceiverId> GetPushReceiverIdAsync(
-            this Client client, string payload = default)
+            this IClient client, string payload = default)
         {
             return client.ExecuteAsync(new GetPushReceiverId
             {

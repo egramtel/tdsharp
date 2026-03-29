@@ -34,7 +34,7 @@ namespace TdLib
         /// Returns the current state of stake dice
         /// </summary>
         public static Task<StakeDiceState> GetStakeDiceStateAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new GetStakeDiceState
             {

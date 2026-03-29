@@ -46,7 +46,7 @@ namespace TdLib
         /// Deletes a previously posted story. Can be called only if story.can_be_deleted == true
         /// </summary>
         public static Task<Ok> DeleteStoryAsync(
-            this Client client, long storyPosterChatId = default, int storyId = default)
+            this IClient client, long storyPosterChatId = default, int storyId = default)
         {
             return client.ExecuteAsync(new DeleteStory
             {

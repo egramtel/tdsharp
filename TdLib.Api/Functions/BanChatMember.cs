@@ -60,7 +60,7 @@ namespace TdLib
         /// Bans a member in a chat; requires can_restrict_members administrator right. Members can't be banned in private or secret chats. In supergroups and channels, the user will not be able to return to the group on their own using invite links, etc., unless unbanned first
         /// </summary>
         public static Task<Ok> BanChatMemberAsync(
-            this Client client, long chatId = default, MessageSender memberId = default, int bannedUntilDate = default, bool revokeMessages = default)
+            this IClient client, long chatId = default, MessageSender memberId = default, int bannedUntilDate = default, bool revokeMessages = default)
         {
             return client.ExecuteAsync(new BanChatMember
             {

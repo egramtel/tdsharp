@@ -34,7 +34,7 @@ namespace TdLib
         /// Checks whether the current session can be used to transfer a chat ownership to another user
         /// </summary>
         public static Task<CanTransferOwnershipResult> CanTransferOwnershipAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new CanTransferOwnership
             {

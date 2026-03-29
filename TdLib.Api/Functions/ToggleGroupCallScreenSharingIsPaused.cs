@@ -46,7 +46,7 @@ namespace TdLib
         /// Pauses or unpauses screen sharing in a joined group call; not supported in live stories
         /// </summary>
         public static Task<Ok> ToggleGroupCallScreenSharingIsPausedAsync(
-            this Client client, int groupCallId = default, bool isPaused = default)
+            this IClient client, int groupCallId = default, bool isPaused = default)
         {
             return client.ExecuteAsync(new ToggleGroupCallScreenSharingIsPaused
             {

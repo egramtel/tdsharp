@@ -47,7 +47,7 @@ namespace TdLib
         /// Changes affiliate program for a bot
         /// </summary>
         public static Task<Ok> SetChatAffiliateProgramAsync(
-            this Client client, long chatId = default, AffiliateProgramParameters parameters = default)
+            this IClient client, long chatId = default, AffiliateProgramParameters parameters = default)
         {
             return client.ExecuteAsync(new SetChatAffiliateProgram
             {

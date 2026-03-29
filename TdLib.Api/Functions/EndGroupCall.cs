@@ -39,7 +39,7 @@ namespace TdLib
         /// Ends a group call. Requires groupCall.can_be_managed right for video chats and live stories or groupCall.is_owned otherwise
         /// </summary>
         public static Task<Ok> EndGroupCallAsync(
-            this Client client, int groupCallId = default)
+            this IClient client, int groupCallId = default)
         {
             return client.ExecuteAsync(new EndGroupCall
             {

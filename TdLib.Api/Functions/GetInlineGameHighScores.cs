@@ -46,7 +46,7 @@ namespace TdLib
         /// Returns game high scores and some part of the high score table in the range of the specified user; for bots only
         /// </summary>
         public static Task<GameHighScores> GetInlineGameHighScoresAsync(
-            this Client client, string inlineMessageId = default, long userId = default)
+            this IClient client, string inlineMessageId = default, long userId = default)
         {
             return client.ExecuteAsync(new GetInlineGameHighScores
             {

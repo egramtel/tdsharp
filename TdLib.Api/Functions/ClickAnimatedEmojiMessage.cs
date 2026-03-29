@@ -46,7 +46,7 @@ namespace TdLib
         /// Informs TDLib that a message with an animated emoji was clicked by the user. Returns a big animated sticker to be played or a 404 error if usual animation needs to be played
         /// </summary>
         public static Task<Sticker> ClickAnimatedEmojiMessageAsync(
-            this Client client, long chatId = default, long messageId = default)
+            this IClient client, long chatId = default, long messageId = default)
         {
             return client.ExecuteAsync(new ClickAnimatedEmojiMessage
             {

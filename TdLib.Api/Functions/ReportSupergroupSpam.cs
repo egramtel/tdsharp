@@ -45,7 +45,7 @@ namespace TdLib
         /// Reports messages in a supergroup as spam; requires administrator rights in the supergroup
         /// </summary>
         public static Task<Ok> ReportSupergroupSpamAsync(
-            this Client client, long supergroupId = default, long[] messageIds = default)
+            this IClient client, long supergroupId = default, long[] messageIds = default)
         {
             return client.ExecuteAsync(new ReportSupergroupSpam
             {

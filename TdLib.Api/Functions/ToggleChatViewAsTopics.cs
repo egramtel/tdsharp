@@ -46,7 +46,7 @@ namespace TdLib
         /// Changes the view_as_topics setting of a forum chat or Saved Messages
         /// </summary>
         public static Task<Ok> ToggleChatViewAsTopicsAsync(
-            this Client client, long chatId = default, bool viewAsTopics = default)
+            this IClient client, long chatId = default, bool viewAsTopics = default)
         {
             return client.ExecuteAsync(new ToggleChatViewAsTopics
             {

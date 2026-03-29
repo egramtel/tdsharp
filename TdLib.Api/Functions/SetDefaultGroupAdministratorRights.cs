@@ -39,7 +39,7 @@ namespace TdLib
         /// Sets default administrator rights for adding the bot to basic group and supergroup chats; for bots only
         /// </summary>
         public static Task<Ok> SetDefaultGroupAdministratorRightsAsync(
-            this Client client, ChatAdministratorRights defaultGroupAdministratorRights = default)
+            this IClient client, ChatAdministratorRights defaultGroupAdministratorRights = default)
         {
             return client.ExecuteAsync(new SetDefaultGroupAdministratorRights
             {

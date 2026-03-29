@@ -46,7 +46,7 @@ namespace TdLib
         /// Sets a custom emoji sticker set thumbnail
         /// </summary>
         public static Task<Ok> SetCustomEmojiStickerSetThumbnailAsync(
-            this Client client, string name = default, long customEmojiId = default)
+            this IClient client, string name = default, long customEmojiId = default)
         {
             return client.ExecuteAsync(new SetCustomEmojiStickerSetThumbnail
             {

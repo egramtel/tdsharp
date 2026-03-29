@@ -39,7 +39,7 @@ namespace TdLib
         /// Checks whether a gift with next_send_date in the future can be sent already
         /// </summary>
         public static Task<CanSendGiftResult> CanSendGiftAsync(
-            this Client client, long giftId = default)
+            this IClient client, long giftId = default)
         {
             return client.ExecuteAsync(new CanSendGift
             {

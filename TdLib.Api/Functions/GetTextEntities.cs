@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns all entities (mentions, hashtags, cashtags, bot commands, bank card numbers, URLs, and email addresses) found in the text. Can be called synchronously
         /// </summary>
         public static Task<TextEntities> GetTextEntitiesAsync(
-            this Client client, string text = default)
+            this IClient client, string text = default)
         {
             return client.ExecuteAsync(new GetTextEntities
             {

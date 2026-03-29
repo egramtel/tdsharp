@@ -46,7 +46,7 @@ namespace TdLib
         /// Accepts an incoming call
         /// </summary>
         public static Task<Ok> AcceptCallAsync(
-            this Client client, int callId = default, CallProtocol protocol = default)
+            this IClient client, int callId = default, CallProtocol protocol = default)
         {
             return client.ExecuteAsync(new AcceptCall
             {

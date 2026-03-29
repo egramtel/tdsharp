@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns the received string; for testing only. This is an offline method. Can be called before authorization
         /// </summary>
         public static Task<TestString> TestCallStringAsync(
-            this Client client, string x = default)
+            this IClient client, string x = default)
         {
             return client.ExecuteAsync(new TestCallString
             {

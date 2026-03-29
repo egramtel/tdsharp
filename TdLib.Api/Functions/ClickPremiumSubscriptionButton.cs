@@ -34,7 +34,7 @@ namespace TdLib
         /// Informs TDLib that the user clicked Premium subscription button on the Premium features screen
         /// </summary>
         public static Task<Ok> ClickPremiumSubscriptionButtonAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new ClickPremiumSubscriptionButton
             {

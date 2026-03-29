@@ -46,7 +46,7 @@ namespace TdLib
         /// Returns already available Telegram Passport elements suitable for completing a Telegram Passport authorization form. Result can be received only once for each authorization form
         /// </summary>
         public static Task<PassportElementsWithErrors> GetPassportAuthorizationFormAvailableElementsAsync(
-            this Client client, int authorizationFormId = default, string password = default)
+            this IClient client, int authorizationFormId = default, string password = default)
         {
             return client.ExecuteAsync(new GetPassportAuthorizationFormAvailableElements
             {

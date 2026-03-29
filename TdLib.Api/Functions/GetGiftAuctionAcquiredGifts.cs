@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns the gifts that were acquired by the current user on a gift auction
         /// </summary>
         public static Task<GiftAuctionAcquiredGifts> GetGiftAuctionAcquiredGiftsAsync(
-            this Client client, long giftId = default)
+            this IClient client, long giftId = default)
         {
             return client.ExecuteAsync(new GetGiftAuctionAcquiredGifts
             {

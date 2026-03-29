@@ -53,7 +53,7 @@ namespace TdLib
         /// Changes the verification status of a user or a chat by an owned bot
         /// </summary>
         public static Task<Ok> SetMessageSenderBotVerificationAsync(
-            this Client client, long botUserId = default, MessageSender verifiedId = default, string customDescription = default)
+            this IClient client, long botUserId = default, MessageSender verifiedId = default, string customDescription = default)
         {
             return client.ExecuteAsync(new SetMessageSenderBotVerification
             {

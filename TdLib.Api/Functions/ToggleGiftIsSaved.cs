@@ -46,7 +46,7 @@ namespace TdLib
         /// Toggles whether a gift is shown on the current user's or the channel's profile page; requires can_post_messages administrator right in the channel chat
         /// </summary>
         public static Task<Ok> ToggleGiftIsSavedAsync(
-            this Client client, string receivedGiftId = default, bool isSaved = default)
+            this IClient client, string receivedGiftId = default, bool isSaved = default)
         {
             return client.ExecuteAsync(new ToggleGiftIsSaved
             {

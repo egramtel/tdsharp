@@ -46,7 +46,7 @@ namespace TdLib
         /// Adds a message to TDLib internal log. Can be called synchronously
         /// </summary>
         public static Task<Ok> AddLogMessageAsync(
-            this Client client, int verbosityLevel = default, string text = default)
+            this IClient client, int verbosityLevel = default, string text = default)
         {
             return client.ExecuteAsync(new AddLogMessage
             {

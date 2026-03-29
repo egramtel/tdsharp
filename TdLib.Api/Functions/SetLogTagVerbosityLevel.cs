@@ -46,7 +46,7 @@ namespace TdLib
         /// Sets the verbosity level for a specified TDLib internal log tag. Can be called synchronously
         /// </summary>
         public static Task<Ok> SetLogTagVerbosityLevelAsync(
-            this Client client, string tag = default, int newVerbosityLevel = default)
+            this IClient client, string tag = default, int newVerbosityLevel = default)
         {
             return client.ExecuteAsync(new SetLogTagVerbosityLevel
             {

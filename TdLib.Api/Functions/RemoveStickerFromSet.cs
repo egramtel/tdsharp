@@ -39,7 +39,7 @@ namespace TdLib
         /// Removes a sticker from the set to which it belongs. The sticker set must be owned by the current user
         /// </summary>
         public static Task<Ok> RemoveStickerFromSetAsync(
-            this Client client, InputFile sticker = default)
+            this IClient client, InputFile sticker = default)
         {
             return client.ExecuteAsync(new RemoveStickerFromSet
             {

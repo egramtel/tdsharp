@@ -76,7 +76,7 @@ namespace TdLib
         /// For each bot, a confirmation alert about data sent to the bot must be shown once
         /// </summary>
         public static Task<WebAppInfo> OpenWebAppAsync(
-            this Client client, long chatId = default, long botUserId = default, string url = default, MessageTopic topicId = default, InputMessageReplyTo replyTo = default, WebAppOpenParameters parameters = default)
+            this IClient client, long chatId = default, long botUserId = default, string url = default, MessageTopic topicId = default, InputMessageReplyTo replyTo = default, WebAppOpenParameters parameters = default)
         {
             return client.ExecuteAsync(new OpenWebApp
             {

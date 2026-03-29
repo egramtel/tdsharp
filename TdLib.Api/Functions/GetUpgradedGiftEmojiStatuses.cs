@@ -34,7 +34,7 @@ namespace TdLib
         /// Returns available upgraded gift emoji statuses for self status
         /// </summary>
         public static Task<EmojiStatuses> GetUpgradedGiftEmojiStatusesAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new GetUpgradedGiftEmojiStatuses
             {

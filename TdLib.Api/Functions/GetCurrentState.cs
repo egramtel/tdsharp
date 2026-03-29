@@ -34,7 +34,7 @@ namespace TdLib
         /// Returns all updates needed to restore current TDLib state, i.e. all actual updateAuthorizationState/updateUser/updateNewChat and others. This is especially useful if TDLib is run in a separate process. Can be called before initialization
         /// </summary>
         public static Task<Updates> GetCurrentStateAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new GetCurrentState
             {

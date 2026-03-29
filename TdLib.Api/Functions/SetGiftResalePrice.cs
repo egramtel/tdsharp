@@ -48,7 +48,7 @@ namespace TdLib
         /// Changes resale price of a unique gift owned by the current user
         /// </summary>
         public static Task<Ok> SetGiftResalePriceAsync(
-            this Client client, string receivedGiftId = default, GiftResalePrice price = default)
+            this IClient client, string receivedGiftId = default, GiftResalePrice price = default)
         {
             return client.ExecuteAsync(new SetGiftResalePrice
             {

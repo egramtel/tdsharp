@@ -45,7 +45,7 @@ namespace TdLib
         /// Returns information about messages. If a message is not found, returns null on the corresponding position of the result
         /// </summary>
         public static Task<Messages> GetMessagesAsync(
-            this Client client, long chatId = default, long[] messageIds = default)
+            this IClient client, long chatId = default, long[] messageIds = default)
         {
             return client.ExecuteAsync(new GetMessages
             {

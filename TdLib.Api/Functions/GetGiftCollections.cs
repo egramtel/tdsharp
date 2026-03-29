@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns collections of gifts owned by the given user or chat
         /// </summary>
         public static Task<GiftCollections> GetGiftCollectionsAsync(
-            this Client client, MessageSender ownerId = default)
+            this IClient client, MessageSender ownerId = default)
         {
             return client.ExecuteAsync(new GetGiftCollections
             {

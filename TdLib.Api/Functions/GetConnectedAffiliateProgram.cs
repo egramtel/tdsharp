@@ -46,7 +46,7 @@ namespace TdLib
         /// Returns an affiliate program that was connected to the given affiliate by identifier of the bot that created the program
         /// </summary>
         public static Task<ConnectedAffiliateProgram> GetConnectedAffiliateProgramAsync(
-            this Client client, AffiliateType affiliate = default, long botUserId = default)
+            this IClient client, AffiliateType affiliate = default, long botUserId = default)
         {
             return client.ExecuteAsync(new GetConnectedAffiliateProgram
             {

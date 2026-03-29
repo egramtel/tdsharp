@@ -74,7 +74,7 @@ namespace TdLib
         /// Sends a message. Returns the sent message
         /// </summary>
         public static Task<Message> SendMessageAsync(
-            this Client client, long chatId = default, MessageTopic topicId = default, InputMessageReplyTo replyTo = default, MessageSendOptions options = default, ReplyMarkup replyMarkup = default, InputMessageContent inputMessageContent = default)
+            this IClient client, long chatId = default, MessageTopic topicId = default, InputMessageReplyTo replyTo = default, MessageSendOptions options = default, ReplyMarkup replyMarkup = default, InputMessageContent inputMessageContent = default)
         {
             return client.ExecuteAsync(new SendMessage
             {

@@ -53,7 +53,7 @@ namespace TdLib
         /// Starts screen sharing in a joined group call; not supported in live stories. Returns join response payload for tgcalls
         /// </summary>
         public static Task<Text> StartGroupCallScreenSharingAsync(
-            this Client client, int groupCallId = default, int audioSourceId = default, string payload = default)
+            this IClient client, int groupCallId = default, int audioSourceId = default, string payload = default)
         {
             return client.ExecuteAsync(new StartGroupCallScreenSharing
             {

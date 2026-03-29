@@ -34,7 +34,7 @@ namespace TdLib
         /// Returns information about existing countries. Can be called before authorization
         /// </summary>
         public static Task<Countries> GetCountriesAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new GetCountries
             {

@@ -39,7 +39,7 @@ namespace TdLib
         /// Removes an animation from the list of saved animations
         /// </summary>
         public static Task<Ok> RemoveSavedAnimationAsync(
-            this Client client, InputFile animation = default)
+            this IClient client, InputFile animation = default)
         {
             return client.ExecuteAsync(new RemoveSavedAnimation
             {

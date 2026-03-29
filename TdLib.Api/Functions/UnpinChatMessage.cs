@@ -46,7 +46,7 @@ namespace TdLib
         /// Removes a pinned message from a chat; requires can_pin_messages member right if the chat is a basic group or supergroup, or can_edit_messages administrator right if the chat is a channel
         /// </summary>
         public static Task<Ok> UnpinChatMessageAsync(
-            this Client client, long chatId = default, long messageId = default)
+            this IClient client, long chatId = default, long messageId = default)
         {
             return client.ExecuteAsync(new UnpinChatMessage
             {

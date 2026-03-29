@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns backgrounds installed by the user
         /// </summary>
         public static Task<Backgrounds> GetInstalledBackgroundsAsync(
-            this Client client, bool forDarkTheme = default)
+            this IClient client, bool forDarkTheme = default)
         {
             return client.ExecuteAsync(new GetInstalledBackgrounds
             {

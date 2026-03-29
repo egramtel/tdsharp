@@ -53,7 +53,7 @@ namespace TdLib
         /// Extracts text or caption of the given message and translates it to the given language. If the current user is a Telegram Premium user, then text formatting is preserved
         /// </summary>
         public static Task<FormattedText> TranslateMessageTextAsync(
-            this Client client, long chatId = default, long messageId = default, string toLanguageCode = default)
+            this IClient client, long chatId = default, long messageId = default, string toLanguageCode = default)
         {
             return client.ExecuteAsync(new TranslateMessageText
             {

@@ -53,7 +53,7 @@ namespace TdLib
         /// Returns the list of profile audio files of a user
         /// </summary>
         public static Task<Audios> GetUserProfileAudiosAsync(
-            this Client client, long userId = default, int offset = default, int limit = default)
+            this IClient client, long userId = default, int offset = default, int limit = default)
         {
             return client.ExecuteAsync(new GetUserProfileAudios
             {

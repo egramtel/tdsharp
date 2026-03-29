@@ -39,7 +39,7 @@ namespace TdLib
         /// Checks the validity of an invite link for a chat folder and returns information about the corresponding chat folder
         /// </summary>
         public static Task<ChatFolderInviteLinkInfo> CheckChatFolderInviteLinkAsync(
-            this Client client, string inviteLink = default)
+            this IClient client, string inviteLink = default)
         {
             return client.ExecuteAsync(new CheckChatFolderInviteLink
             {

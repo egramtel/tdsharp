@@ -46,7 +46,7 @@ namespace TdLib
         /// Edits the reply markup of an inline message sent via a bot; for bots only
         /// </summary>
         public static Task<Ok> EditInlineMessageReplyMarkupAsync(
-            this Client client, string inlineMessageId = default, ReplyMarkup replyMarkup = default)
+            this IClient client, string inlineMessageId = default, ReplyMarkup replyMarkup = default)
         {
             return client.ExecuteAsync(new EditInlineMessageReplyMarkup
             {

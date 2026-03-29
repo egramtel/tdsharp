@@ -39,7 +39,7 @@ namespace TdLib
         /// Checks the authentication token of a bot; to log in as a bot. Works only when the current authorization state is authorizationStateWaitPhoneNumber. Can be used instead of setAuthenticationPhoneNumber and checkAuthenticationCode to log in
         /// </summary>
         public static Task<Ok> CheckAuthenticationBotTokenAsync(
-            this Client client, string token = default)
+            this IClient client, string token = default)
         {
             return client.ExecuteAsync(new CheckAuthenticationBotToken
             {

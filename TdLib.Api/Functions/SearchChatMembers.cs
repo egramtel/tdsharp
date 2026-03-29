@@ -60,7 +60,7 @@ namespace TdLib
         /// Searches for a specified query in the first name, last name and usernames of the members of a specified chat. Requires administrator rights if the chat is a channel
         /// </summary>
         public static Task<ChatMembers> SearchChatMembersAsync(
-            this Client client, long chatId = default, string query = default, int limit = default, ChatMembersFilter filter = default)
+            this IClient client, long chatId = default, string query = default, int limit = default, ChatMembersFilter filter = default)
         {
             return client.ExecuteAsync(new SearchChatMembers
             {

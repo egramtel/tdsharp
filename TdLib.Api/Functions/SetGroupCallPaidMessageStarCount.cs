@@ -46,7 +46,7 @@ namespace TdLib
         /// Changes the minimum number of Telegram Stars that must be paid by general participant for each sent message to a live story call. Requires groupCall.can_be_managed right
         /// </summary>
         public static Task<Ok> SetGroupCallPaidMessageStarCountAsync(
-            this Client client, int groupCallId = default, long paidMessageStarCount = default)
+            this IClient client, int groupCallId = default, long paidMessageStarCount = default)
         {
             return client.ExecuteAsync(new SetGroupCallPaidMessageStarCount
             {

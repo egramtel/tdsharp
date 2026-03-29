@@ -39,7 +39,7 @@ namespace TdLib
         /// Removes an audio file from the profile audio files of the current user
         /// </summary>
         public static Task<Ok> RemoveProfileAudioAsync(
-            this Client client, int fileId = default)
+            this IClient client, int fileId = default)
         {
             return client.ExecuteAsync(new RemoveProfileAudio
             {

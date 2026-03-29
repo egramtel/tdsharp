@@ -38,7 +38,7 @@ namespace TdLib
         /// Changes order of active usernames of the current user
         /// </summary>
         public static Task<Ok> ReorderActiveUsernamesAsync(
-            this Client client, string[] usernames = default)
+            this IClient client, string[] usernames = default)
         {
             return client.ExecuteAsync(new ReorderActiveUsernames
             {

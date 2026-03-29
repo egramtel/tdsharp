@@ -46,7 +46,7 @@ namespace TdLib
         /// Searches for sticker sets by looking for specified query in their title and name. Excludes installed sticker sets from the results
         /// </summary>
         public static Task<StickerSets> SearchStickerSetsAsync(
-            this Client client, StickerType stickerType = default, string query = default)
+            this IClient client, StickerType stickerType = default, string query = default)
         {
             return client.ExecuteAsync(new SearchStickerSets
             {

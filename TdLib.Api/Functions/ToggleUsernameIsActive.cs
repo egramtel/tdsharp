@@ -46,7 +46,7 @@ namespace TdLib
         /// Changes active state for a username of the current user. The editable username can't be disabled. May return an error with a message "USERNAMES_ACTIVE_TOO_MUCH" if the maximum number of active usernames has been reached
         /// </summary>
         public static Task<Ok> ToggleUsernameIsActiveAsync(
-            this Client client, string username = default, bool isActive = default)
+            this IClient client, string username = default, bool isActive = default)
         {
             return client.ExecuteAsync(new ToggleUsernameIsActive
             {

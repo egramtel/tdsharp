@@ -83,7 +83,7 @@ namespace TdLib
         /// Returns the edited message after the edit is completed on the server side
         /// </summary>
         public static Task<Message> EditMessageLiveLocationAsync(
-            this Client client, long chatId = default, long messageId = default, ReplyMarkup replyMarkup = default, Location location = default, int livePeriod = default, int heading = default, int proximityAlertRadius = default)
+            this IClient client, long chatId = default, long messageId = default, ReplyMarkup replyMarkup = default, Location location = default, int livePeriod = default, int heading = default, int proximityAlertRadius = default)
         {
             return client.ExecuteAsync(new EditMessageLiveLocation
             {

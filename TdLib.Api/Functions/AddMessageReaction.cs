@@ -67,7 +67,7 @@ namespace TdLib
         /// Adds a reaction or a tag to a message. Use getMessageAvailableReactions to receive the list of available reactions for the message
         /// </summary>
         public static Task<Ok> AddMessageReactionAsync(
-            this Client client, long chatId = default, long messageId = default, ReactionType reactionType = default, bool isBig = default, bool updateRecentReactions = default)
+            this IClient client, long chatId = default, long messageId = default, ReactionType reactionType = default, bool isBig = default, bool updateRecentReactions = default)
         {
             return client.ExecuteAsync(new AddMessageReaction
             {

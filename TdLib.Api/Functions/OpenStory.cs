@@ -46,7 +46,7 @@ namespace TdLib
         /// Informs TDLib that a story is opened and is being viewed by the user
         /// </summary>
         public static Task<Ok> OpenStoryAsync(
-            this Client client, long storyPosterChatId = default, int storyId = default)
+            this IClient client, long storyPosterChatId = default, int storyId = default)
         {
             return client.ExecuteAsync(new OpenStory
             {

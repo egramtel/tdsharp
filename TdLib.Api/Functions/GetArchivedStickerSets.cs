@@ -53,7 +53,7 @@ namespace TdLib
         /// Returns a list of archived sticker sets
         /// </summary>
         public static Task<StickerSets> GetArchivedStickerSetsAsync(
-            this Client client, StickerType stickerType = default, long offsetStickerSetId = default, int limit = default)
+            this IClient client, StickerType stickerType = default, long offsetStickerSetId = default, int limit = default)
         {
             return client.ExecuteAsync(new GetArchivedStickerSets
             {

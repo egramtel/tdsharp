@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns information about a link to boost a chat. Can be called for any internal link of the type internalLinkTypeChatBoost
         /// </summary>
         public static Task<ChatBoostLinkInfo> GetChatBoostLinkInfoAsync(
-            this Client client, string url = default)
+            this IClient client, string url = default)
         {
             return client.ExecuteAsync(new GetChatBoostLinkInfo
             {

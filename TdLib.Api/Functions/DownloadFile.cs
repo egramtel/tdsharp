@@ -67,7 +67,7 @@ namespace TdLib
         /// Downloads a file from the cloud. Download progress and completion of the download will be notified through updateFile updates
         /// </summary>
         public static Task<File> DownloadFileAsync(
-            this Client client, int fileId = default, int priority = default, long offset = default, long limit = default, bool synchronous = default)
+            this IClient client, int fileId = default, int priority = default, long offset = default, long limit = default, bool synchronous = default)
         {
             return client.ExecuteAsync(new DownloadFile
             {

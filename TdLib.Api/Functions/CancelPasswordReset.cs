@@ -34,7 +34,7 @@ namespace TdLib
         /// Cancels reset of 2-step verification password. The method can be called if passwordState.pending_reset_date &gt; 0
         /// </summary>
         public static Task<Ok> CancelPasswordResetAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new CancelPasswordReset
             {

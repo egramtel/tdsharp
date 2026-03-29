@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns the list of message sender identifiers, on whose behalf messages can be sent to a live story
         /// </summary>
         public static Task<ChatMessageSenders> GetLiveStoryAvailableMessageSendersAsync(
-            this Client client, int groupCallId = default)
+            this IClient client, int groupCallId = default)
         {
             return client.ExecuteAsync(new GetLiveStoryAvailableMessageSenders
             {

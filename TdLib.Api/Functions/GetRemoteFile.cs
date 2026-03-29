@@ -48,7 +48,7 @@ namespace TdLib
         /// For example, if the file is from a message, then the message must be not deleted and accessible to the user. If the file database is disabled, then the corresponding object with the file must be preloaded by the application
         /// </summary>
         public static Task<File> GetRemoteFileAsync(
-            this Client client, string remoteFileId = default, FileType fileType = default)
+            this IClient client, string remoteFileId = default, FileType fileType = default)
         {
             return client.ExecuteAsync(new GetRemoteFile
             {

@@ -39,7 +39,7 @@ namespace TdLib
         /// Deletes default background for chats
         /// </summary>
         public static Task<Ok> DeleteDefaultBackgroundAsync(
-            this Client client, bool forDarkTheme = default)
+            this IClient client, bool forDarkTheme = default)
         {
             return client.ExecuteAsync(new DeleteDefaultBackground
             {

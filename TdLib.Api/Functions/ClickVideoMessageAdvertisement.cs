@@ -39,7 +39,7 @@ namespace TdLib
         /// Informs TDLib that the user clicked a video message advertisement
         /// </summary>
         public static Task<Ok> ClickVideoMessageAdvertisementAsync(
-            this Client client, long advertisementUniqueId = default)
+            this IClient client, long advertisementUniqueId = default)
         {
             return client.ExecuteAsync(new ClickVideoMessageAdvertisement
             {

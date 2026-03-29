@@ -46,7 +46,7 @@ namespace TdLib
         /// Checks whether a username can be set for a chat
         /// </summary>
         public static Task<CheckChatUsernameResult> CheckChatUsernameAsync(
-            this Client client, long chatId = default, string username = default)
+            this IClient client, long chatId = default, string username = default)
         {
             return client.ExecuteAsync(new CheckChatUsername
             {

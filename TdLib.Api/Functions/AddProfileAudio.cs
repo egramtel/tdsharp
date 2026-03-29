@@ -39,7 +39,7 @@ namespace TdLib
         /// Adds an audio file to the beginning of the profile audio files of the current user
         /// </summary>
         public static Task<Ok> AddProfileAudioAsync(
-            this Client client, int fileId = default)
+            this IClient client, int fileId = default)
         {
             return client.ExecuteAsync(new AddProfileAudio
             {

@@ -45,7 +45,7 @@ namespace TdLib
         /// Deletes existing chat folder
         /// </summary>
         public static Task<Ok> DeleteChatFolderAsync(
-            this Client client, int chatFolderId = default, long[] leaveChatIds = default)
+            this IClient client, int chatFolderId = default, long[] leaveChatIds = default)
         {
             return client.ExecuteAsync(new DeleteChatFolder
             {

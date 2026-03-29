@@ -53,7 +53,7 @@ namespace TdLib
         /// Returns information about a message with the callback button that originated a callback query; for bots only
         /// </summary>
         public static Task<Message> GetCallbackQueryMessageAsync(
-            this Client client, long chatId = default, long messageId = default, long callbackQueryId = default)
+            this IClient client, long chatId = default, long messageId = default, long callbackQueryId = default)
         {
             return client.ExecuteAsync(new GetCallbackQueryMessage
             {

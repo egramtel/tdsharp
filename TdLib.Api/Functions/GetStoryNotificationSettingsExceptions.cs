@@ -34,7 +34,7 @@ namespace TdLib
         /// Returns the list of chats with non-default notification settings for stories
         /// </summary>
         public static Task<Chats> GetStoryNotificationSettingsExceptionsAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new GetStoryNotificationSettingsExceptions
             {

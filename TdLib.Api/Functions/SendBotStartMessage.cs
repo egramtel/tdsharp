@@ -55,7 +55,7 @@ namespace TdLib
         /// Bots can't be invited to channels (although they can be added as admins) and secret chats. Returns the sent message
         /// </summary>
         public static Task<Message> SendBotStartMessageAsync(
-            this Client client, long botUserId = default, long chatId = default, string parameter = default)
+            this IClient client, long botUserId = default, long chatId = default, string parameter = default)
         {
             return client.ExecuteAsync(new SendBotStartMessage
             {

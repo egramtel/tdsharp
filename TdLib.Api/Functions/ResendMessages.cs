@@ -61,7 +61,7 @@ namespace TdLib
         /// If a message is re-sent, the corresponding failed to send message is deleted. Returns the sent messages in the same order as the message identifiers passed in message_ids. If a message can't be re-sent, null will be returned instead of the message
         /// </summary>
         public static Task<Messages> ResendMessagesAsync(
-            this Client client, long chatId = default, long[] messageIds = default, InputTextQuote quote = default, long paidMessageStarCount = default)
+            this IClient client, long chatId = default, long[] messageIds = default, InputTextQuote quote = default, long paidMessageStarCount = default)
         {
             return client.ExecuteAsync(new ResendMessages
             {

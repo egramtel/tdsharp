@@ -39,7 +39,7 @@ namespace TdLib
         /// Ends recording of an active group call; for video chats only. Requires groupCall.can_be_managed right
         /// </summary>
         public static Task<Ok> EndGroupCallRecordingAsync(
-            this Client client, int groupCallId = default)
+            this IClient client, int groupCallId = default)
         {
             return client.ExecuteAsync(new EndGroupCallRecording
             {

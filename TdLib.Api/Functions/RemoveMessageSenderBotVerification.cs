@@ -46,7 +46,7 @@ namespace TdLib
         /// Removes the verification status of a user or a chat by an owned bot
         /// </summary>
         public static Task<Ok> RemoveMessageSenderBotVerificationAsync(
-            this Client client, long botUserId = default, MessageSender verifiedId = default)
+            this IClient client, long botUserId = default, MessageSender verifiedId = default)
         {
             return client.ExecuteAsync(new RemoveMessageSenderBotVerification
             {

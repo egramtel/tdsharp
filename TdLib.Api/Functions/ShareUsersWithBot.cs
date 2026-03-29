@@ -66,7 +66,7 @@ namespace TdLib
         /// Shares users after pressing a keyboardButtonTypeRequestUsers button with the bot
         /// </summary>
         public static Task<Ok> ShareUsersWithBotAsync(
-            this Client client, long chatId = default, long messageId = default, int buttonId = default, long[] sharedUserIds = default, bool onlyCheck = default)
+            this IClient client, long chatId = default, long messageId = default, int buttonId = default, long[] sharedUserIds = default, bool onlyCheck = default)
         {
             return client.ExecuteAsync(new ShareUsersWithBot
             {

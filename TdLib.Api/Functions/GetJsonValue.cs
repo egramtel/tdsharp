@@ -39,7 +39,7 @@ namespace TdLib
         /// Converts a JSON-serialized string to corresponding JsonValue object. Can be called synchronously
         /// </summary>
         public static Task<JsonValue> GetJsonValueAsync(
-            this Client client, string json = default)
+            this IClient client, string json = default)
         {
             return client.ExecuteAsync(new GetJsonValue
             {

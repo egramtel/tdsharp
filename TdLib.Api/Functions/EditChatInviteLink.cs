@@ -78,7 +78,7 @@ namespace TdLib
         /// Requires administrator privileges and can_invite_users right in the chat for own links and owner privileges for other links
         /// </summary>
         public static Task<ChatInviteLink> EditChatInviteLinkAsync(
-            this Client client, long chatId = default, string inviteLink = default, string name = default, int expirationDate = default, int memberLimit = default, bool createsJoinRequest = default)
+            this IClient client, long chatId = default, string inviteLink = default, string name = default, int expirationDate = default, int memberLimit = default, bool createsJoinRequest = default)
         {
             return client.ExecuteAsync(new EditChatInviteLink
             {

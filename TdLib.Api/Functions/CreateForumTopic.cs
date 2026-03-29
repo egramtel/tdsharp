@@ -60,7 +60,7 @@ namespace TdLib
         /// Creates a topic in a forum supergroup chat or a chat with a bot with topics; requires can_manage_topics administrator or can_create_topics member right in the supergroup
         /// </summary>
         public static Task<ForumTopicInfo> CreateForumTopicAsync(
-            this Client client, long chatId = default, string name = default, bool isNameImplicit = default, ForumTopicIcon icon = default)
+            this IClient client, long chatId = default, string name = default, bool isNameImplicit = default, ForumTopicIcon icon = default)
         {
             return client.ExecuteAsync(new CreateForumTopic
             {

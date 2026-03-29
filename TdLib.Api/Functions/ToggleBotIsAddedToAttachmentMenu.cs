@@ -53,7 +53,7 @@ namespace TdLib
         /// Adds or removes a bot to attachment and side menu. Bot can be added to the menu, only if userTypeBot.can_be_added_to_attachment_menu == true
         /// </summary>
         public static Task<Ok> ToggleBotIsAddedToAttachmentMenuAsync(
-            this Client client, long botUserId = default, bool isAdded = default, bool allowWriteAccess = default)
+            this IClient client, long botUserId = default, bool isAdded = default, bool allowWriteAccess = default)
         {
             return client.ExecuteAsync(new ToggleBotIsAddedToAttachmentMenu
             {

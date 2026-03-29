@@ -56,7 +56,7 @@ namespace TdLib
         /// Returns the sent message
         /// </summary>
         public static Task<Message> AddOfferAsync(
-            this Client client, long chatId = default, long messageId = default, MessageSendOptions options = default)
+            this IClient client, long chatId = default, long messageId = default, MessageSendOptions options = default)
         {
             return client.ExecuteAsync(new AddOffer
             {

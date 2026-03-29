@@ -53,7 +53,7 @@ namespace TdLib
         /// Reports a sponsored message to Telegram moderators
         /// </summary>
         public static Task<ReportSponsoredResult> ReportChatSponsoredMessageAsync(
-            this Client client, long chatId = default, long messageId = default, byte[] optionId = default)
+            this IClient client, long chatId = default, long messageId = default, byte[] optionId = default)
         {
             return client.ExecuteAsync(new ReportChatSponsoredMessage
             {

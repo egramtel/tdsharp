@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns a suggested name for a new sticker set with a given title
         /// </summary>
         public static Task<Text> GetSuggestedStickerSetNameAsync(
-            this Client client, string title = default)
+            this IClient client, string title = default)
         {
             return client.ExecuteAsync(new GetSuggestedStickerSetName
             {

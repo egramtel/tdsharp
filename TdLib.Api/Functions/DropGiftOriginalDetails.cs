@@ -46,7 +46,7 @@ namespace TdLib
         /// Drops original details for an upgraded gift
         /// </summary>
         public static Task<Ok> DropGiftOriginalDetailsAsync(
-            this Client client, string receivedGiftId = default, long starCount = default)
+            this IClient client, string receivedGiftId = default, long starCount = default)
         {
             return client.ExecuteAsync(new DropGiftOriginalDetails
             {

@@ -36,7 +36,7 @@ namespace TdLib
         /// To set a returned supergroup as a discussion group, access to its old messages must be enabled using toggleSupergroupIsAllHistoryAvailable first
         /// </summary>
         public static Task<Chats> GetSuitableDiscussionChatsAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new GetSuitableDiscussionChats
             {

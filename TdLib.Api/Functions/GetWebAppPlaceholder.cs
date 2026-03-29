@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns a default placeholder for Web Apps of a bot. This is an offline method. Returns a 404 error if the placeholder isn't known
         /// </summary>
         public static Task<Outline> GetWebAppPlaceholderAsync(
-            this Client client, long botUserId = default)
+            this IClient client, long botUserId = default)
         {
             return client.ExecuteAsync(new GetWebAppPlaceholder
             {

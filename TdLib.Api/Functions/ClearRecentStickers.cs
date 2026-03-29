@@ -39,7 +39,7 @@ namespace TdLib
         /// Clears the list of recently used stickers
         /// </summary>
         public static Task<Ok> ClearRecentStickersAsync(
-            this Client client, bool isAttached = default)
+            this IClient client, bool isAttached = default)
         {
             return client.ExecuteAsync(new ClearRecentStickers
             {

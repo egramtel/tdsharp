@@ -45,7 +45,7 @@ namespace TdLib
         /// Changes the list of pinned gifts on the current user's or the channel's profile page; requires can_post_messages administrator right in the channel chat
         /// </summary>
         public static Task<Ok> SetPinnedGiftsAsync(
-            this Client client, MessageSender ownerId = default, string[] receivedGiftIds = default)
+            this IClient client, MessageSender ownerId = default, string[] receivedGiftIds = default)
         {
             return client.ExecuteAsync(new SetPinnedGifts
             {

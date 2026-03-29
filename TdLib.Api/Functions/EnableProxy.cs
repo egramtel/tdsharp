@@ -39,7 +39,7 @@ namespace TdLib
         /// Enables a proxy. Only one proxy can be enabled at a time. Can be called before authorization
         /// </summary>
         public static Task<Ok> EnableProxyAsync(
-            this Client client, int proxyId = default)
+            this IClient client, int proxyId = default)
         {
             return client.ExecuteAsync(new EnableProxy
             {

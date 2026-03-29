@@ -39,7 +39,7 @@ namespace TdLib
         /// Reports that authentication code wasn't delivered via SMS to the specified phone number; for official mobile applications only
         /// </summary>
         public static Task<Ok> ReportPhoneNumberCodeMissingAsync(
-            this Client client, string mobileNetworkCode = default)
+            this IClient client, string mobileNetworkCode = default)
         {
             return client.ExecuteAsync(new ReportPhoneNumberCodeMissing
             {

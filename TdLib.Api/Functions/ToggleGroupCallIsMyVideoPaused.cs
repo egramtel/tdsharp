@@ -46,7 +46,7 @@ namespace TdLib
         /// Toggles whether current user's video is paused
         /// </summary>
         public static Task<Ok> ToggleGroupCallIsMyVideoPausedAsync(
-            this Client client, int groupCallId = default, bool isMyVideoPaused = default)
+            this IClient client, int groupCallId = default, bool isMyVideoPaused = default)
         {
             return client.ExecuteAsync(new ToggleGroupCallIsMyVideoPaused
             {

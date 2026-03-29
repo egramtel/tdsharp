@@ -53,7 +53,7 @@ namespace TdLib
         /// Changes the first and last name of a business account; for bots only
         /// </summary>
         public static Task<Ok> SetBusinessAccountNameAsync(
-            this Client client, string businessConnectionId = default, string firstName = default, string lastName = default)
+            this IClient client, string businessConnectionId = default, string firstName = default, string lastName = default)
         {
             return client.ExecuteAsync(new SetBusinessAccountName
             {

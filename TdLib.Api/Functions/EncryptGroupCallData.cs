@@ -60,7 +60,7 @@ namespace TdLib
         /// Encrypts group call data before sending them over network using tgcalls
         /// </summary>
         public static Task<Data> EncryptGroupCallDataAsync(
-            this Client client, int groupCallId = default, GroupCallDataChannel dataChannel = default, byte[] data = default, int unencryptedPrefixSize = default)
+            this IClient client, int groupCallId = default, GroupCallDataChannel dataChannel = default, byte[] data = default, int unencryptedPrefixSize = default)
         {
             return client.ExecuteAsync(new EncryptGroupCallData
             {

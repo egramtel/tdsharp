@@ -46,7 +46,7 @@ namespace TdLib
         /// Changes the first and last name of the current user
         /// </summary>
         public static Task<Ok> SetNameAsync(
-            this Client client, string firstName = default, string lastName = default)
+            this IClient client, string firstName = default, string lastName = default)
         {
             return client.ExecuteAsync(new SetName
             {

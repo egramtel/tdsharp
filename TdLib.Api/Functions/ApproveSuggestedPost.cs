@@ -53,7 +53,7 @@ namespace TdLib
         /// Approves a suggested post in a channel direct messages chat
         /// </summary>
         public static Task<Ok> ApproveSuggestedPostAsync(
-            this Client client, long chatId = default, long messageId = default, int sendDate = default)
+            this IClient client, long chatId = default, long messageId = default, int sendDate = default)
         {
             return client.ExecuteAsync(new ApproveSuggestedPost
             {

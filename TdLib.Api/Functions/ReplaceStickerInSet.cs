@@ -60,7 +60,7 @@ namespace TdLib
         /// Replaces existing sticker in a set. The function is equivalent to removeStickerFromSet, then addStickerToSet, then setStickerPositionInSet
         /// </summary>
         public static Task<Ok> ReplaceStickerInSetAsync(
-            this Client client, long userId = default, string name = default, InputFile oldSticker = default, InputSticker newSticker = default)
+            this IClient client, long userId = default, string name = default, InputFile oldSticker = default, InputSticker newSticker = default)
         {
             return client.ExecuteAsync(new ReplaceStickerInSet
             {

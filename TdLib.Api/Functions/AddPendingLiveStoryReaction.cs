@@ -48,7 +48,7 @@ namespace TdLib
         /// Call commitPendingLiveStoryReactions or removePendingLiveStoryReactions to actually send all pending reactions when the undo timer is over or abort the sending
         /// </summary>
         public static Task<Ok> AddPendingLiveStoryReactionAsync(
-            this Client client, int groupCallId = default, long starCount = default)
+            this IClient client, int groupCallId = default, long starCount = default)
         {
             return client.ExecuteAsync(new AddPendingLiveStoryReaction
             {

@@ -46,7 +46,7 @@ namespace TdLib
         /// Changes notification settings for chats of a given type
         /// </summary>
         public static Task<Ok> SetScopeNotificationSettingsAsync(
-            this Client client, NotificationSettingsScope scope = default, ScopeNotificationSettings notificationSettings = default)
+            this IClient client, NotificationSettingsScope scope = default, ScopeNotificationSettings notificationSettings = default)
         {
             return client.ExecuteAsync(new SetScopeNotificationSettings
             {

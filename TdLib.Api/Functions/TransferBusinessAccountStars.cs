@@ -46,7 +46,7 @@ namespace TdLib
         /// Transfers Telegram Stars from the business account to the business bot; for bots only
         /// </summary>
         public static Task<Ok> TransferBusinessAccountStarsAsync(
-            this Client client, string businessConnectionId = default, long starCount = default)
+            this IClient client, string businessConnectionId = default, long starCount = default)
         {
             return client.ExecuteAsync(new TransferBusinessAccountStars
             {

@@ -34,7 +34,7 @@ namespace TdLib
         /// Returns application config, provided by the server. Can be called before authorization
         /// </summary>
         public static Task<JsonValue> GetApplicationConfigAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new GetApplicationConfig
             {

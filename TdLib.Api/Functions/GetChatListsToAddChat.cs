@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns chat lists to which the chat can be added. This is an offline method
         /// </summary>
         public static Task<ChatLists> GetChatListsToAddChatAsync(
-            this Client client, long chatId = default)
+            this IClient client, long chatId = default)
         {
             return client.ExecuteAsync(new GetChatListsToAddChat
             {

@@ -74,7 +74,7 @@ namespace TdLib
         /// Edits the caption of a message sent on behalf of a business account; for bots only
         /// </summary>
         public static Task<BusinessMessage> EditBusinessMessageCaptionAsync(
-            this Client client, string businessConnectionId = default, long chatId = default, long messageId = default, ReplyMarkup replyMarkup = default, FormattedText caption = default, bool showCaptionAboveMedia = default)
+            this IClient client, string businessConnectionId = default, long chatId = default, long messageId = default, ReplyMarkup replyMarkup = default, FormattedText caption = default, bool showCaptionAboveMedia = default)
         {
             return client.ExecuteAsync(new EditBusinessMessageCaption
             {

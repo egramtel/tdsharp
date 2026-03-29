@@ -60,7 +60,7 @@ namespace TdLib
         /// Pins or unpins a message sent on behalf of a business account; for bots only
         /// </summary>
         public static Task<Ok> SetBusinessMessageIsPinnedAsync(
-            this Client client, string businessConnectionId = default, long chatId = default, long messageId = default, bool isPinned = default)
+            this IClient client, string businessConnectionId = default, long chatId = default, long messageId = default, bool isPinned = default)
         {
             return client.ExecuteAsync(new SetBusinessMessageIsPinned
             {

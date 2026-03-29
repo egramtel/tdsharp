@@ -53,7 +53,7 @@ namespace TdLib
         /// Processes request to disable has_protected_content in a chat
         /// </summary>
         public static Task<Ok> ProcessChatHasProtectedContentDisableRequestAsync(
-            this Client client, long chatId = default, long requestMessageId = default, bool approve = default)
+            this IClient client, long chatId = default, long requestMessageId = default, bool approve = default)
         {
             return client.ExecuteAsync(new ProcessChatHasProtectedContentDisableRequest
             {

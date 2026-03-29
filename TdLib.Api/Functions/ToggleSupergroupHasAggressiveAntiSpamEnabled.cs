@@ -46,7 +46,7 @@ namespace TdLib
         /// Toggles whether aggressive anti-spam checks are enabled in the supergroup. Can be called only if supergroupFullInfo.can_toggle_aggressive_anti_spam == true
         /// </summary>
         public static Task<Ok> ToggleSupergroupHasAggressiveAntiSpamEnabledAsync(
-            this Client client, long supergroupId = default, bool hasAggressiveAntiSpamEnabled = default)
+            this IClient client, long supergroupId = default, bool hasAggressiveAntiSpamEnabled = default)
         {
             return client.ExecuteAsync(new ToggleSupergroupHasAggressiveAntiSpamEnabled
             {

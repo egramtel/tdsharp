@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns the list of chat administrators with number of their invite links. Requires owner privileges in the chat
         /// </summary>
         public static Task<ChatInviteLinkCounts> GetChatInviteLinkCountsAsync(
-            this Client client, long chatId = default)
+            this IClient client, long chatId = default)
         {
             return client.ExecuteAsync(new GetChatInviteLinkCounts
             {

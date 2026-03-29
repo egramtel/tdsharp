@@ -39,7 +39,7 @@ namespace TdLib
         /// Applies all pending paid reactions in a live story group call
         /// </summary>
         public static Task<Ok> CommitPendingLiveStoryReactionsAsync(
-            this Client client, int groupCallId = default)
+            this IClient client, int groupCallId = default)
         {
             return client.ExecuteAsync(new CommitPendingLiveStoryReactions
             {

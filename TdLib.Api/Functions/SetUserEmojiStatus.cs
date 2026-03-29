@@ -46,7 +46,7 @@ namespace TdLib
         /// Changes the emoji status of a user; for bots only
         /// </summary>
         public static Task<Ok> SetUserEmojiStatusAsync(
-            this Client client, long userId = default, EmojiStatus emojiStatus = default)
+            this IClient client, long userId = default, EmojiStatus emojiStatus = default)
         {
             return client.ExecuteAsync(new SetUserEmojiStatus
             {

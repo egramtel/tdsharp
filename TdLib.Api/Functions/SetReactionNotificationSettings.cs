@@ -39,7 +39,7 @@ namespace TdLib
         /// Changes notification settings for reactions
         /// </summary>
         public static Task<Ok> SetReactionNotificationSettingsAsync(
-            this Client client, ReactionNotificationSettings notificationSettings = default)
+            this IClient client, ReactionNotificationSettings notificationSettings = default)
         {
             return client.ExecuteAsync(new SetReactionNotificationSettings
             {

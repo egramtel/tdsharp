@@ -39,7 +39,7 @@ namespace TdLib
         /// Stops the preliminary uploading of a file. Supported only for files uploaded by using preliminaryUploadFile
         /// </summary>
         public static Task<Ok> CancelPreliminaryUploadFileAsync(
-            this Client client, int fileId = default)
+            this IClient client, int fileId = default)
         {
             return client.ExecuteAsync(new CancelPreliminaryUploadFile
             {

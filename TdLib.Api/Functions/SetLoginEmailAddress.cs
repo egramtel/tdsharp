@@ -43,7 +43,7 @@ namespace TdLib
         /// To use Apple ID/Google ID instead of an email address, call checkLoginEmailAddressCode directly
         /// </summary>
         public static Task<EmailAddressAuthenticationCodeInfo> SetLoginEmailAddressAsync(
-            this Client client, string newLoginEmailAddress = default)
+            this IClient client, string newLoginEmailAddress = default)
         {
             return client.ExecuteAsync(new SetLoginEmailAddress
             {

@@ -67,7 +67,7 @@ namespace TdLib
         /// Sends an offer to purchase an upgraded gift
         /// </summary>
         public static Task<Ok> SendGiftPurchaseOfferAsync(
-            this Client client, MessageSender ownerId = default, string giftName = default, GiftResalePrice price = default, int duration = default, long paidMessageStarCount = default)
+            this IClient client, MessageSender ownerId = default, string giftName = default, GiftResalePrice price = default, int duration = default, long paidMessageStarCount = default)
         {
             return client.ExecuteAsync(new SendGiftPurchaseOffer
             {

@@ -46,7 +46,7 @@ namespace TdLib
         /// Sets the result of a pre-checkout query; for bots only
         /// </summary>
         public static Task<Ok> AnswerPreCheckoutQueryAsync(
-            this Client client, long preCheckoutQueryId = default, string errorMessage = default)
+            this IClient client, long preCheckoutQueryId = default, string errorMessage = default)
         {
             return client.ExecuteAsync(new AnswerPreCheckoutQuery
             {

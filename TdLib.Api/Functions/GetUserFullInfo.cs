@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns full information about a user by their identifier
         /// </summary>
         public static Task<UserFullInfo> GetUserFullInfoAsync(
-            this Client client, long userId = default)
+            this IClient client, long userId = default)
         {
             return client.ExecuteAsync(new GetUserFullInfo
             {

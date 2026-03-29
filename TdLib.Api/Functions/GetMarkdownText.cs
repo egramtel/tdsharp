@@ -39,7 +39,7 @@ namespace TdLib
         /// Replaces text entities with Markdown formatting in a human-friendly format. Entities that can't be represented in Markdown unambiguously are kept as is. Can be called synchronously
         /// </summary>
         public static Task<FormattedText> GetMarkdownTextAsync(
-            this Client client, FormattedText text = default)
+            this IClient client, FormattedText text = default)
         {
             return client.ExecuteAsync(new GetMarkdownText
             {

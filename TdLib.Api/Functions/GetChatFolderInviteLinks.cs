@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns invite links created by the current user for a shareable chat folder
         /// </summary>
         public static Task<ChatFolderInviteLinks> GetChatFolderInviteLinksAsync(
-            this Client client, int chatFolderId = default)
+            this IClient client, int chatFolderId = default)
         {
             return client.ExecuteAsync(new GetChatFolderInviteLinks
             {

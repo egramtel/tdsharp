@@ -46,7 +46,7 @@ namespace TdLib
         /// Deletes all messages sent by the specified message sender in a chat. Supported only for supergroups; requires can_delete_messages administrator right
         /// </summary>
         public static Task<Ok> DeleteChatMessagesBySenderAsync(
-            this Client client, long chatId = default, MessageSender senderId = default)
+            this IClient client, long chatId = default, MessageSender senderId = default)
         {
             return client.ExecuteAsync(new DeleteChatMessagesBySender
             {

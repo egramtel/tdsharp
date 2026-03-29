@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns t.me URLs recently visited by a newly registered user
         /// </summary>
         public static Task<TMeUrls> GetRecentlyVisitedTMeUrlsAsync(
-            this Client client, string referrer = default)
+            this IClient client, string referrer = default)
         {
             return client.ExecuteAsync(new GetRecentlyVisitedTMeUrls
             {

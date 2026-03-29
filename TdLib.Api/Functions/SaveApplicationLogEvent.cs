@@ -53,7 +53,7 @@ namespace TdLib
         /// Saves application log event on the server. Can be called before authorization
         /// </summary>
         public static Task<Ok> SaveApplicationLogEventAsync(
-            this Client client, string type = default, long chatId = default, JsonValue data = default)
+            this IClient client, string type = default, long chatId = default, JsonValue data = default)
         {
             return client.ExecuteAsync(new SaveApplicationLogEvent
             {

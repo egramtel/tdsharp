@@ -60,7 +60,7 @@ namespace TdLib
         /// Changes chosen reaction on a story that has already been sent; not supported for live stories
         /// </summary>
         public static Task<Ok> SetStoryReactionAsync(
-            this Client client, long storyPosterChatId = default, int storyId = default, ReactionType reactionType = default, bool updateRecentReactions = default)
+            this IClient client, long storyPosterChatId = default, int storyId = default, ReactionType reactionType = default, bool updateRecentReactions = default)
         {
             return client.ExecuteAsync(new SetStoryReaction
             {

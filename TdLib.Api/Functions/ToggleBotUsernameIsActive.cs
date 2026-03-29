@@ -55,7 +55,7 @@ namespace TdLib
         /// May return an error with a message "USERNAMES_ACTIVE_TOO_MUCH" if the maximum number of active usernames has been reached. Can be called only if userTypeBot.can_be_edited == true
         /// </summary>
         public static Task<Ok> ToggleBotUsernameIsActiveAsync(
-            this Client client, long botUserId = default, string username = default, bool isActive = default)
+            this IClient client, long botUserId = default, string username = default, bool isActive = default)
         {
             return client.ExecuteAsync(new ToggleBotUsernameIsActive
             {

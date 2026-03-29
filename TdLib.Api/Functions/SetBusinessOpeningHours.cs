@@ -39,7 +39,7 @@ namespace TdLib
         /// Changes the business opening hours of the current user. Requires Telegram Business subscription
         /// </summary>
         public static Task<Ok> SetBusinessOpeningHoursAsync(
-            this Client client, BusinessOpeningHours openingHours = default)
+            this IClient client, BusinessOpeningHours openingHours = default)
         {
             return client.ExecuteAsync(new SetBusinessOpeningHours
             {

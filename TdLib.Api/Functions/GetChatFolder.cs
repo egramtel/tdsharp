@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns information about a chat folder by its identifier
         /// </summary>
         public static Task<ChatFolder> GetChatFolderAsync(
-            this Client client, int chatFolderId = default)
+            this IClient client, int chatFolderId = default)
         {
             return client.ExecuteAsync(new GetChatFolder
             {

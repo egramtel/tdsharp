@@ -39,7 +39,7 @@ namespace TdLib
         /// Creates a business chat link for the current account. Requires Telegram Business subscription. There can be up to getOption("business_chat_link_count_max") links created. Returns the created link
         /// </summary>
         public static Task<BusinessChatLink> CreateBusinessChatLinkAsync(
-            this Client client, InputBusinessChatLink linkInfo = default)
+            this IClient client, InputBusinessChatLink linkInfo = default)
         {
             return client.ExecuteAsync(new CreateBusinessChatLink
             {

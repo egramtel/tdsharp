@@ -53,7 +53,7 @@ namespace TdLib
         /// Reads a message on behalf of a business account; for bots only
         /// </summary>
         public static Task<Ok> ReadBusinessMessageAsync(
-            this Client client, string businessConnectionId = default, long chatId = default, long messageId = default)
+            this IClient client, string businessConnectionId = default, long chatId = default, long messageId = default)
         {
             return client.ExecuteAsync(new ReadBusinessMessage
             {

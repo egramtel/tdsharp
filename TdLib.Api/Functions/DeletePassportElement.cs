@@ -39,7 +39,7 @@ namespace TdLib
         /// Deletes a Telegram Passport element
         /// </summary>
         public static Task<Ok> DeletePassportElementAsync(
-            this Client client, PassportElementType type = default)
+            this IClient client, PassportElementType type = default)
         {
             return client.ExecuteAsync(new DeletePassportElement
             {

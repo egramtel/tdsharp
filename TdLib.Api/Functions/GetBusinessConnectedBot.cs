@@ -34,7 +34,7 @@ namespace TdLib
         /// Returns the business bot that is connected to the current user account. Returns a 404 error if there is no connected bot
         /// </summary>
         public static Task<BusinessConnectedBot> GetBusinessConnectedBotAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new GetBusinessConnectedBot
             {

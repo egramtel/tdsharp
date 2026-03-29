@@ -60,7 +60,7 @@ namespace TdLib
         /// Returns the list of stories added to the given story album. For optimal performance, the number of returned stories is chosen by TDLib
         /// </summary>
         public static Task<Stories> GetStoryAlbumStoriesAsync(
-            this Client client, long chatId = default, int storyAlbumId = default, int offset = default, int limit = default)
+            this IClient client, long chatId = default, int storyAlbumId = default, int offset = default, int limit = default)
         {
             return client.ExecuteAsync(new GetStoryAlbumStories
             {

@@ -46,7 +46,7 @@ namespace TdLib
         /// Deletes a story album. If the album is owned by a supergroup or a channel chat, then requires can_edit_stories administrator right in the chat
         /// </summary>
         public static Task<Ok> DeleteStoryAlbumAsync(
-            this Client client, long chatId = default, int storyAlbumId = default)
+            this IClient client, long chatId = default, int storyAlbumId = default)
         {
             return client.ExecuteAsync(new DeleteStoryAlbum
             {

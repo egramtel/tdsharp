@@ -53,7 +53,7 @@ namespace TdLib
         /// Changes the fact-check of a message. Can be only used if messageProperties.can_set_fact_check == true
         /// </summary>
         public static Task<Ok> SetMessageFactCheckAsync(
-            this Client client, long chatId = default, long messageId = default, FormattedText text = default)
+            this IClient client, long chatId = default, long messageId = default, FormattedText text = default)
         {
             return client.ExecuteAsync(new SetMessageFactCheck
             {

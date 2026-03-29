@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns information about features, available to Business users
         /// </summary>
         public static Task<BusinessFeatures> GetBusinessFeaturesAsync(
-            this Client client, BusinessFeature source = default)
+            this IClient client, BusinessFeature source = default)
         {
             return client.ExecuteAsync(new GetBusinessFeatures
             {

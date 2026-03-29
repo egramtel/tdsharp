@@ -39,7 +39,7 @@ namespace TdLib
         /// Replaces the current RTMP URL for streaming to a live story; requires owner privileges for channel chats
         /// </summary>
         public static Task<RtmpUrl> ReplaceLiveStoryRtmpUrlAsync(
-            this Client client, long chatId = default)
+            this IClient client, long chatId = default)
         {
             return client.ExecuteAsync(new ReplaceLiveStoryRtmpUrl
             {

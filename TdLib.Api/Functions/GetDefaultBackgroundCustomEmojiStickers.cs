@@ -34,7 +34,7 @@ namespace TdLib
         /// Returns default list of custom emoji stickers for reply background
         /// </summary>
         public static Task<Stickers> GetDefaultBackgroundCustomEmojiStickersAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new GetDefaultBackgroundCustomEmojiStickers
             {

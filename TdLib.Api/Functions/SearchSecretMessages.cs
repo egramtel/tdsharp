@@ -67,7 +67,7 @@ namespace TdLib
         /// Searches for messages in secret chats. Returns the results in reverse chronological order. For optimal performance, the number of returned messages is chosen by TDLib
         /// </summary>
         public static Task<FoundMessages> SearchSecretMessagesAsync(
-            this Client client, long chatId = default, string query = default, string offset = default, int limit = default, SearchMessagesFilter filter = default)
+            this IClient client, long chatId = default, string query = default, string offset = default, int limit = default, SearchMessagesFilter filter = default)
         {
             return client.ExecuteAsync(new SearchSecretMessages
             {

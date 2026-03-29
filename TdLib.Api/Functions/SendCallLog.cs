@@ -46,7 +46,7 @@ namespace TdLib
         /// Sends log file for a call to Telegram servers
         /// </summary>
         public static Task<Ok> SendCallLogAsync(
-            this Client client, InputCall callId = default, InputFile logFile = default)
+            this IClient client, InputCall callId = default, InputFile logFile = default)
         {
             return client.ExecuteAsync(new SendCallLog
             {

@@ -34,7 +34,7 @@ namespace TdLib
         /// Resends the 2-step verification recovery email address verification code
         /// </summary>
         public static Task<PasswordState> ResendRecoveryEmailAddressCodeAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new ResendRecoveryEmailAddressCode
             {

@@ -39,7 +39,7 @@ namespace TdLib
         /// Changes pause state of all files in the file download list
         /// </summary>
         public static Task<Ok> ToggleAllDownloadsArePausedAsync(
-            this Client client, bool arePaused = default)
+            this IClient client, bool arePaused = default)
         {
             return client.ExecuteAsync(new ToggleAllDownloadsArePaused
             {

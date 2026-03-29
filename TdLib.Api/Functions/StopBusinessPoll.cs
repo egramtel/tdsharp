@@ -60,7 +60,7 @@ namespace TdLib
         /// Stops a poll sent on behalf of a business account; for bots only
         /// </summary>
         public static Task<BusinessMessage> StopBusinessPollAsync(
-            this Client client, string businessConnectionId = default, long chatId = default, long messageId = default, ReplyMarkup replyMarkup = default)
+            this IClient client, string businessConnectionId = default, long chatId = default, long messageId = default, ReplyMarkup replyMarkup = default)
         {
             return client.ExecuteAsync(new StopBusinessPoll
             {

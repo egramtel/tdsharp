@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns storage usage statistics. Can be called before authorization
         /// </summary>
         public static Task<StorageStatistics> GetStorageStatisticsAsync(
-            this Client client, int chatLimit = default)
+            this IClient client, int chatLimit = default)
         {
             return client.ExecuteAsync(new GetStorageStatistics
             {

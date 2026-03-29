@@ -46,7 +46,7 @@ namespace TdLib
         /// Changes the number of times the supergroup must be boosted by a user to ignore slow mode and chat permission restrictions; requires can_restrict_members administrator right
         /// </summary>
         public static Task<Ok> SetSupergroupUnrestrictBoostCountAsync(
-            this Client client, long supergroupId = default, int unrestrictBoostCount = default)
+            this IClient client, long supergroupId = default, int unrestrictBoostCount = default)
         {
             return client.ExecuteAsync(new SetSupergroupUnrestrictBoostCount
             {

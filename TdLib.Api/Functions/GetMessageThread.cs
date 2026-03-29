@@ -46,7 +46,7 @@ namespace TdLib
         /// Returns information about a message thread. Can be used only if messageProperties.can_get_message_thread == true
         /// </summary>
         public static Task<MessageThreadInfo> GetMessageThreadAsync(
-            this Client client, long chatId = default, long messageId = default)
+            this IClient client, long chatId = default, long messageId = default)
         {
             return client.ExecuteAsync(new GetMessageThread
             {

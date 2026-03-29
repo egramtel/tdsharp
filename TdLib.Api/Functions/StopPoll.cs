@@ -53,7 +53,7 @@ namespace TdLib
         /// Stops a poll
         /// </summary>
         public static Task<Ok> StopPollAsync(
-            this Client client, long chatId = default, long messageId = default, ReplyMarkup replyMarkup = default)
+            this IClient client, long chatId = default, long messageId = default, ReplyMarkup replyMarkup = default)
         {
             return client.ExecuteAsync(new StopPoll
             {

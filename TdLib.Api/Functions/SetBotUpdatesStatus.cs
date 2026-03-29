@@ -46,7 +46,7 @@ namespace TdLib
         /// Informs the server about the number of pending bot updates if they haven't been processed for a long time; for bots only
         /// </summary>
         public static Task<Ok> SetBotUpdatesStatusAsync(
-            this Client client, int pendingUpdateCount = default, string errorMessage = default)
+            this IClient client, int pendingUpdateCount = default, string errorMessage = default)
         {
             return client.ExecuteAsync(new SetBotUpdatesStatus
             {

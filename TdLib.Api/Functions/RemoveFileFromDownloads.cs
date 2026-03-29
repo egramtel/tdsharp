@@ -46,7 +46,7 @@ namespace TdLib
         /// Removes a file from the file download list
         /// </summary>
         public static Task<Ok> RemoveFileFromDownloadsAsync(
-            this Client client, int fileId = default, bool deleteFromCache = default)
+            this IClient client, int fileId = default, bool deleteFromCache = default)
         {
             return client.ExecuteAsync(new RemoveFileFromDownloads
             {

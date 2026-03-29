@@ -53,7 +53,7 @@ namespace TdLib
         /// Changes the notification settings of a forum topic in a forum supergroup chat or a chat with a bot with topics
         /// </summary>
         public static Task<Ok> SetForumTopicNotificationSettingsAsync(
-            this Client client, long chatId = default, int forumTopicId = default, ChatNotificationSettings notificationSettings = default)
+            this IClient client, long chatId = default, int forumTopicId = default, ChatNotificationSettings notificationSettings = default)
         {
             return client.ExecuteAsync(new SetForumTopicNotificationSettings
             {

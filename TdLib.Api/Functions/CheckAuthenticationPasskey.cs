@@ -71,7 +71,7 @@ namespace TdLib
         /// authorizationStateWaitPremiumPurchase, authorizationStateWaitEmailAddress, authorizationStateWaitEmailCode, authorizationStateWaitCode, authorizationStateWaitRegistration, or authorizationStateWaitPassword
         /// </summary>
         public static Task<Ok> CheckAuthenticationPasskeyAsync(
-            this Client client, string credentialId = default, string clientData = default, byte[] authenticatorData = default, byte[] signature = default, byte[] userHandle = default)
+            this IClient client, string credentialId = default, string clientData = default, byte[] authenticatorData = default, byte[] signature = default, byte[] userHandle = default)
         {
             return client.ExecuteAsync(new CheckAuthenticationPasskey
             {

@@ -73,7 +73,7 @@ namespace TdLib
         /// Searches for stickers from public sticker sets that correspond to any of the given emoji
         /// </summary>
         public static Task<Stickers> SearchStickersAsync(
-            this Client client, StickerType stickerType = default, string emojis = default, string query = default, string[] inputLanguageCodes = default, int offset = default, int limit = default)
+            this IClient client, StickerType stickerType = default, string emojis = default, string query = default, string[] inputLanguageCodes = default, int offset = default, int limit = default)
         {
             return client.ExecuteAsync(new SearchStickers
             {

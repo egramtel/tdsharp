@@ -60,7 +60,7 @@ namespace TdLib
         /// Informs server about an in-store purchase of Telegram Premium before authorization. Works only when the current authorization state is authorizationStateWaitPremiumPurchase
         /// </summary>
         public static Task<Ok> SetAuthenticationPremiumPurchaseTransactionAsync(
-            this Client client, StoreTransaction transaction = default, bool isRestore = default, string currency = default, long amount = default)
+            this IClient client, StoreTransaction transaction = default, bool isRestore = default, string currency = default, long amount = default)
         {
             return client.ExecuteAsync(new SetAuthenticationPremiumPurchaseTransaction
             {

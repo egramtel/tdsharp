@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns the list of top live story donors
         /// </summary>
         public static Task<LiveStoryDonors> GetLiveStoryTopDonorsAsync(
-            this Client client, int groupCallId = default)
+            this IClient client, int groupCallId = default)
         {
             return client.ExecuteAsync(new GetLiveStoryTopDonors
             {

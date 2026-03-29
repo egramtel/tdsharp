@@ -53,7 +53,7 @@ namespace TdLib
         /// Changes type of paid message reaction of the current user on a message. The message must have paid reaction added by the current user
         /// </summary>
         public static Task<Ok> SetPaidMessageReactionTypeAsync(
-            this Client client, long chatId = default, long messageId = default, PaidReactionType type = default)
+            this IClient client, long chatId = default, long messageId = default, PaidReactionType type = default)
         {
             return client.ExecuteAsync(new SetPaidMessageReactionType
             {

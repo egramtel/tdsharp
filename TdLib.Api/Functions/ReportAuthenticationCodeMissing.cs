@@ -39,7 +39,7 @@ namespace TdLib
         /// Reports that authentication code wasn't delivered via SMS; for official mobile applications only. Works only when the current authorization state is authorizationStateWaitCode
         /// </summary>
         public static Task<Ok> ReportAuthenticationCodeMissingAsync(
-            this Client client, string mobileNetworkCode = default)
+            this IClient client, string mobileNetworkCode = default)
         {
             return client.ExecuteAsync(new ReportAuthenticationCodeMissing
             {

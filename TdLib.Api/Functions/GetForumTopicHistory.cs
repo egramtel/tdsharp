@@ -69,7 +69,7 @@ namespace TdLib
         /// (i.e., in order of decreasing message_id). For optimal performance, the number of returned messages is chosen by TDLib
         /// </summary>
         public static Task<Messages> GetForumTopicHistoryAsync(
-            this Client client, long chatId = default, int forumTopicId = default, long fromMessageId = default, int offset = default, int limit = default)
+            this IClient client, long chatId = default, int forumTopicId = default, long fromMessageId = default, int offset = default, int limit = default)
         {
             return client.ExecuteAsync(new GetForumTopicHistory
             {

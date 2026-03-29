@@ -46,7 +46,7 @@ namespace TdLib
         /// Changes story list in which stories from the chat are shown
         /// </summary>
         public static Task<Ok> SetChatActiveStoriesListAsync(
-            this Client client, long chatId = default, StoryList storyList = default)
+            this IClient client, long chatId = default, StoryList storyList = default)
         {
             return client.ExecuteAsync(new SetChatActiveStoriesList
             {

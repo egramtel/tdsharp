@@ -47,7 +47,7 @@ namespace TdLib
         /// This method can't be used to join a chat. Members can't be added to a channel if it has more than 200 members. Returns information about members that weren't added
         /// </summary>
         public static Task<FailedToAddMembers> AddChatMembersAsync(
-            this Client client, long chatId = default, long[] userIds = default)
+            this IClient client, long chatId = default, long[] userIds = default)
         {
             return client.ExecuteAsync(new AddChatMembers
             {

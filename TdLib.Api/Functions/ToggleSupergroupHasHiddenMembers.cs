@@ -46,7 +46,7 @@ namespace TdLib
         /// Toggles whether non-administrators can receive only administrators and bots using getSupergroupMembers or searchChatMembers. Can be called only if supergroupFullInfo.can_hide_members == true
         /// </summary>
         public static Task<Ok> ToggleSupergroupHasHiddenMembersAsync(
-            this Client client, long supergroupId = default, bool hasHiddenMembers = default)
+            this IClient client, long supergroupId = default, bool hasHiddenMembers = default)
         {
             return client.ExecuteAsync(new ToggleSupergroupHasHiddenMembers
             {

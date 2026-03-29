@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns information about features, available to Premium users
         /// </summary>
         public static Task<PremiumFeatures> GetPremiumFeaturesAsync(
-            this Client client, PremiumSource source = default)
+            this IClient client, PremiumSource source = default)
         {
             return client.ExecuteAsync(new GetPremiumFeatures
             {

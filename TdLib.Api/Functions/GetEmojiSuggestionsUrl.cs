@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns an HTTP URL which can be used to automatically log in to the translation platform and suggest new emoji replacements. The URL will be valid for 30 seconds after generation
         /// </summary>
         public static Task<HttpUrl> GetEmojiSuggestionsUrlAsync(
-            this Client client, string languageCode = default)
+            this IClient client, string languageCode = default)
         {
             return client.ExecuteAsync(new GetEmojiSuggestionsUrl
             {

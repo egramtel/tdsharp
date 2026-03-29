@@ -34,7 +34,7 @@ namespace TdLib
         /// Hides the list of contacts that have close birthdays for 24 hours
         /// </summary>
         public static Task<Ok> HideContactCloseBirthdaysAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new HideContactCloseBirthdays
             {

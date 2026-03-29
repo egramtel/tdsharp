@@ -60,7 +60,7 @@ namespace TdLib
         /// Adds the paid message reaction to a message. Use getMessageAvailableReactions to check whether the reaction is available for the message
         /// </summary>
         public static Task<Ok> AddPendingPaidMessageReactionAsync(
-            this Client client, long chatId = default, long messageId = default, long starCount = default, PaidReactionType type = default)
+            this IClient client, long chatId = default, long messageId = default, long starCount = default, PaidReactionType type = default)
         {
             return client.ExecuteAsync(new AddPendingPaidMessageReaction
             {

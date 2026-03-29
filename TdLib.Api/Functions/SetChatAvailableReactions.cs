@@ -46,7 +46,7 @@ namespace TdLib
         /// Changes reactions, available in a chat. Available for basic groups, supergroups, and channels. Requires can_change_info member right
         /// </summary>
         public static Task<Ok> SetChatAvailableReactionsAsync(
-            this Client client, long chatId = default, ChatAvailableReactions availableReactions = default)
+            this IClient client, long chatId = default, ChatAvailableReactions availableReactions = default)
         {
             return client.ExecuteAsync(new SetChatAvailableReactions
             {

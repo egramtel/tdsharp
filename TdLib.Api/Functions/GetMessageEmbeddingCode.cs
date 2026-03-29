@@ -53,7 +53,7 @@ namespace TdLib
         /// Returns an HTML code for embedding the message. Available only if messageProperties.can_get_embedding_code
         /// </summary>
         public static Task<Text> GetMessageEmbeddingCodeAsync(
-            this Client client, long chatId = default, long messageId = default, bool forAlbum = default)
+            this IClient client, long chatId = default, long messageId = default, bool forAlbum = default)
         {
             return client.ExecuteAsync(new GetMessageEmbeddingCode
             {

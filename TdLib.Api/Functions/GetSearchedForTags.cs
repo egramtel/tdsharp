@@ -46,7 +46,7 @@ namespace TdLib
         /// Returns recently searched for hashtags or cashtags by their prefix
         /// </summary>
         public static Task<Hashtags> GetSearchedForTagsAsync(
-            this Client client, string tagPrefix = default, int limit = default)
+            this IClient client, string tagPrefix = default, int limit = default)
         {
             return client.ExecuteAsync(new GetSearchedForTags
             {

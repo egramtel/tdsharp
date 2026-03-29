@@ -46,7 +46,7 @@ namespace TdLib
         /// Checks whether the current user can message another user or try to create a chat with them
         /// </summary>
         public static Task<CanSendMessageToUserResult> CanSendMessageToUserAsync(
-            this Client client, long userId = default, bool onlyLocal = default)
+            this IClient client, long userId = default, bool onlyLocal = default)
         {
             return client.ExecuteAsync(new CanSendMessageToUser
             {

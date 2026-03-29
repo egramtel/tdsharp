@@ -46,7 +46,7 @@ namespace TdLib
         /// Searches a chat with an affiliate program. Returns the chat if found and the program is active
         /// </summary>
         public static Task<Chat> SearchChatAffiliateProgramAsync(
-            this Client client, string username = default, string referrer = default)
+            this IClient client, string username = default, string referrer = default)
         {
             return client.ExecuteAsync(new SearchChatAffiliateProgram
             {

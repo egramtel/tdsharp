@@ -39,7 +39,7 @@ namespace TdLib
         /// Checks the 2-step verification password for correctness. Works only when the current authorization state is authorizationStateWaitPassword
         /// </summary>
         public static Task<Ok> CheckAuthenticationPasswordAsync(
-            this Client client, string password = default)
+            this IClient client, string password = default)
         {
             return client.ExecuteAsync(new CheckAuthenticationPassword
             {

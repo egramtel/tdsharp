@@ -34,7 +34,7 @@ namespace TdLib
         /// Resends the login email address verification code
         /// </summary>
         public static Task<EmailAddressAuthenticationCodeInfo> ResendLoginEmailAddressCodeAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new ResendLoginEmailAddressCode
             {

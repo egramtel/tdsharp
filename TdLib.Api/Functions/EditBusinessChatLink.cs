@@ -46,7 +46,7 @@ namespace TdLib
         /// Edits a business chat link of the current account. Requires Telegram Business subscription. Returns the edited link
         /// </summary>
         public static Task<BusinessChatLink> EditBusinessChatLinkAsync(
-            this Client client, string link = default, InputBusinessChatLink linkInfo = default)
+            this IClient client, string link = default, InputBusinessChatLink linkInfo = default)
         {
             return client.ExecuteAsync(new EditBusinessChatLink
             {

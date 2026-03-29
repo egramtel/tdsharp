@@ -67,7 +67,7 @@ namespace TdLib
         /// Sends a gift to another user or channel chat. May return an error with a message "STARGIFT_USAGE_LIMITED" if the gift was sold out
         /// </summary>
         public static Task<Ok> SendGiftAsync(
-            this Client client, long giftId = default, MessageSender ownerId = default, FormattedText text = default, bool isPrivate = default, bool payForUpgrade = default)
+            this IClient client, long giftId = default, MessageSender ownerId = default, FormattedText text = default, bool isPrivate = default, bool payForUpgrade = default)
         {
             return client.ExecuteAsync(new SendGift
             {

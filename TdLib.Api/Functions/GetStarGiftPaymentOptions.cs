@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns available options for Telegram Stars gifting
         /// </summary>
         public static Task<StarPaymentOptions> GetStarGiftPaymentOptionsAsync(
-            this Client client, long userId = default)
+            this IClient client, long userId = default)
         {
             return client.ExecuteAsync(new GetStarGiftPaymentOptions
             {

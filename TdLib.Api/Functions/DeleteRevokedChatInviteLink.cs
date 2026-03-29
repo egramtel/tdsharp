@@ -46,7 +46,7 @@ namespace TdLib
         /// Deletes revoked chat invite links. Requires administrator privileges and can_invite_users right in the chat for own links and owner privileges for other links
         /// </summary>
         public static Task<Ok> DeleteRevokedChatInviteLinkAsync(
-            this Client client, long chatId = default, string inviteLink = default)
+            this IClient client, long chatId = default, string inviteLink = default)
         {
             return client.ExecuteAsync(new DeleteRevokedChatInviteLink
             {

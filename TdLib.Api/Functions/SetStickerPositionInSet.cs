@@ -46,7 +46,7 @@ namespace TdLib
         /// Changes the position of a sticker in the set to which it belongs. The sticker set must be owned by the current user
         /// </summary>
         public static Task<Ok> SetStickerPositionInSetAsync(
-            this Client client, InputFile sticker = default, int position = default)
+            this IClient client, InputFile sticker = default, int position = default)
         {
             return client.ExecuteAsync(new SetStickerPositionInSet
             {

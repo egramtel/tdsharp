@@ -46,7 +46,7 @@ namespace TdLib
         /// Informs TDLib that a bot was opened from the list of similar bots
         /// </summary>
         public static Task<Ok> OpenBotSimilarBotAsync(
-            this Client client, long botUserId = default, long openedBotUserId = default)
+            this IClient client, long botUserId = default, long openedBotUserId = default)
         {
             return client.ExecuteAsync(new OpenBotSimilarBot
             {

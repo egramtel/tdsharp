@@ -54,7 +54,7 @@ namespace TdLib
         /// Documents and audio files can be only grouped in an album with messages of the same type. Returns sent messages
         /// </summary>
         public static Task<QuickReplyMessages> AddQuickReplyShortcutMessageAlbumAsync(
-            this Client client, string shortcutName = default, long replyToMessageId = default, InputMessageContent[] inputMessageContents = default)
+            this IClient client, string shortcutName = default, long replyToMessageId = default, InputMessageContent[] inputMessageContents = default)
         {
             return client.ExecuteAsync(new AddQuickReplyShortcutMessageAlbum
             {

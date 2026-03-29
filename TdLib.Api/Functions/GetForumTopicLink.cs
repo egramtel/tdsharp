@@ -46,7 +46,7 @@ namespace TdLib
         /// Returns an HTTPS link to a topic in a forum supergroup chat. This is an offline method
         /// </summary>
         public static Task<MessageLink> GetForumTopicLinkAsync(
-            this Client client, long chatId = default, int forumTopicId = default)
+            this IClient client, long chatId = default, int forumTopicId = default)
         {
             return client.ExecuteAsync(new GetForumTopicLink
             {

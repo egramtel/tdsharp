@@ -39,7 +39,7 @@ namespace TdLib
         /// Checks whether an in-store purchase is possible. Must be called before any in-store purchase. For official applications only
         /// </summary>
         public static Task<Ok> CanPurchaseFromStoreAsync(
-            this Client client, StorePaymentPurpose purpose = default)
+            this IClient client, StorePaymentPurpose purpose = default)
         {
             return client.ExecuteAsync(new CanPurchaseFromStore
             {

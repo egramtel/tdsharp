@@ -46,7 +46,7 @@ namespace TdLib
         /// Disconnects an affiliate program from the given affiliate and immediately deactivates its referral link. Returns updated information about the disconnected affiliate program
         /// </summary>
         public static Task<ConnectedAffiliateProgram> DisconnectAffiliateProgramAsync(
-            this Client client, AffiliateType affiliate = default, string url = default)
+            this IClient client, AffiliateType affiliate = default, string url = default)
         {
             return client.ExecuteAsync(new DisconnectAffiliateProgram
             {

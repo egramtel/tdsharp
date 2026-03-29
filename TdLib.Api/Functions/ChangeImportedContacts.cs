@@ -40,7 +40,7 @@ namespace TdLib
         /// Query result depends on the result of the previous query, so only one query is possible at the same time
         /// </summary>
         public static Task<ImportedContacts> ChangeImportedContactsAsync(
-            this Client client, ImportedContact[] contacts = default)
+            this IClient client, ImportedContact[] contacts = default)
         {
             return client.ExecuteAsync(new ChangeImportedContacts
             {

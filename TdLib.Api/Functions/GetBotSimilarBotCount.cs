@@ -46,7 +46,7 @@ namespace TdLib
         /// Returns approximate number of bots similar to the given bot
         /// </summary>
         public static Task<Count> GetBotSimilarBotCountAsync(
-            this Client client, long botUserId = default, bool returnLocal = default)
+            this IClient client, long botUserId = default, bool returnLocal = default)
         {
             return client.ExecuteAsync(new GetBotSimilarBotCount
             {

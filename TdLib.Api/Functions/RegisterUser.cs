@@ -53,7 +53,7 @@ namespace TdLib
         /// Finishes user registration. Works only when the current authorization state is authorizationStateWaitRegistration
         /// </summary>
         public static Task<Ok> RegisterUserAsync(
-            this Client client, string firstName = default, string lastName = default, bool disableNotification = default)
+            this IClient client, string firstName = default, string lastName = default, bool disableNotification = default)
         {
             return client.ExecuteAsync(new RegisterUser
             {

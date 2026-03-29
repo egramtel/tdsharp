@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns a list of sticker sets attached to a file, including regular, mask, and emoji sticker sets. Currently, only animations, photos, and videos can have attached sticker sets
         /// </summary>
         public static Task<StickerSets> GetAttachedStickerSetsAsync(
-            this Client client, int fileId = default)
+            this IClient client, int fileId = default)
         {
             return client.ExecuteAsync(new GetAttachedStickerSets
             {

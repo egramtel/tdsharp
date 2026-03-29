@@ -46,7 +46,7 @@ namespace TdLib
         /// Deletes the default reply markup from a chat. Must be called after a one-time keyboard or a replyMarkupForceReply reply markup has been used or dismissed
         /// </summary>
         public static Task<Ok> DeleteChatReplyMarkupAsync(
-            this Client client, long chatId = default, long messageId = default)
+            this IClient client, long chatId = default, long messageId = default)
         {
             return client.ExecuteAsync(new DeleteChatReplyMarkup
             {

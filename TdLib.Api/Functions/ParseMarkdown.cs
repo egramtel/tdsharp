@@ -39,7 +39,7 @@ namespace TdLib
         /// Parses Markdown entities in a human-friendly format, ignoring markup errors. Can be called synchronously
         /// </summary>
         public static Task<FormattedText> ParseMarkdownAsync(
-            this Client client, FormattedText text = default)
+            this IClient client, FormattedText text = default)
         {
             return client.ExecuteAsync(new ParseMarkdown
             {

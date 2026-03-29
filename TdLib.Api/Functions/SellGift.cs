@@ -46,7 +46,7 @@ namespace TdLib
         /// Sells a gift for Telegram Stars; requires owner privileges for gifts owned by a chat
         /// </summary>
         public static Task<Ok> SellGiftAsync(
-            this Client client, string businessConnectionId = default, string receivedGiftId = default)
+            this IClient client, string businessConnectionId = default, string receivedGiftId = default)
         {
             return client.ExecuteAsync(new SellGift
             {

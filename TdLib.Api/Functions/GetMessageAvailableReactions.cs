@@ -53,7 +53,7 @@ namespace TdLib
         /// Returns reactions, which can be added to a message. The list can change after updateActiveEmojiReactions, updateChatAvailableReactions for the chat, or updateMessageInteractionInfo for the message
         /// </summary>
         public static Task<AvailableReactions> GetMessageAvailableReactionsAsync(
-            this Client client, long chatId = default, long messageId = default, int rowSize = default)
+            this IClient client, long chatId = default, long messageId = default, int rowSize = default)
         {
             return client.ExecuteAsync(new GetMessageAvailableReactions
             {

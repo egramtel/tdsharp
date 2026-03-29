@@ -74,7 +74,7 @@ namespace TdLib
         /// Returns upgraded gifts that can be bought from other owners using sendResoldGift
         /// </summary>
         public static Task<GiftsForResale> SearchGiftsForResaleAsync(
-            this Client client, long giftId = default, GiftForResaleOrder order = default, bool forCrafting = default, UpgradedGiftAttributeId[] attributes = default, string offset = default, int limit = default)
+            this IClient client, long giftId = default, GiftForResaleOrder order = default, bool forCrafting = default, UpgradedGiftAttributeId[] attributes = default, string offset = default, int limit = default)
         {
             return client.ExecuteAsync(new SearchGiftsForResale
             {

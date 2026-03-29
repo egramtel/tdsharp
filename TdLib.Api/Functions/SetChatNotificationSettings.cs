@@ -46,7 +46,7 @@ namespace TdLib
         /// Changes the notification settings of a chat. Notification settings of a chat with the current user (Saved Messages) can't be changed
         /// </summary>
         public static Task<Ok> SetChatNotificationSettingsAsync(
-            this Client client, long chatId = default, ChatNotificationSettings notificationSettings = default)
+            this IClient client, long chatId = default, ChatNotificationSettings notificationSettings = default)
         {
             return client.ExecuteAsync(new SetChatNotificationSettings
             {

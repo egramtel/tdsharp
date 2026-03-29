@@ -46,7 +46,7 @@ namespace TdLib
         /// Sets menu button for the given user or for all users; for bots only
         /// </summary>
         public static Task<Ok> SetMenuButtonAsync(
-            this Client client, long userId = default, BotMenuButton menuButton = default)
+            this IClient client, long userId = default, BotMenuButton menuButton = default)
         {
             return client.ExecuteAsync(new SetMenuButton
             {

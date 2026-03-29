@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns menu button set by the bot for the given user; for bots only
         /// </summary>
         public static Task<BotMenuButton> GetMenuButtonAsync(
-            this Client client, long userId = default)
+            this IClient client, long userId = default)
         {
             return client.ExecuteAsync(new GetMenuButton
             {

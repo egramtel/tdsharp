@@ -46,7 +46,7 @@ namespace TdLib
         /// Returns one of the available Telegram Passport elements
         /// </summary>
         public static Task<PassportElement> GetPassportElementAsync(
-            this Client client, PassportElementType type = default, string password = default)
+            this IClient client, PassportElementType type = default, string password = default)
         {
             return client.ExecuteAsync(new GetPassportElement
             {

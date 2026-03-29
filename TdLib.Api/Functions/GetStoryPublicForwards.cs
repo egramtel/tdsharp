@@ -62,7 +62,7 @@ namespace TdLib
         /// For optimal performance, the number of returned messages and stories is chosen by TDLib
         /// </summary>
         public static Task<PublicForwards> GetStoryPublicForwardsAsync(
-            this Client client, long storyPosterChatId = default, int storyId = default, string offset = default, int limit = default)
+            this IClient client, long storyPosterChatId = default, int storyId = default, string offset = default, int limit = default)
         {
             return client.ExecuteAsync(new GetStoryPublicForwards
             {

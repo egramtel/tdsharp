@@ -39,7 +39,7 @@ namespace TdLib
         /// Informs TDLib that the chat is closed by the user. Many useful activities depend on the chat being opened or closed
         /// </summary>
         public static Task<Ok> CloseChatAsync(
-            this Client client, long chatId = default)
+            this IClient client, long chatId = default)
         {
             return client.ExecuteAsync(new CloseChat
             {

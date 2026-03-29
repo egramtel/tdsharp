@@ -34,7 +34,7 @@ namespace TdLib
         /// Returns up to 8 emoji statuses, which must be shown in the emoji status list for chats
         /// </summary>
         public static Task<EmojiStatusCustomEmojis> GetThemedChatEmojiStatusesAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new GetThemedChatEmojiStatuses
             {

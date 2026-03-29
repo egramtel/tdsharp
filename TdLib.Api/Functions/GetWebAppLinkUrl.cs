@@ -74,7 +74,7 @@ namespace TdLib
         /// Returns an HTTPS URL of a Web App to open after a link of the type internalLinkTypeWebApp is clicked
         /// </summary>
         public static Task<HttpUrl> GetWebAppLinkUrlAsync(
-            this Client client, long chatId = default, long botUserId = default, string webAppShortName = default, string startParameter = default, bool allowWriteAccess = default, WebAppOpenParameters parameters = default)
+            this IClient client, long chatId = default, long botUserId = default, string webAppShortName = default, string startParameter = default, bool allowWriteAccess = default, WebAppOpenParameters parameters = default)
         {
             return client.ExecuteAsync(new GetWebAppLinkUrl
             {

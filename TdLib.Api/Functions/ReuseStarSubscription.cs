@@ -39,7 +39,7 @@ namespace TdLib
         /// Reuses an active Telegram Star subscription to a channel chat and joins the chat again
         /// </summary>
         public static Task<Ok> ReuseStarSubscriptionAsync(
-            this Client client, string subscriptionId = default)
+            this IClient client, string subscriptionId = default)
         {
             return client.ExecuteAsync(new ReuseStarSubscription
             {

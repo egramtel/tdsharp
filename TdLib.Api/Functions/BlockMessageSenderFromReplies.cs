@@ -60,7 +60,7 @@ namespace TdLib
         /// Blocks an original sender of a message in the Replies chat
         /// </summary>
         public static Task<Ok> BlockMessageSenderFromRepliesAsync(
-            this Client client, long messageId = default, bool deleteMessage = default, bool deleteAllMessages = default, bool reportSpam = default)
+            this IClient client, long messageId = default, bool deleteMessage = default, bool deleteAllMessages = default, bool reportSpam = default)
         {
             return client.ExecuteAsync(new BlockMessageSenderFromReplies
             {

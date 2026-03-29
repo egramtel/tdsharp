@@ -67,7 +67,7 @@ namespace TdLib
         /// Returns an HTTPS link to a message in a chat. Available only if messageProperties.can_get_link, or if messageProperties.can_get_media_timestamp_links and a media timestamp link is generated. This is an offline method
         /// </summary>
         public static Task<MessageLink> GetMessageLinkAsync(
-            this Client client, long chatId = default, long messageId = default, int mediaTimestamp = default, bool forAlbum = default, bool inMessageThread = default)
+            this IClient client, long chatId = default, long messageId = default, int mediaTimestamp = default, bool forAlbum = default, bool inMessageThread = default)
         {
             return client.ExecuteAsync(new GetMessageLink
             {

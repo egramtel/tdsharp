@@ -34,7 +34,7 @@ namespace TdLib
         /// Disconnects all websites from the current user's Telegram account
         /// </summary>
         public static Task<Ok> DisconnectAllWebsitesAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new DisconnectAllWebsites
             {

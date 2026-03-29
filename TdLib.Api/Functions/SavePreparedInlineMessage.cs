@@ -53,7 +53,7 @@ namespace TdLib
         /// Saves an inline message to be sent by the given user; for bots only
         /// </summary>
         public static Task<PreparedInlineMessageId> SavePreparedInlineMessageAsync(
-            this Client client, long userId = default, InputInlineQueryResult result = default, TargetChatTypes chatTypes = default)
+            this IClient client, long userId = default, InputInlineQueryResult result = default, TargetChatTypes chatTypes = default)
         {
             return client.ExecuteAsync(new SavePreparedInlineMessage
             {

@@ -46,7 +46,7 @@ namespace TdLib
         /// Refunds a previously done payment in Telegram Stars; for bots only
         /// </summary>
         public static Task<Ok> RefundStarPaymentAsync(
-            this Client client, long userId = default, string telegramPaymentChargeId = default)
+            this IClient client, long userId = default, string telegramPaymentChargeId = default)
         {
             return client.ExecuteAsync(new RefundStarPayment
             {

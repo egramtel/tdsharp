@@ -53,7 +53,7 @@ namespace TdLib
         /// Checks whether a file can be downloaded and saved locally by Web App request
         /// </summary>
         public static Task<Ok> CheckWebAppFileDownloadAsync(
-            this Client client, long botUserId = default, string fileName = default, string url = default)
+            this IClient client, long botUserId = default, string fileName = default, string url = default)
         {
             return client.ExecuteAsync(new CheckWebAppFileDownload
             {

@@ -41,7 +41,7 @@ namespace TdLib
         /// Can be called before authorization
         /// </summary>
         public static Task<Ok> DeleteLanguagePackAsync(
-            this Client client, string languagePackId = default)
+            this IClient client, string languagePackId = default)
         {
             return client.ExecuteAsync(new DeleteLanguagePack
             {

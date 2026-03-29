@@ -52,7 +52,7 @@ namespace TdLib
         /// Creates a new invite link for a chat folder. A link can be created for a chat folder if it has only pinned and included chats
         /// </summary>
         public static Task<ChatFolderInviteLink> CreateChatFolderInviteLinkAsync(
-            this Client client, int chatFolderId = default, string name = default, long[] chatIds = default)
+            this IClient client, int chatFolderId = default, string name = default, long[] chatIds = default)
         {
             return client.ExecuteAsync(new CreateChatFolderInviteLink
             {

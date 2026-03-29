@@ -60,7 +60,7 @@ namespace TdLib
         /// Decrypts group call data received by tgcalls
         /// </summary>
         public static Task<Data> DecryptGroupCallDataAsync(
-            this Client client, int groupCallId = default, MessageSender participantId = default, GroupCallDataChannel dataChannel = default, byte[] data = default)
+            this IClient client, int groupCallId = default, MessageSender participantId = default, GroupCallDataChannel dataChannel = default, byte[] data = default)
         {
             return client.ExecuteAsync(new DecryptGroupCallData
             {

@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns identifiers of chats from a chat folder, suitable for adding to a chat folder invite link
         /// </summary>
         public static Task<Chats> GetChatsForChatFolderInviteLinkAsync(
-            this Client client, int chatFolderId = default)
+            this IClient client, int chatFolderId = default)
         {
             return client.ExecuteAsync(new GetChatsForChatFolderInviteLink
             {

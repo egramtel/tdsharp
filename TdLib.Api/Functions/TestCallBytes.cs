@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns the received bytes; for testing only. This is an offline method. Can be called before authorization
         /// </summary>
         public static Task<TestBytes> TestCallBytesAsync(
-            this Client client, byte[] x = default)
+            this IClient client, byte[] x = default)
         {
             return client.ExecuteAsync(new TestCallBytes
             {

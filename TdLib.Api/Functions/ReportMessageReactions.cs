@@ -53,7 +53,7 @@ namespace TdLib
         /// Reports reactions set on a message to the Telegram moderators. Reactions on a message can be reported only if messageProperties.can_report_reactions
         /// </summary>
         public static Task<Ok> ReportMessageReactionsAsync(
-            this Client client, long chatId = default, long messageId = default, MessageSender senderId = default)
+            this IClient client, long chatId = default, long messageId = default, MessageSender senderId = default)
         {
             return client.ExecuteAsync(new ReportMessageReactions
             {

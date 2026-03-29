@@ -46,7 +46,7 @@ namespace TdLib
         /// Returns the last message sent in a Saved Messages topic no later than the specified date
         /// </summary>
         public static Task<Message> GetSavedMessagesTopicMessageByDateAsync(
-            this Client client, long savedMessagesTopicId = default, int date = default)
+            this IClient client, long savedMessagesTopicId = default, int date = default)
         {
             return client.ExecuteAsync(new GetSavedMessagesTopicMessageByDate
             {

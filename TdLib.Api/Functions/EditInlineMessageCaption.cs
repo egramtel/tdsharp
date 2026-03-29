@@ -60,7 +60,7 @@ namespace TdLib
         /// Edits the caption of an inline message sent via a bot; for bots only
         /// </summary>
         public static Task<Ok> EditInlineMessageCaptionAsync(
-            this Client client, string inlineMessageId = default, ReplyMarkup replyMarkup = default, FormattedText caption = default, bool showCaptionAboveMedia = default)
+            this IClient client, string inlineMessageId = default, ReplyMarkup replyMarkup = default, FormattedText caption = default, bool showCaptionAboveMedia = default)
         {
             return client.ExecuteAsync(new EditInlineMessageCaption
             {

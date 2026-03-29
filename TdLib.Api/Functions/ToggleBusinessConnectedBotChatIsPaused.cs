@@ -46,7 +46,7 @@ namespace TdLib
         /// Pauses or resumes the connected business bot in a specific chat
         /// </summary>
         public static Task<Ok> ToggleBusinessConnectedBotChatIsPausedAsync(
-            this Client client, long chatId = default, bool isPaused = default)
+            this IClient client, long chatId = default, bool isPaused = default)
         {
             return client.ExecuteAsync(new ToggleBusinessConnectedBotChatIsPaused
             {

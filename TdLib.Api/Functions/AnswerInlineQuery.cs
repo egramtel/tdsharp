@@ -73,7 +73,7 @@ namespace TdLib
         /// Sets the result of an inline query; for bots only
         /// </summary>
         public static Task<Ok> AnswerInlineQueryAsync(
-            this Client client, long inlineQueryId = default, bool isPersonal = default, InlineQueryResultsButton button = default, InputInlineQueryResult[] results = default, int cacheTime = default, string nextOffset = default)
+            this IClient client, long inlineQueryId = default, bool isPersonal = default, InlineQueryResultsButton button = default, InputInlineQueryResult[] results = default, int cacheTime = default, string nextOffset = default)
         {
             return client.ExecuteAsync(new AnswerInlineQuery
             {

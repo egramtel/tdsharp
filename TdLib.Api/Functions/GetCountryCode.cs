@@ -34,7 +34,7 @@ namespace TdLib
         /// Uses the current IP address to find the current country. Returns two-letter ISO 3166-1 alpha-2 country code. Can be called before authorization
         /// </summary>
         public static Task<Text> GetCountryCodeAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new GetCountryCode
             {

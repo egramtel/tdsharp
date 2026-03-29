@@ -53,7 +53,7 @@ namespace TdLib
         /// Toggles whether sender signature or link to the account is added to sent messages in a channel; requires can_change_info member right
         /// </summary>
         public static Task<Ok> ToggleSupergroupSignMessagesAsync(
-            this Client client, long supergroupId = default, bool signMessages = default, bool showMessageSender = default)
+            this IClient client, long supergroupId = default, bool signMessages = default, bool showMessageSender = default)
         {
             return client.ExecuteAsync(new ToggleSupergroupSignMessages
             {

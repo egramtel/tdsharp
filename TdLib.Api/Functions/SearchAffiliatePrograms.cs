@@ -60,7 +60,7 @@ namespace TdLib
         /// Searches affiliate programs that can be connected to the given affiliate
         /// </summary>
         public static Task<FoundAffiliatePrograms> SearchAffiliateProgramsAsync(
-            this Client client, AffiliateType affiliate = default, AffiliateProgramSortOrder sortOrder = default, string offset = default, int limit = default)
+            this IClient client, AffiliateType affiliate = default, AffiliateProgramSortOrder sortOrder = default, string offset = default, int limit = default)
         {
             return client.ExecuteAsync(new SearchAffiliatePrograms
             {

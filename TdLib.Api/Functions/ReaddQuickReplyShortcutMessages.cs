@@ -47,7 +47,7 @@ namespace TdLib
         /// If a message is readded, the corresponding failed to send message is deleted. Returns the sent messages in the same order as the message identifiers passed in message_ids. If a message can't be readded, null will be returned instead of the message
         /// </summary>
         public static Task<QuickReplyMessages> ReaddQuickReplyShortcutMessagesAsync(
-            this Client client, string shortcutName = default, long[] messageIds = default)
+            this IClient client, string shortcutName = default, long[] messageIds = default)
         {
             return client.ExecuteAsync(new ReaddQuickReplyShortcutMessages
             {

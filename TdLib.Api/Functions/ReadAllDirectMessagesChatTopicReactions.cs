@@ -46,7 +46,7 @@ namespace TdLib
         /// Removes all unread reactions in the topic in a channel direct messages chat administered by the current user
         /// </summary>
         public static Task<Ok> ReadAllDirectMessagesChatTopicReactionsAsync(
-            this Client client, long chatId = default, long topicId = default)
+            this IClient client, long chatId = default, long topicId = default)
         {
             return client.ExecuteAsync(new ReadAllDirectMessagesChatTopicReactions
             {

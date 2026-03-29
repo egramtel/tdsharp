@@ -46,7 +46,7 @@ namespace TdLib
         /// Changes a note of a contact user
         /// </summary>
         public static Task<Ok> SetUserNoteAsync(
-            this Client client, long userId = default, FormattedText note = default)
+            this IClient client, long userId = default, FormattedText note = default)
         {
             return client.ExecuteAsync(new SetUserNote
             {

@@ -39,7 +39,7 @@ namespace TdLib
         /// Changes privacy settings for message read date
         /// </summary>
         public static Task<Ok> SetReadDatePrivacySettingsAsync(
-            this Client client, ReadDatePrivacySettings settings = default)
+            this IClient client, ReadDatePrivacySettings settings = default)
         {
             return client.ExecuteAsync(new SetReadDatePrivacySettings
             {

@@ -46,7 +46,7 @@ namespace TdLib
         /// Changes the location of a chat. Available only for some location-based supergroups, use supergroupFullInfo.can_set_location to check whether the method is allowed to use
         /// </summary>
         public static Task<Ok> SetChatLocationAsync(
-            this Client client, long chatId = default, ChatLocation location = default)
+            this IClient client, long chatId = default, ChatLocation location = default)
         {
             return client.ExecuteAsync(new SetChatLocation
             {

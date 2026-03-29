@@ -46,7 +46,7 @@ namespace TdLib
         /// Returns information about a Web App by its short name. Returns a 404 error if the Web App is not found
         /// </summary>
         public static Task<FoundWebApp> SearchWebAppAsync(
-            this Client client, long botUserId = default, string webAppShortName = default)
+            this IClient client, long botUserId = default, string webAppShortName = default)
         {
             return client.ExecuteAsync(new SearchWebApp
             {

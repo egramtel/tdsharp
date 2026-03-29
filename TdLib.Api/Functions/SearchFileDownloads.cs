@@ -67,7 +67,7 @@ namespace TdLib
         /// Searches for files in the file download list or recently downloaded files from the list
         /// </summary>
         public static Task<FoundFileDownloads> SearchFileDownloadsAsync(
-            this Client client, string query = default, bool onlyActive = default, bool onlyCompleted = default, string offset = default, int limit = default)
+            this IClient client, string query = default, bool onlyActive = default, bool onlyCompleted = default, string offset = default, int limit = default)
         {
             return client.ExecuteAsync(new SearchFileDownloads
             {

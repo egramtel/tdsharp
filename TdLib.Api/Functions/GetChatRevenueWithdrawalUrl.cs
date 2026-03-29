@@ -48,7 +48,7 @@ namespace TdLib
         /// if getOption("can_withdraw_chat_revenue") for channels with supergroupFullInfo.can_get_revenue_statistics == true or bots with userFullInfo.bot_info.can_get_revenue_statistics == true
         /// </summary>
         public static Task<HttpUrl> GetChatRevenueWithdrawalUrlAsync(
-            this Client client, long chatId = default, string password = default)
+            this IClient client, long chatId = default, string password = default)
         {
             return client.ExecuteAsync(new GetChatRevenueWithdrawalUrl
             {

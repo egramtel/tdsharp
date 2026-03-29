@@ -57,7 +57,7 @@ namespace TdLib
         /// Use addChatMember or banChatMember if some additional parameters needs to be passed
         /// </summary>
         public static Task<Ok> SetChatMemberStatusAsync(
-            this Client client, long chatId = default, MessageSender memberId = default, ChatMemberStatus status = default)
+            this IClient client, long chatId = default, MessageSender memberId = default, ChatMemberStatus status = default)
         {
             return client.ExecuteAsync(new SetChatMemberStatus
             {

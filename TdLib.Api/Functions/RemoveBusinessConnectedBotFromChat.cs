@@ -39,7 +39,7 @@ namespace TdLib
         /// Removes the connected business bot from a specific chat by adding the chat to businessRecipients.excluded_chat_ids
         /// </summary>
         public static Task<Ok> RemoveBusinessConnectedBotFromChatAsync(
-            this Client client, long chatId = default)
+            this IClient client, long chatId = default)
         {
             return client.ExecuteAsync(new RemoveBusinessConnectedBotFromChat
             {

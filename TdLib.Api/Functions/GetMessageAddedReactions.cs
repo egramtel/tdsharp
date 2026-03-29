@@ -67,7 +67,7 @@ namespace TdLib
         /// Returns reactions added for a message, along with their sender
         /// </summary>
         public static Task<AddedReactions> GetMessageAddedReactionsAsync(
-            this Client client, long chatId = default, long messageId = default, ReactionType reactionType = default, string offset = default, int limit = default)
+            this IClient client, long chatId = default, long messageId = default, ReactionType reactionType = default, string offset = default, int limit = default)
         {
             return client.ExecuteAsync(new GetMessageAddedReactions
             {

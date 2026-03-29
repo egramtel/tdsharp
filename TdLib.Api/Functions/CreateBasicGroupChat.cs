@@ -46,7 +46,7 @@ namespace TdLib
         /// Returns an existing chat corresponding to a known basic group
         /// </summary>
         public static Task<Chat> CreateBasicGroupChatAsync(
-            this Client client, long basicGroupId = default, bool force = default)
+            this IClient client, long basicGroupId = default, bool force = default)
         {
             return client.ExecuteAsync(new CreateBasicGroupChat
             {

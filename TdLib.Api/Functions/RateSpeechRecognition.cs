@@ -53,7 +53,7 @@ namespace TdLib
         /// Rates recognized speech in a video note or a voice note message
         /// </summary>
         public static Task<Ok> RateSpeechRecognitionAsync(
-            this Client client, long chatId = default, long messageId = default, bool isGood = default)
+            this IClient client, long chatId = default, long messageId = default, bool isGood = default)
         {
             return client.ExecuteAsync(new RateSpeechRecognition
             {

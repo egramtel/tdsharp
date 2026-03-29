@@ -34,7 +34,7 @@ namespace TdLib
         /// Returns the list of supported time zones
         /// </summary>
         public static Task<TimeZones> GetTimeZonesAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new GetTimeZones
             {

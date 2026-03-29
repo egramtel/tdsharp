@@ -46,7 +46,7 @@ namespace TdLib
         /// Toggles whether participants of a group call can send messages there. Requires groupCall.can_toggle_are_messages_allowed right
         /// </summary>
         public static Task<Ok> ToggleGroupCallAreMessagesAllowedAsync(
-            this Client client, int groupCallId = default, bool areMessagesAllowed = default)
+            this IClient client, int groupCallId = default, bool areMessagesAllowed = default)
         {
             return client.ExecuteAsync(new ToggleGroupCallAreMessagesAllowed
             {

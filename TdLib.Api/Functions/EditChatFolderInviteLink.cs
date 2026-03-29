@@ -59,7 +59,7 @@ namespace TdLib
         /// Edits an invite link for a chat folder
         /// </summary>
         public static Task<ChatFolderInviteLink> EditChatFolderInviteLinkAsync(
-            this Client client, int chatFolderId = default, string inviteLink = default, string name = default, long[] chatIds = default)
+            this IClient client, int chatFolderId = default, string inviteLink = default, string name = default, long[] chatIds = default)
         {
             return client.ExecuteAsync(new EditChatFolderInviteLink
             {

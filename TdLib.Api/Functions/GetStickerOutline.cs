@@ -53,7 +53,7 @@ namespace TdLib
         /// Returns outline of a sticker. This is an offline method. Returns a 404 error if the outline isn't known
         /// </summary>
         public static Task<Outline> GetStickerOutlineAsync(
-            this Client client, int stickerFileId = default, bool forAnimatedEmoji = default, bool forClickedAnimatedEmojiMessage = default)
+            this IClient client, int stickerFileId = default, bool forAnimatedEmoji = default, bool forClickedAnimatedEmojiMessage = default)
         {
             return client.ExecuteAsync(new GetStickerOutline
             {

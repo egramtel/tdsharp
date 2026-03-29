@@ -39,7 +39,7 @@ namespace TdLib
         /// Adds a chat to the list of recently found chats. The chat is added to the beginning of the list. If the chat is already in the list, it will be removed from the list first
         /// </summary>
         public static Task<Ok> AddRecentlyFoundChatAsync(
-            this Client client, long chatId = default)
+            this IClient client, long chatId = default)
         {
             return client.ExecuteAsync(new AddRecentlyFoundChat
             {

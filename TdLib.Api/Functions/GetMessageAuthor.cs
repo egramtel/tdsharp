@@ -46,7 +46,7 @@ namespace TdLib
         /// Returns information about actual author of a message sent on behalf of a channel. The method can be called if messageProperties.can_get_author == true
         /// </summary>
         public static Task<User> GetMessageAuthorAsync(
-            this Client client, long chatId = default, long messageId = default)
+            this IClient client, long chatId = default, long messageId = default)
         {
             return client.ExecuteAsync(new GetMessageAuthor
             {

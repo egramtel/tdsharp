@@ -34,7 +34,7 @@ namespace TdLib
         /// Returns parameters for authentication using a passkey as JSON-serialized string
         /// </summary>
         public static Task<Text> GetAuthenticationPasskeyParametersAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new GetAuthenticationPasskeyParameters
             {

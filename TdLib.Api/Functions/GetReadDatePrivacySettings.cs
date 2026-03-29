@@ -34,7 +34,7 @@ namespace TdLib
         /// Returns privacy settings for message read date
         /// </summary>
         public static Task<ReadDatePrivacySettings> GetReadDatePrivacySettingsAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new GetReadDatePrivacySettings
             {
