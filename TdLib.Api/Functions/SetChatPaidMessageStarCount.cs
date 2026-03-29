@@ -47,7 +47,7 @@ namespace TdLib
         /// Changes the Telegram Star amount that must be paid to send a message to a supergroup chat; requires can_restrict_members administrator right and supergroupFullInfo.can_enable_paid_messages
         /// </summary>
         public static Task<Ok> SetChatPaidMessageStarCountAsync(
-            this Client client, long chatId = default, long paidMessageStarCount = default)
+            this IClient client, long chatId = default, long paidMessageStarCount = default)
         {
             return client.ExecuteAsync(new SetChatPaidMessageStarCount
             {

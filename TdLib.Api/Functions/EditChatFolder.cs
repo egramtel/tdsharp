@@ -46,7 +46,7 @@ namespace TdLib
         /// Edits existing chat folder. Returns information about the edited chat folder
         /// </summary>
         public static Task<ChatFolderInfo> EditChatFolderAsync(
-            this Client client, int chatFolderId = default, ChatFolder folder = default)
+            this IClient client, int chatFolderId = default, ChatFolder folder = default)
         {
             return client.ExecuteAsync(new EditChatFolder
             {

@@ -39,7 +39,7 @@ namespace TdLib
         /// Deletes a file from the TDLib file cache
         /// </summary>
         public static Task<Ok> DeleteFileAsync(
-            this Client client, int fileId = default)
+            this IClient client, int fileId = default)
         {
             return client.ExecuteAsync(new DeleteFile
             {

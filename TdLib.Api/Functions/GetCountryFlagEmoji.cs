@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns an emoji for the given country. Returns an empty string on failure. Can be called synchronously
         /// </summary>
         public static Task<Text> GetCountryFlagEmojiAsync(
-            this Client client, string countryCode = default)
+            this IClient client, string countryCode = default)
         {
             return client.ExecuteAsync(new GetCountryFlagEmoji
             {

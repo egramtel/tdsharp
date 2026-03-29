@@ -39,7 +39,7 @@ namespace TdLib
         /// Leaves a group call
         /// </summary>
         public static Task<Ok> LeaveGroupCallAsync(
-            this Client client, int groupCallId = default)
+            this IClient client, int groupCallId = default)
         {
             return client.ExecuteAsync(new LeaveGroupCall
             {

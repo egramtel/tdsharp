@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns examples of possible upgraded gifts for a regular gift
         /// </summary>
         public static Task<GiftUpgradePreview> GetGiftUpgradePreviewAsync(
-            this Client client, long regularGiftId = default)
+            this IClient client, long regularGiftId = default)
         {
             return client.ExecuteAsync(new GetGiftUpgradePreview
             {

@@ -52,7 +52,7 @@ namespace TdLib
         /// Removes gifts from a collection. If the collection is owned by a channel chat, then requires can_post_messages administrator right in the channel chat. Returns the changed collection
         /// </summary>
         public static Task<GiftCollection> RemoveGiftCollectionGiftsAsync(
-            this Client client, MessageSender ownerId = default, int collectionId = default, string[] receivedGiftIds = default)
+            this IClient client, MessageSender ownerId = default, int collectionId = default, string[] receivedGiftIds = default)
         {
             return client.ExecuteAsync(new RemoveGiftCollectionGifts
             {

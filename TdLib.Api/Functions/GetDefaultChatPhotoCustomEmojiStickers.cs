@@ -34,7 +34,7 @@ namespace TdLib
         /// Returns default list of custom emoji stickers for placing on a chat photo
         /// </summary>
         public static Task<Stickers> GetDefaultChatPhotoCustomEmojiStickersAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new GetDefaultChatPhotoCustomEmojiStickers
             {

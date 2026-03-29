@@ -53,7 +53,7 @@ namespace TdLib
         /// Declines a suggested post in a channel direct messages chat
         /// </summary>
         public static Task<Ok> DeclineSuggestedPostAsync(
-            this Client client, long chatId = default, long messageId = default, string comment = default)
+            this IClient client, long chatId = default, long messageId = default, string comment = default)
         {
             return client.ExecuteAsync(new DeclineSuggestedPost
             {

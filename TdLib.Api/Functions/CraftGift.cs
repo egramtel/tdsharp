@@ -38,7 +38,7 @@ namespace TdLib
         /// Crafts a new gift from other gifts that will be permanently lost
         /// </summary>
         public static Task<CraftGiftResult> CraftGiftAsync(
-            this Client client, string[] receivedGiftIds = default)
+            this IClient client, string[] receivedGiftIds = default)
         {
             return client.ExecuteAsync(new CraftGift
             {

@@ -39,7 +39,7 @@ namespace TdLib
         /// Changes privacy settings for new chat creation; can be used only if getOption("can_set_new_chat_privacy_settings")
         /// </summary>
         public static Task<Ok> SetNewChatPrivacySettingsAsync(
-            this Client client, NewChatPrivacySettings settings = default)
+            this IClient client, NewChatPrivacySettings settings = default)
         {
             return client.ExecuteAsync(new SetNewChatPrivacySettings
             {

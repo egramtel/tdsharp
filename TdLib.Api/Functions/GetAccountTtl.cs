@@ -34,7 +34,7 @@ namespace TdLib
         /// Returns the period of inactivity after which the account of the current user will automatically be deleted
         /// </summary>
         public static Task<AccountTtl> GetAccountTtlAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new GetAccountTtl
             {

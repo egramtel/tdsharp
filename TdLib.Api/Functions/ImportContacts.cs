@@ -38,7 +38,7 @@ namespace TdLib
         /// Adds new contacts or edits existing contacts by their phone numbers; contacts' user identifiers are ignored
         /// </summary>
         public static Task<ImportedContacts> ImportContactsAsync(
-            this Client client, ImportedContact[] contacts = default)
+            this IClient client, ImportedContact[] contacts = default)
         {
             return client.ExecuteAsync(new ImportContacts
             {

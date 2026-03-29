@@ -53,7 +53,7 @@ namespace TdLib
         /// Returns a list of common group chats with a given user. Chats are sorted by their type and creation date
         /// </summary>
         public static Task<Chats> GetGroupsInCommonAsync(
-            this Client client, long userId = default, long offsetChatId = default, int limit = default)
+            this IClient client, long userId = default, long offsetChatId = default, int limit = default)
         {
             return client.ExecuteAsync(new GetGroupsInCommon
             {

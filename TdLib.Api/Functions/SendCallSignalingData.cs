@@ -46,7 +46,7 @@ namespace TdLib
         /// Sends call signaling data
         /// </summary>
         public static Task<Ok> SendCallSignalingDataAsync(
-            this Client client, int callId = default, byte[] data = default)
+            this IClient client, int callId = default, byte[] data = default)
         {
             return client.ExecuteAsync(new SendCallSignalingData
             {

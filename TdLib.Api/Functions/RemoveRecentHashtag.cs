@@ -39,7 +39,7 @@ namespace TdLib
         /// Removes a hashtag from the list of recently used hashtags
         /// </summary>
         public static Task<Ok> RemoveRecentHashtagAsync(
-            this Client client, string hashtag = default)
+            this IClient client, string hashtag = default)
         {
             return client.ExecuteAsync(new RemoveRecentHashtag
             {

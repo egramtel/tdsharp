@@ -34,7 +34,7 @@ namespace TdLib
         /// Requests to send a 2-step verification password recovery code to an email address that was previously set up. Works only when the current authorization state is authorizationStateWaitPassword
         /// </summary>
         public static Task<Ok> RequestAuthenticationPasswordRecoveryAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new RequestAuthenticationPasswordRecovery
             {

@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns the list of story albums owned by the given chat
         /// </summary>
         public static Task<StoryAlbums> GetChatStoryAlbumsAsync(
-            this Client client, long chatId = default)
+            this IClient client, long chatId = default)
         {
             return client.ExecuteAsync(new GetChatStoryAlbums
             {

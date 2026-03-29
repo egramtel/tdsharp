@@ -53,7 +53,7 @@ namespace TdLib
         /// Sends messages from a quick reply shortcut. Requires Telegram Business subscription. Can't be used to send paid messages
         /// </summary>
         public static Task<Messages> SendQuickReplyShortcutMessagesAsync(
-            this Client client, long chatId = default, int shortcutId = default, int sendingId = default)
+            this IClient client, long chatId = default, int shortcutId = default, int sendingId = default)
         {
             return client.ExecuteAsync(new SendQuickReplyShortcutMessages
             {

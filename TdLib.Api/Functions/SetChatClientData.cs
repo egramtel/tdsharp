@@ -46,7 +46,7 @@ namespace TdLib
         /// Changes application-specific data associated with a chat
         /// </summary>
         public static Task<Ok> SetChatClientDataAsync(
-            this Client client, long chatId = default, string clientData = default)
+            this IClient client, long chatId = default, string clientData = default)
         {
             return client.ExecuteAsync(new SetChatClientData
             {

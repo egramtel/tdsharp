@@ -46,7 +46,7 @@ namespace TdLib
         /// Changes the translatable state of a chat
         /// </summary>
         public static Task<Ok> ToggleChatIsTranslatableAsync(
-            this Client client, long chatId = default, bool isTranslatable = default)
+            this IClient client, long chatId = default, bool isTranslatable = default)
         {
             return client.ExecuteAsync(new ToggleChatIsTranslatable
             {

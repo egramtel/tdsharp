@@ -46,7 +46,7 @@ namespace TdLib
         /// Toggles whether a session can accept incoming calls
         /// </summary>
         public static Task<Ok> ToggleSessionCanAcceptCallsAsync(
-            this Client client, long sessionId = default, bool canAcceptCalls = default)
+            this IClient client, long sessionId = default, bool canAcceptCalls = default)
         {
             return client.ExecuteAsync(new ToggleSessionCanAcceptCalls
             {

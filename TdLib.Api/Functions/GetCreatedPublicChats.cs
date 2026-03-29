@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns a list of public chats of the specified type, owned by the user
         /// </summary>
         public static Task<Chats> GetCreatedPublicChatsAsync(
-            this Client client, PublicChatType type = default)
+            this IClient client, PublicChatType type = default)
         {
             return client.ExecuteAsync(new GetCreatedPublicChats
             {

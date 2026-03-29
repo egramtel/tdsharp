@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns available emoji categories
         /// </summary>
         public static Task<EmojiCategories> GetEmojiCategoriesAsync(
-            this Client client, EmojiCategoryType type = default)
+            this IClient client, EmojiCategoryType type = default)
         {
             return client.ExecuteAsync(new GetEmojiCategories
             {

@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns a URL for a Telegram Ad platform account that can be used to set up advertisements for the chat paid in the owned Telegram Stars
         /// </summary>
         public static Task<HttpUrl> GetStarAdAccountUrlAsync(
-            this Client client, MessageSender ownerId = default)
+            this IClient client, MessageSender ownerId = default)
         {
             return client.ExecuteAsync(new GetStarAdAccountUrl
             {

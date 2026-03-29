@@ -53,7 +53,7 @@ namespace TdLib
         /// Edits an existing proxy server for network requests. Can be called before authorization
         /// </summary>
         public static Task<AddedProxy> EditProxyAsync(
-            this Client client, int proxyId = default, Proxy proxy = default, bool enable = default)
+            this IClient client, int proxyId = default, Proxy proxy = default, bool enable = default)
         {
             return client.ExecuteAsync(new EditProxy
             {

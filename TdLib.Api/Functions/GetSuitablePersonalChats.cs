@@ -34,7 +34,7 @@ namespace TdLib
         /// Returns a list of channel chats, which can be used as a personal chat
         /// </summary>
         public static Task<Chats> GetSuitablePersonalChatsAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new GetSuitablePersonalChats
             {

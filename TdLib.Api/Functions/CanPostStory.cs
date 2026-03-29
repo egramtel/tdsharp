@@ -39,7 +39,7 @@ namespace TdLib
         /// Checks whether the current user can post a story on behalf of a chat; requires can_post_stories administrator right for supergroup and channel chats
         /// </summary>
         public static Task<CanPostStoryResult> CanPostStoryAsync(
-            this Client client, long chatId = default)
+            this IClient client, long chatId = default)
         {
             return client.ExecuteAsync(new CanPostStory
             {

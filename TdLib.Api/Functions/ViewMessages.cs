@@ -61,7 +61,7 @@ namespace TdLib
         /// Many useful activities depend on whether the messages are currently being viewed or not (e.g., marking messages as read, incrementing a view counter, updating a view counter, removing deleted messages in supergroups and channels)
         /// </summary>
         public static Task<Ok> ViewMessagesAsync(
-            this Client client, long chatId = default, long[] messageIds = default, MessageSource source = default, bool forceRead = default)
+            this IClient client, long chatId = default, long[] messageIds = default, MessageSource source = default, bool forceRead = default)
         {
             return client.ExecuteAsync(new ViewMessages
             {

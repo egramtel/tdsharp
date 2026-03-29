@@ -53,7 +53,7 @@ namespace TdLib
         /// Returns affiliate programs that were connected to the given affiliate
         /// </summary>
         public static Task<ConnectedAffiliatePrograms> GetConnectedAffiliateProgramsAsync(
-            this Client client, AffiliateType affiliate = default, string offset = default, int limit = default)
+            this IClient client, AffiliateType affiliate = default, string offset = default, int limit = default)
         {
             return client.ExecuteAsync(new GetConnectedAffiliatePrograms
             {

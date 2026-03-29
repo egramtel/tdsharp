@@ -46,7 +46,7 @@ namespace TdLib
         /// Returns advertisements to be shown while a video from a message is watched. Available only if messageProperties.can_get_video_advertisements
         /// </summary>
         public static Task<VideoMessageAdvertisements> GetVideoMessageAdvertisementsAsync(
-            this Client client, long chatId = default, long messageId = default)
+            this IClient client, long chatId = default, long messageId = default)
         {
             return client.ExecuteAsync(new GetVideoMessageAdvertisements
             {

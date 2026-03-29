@@ -39,7 +39,7 @@ namespace TdLib
         /// Checks the authentication of an email address. Works only when the current authorization state is authorizationStateWaitEmailCode
         /// </summary>
         public static Task<Ok> CheckAuthenticationEmailCodeAsync(
-            this Client client, EmailAddressAuthentication code = default)
+            this IClient client, EmailAddressAuthentication code = default)
         {
             return client.ExecuteAsync(new CheckAuthenticationEmailCode
             {

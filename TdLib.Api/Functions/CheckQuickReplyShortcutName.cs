@@ -39,7 +39,7 @@ namespace TdLib
         /// Checks validness of a name for a quick reply shortcut. Can be called synchronously
         /// </summary>
         public static Task<Ok> CheckQuickReplyShortcutNameAsync(
-            this Client client, string name = default)
+            this IClient client, string name = default)
         {
             return client.ExecuteAsync(new CheckQuickReplyShortcutName
             {

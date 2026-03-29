@@ -69,7 +69,7 @@ namespace TdLib
         /// Cannot be used in secret chats or with searchMessagesFilterFailedToSend filter without an enabled message database
         /// </summary>
         public static Task<MessagePositions> GetChatSparseMessagePositionsAsync(
-            this Client client, long chatId = default, SearchMessagesFilter filter = default, long fromMessageId = default, int limit = default, long savedMessagesTopicId = default)
+            this IClient client, long chatId = default, SearchMessagesFilter filter = default, long fromMessageId = default, int limit = default, long savedMessagesTopicId = default)
         {
             return client.ExecuteAsync(new GetChatSparseMessagePositions
             {

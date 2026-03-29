@@ -53,7 +53,7 @@ namespace TdLib
         /// Installs/uninstalls or activates/archives a sticker set
         /// </summary>
         public static Task<Ok> ChangeStickerSetAsync(
-            this Client client, long setId = default, bool isInstalled = default, bool isArchived = default)
+            this IClient client, long setId = default, bool isInstalled = default, bool isArchived = default)
         {
             return client.ExecuteAsync(new ChangeStickerSet
             {

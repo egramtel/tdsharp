@@ -79,7 +79,7 @@ namespace TdLib
         /// For optimal performance, the number of returned messages is chosen by TDLib and can be smaller than the specified limit
         /// </summary>
         public static Task<FoundChatMessages> SearchSavedMessagesAsync(
-            this Client client, long savedMessagesTopicId = default, ReactionType tag = default, string query = default, long fromMessageId = default, int offset = default, int limit = default)
+            this IClient client, long savedMessagesTopicId = default, ReactionType tag = default, string query = default, long fromMessageId = default, int offset = default, int limit = default)
         {
             return client.ExecuteAsync(new SearchSavedMessages
             {

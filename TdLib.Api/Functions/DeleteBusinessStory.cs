@@ -46,7 +46,7 @@ namespace TdLib
         /// Deletes a story posted by the bot on behalf of a business account; for bots only
         /// </summary>
         public static Task<Ok> DeleteBusinessStoryAsync(
-            this Client client, string businessConnectionId = default, int storyId = default)
+            this IClient client, string businessConnectionId = default, int storyId = default)
         {
             return client.ExecuteAsync(new DeleteBusinessStory
             {

@@ -39,7 +39,7 @@ namespace TdLib
         /// Informs TDLib that a gift auction was opened by the user
         /// </summary>
         public static Task<Ok> OpenGiftAuctionAsync(
-            this Client client, long giftId = default)
+            this IClient client, long giftId = default)
         {
             return client.ExecuteAsync(new OpenGiftAuction
             {

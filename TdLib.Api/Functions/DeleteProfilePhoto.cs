@@ -39,7 +39,7 @@ namespace TdLib
         /// Deletes a profile photo
         /// </summary>
         public static Task<Ok> DeleteProfilePhotoAsync(
-            this Client client, long profilePhotoId = default)
+            this IClient client, long profilePhotoId = default)
         {
             return client.ExecuteAsync(new DeleteProfilePhoto
             {

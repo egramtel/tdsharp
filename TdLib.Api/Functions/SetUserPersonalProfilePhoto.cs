@@ -46,7 +46,7 @@ namespace TdLib
         /// Changes a personal profile photo of a contact user
         /// </summary>
         public static Task<Ok> SetUserPersonalProfilePhotoAsync(
-            this Client client, long userId = default, InputChatPhoto photo = default)
+            this IClient client, long userId = default, InputChatPhoto photo = default)
         {
             return client.ExecuteAsync(new SetUserPersonalProfilePhoto
             {

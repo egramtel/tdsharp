@@ -39,7 +39,7 @@ namespace TdLib
         /// Loads more Saved Messages topics. The loaded topics will be sent through updateSavedMessagesTopic. Topics are sorted by their topic.order in descending order. Returns a 404 error if all topics have been loaded
         /// </summary>
         public static Task<Ok> LoadSavedMessagesTopicsAsync(
-            this Client client, int limit = default)
+            this IClient client, int limit = default)
         {
             return client.ExecuteAsync(new LoadSavedMessagesTopics
             {

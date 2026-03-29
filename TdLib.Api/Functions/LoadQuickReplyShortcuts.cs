@@ -34,7 +34,7 @@ namespace TdLib
         /// Loads quick reply shortcuts created by the current user. The loaded data will be sent through updateQuickReplyShortcut and updateQuickReplyShortcuts
         /// </summary>
         public static Task<Ok> LoadQuickReplyShortcutsAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new LoadQuickReplyShortcuts
             {

@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns a list of administrators of the chat with their custom titles
         /// </summary>
         public static Task<ChatAdministrators> GetChatAdministratorsAsync(
-            this Client client, long chatId = default)
+            this IClient client, long chatId = default)
         {
             return client.ExecuteAsync(new GetChatAdministrators
             {

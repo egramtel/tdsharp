@@ -39,7 +39,7 @@ namespace TdLib
         /// Checks the validity of an invite link for a chat and returns information about the corresponding chat
         /// </summary>
         public static Task<ChatInviteLinkInfo> CheckChatInviteLinkAsync(
-            this Client client, string inviteLink = default)
+            this IClient client, string inviteLink = default)
         {
             return client.ExecuteAsync(new CheckChatInviteLink
             {

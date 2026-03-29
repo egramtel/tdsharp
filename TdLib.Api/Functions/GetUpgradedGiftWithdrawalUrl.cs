@@ -46,7 +46,7 @@ namespace TdLib
         /// Returns a URL for upgraded gift withdrawal in the TON blockchain as an NFT; requires owner privileges for gifts owned by a chat
         /// </summary>
         public static Task<HttpUrl> GetUpgradedGiftWithdrawalUrlAsync(
-            this Client client, string receivedGiftId = default, string password = default)
+            this IClient client, string receivedGiftId = default, string password = default)
         {
             return client.ExecuteAsync(new GetUpgradedGiftWithdrawalUrl
             {

@@ -46,7 +46,7 @@ namespace TdLib
         /// Deletes commands supported by the bot for the given user scope and language; for bots only
         /// </summary>
         public static Task<Ok> DeleteCommandsAsync(
-            this Client client, BotCommandScope scope = default, string languageCode = default)
+            this IClient client, BotCommandScope scope = default, string languageCode = default)
         {
             return client.ExecuteAsync(new DeleteCommands
             {

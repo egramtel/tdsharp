@@ -92,7 +92,7 @@ namespace TdLib
         /// Optimizes storage usage, i.e. deletes some files and returns new storage usage statistics. Secret thumbnails can't be deleted
         /// </summary>
         public static Task<StorageStatistics> OptimizeStorageAsync(
-            this Client client, long size = default, int ttl = default, int count = default, int immunityDelay = default, FileType[] fileTypes = default, long[] chatIds = default, long[] excludeChatIds = default, bool returnDeletedFileStatistics = default, int chatLimit = default)
+            this IClient client, long size = default, int ttl = default, int count = default, int immunityDelay = default, FileType[] fileTypes = default, long[] chatIds = default, long[] excludeChatIds = default, bool returnDeletedFileStatistics = default, int chatLimit = default)
         {
             return client.ExecuteAsync(new OptimizeStorage
             {

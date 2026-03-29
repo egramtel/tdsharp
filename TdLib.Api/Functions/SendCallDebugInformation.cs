@@ -46,7 +46,7 @@ namespace TdLib
         /// Sends debug information for a call to Telegram servers
         /// </summary>
         public static Task<Ok> SendCallDebugInformationAsync(
-            this Client client, InputCall callId = default, string debugInformation = default)
+            this IClient client, InputCall callId = default, string debugInformation = default)
         {
             return client.ExecuteAsync(new SendCallDebugInformation
             {

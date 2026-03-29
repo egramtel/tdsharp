@@ -48,7 +48,7 @@ namespace TdLib
         /// If new_recovery_email_address is the same as the email address that is currently set up, this call succeeds immediately and aborts all other requests waiting for an email confirmation
         /// </summary>
         public static Task<PasswordState> SetRecoveryEmailAddressAsync(
-            this Client client, string password = default, string newRecoveryEmailAddress = default)
+            this IClient client, string password = default, string newRecoveryEmailAddress = default)
         {
             return client.ExecuteAsync(new SetRecoveryEmailAddress
             {

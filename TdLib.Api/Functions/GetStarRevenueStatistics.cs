@@ -46,7 +46,7 @@ namespace TdLib
         /// Returns detailed Telegram Star revenue statistics
         /// </summary>
         public static Task<StarRevenueStatistics> GetStarRevenueStatisticsAsync(
-            this Client client, MessageSender ownerId = default, bool isDark = default)
+            this IClient client, MessageSender ownerId = default, bool isDark = default)
         {
             return client.ExecuteAsync(new GetStarRevenueStatistics
             {

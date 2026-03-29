@@ -34,7 +34,7 @@ $FUNC_FIELDS
         /// $FUNC_DESCRIPTION
         /// </summary>
         public static Task<$RETURN_TYPE_NAME> $FUNC_NAMEAsync(
-            this Client client$FUNC_PARAMS)
+            this IClient client$FUNC_PARAMS)
         {
             return client.ExecuteAsync(new $FUNC_NAME
             {

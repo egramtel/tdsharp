@@ -53,7 +53,7 @@ namespace TdLib
         /// Searches for public channel posts containing the given hashtag or cashtag. For optimal performance, the number of returned messages is chosen by TDLib and can be smaller than the specified limit
         /// </summary>
         public static Task<FoundMessages> SearchPublicMessagesByTagAsync(
-            this Client client, string tag = default, string offset = default, int limit = default)
+            this IClient client, string tag = default, string offset = default, int limit = default)
         {
             return client.ExecuteAsync(new SearchPublicMessagesByTag
             {

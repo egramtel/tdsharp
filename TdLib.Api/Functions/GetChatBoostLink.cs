@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns an HTTPS link to boost the specified supergroup or channel chat
         /// </summary>
         public static Task<ChatBoostLink> GetChatBoostLinkAsync(
-            this Client client, long chatId = default)
+            this IClient client, long chatId = default)
         {
             return client.ExecuteAsync(new GetChatBoostLink
             {

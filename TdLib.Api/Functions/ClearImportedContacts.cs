@@ -34,7 +34,7 @@ namespace TdLib
         /// Clears all imported contacts, contact list remains unchanged
         /// </summary>
         public static Task<Ok> ClearImportedContactsAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new ClearImportedContacts
             {

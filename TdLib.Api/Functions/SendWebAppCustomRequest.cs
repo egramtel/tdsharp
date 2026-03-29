@@ -53,7 +53,7 @@ namespace TdLib
         /// Sends a custom request from a Web App
         /// </summary>
         public static Task<CustomRequestResult> SendWebAppCustomRequestAsync(
-            this Client client, long botUserId = default, string method = default, string parameters = default)
+            this IClient client, long botUserId = default, string method = default, string parameters = default)
         {
             return client.ExecuteAsync(new SendWebAppCustomRequest
             {

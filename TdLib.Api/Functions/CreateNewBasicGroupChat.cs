@@ -52,7 +52,7 @@ namespace TdLib
         /// Creates a new basic group and sends a corresponding messageBasicGroupChatCreate. Returns information about the newly created chat
         /// </summary>
         public static Task<CreatedBasicGroupChat> CreateNewBasicGroupChatAsync(
-            this Client client, long[] userIds = default, string title = default, int messageAutoDeleteTime = default)
+            this IClient client, long[] userIds = default, string title = default, int messageAutoDeleteTime = default)
         {
             return client.ExecuteAsync(new CreateNewBasicGroupChat
             {

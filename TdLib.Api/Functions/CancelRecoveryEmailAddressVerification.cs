@@ -34,7 +34,7 @@ namespace TdLib
         /// Cancels verification of the 2-step verification recovery email address
         /// </summary>
         public static Task<PasswordState> CancelRecoveryEmailAddressVerificationAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new CancelRecoveryEmailAddressVerification
             {

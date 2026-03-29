@@ -80,7 +80,7 @@ namespace TdLib
         /// Creates a new sticker set. Returns the newly created sticker set
         /// </summary>
         public static Task<StickerSet> CreateNewStickerSetAsync(
-            this Client client, long userId = default, string title = default, string name = default, StickerType stickerType = default, bool needsRepainting = default, InputSticker[] stickers = default, string source = default)
+            this IClient client, long userId = default, string title = default, string name = default, StickerType stickerType = default, bool needsRepainting = default, InputSticker[] stickers = default, string source = default)
         {
             return client.ExecuteAsync(new CreateNewStickerSet
             {

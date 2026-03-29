@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns sponsored messages to be shown in a chat; for channel chats and chats with bots only
         /// </summary>
         public static Task<SponsoredMessages> GetChatSponsoredMessagesAsync(
-            this Client client, long chatId = default)
+            this IClient client, long chatId = default)
         {
             return client.ExecuteAsync(new GetChatSponsoredMessages
             {

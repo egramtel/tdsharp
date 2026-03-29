@@ -34,7 +34,7 @@ namespace TdLib
         /// Returns the list of available chat boost slots for the current user
         /// </summary>
         public static Task<ChatBoostSlots> GetAvailableChatBoostSlotsAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new GetAvailableChatBoostSlots
             {

@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns premium stickers from regular sticker sets
         /// </summary>
         public static Task<Stickers> GetPremiumStickersAsync(
-            this Client client, int limit = default)
+            this IClient client, int limit = default)
         {
             return client.ExecuteAsync(new GetPremiumStickers
             {

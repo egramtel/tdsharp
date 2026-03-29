@@ -34,7 +34,7 @@ namespace TdLib
         /// Quickly returns approximate storage usage statistics. Can be called before authorization
         /// </summary>
         public static Task<StorageStatisticsFast> GetStorageStatisticsFastAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new GetStorageStatisticsFast
             {

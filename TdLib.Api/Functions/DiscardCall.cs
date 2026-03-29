@@ -74,7 +74,7 @@ namespace TdLib
         /// Discards a call
         /// </summary>
         public static Task<Ok> DiscardCallAsync(
-            this Client client, int callId = default, bool isDisconnected = default, string inviteLink = default, int duration = default, bool isVideo = default, long connectionId = default)
+            this IClient client, int callId = default, bool isDisconnected = default, string inviteLink = default, int duration = default, bool isVideo = default, long connectionId = default)
         {
             return client.ExecuteAsync(new DiscardCall
             {

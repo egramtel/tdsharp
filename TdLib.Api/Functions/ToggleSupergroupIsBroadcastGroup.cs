@@ -39,7 +39,7 @@ namespace TdLib
         /// Upgrades supergroup to a broadcast group; requires owner privileges in the supergroup
         /// </summary>
         public static Task<Ok> ToggleSupergroupIsBroadcastGroupAsync(
-            this Client client, long supergroupId = default)
+            this IClient client, long supergroupId = default)
         {
             return client.ExecuteAsync(new ToggleSupergroupIsBroadcastGroup
             {

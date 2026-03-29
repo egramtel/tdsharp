@@ -34,7 +34,7 @@ namespace TdLib
         /// Returns the list of passkeys allowed to be used for the login by the current user
         /// </summary>
         public static Task<Passkeys> GetLoginPasskeysAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new GetLoginPasskeys
             {

@@ -45,7 +45,7 @@ namespace TdLib
         /// Deletes specified quick reply messages
         /// </summary>
         public static Task<Ok> DeleteQuickReplyShortcutMessagesAsync(
-            this Client client, int shortcutId = default, long[] messageIds = default)
+            this IClient client, int shortcutId = default, long[] messageIds = default)
         {
             return client.ExecuteAsync(new DeleteQuickReplyShortcutMessages
             {

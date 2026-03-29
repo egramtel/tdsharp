@@ -38,7 +38,7 @@ namespace TdLib
         /// Returns the received vector of numbers; for testing only. This is an offline method. Can be called before authorization
         /// </summary>
         public static Task<TestVectorInt> TestCallVectorIntAsync(
-            this Client client, int[] x = default)
+            this IClient client, int[] x = default)
         {
             return client.ExecuteAsync(new TestCallVectorInt
             {

@@ -39,7 +39,7 @@ namespace TdLib
         /// Marks all mentions in a chat as read
         /// </summary>
         public static Task<Ok> ReadAllChatMentionsAsync(
-            this Client client, long chatId = default)
+            this IClient client, long chatId = default)
         {
             return client.ExecuteAsync(new ReadAllChatMentions
             {

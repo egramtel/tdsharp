@@ -60,7 +60,7 @@ namespace TdLib
         /// Returns information needed to open the main Web App of a bot
         /// </summary>
         public static Task<MainWebApp> GetMainWebAppAsync(
-            this Client client, long chatId = default, long botUserId = default, string startParameter = default, WebAppOpenParameters parameters = default)
+            this IClient client, long chatId = default, long botUserId = default, string startParameter = default, WebAppOpenParameters parameters = default)
         {
             return client.ExecuteAsync(new GetMainWebApp
             {

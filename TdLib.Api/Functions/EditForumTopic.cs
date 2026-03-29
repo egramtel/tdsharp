@@ -69,7 +69,7 @@ namespace TdLib
         /// unless the user is creator of the topic
         /// </summary>
         public static Task<Ok> EditForumTopicAsync(
-            this Client client, long chatId = default, int forumTopicId = default, string name = default, bool editIconCustomEmoji = default, long iconCustomEmojiId = default)
+            this IClient client, long chatId = default, int forumTopicId = default, string name = default, bool editIconCustomEmoji = default, long iconCustomEmojiId = default)
         {
             return client.ExecuteAsync(new EditForumTopic
             {

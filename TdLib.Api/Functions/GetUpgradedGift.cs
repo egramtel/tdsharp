@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns information about an upgraded gift by its name
         /// </summary>
         public static Task<UpgradedGift> GetUpgradedGiftAsync(
-            this Client client, string name = default)
+            this IClient client, string name = default)
         {
             return client.ExecuteAsync(new GetUpgradedGift
             {

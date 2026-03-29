@@ -34,7 +34,7 @@ namespace TdLib
         /// Returns parameters for creating of a new passkey as JSON-serialized string
         /// </summary>
         public static Task<Text> GetPasskeyParametersAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new GetPasskeyParameters
             {

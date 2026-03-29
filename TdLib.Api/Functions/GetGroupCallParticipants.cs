@@ -46,7 +46,7 @@ namespace TdLib
         /// Returns information about participants of a non-joined group call that is not bound to a chat
         /// </summary>
         public static Task<GroupCallParticipants> GetGroupCallParticipantsAsync(
-            this Client client, InputGroupCall inputGroupCall = default, int limit = default)
+            this IClient client, InputGroupCall inputGroupCall = default, int limit = default)
         {
             return client.ExecuteAsync(new GetGroupCallParticipants
             {

@@ -46,7 +46,7 @@ namespace TdLib
         /// Answers a custom query; for bots only
         /// </summary>
         public static Task<Ok> AnswerCustomQueryAsync(
-            this Client client, long customQueryId = default, string data = default)
+            this IClient client, long customQueryId = default, string data = default)
         {
             return client.ExecuteAsync(new AnswerCustomQuery
             {

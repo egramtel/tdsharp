@@ -39,7 +39,7 @@ namespace TdLib
         /// Hides a suggested action
         /// </summary>
         public static Task<Ok> HideSuggestedActionAsync(
-            this Client client, SuggestedAction action = default)
+            this IClient client, SuggestedAction action = default)
         {
             return client.ExecuteAsync(new HideSuggestedAction
             {

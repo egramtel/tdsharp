@@ -60,7 +60,7 @@ namespace TdLib
         /// Reports a story to the Telegram moderators
         /// </summary>
         public static Task<ReportStoryResult> ReportStoryAsync(
-            this Client client, long storyPosterChatId = default, int storyId = default, byte[] optionId = default, string text = default)
+            this IClient client, long storyPosterChatId = default, int storyId = default, byte[] optionId = default, string text = default)
         {
             return client.ExecuteAsync(new ReportStory
             {

@@ -46,7 +46,7 @@ namespace TdLib
         /// Returns sticker sets owned by the current user
         /// </summary>
         public static Task<StickerSets> GetOwnedStickerSetsAsync(
-            this Client client, long offsetStickerSetId = default, int limit = default)
+            this IClient client, long offsetStickerSetId = default, int limit = default)
         {
             return client.ExecuteAsync(new GetOwnedStickerSets
             {

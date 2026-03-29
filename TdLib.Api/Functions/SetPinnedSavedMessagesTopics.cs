@@ -38,7 +38,7 @@ namespace TdLib
         /// Changes the order of pinned Saved Messages topics
         /// </summary>
         public static Task<Ok> SetPinnedSavedMessagesTopicsAsync(
-            this Client client, long[] savedMessagesTopicIds = default)
+            this IClient client, long[] savedMessagesTopicIds = default)
         {
             return client.ExecuteAsync(new SetPinnedSavedMessagesTopics
             {

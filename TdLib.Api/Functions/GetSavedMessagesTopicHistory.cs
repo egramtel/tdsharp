@@ -61,7 +61,7 @@ namespace TdLib
         /// Returns messages in a Saved Messages topic. The messages are returned in reverse chronological order (i.e., in order of decreasing message_id)
         /// </summary>
         public static Task<Messages> GetSavedMessagesTopicHistoryAsync(
-            this Client client, long savedMessagesTopicId = default, long fromMessageId = default, int offset = default, int limit = default)
+            this IClient client, long savedMessagesTopicId = default, long fromMessageId = default, int offset = default, int limit = default)
         {
             return client.ExecuteAsync(new GetSavedMessagesTopicHistory
             {

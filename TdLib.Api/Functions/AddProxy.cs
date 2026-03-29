@@ -46,7 +46,7 @@ namespace TdLib
         /// Adds a proxy server for network requests. Can be called before authorization
         /// </summary>
         public static Task<AddedProxy> AddProxyAsync(
-            this Client client, Proxy proxy = default, bool enable = default)
+            this IClient client, Proxy proxy = default, bool enable = default)
         {
             return client.ExecuteAsync(new AddProxy
             {

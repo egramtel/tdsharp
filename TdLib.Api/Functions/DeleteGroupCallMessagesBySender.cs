@@ -53,7 +53,7 @@ namespace TdLib
         /// Deletes all messages sent by the specified message sender in a group call; for live story calls only. Requires groupCall.can_delete_messages right
         /// </summary>
         public static Task<Ok> DeleteGroupCallMessagesBySenderAsync(
-            this Client client, int groupCallId = default, MessageSender senderId = default, bool reportSpam = default)
+            this IClient client, int groupCallId = default, MessageSender senderId = default, bool reportSpam = default)
         {
             return client.ExecuteAsync(new DeleteGroupCallMessagesBySender
             {

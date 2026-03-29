@@ -41,7 +41,7 @@ namespace TdLib
         /// the pair (active_stories.order, active_stories.story_poster_chat_id) in descending order. Returns a 404 error if all active stories have been loaded
         /// </summary>
         public static Task<Ok> LoadActiveStoriesAsync(
-            this Client client, StoryList storyList = default)
+            this IClient client, StoryList storyList = default)
         {
             return client.ExecuteAsync(new LoadActiveStories
             {

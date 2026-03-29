@@ -60,7 +60,7 @@ namespace TdLib
         /// Edits the reply markup of a message sent on behalf of a business account; for bots only
         /// </summary>
         public static Task<BusinessMessage> EditBusinessMessageReplyMarkupAsync(
-            this Client client, string businessConnectionId = default, long chatId = default, long messageId = default, ReplyMarkup replyMarkup = default)
+            this IClient client, string businessConnectionId = default, long chatId = default, long messageId = default, ReplyMarkup replyMarkup = default)
         {
             return client.ExecuteAsync(new EditBusinessMessageReplyMarkup
             {

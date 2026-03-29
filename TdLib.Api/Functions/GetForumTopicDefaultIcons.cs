@@ -34,7 +34,7 @@ namespace TdLib
         /// Returns the list of custom emoji, which can be used as forum topic icon by all users
         /// </summary>
         public static Task<Stickers> GetForumTopicDefaultIconsAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new GetForumTopicDefaultIcons
             {

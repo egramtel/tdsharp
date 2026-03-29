@@ -53,7 +53,7 @@ namespace TdLib
         /// Returns a story
         /// </summary>
         public static Task<Story> GetStoryAsync(
-            this Client client, long storyPosterChatId = default, int storyId = default, bool onlyLocal = default)
+            this IClient client, long storyPosterChatId = default, int storyId = default, bool onlyLocal = default)
         {
             return client.ExecuteAsync(new GetStory
             {

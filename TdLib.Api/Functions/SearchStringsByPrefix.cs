@@ -59,7 +59,7 @@ namespace TdLib
         /// Searches specified query by word prefixes in the provided strings. Returns 0-based positions of strings that matched. Can be called synchronously
         /// </summary>
         public static Task<FoundPositions> SearchStringsByPrefixAsync(
-            this Client client, string[] strings = default, string query = default, int limit = default, bool returnNoneForEmptyQuery = default)
+            this IClient client, string[] strings = default, string query = default, int limit = default, bool returnNoneForEmptyQuery = default)
         {
             return client.ExecuteAsync(new SearchStringsByPrefix
             {

@@ -38,7 +38,7 @@ namespace TdLib
         /// Returns the received vector of objects containing a string; for testing only. This is an offline method. Can be called before authorization
         /// </summary>
         public static Task<TestVectorStringObject> TestCallVectorStringObjectAsync(
-            this Client client, TestString[] x = default)
+            this IClient client, TestString[] x = default)
         {
             return client.ExecuteAsync(new TestCallVectorStringObject
             {

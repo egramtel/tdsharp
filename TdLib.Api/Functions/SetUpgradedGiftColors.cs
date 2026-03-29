@@ -39,7 +39,7 @@ namespace TdLib
         /// Changes color scheme for the current user based on an owned or a hosted upgraded gift; for Telegram Premium users only
         /// </summary>
         public static Task<Ok> SetUpgradedGiftColorsAsync(
-            this Client client, long upgradedGiftColorsId = default)
+            this IClient client, long upgradedGiftColorsId = default)
         {
             return client.ExecuteAsync(new SetUpgradedGiftColors
             {

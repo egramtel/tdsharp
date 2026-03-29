@@ -39,7 +39,7 @@ namespace TdLib
         /// Deletes a business chat link of the current account
         /// </summary>
         public static Task<Ok> DeleteBusinessChatLinkAsync(
-            this Client client, string link = default)
+            this IClient client, string link = default)
         {
             return client.ExecuteAsync(new DeleteBusinessChatLink
             {

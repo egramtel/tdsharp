@@ -46,7 +46,7 @@ namespace TdLib
         /// Changes position of an audio file in the profile audio files of the current user
         /// </summary>
         public static Task<Ok> SetProfileAudioPositionAsync(
-            this Client client, int fileId = default, int afterFileId = default)
+            this IClient client, int fileId = default, int afterFileId = default)
         {
             return client.ExecuteAsync(new SetProfileAudioPosition
             {

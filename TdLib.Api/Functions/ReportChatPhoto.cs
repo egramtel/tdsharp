@@ -60,7 +60,7 @@ namespace TdLib
         /// Reports a chat photo to the Telegram moderators. A chat photo can be reported only if chat.can_be_reported
         /// </summary>
         public static Task<Ok> ReportChatPhotoAsync(
-            this Client client, long chatId = default, int fileId = default, ReportReason reason = default, string text = default)
+            this IClient client, long chatId = default, int fileId = default, ReportReason reason = default, string text = default)
         {
             return client.ExecuteAsync(new ReportChatPhoto
             {

@@ -34,7 +34,7 @@ namespace TdLib
         /// Returns autosave settings for the current user
         /// </summary>
         public static Task<AutosaveSettings> GetAutosaveSettingsAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new GetAutosaveSettings
             {

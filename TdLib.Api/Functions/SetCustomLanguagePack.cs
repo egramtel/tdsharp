@@ -45,7 +45,7 @@ namespace TdLib
         /// Adds or changes a custom local language pack to the current localization target
         /// </summary>
         public static Task<Ok> SetCustomLanguagePackAsync(
-            this Client client, LanguagePackInfo info = default, LanguagePackString[] strings = default)
+            this IClient client, LanguagePackInfo info = default, LanguagePackString[] strings = default)
         {
             return client.ExecuteAsync(new SetCustomLanguagePack
             {

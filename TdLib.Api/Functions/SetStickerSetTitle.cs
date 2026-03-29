@@ -46,7 +46,7 @@ namespace TdLib
         /// Sets a sticker set title
         /// </summary>
         public static Task<Ok> SetStickerSetTitleAsync(
-            this Client client, string name = default, string title = default)
+            this IClient client, string name = default, string title = default)
         {
             return client.ExecuteAsync(new SetStickerSetTitle
             {

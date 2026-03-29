@@ -34,7 +34,7 @@ namespace TdLib
         /// Returns up to 8 emoji statuses, which must be shown right after the default Premium Badge in the emoji status list for self status
         /// </summary>
         public static Task<EmojiStatusCustomEmojis> GetThemedEmojiStatusesAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new GetThemedEmojiStatuses
             {

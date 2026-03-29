@@ -46,7 +46,7 @@ namespace TdLib
         /// Removes an active notification from notification list. Needs to be called only if the notification is removed by the current user
         /// </summary>
         public static Task<Ok> RemoveNotificationAsync(
-            this Client client, int notificationGroupId = default, int notificationId = default)
+            this IClient client, int notificationGroupId = default, int notificationId = default)
         {
             return client.ExecuteAsync(new RemoveNotification
             {

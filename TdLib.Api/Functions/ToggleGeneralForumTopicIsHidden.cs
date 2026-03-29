@@ -46,7 +46,7 @@ namespace TdLib
         /// Toggles whether a General topic is hidden in a forum supergroup chat; requires can_manage_topics administrator right in the supergroup
         /// </summary>
         public static Task<Ok> ToggleGeneralForumTopicIsHiddenAsync(
-            this Client client, long chatId = default, bool isHidden = default)
+            this IClient client, long chatId = default, bool isHidden = default)
         {
             return client.ExecuteAsync(new ToggleGeneralForumTopicIsHidden
             {

@@ -54,7 +54,7 @@ namespace TdLib
         /// An owner can have up to getOption("gift_collection_count_max") gift collections. The new collection will be added to the end of the gift collection list of the owner. Returns the created collection
         /// </summary>
         public static Task<GiftCollection> CreateGiftCollectionAsync(
-            this Client client, MessageSender ownerId = default, string name = default, string[] receivedGiftIds = default)
+            this IClient client, MessageSender ownerId = default, string name = default, string[] receivedGiftIds = default)
         {
             return client.ExecuteAsync(new CreateGiftCollection
             {

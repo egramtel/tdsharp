@@ -34,7 +34,7 @@ namespace TdLib
         /// Returns all contacts of the user
         /// </summary>
         public static Task<Users> GetContactsAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new GetContacts
             {

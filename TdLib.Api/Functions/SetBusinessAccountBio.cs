@@ -46,7 +46,7 @@ namespace TdLib
         /// Changes the bio of a business account; for bots only
         /// </summary>
         public static Task<Ok> SetBusinessAccountBioAsync(
-            this Client client, string businessConnectionId = default, string bio = default)
+            this IClient client, string businessConnectionId = default, string bio = default)
         {
             return client.ExecuteAsync(new SetBusinessAccountBio
             {

@@ -53,7 +53,7 @@ namespace TdLib
         /// Changes name of an album of stories. If the album is owned by a supergroup or a channel chat, then requires can_edit_stories administrator right in the chat. Returns the changed album
         /// </summary>
         public static Task<StoryAlbum> SetStoryAlbumNameAsync(
-            this Client client, long chatId = default, int storyAlbumId = default, string name = default)
+            this IClient client, long chatId = default, int storyAlbumId = default, string name = default)
         {
             return client.ExecuteAsync(new SetStoryAlbumName
             {

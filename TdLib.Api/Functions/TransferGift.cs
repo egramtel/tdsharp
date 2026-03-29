@@ -60,7 +60,7 @@ namespace TdLib
         /// Sends an upgraded gift to another user or channel chat
         /// </summary>
         public static Task<Ok> TransferGiftAsync(
-            this Client client, string businessConnectionId = default, string receivedGiftId = default, MessageSender newOwnerId = default, long starCount = default)
+            this IClient client, string businessConnectionId = default, string receivedGiftId = default, MessageSender newOwnerId = default, long starCount = default)
         {
             return client.ExecuteAsync(new TransferGift
             {

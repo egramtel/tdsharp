@@ -46,7 +46,7 @@ namespace TdLib
         /// Informs TDLib that a chat was opened from the list of similar chats. The method is independent of openChat and closeChat methods
         /// </summary>
         public static Task<Ok> OpenChatSimilarChatAsync(
-            this Client client, long chatId = default, long openedChatId = default)
+            this IClient client, long chatId = default, long openedChatId = default)
         {
             return client.ExecuteAsync(new OpenChatSimilarChat
             {

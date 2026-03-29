@@ -39,7 +39,7 @@ namespace TdLib
         /// Clears the list of recently searched for hashtags or cashtags
         /// </summary>
         public static Task<Ok> ClearSearchedForTagsAsync(
-            this Client client, bool clearCashtags = default)
+            this IClient client, bool clearCashtags = default)
         {
             return client.ExecuteAsync(new ClearSearchedForTags
             {

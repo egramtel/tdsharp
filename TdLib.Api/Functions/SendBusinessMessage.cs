@@ -88,7 +88,7 @@ namespace TdLib
         /// Sends a message on behalf of a business account; for bots only. Returns the message after it was sent
         /// </summary>
         public static Task<BusinessMessage> SendBusinessMessageAsync(
-            this Client client, string businessConnectionId = default, long chatId = default, InputMessageReplyTo replyTo = default, bool disableNotification = default, bool protectContent = default, long effectId = default, ReplyMarkup replyMarkup = default, InputMessageContent inputMessageContent = default)
+            this IClient client, string businessConnectionId = default, long chatId = default, InputMessageReplyTo replyTo = default, bool disableNotification = default, bool protectContent = default, long effectId = default, ReplyMarkup replyMarkup = default, InputMessageContent inputMessageContent = default)
         {
             return client.ExecuteAsync(new SendBusinessMessage
             {

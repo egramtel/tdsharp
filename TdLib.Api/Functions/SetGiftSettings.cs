@@ -39,7 +39,7 @@ namespace TdLib
         /// Changes settings for gift receiving for the current user
         /// </summary>
         public static Task<Ok> SetGiftSettingsAsync(
-            this Client client, GiftSettings settings = default)
+            this IClient client, GiftSettings settings = default)
         {
             return client.ExecuteAsync(new SetGiftSettings
             {

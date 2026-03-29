@@ -53,7 +53,7 @@ namespace TdLib
         /// Informs TDLib that speaking state of a participant of an active group call has changed. Returns identifier of the participant if it is found
         /// </summary>
         public static Task<MessageSender> SetGroupCallParticipantIsSpeakingAsync(
-            this Client client, int groupCallId = default, int audioSource = default, bool isSpeaking = default)
+            this IClient client, int groupCallId = default, int audioSource = default, bool isSpeaking = default)
         {
             return client.ExecuteAsync(new SetGroupCallParticipantIsSpeaking
             {

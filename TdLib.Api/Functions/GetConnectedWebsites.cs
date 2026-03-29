@@ -34,7 +34,7 @@ namespace TdLib
         /// Returns all website where the current user used Telegram to log in
         /// </summary>
         public static Task<ConnectedWebsites> GetConnectedWebsitesAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new GetConnectedWebsites
             {

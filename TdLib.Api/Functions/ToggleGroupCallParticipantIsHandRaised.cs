@@ -53,7 +53,7 @@ namespace TdLib
         /// Toggles whether a group call participant hand is rased; for video chats only
         /// </summary>
         public static Task<Ok> ToggleGroupCallParticipantIsHandRaisedAsync(
-            this Client client, int groupCallId = default, MessageSender participantId = default, bool isHandRaised = default)
+            this IClient client, int groupCallId = default, MessageSender participantId = default, bool isHandRaised = default)
         {
             return client.ExecuteAsync(new ToggleGroupCallParticipantIsHandRaised
             {

@@ -45,7 +45,7 @@ namespace TdLib
         /// Registers the currently used device for receiving push notifications. Returns a globally unique identifier of the push notification subscription
         /// </summary>
         public static Task<PushReceiverId> RegisterDeviceAsync(
-            this Client client, DeviceToken deviceToken = default, long[] otherUserIds = default)
+            this IClient client, DeviceToken deviceToken = default, long[] otherUserIds = default)
         {
             return client.ExecuteAsync(new RegisterDevice
             {

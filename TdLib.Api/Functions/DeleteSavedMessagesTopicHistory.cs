@@ -39,7 +39,7 @@ namespace TdLib
         /// Deletes all messages in a Saved Messages topic
         /// </summary>
         public static Task<Ok> DeleteSavedMessagesTopicHistoryAsync(
-            this Client client, long savedMessagesTopicId = default)
+            this IClient client, long savedMessagesTopicId = default)
         {
             return client.ExecuteAsync(new DeleteSavedMessagesTopicHistory
             {

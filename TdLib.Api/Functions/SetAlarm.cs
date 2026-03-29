@@ -39,7 +39,7 @@ namespace TdLib
         /// Succeeds after a specified amount of time has passed. Can be called before initialization
         /// </summary>
         public static Task<Ok> SetAlarmAsync(
-            this Client client, double? seconds = default)
+            this IClient client, double? seconds = default)
         {
             return client.ExecuteAsync(new SetAlarm
             {

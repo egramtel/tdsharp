@@ -53,7 +53,7 @@ namespace TdLib
         /// Edits the media content of a message with a text, an animation, an audio, a document, a photo or a video in an inline message sent via a bot; for bots only
         /// </summary>
         public static Task<Ok> EditInlineMessageMediaAsync(
-            this Client client, string inlineMessageId = default, ReplyMarkup replyMarkup = default, InputMessageContent inputMessageContent = default)
+            this IClient client, string inlineMessageId = default, ReplyMarkup replyMarkup = default, InputMessageContent inputMessageContent = default)
         {
             return client.ExecuteAsync(new EditInlineMessageMedia
             {

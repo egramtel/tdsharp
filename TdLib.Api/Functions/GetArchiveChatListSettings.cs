@@ -34,7 +34,7 @@ namespace TdLib
         /// Returns settings for automatic moving of chats to and from the Archive chat lists
         /// </summary>
         public static Task<ArchiveChatListSettings> GetArchiveChatListSettingsAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new GetArchiveChatListSettings
             {

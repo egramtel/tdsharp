@@ -50,7 +50,7 @@ namespace TdLib
         /// authorizationStateWaitEmailCode, authorizationStateWaitCode, authorizationStateWaitRegistration, or authorizationStateWaitPassword
         /// </summary>
         public static Task<Ok> SetAuthenticationPhoneNumberAsync(
-            this Client client, string phoneNumber = default, PhoneNumberAuthenticationSettings settings = default)
+            this IClient client, string phoneNumber = default, PhoneNumberAuthenticationSettings settings = default)
         {
             return client.ExecuteAsync(new SetAuthenticationPhoneNumber
             {

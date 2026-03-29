@@ -34,7 +34,7 @@ namespace TdLib
         /// Forces an updates.getDifference call to the Telegram servers; for testing only
         /// </summary>
         public static Task<Ok> TestGetDifferenceAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new TestGetDifference
             {

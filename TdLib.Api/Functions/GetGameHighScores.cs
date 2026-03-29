@@ -53,7 +53,7 @@ namespace TdLib
         /// Returns the high scores for a game and some part of the high score table in the range of the specified user; for bots only
         /// </summary>
         public static Task<GameHighScores> GetGameHighScoresAsync(
-            this Client client, long chatId = default, long messageId = default, long userId = default)
+            this IClient client, long chatId = default, long messageId = default, long userId = default)
         {
             return client.ExecuteAsync(new GetGameHighScores
             {

@@ -46,7 +46,7 @@ namespace TdLib
         /// Returns information about the recent locations of chat members that were sent to the chat. Returns up to 1 location message per user
         /// </summary>
         public static Task<Messages> SearchChatRecentLocationMessagesAsync(
-            this Client client, long chatId = default, int limit = default)
+            this IClient client, long chatId = default, int limit = default)
         {
             return client.ExecuteAsync(new SearchChatRecentLocationMessages
             {

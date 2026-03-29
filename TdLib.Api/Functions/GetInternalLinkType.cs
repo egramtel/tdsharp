@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns information about the type of internal link. Returns a 404 error if the link is not internal. Can be called before authorization
         /// </summary>
         public static Task<InternalLinkType> GetInternalLinkTypeAsync(
-            this Client client, string link = default)
+            this IClient client, string link = default)
         {
             return client.ExecuteAsync(new GetInternalLinkType
             {

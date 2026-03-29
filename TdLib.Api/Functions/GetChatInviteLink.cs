@@ -46,7 +46,7 @@ namespace TdLib
         /// Returns information about an invite link. Requires administrator privileges and can_invite_users right in the chat to get own links and owner privileges to get other links
         /// </summary>
         public static Task<ChatInviteLink> GetChatInviteLinkAsync(
-            this Client client, long chatId = default, string inviteLink = default)
+            this IClient client, long chatId = default, string inviteLink = default)
         {
             return client.ExecuteAsync(new GetChatInviteLink
             {

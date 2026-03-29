@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns information about a file with messages exported from another application
         /// </summary>
         public static Task<MessageFileType> GetMessageFileTypeAsync(
-            this Client client, string messageFileHead = default)
+            this IClient client, string messageFileHead = default)
         {
             return client.ExecuteAsync(new GetMessageFileType
             {

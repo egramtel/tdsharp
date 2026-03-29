@@ -39,7 +39,7 @@ namespace TdLib
         /// Checks whether a name can be used for a new sticker set
         /// </summary>
         public static Task<CheckStickerSetNameResult> CheckStickerSetNameAsync(
-            this Client client, string name = default)
+            this IClient client, string name = default)
         {
             return client.ExecuteAsync(new CheckStickerSetName
             {

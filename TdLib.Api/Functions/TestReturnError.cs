@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns the specified error and ensures that the Error object is used; for testing only. Can be called synchronously
         /// </summary>
         public static Task<Error> TestReturnErrorAsync(
-            this Client client, Error error = default)
+            this IClient client, Error error = default)
         {
             return client.ExecuteAsync(new TestReturnError
             {

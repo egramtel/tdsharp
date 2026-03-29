@@ -46,7 +46,7 @@ namespace TdLib
         /// Adds an element to the user's Telegram Passport. May return an error with a message "PHONE_VERIFICATION_NEEDED" or "EMAIL_VERIFICATION_NEEDED" if the chosen phone number or the chosen email address must be verified first
         /// </summary>
         public static Task<PassportElement> SetPassportElementAsync(
-            this Client client, InputPassportElement element = default, string password = default)
+            this IClient client, InputPassportElement element = default, string password = default)
         {
             return client.ExecuteAsync(new SetPassportElement
             {

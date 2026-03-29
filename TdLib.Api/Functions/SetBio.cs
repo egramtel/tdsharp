@@ -39,7 +39,7 @@ namespace TdLib
         /// Changes the bio of the current user
         /// </summary>
         public static Task<Ok> SetBioAsync(
-            this Client client, string bio = default)
+            this IClient client, string bio = default)
         {
             return client.ExecuteAsync(new SetBio
             {

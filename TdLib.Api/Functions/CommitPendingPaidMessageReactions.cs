@@ -46,7 +46,7 @@ namespace TdLib
         /// Applies all pending paid reactions on a message
         /// </summary>
         public static Task<Ok> CommitPendingPaidMessageReactionsAsync(
-            this Client client, long chatId = default, long messageId = default)
+            this IClient client, long chatId = default, long messageId = default)
         {
             return client.ExecuteAsync(new CommitPendingPaidMessageReactions
             {

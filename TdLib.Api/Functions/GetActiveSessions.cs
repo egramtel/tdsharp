@@ -34,7 +34,7 @@ namespace TdLib
         /// Returns all active sessions of the current user
         /// </summary>
         public static Task<Sessions> GetActiveSessionsAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new GetActiveSessions
             {

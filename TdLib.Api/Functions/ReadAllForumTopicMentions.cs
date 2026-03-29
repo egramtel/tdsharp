@@ -46,7 +46,7 @@ namespace TdLib
         /// Marks all mentions in a topic in a forum supergroup chat as read
         /// </summary>
         public static Task<Ok> ReadAllForumTopicMentionsAsync(
-            this Client client, long chatId = default, int forumTopicId = default)
+            this IClient client, long chatId = default, int forumTopicId = default)
         {
             return client.ExecuteAsync(new ReadAllForumTopicMentions
             {

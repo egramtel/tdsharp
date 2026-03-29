@@ -39,7 +39,7 @@ namespace TdLib
         /// Checks whether a file is in the profile audio files of the current user. Returns a 404 error if it isn't
         /// </summary>
         public static Task<Ok> IsProfileAudioAsync(
-            this Client client, int fileId = default)
+            this IClient client, int fileId = default)
         {
             return client.ExecuteAsync(new IsProfileAudio
             {

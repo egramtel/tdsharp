@@ -48,7 +48,7 @@ namespace TdLib
         /// The chat must have at least chatBoostFeatures.min_automatic_translation_boost_level boost level to enable automatic translation
         /// </summary>
         public static Task<Ok> ToggleSupergroupHasAutomaticTranslationAsync(
-            this Client client, long supergroupId = default, bool hasAutomaticTranslation = default)
+            this IClient client, long supergroupId = default, bool hasAutomaticTranslation = default)
         {
             return client.ExecuteAsync(new ToggleSupergroupHasAutomaticTranslation
             {

@@ -81,7 +81,7 @@ namespace TdLib
         /// Returns interactions with a story. The method can be called only for stories posted on behalf of the current user
         /// </summary>
         public static Task<StoryInteractions> GetStoryInteractionsAsync(
-            this Client client, int storyId = default, string query = default, bool onlyContacts = default, bool preferForwards = default, bool preferWithReaction = default, string offset = default, int limit = default)
+            this IClient client, int storyId = default, string query = default, bool onlyContacts = default, bool preferForwards = default, bool preferWithReaction = default, string offset = default, int limit = default)
         {
             return client.ExecuteAsync(new GetStoryInteractions
             {

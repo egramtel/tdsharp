@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns the list of features available for different chat boost levels. This is an offline method
         /// </summary>
         public static Task<ChatBoostFeatures> GetChatBoostFeaturesAsync(
-            this Client client, bool isChannel = default)
+            this IClient client, bool isChannel = default)
         {
             return client.ExecuteAsync(new GetChatBoostFeatures
             {

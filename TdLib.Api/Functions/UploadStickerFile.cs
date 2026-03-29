@@ -53,7 +53,7 @@ namespace TdLib
         /// Uploads a file with a sticker; returns the uploaded file
         /// </summary>
         public static Task<File> UploadStickerFileAsync(
-            this Client client, long userId = default, StickerFormat stickerFormat = default, InputFile sticker = default)
+            this IClient client, long userId = default, StickerFormat stickerFormat = default, InputFile sticker = default)
         {
             return client.ExecuteAsync(new UploadStickerFile
             {

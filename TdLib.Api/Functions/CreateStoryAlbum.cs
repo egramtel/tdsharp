@@ -52,7 +52,7 @@ namespace TdLib
         /// Creates an album of stories; requires can_edit_stories administrator right for supergroup and channel chats
         /// </summary>
         public static Task<StoryAlbum> CreateStoryAlbumAsync(
-            this Client client, long storyPosterChatId = default, string name = default, int[] storyIds = default)
+            this IClient client, long storyPosterChatId = default, string name = default, int[] storyIds = default)
         {
             return client.ExecuteAsync(new CreateStoryAlbum
             {

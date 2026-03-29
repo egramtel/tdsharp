@@ -53,7 +53,7 @@ namespace TdLib
         /// Sets the text shown on a bot's profile page and sent together with the link when users share the bot. Can be called only if userTypeBot.can_be_edited == true
         /// </summary>
         public static Task<Ok> SetBotInfoShortDescriptionAsync(
-            this Client client, long botUserId = default, string languageCode = default, string shortDescription = default)
+            this IClient client, long botUserId = default, string languageCode = default, string shortDescription = default)
         {
             return client.ExecuteAsync(new SetBotInfoShortDescription
             {

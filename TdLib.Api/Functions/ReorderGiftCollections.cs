@@ -45,7 +45,7 @@ namespace TdLib
         /// Changes order of gift collections. If the collections are owned by a channel chat, then requires can_post_messages administrator right in the channel chat
         /// </summary>
         public static Task<Ok> ReorderGiftCollectionsAsync(
-            this Client client, MessageSender ownerId = default, int[] collectionIds = default)
+            this IClient client, MessageSender ownerId = default, int[] collectionIds = default)
         {
             return client.ExecuteAsync(new ReorderGiftCollections
             {

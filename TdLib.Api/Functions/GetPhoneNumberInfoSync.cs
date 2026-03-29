@@ -46,7 +46,7 @@ namespace TdLib
         /// Returns information about a phone number by its prefix synchronously. getCountries must be called at least once after changing localization to the specified language if properly localized country information is expected. Can be called synchronously
         /// </summary>
         public static Task<PhoneNumberInfo> GetPhoneNumberInfoSyncAsync(
-            this Client client, string languageCode = default, string phoneNumberPrefix = default)
+            this IClient client, string languageCode = default, string phoneNumberPrefix = default)
         {
             return client.ExecuteAsync(new GetPhoneNumberInfoSync
             {

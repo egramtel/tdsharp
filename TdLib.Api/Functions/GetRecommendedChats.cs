@@ -34,7 +34,7 @@ namespace TdLib
         /// Returns a list of channel chats recommended to the current user
         /// </summary>
         public static Task<Chats> GetRecommendedChatsAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new GetRecommendedChats
             {

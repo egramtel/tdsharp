@@ -53,7 +53,7 @@ namespace TdLib
         /// Handles all pending join requests for a given link in a chat
         /// </summary>
         public static Task<Ok> ProcessChatJoinRequestsAsync(
-            this Client client, long chatId = default, string inviteLink = default, bool approve = default)
+            this IClient client, long chatId = default, string inviteLink = default, bool approve = default)
         {
             return client.ExecuteAsync(new ProcessChatJoinRequests
             {

@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns information about a tg:// deep link. Use "tg://need_update_for_some_feature" or "tg:some_unsupported_feature" for testing. Returns a 404 error for unknown links. Can be called before authorization
         /// </summary>
         public static Task<DeepLinkInfo> GetDeepLinkInfoAsync(
-            this Client client, string link = default)
+            this IClient client, string link = default)
         {
             return client.ExecuteAsync(new GetDeepLinkInfo
             {

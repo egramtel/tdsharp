@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns information about a message effect. Returns a 404 error if the effect is not found
         /// </summary>
         public static Task<MessageEffect> GetMessageEffectAsync(
-            this Client client, long effectId = default)
+            this IClient client, long effectId = default)
         {
             return client.ExecuteAsync(new GetMessageEffect
             {

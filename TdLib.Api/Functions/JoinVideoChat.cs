@@ -60,7 +60,7 @@ namespace TdLib
         /// Joins an active video chat. Returns join response payload for tgcalls
         /// </summary>
         public static Task<Text> JoinVideoChatAsync(
-            this Client client, int groupCallId = default, MessageSender participantId = default, GroupCallJoinParameters joinParameters = default, string inviteHash = default)
+            this IClient client, int groupCallId = default, MessageSender participantId = default, GroupCallJoinParameters joinParameters = default, string inviteHash = default)
         {
             return client.ExecuteAsync(new JoinVideoChat
             {

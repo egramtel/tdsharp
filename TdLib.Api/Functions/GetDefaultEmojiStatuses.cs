@@ -34,7 +34,7 @@ namespace TdLib
         /// Returns default emoji statuses for self status
         /// </summary>
         public static Task<EmojiStatusCustomEmojis> GetDefaultEmojiStatusesAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new GetDefaultEmojiStatuses
             {

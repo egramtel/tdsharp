@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns available options for creating of Telegram Premium giveaway or manual distribution of Telegram Premium among chat members
         /// </summary>
         public static Task<PremiumGiveawayPaymentOptions> GetPremiumGiveawayPaymentOptionsAsync(
-            this Client client, long boostedChatId = default)
+            this IClient client, long boostedChatId = default)
         {
             return client.ExecuteAsync(new GetPremiumGiveawayPaymentOptions
             {

@@ -39,7 +39,7 @@ namespace TdLib
         /// Computes time needed to receive a response from a Telegram server through a proxy. Can be called before authorization
         /// </summary>
         public static Task<Seconds> PingProxyAsync(
-            this Client client, Proxy proxy = default)
+            this IClient client, Proxy proxy = default)
         {
             return client.ExecuteAsync(new PingProxy
             {

@@ -39,7 +39,7 @@ namespace TdLib
         /// Deletes the business bot that is connected to the current user account
         /// </summary>
         public static Task<Ok> DeleteBusinessConnectedBotAsync(
-            this Client client, long botUserId = default)
+            this IClient client, long botUserId = default)
         {
             return client.ExecuteAsync(new DeleteBusinessConnectedBot
             {

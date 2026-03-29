@@ -39,7 +39,7 @@ namespace TdLib
         /// Removes a chat from the list of recently found chats
         /// </summary>
         public static Task<Ok> RemoveRecentlyFoundChatAsync(
-            this Client client, long chatId = default)
+            this IClient client, long chatId = default)
         {
             return client.ExecuteAsync(new RemoveRecentlyFoundChat
             {

@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns a confirmation text to be shown to the user before starting message import
         /// </summary>
         public static Task<Text> GetMessageImportConfirmationTextAsync(
-            this Client client, long chatId = default)
+            this IClient client, long chatId = default)
         {
             return client.ExecuteAsync(new GetMessageImportConfirmationText
             {

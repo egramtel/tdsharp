@@ -45,7 +45,7 @@ namespace TdLib
         /// Adds a chat folder by an invite link
         /// </summary>
         public static Task<Ok> AddChatFolderByInviteLinkAsync(
-            this Client client, string inviteLink = default, long[] chatIds = default)
+            this IClient client, string inviteLink = default, long[] chatIds = default)
         {
             return client.ExecuteAsync(new AddChatFolderByInviteLink
             {

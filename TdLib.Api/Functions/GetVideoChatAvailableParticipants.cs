@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns the list of participant identifiers, on whose behalf a video chat in the chat can be joined
         /// </summary>
         public static Task<MessageSenders> GetVideoChatAvailableParticipantsAsync(
-            this Client client, long chatId = default)
+            this IClient client, long chatId = default)
         {
             return client.ExecuteAsync(new GetVideoChatAvailableParticipants
             {

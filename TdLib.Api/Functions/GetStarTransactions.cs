@@ -67,7 +67,7 @@ namespace TdLib
         /// Returns the list of Telegram Star transactions for the specified owner
         /// </summary>
         public static Task<StarTransactions> GetStarTransactionsAsync(
-            this Client client, MessageSender ownerId = default, string subscriptionId = default, TransactionDirection direction = default, string offset = default, int limit = default)
+            this IClient client, MessageSender ownerId = default, string subscriptionId = default, TransactionDirection direction = default, string offset = default, int limit = default)
         {
             return client.ExecuteAsync(new GetStarTransactions
             {

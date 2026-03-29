@@ -53,7 +53,7 @@ namespace TdLib
         /// Changes accent color and background custom emoji of a channel chat. Requires can_change_info administrator right
         /// </summary>
         public static Task<Ok> SetChatAccentColorAsync(
-            this Client client, long chatId = default, int accentColorId = default, long backgroundCustomEmojiId = default)
+            this IClient client, long chatId = default, int accentColorId = default, long backgroundCustomEmojiId = default)
         {
             return client.ExecuteAsync(new SetChatAccentColor
             {

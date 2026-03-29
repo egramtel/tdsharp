@@ -60,7 +60,7 @@ namespace TdLib
         /// Returns the list of boosts applied to a chat; requires administrator rights in the chat
         /// </summary>
         public static Task<FoundChatBoosts> GetChatBoostsAsync(
-            this Client client, long chatId = default, bool onlyGiftCodes = default, string offset = default, int limit = default)
+            this IClient client, long chatId = default, bool onlyGiftCodes = default, string offset = default, int limit = default)
         {
             return client.ExecuteAsync(new GetChatBoosts
             {

@@ -46,7 +46,7 @@ namespace TdLib
         /// Toggles whether notifications for new gifts received by a channel chat are sent to the current user; requires can_post_messages administrator right in the chat
         /// </summary>
         public static Task<Ok> ToggleChatGiftNotificationsAsync(
-            this Client client, long chatId = default, bool areEnabled = default)
+            this IClient client, long chatId = default, bool areEnabled = default)
         {
             return client.ExecuteAsync(new ToggleChatGiftNotifications
             {

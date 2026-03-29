@@ -39,7 +39,7 @@ namespace TdLib
         /// Adds a new notification sound to the list of saved notification sounds. The new notification sound is added to the top of the list. If it is already in the list, its position isn't changed
         /// </summary>
         public static Task<NotificationSound> AddSavedNotificationSoundAsync(
-            this Client client, InputFile sound = default)
+            this IClient client, InputFile sound = default)
         {
             return client.ExecuteAsync(new AddSavedNotificationSound
             {

@@ -34,7 +34,7 @@ namespace TdLib
         /// Returns state of Telegram Premium subscription and promotion videos for Premium features
         /// </summary>
         public static Task<PremiumState> GetPremiumStateAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new GetPremiumState
             {

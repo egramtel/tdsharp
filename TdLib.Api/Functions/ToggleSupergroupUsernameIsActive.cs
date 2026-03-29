@@ -55,7 +55,7 @@ namespace TdLib
         /// May return an error with a message "USERNAMES_ACTIVE_TOO_MUCH" if the maximum number of active usernames has been reached
         /// </summary>
         public static Task<Ok> ToggleSupergroupUsernameIsActiveAsync(
-            this Client client, long supergroupId = default, string username = default, bool isActive = default)
+            this IClient client, long supergroupId = default, string username = default, bool isActive = default)
         {
             return client.ExecuteAsync(new ToggleSupergroupUsernameIsActive
             {

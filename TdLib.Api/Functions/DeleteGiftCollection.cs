@@ -46,7 +46,7 @@ namespace TdLib
         /// Deletes a gift collection. If the collection is owned by a channel chat, then requires can_post_messages administrator right in the channel chat
         /// </summary>
         public static Task<Ok> DeleteGiftCollectionAsync(
-            this Client client, MessageSender ownerId = default, int collectionId = default)
+            this IClient client, MessageSender ownerId = default, int collectionId = default)
         {
             return client.ExecuteAsync(new DeleteGiftCollection
             {

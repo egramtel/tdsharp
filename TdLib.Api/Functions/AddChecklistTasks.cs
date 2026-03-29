@@ -52,7 +52,7 @@ namespace TdLib
         /// Adds tasks to a checklist in a message
         /// </summary>
         public static Task<Ok> AddChecklistTasksAsync(
-            this Client client, long chatId = default, long messageId = default, InputChecklistTask[] tasks = default)
+            this IClient client, long chatId = default, long messageId = default, InputChecklistTask[] tasks = default)
         {
             return client.ExecuteAsync(new AddChecklistTasks
             {

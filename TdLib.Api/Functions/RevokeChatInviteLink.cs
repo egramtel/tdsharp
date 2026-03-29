@@ -48,7 +48,7 @@ namespace TdLib
         /// If a primary link is revoked, then additionally to the revoked link returns new primary link
         /// </summary>
         public static Task<ChatInviteLinks> RevokeChatInviteLinkAsync(
-            this Client client, long chatId = default, string inviteLink = default)
+            this IClient client, long chatId = default, string inviteLink = default)
         {
             return client.ExecuteAsync(new RevokeChatInviteLink
             {

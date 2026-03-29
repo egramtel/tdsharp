@@ -34,7 +34,7 @@ namespace TdLib
         /// Clears the list of recently used emoji statuses for self status
         /// </summary>
         public static Task<Ok> ClearRecentEmojiStatusesAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new ClearRecentEmojiStatuses
             {

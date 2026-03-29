@@ -46,7 +46,7 @@ namespace TdLib
         /// Sets autosave settings for the given scope. The method is guaranteed to work only after at least one call to getAutosaveSettings
         /// </summary>
         public static Task<Ok> SetAutosaveSettingsAsync(
-            this Client client, AutosaveSettingsScope scope = default, ScopeAutosaveSettings settings = default)
+            this IClient client, AutosaveSettingsScope scope = default, ScopeAutosaveSettings settings = default)
         {
             return client.ExecuteAsync(new SetAutosaveSettings
             {

@@ -46,7 +46,7 @@ namespace TdLib
         /// Returns information about a topic in a forum supergroup chat or a chat with a bot with topics
         /// </summary>
         public static Task<ForumTopic> GetForumTopicAsync(
-            this Client client, long chatId = default, int forumTopicId = default)
+            this IClient client, long chatId = default, int forumTopicId = default)
         {
             return client.ExecuteAsync(new GetForumTopic
             {

@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns new chats added to a shareable chat folder by its owner. The method must be called at most once in getOption("chat_folder_new_chats_update_period") for the given chat folder
         /// </summary>
         public static Task<Chats> GetChatFolderNewChatsAsync(
-            this Client client, int chatFolderId = default)
+            this IClient client, int chatFolderId = default)
         {
             return client.ExecuteAsync(new GetChatFolderNewChats
             {

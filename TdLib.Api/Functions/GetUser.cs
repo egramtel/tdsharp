@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns information about a user by their identifier. This is an offline method if the current user is not a bot
         /// </summary>
         public static Task<User> GetUserAsync(
-            this Client client, long userId = default)
+            this IClient client, long userId = default)
         {
             return client.ExecuteAsync(new GetUser
             {

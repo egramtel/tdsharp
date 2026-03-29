@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns the Telegram Star amount owned by a business account; for bots only
         /// </summary>
         public static Task<StarAmount> GetBusinessAccountStarAmountAsync(
-            this Client client, string businessConnectionId = default)
+            this IClient client, string businessConnectionId = default)
         {
             return client.ExecuteAsync(new GetBusinessAccountStarAmount
             {

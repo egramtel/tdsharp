@@ -39,7 +39,7 @@ namespace TdLib
         /// Disables all active non-editable usernames of a supergroup or channel, requires owner privileges in the supergroup or channel
         /// </summary>
         public static Task<Ok> DisableAllSupergroupUsernamesAsync(
-            this Client client, long supergroupId = default)
+            this IClient client, long supergroupId = default)
         {
             return client.ExecuteAsync(new DisableAllSupergroupUsernames
             {

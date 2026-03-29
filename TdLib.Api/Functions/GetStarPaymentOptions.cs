@@ -34,7 +34,7 @@ namespace TdLib
         /// Returns available options for Telegram Stars purchase
         /// </summary>
         public static Task<StarPaymentOptions> GetStarPaymentOptionsAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new GetStarPaymentOptions
             {

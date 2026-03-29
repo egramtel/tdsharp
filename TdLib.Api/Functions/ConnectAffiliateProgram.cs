@@ -46,7 +46,7 @@ namespace TdLib
         /// Connects an affiliate program to the given affiliate. Returns information about the connected affiliate program
         /// </summary>
         public static Task<ConnectedAffiliateProgram> ConnectAffiliateProgramAsync(
-            this Client client, AffiliateType affiliate = default, long botUserId = default)
+            this IClient client, AffiliateType affiliate = default, long botUserId = default)
         {
             return client.ExecuteAsync(new ConnectAffiliateProgram
             {

@@ -39,7 +39,7 @@ namespace TdLib
         /// Ends screen sharing in a joined group call; not supported in live stories
         /// </summary>
         public static Task<Ok> EndGroupCallScreenSharingAsync(
-            this Client client, int groupCallId = default)
+            this IClient client, int groupCallId = default)
         {
             return client.ExecuteAsync(new EndGroupCallScreenSharing
             {

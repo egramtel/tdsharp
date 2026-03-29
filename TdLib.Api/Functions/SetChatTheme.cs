@@ -46,7 +46,7 @@ namespace TdLib
         /// Changes the chat theme. Supported only in private and secret chats
         /// </summary>
         public static Task<Ok> SetChatThemeAsync(
-            this Client client, long chatId = default, InputChatTheme theme = default)
+            this IClient client, long chatId = default, InputChatTheme theme = default)
         {
             return client.ExecuteAsync(new SetChatTheme
             {

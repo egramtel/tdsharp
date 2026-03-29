@@ -67,7 +67,7 @@ namespace TdLib
         /// Edits the content of a checklist in a message sent on behalf of a business account; for bots only
         /// </summary>
         public static Task<BusinessMessage> EditBusinessMessageChecklistAsync(
-            this Client client, string businessConnectionId = default, long chatId = default, long messageId = default, ReplyMarkup replyMarkup = default, InputChecklist checklist = default)
+            this IClient client, string businessConnectionId = default, long chatId = default, long messageId = default, ReplyMarkup replyMarkup = default, InputChecklist checklist = default)
         {
             return client.ExecuteAsync(new EditBusinessMessageChecklist
             {

@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns name of a sticker set by its identifier
         /// </summary>
         public static Task<Text> GetStickerSetNameAsync(
-            this Client client, long setId = default)
+            this IClient client, long setId = default)
         {
             return client.ExecuteAsync(new GetStickerSetName
             {

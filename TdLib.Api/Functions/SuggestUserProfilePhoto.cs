@@ -46,7 +46,7 @@ namespace TdLib
         /// Suggests a profile photo to another regular user with common messages and allowing non-paid messages
         /// </summary>
         public static Task<Ok> SuggestUserProfilePhotoAsync(
-            this Client client, long userId = default, InputChatPhoto photo = default)
+            this IClient client, long userId = default, InputChatPhoto photo = default)
         {
             return client.ExecuteAsync(new SuggestUserProfilePhoto
             {

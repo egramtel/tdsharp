@@ -39,7 +39,7 @@ namespace TdLib
         /// Creates a new secret chat. Returns the newly created chat
         /// </summary>
         public static Task<Chat> CreateNewSecretChatAsync(
-            this Client client, long userId = default)
+            this IClient client, long userId = default)
         {
             return client.ExecuteAsync(new CreateNewSecretChat
             {

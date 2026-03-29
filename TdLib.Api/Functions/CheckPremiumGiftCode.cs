@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns information about a Telegram Premium gift code
         /// </summary>
         public static Task<PremiumGiftCodeInfo> CheckPremiumGiftCodeAsync(
-            this Client client, string code = default)
+            this IClient client, string code = default)
         {
             return client.ExecuteAsync(new CheckPremiumGiftCode
             {

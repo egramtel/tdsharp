@@ -46,7 +46,7 @@ namespace TdLib
         /// Changes the custom emoji sticker set of a supergroup; requires can_change_info administrator right. The chat must have at least chatBoostFeatures.min_custom_emoji_sticker_set_boost_level boost level to pass the corresponding color
         /// </summary>
         public static Task<Ok> SetSupergroupCustomEmojiStickerSetAsync(
-            this Client client, long supergroupId = default, long customEmojiStickerSetId = default)
+            this IClient client, long supergroupId = default, long customEmojiStickerSetId = default)
         {
             return client.ExecuteAsync(new SetSupergroupCustomEmojiStickerSet
             {

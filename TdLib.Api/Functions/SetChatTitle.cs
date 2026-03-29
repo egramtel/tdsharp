@@ -46,7 +46,7 @@ namespace TdLib
         /// Changes the chat title. Supported only for basic groups, supergroups and channels. Requires can_change_info member right
         /// </summary>
         public static Task<Ok> SetChatTitleAsync(
-            this Client client, long chatId = default, string title = default)
+            this IClient client, long chatId = default, string title = default)
         {
             return client.ExecuteAsync(new SetChatTitle
             {

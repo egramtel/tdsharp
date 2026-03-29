@@ -53,7 +53,7 @@ namespace TdLib
         /// Returns the list of Toncoin transactions of the current user
         /// </summary>
         public static Task<TonTransactions> GetTonTransactionsAsync(
-            this Client client, TransactionDirection direction = default, string offset = default, int limit = default)
+            this IClient client, TransactionDirection direction = default, string offset = default, int limit = default)
         {
             return client.ExecuteAsync(new GetTonTransactions
             {

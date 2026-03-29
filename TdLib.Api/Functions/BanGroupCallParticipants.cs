@@ -45,7 +45,7 @@ namespace TdLib
         /// Bans users from a group call not bound to a chat; requires groupCall.is_owned. Only the owner of the group call can invite the banned users back
         /// </summary>
         public static Task<Ok> BanGroupCallParticipantsAsync(
-            this Client client, int groupCallId = default, long[] userIds = default)
+            this IClient client, int groupCallId = default, long[] userIds = default)
         {
             return client.ExecuteAsync(new BanGroupCallParticipants
             {

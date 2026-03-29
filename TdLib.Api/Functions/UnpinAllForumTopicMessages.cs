@@ -46,7 +46,7 @@ namespace TdLib
         /// Removes all pinned messages from a topic in a forum supergroup chat or a chat with a bot with topics; requires can_pin_messages member right in the supergroup
         /// </summary>
         public static Task<Ok> UnpinAllForumTopicMessagesAsync(
-            this Client client, long chatId = default, int forumTopicId = default)
+            this IClient client, long chatId = default, int forumTopicId = default)
         {
             return client.ExecuteAsync(new UnpinAllForumTopicMessages
             {

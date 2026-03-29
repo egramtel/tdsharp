@@ -46,7 +46,7 @@ namespace TdLib
         /// Recognizes speech in a video note or a voice note message
         /// </summary>
         public static Task<Ok> RecognizeSpeechAsync(
-            this Client client, long chatId = default, long messageId = default)
+            this IClient client, long chatId = default, long messageId = default)
         {
             return client.ExecuteAsync(new RecognizeSpeech
             {

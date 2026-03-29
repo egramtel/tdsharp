@@ -62,7 +62,7 @@ namespace TdLib
         /// May return an empty link if just a toast about successful login has to be shown
         /// </summary>
         public static Task<HttpUrl> AcceptOauthRequestAsync(
-            this Client client, string url = default, string matchCode = default, bool allowWriteAccess = default, bool allowPhoneNumberAccess = default)
+            this IClient client, string url = default, string matchCode = default, bool allowWriteAccess = default, bool allowPhoneNumberAccess = default)
         {
             return client.ExecuteAsync(new AcceptOauthRequest
             {

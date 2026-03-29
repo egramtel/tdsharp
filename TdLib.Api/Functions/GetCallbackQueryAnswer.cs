@@ -53,7 +53,7 @@ namespace TdLib
         /// Sends a callback query to a bot and returns an answer. Returns an error with code 502 if the bot fails to answer the query before the query timeout expires
         /// </summary>
         public static Task<CallbackQueryAnswer> GetCallbackQueryAnswerAsync(
-            this Client client, long chatId = default, long messageId = default, CallbackQueryPayload payload = default)
+            this IClient client, long chatId = default, long messageId = default, CallbackQueryPayload payload = default)
         {
             return client.ExecuteAsync(new GetCallbackQueryAnswer
             {

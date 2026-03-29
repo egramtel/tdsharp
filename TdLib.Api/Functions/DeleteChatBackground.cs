@@ -47,7 +47,7 @@ namespace TdLib
         /// Deletes background in a specific chat
         /// </summary>
         public static Task<Ok> DeleteChatBackgroundAsync(
-            this Client client, long chatId = default, bool restorePrevious = default)
+            this IClient client, long chatId = default, bool restorePrevious = default)
         {
             return client.ExecuteAsync(new DeleteChatBackground
             {

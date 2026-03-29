@@ -46,7 +46,7 @@ namespace TdLib
         /// Searches for a sticker set by its name
         /// </summary>
         public static Task<StickerSet> SearchStickerSetAsync(
-            this Client client, string name = default, bool ignoreCache = default)
+            this IClient client, string name = default, bool ignoreCache = default)
         {
             return client.ExecuteAsync(new SearchStickerSet
             {

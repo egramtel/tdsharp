@@ -48,7 +48,7 @@ namespace TdLib
         /// An updateMessageContentOpened update will be generated if something has changed
         /// </summary>
         public static Task<Ok> OpenMessageContentAsync(
-            this Client client, long chatId = default, long messageId = default)
+            this IClient client, long chatId = default, long messageId = default)
         {
             return client.ExecuteAsync(new OpenMessageContent
             {

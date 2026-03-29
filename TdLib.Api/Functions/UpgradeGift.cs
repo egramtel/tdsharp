@@ -60,7 +60,7 @@ namespace TdLib
         /// Upgrades a regular gift
         /// </summary>
         public static Task<UpgradeGiftResult> UpgradeGiftAsync(
-            this Client client, string businessConnectionId = default, string receivedGiftId = default, bool keepOriginalDetails = default, long starCount = default)
+            this IClient client, string businessConnectionId = default, string receivedGiftId = default, bool keepOriginalDetails = default, long starCount = default)
         {
             return client.ExecuteAsync(new UpgradeGift
             {

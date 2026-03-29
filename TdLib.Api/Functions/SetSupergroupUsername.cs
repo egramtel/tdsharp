@@ -46,7 +46,7 @@ namespace TdLib
         /// Changes the editable username of a supergroup or channel, requires owner privileges in the supergroup or channel
         /// </summary>
         public static Task<Ok> SetSupergroupUsernameAsync(
-            this Client client, long supergroupId = default, string username = default)
+            this IClient client, long supergroupId = default, string username = default)
         {
             return client.ExecuteAsync(new SetSupergroupUsername
             {

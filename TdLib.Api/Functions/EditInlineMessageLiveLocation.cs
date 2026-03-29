@@ -75,7 +75,7 @@ namespace TdLib
         /// Edits the content of a live location in an inline message sent via a bot; for bots only
         /// </summary>
         public static Task<Ok> EditInlineMessageLiveLocationAsync(
-            this Client client, string inlineMessageId = default, ReplyMarkup replyMarkup = default, Location location = default, int livePeriod = default, int heading = default, int proximityAlertRadius = default)
+            this IClient client, string inlineMessageId = default, ReplyMarkup replyMarkup = default, Location location = default, int livePeriod = default, int heading = default, int proximityAlertRadius = default)
         {
             return client.ExecuteAsync(new EditInlineMessageLiveLocation
             {

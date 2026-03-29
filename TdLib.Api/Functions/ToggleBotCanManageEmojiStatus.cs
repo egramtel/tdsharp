@@ -46,7 +46,7 @@ namespace TdLib
         /// Toggles whether the bot can manage emoji status of the current user
         /// </summary>
         public static Task<Ok> ToggleBotCanManageEmojiStatusAsync(
-            this Client client, long botUserId = default, bool canManageEmojiStatus = default)
+            this IClient client, long botUserId = default, bool canManageEmojiStatus = default)
         {
             return client.ExecuteAsync(new ToggleBotCanManageEmojiStatus
             {

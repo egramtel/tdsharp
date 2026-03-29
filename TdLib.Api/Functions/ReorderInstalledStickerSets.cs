@@ -45,7 +45,7 @@ namespace TdLib
         /// Changes the order of installed sticker sets
         /// </summary>
         public static Task<Ok> ReorderInstalledStickerSetsAsync(
-            this Client client, StickerType stickerType = default, long[] stickerSetIds = default)
+            this IClient client, StickerType stickerType = default, long[] stickerSetIds = default)
         {
             return client.ExecuteAsync(new ReorderInstalledStickerSets
             {

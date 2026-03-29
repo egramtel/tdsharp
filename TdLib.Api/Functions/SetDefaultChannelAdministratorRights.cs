@@ -39,7 +39,7 @@ namespace TdLib
         /// Sets default administrator rights for adding the bot to channel chats; for bots only
         /// </summary>
         public static Task<Ok> SetDefaultChannelAdministratorRightsAsync(
-            this Client client, ChatAdministratorRights defaultChannelAdministratorRights = default)
+            this IClient client, ChatAdministratorRights defaultChannelAdministratorRights = default)
         {
             return client.ExecuteAsync(new SetDefaultChannelAdministratorRights
             {

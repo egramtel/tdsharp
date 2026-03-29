@@ -53,7 +53,7 @@ namespace TdLib
         /// Loads an asynchronous or a zoomed in statistical graph
         /// </summary>
         public static Task<StatisticalGraph> GetStatisticalGraphAsync(
-            this Client client, long chatId = default, string token = default, long x = default)
+            this IClient client, long chatId = default, string token = default, long x = default)
         {
             return client.ExecuteAsync(new GetStatisticalGraph
             {

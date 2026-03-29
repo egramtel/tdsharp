@@ -36,7 +36,7 @@ namespace TdLib
         /// and for the next "story_stealth_mode_future_period" seconds; for Telegram Premium users only
         /// </summary>
         public static Task<Ok> ActivateStoryStealthModeAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new ActivateStoryStealthMode
             {

@@ -38,7 +38,7 @@ namespace TdLib
         /// Changes the list of close friends of the current user
         /// </summary>
         public static Task<Ok> SetCloseFriendsAsync(
-            this Client client, long[] userIds = default)
+            this IClient client, long[] userIds = default)
         {
             return client.ExecuteAsync(new SetCloseFriends
             {

@@ -74,7 +74,7 @@ namespace TdLib
         /// Starts a new live story on behalf of a chat; requires can_post_stories administrator right for channel chats
         /// </summary>
         public static Task<StartLiveStoryResult> StartLiveStoryAsync(
-            this Client client, long chatId = default, StoryPrivacySettings privacySettings = default, bool protectContent = default, bool isRtmpStream = default, bool enableMessages = default, long paidMessageStarCount = default)
+            this IClient client, long chatId = default, StoryPrivacySettings privacySettings = default, bool protectContent = default, bool isRtmpStream = default, bool enableMessages = default, long paidMessageStarCount = default)
         {
             return client.ExecuteAsync(new StartLiveStory
             {

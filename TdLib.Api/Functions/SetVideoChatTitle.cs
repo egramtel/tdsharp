@@ -46,7 +46,7 @@ namespace TdLib
         /// Sets title of a video chat; requires groupCall.can_be_managed right
         /// </summary>
         public static Task<Ok> SetVideoChatTitleAsync(
-            this Client client, int groupCallId = default, string title = default)
+            this IClient client, int groupCallId = default, string title = default)
         {
             return client.ExecuteAsync(new SetVideoChatTitle
             {

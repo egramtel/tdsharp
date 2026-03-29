@@ -46,7 +46,7 @@ namespace TdLib
         /// Returns a list of frequently used chats
         /// </summary>
         public static Task<Chats> GetTopChatsAsync(
-            this Client client, TopChatCategory category = default, int limit = default)
+            this IClient client, TopChatCategory category = default, int limit = default)
         {
             return client.ExecuteAsync(new GetTopChats
             {

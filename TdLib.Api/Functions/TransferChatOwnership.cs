@@ -53,7 +53,7 @@ namespace TdLib
         /// Changes the owner of a chat; for basic groups, supergroups and channel chats only; requires owner privileges in the chat. Use the method canTransferOwnership to check whether the ownership can be transferred from the current session
         /// </summary>
         public static Task<Ok> TransferChatOwnershipAsync(
-            this Client client, long chatId = default, long userId = default, string password = default)
+            this IClient client, long chatId = default, long userId = default, string password = default)
         {
             return client.ExecuteAsync(new TransferChatOwnership
             {

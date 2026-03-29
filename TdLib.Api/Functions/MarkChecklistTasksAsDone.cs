@@ -58,7 +58,7 @@ namespace TdLib
         /// Adds tasks of a checklist in a message as done or not done
         /// </summary>
         public static Task<Ok> MarkChecklistTasksAsDoneAsync(
-            this Client client, long chatId = default, long messageId = default, int[] markedAsDoneTaskIds = default, int[] markedAsNotDoneTaskIds = default)
+            this IClient client, long chatId = default, long messageId = default, int[] markedAsDoneTaskIds = default, int[] markedAsNotDoneTaskIds = default)
         {
             return client.ExecuteAsync(new MarkChecklistTasksAsDone
             {

@@ -34,7 +34,7 @@ namespace TdLib
         /// Deletes saved credentials for all payment provider bots
         /// </summary>
         public static Task<Ok> DeleteSavedCredentialsAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new DeleteSavedCredentials
             {

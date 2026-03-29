@@ -53,7 +53,7 @@ namespace TdLib
         /// Adds a new sticker to a set
         /// </summary>
         public static Task<Ok> AddStickerToSetAsync(
-            this Client client, long userId = default, string name = default, InputSticker sticker = default)
+            this IClient client, long userId = default, string name = default, InputSticker sticker = default)
         {
             return client.ExecuteAsync(new AddStickerToSet
             {

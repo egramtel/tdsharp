@@ -46,7 +46,7 @@ namespace TdLib
         /// Sets support information for the given user; for Telegram support only
         /// </summary>
         public static Task<UserSupportInfo> SetUserSupportInfoAsync(
-            this Client client, long userId = default, FormattedText message = default)
+            this IClient client, long userId = default, FormattedText message = default)
         {
             return client.ExecuteAsync(new SetUserSupportInfo
             {

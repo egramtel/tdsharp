@@ -41,7 +41,7 @@ namespace TdLib
         /// Only non-secret video animations with MIME type "video/mp4" can be added to the list
         /// </summary>
         public static Task<Ok> AddSavedAnimationAsync(
-            this Client client, InputFile animation = default)
+            this IClient client, InputFile animation = default)
         {
             return client.ExecuteAsync(new AddSavedAnimation
             {

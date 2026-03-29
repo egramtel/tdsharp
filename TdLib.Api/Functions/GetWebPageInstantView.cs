@@ -46,7 +46,7 @@ namespace TdLib
         /// Returns an instant view version of a web page if available. This is an offline method if only_local is true. Returns a 404 error if the web page has no instant view page
         /// </summary>
         public static Task<WebPageInstantView> GetWebPageInstantViewAsync(
-            this Client client, string url = default, bool onlyLocal = default)
+            this IClient client, string url = default, bool onlyLocal = default)
         {
             return client.ExecuteAsync(new GetWebPageInstantView
             {

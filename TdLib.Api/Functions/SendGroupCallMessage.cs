@@ -54,7 +54,7 @@ namespace TdLib
         /// Sends a message to other participants of a group call. Requires groupCall.can_send_messages right
         /// </summary>
         public static Task<Ok> SendGroupCallMessageAsync(
-            this Client client, int groupCallId = default, FormattedText text = default, long paidMessageStarCount = default)
+            this IClient client, int groupCallId = default, FormattedText text = default, long paidMessageStarCount = default)
         {
             return client.ExecuteAsync(new SendGroupCallMessage
             {

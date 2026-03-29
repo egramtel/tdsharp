@@ -46,7 +46,7 @@ namespace TdLib
         /// Changes accent color and background custom emoji for profile of the current user; for Telegram Premium users only
         /// </summary>
         public static Task<Ok> SetProfileAccentColorAsync(
-            this Client client, int profileAccentColorId = default, long profileBackgroundCustomEmojiId = default)
+            this IClient client, int profileAccentColorId = default, long profileBackgroundCustomEmojiId = default)
         {
             return client.ExecuteAsync(new SetProfileAccentColor
             {

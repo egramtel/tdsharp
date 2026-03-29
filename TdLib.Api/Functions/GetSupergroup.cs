@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns information about a supergroup or a channel by its identifier. This is an offline method if the current user is not a bot
         /// </summary>
         public static Task<Supergroup> GetSupergroupAsync(
-            this Client client, long supergroupId = default)
+            this IClient client, long supergroupId = default)
         {
             return client.ExecuteAsync(new GetSupergroup
             {

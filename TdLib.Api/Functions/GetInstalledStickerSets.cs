@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns a list of installed sticker sets
         /// </summary>
         public static Task<StickerSets> GetInstalledStickerSetsAsync(
-            this Client client, StickerType stickerType = default)
+            this IClient client, StickerType stickerType = default)
         {
             return client.ExecuteAsync(new GetInstalledStickerSets
             {

@@ -39,7 +39,7 @@ namespace TdLib
         /// Changes the personal chat of the current user
         /// </summary>
         public static Task<Ok> SetPersonalChatAsync(
-            this Client client, long chatId = default)
+            this IClient client, long chatId = default)
         {
             return client.ExecuteAsync(new SetPersonalChat
             {

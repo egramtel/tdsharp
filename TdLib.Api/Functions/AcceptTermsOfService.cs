@@ -39,7 +39,7 @@ namespace TdLib
         /// Accepts Telegram terms of services
         /// </summary>
         public static Task<Ok> AcceptTermsOfServiceAsync(
-            this Client client, string termsOfServiceId = default)
+            this IClient client, string termsOfServiceId = default)
         {
             return client.ExecuteAsync(new AcceptTermsOfService
             {

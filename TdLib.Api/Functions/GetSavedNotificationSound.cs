@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns saved notification sound by its identifier. Returns a 404 error if there is no saved notification sound with the specified identifier
         /// </summary>
         public static Task<NotificationSounds> GetSavedNotificationSoundAsync(
-            this Client client, long notificationSoundId = default)
+            this IClient client, long notificationSoundId = default)
         {
             return client.ExecuteAsync(new GetSavedNotificationSound
             {

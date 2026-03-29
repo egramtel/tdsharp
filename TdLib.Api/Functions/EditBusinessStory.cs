@@ -74,7 +74,7 @@ namespace TdLib
         /// Changes a story posted by the bot on behalf of a business account; for bots only
         /// </summary>
         public static Task<Story> EditBusinessStoryAsync(
-            this Client client, long storyPosterChatId = default, int storyId = default, InputStoryContent content = default, InputStoryAreas areas = default, FormattedText caption = default, StoryPrivacySettings privacySettings = default)
+            this IClient client, long storyPosterChatId = default, int storyId = default, InputStoryContent content = default, InputStoryAreas areas = default, FormattedText caption = default, StoryPrivacySettings privacySettings = default)
         {
             return client.ExecuteAsync(new EditBusinessStory
             {

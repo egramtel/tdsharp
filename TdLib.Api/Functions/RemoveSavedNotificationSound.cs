@@ -39,7 +39,7 @@ namespace TdLib
         /// Removes a notification sound from the list of saved notification sounds
         /// </summary>
         public static Task<Ok> RemoveSavedNotificationSoundAsync(
-            this Client client, long notificationSoundId = default)
+            this IClient client, long notificationSoundId = default)
         {
             return client.ExecuteAsync(new RemoveSavedNotificationSound
             {

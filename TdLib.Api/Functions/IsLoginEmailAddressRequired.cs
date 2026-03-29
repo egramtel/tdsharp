@@ -34,7 +34,7 @@ namespace TdLib
         /// Checks whether the current user is required to set login email address
         /// </summary>
         public static Task<Ok> IsLoginEmailAddressRequiredAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new IsLoginEmailAddressRequired
             {

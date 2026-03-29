@@ -39,7 +39,7 @@ namespace TdLib
         /// Loads quick reply messages that can be sent by a given quick reply shortcut. The loaded messages will be sent through updateQuickReplyShortcutMessages
         /// </summary>
         public static Task<Ok> LoadQuickReplyShortcutMessagesAsync(
-            this Client client, int shortcutId = default)
+            this IClient client, int shortcutId = default)
         {
             return client.ExecuteAsync(new LoadQuickReplyShortcutMessages
             {

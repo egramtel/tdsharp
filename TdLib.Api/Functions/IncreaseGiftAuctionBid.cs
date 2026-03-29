@@ -46,7 +46,7 @@ namespace TdLib
         /// Increases a bid for an auction gift without changing gift text and receiver
         /// </summary>
         public static Task<Ok> IncreaseGiftAuctionBidAsync(
-            this Client client, long giftId = default, long starCount = default)
+            this IClient client, long giftId = default, long starCount = default)
         {
             return client.ExecuteAsync(new IncreaseGiftAuctionBid
             {

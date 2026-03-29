@@ -46,7 +46,7 @@ namespace TdLib
         /// Searches for outgoing messages with content of the type messageDocument in all chats except secret chats. Returns the results in reverse chronological order
         /// </summary>
         public static Task<FoundMessages> SearchOutgoingDocumentMessagesAsync(
-            this Client client, string query = default, int limit = default)
+            this IClient client, string query = default, int limit = default)
         {
             return client.ExecuteAsync(new SearchOutgoingDocumentMessages
             {

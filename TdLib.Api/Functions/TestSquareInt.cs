@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns the squared received number; for testing only. This is an offline method. Can be called before authorization
         /// </summary>
         public static Task<TestInt> TestSquareIntAsync(
-            this Client client, int x = default)
+            this IClient client, int x = default)
         {
             return client.ExecuteAsync(new TestSquareInt
             {

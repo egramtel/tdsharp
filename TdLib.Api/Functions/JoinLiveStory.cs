@@ -46,7 +46,7 @@ namespace TdLib
         /// Joins a group call of an active live story. Returns join response payload for tgcalls
         /// </summary>
         public static Task<Text> JoinLiveStoryAsync(
-            this Client client, int groupCallId = default, GroupCallJoinParameters joinParameters = default)
+            this IClient client, int groupCallId = default, GroupCallJoinParameters joinParameters = default)
         {
             return client.ExecuteAsync(new JoinLiveStory
             {

@@ -41,7 +41,7 @@ namespace TdLib
         /// Use the field chat.can_be_deleted_for_all_users to find whether the method can be applied to the chat
         /// </summary>
         public static Task<Ok> DeleteChatAsync(
-            this Client client, long chatId = default)
+            this IClient client, long chatId = default)
         {
             return client.ExecuteAsync(new DeleteChat
             {

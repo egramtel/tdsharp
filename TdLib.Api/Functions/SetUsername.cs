@@ -39,7 +39,7 @@ namespace TdLib
         /// Changes the editable username of the current user
         /// </summary>
         public static Task<Ok> SetUsernameAsync(
-            this Client client, string username = default)
+            this IClient client, string username = default)
         {
             return client.ExecuteAsync(new SetUsername
             {

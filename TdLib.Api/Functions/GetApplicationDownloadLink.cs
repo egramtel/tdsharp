@@ -34,7 +34,7 @@ namespace TdLib
         /// Returns the link for downloading official Telegram application to be used when the current user invites friends to Telegram
         /// </summary>
         public static Task<HttpUrl> GetApplicationDownloadLinkAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new GetApplicationDownloadLink
             {

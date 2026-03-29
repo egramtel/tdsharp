@@ -39,7 +39,7 @@ namespace TdLib
         /// Checks the authentication code. Works only when the current authorization state is authorizationStateWaitCode
         /// </summary>
         public static Task<Ok> CheckAuthenticationCodeAsync(
-            this Client client, string code = default)
+            this IClient client, string code = default)
         {
             return client.ExecuteAsync(new CheckAuthenticationCode
             {

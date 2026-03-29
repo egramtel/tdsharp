@@ -46,7 +46,7 @@ namespace TdLib
         /// Changes the editable username of a business account; for bots only
         /// </summary>
         public static Task<Ok> SetBusinessAccountUsernameAsync(
-            this Client client, string businessConnectionId = default, string username = default)
+            this IClient client, string businessConnectionId = default, string username = default)
         {
             return client.ExecuteAsync(new SetBusinessAccountUsername
             {

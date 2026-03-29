@@ -53,7 +53,7 @@ namespace TdLib
         /// Deletes all messages between the specified dates in a Saved Messages topic. Messages sent in the last 30 seconds will not be deleted
         /// </summary>
         public static Task<Ok> DeleteSavedMessagesTopicMessagesByDateAsync(
-            this Client client, long savedMessagesTopicId = default, int minDate = default, int maxDate = default)
+            this IClient client, long savedMessagesTopicId = default, int minDate = default, int maxDate = default)
         {
             return client.ExecuteAsync(new DeleteSavedMessagesTopicMessagesByDate
             {

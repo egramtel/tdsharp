@@ -67,7 +67,7 @@ namespace TdLib
         /// Changes content and caption of a story. Can be called only if story.can_be_edited == true
         /// </summary>
         public static Task<Ok> EditStoryAsync(
-            this Client client, long storyPosterChatId = default, int storyId = default, InputStoryContent content = default, InputStoryAreas areas = default, FormattedText caption = default)
+            this IClient client, long storyPosterChatId = default, int storyId = default, InputStoryContent content = default, InputStoryAreas areas = default, FormattedText caption = default)
         {
             return client.ExecuteAsync(new EditStory
             {

@@ -46,7 +46,7 @@ namespace TdLib
         /// Searches for the specified query in the title and username of already known chats via request to the server. Returns chats in the order seen in the main chat list
         /// </summary>
         public static Task<Chats> SearchChatsOnServerAsync(
-            this Client client, string query = default, int limit = default)
+            this IClient client, string query = default, int limit = default)
         {
             return client.ExecuteAsync(new SearchChatsOnServer
             {

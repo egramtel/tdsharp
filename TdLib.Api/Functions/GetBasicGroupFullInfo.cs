@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns full information about a basic group by its identifier
         /// </summary>
         public static Task<BasicGroupFullInfo> GetBasicGroupFullInfoAsync(
-            this Client client, long basicGroupId = default)
+            this IClient client, long basicGroupId = default)
         {
             return client.ExecuteAsync(new GetBasicGroupFullInfo
             {

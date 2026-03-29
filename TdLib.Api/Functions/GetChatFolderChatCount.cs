@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns approximate number of chats in a being created chat folder. Main and archive chat lists must be fully preloaded for this function to work correctly
         /// </summary>
         public static Task<Count> GetChatFolderChatCountAsync(
-            this Client client, ChatFolder folder = default)
+            this IClient client, ChatFolder folder = default)
         {
             return client.ExecuteAsync(new GetChatFolderChatCount
             {

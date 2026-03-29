@@ -34,7 +34,7 @@ namespace TdLib
         /// Resets all network data usage statistics to zero. Can be called before authorization
         /// </summary>
         public static Task<Ok> ResetNetworkStatisticsAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new ResetNetworkStatistics
             {

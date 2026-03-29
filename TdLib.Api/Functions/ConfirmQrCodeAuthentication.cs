@@ -39,7 +39,7 @@ namespace TdLib
         /// Confirms QR code authentication on another device. Returns created session on success
         /// </summary>
         public static Task<Session> ConfirmQrCodeAuthenticationAsync(
-            this Client client, string link = default)
+            this IClient client, string link = default)
         {
             return client.ExecuteAsync(new ConfirmQrCodeAuthentication
             {

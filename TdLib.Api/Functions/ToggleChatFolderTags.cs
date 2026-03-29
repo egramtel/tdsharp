@@ -39,7 +39,7 @@ namespace TdLib
         /// Toggles whether chat folder tags are enabled
         /// </summary>
         public static Task<Ok> ToggleChatFolderTagsAsync(
-            this Client client, bool areTagsEnabled = default)
+            this IClient client, bool areTagsEnabled = default)
         {
             return client.ExecuteAsync(new ToggleChatFolderTags
             {

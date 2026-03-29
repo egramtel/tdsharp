@@ -39,7 +39,7 @@ namespace TdLib
         /// Adds a custom server language pack to the list of installed language packs in current localization target. Can be called before authorization
         /// </summary>
         public static Task<Ok> AddCustomServerLanguagePackAsync(
-            this Client client, string languagePackId = default)
+            this IClient client, string languagePackId = default)
         {
             return client.ExecuteAsync(new AddCustomServerLanguagePack
             {

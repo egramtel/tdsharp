@@ -46,7 +46,7 @@ namespace TdLib
         /// Changes the block list of a message sender. Currently, only users and supergroup chats can be blocked
         /// </summary>
         public static Task<Ok> SetMessageSenderBlockListAsync(
-            this Client client, MessageSender senderId = default, BlockList blockList = default)
+            this IClient client, MessageSender senderId = default, BlockList blockList = default)
         {
             return client.ExecuteAsync(new SetMessageSenderBlockList
             {

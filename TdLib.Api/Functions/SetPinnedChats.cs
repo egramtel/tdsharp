@@ -45,7 +45,7 @@ namespace TdLib
         /// Changes the order of pinned chats
         /// </summary>
         public static Task<Ok> SetPinnedChatsAsync(
-            this Client client, ChatList chatList = default, long[] chatIds = default)
+            this IClient client, ChatList chatList = default, long[] chatIds = default)
         {
             return client.ExecuteAsync(new SetPinnedChats
             {

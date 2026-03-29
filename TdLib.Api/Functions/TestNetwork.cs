@@ -34,7 +34,7 @@ namespace TdLib
         /// Sends a simple network request to the Telegram servers; for testing only. Can be called before authorization
         /// </summary>
         public static Task<Ok> TestNetworkAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new TestNetwork
             {

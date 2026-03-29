@@ -46,7 +46,7 @@ namespace TdLib
         /// Returns an existing chat corresponding to a known supergroup or channel
         /// </summary>
         public static Task<Chat> CreateSupergroupChatAsync(
-            this Client client, long supergroupId = default, bool force = default)
+            this IClient client, long supergroupId = default, bool force = default)
         {
             return client.ExecuteAsync(new CreateSupergroupChat
             {

@@ -38,7 +38,7 @@ namespace TdLib
         /// Returns the list of custom emoji stickers by their identifiers. Stickers are returned in arbitrary order. Only found stickers are returned
         /// </summary>
         public static Task<Stickers> GetCustomEmojiStickersAsync(
-            this Client client, long[] customEmojiIds = default)
+            this IClient client, long[] customEmojiIds = default)
         {
             return client.ExecuteAsync(new GetCustomEmojiStickers
             {

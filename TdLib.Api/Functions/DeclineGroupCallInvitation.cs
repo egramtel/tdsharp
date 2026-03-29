@@ -46,7 +46,7 @@ namespace TdLib
         /// Declines an invitation to an active group call via messageGroupCall. Can be called both by the sender and the receiver of the invitation
         /// </summary>
         public static Task<Ok> DeclineGroupCallInvitationAsync(
-            this Client client, long chatId = default, long messageId = default)
+            this IClient client, long chatId = default, long messageId = default)
         {
             return client.ExecuteAsync(new DeclineGroupCallInvitation
             {

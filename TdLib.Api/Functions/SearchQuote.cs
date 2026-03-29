@@ -53,7 +53,7 @@ namespace TdLib
         /// Searches for a given quote in a text. Returns found quote start position in UTF-16 code units. Returns a 404 error if the quote is not found. Can be called synchronously
         /// </summary>
         public static Task<FoundPosition> SearchQuoteAsync(
-            this Client client, FormattedText text = default, FormattedText quote = default, int quotePosition = default)
+            this IClient client, FormattedText text = default, FormattedText quote = default, int quotePosition = default)
         {
             return client.ExecuteAsync(new SearchQuote
             {

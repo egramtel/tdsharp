@@ -53,7 +53,7 @@ namespace TdLib
         /// Sets default background for chats; adds the background to the list of installed backgrounds
         /// </summary>
         public static Task<Background> SetDefaultBackgroundAsync(
-            this Client client, InputBackground background = default, BackgroundType type = default, bool forDarkTheme = default)
+            this IClient client, InputBackground background = default, BackgroundType type = default, bool forDarkTheme = default)
         {
             return client.ExecuteAsync(new SetDefaultBackground
             {

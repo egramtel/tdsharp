@@ -130,7 +130,7 @@ namespace TdLib
         /// Sets the parameters for TDLib initialization. Works only when the current authorization state is authorizationStateWaitTdlibParameters
         /// </summary>
         public static Task<Ok> SetTdlibParametersAsync(
-            this Client client, bool useTestDc = default, string databaseDirectory = default, string filesDirectory = default, byte[] databaseEncryptionKey = default, bool useFileDatabase = default, bool useChatInfoDatabase = default, bool useMessageDatabase = default, bool useSecretChats = default, int apiId = default, string apiHash = default, string systemLanguageCode = default, string deviceModel = default, string systemVersion = default, string applicationVersion = default)
+            this IClient client, bool useTestDc = default, string databaseDirectory = default, string filesDirectory = default, byte[] databaseEncryptionKey = default, bool useFileDatabase = default, bool useChatInfoDatabase = default, bool useMessageDatabase = default, bool useSecretChats = default, int apiId = default, string apiHash = default, string systemLanguageCode = default, string deviceModel = default, string systemVersion = default, string applicationVersion = default)
         {
             return client.ExecuteAsync(new SetTdlibParameters
             {

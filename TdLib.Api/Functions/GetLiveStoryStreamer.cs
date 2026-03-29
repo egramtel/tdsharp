@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns information about the user or the chat that streams to a live story; for live stories that aren't an RTMP stream only
         /// </summary>
         public static Task<GroupCallParticipant> GetLiveStoryStreamerAsync(
-            this Client client, int groupCallId = default)
+            this IClient client, int groupCallId = default)
         {
             return client.ExecuteAsync(new GetLiveStoryStreamer
             {

@@ -53,7 +53,7 @@ namespace TdLib
         /// Changes direct messages group settings for a channel chat; requires owner privileges in the chat
         /// </summary>
         public static Task<Ok> SetChatDirectMessagesGroupAsync(
-            this Client client, long chatId = default, bool isEnabled = default, long paidMessageStarCount = default)
+            this IClient client, long chatId = default, bool isEnabled = default, long paidMessageStarCount = default)
         {
             return client.ExecuteAsync(new SetChatDirectMessagesGroup
             {

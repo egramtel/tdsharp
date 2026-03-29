@@ -46,7 +46,7 @@ namespace TdLib
         /// Returns an HTTPS or a tg: link with the given type. Can be called before authorization
         /// </summary>
         public static Task<HttpUrl> GetInternalLinkAsync(
-            this Client client, InternalLinkType type = default, bool isHttp = default)
+            this IClient client, InternalLinkType type = default, bool isHttp = default)
         {
             return client.ExecuteAsync(new GetInternalLink
             {

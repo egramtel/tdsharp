@@ -34,7 +34,7 @@ namespace TdLib
         /// Returns recommended chat folders for the current user
         /// </summary>
         public static Task<RecommendedChatFolders> GetRecommendedChatFoldersAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new GetRecommendedChatFolders
             {

@@ -39,7 +39,7 @@ namespace TdLib
         /// Revokes invite link for a group call. Requires groupCall.can_be_managed right for video chats or groupCall.is_owned otherwise
         /// </summary>
         public static Task<Ok> RevokeGroupCallInviteLinkAsync(
-            this Client client, int groupCallId = default)
+            this IClient client, int groupCallId = default)
         {
             return client.ExecuteAsync(new RevokeGroupCallInviteLink
             {

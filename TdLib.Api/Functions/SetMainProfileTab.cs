@@ -39,7 +39,7 @@ namespace TdLib
         /// Changes the main profile tab of the current user
         /// </summary>
         public static Task<Ok> SetMainProfileTabAsync(
-            this Client client, ProfileTab mainProfileTab = default)
+            this IClient client, ProfileTab mainProfileTab = default)
         {
             return client.ExecuteAsync(new SetMainProfileTab
             {

@@ -42,7 +42,7 @@ namespace TdLib
         /// authorizationStateWaitEmailCode, authorizationStateWaitCode, authorizationStateWaitRegistration, or authorizationStateWaitPassword
         /// </summary>
         public static Task<Ok> RequestQrCodeAuthenticationAsync(
-            this Client client, long[] otherUserIds = default)
+            this IClient client, long[] otherUserIds = default)
         {
             return client.ExecuteAsync(new RequestQrCodeAuthentication
             {

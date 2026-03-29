@@ -48,7 +48,7 @@ namespace TdLib
         /// authorization confirmation dialog must be shown and the link must be processed using acceptOauthRequest or declineOauthRequest
         /// </summary>
         public static Task<Ok> CheckOauthRequestMatchCodeAsync(
-            this Client client, string url = default, string matchCode = default)
+            this IClient client, string url = default, string matchCode = default)
         {
             return client.ExecuteAsync(new CheckOauthRequestMatchCode
             {

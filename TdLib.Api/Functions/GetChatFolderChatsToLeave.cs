@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns identifiers of pinned or always included chats from a chat folder, which are suggested to be left when the chat folder is deleted
         /// </summary>
         public static Task<Chats> GetChatFolderChatsToLeaveAsync(
-            this Client client, int chatFolderId = default)
+            this IClient client, int chatFolderId = default)
         {
             return client.ExecuteAsync(new GetChatFolderChatsToLeave
             {

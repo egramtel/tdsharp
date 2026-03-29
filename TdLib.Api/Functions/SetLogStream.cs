@@ -39,7 +39,7 @@ namespace TdLib
         /// Sets new log stream for internal logging of TDLib. Can be called synchronously
         /// </summary>
         public static Task<Ok> SetLogStreamAsync(
-            this Client client, LogStream logStream = default)
+            this IClient client, LogStream logStream = default)
         {
             return client.ExecuteAsync(new SetLogStream
             {

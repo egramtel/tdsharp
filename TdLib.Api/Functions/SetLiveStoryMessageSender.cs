@@ -46,7 +46,7 @@ namespace TdLib
         /// Selects a message sender to send messages in a live story call
         /// </summary>
         public static Task<Ok> SetLiveStoryMessageSenderAsync(
-            this Client client, int groupCallId = default, MessageSender messageSenderId = default)
+            this IClient client, int groupCallId = default, MessageSender messageSenderId = default)
         {
             return client.ExecuteAsync(new SetLiveStoryMessageSender
             {

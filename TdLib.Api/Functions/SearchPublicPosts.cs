@@ -60,7 +60,7 @@ namespace TdLib
         /// Searches for public channel posts using the given query. For optimal performance, the number of returned messages is chosen by TDLib and can be smaller than the specified limit
         /// </summary>
         public static Task<FoundPublicPosts> SearchPublicPostsAsync(
-            this Client client, string query = default, string offset = default, int limit = default, long starCount = default)
+            this IClient client, string query = default, string offset = default, int limit = default, long starCount = default)
         {
             return client.ExecuteAsync(new SearchPublicPosts
             {

@@ -60,7 +60,7 @@ namespace TdLib
         /// Deletes all messages between the specified dates in the topic in a channel direct messages chat administered by the current user. Messages sent in the last 30 seconds will not be deleted
         /// </summary>
         public static Task<Ok> DeleteDirectMessagesChatTopicMessagesByDateAsync(
-            this Client client, long chatId = default, long topicId = default, int minDate = default, int maxDate = default)
+            this IClient client, long chatId = default, long topicId = default, int minDate = default, int maxDate = default)
         {
             return client.ExecuteAsync(new DeleteDirectMessagesChatTopicMessagesByDate
             {

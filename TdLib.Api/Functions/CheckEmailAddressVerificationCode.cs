@@ -39,7 +39,7 @@ namespace TdLib
         /// Checks the email address verification code for Telegram Passport
         /// </summary>
         public static Task<Ok> CheckEmailAddressVerificationCodeAsync(
-            this Client client, string code = default)
+            this IClient client, string code = default)
         {
             return client.ExecuteAsync(new CheckEmailAddressVerificationCode
             {

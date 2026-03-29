@@ -46,7 +46,7 @@ namespace TdLib
         /// Finishes the file generation
         /// </summary>
         public static Task<Ok> FinishFileGenerationAsync(
-            this Client client, long generationId = default, Error error = default)
+            this IClient client, long generationId = default, Error error = default)
         {
             return client.ExecuteAsync(new FinishFileGeneration
             {

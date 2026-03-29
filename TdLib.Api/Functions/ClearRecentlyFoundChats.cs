@@ -34,7 +34,7 @@ namespace TdLib
         /// Clears the list of recently found chats
         /// </summary>
         public static Task<Ok> ClearRecentlyFoundChatsAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new ClearRecentlyFoundChats
             {

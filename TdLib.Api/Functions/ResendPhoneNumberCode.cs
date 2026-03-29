@@ -39,7 +39,7 @@ namespace TdLib
         /// Resends the authentication code sent to a phone number. Works only if the previously received authenticationCodeInfo next_code_type was not null and the server-specified timeout has passed
         /// </summary>
         public static Task<AuthenticationCodeInfo> ResendPhoneNumberCodeAsync(
-            this Client client, ResendCodeReason reason = default)
+            this IClient client, ResendCodeReason reason = default)
         {
             return client.ExecuteAsync(new ResendPhoneNumberCode
             {

@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns current verbosity level for a specified TDLib internal log tag. Can be called synchronously
         /// </summary>
         public static Task<LogVerbosityLevel> GetLogTagVerbosityLevelAsync(
-            this Client client, string tag = default)
+            this IClient client, string tag = default)
         {
             return client.ExecuteAsync(new GetLogTagVerbosityLevel
             {

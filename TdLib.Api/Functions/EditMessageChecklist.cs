@@ -60,7 +60,7 @@ namespace TdLib
         /// Edits the message content of a checklist. Returns the edited message after the edit is completed on the server side
         /// </summary>
         public static Task<Message> EditMessageChecklistAsync(
-            this Client client, long chatId = default, long messageId = default, ReplyMarkup replyMarkup = default, InputChecklist checklist = default)
+            this IClient client, long chatId = default, long messageId = default, ReplyMarkup replyMarkup = default, InputChecklist checklist = default)
         {
             return client.ExecuteAsync(new EditMessageChecklist
             {

@@ -48,7 +48,7 @@ namespace TdLib
         /// Only stickers belonging to a sticker set or in WEBP or WEBM format can be added to this list. Emoji stickers can't be added to recent stickers
         /// </summary>
         public static Task<Stickers> AddRecentStickerAsync(
-            this Client client, bool isAttached = default, InputFile sticker = default)
+            this IClient client, bool isAttached = default, InputFile sticker = default)
         {
             return client.ExecuteAsync(new AddRecentSticker
             {

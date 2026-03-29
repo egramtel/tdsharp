@@ -46,7 +46,7 @@ namespace TdLib
         /// Returns an existing chat corresponding to a given user
         /// </summary>
         public static Task<Chat> CreatePrivateChatAsync(
-            this Client client, long userId = default, bool force = default)
+            this IClient client, long userId = default, bool force = default)
         {
             return client.ExecuteAsync(new CreatePrivateChat
             {

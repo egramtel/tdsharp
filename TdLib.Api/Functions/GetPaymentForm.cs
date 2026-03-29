@@ -46,7 +46,7 @@ namespace TdLib
         /// Returns an invoice payment form. This method must be called when the user presses inline button of the type inlineKeyboardButtonTypeBuy, or wants to buy access to media in a messagePaidMedia message
         /// </summary>
         public static Task<PaymentForm> GetPaymentFormAsync(
-            this Client client, InputInvoice inputInvoice = default, ThemeParameters theme = default)
+            this IClient client, InputInvoice inputInvoice = default, ThemeParameters theme = default)
         {
             return client.ExecuteAsync(new GetPaymentForm
             {

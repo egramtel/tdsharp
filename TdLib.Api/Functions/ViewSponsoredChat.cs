@@ -39,7 +39,7 @@ namespace TdLib
         /// Informs TDLib that the user fully viewed a sponsored chat
         /// </summary>
         public static Task<Ok> ViewSponsoredChatAsync(
-            this Client client, long sponsoredChatUniqueId = default)
+            this IClient client, long sponsoredChatUniqueId = default)
         {
             return client.ExecuteAsync(new ViewSponsoredChat
             {

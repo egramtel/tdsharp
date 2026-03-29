@@ -53,7 +53,7 @@ namespace TdLib
         /// Returns a list of trending sticker sets. For optimal performance, the number of returned sticker sets is chosen by TDLib
         /// </summary>
         public static Task<TrendingStickerSets> GetTrendingStickerSetsAsync(
-            this Client client, StickerType stickerType = default, int offset = default, int limit = default)
+            this IClient client, StickerType stickerType = default, int offset = default, int limit = default)
         {
             return client.ExecuteAsync(new GetTrendingStickerSets
             {

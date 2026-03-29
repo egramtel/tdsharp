@@ -39,7 +39,7 @@ namespace TdLib
         /// Checks the login email address authentication
         /// </summary>
         public static Task<Ok> CheckLoginEmailAddressCodeAsync(
-            this Client client, EmailAddressAuthentication code = default)
+            this IClient client, EmailAddressAuthentication code = default)
         {
             return client.ExecuteAsync(new CheckLoginEmailAddressCode
             {

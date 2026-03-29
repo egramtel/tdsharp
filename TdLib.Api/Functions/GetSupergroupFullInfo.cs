@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns full information about a supergroup or a channel by its identifier, cached for up to 1 minute
         /// </summary>
         public static Task<SupergroupFullInfo> GetSupergroupFullInfoAsync(
-            this Client client, long supergroupId = default)
+            this IClient client, long supergroupId = default)
         {
             return client.ExecuteAsync(new GetSupergroupFullInfo
             {

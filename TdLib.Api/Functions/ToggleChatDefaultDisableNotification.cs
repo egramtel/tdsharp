@@ -46,7 +46,7 @@ namespace TdLib
         /// Changes the value of the default disable_notification parameter, used when a message is sent to a chat
         /// </summary>
         public static Task<Ok> ToggleChatDefaultDisableNotificationAsync(
-            this Client client, long chatId = default, bool defaultDisableNotification = default)
+            this IClient client, long chatId = default, bool defaultDisableNotification = default)
         {
             return client.ExecuteAsync(new ToggleChatDefaultDisableNotification
             {

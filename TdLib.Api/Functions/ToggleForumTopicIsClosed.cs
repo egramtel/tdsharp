@@ -53,7 +53,7 @@ namespace TdLib
         /// Toggles whether a topic is closed in a forum supergroup chat; requires can_manage_topics administrator right in the supergroup unless the user is creator of the topic
         /// </summary>
         public static Task<Ok> ToggleForumTopicIsClosedAsync(
-            this Client client, long chatId = default, int forumTopicId = default, bool isClosed = default)
+            this IClient client, long chatId = default, int forumTopicId = default, bool isClosed = default)
         {
             return client.ExecuteAsync(new ToggleForumTopicIsClosed
             {

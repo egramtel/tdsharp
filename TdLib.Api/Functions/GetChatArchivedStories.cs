@@ -55,7 +55,7 @@ namespace TdLib
         /// The stories are returned in reverse chronological order (i.e., in order of decreasing story_id). For optimal performance, the number of returned stories is chosen by TDLib
         /// </summary>
         public static Task<Stories> GetChatArchivedStoriesAsync(
-            this Client client, long chatId = default, int fromStoryId = default, int limit = default)
+            this IClient client, long chatId = default, int fromStoryId = default, int limit = default)
         {
             return client.ExecuteAsync(new GetChatArchivedStories
             {

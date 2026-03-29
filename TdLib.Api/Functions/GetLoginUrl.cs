@@ -62,7 +62,7 @@ namespace TdLib
         /// Use the method getLoginUrlInfo to find whether a prior user confirmation is needed. If an error is returned, then the button must be handled as an ordinary URL button
         /// </summary>
         public static Task<HttpUrl> GetLoginUrlAsync(
-            this Client client, long chatId = default, long messageId = default, long buttonId = default, bool allowWriteAccess = default)
+            this IClient client, long chatId = default, long messageId = default, long buttonId = default, bool allowWriteAccess = default)
         {
             return client.ExecuteAsync(new GetLoginUrl
             {

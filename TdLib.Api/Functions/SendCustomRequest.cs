@@ -46,7 +46,7 @@ namespace TdLib
         /// Sends a custom request; for bots only
         /// </summary>
         public static Task<CustomRequestResult> SendCustomRequestAsync(
-            this Client client, string method = default, string parameters = default)
+            this IClient client, string method = default, string parameters = default)
         {
             return client.ExecuteAsync(new SendCustomRequest
             {

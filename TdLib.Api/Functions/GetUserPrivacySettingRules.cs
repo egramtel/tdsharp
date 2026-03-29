@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns the current privacy settings
         /// </summary>
         public static Task<UserPrivacySettingRules> GetUserPrivacySettingRulesAsync(
-            this Client client, UserPrivacySetting setting = default)
+            this IClient client, UserPrivacySetting setting = default)
         {
             return client.ExecuteAsync(new GetUserPrivacySettingRules
             {

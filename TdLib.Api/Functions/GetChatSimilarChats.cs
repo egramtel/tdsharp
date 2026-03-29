@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns a list of chats similar to the given chat
         /// </summary>
         public static Task<Chats> GetChatSimilarChatsAsync(
-            this Client client, long chatId = default)
+            this IClient client, long chatId = default)
         {
             return client.ExecuteAsync(new GetChatSimilarChats
             {

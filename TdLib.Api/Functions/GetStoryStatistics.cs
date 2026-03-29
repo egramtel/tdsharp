@@ -53,7 +53,7 @@ namespace TdLib
         /// Returns detailed statistics about a story. Can be used only if story.can_get_statistics == true
         /// </summary>
         public static Task<StoryStatistics> GetStoryStatisticsAsync(
-            this Client client, long chatId = default, int storyId = default, bool isDark = default)
+            this IClient client, long chatId = default, int storyId = default, bool isDark = default)
         {
             return client.ExecuteAsync(new GetStoryStatistics
             {

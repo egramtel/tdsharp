@@ -46,7 +46,7 @@ namespace TdLib
         /// Removes a chat from the list of frequently used chats. Supported only if the chat info database is enabled
         /// </summary>
         public static Task<Ok> RemoveTopChatAsync(
-            this Client client, TopChatCategory category = default, long chatId = default)
+            this IClient client, TopChatCategory category = default, long chatId = default)
         {
             return client.ExecuteAsync(new RemoveTopChat
             {

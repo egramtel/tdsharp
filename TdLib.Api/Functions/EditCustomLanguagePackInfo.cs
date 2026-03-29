@@ -39,7 +39,7 @@ namespace TdLib
         /// Edits information about a custom local language pack in the current localization target. Can be called before authorization
         /// </summary>
         public static Task<Ok> EditCustomLanguagePackInfoAsync(
-            this Client client, LanguagePackInfo info = default)
+            this IClient client, LanguagePackInfo info = default)
         {
             return client.ExecuteAsync(new EditCustomLanguagePackInfo
             {

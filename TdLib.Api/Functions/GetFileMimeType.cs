@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns the MIME type of a file, guessed by its extension. Returns an empty string on failure. Can be called synchronously
         /// </summary>
         public static Task<Text> GetFileMimeTypeAsync(
-            this Client client, string fileName = default)
+            this IClient client, string fileName = default)
         {
             return client.ExecuteAsync(new GetFileMimeType
             {

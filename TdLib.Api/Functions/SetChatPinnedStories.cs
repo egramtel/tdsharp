@@ -45,7 +45,7 @@ namespace TdLib
         /// Changes the list of pinned stories on a chat page; requires can_edit_stories administrator right in the chat
         /// </summary>
         public static Task<Ok> SetChatPinnedStoriesAsync(
-            this Client client, long chatId = default, int[] storyIds = default)
+            this IClient client, long chatId = default, int[] storyIds = default)
         {
             return client.ExecuteAsync(new SetChatPinnedStories
             {

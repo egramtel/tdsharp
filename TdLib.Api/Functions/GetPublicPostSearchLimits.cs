@@ -39,7 +39,7 @@ namespace TdLib
         /// Checks public post search limits without actually performing the search
         /// </summary>
         public static Task<PublicPostSearchLimits> GetPublicPostSearchLimitsAsync(
-            this Client client, string query = default)
+            this IClient client, string query = default)
         {
             return client.ExecuteAsync(new GetPublicPostSearchLimits
             {

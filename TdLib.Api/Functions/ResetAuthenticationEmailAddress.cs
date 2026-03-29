@@ -36,7 +36,7 @@ namespace TdLib
         /// Works only when the current authorization state is authorizationStateWaitEmailCode and authorization_state.can_reset_email_address == true
         /// </summary>
         public static Task<Ok> ResetAuthenticationEmailAddressAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new ResetAuthenticationEmailAddress
             {

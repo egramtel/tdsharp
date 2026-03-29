@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns recently opened chats. This is an offline method. Returns chats in the order of last opening
         /// </summary>
         public static Task<Chats> GetRecentlyOpenedChatsAsync(
-            this Client client, int limit = default)
+            this IClient client, int limit = default)
         {
             return client.ExecuteAsync(new GetRecentlyOpenedChats
             {

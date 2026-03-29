@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns RTMP URL for streaming to a live story; requires can_post_stories administrator right for channel chats
         /// </summary>
         public static Task<RtmpUrl> GetLiveStoryRtmpUrlAsync(
-            this Client client, long chatId = default)
+            this IClient client, long chatId = default)
         {
             return client.ExecuteAsync(new GetLiveStoryRtmpUrl
             {

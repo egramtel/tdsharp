@@ -46,7 +46,7 @@ namespace TdLib
         /// Toggles whether the current user will receive a notification when the video chat starts; for scheduled video chats only
         /// </summary>
         public static Task<Ok> ToggleVideoChatEnabledStartNotificationAsync(
-            this Client client, int groupCallId = default, bool enabledStartNotification = default)
+            this IClient client, int groupCallId = default, bool enabledStartNotification = default)
         {
             return client.ExecuteAsync(new ToggleVideoChatEnabledStartNotification
             {

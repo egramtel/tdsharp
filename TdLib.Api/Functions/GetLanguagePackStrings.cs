@@ -45,7 +45,7 @@ namespace TdLib
         /// Returns strings from a language pack in the current localization target by their keys. Can be called before authorization
         /// </summary>
         public static Task<LanguagePackStrings> GetLanguagePackStringsAsync(
-            this Client client, string languagePackId = default, string[] keys = default)
+            this IClient client, string languagePackId = default, string[] keys = default)
         {
             return client.ExecuteAsync(new GetLanguagePackStrings
             {

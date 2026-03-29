@@ -39,7 +39,7 @@ namespace TdLib
         /// Changes the birthdate of the current user
         /// </summary>
         public static Task<Ok> SetBirthdateAsync(
-            this Client client, Birthdate birthdate = default)
+            this IClient client, Birthdate birthdate = default)
         {
             return client.ExecuteAsync(new SetBirthdate
             {

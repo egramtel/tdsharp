@@ -82,7 +82,7 @@ namespace TdLib
         /// Documents and audio files can be only grouped in an album with messages of the same type. Returns sent messages
         /// </summary>
         public static Task<BusinessMessages> SendBusinessMessageAlbumAsync(
-            this Client client, string businessConnectionId = default, long chatId = default, InputMessageReplyTo replyTo = default, bool disableNotification = default, bool protectContent = default, long effectId = default, InputMessageContent[] inputMessageContents = default)
+            this IClient client, string businessConnectionId = default, long chatId = default, InputMessageReplyTo replyTo = default, bool disableNotification = default, bool protectContent = default, long effectId = default, InputMessageContent[] inputMessageContents = default)
         {
             return client.ExecuteAsync(new SendBusinessMessageAlbum
             {

@@ -45,7 +45,7 @@ namespace TdLib
         /// Invites users to an active video chat. Sends a service message of the type messageInviteVideoChatParticipants to the chat bound to the group call
         /// </summary>
         public static Task<Ok> InviteVideoChatParticipantsAsync(
-            this Client client, int groupCallId = default, long[] userIds = default)
+            this IClient client, int groupCallId = default, long[] userIds = default)
         {
             return client.ExecuteAsync(new InviteVideoChatParticipants
             {

@@ -46,7 +46,7 @@ namespace TdLib
         /// Returns the list of Telegram Star subscriptions for the current user
         /// </summary>
         public static Task<StarSubscriptions> GetStarSubscriptionsAsync(
-            this Client client, bool onlyExpiring = default, string offset = default)
+            this IClient client, bool onlyExpiring = default, string offset = default)
         {
             return client.ExecuteAsync(new GetStarSubscriptions
             {

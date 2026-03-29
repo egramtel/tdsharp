@@ -48,7 +48,7 @@ namespace TdLib
         /// Topics are sorted by their topic.order in descending order. Returns a 404 error if all topics have been loaded
         /// </summary>
         public static Task<Ok> LoadDirectMessagesChatTopicsAsync(
-            this Client client, long chatId = default, int limit = default)
+            this IClient client, long chatId = default, int limit = default)
         {
             return client.ExecuteAsync(new LoadDirectMessagesChatTopics
             {

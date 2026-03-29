@@ -48,7 +48,7 @@ namespace TdLib
         /// unless the user is creator of the topic, the topic has no messages from other users and has at most 11 messages
         /// </summary>
         public static Task<Ok> DeleteForumTopicAsync(
-            this Client client, long chatId = default, int forumTopicId = default)
+            this IClient client, long chatId = default, int forumTopicId = default)
         {
             return client.ExecuteAsync(new DeleteForumTopic
             {

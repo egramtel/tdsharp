@@ -39,7 +39,7 @@ namespace TdLib
         /// Removes a passkey from the list of passkeys allowed to be used for the login by the current user
         /// </summary>
         public static Task<Ok> RemoveLoginPasskeyAsync(
-            this Client client, string passkeyId = default)
+            this IClient client, string passkeyId = default)
         {
             return client.ExecuteAsync(new RemoveLoginPasskey
             {

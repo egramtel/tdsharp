@@ -34,7 +34,7 @@ namespace TdLib
         /// Returns up to 20 recently used inline bots in the order of their last usage
         /// </summary>
         public static Task<Users> GetRecentInlineBotsAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new GetRecentInlineBots
             {

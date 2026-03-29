@@ -39,7 +39,7 @@ namespace TdLib
         /// Removes potentially dangerous characters from the name of a file. Returns an empty string on failure. Can be called synchronously
         /// </summary>
         public static Task<Text> CleanFileNameAsync(
-            this Client client, string fileName = default)
+            this IClient client, string fileName = default)
         {
             return client.ExecuteAsync(new CleanFileName
             {

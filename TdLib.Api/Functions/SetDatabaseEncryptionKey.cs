@@ -39,7 +39,7 @@ namespace TdLib
         /// Changes the database encryption key. Usually the encryption key is never changed and is stored in some OS keychain
         /// </summary>
         public static Task<Ok> SetDatabaseEncryptionKeyAsync(
-            this Client client, byte[] newEncryptionKey = default)
+            this IClient client, byte[] newEncryptionKey = default)
         {
             return client.ExecuteAsync(new SetDatabaseEncryptionKey
             {

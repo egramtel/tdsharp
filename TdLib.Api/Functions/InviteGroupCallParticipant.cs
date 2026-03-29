@@ -55,7 +55,7 @@ namespace TdLib
         /// The group call can have at most getOption("group_call_participant_count_max") participants
         /// </summary>
         public static Task<InviteGroupCallParticipantResult> InviteGroupCallParticipantAsync(
-            this Client client, int groupCallId = default, long userId = default, bool isVideo = default)
+            this IClient client, int groupCallId = default, long userId = default, bool isVideo = default)
         {
             return client.ExecuteAsync(new InviteGroupCallParticipant
             {

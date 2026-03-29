@@ -60,7 +60,7 @@ namespace TdLib
         /// Returns unique emoji that correspond to stickers to be found by the getStickers(sticker_type, query, 1000000, chat_id)
         /// </summary>
         public static Task<Emojis> GetAllStickerEmojisAsync(
-            this Client client, StickerType stickerType = default, string query = default, long chatId = default, bool returnOnlyMainEmoji = default)
+            this IClient client, StickerType stickerType = default, string query = default, long chatId = default, bool returnOnlyMainEmoji = default)
         {
             return client.ExecuteAsync(new GetAllStickerEmojis
             {

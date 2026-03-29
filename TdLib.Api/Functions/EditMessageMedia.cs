@@ -62,7 +62,7 @@ namespace TdLib
         /// The type of message content in an album can't be changed with exception of replacing a photo with a video or vice versa. Returns the edited message after the edit is completed on the server side
         /// </summary>
         public static Task<Message> EditMessageMediaAsync(
-            this Client client, long chatId = default, long messageId = default, ReplyMarkup replyMarkup = default, InputMessageContent inputMessageContent = default)
+            this IClient client, long chatId = default, long messageId = default, ReplyMarkup replyMarkup = default, InputMessageContent inputMessageContent = default)
         {
             return client.ExecuteAsync(new EditMessageMedia
             {

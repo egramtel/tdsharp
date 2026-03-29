@@ -48,7 +48,7 @@ namespace TdLib
         /// Requires Telegram Premium to enable protected content in private chats. Not available in Saved Messages and private chats with bots or support accounts
         /// </summary>
         public static Task<Ok> ToggleChatHasProtectedContentAsync(
-            this Client client, long chatId = default, bool hasProtectedContent = default)
+            this IClient client, long chatId = default, bool hasProtectedContent = default)
         {
             return client.ExecuteAsync(new ToggleChatHasProtectedContent
             {

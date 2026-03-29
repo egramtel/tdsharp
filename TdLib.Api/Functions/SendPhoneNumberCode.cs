@@ -53,7 +53,7 @@ namespace TdLib
         /// Sends a code to the specified phone number. Aborts previous phone number verification if there was one. On success, returns information about the sent code
         /// </summary>
         public static Task<AuthenticationCodeInfo> SendPhoneNumberCodeAsync(
-            this Client client, string phoneNumber = default, PhoneNumberAuthenticationSettings settings = default, PhoneNumberCodeType type = default)
+            this IClient client, string phoneNumber = default, PhoneNumberAuthenticationSettings settings = default, PhoneNumberCodeType type = default)
         {
             return client.ExecuteAsync(new SendPhoneNumberCode
             {

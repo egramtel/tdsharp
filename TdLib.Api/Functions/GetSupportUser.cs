@@ -34,7 +34,7 @@ namespace TdLib
         /// Returns a user who can be contacted to get support
         /// </summary>
         public static Task<User> GetSupportUserAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new GetSupportUser
             {

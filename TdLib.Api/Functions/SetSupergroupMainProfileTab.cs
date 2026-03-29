@@ -46,7 +46,7 @@ namespace TdLib
         /// Changes the main profile tab of the channel; requires can_change_info administrator right
         /// </summary>
         public static Task<Ok> SetSupergroupMainProfileTabAsync(
-            this Client client, long supergroupId = default, ProfileTab mainProfileTab = default)
+            this IClient client, long supergroupId = default, ProfileTab mainProfileTab = default)
         {
             return client.ExecuteAsync(new SetSupergroupMainProfileTab
             {

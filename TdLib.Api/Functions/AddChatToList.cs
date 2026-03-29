@@ -46,7 +46,7 @@ namespace TdLib
         /// Adds a chat to a chat list. A chat can't be simultaneously in Main and Archive chat lists, so it is automatically removed from another one if needed
         /// </summary>
         public static Task<Ok> AddChatToListAsync(
-            this Client client, long chatId = default, ChatList chatList = default)
+            this IClient client, long chatId = default, ChatList chatList = default)
         {
             return client.ExecuteAsync(new AddChatToList
             {

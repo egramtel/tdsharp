@@ -45,7 +45,7 @@ namespace TdLib
         /// Informs the user who some of the elements in their Telegram Passport contain errors; for bots only. The user will not be able to resend the elements, until the errors are fixed
         /// </summary>
         public static Task<Ok> SetPassportElementErrorsAsync(
-            this Client client, long userId = default, InputPassportElementError[] errors = default)
+            this IClient client, long userId = default, InputPassportElementError[] errors = default)
         {
             return client.ExecuteAsync(new SetPassportElementErrors
             {

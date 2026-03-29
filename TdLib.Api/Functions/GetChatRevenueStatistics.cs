@@ -48,7 +48,7 @@ namespace TdLib
         /// for channels if supergroupFullInfo.can_get_revenue_statistics == true or bots if userFullInfo.bot_info.can_get_revenue_statistics == true
         /// </summary>
         public static Task<ChatRevenueStatistics> GetChatRevenueStatisticsAsync(
-            this Client client, long chatId = default, bool isDark = default)
+            this IClient client, long chatId = default, bool isDark = default)
         {
             return client.ExecuteAsync(new GetChatRevenueStatistics
             {

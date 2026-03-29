@@ -53,7 +53,7 @@ namespace TdLib
         /// Returns outline of a sticker as an SVG path. This is an offline method. Returns an empty string if the outline isn't known
         /// </summary>
         public static Task<Text> GetStickerOutlineSvgPathAsync(
-            this Client client, int stickerFileId = default, bool forAnimatedEmoji = default, bool forClickedAnimatedEmojiMessage = default)
+            this IClient client, int stickerFileId = default, bool forAnimatedEmoji = default, bool forClickedAnimatedEmojiMessage = default)
         {
             return client.ExecuteAsync(new GetStickerOutlineSvgPath
             {

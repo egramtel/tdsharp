@@ -41,7 +41,7 @@ namespace TdLib
         /// Only stickers belonging to a sticker set or in WEBP or WEBM format can be added to this list. Emoji stickers can't be added to favorite stickers
         /// </summary>
         public static Task<Ok> AddFavoriteStickerAsync(
-            this Client client, InputFile sticker = default)
+            this IClient client, InputFile sticker = default)
         {
             return client.ExecuteAsync(new AddFavoriteSticker
             {

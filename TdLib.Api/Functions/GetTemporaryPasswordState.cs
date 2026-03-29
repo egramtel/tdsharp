@@ -34,7 +34,7 @@ namespace TdLib
         /// Returns information about the current temporary password
         /// </summary>
         public static Task<TemporaryPasswordState> GetTemporaryPasswordStateAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new GetTemporaryPasswordState
             {

@@ -39,7 +39,7 @@ namespace TdLib
         /// Allows the specified bot to send messages to the user
         /// </summary>
         public static Task<Ok> AllowBotToSendMessagesAsync(
-            this Client client, long botUserId = default)
+            this IClient client, long botUserId = default)
         {
             return client.ExecuteAsync(new AllowBotToSendMessages
             {

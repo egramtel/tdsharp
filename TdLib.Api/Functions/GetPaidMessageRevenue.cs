@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns the total number of Telegram Stars received by the current user for paid messages from the given user
         /// </summary>
         public static Task<StarCount> GetPaidMessageRevenueAsync(
-            this Client client, long userId = default)
+            this IClient client, long userId = default)
         {
             return client.ExecuteAsync(new GetPaidMessageRevenue
             {

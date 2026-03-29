@@ -60,7 +60,7 @@ namespace TdLib
         /// Sets a sticker set thumbnail
         /// </summary>
         public static Task<Ok> SetStickerSetThumbnailAsync(
-            this Client client, long userId = default, string name = default, InputFile thumbnail = default, StickerFormat format = default)
+            this IClient client, long userId = default, string name = default, InputFile thumbnail = default, StickerFormat format = default)
         {
             return client.ExecuteAsync(new SetStickerSetThumbnail
             {

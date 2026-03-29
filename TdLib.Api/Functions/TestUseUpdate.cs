@@ -34,7 +34,7 @@ namespace TdLib
         /// Does nothing and ensures that the Update object is used; for testing only. This is an offline method. Can be called before authorization
         /// </summary>
         public static Task<Update> TestUseUpdateAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new TestUseUpdate
             {

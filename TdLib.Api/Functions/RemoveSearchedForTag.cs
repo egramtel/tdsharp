@@ -39,7 +39,7 @@ namespace TdLib
         /// Removes a hashtag or a cashtag from the list of recently searched for hashtags or cashtags
         /// </summary>
         public static Task<Ok> RemoveSearchedForTagAsync(
-            this Client client, string tag = default)
+            this IClient client, string tag = default)
         {
             return client.ExecuteAsync(new RemoveSearchedForTag
             {

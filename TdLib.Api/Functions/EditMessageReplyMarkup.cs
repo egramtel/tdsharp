@@ -53,7 +53,7 @@ namespace TdLib
         /// Edits the message reply markup; for bots only. Returns the edited message after the edit is completed on the server side
         /// </summary>
         public static Task<Message> EditMessageReplyMarkupAsync(
-            this Client client, long chatId = default, long messageId = default, ReplyMarkup replyMarkup = default)
+            this IClient client, long chatId = default, long messageId = default, ReplyMarkup replyMarkup = default)
         {
             return client.ExecuteAsync(new EditMessageReplyMarkup
             {

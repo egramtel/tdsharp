@@ -48,7 +48,7 @@ namespace TdLib
         /// Message auto-delete time can't be changed in a chat with the current user (Saved Messages) and the chat 777000 (Telegram).
         /// </summary>
         public static Task<Ok> SetChatMessageAutoDeleteTimeAsync(
-            this Client client, long chatId = default, int messageAutoDeleteTime = default)
+            this IClient client, long chatId = default, int messageAutoDeleteTime = default)
         {
             return client.ExecuteAsync(new SetChatMessageAutoDeleteTime
             {

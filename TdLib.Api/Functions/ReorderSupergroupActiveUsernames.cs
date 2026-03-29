@@ -45,7 +45,7 @@ namespace TdLib
         /// Changes order of active usernames of a supergroup or channel, requires owner privileges in the supergroup or channel
         /// </summary>
         public static Task<Ok> ReorderSupergroupActiveUsernamesAsync(
-            this Client client, long supergroupId = default, string[] usernames = default)
+            this IClient client, long supergroupId = default, string[] usernames = default)
         {
             return client.ExecuteAsync(new ReorderSupergroupActiveUsernames
             {

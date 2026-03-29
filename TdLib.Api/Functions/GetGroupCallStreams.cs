@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns information about available streams in a video chat or a live story
         /// </summary>
         public static Task<GroupCallStreams> GetGroupCallStreamsAsync(
-            this Client client, int groupCallId = default)
+            this IClient client, int groupCallId = default)
         {
             return client.ExecuteAsync(new GetGroupCallStreams
             {

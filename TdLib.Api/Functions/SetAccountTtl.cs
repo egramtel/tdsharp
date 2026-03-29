@@ -39,7 +39,7 @@ namespace TdLib
         /// Changes the period of inactivity after which the account of the current user will automatically be deleted
         /// </summary>
         public static Task<Ok> SetAccountTtlAsync(
-            this Client client, AccountTtl ttl = default)
+            this IClient client, AccountTtl ttl = default)
         {
             return client.ExecuteAsync(new SetAccountTtl
             {

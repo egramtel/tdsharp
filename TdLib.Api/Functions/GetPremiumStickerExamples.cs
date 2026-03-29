@@ -34,7 +34,7 @@ namespace TdLib
         /// Returns examples of premium stickers for demonstration purposes
         /// </summary>
         public static Task<Stickers> GetPremiumStickerExamplesAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new GetPremiumStickerExamples
             {

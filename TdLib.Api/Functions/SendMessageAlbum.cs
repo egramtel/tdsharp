@@ -68,7 +68,7 @@ namespace TdLib
         /// Documents and audio files can be only grouped in an album with messages of the same type. Returns sent messages
         /// </summary>
         public static Task<Messages> SendMessageAlbumAsync(
-            this Client client, long chatId = default, MessageTopic topicId = default, InputMessageReplyTo replyTo = default, MessageSendOptions options = default, InputMessageContent[] inputMessageContents = default)
+            this IClient client, long chatId = default, MessageTopic topicId = default, InputMessageReplyTo replyTo = default, MessageSendOptions options = default, InputMessageContent[] inputMessageContents = default)
         {
             return client.ExecuteAsync(new SendMessageAlbum
             {

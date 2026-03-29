@@ -53,7 +53,7 @@ namespace TdLib
         /// Returns an HTTPS URL of a Web App to open from the side menu, a keyboardButtonTypeWebApp button, or an inlineQueryResultsButtonTypeWebApp button
         /// </summary>
         public static Task<HttpUrl> GetWebAppUrlAsync(
-            this Client client, long botUserId = default, string url = default, WebAppOpenParameters parameters = default)
+            this IClient client, long botUserId = default, string url = default, WebAppOpenParameters parameters = default)
         {
             return client.ExecuteAsync(new GetWebAppUrl
             {

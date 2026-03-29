@@ -53,7 +53,7 @@ namespace TdLib
         /// Returns the last message sent in the topic in a channel direct messages chat administered by the current user no later than the specified date
         /// </summary>
         public static Task<Message> GetDirectMessagesChatTopicMessageByDateAsync(
-            this Client client, long chatId = default, long topicId = default, int date = default)
+            this IClient client, long chatId = default, long topicId = default, int date = default)
         {
             return client.ExecuteAsync(new GetDirectMessagesChatTopicMessageByDate
             {

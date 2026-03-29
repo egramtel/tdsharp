@@ -46,7 +46,7 @@ namespace TdLib
         /// Returns suggested name for saving a file in a given directory
         /// </summary>
         public static Task<Text> GetSuggestedFileNameAsync(
-            this Client client, int fileId = default, string directory = default)
+            this IClient client, int fileId = default, string directory = default)
         {
             return client.ExecuteAsync(new GetSuggestedFileName
             {

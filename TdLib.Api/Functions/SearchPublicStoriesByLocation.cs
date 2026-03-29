@@ -53,7 +53,7 @@ namespace TdLib
         /// Searches for public stories by the given address location. For optimal performance, the number of returned stories is chosen by TDLib and can be smaller than the specified limit
         /// </summary>
         public static Task<FoundStories> SearchPublicStoriesByLocationAsync(
-            this Client client, LocationAddress address = default, string offset = default, int limit = default)
+            this IClient client, LocationAddress address = default, string offset = default, int limit = default)
         {
             return client.ExecuteAsync(new SearchPublicStoriesByLocation
             {

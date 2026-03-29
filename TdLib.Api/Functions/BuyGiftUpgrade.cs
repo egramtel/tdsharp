@@ -53,7 +53,7 @@ namespace TdLib
         /// Pays for upgrade of a regular gift that is owned by another user or channel chat
         /// </summary>
         public static Task<Ok> BuyGiftUpgradeAsync(
-            this Client client, MessageSender ownerId = default, string prepaidUpgradeHash = default, long starCount = default)
+            this IClient client, MessageSender ownerId = default, string prepaidUpgradeHash = default, long starCount = default)
         {
             return client.ExecuteAsync(new BuyGiftUpgrade
             {

@@ -67,7 +67,7 @@ namespace TdLib
         /// Shares a chat after pressing a keyboardButtonTypeRequestChat button with the bot
         /// </summary>
         public static Task<Ok> ShareChatWithBotAsync(
-            this Client client, long chatId = default, long messageId = default, int buttonId = default, long sharedChatId = default, bool onlyCheck = default)
+            this IClient client, long chatId = default, long messageId = default, int buttonId = default, long sharedChatId = default, bool onlyCheck = default)
         {
             return client.ExecuteAsync(new ShareChatWithBot
             {

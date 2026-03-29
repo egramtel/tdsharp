@@ -53,7 +53,7 @@ namespace TdLib
         /// Edits a subscription invite link for a channel chat. Requires can_invite_users right in the chat for own links and owner privileges for other links
         /// </summary>
         public static Task<ChatInviteLink> EditChatSubscriptionInviteLinkAsync(
-            this Client client, long chatId = default, string inviteLink = default, string name = default)
+            this IClient client, long chatId = default, string inviteLink = default, string name = default)
         {
             return client.ExecuteAsync(new EditChatSubscriptionInviteLink
             {

@@ -39,7 +39,7 @@ namespace TdLib
         /// Adds the specified data to data usage statistics. Can be called before authorization
         /// </summary>
         public static Task<Ok> AddNetworkStatisticsAsync(
-            this Client client, NetworkStatisticsEntry entry = default)
+            this IClient client, NetworkStatisticsEntry entry = default)
         {
             return client.ExecuteAsync(new AddNetworkStatistics
             {

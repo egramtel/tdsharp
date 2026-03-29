@@ -53,7 +53,7 @@ namespace TdLib
         /// Returns all possible variants of upgraded gifts for a regular gift
         /// </summary>
         public static Task<GiftUpgradeVariants> GetUpgradedGiftVariantsAsync(
-            this Client client, long regularGiftId = default, bool returnUpgradeModels = default, bool returnCraftModels = default)
+            this IClient client, long regularGiftId = default, bool returnUpgradeModels = default, bool returnCraftModels = default)
         {
             return client.ExecuteAsync(new GetUpgradedGiftVariants
             {

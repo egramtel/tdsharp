@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns the current weather in the given location
         /// </summary>
         public static Task<CurrentWeather> GetCurrentWeatherAsync(
-            this Client client, Location location = default)
+            this IClient client, Location location = default)
         {
             return client.ExecuteAsync(new GetCurrentWeather
             {

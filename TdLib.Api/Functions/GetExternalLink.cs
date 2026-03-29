@@ -48,7 +48,7 @@ namespace TdLib
         /// Use the method getExternalLinkInfo to find whether a prior user confirmation is needed. May return an empty link if just a toast about successful login has to be shown
         /// </summary>
         public static Task<HttpUrl> GetExternalLinkAsync(
-            this Client client, string link = default, bool allowWriteAccess = default)
+            this IClient client, string link = default, bool allowWriteAccess = default)
         {
             return client.ExecuteAsync(new GetExternalLink
             {

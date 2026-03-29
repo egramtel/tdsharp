@@ -46,7 +46,7 @@ namespace TdLib
         /// Creates a new temporary password for processing payments
         /// </summary>
         public static Task<TemporaryPasswordState> CreateTemporaryPasswordAsync(
-            this Client client, string password = default, int validFor = default)
+            this IClient client, string password = default, int validFor = default)
         {
             return client.ExecuteAsync(new CreateTemporaryPassword
             {

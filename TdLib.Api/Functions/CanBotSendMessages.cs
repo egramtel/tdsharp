@@ -39,7 +39,7 @@ namespace TdLib
         /// Checks whether the specified bot can send messages to the user. Returns a 404 error if can't and the access can be granted by call to allowBotToSendMessages
         /// </summary>
         public static Task<Ok> CanBotSendMessagesAsync(
-            this Client client, long botUserId = default)
+            this IClient client, long botUserId = default)
         {
             return client.ExecuteAsync(new CanBotSendMessages
             {

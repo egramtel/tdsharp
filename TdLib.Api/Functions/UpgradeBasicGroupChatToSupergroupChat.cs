@@ -39,7 +39,7 @@ namespace TdLib
         /// Creates a new supergroup from an existing basic group and sends a corresponding messageChatUpgradeTo and messageChatUpgradeFrom; requires owner privileges. Deactivates the original basic group
         /// </summary>
         public static Task<Chat> UpgradeBasicGroupChatToSupergroupChatAsync(
-            this Client client, long chatId = default)
+            this IClient client, long chatId = default)
         {
             return client.ExecuteAsync(new UpgradeBasicGroupChatToSupergroupChat
             {

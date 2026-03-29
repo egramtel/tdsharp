@@ -46,7 +46,7 @@ namespace TdLib
         /// Returns detailed statistics about a chat. Currently, this method can be used only for supergroups and channels. Can be used only if supergroupFullInfo.can_get_statistics == true
         /// </summary>
         public static Task<ChatStatistics> GetChatStatisticsAsync(
-            this Client client, long chatId = default, bool isDark = default)
+            this IClient client, long chatId = default, bool isDark = default)
         {
             return client.ExecuteAsync(new GetChatStatistics
             {

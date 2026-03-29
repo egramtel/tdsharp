@@ -92,7 +92,7 @@ namespace TdLib
         /// A combination of query, sender_id, filter and topic_id search criteria is expected to be supported, only if it is required for Telegram official application implementation
         /// </summary>
         public static Task<FoundChatMessages> SearchChatMessagesAsync(
-            this Client client, long chatId = default, MessageTopic topicId = default, string query = default, MessageSender senderId = default, long fromMessageId = default, int offset = default, int limit = default, SearchMessagesFilter filter = default)
+            this IClient client, long chatId = default, MessageTopic topicId = default, string query = default, MessageSender senderId = default, long fromMessageId = default, int offset = default, int limit = default, SearchMessagesFilter filter = default)
         {
             return client.ExecuteAsync(new SearchChatMessages
             {

@@ -39,7 +39,7 @@ namespace TdLib
         /// Toggles whether the current user has sponsored messages enabled. The setting has no effect for users without Telegram Premium for which sponsored messages are always enabled
         /// </summary>
         public static Task<Ok> ToggleHasSponsoredMessagesEnabledAsync(
-            this Client client, bool hasSponsoredMessagesEnabled = default)
+            this IClient client, bool hasSponsoredMessagesEnabled = default)
         {
             return client.ExecuteAsync(new ToggleHasSponsoredMessagesEnabled
             {

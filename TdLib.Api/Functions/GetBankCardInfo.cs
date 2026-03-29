@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns information about a bank card
         /// </summary>
         public static Task<BankCardInfo> GetBankCardInfoAsync(
-            this Client client, string bankCardNumber = default)
+            this IClient client, string bankCardNumber = default)
         {
             return client.ExecuteAsync(new GetBankCardInfo
             {

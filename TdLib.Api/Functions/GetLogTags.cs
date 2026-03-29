@@ -34,7 +34,7 @@ namespace TdLib
         /// Returns the list of available TDLib internal log tags, for example, ["actor", "binlog", "connections", "notifications", "proxy"]. Can be called synchronously
         /// </summary>
         public static Task<LogTags> GetLogTagsAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new GetLogTags
             {

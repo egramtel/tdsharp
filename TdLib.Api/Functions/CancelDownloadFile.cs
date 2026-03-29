@@ -46,7 +46,7 @@ namespace TdLib
         /// Stops the downloading of a file. If a file has already been downloaded, does nothing
         /// </summary>
         public static Task<Ok> CancelDownloadFileAsync(
-            this Client client, int fileId = default, bool onlyIfPending = default)
+            this IClient client, int fileId = default, bool onlyIfPending = default)
         {
             return client.ExecuteAsync(new CancelDownloadFile
             {

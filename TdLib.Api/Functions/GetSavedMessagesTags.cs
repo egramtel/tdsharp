@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns tags used in Saved Messages or a Saved Messages topic
         /// </summary>
         public static Task<SavedMessagesTags> GetSavedMessagesTagsAsync(
-            this Client client, long savedMessagesTopicId = default)
+            this IClient client, long savedMessagesTopicId = default)
         {
             return client.ExecuteAsync(new GetSavedMessagesTags
             {

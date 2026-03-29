@@ -67,7 +67,7 @@ namespace TdLib
         /// Creates a new invite link for a chat. Available for basic groups, supergroups, and channels. Requires administrator privileges and can_invite_users right in the chat
         /// </summary>
         public static Task<ChatInviteLink> CreateChatInviteLinkAsync(
-            this Client client, long chatId = default, string name = default, int expirationDate = default, int memberLimit = default, bool createsJoinRequest = default)
+            this IClient client, long chatId = default, string name = default, int expirationDate = default, int memberLimit = default, bool createsJoinRequest = default)
         {
             return client.ExecuteAsync(new CreateChatInviteLink
             {

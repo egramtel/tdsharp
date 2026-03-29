@@ -39,7 +39,7 @@ namespace TdLib
         /// Converts a themeParameters object to corresponding JSON-serialized string. Can be called synchronously
         /// </summary>
         public static Task<Text> GetThemeParametersJsonStringAsync(
-            this Client client, ThemeParameters theme = default)
+            this IClient client, ThemeParameters theme = default)
         {
             return client.ExecuteAsync(new GetThemeParametersJsonString
             {

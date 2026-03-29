@@ -46,7 +46,7 @@ namespace TdLib
         /// Sets auto-download settings
         /// </summary>
         public static Task<Ok> SetAutoDownloadSettingsAsync(
-            this Client client, AutoDownloadSettings settings = default, NetworkType type = default)
+            this IClient client, AutoDownloadSettings settings = default, NetworkType type = default)
         {
             return client.ExecuteAsync(new SetAutoDownloadSettings
             {

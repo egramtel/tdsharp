@@ -34,7 +34,7 @@ namespace TdLib
         /// Returns gifts that can be sent to other users and channel chats
         /// </summary>
         public static Task<AvailableGifts> GetAvailableGiftsAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new GetAvailableGifts
             {

@@ -53,7 +53,7 @@ namespace TdLib
         /// Toggles whether the supergroup is a forum; requires owner privileges in the supergroup. Discussion supergroups can't be converted to forums
         /// </summary>
         public static Task<Ok> ToggleSupergroupIsForumAsync(
-            this Client client, long supergroupId = default, bool isForum = default, bool hasForumTabs = default)
+            this IClient client, long supergroupId = default, bool isForum = default, bool hasForumTabs = default)
         {
             return client.ExecuteAsync(new ToggleSupergroupIsForum
             {

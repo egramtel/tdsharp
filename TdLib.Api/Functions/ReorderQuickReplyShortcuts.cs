@@ -38,7 +38,7 @@ namespace TdLib
         /// Changes the order of quick reply shortcuts
         /// </summary>
         public static Task<Ok> ReorderQuickReplyShortcutsAsync(
-            this Client client, int[] shortcutIds = default)
+            this IClient client, int[] shortcutIds = default)
         {
             return client.ExecuteAsync(new ReorderQuickReplyShortcuts
             {

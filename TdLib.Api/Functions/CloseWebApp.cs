@@ -39,7 +39,7 @@ namespace TdLib
         /// Informs TDLib that a previously opened Web App was closed
         /// </summary>
         public static Task<Ok> CloseWebAppAsync(
-            this Client client, long webAppLaunchId = default)
+            this IClient client, long webAppLaunchId = default)
         {
             return client.ExecuteAsync(new CloseWebApp
             {

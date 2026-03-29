@@ -52,7 +52,7 @@ namespace TdLib
         /// Adds gifts to the beginning of a previously created collection. If the collection is owned by a channel chat, then requires can_post_messages administrator right in the channel chat. Returns the changed collection
         /// </summary>
         public static Task<GiftCollection> AddGiftCollectionGiftsAsync(
-            this Client client, MessageSender ownerId = default, int collectionId = default, string[] receivedGiftIds = default)
+            this IClient client, MessageSender ownerId = default, int collectionId = default, string[] receivedGiftIds = default)
         {
             return client.ExecuteAsync(new AddGiftCollectionGifts
             {

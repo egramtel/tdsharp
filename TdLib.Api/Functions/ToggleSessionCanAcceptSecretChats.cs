@@ -46,7 +46,7 @@ namespace TdLib
         /// Toggles whether a session can accept incoming secret chats
         /// </summary>
         public static Task<Ok> ToggleSessionCanAcceptSecretChatsAsync(
-            this Client client, long sessionId = default, bool canAcceptSecretChats = default)
+            this IClient client, long sessionId = default, bool canAcceptSecretChats = default)
         {
             return client.ExecuteAsync(new ToggleSessionCanAcceptSecretChats
             {

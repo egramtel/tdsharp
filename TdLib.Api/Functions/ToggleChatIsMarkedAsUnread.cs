@@ -46,7 +46,7 @@ namespace TdLib
         /// Changes the marked as unread state of a chat
         /// </summary>
         public static Task<Ok> ToggleChatIsMarkedAsUnreadAsync(
-            this Client client, long chatId = default, bool isMarkedAsUnread = default)
+            this IClient client, long chatId = default, bool isMarkedAsUnread = default)
         {
             return client.ExecuteAsync(new ToggleChatIsMarkedAsUnread
             {

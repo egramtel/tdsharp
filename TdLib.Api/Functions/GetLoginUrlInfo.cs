@@ -53,7 +53,7 @@ namespace TdLib
         /// Returns information about a button of type inlineKeyboardButtonTypeLoginUrl. The method needs to be called when the user presses the button
         /// </summary>
         public static Task<LoginUrlInfo> GetLoginUrlInfoAsync(
-            this Client client, long chatId = default, long messageId = default, long buttonId = default)
+            this IClient client, long chatId = default, long messageId = default, long buttonId = default)
         {
             return client.ExecuteAsync(new GetLoginUrlInfo
             {

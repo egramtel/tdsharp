@@ -39,7 +39,7 @@ namespace TdLib
         /// Sends Firebase Authentication SMS to the phone number of the user. Works only when the current authorization state is authorizationStateWaitCode and the server returned code of the type authenticationCodeTypeFirebaseAndroid or authenticationCodeTypeFirebaseIos
         /// </summary>
         public static Task<Ok> SendAuthenticationFirebaseSmsAsync(
-            this Client client, string token = default)
+            this IClient client, string token = default)
         {
             return client.ExecuteAsync(new SendAuthenticationFirebaseSms
             {

@@ -67,7 +67,7 @@ namespace TdLib
         /// Returns pending join requests in a chat
         /// </summary>
         public static Task<ChatJoinRequests> GetChatJoinRequestsAsync(
-            this Client client, long chatId = default, string inviteLink = default, string query = default, ChatJoinRequest offsetRequest = default, int limit = default)
+            this IClient client, long chatId = default, string inviteLink = default, string query = default, ChatJoinRequest offsetRequest = default, int limit = default)
         {
             return client.ExecuteAsync(new GetChatJoinRequests
             {

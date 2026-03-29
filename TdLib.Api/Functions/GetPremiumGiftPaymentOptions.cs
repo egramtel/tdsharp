@@ -34,7 +34,7 @@ namespace TdLib
         /// Returns available options for gifting Telegram Premium to a user
         /// </summary>
         public static Task<PremiumGiftPaymentOptions> GetPremiumGiftPaymentOptionsAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new GetPremiumGiftPaymentOptions
             {

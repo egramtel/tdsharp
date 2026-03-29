@@ -34,7 +34,7 @@ namespace TdLib
         /// Returns the current user
         /// </summary>
         public static Task<User> GetMeAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new GetMe
             {

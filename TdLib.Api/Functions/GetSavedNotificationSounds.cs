@@ -34,7 +34,7 @@ namespace TdLib
         /// Returns the list of saved notification sounds. If a sound isn't in the list, then default sound needs to be used
         /// </summary>
         public static Task<NotificationSounds> GetSavedNotificationSoundsAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new GetSavedNotificationSounds
             {

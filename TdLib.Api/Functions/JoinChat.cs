@@ -39,7 +39,7 @@ namespace TdLib
         /// Adds the current user as a new member to a chat. Private and secret chats can't be joined using this method. May return an error with a message "INVITE_REQUEST_SENT" if only a join request was created
         /// </summary>
         public static Task<Ok> JoinChatAsync(
-            this Client client, long chatId = default)
+            this IClient client, long chatId = default)
         {
             return client.ExecuteAsync(new JoinChat
             {

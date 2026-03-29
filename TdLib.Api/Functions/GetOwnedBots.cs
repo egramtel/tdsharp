@@ -34,7 +34,7 @@ namespace TdLib
         /// Returns the list of bots owned by the current user
         /// </summary>
         public static Task<Users> GetOwnedBotsAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new GetOwnedBots
             {

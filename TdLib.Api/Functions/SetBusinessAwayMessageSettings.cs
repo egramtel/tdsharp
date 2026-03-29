@@ -39,7 +39,7 @@ namespace TdLib
         /// Changes the business away message settings of the current user. Requires Telegram Business subscription
         /// </summary>
         public static Task<Ok> SetBusinessAwayMessageSettingsAsync(
-            this Client client, BusinessAwayMessageSettings awayMessageSettings = default)
+            this IClient client, BusinessAwayMessageSettings awayMessageSettings = default)
         {
             return client.ExecuteAsync(new SetBusinessAwayMessageSettings
             {

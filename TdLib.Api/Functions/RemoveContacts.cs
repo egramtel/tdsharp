@@ -38,7 +38,7 @@ namespace TdLib
         /// Removes users from the contact list
         /// </summary>
         public static Task<Ok> RemoveContactsAsync(
-            this Client client, long[] userIds = default)
+            this IClient client, long[] userIds = default)
         {
             return client.ExecuteAsync(new RemoveContacts
             {

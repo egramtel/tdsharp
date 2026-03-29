@@ -67,7 +67,7 @@ namespace TdLib
         /// Updates the game score of the specified user in a game; for bots only
         /// </summary>
         public static Task<Ok> SetInlineGameScoreAsync(
-            this Client client, string inlineMessageId = default, bool editMessage = default, long userId = default, int score = default, bool force = default)
+            this IClient client, string inlineMessageId = default, bool editMessage = default, long userId = default, int score = default, bool force = default)
         {
             return client.ExecuteAsync(new SetInlineGameScore
             {

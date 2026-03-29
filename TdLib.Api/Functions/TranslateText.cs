@@ -50,7 +50,7 @@ namespace TdLib
         /// Translates a text to the given language. If the current user is a Telegram Premium user, then text formatting is preserved
         /// </summary>
         public static Task<FormattedText> TranslateTextAsync(
-            this Client client, FormattedText text = default, string toLanguageCode = default)
+            this IClient client, FormattedText text = default, string toLanguageCode = default)
         {
             return client.ExecuteAsync(new TranslateText
             {

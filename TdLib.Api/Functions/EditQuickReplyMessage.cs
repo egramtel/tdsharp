@@ -57,7 +57,7 @@ namespace TdLib
         /// The type of message content in an album can't be changed with exception of replacing a photo with a video or vice versa
         /// </summary>
         public static Task<Ok> EditQuickReplyMessageAsync(
-            this Client client, int shortcutId = default, long messageId = default, InputMessageContent inputMessageContent = default)
+            this IClient client, int shortcutId = default, long messageId = default, InputMessageContent inputMessageContent = default)
         {
             return client.ExecuteAsync(new EditQuickReplyMessage
             {

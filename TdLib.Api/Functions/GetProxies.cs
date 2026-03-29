@@ -34,7 +34,7 @@ namespace TdLib
         /// Returns the list of proxies that are currently set up. Can be called before authorization
         /// </summary>
         public static Task<AddedProxies> GetProxiesAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new GetProxies
             {

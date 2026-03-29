@@ -34,7 +34,7 @@ namespace TdLib
         /// Resends the code to verify an email address to be added to a user's Telegram Passport
         /// </summary>
         public static Task<EmailAddressAuthenticationCodeInfo> ResendEmailAddressVerificationCodeAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new ResendEmailAddressVerificationCode
             {

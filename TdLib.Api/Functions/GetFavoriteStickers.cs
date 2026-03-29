@@ -34,7 +34,7 @@ namespace TdLib
         /// Returns favorite stickers
         /// </summary>
         public static Task<Stickers> GetFavoriteStickersAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new GetFavoriteStickers
             {

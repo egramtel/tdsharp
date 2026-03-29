@@ -70,7 +70,7 @@ namespace TdLib
         /// For optimal performance, the number of returned messages is chosen by TDLib. This is an offline method if only_local is true
         /// </summary>
         public static Task<Messages> GetChatHistoryAsync(
-            this Client client, long chatId = default, long fromMessageId = default, int offset = default, int limit = default, bool onlyLocal = default)
+            this IClient client, long chatId = default, long fromMessageId = default, int offset = default, int limit = default, bool onlyLocal = default)
         {
             return client.ExecuteAsync(new GetChatHistory
             {

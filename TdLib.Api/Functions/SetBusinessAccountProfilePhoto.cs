@@ -53,7 +53,7 @@ namespace TdLib
         /// Changes a profile photo of a business account; for bots only
         /// </summary>
         public static Task<Ok> SetBusinessAccountProfilePhotoAsync(
-            this Client client, string businessConnectionId = default, InputChatPhoto photo = default, bool isPublic = default)
+            this IClient client, string businessConnectionId = default, InputChatPhoto photo = default, bool isPublic = default)
         {
             return client.ExecuteAsync(new SetBusinessAccountProfilePhoto
             {

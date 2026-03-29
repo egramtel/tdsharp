@@ -55,7 +55,7 @@ namespace TdLib
         /// There can be up to getOption("pinned_forum_topic_count_max") pinned forum topics
         /// </summary>
         public static Task<Ok> ToggleForumTopicIsPinnedAsync(
-            this Client client, long chatId = default, int forumTopicId = default, bool isPinned = default)
+            this IClient client, long chatId = default, int forumTopicId = default, bool isPinned = default)
         {
             return client.ExecuteAsync(new ToggleForumTopicIsPinned
             {

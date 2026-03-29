@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns information about a business connection by its identifier; for bots only
         /// </summary>
         public static Task<BusinessConnection> GetBusinessConnectionAsync(
-            this Client client, string connectionId = default)
+            this IClient client, string connectionId = default)
         {
             return client.ExecuteAsync(new GetBusinessConnection
             {

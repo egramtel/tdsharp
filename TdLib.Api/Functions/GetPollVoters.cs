@@ -67,7 +67,7 @@ namespace TdLib
         /// Returns message senders voted for the specified option in a non-anonymous polls. For optimal performance, the number of returned users is chosen by TDLib
         /// </summary>
         public static Task<PollVoters> GetPollVotersAsync(
-            this Client client, long chatId = default, long messageId = default, int optionId = default, int offset = default, int limit = default)
+            this IClient client, long chatId = default, long messageId = default, int optionId = default, int offset = default, int limit = default)
         {
             return client.ExecuteAsync(new GetPollVoters
             {

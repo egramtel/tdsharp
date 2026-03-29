@@ -48,7 +48,7 @@ namespace TdLib
         /// and MentionName entities from a marked-up text. Can be called synchronously
         /// </summary>
         public static Task<FormattedText> ParseTextEntitiesAsync(
-            this Client client, string text = default, TextParseMode parseMode = default)
+            this IClient client, string text = default, TextParseMode parseMode = default)
         {
             return client.ExecuteAsync(new ParseTextEntities
             {

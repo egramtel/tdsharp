@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns information about a file. This is an offline method
         /// </summary>
         public static Task<File> GetFileAsync(
-            this Client client, int fileId = default)
+            this IClient client, int fileId = default)
         {
             return client.ExecuteAsync(new GetFile
             {

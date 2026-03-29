@@ -39,7 +39,7 @@ namespace TdLib
         /// Removes a proxy server. Can be called before authorization
         /// </summary>
         public static Task<Ok> RemoveProxyAsync(
-            this Client client, int proxyId = default)
+            this IClient client, int proxyId = default)
         {
             return client.ExecuteAsync(new RemoveProxy
             {

@@ -46,7 +46,7 @@ namespace TdLib
         /// Returns approximate number of chats similar to the given chat
         /// </summary>
         public static Task<Count> GetChatSimilarChatCountAsync(
-            this Client client, long chatId = default, bool returnLocal = default)
+            this IClient client, long chatId = default, bool returnLocal = default)
         {
             return client.ExecuteAsync(new GetChatSimilarChatCount
             {

@@ -34,7 +34,7 @@ namespace TdLib
         /// Returns auto-download settings presets for the current user
         /// </summary>
         public static Task<AutoDownloadSettingsPresets> GetAutoDownloadSettingsPresetsAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new GetAutoDownloadSettingsPresets
             {

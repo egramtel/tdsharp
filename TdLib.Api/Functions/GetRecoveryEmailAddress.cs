@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns a 2-step verification recovery email address that was previously set up. This method can be used to verify a password provided by the user
         /// </summary>
         public static Task<RecoveryEmailAddress> GetRecoveryEmailAddressAsync(
-            this Client client, string password = default)
+            this IClient client, string password = default)
         {
             return client.ExecuteAsync(new GetRecoveryEmailAddress
             {

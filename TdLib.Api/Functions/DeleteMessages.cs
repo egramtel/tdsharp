@@ -52,7 +52,7 @@ namespace TdLib
         /// Deletes messages
         /// </summary>
         public static Task<Ok> DeleteMessagesAsync(
-            this Client client, long chatId = default, long[] messageIds = default, bool revoke = default)
+            this IClient client, long chatId = default, long[] messageIds = default, bool revoke = default)
         {
             return client.ExecuteAsync(new DeleteMessages
             {

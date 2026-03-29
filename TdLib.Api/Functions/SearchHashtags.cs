@@ -46,7 +46,7 @@ namespace TdLib
         /// Searches for recently used hashtags by their prefix
         /// </summary>
         public static Task<Hashtags> SearchHashtagsAsync(
-            this Client client, string prefix = default, int limit = default)
+            this IClient client, string prefix = default, int limit = default)
         {
             return client.ExecuteAsync(new SearchHashtags
             {

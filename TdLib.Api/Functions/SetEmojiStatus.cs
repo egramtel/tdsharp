@@ -39,7 +39,7 @@ namespace TdLib
         /// Changes the emoji status of the current user; for Telegram Premium users only
         /// </summary>
         public static Task<Ok> SetEmojiStatusAsync(
-            this Client client, EmojiStatus emojiStatus = default)
+            this IClient client, EmojiStatus emojiStatus = default)
         {
             return client.ExecuteAsync(new SetEmojiStatus
             {

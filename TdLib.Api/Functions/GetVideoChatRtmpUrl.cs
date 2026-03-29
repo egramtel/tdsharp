@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns RTMP URL for streaming to the video chat of a chat; requires can_manage_video_chats administrator right
         /// </summary>
         public static Task<RtmpUrl> GetVideoChatRtmpUrlAsync(
-            this Client client, long chatId = default)
+            this IClient client, long chatId = default)
         {
             return client.ExecuteAsync(new GetVideoChatRtmpUrl
             {

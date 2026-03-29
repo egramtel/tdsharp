@@ -81,7 +81,7 @@ namespace TdLib
         /// Creates a new supergroup or channel and sends a corresponding messageSupergroupChatCreate. Returns the newly created chat
         /// </summary>
         public static Task<Chat> CreateNewSupergroupChatAsync(
-            this Client client, string title = default, bool isForum = default, bool isChannel = default, string description = default, ChatLocation location = default, int messageAutoDeleteTime = default, bool forImport = default)
+            this IClient client, string title = default, bool isForum = default, bool isChannel = default, string description = default, ChatLocation location = default, int messageAutoDeleteTime = default, bool forImport = default)
         {
             return client.ExecuteAsync(new CreateNewSupergroupChat
             {

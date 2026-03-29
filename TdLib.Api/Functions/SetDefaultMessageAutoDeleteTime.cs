@@ -39,7 +39,7 @@ namespace TdLib
         /// Changes the default message auto-delete time for new chats
         /// </summary>
         public static Task<Ok> SetDefaultMessageAutoDeleteTimeAsync(
-            this Client client, MessageAutoDeleteTime messageAutoDeleteTime = default)
+            this IClient client, MessageAutoDeleteTime messageAutoDeleteTime = default)
         {
             return client.ExecuteAsync(new SetDefaultMessageAutoDeleteTime
             {

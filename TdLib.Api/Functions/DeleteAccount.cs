@@ -48,7 +48,7 @@ namespace TdLib
         /// Can be called before authorization when the current authorization state is authorizationStateWaitPassword
         /// </summary>
         public static Task<Ok> DeleteAccountAsync(
-            this Client client, string reason = default, string password = default)
+            this IClient client, string reason = default, string password = default)
         {
             return client.ExecuteAsync(new DeleteAccount
             {

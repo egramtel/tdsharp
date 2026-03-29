@@ -39,7 +39,7 @@ namespace TdLib
         /// Returns auction state for a gift
         /// </summary>
         public static Task<GiftAuctionState> GetGiftAuctionStateAsync(
-            this Client client, string auctionId = default)
+            this IClient client, string auctionId = default)
         {
             return client.ExecuteAsync(new GetGiftAuctionState
             {

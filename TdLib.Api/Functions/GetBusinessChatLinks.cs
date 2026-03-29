@@ -34,7 +34,7 @@ namespace TdLib
         /// Returns business chat links created for the current account
         /// </summary>
         public static Task<BusinessChatLinks> GetBusinessChatLinksAsync(
-            this Client client)
+            this IClient client)
         {
             return client.ExecuteAsync(new GetBusinessChatLinks
             {

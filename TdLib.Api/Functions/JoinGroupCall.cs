@@ -46,7 +46,7 @@ namespace TdLib
         /// Joins a regular group call that is not bound to a chat
         /// </summary>
         public static Task<GroupCallInfo> JoinGroupCallAsync(
-            this Client client, InputGroupCall inputGroupCall = default, GroupCallJoinParameters joinParameters = default)
+            this IClient client, InputGroupCall inputGroupCall = default, GroupCallJoinParameters joinParameters = default)
         {
             return client.ExecuteAsync(new JoinGroupCall
             {

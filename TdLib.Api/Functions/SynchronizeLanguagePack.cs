@@ -41,7 +41,7 @@ namespace TdLib
         /// This method doesn't need to be called explicitly for the current used/base language packs. Can be called before authorization
         /// </summary>
         public static Task<Ok> SynchronizeLanguagePackAsync(
-            this Client client, string languagePackId = default)
+            this IClient client, string languagePackId = default)
         {
             return client.ExecuteAsync(new SynchronizeLanguagePack
             {
