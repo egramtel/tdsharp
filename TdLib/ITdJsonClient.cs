@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2024-2026 tdsharp contributors <https://github.com/egramtel/tdsharp>
+//
+// SPDX-License-Identifier: MIT
 using System;
 using TdLib.Bindings;
 
