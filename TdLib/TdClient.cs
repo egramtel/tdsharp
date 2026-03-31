@@ -25,31 +25,37 @@ namespace TdLib
         private IReceiver _receiver;
         private TdApi.AuthorizationState _authorizationState;
 
-        public TdClient() : this(Interop.AutoDetectBindings()) {}
-
-        /// <param name="bindings">Bidings for the client to call functions of TDLib.</param>
-        public TdClient(ITdLibBindings bindings): this(bindings, TimeSpan.FromSeconds(0.1))
+        public TdClient() : this(Interop.AutoDetectBindings())
         {
         }
 
+        /// <param name="bindings">Bidings for the client to call functions of TDLib.</param>
+        public TdClient(ITdLibBindings bindings) : this(new TdJsonClient(bindings), bindings, TimeSpan.FromSeconds(0.1))
+        {
+        }
+
+        /// <param name="tdJsonClient"></param>
         /// <param name="bindings">Bidings for the client to call functions of TDLib.</param>
         /// <param name="receiverTimeOut">Timeout for <c>td_json_client_receive</c>.</param>
-        public TdClient(ITdLibBindings bindings, TimeSpan receiverTimeOut) : this(new Receiver(new TdJsonClient(bindings), receiverTimeOut))
+        public TdClient(ITdJsonClient tdJsonClient, ITdLibBindings bindings, TimeSpan receiverTimeOut) : this(
+            tdJsonClient, new Receiver(new TdJsonClient(bindings), receiverTimeOut))
         {
-
         }
+
         /// <param name="receiver">
         /// An implementation of <see cref="IReceiver"/> that manages receiving and processing
         /// updates and responses from TDLib.
         /// </param>
-        public TdClient(IReceiver receiver)
+        public TdClient(ITdJsonClient tdJsonClient, IReceiver receiver)
         {
             _tasks = new ConcurrentDictionary<int, Action<TdApi.Object>>();
+            _tdJsonClient = tdJsonClient;
             _receiver = receiver;
             _receiver.Received += OnReceived;
             _receiver.AuthorizationStateChanged += OnAuthorizationStateChanged;
             _receiver.Start();
         }
+
         public ITdLibBindings Bindings => _tdJsonClient.Bindings;
 
         /// <summary>
@@ -211,7 +217,8 @@ namespace TdLib
 
         private async Task CloseAsync()
         {
-            var tcs = new TaskCompletionSource<TdApi.AuthorizationState>(TaskCreationOptions.RunContinuationsAsynchronously);
+            var tcs = new TaskCompletionSource<TdApi.AuthorizationState>(TaskCreationOptions
+                .RunContinuationsAsynchronously);
 
             EventHandler<TdApi.AuthorizationState> handler = (_, state) =>
             {
