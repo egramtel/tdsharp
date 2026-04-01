@@ -30,15 +30,15 @@ namespace TdLib
         }
 
         /// <param name="bindings">Bidings for the client to call functions of TDLib.</param>
-        public TdClient(ITdLibBindings bindings) : this(new TdJsonClient(bindings), bindings, TimeSpan.FromSeconds(0.1))
+        public TdClient(ITdLibBindings bindings) : this(new TdJsonClient(bindings), TimeSpan.FromSeconds(0.1))
         {
         }
 
         /// <param name="tdJsonClient"></param>
         /// <param name="bindings">Bidings for the client to call functions of TDLib.</param>
         /// <param name="receiverTimeOut">Timeout for <c>td_json_client_receive</c>.</param>
-        public TdClient(ITdJsonClient tdJsonClient, ITdLibBindings bindings, TimeSpan receiverTimeOut) : this(
-            tdJsonClient, new Receiver(new TdJsonClient(bindings), receiverTimeOut))
+        public TdClient(ITdJsonClient tdJsonClient,TimeSpan receiverTimeOut) : this(
+            tdJsonClient, new Receiver(tdJsonClient, receiverTimeOut))
         {
         }
 
