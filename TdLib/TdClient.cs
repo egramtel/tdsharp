@@ -25,26 +25,50 @@ namespace TdLib
         private IReceiver _receiver;
         private TdApi.AuthorizationState _authorizationState;
 
+        /// <summary>
+        /// Create a new client using the default bindings obtained via <see cref="Interop.AutoDetectBindings"/>, start
+        /// the receival loop with the default <see cref="Receiver"/>.
+        /// </summary>
         public TdClient() : this(Interop.AutoDetectBindings())
         {
         }
 
-        /// <param name="bindings">Bidings for the client to call functions of TDLib.</param>
+        /// <summary>Create a new client and start the receival loop with the default <see cref="Receiver"/>.</summary>
+        /// <param name="bindings">Bindings for the client to call functions of TDLib.</param>
         public TdClient(ITdLibBindings bindings) : this(new TdJsonClient(bindings), TimeSpan.FromSeconds(0.1))
         {
         }
 
-        /// <param name="tdJsonClient"></param>
-        /// <param name="bindings">Bidings for the client to call functions of TDLib.</param>
+        /// <summary>Create a new client and start the receival loop with the default <see cref="Receiver"/>.</summary>
+        /// <param name="bindings">Bindings for the client to call functions of TDLib.</param>
         /// <param name="receiverTimeOut">Timeout for <c>td_json_client_receive</c>.</param>
-        public TdClient(ITdJsonClient tdJsonClient,TimeSpan receiverTimeOut) : this(
-            tdJsonClient, new Receiver(tdJsonClient, receiverTimeOut))
+        public TdClient(ITdLibBindings bindings, TimeSpan receiverTimeOut)
+            : this(new TdJsonClient(bindings), receiverTimeOut)
         {
         }
 
+        /// <summary>
+        /// Create a new client and start the receival loop with the default <see cref="Receiver"/> constructed from
+        /// the passed client object.
+        /// </summary>
+        /// <param name="tdJsonClient">
+        /// The client to execute Telegram functions. <b>Note</b> that the ownership over this object gets passed to
+        /// the current <see cref="TdClient"/>.
+        /// </param>
+        /// <param name="receiverTimeOut">Timeout for <c>td_json_client_receive</c>.</param>
+        public TdClient(ITdJsonClient tdJsonClient, TimeSpan receiverTimeOut)
+            : this(tdJsonClient, new Receiver(tdJsonClient, receiverTimeOut))
+        {
+        }
+
+        /// <summary>Create a new client and start the receival loop with the passed <see cref="IReceiver"/>.</summary>
+        /// <param name="tdJsonClient">
+        /// The client to execute Telegram functions. <b>Note</b> that the ownership over this object gets passed to
+        /// the <see cref="TdClient"/>.
+        /// </param>
         /// <param name="receiver">
-        /// An implementation of <see cref="IReceiver"/> that manages receiving and processing
-        /// updates and responses from TDLib.
+        /// An implementation of <see cref="IReceiver"/> that manages the processing of the Telegram responses.
+        /// <b>Note</b> that the ownership over this object gets passed to the current <see cref="TdClient"/>.
         /// </param>
         public TdClient(ITdJsonClient tdJsonClient, IReceiver receiver)
         {
@@ -217,8 +241,8 @@ namespace TdLib
 
         private async Task CloseAsync()
         {
-            var tcs = new TaskCompletionSource<TdApi.AuthorizationState>(TaskCreationOptions
-                .RunContinuationsAsynchronously);
+            var tcs = new TaskCompletionSource<TdApi.AuthorizationState>(
+                TaskCreationOptions.RunContinuationsAsynchronously);
 
             EventHandler<TdApi.AuthorizationState> handler = (_, state) =>
             {
