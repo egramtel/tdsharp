@@ -71,6 +71,13 @@ namespace TdLib
                 public bool AllowsUsersToCreateTopics { get; set; }
 
                 /// <summary>
+                /// True, if the bot can manage other bots
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("can_manage_bots")]
+                public bool CanManageBots { get; set; }
+
+                /// <summary>
                 /// True, if the bot supports inline queries
                 /// </summary>
                 [JsonConverter(typeof(Converter))]

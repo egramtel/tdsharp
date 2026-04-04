@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Changes the user answer to a poll. A poll in quiz mode can be answered only once
+        /// Changes the user answer to a poll
         /// </summary>
         public class SetPollAnswer : Function<Ok>
         {
@@ -49,7 +49,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Changes the user answer to a poll. A poll in quiz mode can be answered only once
+        /// Changes the user answer to a poll
         /// </summary>
         public static Task<Ok> SetPollAnswerAsync(
             this IClient client, long chatId = default, long messageId = default, int[] optionIds = default)

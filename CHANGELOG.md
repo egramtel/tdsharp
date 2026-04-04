@@ -11,6 +11,10 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [Unreleased] (1.8.63)
+### Changed
+- Update to [TDLib v1.8.63](https://github.com/ForNeVeR/tdlib-versioned/releases/tag/tdlib%2Fv1.8.63).
+
 ## [1.8.62.1] - 2026-04-02
 ### Added
 - Abstractions for `IClient`, `IReceiver`, `ITdJsonClient`. There are now more options to customize the `TdJsonClient` behavior. Thanks to @bielu!

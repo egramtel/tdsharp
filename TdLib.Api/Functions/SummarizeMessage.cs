@@ -42,22 +42,29 @@ namespace TdLib
             public long MessageId { get; set; }
 
             /// <summary>
-            /// Pass a language code to which the summary will be translated; may be empty if translation isn't needed. See translateText.to_language_code for the list of supported values
+            /// Pass a language code to which the summary will be translated; pass an empty string if translation isn't needed. See translateText.to_language_code for the list of supported values
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("translate_to_language_code")]
             public string TranslateToLanguageCode { get; set; }
+
+            /// <summary>
+            /// Tone of the summarization; see translateText.tone for the list of supported values
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("tone")]
+            public string Tone { get; set; }
         }
 
         /// <summary>
         /// Summarizes content of the message with non-empty summary_language_code
         /// </summary>
         public static Task<FormattedText> SummarizeMessageAsync(
-            this IClient client, long chatId = default, long messageId = default, string translateToLanguageCode = default)
+            this IClient client, long chatId = default, long messageId = default, string translateToLanguageCode = default, string tone = default)
         {
             return client.ExecuteAsync(new SummarizeMessage
             {
-                ChatId = chatId, MessageId = messageId, TranslateToLanguageCode = translateToLanguageCode
+                ChatId = chatId, MessageId = messageId, TranslateToLanguageCode = translateToLanguageCode, Tone = tone
             });
         }
     }

@@ -57,6 +57,13 @@ namespace TdLib
                 public int ChecklistTaskId { get; set; }
 
                 /// <summary>
+                /// Identifier of the poll option in the original message that was replied; empty if none
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("poll_option_id")]
+                public string PollOptionId { get; set; }
+
+                /// <summary>
                 /// Information about origin of the message if the message was from another chat or topic; may be null for messages from the same chat
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
@@ -72,6 +79,9 @@ namespace TdLib
 
                 /// <summary>
                 /// Media content of the message if the message was from another chat or topic; may be null for messages from the same chat and messages without media.
+                /// Can be only one of the following types: messageAnimation, messageAudio, messageChecklist, messageContact, messageDice, messageDocument, messageGame,
+                /// messageGiveaway, messageGiveawayWinners, messageInvoice, messageLocation, messagePaidMedia, messagePhoto, messagePoll, messageStakeDice,
+                /// messageSticker, messageStory, messageText (for link preview), messageVenue, messageVideo, messageVideoNote, or messageVoiceNote
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("content")]

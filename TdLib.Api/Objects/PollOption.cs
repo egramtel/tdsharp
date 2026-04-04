@@ -27,14 +27,28 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Option text; 1-100 characters. Only custom emoji entities are allowed
+            /// Unique identifier of the option in the poll
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("id")]
+            public string Id { get; set; }
+
+            /// <summary>
+            /// Option text; 1-100 characters; may contain only custom emoji entities
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("text")]
             public FormattedText Text { get; set; }
 
             /// <summary>
-            /// Number of voters for this option, available only for closed or voted polls
+            /// Option media. Currently, can be only of the types messageAnimation, messageLocation, messagePhoto, messageSticker, messageVenue, or messageVideo without caption
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("media")]
+            public MessageContent Media { get; set; }
+
+            /// <summary>
+            /// Number of voters for this option, available only for closed or voted polls, or if the current user is the creator of the poll
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("voter_count")]
@@ -46,6 +60,12 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("vote_percentage")]
             public int VotePercentage { get; set; }
+
+            /// <summary>
+            /// Identifiers of recent voters for the option, if the poll is non-anonymous and poll results are available
+            /// </summary>
+            [JsonProperty("recent_voter_ids", ItemConverterType = typeof(Converter))]
+            public MessageSender[] RecentVoterIds { get; set; }
 
             /// <summary>
             /// True, if the option was chosen by the user
@@ -60,6 +80,20 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_being_chosen")]
             public bool IsBeingChosen { get; set; }
+
+            /// <summary>
+            /// Identifier of the user or chat who added the option; may be null if the option existed from creation of the poll
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("author")]
+            public MessageSender Author { get; set; }
+
+            /// <summary>
+            /// Point in time (Unix timestamp) when the option was added; 0 if the option existed from creation of the poll
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("addition_date")]
+            public int AdditionDate { get; set; }
         }
     }
 }

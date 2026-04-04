@@ -49,7 +49,7 @@ namespace TdLib
             public long UserId { get; set; }
 
             /// <summary>
-            /// Text to show along with the gift; 0-getOption("gift_text_length_max") characters. Only Bold, Italic, Underline, Strikethrough, Spoiler, and CustomEmoji entities are allowed.
+            /// Text to show along with the gift; 0-getOption("gift_text_length_max") characters. Only Bold, Italic, Underline, Strikethrough, Spoiler, CustomEmoji, and DateTime entities are allowed.
             /// Must be empty if the receiver enabled paid messages
             /// </summary>
             [JsonConverter(typeof(Converter))]

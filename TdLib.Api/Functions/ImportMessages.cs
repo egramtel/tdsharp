@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Imports messages exported from another app
+        /// Imports messages exported from another application
         /// </summary>
         public class ImportMessages : Function<Ok>
         {
@@ -49,7 +49,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Imports messages exported from another app
+        /// Imports messages exported from another application
         /// </summary>
         public static Task<Ok> ImportMessagesAsync(
             this IClient client, long chatId = default, InputFile messageFile = default, InputFile[] attachedFiles = default)

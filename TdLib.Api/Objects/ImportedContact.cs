@@ -48,7 +48,7 @@ namespace TdLib
             public string LastName { get; set; }
 
             /// <summary>
-            /// Note to add about the user; 0-getOption("user_note_text_length_max") characters. Only Bold, Italic, Underline, Strikethrough, Spoiler, and CustomEmoji entities are allowed;
+            /// Note to add about the user; 0-getOption("user_note_text_length_max") characters. Only Bold, Italic, Underline, Strikethrough, Spoiler, CustomEmoji, and DateTime entities are allowed;
             /// pass null to keep the current user's note
             /// </summary>
             [JsonConverter(typeof(Converter))]

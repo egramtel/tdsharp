@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Translates a text to the given language. If the current user is a Telegram Premium user, then text formatting is preserved
+        /// Translates a text to the given language; must not be used in secret chats. If the current user is a Telegram Premium user, then text formatting is preserved
         /// </summary>
         public class TranslateText : Function<FormattedText>
         {
@@ -44,17 +44,24 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("to_language_code")]
             public string ToLanguageCode { get; set; }
+
+            /// <summary>
+            /// Tone of the translation; must be one of "", "formal", "neutral", "casual"; defaults to "neutral"
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("tone")]
+            public string Tone { get; set; }
         }
 
         /// <summary>
-        /// Translates a text to the given language. If the current user is a Telegram Premium user, then text formatting is preserved
+        /// Translates a text to the given language; must not be used in secret chats. If the current user is a Telegram Premium user, then text formatting is preserved
         /// </summary>
         public static Task<FormattedText> TranslateTextAsync(
-            this IClient client, FormattedText text = default, string toLanguageCode = default)
+            this IClient client, FormattedText text = default, string toLanguageCode = default, string tone = default)
         {
             return client.ExecuteAsync(new TranslateText
             {
-                Text = text, ToLanguageCode = toLanguageCode
+                Text = text, ToLanguageCode = toLanguageCode, Tone = tone
             });
         }
     }

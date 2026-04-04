@@ -28,7 +28,12 @@ namespace TdLib
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
-
+                /// <summary>
+                /// Video of the live photo; pass null if the photo isn't a live photo
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("video")]
+                public InputFile Video { get; set; }
             }
         }
     }

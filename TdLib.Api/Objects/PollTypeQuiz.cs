@@ -12,7 +12,7 @@ namespace TdLib
         public partial class PollType : Object
         {
             /// <summary>
-            /// A poll in quiz mode, which has exactly one correct answer option and can be answered only once
+            /// A poll in quiz mode, which has predefined correct answers
             /// </summary>
             public class PollTypeQuiz : PollType
             {
@@ -29,18 +29,24 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// 0-based identifier of the correct answer option; -1 for a yet unanswered poll
+                /// Increasing list of 0-based identifiers of the correct answer options; empty for a yet unanswered poll
                 /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("correct_option_id")]
-                public int CorrectOptionId { get; set; }
+                [JsonProperty("correct_option_ids", ItemConverterType = typeof(Converter))]
+                public int[] CorrectOptionIds { get; set; }
 
                 /// <summary>
-                /// Text that is shown when the user chooses an incorrect answer or taps on the lamp icon; 0-200 characters with at most 2 line feeds; empty for a yet unanswered poll
+                /// Text that is shown when the user chooses an incorrect answer or taps on the lamp icon; empty for a yet unanswered poll
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("explanation")]
                 public FormattedText Explanation { get; set; }
+
+                /// <summary>
+                /// Media that is shown when the user chooses an incorrect answer or taps on the lamp icon; may be null if none or the poll is unanswered yet.
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("explanation_media")]
+                public MessageContent ExplanationMedia { get; set; }
             }
         }
     }

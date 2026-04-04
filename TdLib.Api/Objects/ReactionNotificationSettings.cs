@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Contains information about notification settings for reactions
+        /// Contains information about notification settings for reactions and poll votes
         /// </summary>
         public partial class ReactionNotificationSettings : Object
         {
@@ -39,6 +39,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("story_reaction_source")]
             public ReactionNotificationSource StoryReactionSource { get; set; }
+
+            /// <summary>
+            /// Source of poll votes for which notifications are shown
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("poll_vote_source")]
+            public ReactionNotificationSource PollVoteSource { get; set; }
 
             /// <summary>
             /// Identifier of the notification sound to be played; 0 if sound is disabled

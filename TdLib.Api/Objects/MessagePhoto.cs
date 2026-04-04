@@ -36,6 +36,13 @@ namespace TdLib
                 public Photo Photo { get; set; }
 
                 /// <summary>
+                /// The video representing the live photo; may be null if the photo is static
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("video")]
+                public Video Video { get; set; }
+
+                /// <summary>
                 /// Photo caption
                 /// </summary>
                 [JsonConverter(typeof(Converter))]

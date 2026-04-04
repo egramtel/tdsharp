@@ -28,12 +28,7 @@ namespace TdLib
                 [JsonProperty("@extra")]
                 public override string Extra { get; set; }
 
-                /// <summary>
-                /// True, if multiple answer options can be chosen simultaneously
-                /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("allow_multiple_answers")]
-                public bool AllowMultipleAnswers { get; set; }
+
             }
         }
     }

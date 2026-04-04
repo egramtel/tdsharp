@@ -43,10 +43,16 @@ namespace TdLib
                 public MessageSender VoterId { get; set; }
 
                 /// <summary>
-                /// 0-based identifiers of answer options, chosen by the user
+                /// Unique identifiers of answer options, that were chosen by the user
                 /// </summary>
                 [JsonProperty("option_ids", ItemConverterType = typeof(Converter))]
-                public int[] OptionIds { get; set; }
+                public string[] OptionIds { get; set; }
+
+                /// <summary>
+                /// 0-based identifiers of answer options, that were chosen by the user
+                /// </summary>
+                [JsonProperty("option_positions", ItemConverterType = typeof(Converter))]
+                public int[] OptionPositions { get; set; }
             }
         }
     }

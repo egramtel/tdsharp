@@ -55,6 +55,13 @@ namespace TdLib
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("checklist_task_id")]
                 public int ChecklistTaskId { get; set; }
+
+                /// <summary>
+                /// Identifier of the poll option in the message to be replied; pass an empty string if none
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("poll_option_id")]
+                public string PollOptionId { get; set; }
             }
         }
     }

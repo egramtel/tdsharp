@@ -42,7 +42,7 @@ namespace TdLib
             public MessageTopic TopicId { get; set; }
 
             /// <summary>
-            /// Filter for message content; searchMessagesFilterEmpty, searchMessagesFilterUnreadMention, searchMessagesFilterUnreadReaction, and searchMessagesFilterFailedToSend are unsupported in this function
+            /// Filter for message content; searchMessagesFilterEmpty, searchMessagesFilterUnreadMention, searchMessagesFilterUnreadReaction, searchMessagesFilterUnreadPollVote,
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("filter")]
