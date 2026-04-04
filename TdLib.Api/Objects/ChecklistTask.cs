@@ -34,7 +34,7 @@ namespace TdLib
             public int Id { get; set; }
 
             /// <summary>
-            /// Text of the task; may contain only Bold, Italic, Underline, Strikethrough, Spoiler, CustomEmoji, Url, EmailAddress, Mention, Hashtag, Cashtag and PhoneNumber entities
+            /// Text of the task; may contain only Bold, Italic, Underline, Strikethrough, Spoiler, CustomEmoji, DateTime and automatically found entities
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("text")]

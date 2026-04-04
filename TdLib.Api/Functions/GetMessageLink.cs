@@ -49,6 +49,20 @@ namespace TdLib
             public int MediaTimestamp { get; set; }
 
             /// <summary>
+            /// If not 0, identifier of the checklist task in the message to be linked
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("checklist_task_id")]
+            public int ChecklistTaskId { get; set; }
+
+            /// <summary>
+            /// If not empty, identifier of the poll option in the message to be linked
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("poll_option_id")]
+            public string PollOptionId { get; set; }
+
+            /// <summary>
             /// Pass true to create a link for the whole media album
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -67,11 +81,11 @@ namespace TdLib
         /// Returns an HTTPS link to a message in a chat. Available only if messageProperties.can_get_link, or if messageProperties.can_get_media_timestamp_links and a media timestamp link is generated. This is an offline method
         /// </summary>
         public static Task<MessageLink> GetMessageLinkAsync(
-            this IClient client, long chatId = default, long messageId = default, int mediaTimestamp = default, bool forAlbum = default, bool inMessageThread = default)
+            this IClient client, long chatId = default, long messageId = default, int mediaTimestamp = default, int checklistTaskId = default, string pollOptionId = default, bool forAlbum = default, bool inMessageThread = default)
         {
             return client.ExecuteAsync(new GetMessageLink
             {
-                ChatId = chatId, MessageId = messageId, MediaTimestamp = mediaTimestamp, ForAlbum = forAlbum, InMessageThread = inMessageThread
+                ChatId = chatId, MessageId = messageId, MediaTimestamp = mediaTimestamp, ChecklistTaskId = checklistTaskId, PollOptionId = pollOptionId, ForAlbum = forAlbum, InMessageThread = inMessageThread
             });
         }
     }

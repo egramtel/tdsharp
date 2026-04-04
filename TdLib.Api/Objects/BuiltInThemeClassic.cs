@@ -12,7 +12,7 @@ namespace TdLib
         public partial class BuiltInTheme : Object
         {
             /// <summary>
-            /// Describes a built-in theme of an official app
+            /// Describes a built-in theme of an official application
             /// </summary>
             public class BuiltInThemeClassic : BuiltInTheme
             {

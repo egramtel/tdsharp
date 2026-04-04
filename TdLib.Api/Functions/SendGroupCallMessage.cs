@@ -36,7 +36,7 @@ namespace TdLib
 
             /// <summary>
             /// Text of the message to send; 1-getOption("group_call_message_text_length_max") characters for non-live-stories; see updateGroupCallMessageLevels for live story restrictions,
-            /// which depends on paid_message_star_count. Can't contain line feeds for live stories
+            /// which depends on paid_message_star_count. Can't contain line feeds for live stories. Can contain only Bold, Italic, Underline, Strikethrough, Spoiler, CustomEmoji, and DateTime entities for live stories
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("text")]

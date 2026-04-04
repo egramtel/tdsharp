@@ -11,7 +11,8 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns message senders voted for the specified option in a non-anonymous polls. For optimal performance, the number of returned users is chosen by TDLib
+        /// Returns message senders voted for the specified option in a poll; use poll.can_get_voters to check whether the method can be used.
+        /// For optimal performance, the number of returned users is chosen by TDLib
         /// </summary>
         public class GetPollVoters : Function<PollVoters>
         {
@@ -64,7 +65,8 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Returns message senders voted for the specified option in a non-anonymous polls. For optimal performance, the number of returned users is chosen by TDLib
+        /// Returns message senders voted for the specified option in a poll; use poll.can_get_voters to check whether the method can be used.
+        /// For optimal performance, the number of returned users is chosen by TDLib
         /// </summary>
         public static Task<PollVoters> GetPollVotersAsync(
             this IClient client, long chatId = default, long messageId = default, int optionId = default, int offset = default, int limit = default)

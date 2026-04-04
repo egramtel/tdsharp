@@ -29,11 +29,32 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// The poll description
+                /// Information about the poll
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("poll")]
                 public Poll Poll { get; set; }
+
+                /// <summary>
+                /// 
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("description")]
+                public FormattedText Description { get; set; }
+
+                /// <summary>
+                /// Media attached to the poll. Currently, can be only of the types messageAnimation, messageAudio, messageDocument, messageLocation, messagePhoto, messageVenue, or messageVideo without caption
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("media")]
+                public MessageContent Media { get; set; }
+
+                /// <summary>
+                /// True, if an option can be added to the poll using addPollOption
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("can_add_option")]
+                public bool CanAddOption { get; set; }
             }
         }
     }

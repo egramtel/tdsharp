@@ -118,6 +118,13 @@ namespace TdLib
             public bool SetChatBackground { get; set; }
 
             /// <summary>
+            /// True, if the user uses an unofficial application that poses a security risk
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("uses_unofficial_app")]
+            public bool UsesUnofficialApp { get; set; }
+
+            /// <summary>
             /// A short user bio; may be null for bots
             /// </summary>
             [JsonConverter(typeof(Converter))]

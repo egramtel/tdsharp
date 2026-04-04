@@ -34,7 +34,7 @@ namespace TdLib
             public int Id { get; set; }
 
             /// <summary>
-            /// Text of the task; 1-getOption("checklist_task_text_length_max") characters without line feeds. May contain only Bold, Italic, Underline, Strikethrough, Spoiler, and CustomEmoji entities
+            /// Text of the task; 1-getOption("checklist_task_text_length_max") characters without line feeds. May contain only Bold, Italic, Underline, Strikethrough, Spoiler, CustomEmoji, and DateTime entities
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("text")]

@@ -36,10 +36,17 @@ namespace TdLib
                 public FormattedText Question { get; set; }
 
                 /// <summary>
-                /// List of poll answer options, 2-getOption("poll_answer_count_max") strings 1-100 characters each. Only custom emoji entities are allowed to be added and only by Premium users
+                /// List of poll answer options; 2-getOption("poll_answer_count_max") options
                 /// </summary>
                 [JsonProperty("options", ItemConverterType = typeof(Converter))]
-                public FormattedText[] Options { get; set; }
+                public InputPollOption[] Options { get; set; }
+
+                /// <summary>
+                /// 
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("description")]
+                public FormattedText Description { get; set; }
 
                 /// <summary>
                 /// True, if the poll voters are anonymous. Non-anonymous polls can't be sent or forwarded to channels
@@ -49,21 +56,49 @@ namespace TdLib
                 public bool IsAnonymous { get; set; }
 
                 /// <summary>
+                /// True, if multiple answer options can be chosen simultaneously
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("allows_multiple_answers")]
+                public bool AllowsMultipleAnswers { get; set; }
+
+                /// <summary>
+                /// True, if the poll can be answered multiple times
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("allows_revoting")]
+                public bool AllowsRevoting { get; set; }
+
+                /// <summary>
+                /// True, if poll options must be shown in a fixed random order
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("shuffle_options")]
+                public bool ShuffleOptions { get; set; }
+
+                /// <summary>
+                /// True, if the poll results will appear only after the poll closes
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("hide_results_until_closes")]
+                public bool HideResultsUntilCloses { get; set; }
+
+                /// <summary>
                 /// Type of the poll
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("type")]
-                public PollType Type { get; set; }
+                public InputPollType Type { get; set; }
 
                 /// <summary>
-                /// Amount of time the poll will be active after creation, in seconds; for bots only
+                /// Amount of time the poll will be active after creation, in seconds; 0-getOption("poll_open_period_max"); pass 0 if not specified
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("open_period")]
                 public int OpenPeriod { get; set; }
 
                 /// <summary>
-                /// Point in time (Unix timestamp) when the poll will automatically be closed; for bots only
+                /// Point in time (Unix timestamp) when the poll will automatically be closed; must be 0-getOption("poll_open_period_max") seconds in the future; pass 0 if not specified
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("close_date")]

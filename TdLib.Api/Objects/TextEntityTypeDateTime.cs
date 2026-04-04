@@ -12,7 +12,7 @@ namespace TdLib
         public partial class TextEntityType : Object
         {
             /// <summary>
-            /// A data and time
+            /// A date and time
             /// </summary>
             public class TextEntityTypeDateTime : TextEntityType
             {
@@ -29,7 +29,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Point in time (Unix timestamp) representing the data and time
+                /// Point in time (Unix timestamp) representing the date and time
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("unix_time")]

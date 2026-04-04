@@ -90,6 +90,13 @@ namespace TdLib
             public int UnreadReactionCount { get; set; }
 
             /// <summary>
+            /// Number of messages with unread poll votes in the topic
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("unread_poll_vote_count")]
+            public int UnreadPollVoteCount { get; set; }
+
+            /// <summary>
             /// Notification settings for the topic
             /// </summary>
             [JsonConverter(typeof(Converter))]

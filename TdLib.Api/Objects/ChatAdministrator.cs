@@ -46,6 +46,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_owner")]
             public bool IsOwner { get; set; }
+
+            /// <summary>
+            /// True, if the current user can edit the administrator privileges for the administrator
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("can_be_edited")]
+            public bool CanBeEdited { get; set; }
         }
     }
 }

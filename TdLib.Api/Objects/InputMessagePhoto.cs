@@ -43,6 +43,13 @@ namespace TdLib
                 public InputThumbnail Thumbnail { get; set; }
 
                 /// <summary>
+                /// Video of the live photo; not supported in secret chats; pass null if the photo isn't a live photo
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("video")]
+                public InputFile Video { get; set; }
+
+                /// <summary>
                 /// File identifiers of the stickers added to the photo, if applicable
                 /// </summary>
                 [JsonProperty("added_sticker_file_ids", ItemConverterType = typeof(Converter))]

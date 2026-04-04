@@ -28,18 +28,11 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Identifier of the chat with the bot
+            /// Source of the button
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("chat_id")]
-            public long ChatId { get; set; }
-
-            /// <summary>
-            /// Identifier of the message with the button
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("message_id")]
-            public long MessageId { get; set; }
+            [JsonProperty("source")]
+            public KeyboardButtonSource Source { get; set; }
 
             /// <summary>
             /// Identifier of the button
@@ -66,11 +59,11 @@ namespace TdLib
         /// Shares users after pressing a keyboardButtonTypeRequestUsers button with the bot
         /// </summary>
         public static Task<Ok> ShareUsersWithBotAsync(
-            this IClient client, long chatId = default, long messageId = default, int buttonId = default, long[] sharedUserIds = default, bool onlyCheck = default)
+            this IClient client, KeyboardButtonSource source = default, int buttonId = default, long[] sharedUserIds = default, bool onlyCheck = default)
         {
             return client.ExecuteAsync(new ShareUsersWithBot
             {
-                ChatId = chatId, MessageId = messageId, ButtonId = buttonId, SharedUserIds = sharedUserIds, OnlyCheck = onlyCheck
+                Source = source, ButtonId = buttonId, SharedUserIds = sharedUserIds, OnlyCheck = onlyCheck
             });
         }
     }

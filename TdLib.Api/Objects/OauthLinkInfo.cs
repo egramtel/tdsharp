@@ -48,6 +48,20 @@ namespace TdLib
             public string Domain { get; set; }
 
             /// <summary>
+            /// True, if the authorization originates from an application
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("from_app")]
+            public bool FromApp { get; set; }
+
+            /// <summary>
+            /// Verified name of the application; if empty, then "Unverified App" must be shown instead
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("verified_app_name")]
+            public string VerifiedAppName { get; set; }
+
+            /// <summary>
             /// User identifier of a bot linked with the website
             /// </summary>
             [JsonConverter(typeof(Converter))]

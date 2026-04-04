@@ -57,7 +57,7 @@ namespace TdLib
             public int Limit { get; set; }
 
             /// <summary>
-            /// Additional filter for messages to search; pass null to search for all messages. Filters searchMessagesFilterMention, searchMessagesFilterUnreadMention, searchMessagesFilterUnreadReaction, searchMessagesFilterFailedToSend, and searchMessagesFilterPinned are unsupported in this function
+            /// Additional filter for messages to search; pass null to search for all messages. Filters searchMessagesFilterMention, searchMessagesFilterUnreadMention, searchMessagesFilterUnreadReaction,
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("filter")]

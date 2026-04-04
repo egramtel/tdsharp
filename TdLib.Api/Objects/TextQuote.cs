@@ -27,7 +27,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Text of the quote. Only Bold, Italic, Underline, Strikethrough, Spoiler, and CustomEmoji entities can be present in the text
+            /// Text of the quote. Only Bold, Italic, Underline, Strikethrough, Spoiler, CustomEmoji, and DateTime entities can be present in the text
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("text")]

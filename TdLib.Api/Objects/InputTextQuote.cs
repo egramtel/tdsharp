@@ -27,7 +27,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Text of the quote; 0-getOption("message_reply_quote_length_max") characters. Only Bold, Italic, Underline, Strikethrough, Spoiler, and CustomEmoji entities are allowed to be kept and must be kept in the quote
+            /// Text of the quote; 0-getOption("message_reply_quote_length_max") characters. Only Bold, Italic, Underline, Strikethrough, Spoiler, CustomEmoji, and DateTime entities are allowed to be kept and must be kept in the quote
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("text")]

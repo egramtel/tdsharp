@@ -55,6 +55,13 @@ namespace TdLib
             public Animation Animation { get; set; }
 
             /// <summary>
+            /// Identifier of the bot, which manages the bot; 0 if none or unknown; for owner of the bot only
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("manager_bot_user_id")]
+            public long ManagerBotUserId { get; set; }
+
+            /// <summary>
             /// Information about a button to show instead of the bot commands menu button; may be null if ordinary bot commands menu must be shown
             /// </summary>
             [JsonConverter(typeof(Converter))]

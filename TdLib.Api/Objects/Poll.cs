@@ -34,7 +34,7 @@ namespace TdLib
             public long Id { get; set; }
 
             /// <summary>
-            /// Poll question; 1-300 characters. Only custom emoji entities are allowed
+            /// Poll question; 1-300 characters; may contain only custom emoji entities
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("question")]
@@ -54,10 +54,17 @@ namespace TdLib
             public int TotalVoterCount { get; set; }
 
             /// <summary>
-            /// Identifiers of recent voters, if the poll is non-anonymous
+            /// Identifiers of recent voters, if the poll is non-anonymous and poll results are available
             /// </summary>
             [JsonProperty("recent_voter_ids", ItemConverterType = typeof(Converter))]
             public MessageSender[] RecentVoterIds { get; set; }
+
+            /// <summary>
+            /// True, if the current user can get voters in the poll
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("can_get_voters")]
+            public bool CanGetVoters { get; set; }
 
             /// <summary>
             /// True, if the poll is anonymous
@@ -65,6 +72,26 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_anonymous")]
             public bool IsAnonymous { get; set; }
+
+            /// <summary>
+            /// True, if multiple answer options can be chosen simultaneously
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("allows_multiple_answers")]
+            public bool AllowsMultipleAnswers { get; set; }
+
+            /// <summary>
+            /// True, if the poll can be answered multiple times
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("allows_revoting")]
+            public bool AllowsRevoting { get; set; }
+
+            /// <summary>
+            /// The list of 0-based poll identifiers in which the options of the poll must be shown; empty if the order of options must not be changed
+            /// </summary>
+            [JsonProperty("option_order", ItemConverterType = typeof(Converter))]
+            public int[] OptionOrder { get; set; }
 
             /// <summary>
             /// Type of the poll

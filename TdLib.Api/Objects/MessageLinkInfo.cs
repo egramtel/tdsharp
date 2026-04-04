@@ -62,6 +62,20 @@ namespace TdLib
             public int MediaTimestamp { get; set; }
 
             /// <summary>
+            /// Identifier of the checklist task that is linked; 0 if none
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("checklist_task_id")]
+            public int ChecklistTaskId { get; set; }
+
+            /// <summary>
+            /// Identifier of the poll option that is linked; empty if none
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("poll_option_id")]
+            public string PollOptionId { get; set; }
+
+            /// <summary>
             /// True, if the whole media album to which the message belongs is linked
             /// </summary>
             [JsonConverter(typeof(Converter))]

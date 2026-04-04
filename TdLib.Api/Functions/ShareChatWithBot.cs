@@ -28,18 +28,11 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Identifier of the chat with the bot
+            /// Source of the button
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("chat_id")]
-            public long ChatId { get; set; }
-
-            /// <summary>
-            /// Identifier of the message with the button
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("message_id")]
-            public long MessageId { get; set; }
+            [JsonProperty("source")]
+            public KeyboardButtonSource Source { get; set; }
 
             /// <summary>
             /// Identifier of the button
@@ -57,6 +50,8 @@ namespace TdLib
 
             /// <summary>
             /// Pass true to check that the chat can be shared by the button instead of actually sharing it. Doesn't check bot_is_member and bot_administrator_rights restrictions.
+            /// If the bot must be a member, then all chats from getGroupsInCommon and all chats, where the user can add the bot, are suitable. In the latter case the bot will be automatically added to the chat.
+            /// If the bot must be an administrator, then all chats, where the bot already has requested rights or can be added to administrators by the user, are suitable. In the latter case the bot will be automatically granted requested rights
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("only_check")]
@@ -67,11 +62,11 @@ namespace TdLib
         /// Shares a chat after pressing a keyboardButtonTypeRequestChat button with the bot
         /// </summary>
         public static Task<Ok> ShareChatWithBotAsync(
-            this IClient client, long chatId = default, long messageId = default, int buttonId = default, long sharedChatId = default, bool onlyCheck = default)
+            this IClient client, KeyboardButtonSource source = default, int buttonId = default, long sharedChatId = default, bool onlyCheck = default)
         {
             return client.ExecuteAsync(new ShareChatWithBot
             {
-                ChatId = chatId, MessageId = messageId, ButtonId = buttonId, SharedChatId = sharedChatId, OnlyCheck = onlyCheck
+                Source = source, ButtonId = buttonId, SharedChatId = sharedChatId, OnlyCheck = onlyCheck
             });
         }
     }

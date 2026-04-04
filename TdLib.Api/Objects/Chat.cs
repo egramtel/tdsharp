@@ -228,6 +228,13 @@ namespace TdLib
             public int UnreadReactionCount { get; set; }
 
             /// <summary>
+            /// Number of messages with unread poll votes in the chat
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("unread_poll_vote_count")]
+            public int UnreadPollVoteCount { get; set; }
+
+            /// <summary>
             /// Notification settings for the chat
             /// </summary>
             [JsonConverter(typeof(Converter))]
