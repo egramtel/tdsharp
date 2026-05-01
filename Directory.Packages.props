@@ -12,7 +12,7 @@ SPDX-License-Identifier: MIT
         <PackageVersion Include="ChangelogAutomation.MSBuild" Version="3.0.5" />
         <PackageVersion Include="FParsec" Version="1.1.1" />
         <PackageVersion Include="FSharp.Core" Version="10.1.203" />
-        <PackageVersion Include="Meziantou.Analyzer" Version="2.0.188" />
+        <PackageVersion Include="Meziantou.Analyzer" Version="3.0.58" />
         <PackageVersion Include="Microsoft.Extensions.Configuration.Abstractions" Version="10.0.5" />
         <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.13.0" />
         <PackageVersion Include="Newtonsoft.Json" Version="13.0.4" />
