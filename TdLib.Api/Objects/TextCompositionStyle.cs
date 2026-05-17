@@ -34,7 +34,7 @@ namespace TdLib
             public string Name { get; set; }
 
             /// <summary>
-            /// Identifier of the custom emoji corresponding to the style
+            /// Identifier of the custom emoji corresponding to the style; 0 if none
             /// </summary>
             [JsonConverter(typeof(Converter.Int64))]
             [JsonProperty("custom_emoji_id")]
@@ -46,6 +46,48 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("title")]
             public string Title { get; set; }
+
+            /// <summary>
+            /// True, if the style is created by a user
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("is_custom")]
+            public bool IsCustom { get; set; }
+
+            /// <summary>
+            /// True, if the user is creator of the style
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("is_creator")]
+            public bool IsCreator { get; set; }
+
+            /// <summary>
+            /// Number of users that installed the style; for created custom styles only; 0 if unknown
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("install_count")]
+            public int InstallCount { get; set; }
+
+            /// <summary>
+            /// Prompt of the style; for created custom styles only
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("prompt")]
+            public string Prompt { get; set; }
+
+            /// <summary>
+            /// User identifier of the creator of the style; 0 if none of unknown
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("creator_user_id")]
+            public long CreatorUserId { get; set; }
+
+            /// <summary>
+            /// Example of the style usage in English; may be null if unknown
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("english_example")]
+            public TextCompositionStyleExample EnglishExample { get; set; }
         }
     }
 }

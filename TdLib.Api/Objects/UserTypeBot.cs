@@ -92,6 +92,13 @@ namespace TdLib
                 public string InlineQueryPlaceholder { get; set; }
 
                 /// <summary>
+                /// True, if the bot can be queried by username from any non-secret chat
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("supports_guest_queries")]
+                public bool SupportsGuestQueries { get; set; }
+
+                /// <summary>
                 /// True, if the location of the user is expected to be sent with every inline query to this bot
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
@@ -99,7 +106,7 @@ namespace TdLib
                 public bool NeedLocation { get; set; }
 
                 /// <summary>
-                /// True, if the bot supports connection to Telegram Business accounts
+                /// True, if the bot supports connection to user accounts for chat automation
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("can_connect_to_business")]

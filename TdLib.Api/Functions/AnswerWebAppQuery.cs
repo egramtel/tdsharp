@@ -13,7 +13,7 @@ namespace TdLib
         /// <summary>
         /// Sets the result of interaction with a Web App and sends corresponding message on behalf of the user to the chat from which the query originated; for bots only
         /// </summary>
-        public class AnswerWebAppQuery : Function<SentWebAppMessage>
+        public class AnswerWebAppQuery : Function<InlineMessageId>
         {
             /// <summary>
             /// Data type for serialization
@@ -45,7 +45,7 @@ namespace TdLib
         /// <summary>
         /// Sets the result of interaction with a Web App and sends corresponding message on behalf of the user to the chat from which the query originated; for bots only
         /// </summary>
-        public static Task<SentWebAppMessage> AnswerWebAppQueryAsync(
+        public static Task<InlineMessageId> AnswerWebAppQueryAsync(
             this IClient client, string webAppQueryId = default, InputInlineQueryResult result = default)
         {
             return client.ExecuteAsync(new AnswerWebAppQuery

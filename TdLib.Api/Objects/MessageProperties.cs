@@ -139,6 +139,13 @@ namespace TdLib
             public bool CanBeSharedInStory { get; set; }
 
             /// <summary>
+            /// True, if the user can delete reactions of other users in the message using the method deleteMessageReactionsFromSender
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("can_delete_reactions")]
+            public bool CanDeleteReactions { get; set; }
+
+            /// <summary>
             /// True, if the message can be edited using the method editMessageMedia
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -195,6 +202,13 @@ namespace TdLib
             public bool CanGetMessageThread { get; set; }
 
             /// <summary>
+            /// True, if the message is a poll and vote statistics are available through getPollVoteStatistics
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("can_get_poll_vote_statistics")]
+            public bool CanGetPollVoteStatistics { get; set; }
+
+            /// <summary>
             /// True, if read date of the message can be received through getMessageReadDate
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -209,7 +223,7 @@ namespace TdLib
             public bool CanGetStatistics { get; set; }
 
             /// <summary>
-            /// True, if advertisements for video of the message can be received though getVideoMessageAdvertisements
+            /// True, if advertisements for video of the message can be received through getVideoMessageAdvertisements
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("can_get_video_advertisements")]

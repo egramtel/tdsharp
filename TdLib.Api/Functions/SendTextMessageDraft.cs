@@ -49,7 +49,7 @@ namespace TdLib
             public long DraftId { get; set; }
 
             /// <summary>
-            /// Draft text of the message
+            /// Draft text of the message; pass null to show a "Thinking..." placeholder
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("text")]

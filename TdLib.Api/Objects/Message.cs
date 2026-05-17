@@ -125,6 +125,13 @@ namespace TdLib
             public bool ContainsUnreadMention { get; set; }
 
             /// <summary>
+            /// True, if the message is a poll message with unread votes
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("contains_unread_poll_votes")]
+            public bool ContainsUnreadPollVotes { get; set; }
+
+            /// <summary>
             /// Point in time (Unix timestamp) when the message was sent; 0 for scheduled messages
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -220,6 +227,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("via_bot_user_id")]
             public long ViaBotUserId { get; set; }
+
+            /// <summary>
+            /// The identifier of the user or chat which used a guest bot to send the message; may be null if none
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("guest_bot_caller_id")]
+            public MessageSender GuestBotCallerId { get; set; }
 
             /// <summary>
             /// If non-zero, the user identifier of the business bot that sent this message

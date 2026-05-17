@@ -34,7 +34,7 @@ namespace TdLib
             public string Text { get; set; }
 
             /// <summary>
-            /// Entities describing changes in the text. Entities doesn't mutually intersect with each other
+            /// Entities describing changes in the text. Entities don't mutually intersect with each other
             /// </summary>
             [JsonProperty("entities", ItemConverterType = typeof(Converter))]
             public DiffEntity[] Entities { get; set; }

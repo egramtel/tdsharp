@@ -43,7 +43,7 @@ namespace TdLib
                 public FormattedText Description { get; set; }
 
                 /// <summary>
-                /// Media attached to the poll. Currently, can be only of the types messageAnimation, messageAudio, messageDocument, messageLocation, messagePhoto, messageVenue, or messageVideo without caption
+                /// Media attached to the poll; may be null if none. If present, currently, can be only of the types messageAnimation, messageAudio, messageDocument, messageLocation, messagePhoto, messageVenue, or messageVideo without caption
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("media")]

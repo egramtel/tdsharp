@@ -36,7 +36,7 @@ namespace TdLib
                 public FormattedText Question { get; set; }
 
                 /// <summary>
-                /// List of poll answer options; 2-getOption("poll_answer_count_max") options
+                /// List of poll answer options; 1-getOption("poll_answer_count_max") options
                 /// </summary>
                 [JsonProperty("options", ItemConverterType = typeof(Converter))]
                 public InputPollOption[] Options { get; set; }
@@ -47,6 +47,14 @@ namespace TdLib
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("description")]
                 public FormattedText Description { get; set; }
+
+                /// <summary>
+                /// Media attached to the poll; pass null if none. Must be one of the following types: inputMessageAnimation, inputMessageAudio, inputMessageDocument, non-live inputMessageLocation,
+                /// inputMessagePhoto, inputMessageVenue, or inputMessageVideo without caption
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("media")]
+                public InputMessageContent Media { get; set; }
 
                 /// <summary>
                 /// True, if the poll voters are anonymous. Non-anonymous polls can't be sent or forwarded to channels
@@ -68,6 +76,19 @@ namespace TdLib
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("allows_revoting")]
                 public bool AllowsRevoting { get; set; }
+
+                /// <summary>
+                /// True, if only the users that are members of the chat for more than a day will be able to vote; for channel chats only
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("members_only")]
+                public bool MembersOnly { get; set; }
+
+                /// <summary>
+                /// The list of two-letter ISO 3166-1 alpha-2 codes of countries, users from which will be able to vote; for channel chats only. If empty, then all users can participate in the poll.
+                /// </summary>
+                [JsonProperty("country_codes", ItemConverterType = typeof(Converter))]
+                public string[] CountryCodes { get; set; }
 
                 /// <summary>
                 /// True, if poll options must be shown in a fixed random order

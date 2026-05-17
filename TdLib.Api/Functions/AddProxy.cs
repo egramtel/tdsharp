@@ -40,17 +40,24 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("enable")]
             public bool Enable { get; set; }
+
+            /// <summary>
+            /// Comment to set for the proxy
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("comment")]
+            public string Comment { get; set; }
         }
 
         /// <summary>
         /// Adds a proxy server for network requests. Can be called before authorization
         /// </summary>
         public static Task<AddedProxy> AddProxyAsync(
-            this IClient client, Proxy proxy = default, bool enable = default)
+            this IClient client, Proxy proxy = default, bool enable = default, string comment = default)
         {
             return client.ExecuteAsync(new AddProxy
             {
-                Proxy = proxy, Enable = enable
+                Proxy = proxy, Enable = enable, Comment = comment
             });
         }
     }

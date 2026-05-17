@@ -11,15 +11,15 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns token of a created bot; for bots only
+        /// Returns access settings of a managed bot; for bots only
         /// </summary>
-        public class GetBotToken : Function<Text>
+        public class GetManagedBotAccessSettings : Function<BotAccessSettings>
         {
             /// <summary>
             /// Data type for serialization
             /// </summary>
             [JsonProperty("@type")]
-            public override string DataType { get; set; } = "getBotToken";
+            public override string DataType { get; set; } = "getManagedBotAccessSettings";
 
             /// <summary>
             /// Extra data attached to the function
@@ -28,29 +28,22 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Identifier of the created bot
+            /// Identifier of the managed bot
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("bot_user_id")]
             public long BotUserId { get; set; }
-
-            /// <summary>
-            /// Pass true to revoke the current token and create a new one
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("revoke")]
-            public bool Revoke { get; set; }
         }
 
         /// <summary>
-        /// Returns token of a created bot; for bots only
+        /// Returns access settings of a managed bot; for bots only
         /// </summary>
-        public static Task<Text> GetBotTokenAsync(
-            this IClient client, long botUserId = default, bool revoke = default)
+        public static Task<BotAccessSettings> GetManagedBotAccessSettingsAsync(
+            this IClient client, long botUserId = default)
         {
-            return client.ExecuteAsync(new GetBotToken
+            return client.ExecuteAsync(new GetManagedBotAccessSettings
             {
-                BotUserId = botUserId, Revoke = revoke
+                BotUserId = botUserId
             });
         }
     }
