@@ -41,7 +41,7 @@ namespace TdLib
             public StoryList List { get; set; }
 
             /// <summary>
-            /// A parameter used to determine order of the stories in the story list; 0 if the stories doesn't need to be shown in the story list. Stories must be sorted by the pair (order, story_poster_chat_id) in descending order
+            /// A parameter used to determine order of the stories in the story list; 0 if the stories don't need to be shown in the story list. Stories must be sorted by the pair (order, story_poster_chat_id) in descending order
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("order")]

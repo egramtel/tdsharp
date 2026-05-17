@@ -27,16 +27,18 @@ setTdlibParameters use_test_dc:Bool database_directory:string files_directory:st
 setAuthenticationPhoneNumber phone_number:string settings:phoneNumberAuthenticationSettings = Ok;
 
 //@description Checks whether an in-store purchase of Telegram Premium is possible before authorization. Works only when the current authorization state is authorizationStateWaitPremiumPurchase
+//@premium_day_count The number of days for which the Telegram Premium subscription will be granted
 //@currency ISO 4217 currency code of the payment currency
 //@amount Paid amount, in the smallest units of the currency
-checkAuthenticationPremiumPurchase currency:string amount:int53 = Ok;
+checkAuthenticationPremiumPurchase premium_day_count:int32 currency:string amount:int53 = Ok;
 
 //@description Informs server about an in-store purchase of Telegram Premium before authorization. Works only when the current authorization state is authorizationStateWaitPremiumPurchase
 //@transaction Information about the transaction
 //@is_restore Pass true if this is a restore of a Telegram Premium purchase; only for App Store
+//@premium_day_count The number of days for which the Telegram Premium subscription will be granted
 //@currency ISO 4217 currency code of the payment currency
 //@amount Paid amount, in the smallest units of the currency
-setAuthenticationPremiumPurchaseTransaction transaction:StoreTransaction is_restore:Bool currency:string amount:int53 = Ok;
+setAuthenticationPremiumPurchaseTransaction transaction:StoreTransaction is_restore:Bool premium_day_count:int32 currency:string amount:int53 = Ok;
 
 //@description Sets the email address of the user and sends an authentication code to the email address. Works only when the current authorization state is authorizationStateWaitEmailAddress @email_address The email address of the user
 setAuthenticationEmailAddress email_address:string = Ok;
@@ -755,6 +757,41 @@ getMessageEmbeddingCode chat_id:int53 message_id:int53 for_album:Bool = Text;
 getMessageLinkInfo url:string = MessageLinkInfo;
 
 
+//@description Creates a custom text composition style. May return an error with a message "TONES_SAVED_TOO_MANY" if the maximum number of added custom styles has been reached
+//@title Title of the style; 1-getOption("text_composition_style_title_length_max") characters
+//@custom_emoji_id Identifier of the custom emoji corresponding to the style
+//@prompt Prompt that will be used for text composition; 1-getOption("text_composition_style_prompt_length_max") characters
+//@show_creator Pass true if the current user must be shown as the creator of the style
+createTextCompositionStyle title:string custom_emoji_id:int64 prompt:string show_creator:Bool = TextCompositionStyle;
+
+//@description Edits a custom text composition style that was created by the current user
+//@name Name of the style
+//@title Title of the style; 1-getOption("text_composition_style_title_length_max") characters
+//@custom_emoji_id Identifier of the custom emoji corresponding to the style
+//@prompt Prompt that will be used for text composition; 1-getOption("text_composition_style_prompt_length_max") characters
+//@show_creator Pass true if the current user must be shown as the creator of the style
+editTextCompositionStyle name:string title:string custom_emoji_id:int64 prompt:string show_creator:Bool = TextCompositionStyle;
+
+//@description Deletes a custom text composition style that was created by the current user
+//@name Name of the style
+deleteTextCompositionStyle name:string = Ok;
+
+//@description Searches a custom text composition style by its name @name Name of the style
+searchTextCompositionStyle name:string = TextCompositionStyle;
+
+//@description Returns an example of usage of a custom text composition style
+//@name Name of the style
+//@example_number 0-based unique number of the requested example; must be non-negative and less than getOption("text_composition_style_example_count")
+getTextCompositionStyleExample name:string example_number:int32 = TextCompositionStyleExample;
+
+//@description Adds a custom text composition style to the list of used by the user styles. May return an error with a message "TONES_SAVED_TOO_MANY" if the maximum number of added custom styles has been reached
+//@name Name of the style
+addTextCompositionStyle name:string = Ok;
+
+//@description Removes a custom text composition style from the list of used by the user styles. If the style was created by the current user, then it can only be deleted
+//@name Name of the style
+removeTextCompositionStyle name:string = Ok;
+
 //@description Translates a text to the given language; must not be used in secret chats. If the current user is a Telegram Premium user, then text formatting is preserved
 //@text Text to translate
 //@to_language_code Language code of the language to which the message is translated. Must be one of
@@ -1343,6 +1380,17 @@ addMessageReaction chat_id:int53 message_id:int53 reaction_type:ReactionType is_
 //@reaction_type Type of the reaction to remove. The paid reaction can't be removed
 removeMessageReaction chat_id:int53 message_id:int53 reaction_type:ReactionType = Ok;
 
+//@description Deletes all recent reactions added by the specified sender in a chat. Supported only for basic groups and supergroups; requires can_delete_messages administrator right
+//@chat_id Chat identifier
+//@sender_id Identifier of the sender of reactions to delete
+deleteAllRecentMessageReactionsFromSender chat_id:int53 sender_id:MessageSender = Ok;
+
+//@description Deletes all reactions added by the specified sender on a message
+//@chat_id Chat identifier
+//@message_id Identifier of the message containing the reactions. Use messageProperties.can_delete_reactions to check whether the method can be used for a message
+//@sender_id Identifier of the sender of reactions to delete
+deleteMessageReactionsFromSender chat_id:int53 message_id:int53 sender_id:MessageSender = Ok;
+
 //@description Returns the list of message sender identifiers, which can be used to send a paid reaction in a chat @chat_id Chat identifier
 getChatAvailablePaidMessageReactionSenders chat_id:int53 = MessageSenders;
 
@@ -1451,7 +1499,7 @@ getThemeParametersJsonString theme:themeParameters = Text;
 //@option The new option
 addPollOption chat_id:int53 message_id:int53 option:inputPollOption = Ok;
 
-//@description Adds an option to a poll
+//@description Deletes an option from a poll
 //@chat_id Identifier of the chat to which the poll belongs
 //@message_id Identifier of the message containing the poll
 //@option_id Unique identifier of the option. Use pollOptionProperties.can_be_deleted to check whether the option can be deleted by the user
@@ -1471,6 +1519,12 @@ setPollAnswer chat_id:int53 message_id:int53 option_ids:vector<int32> = Ok;
 //@offset Number of voters to skip in the result; must be non-negative
 //@limit The maximum number of voters to be returned; must be positive and can't be greater than 50. For optimal performance, the number of returned voters is chosen by TDLib and can be smaller than the specified limit, even if the end of the voter list has not been reached
 getPollVoters chat_id:int53 message_id:int53 option_id:int32 offset:int32 limit:int32 = PollVoters;
+
+//@description Returns statistics of poll votes in a poll
+//@chat_id Identifier of the chat to which the poll belongs
+//@message_id Identifier of the message containing the poll. Use messageProperties.can_get_poll_vote_statistics to check whether the method can be used for a message
+//@is_dark Pass true if a dark theme is used by the application
+getPollVoteStatistics chat_id:int53 message_id:int53 is_dark:Bool = PollVoteStatistics;
 
 //@description Stops a poll
 //@chat_id Identifier of the chat to which the poll belongs
@@ -1553,6 +1607,11 @@ getInlineQueryResults bot_user_id:int53 chat_id:int53 user_location:location que
 //@next_offset Offset for the next inline query; pass an empty string if there are no more results
 answerInlineQuery inline_query_id:int64 is_personal:Bool button:inlineQueryResultsButton results:vector<InputInlineQueryResult> cache_time:int32 next_offset:string = Ok;
 
+//@description Sets the result of a guest query; for bots only
+//@guest_query_id Identifier of the guest query
+//@result The result of the query
+answerGuestQuery guest_query_id:int64 result:InputInlineQueryResult = InlineMessageId;
+
 //@description Saves an inline message to be sent by the given user; for bots only
 //@user_id Identifier of the user
 //@result The description of the message
@@ -1632,7 +1691,7 @@ closeWebApp web_app_launch_id:int64 = Ok;
 //@description Sets the result of interaction with a Web App and sends corresponding message on behalf of the user to the chat from which the query originated; for bots only
 //@web_app_query_id Identifier of the Web App query
 //@result The result of the query
-answerWebAppQuery web_app_query_id:string result:InputInlineQueryResult = SentWebAppMessage;
+answerWebAppQuery web_app_query_id:string result:InputInlineQueryResult = InlineMessageId;
 
 //@description Checks whether a file can be downloaded and saved locally by Web App request
 //@bot_user_id Identifier of the bot, providing the Web App
@@ -1704,7 +1763,7 @@ sendChatAction chat_id:int53 topic_id:MessageTopic business_connection_id:string
 //@chat_id Chat identifier
 //@forum_topic_id The forum topic identifier in which the message will be sent; pass 0 if none
 //@draft_id Unique identifier of the draft
-//@text Draft text of the message
+//@text Draft text of the message; pass null to show a "Thinking..." placeholder
 sendTextMessageDraft chat_id:int53 forum_topic_id:int32 draft_id:int64 text:formattedText = Ok;
 
 
@@ -2128,7 +2187,7 @@ getStakeDiceState = StakeDiceState;
 
 
 //@description Returns saved notification sound by its identifier. Returns a 404 error if there is no saved notification sound with the specified identifier @notification_sound_id Identifier of the notification sound
-getSavedNotificationSound notification_sound_id:int64 = NotificationSounds;
+getSavedNotificationSound notification_sound_id:int64 = NotificationSound;
 
 //@description Returns the list of saved notification sounds. If a sound isn't in the list, then default sound needs to be used
 getSavedNotificationSounds = NotificationSounds;
@@ -3055,6 +3114,11 @@ toggleBotCanManageEmojiStatus bot_user_id:int53 can_manage_emoji_status:Bool = O
 //@description Changes the emoji status of a user; for bots only @user_id Identifier of the user @emoji_status New emoji status; pass null to switch to the default badge
 setUserEmojiStatus user_id:int53 emoji_status:emojiStatus = Ok;
 
+//@description Returns messages in the personal chat of a given user; for bots only
+//@user_id User identifier
+//@limit The maximum number of messages to be returned; 1-20
+getPersonalChatHistory user_id:int53 limit:int32 = Messages;
+
 
 //@description Searches a user by their phone number. Returns a 404 error if the user can't be found
 //@phone_number Phone number to search for
@@ -3083,8 +3147,11 @@ getUserProfileAudios user_id:int53 offset:int32 limit:int32 = Audios;
 isProfileAudio file_id:int32 = Ok;
 
 //@description Adds an audio file to the beginning of the profile audio files of the current user
-//@file_id Identifier of the audio file to be added. The file must have been uploaded to the server
-addProfileAudio file_id:int32 = Ok;
+//@audio The audio file to be added
+//@duration Duration of the audio, in seconds; may be replaced by the server; ignored for already uploaded files
+//@title Title of the audio; 0-64 characters; may be replaced by the server; ignored for already uploaded files
+//@performer Performer of the audio; 0-64 characters, may be replaced by the server; ignored for already uploaded files
+addProfileAudio audio:InputFile duration:int32 title:string performer:string = Ok;
 
 //@description Changes position of an audio file in the profile audio files of the current user
 //@file_id Identifier of the file from profile audio files, which position will be changed
@@ -3507,10 +3574,16 @@ checkBotUsername username:string = CheckChatUsernameResult;
 //@via_link Pass true if the bot is created from an internalLinkTypeRequestManagedBot link
 createBot manager_bot_user_id:int53 name:string username:string via_link:Bool = User;
 
-//@description Returns token of a created bot; for bots only
-//@bot_user_id Identifier of the created bot
+//@description Returns token of a managed bot; for bots only
+//@bot_user_id Identifier of the managed bot
 //@revoke Pass true to revoke the current token and create a new one
-getBotToken bot_user_id:int53 revoke:Bool = Text;
+getManagedBotToken bot_user_id:int53 revoke:Bool = Text;
+
+//@description Returns access settings of a managed bot; for bots only @bot_user_id Identifier of the managed bot
+getManagedBotAccessSettings bot_user_id:int53 = BotAccessSettings;
+
+//@description Sets access settings of a managed bot; for bots only @bot_user_id Identifier of the managed bot @settings New access settings
+setManagedBotAccessSettings bot_user_id:int53 settings:botAccessSettings = Ok;
 
 //@description Sets the name of a bot. Can be called only if userTypeBot.can_be_edited == true
 //@bot_user_id Identifier of the target bot
@@ -3921,7 +3994,7 @@ getUpgradedGiftValueInfo name:string = UpgradedGiftValueInfo;
 //@password The 2-step verification password of the current user
 getUpgradedGiftWithdrawalUrl received_gift_id:string password:string = HttpUrl;
 
-//@description Returns promotional anumation for upgraded gifts
+//@description Returns promotional animation for upgraded gifts
 getUpgradedGiftsPromotionalAnimation = Animation;
 
 //@description Changes resale price of a unique gift owned by the current user
@@ -4650,13 +4723,15 @@ getApplicationDownloadLink = HttpUrl;
 //@description Adds a proxy server for network requests. Can be called before authorization
 //@proxy The proxy to add
 //@enable Pass true to immediately enable the proxy
-addProxy proxy:proxy enable:Bool = AddedProxy;
+//@comment Comment to set for the proxy
+addProxy proxy:proxy enable:Bool comment:string = AddedProxy;
 
 //@description Edits an existing proxy server for network requests. Can be called before authorization
 //@proxy_id Proxy identifier
 //@proxy The new information about the proxy
 //@enable Pass true to immediately enable the proxy
-editProxy proxy_id:int32 proxy:proxy enable:Bool = AddedProxy;
+//@comment New comment for the proxy
+editProxy proxy_id:int32 proxy:proxy enable:Bool comment:string = AddedProxy;
 
 //@description Enables a proxy. Only one proxy can be enabled at a time. Can be called before authorization @proxy_id Proxy identifier
 enableProxy proxy_id:int32 = Ok;

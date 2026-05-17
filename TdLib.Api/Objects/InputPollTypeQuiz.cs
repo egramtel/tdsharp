@@ -40,6 +40,13 @@ namespace TdLib
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("explanation")]
                 public FormattedText Explanation { get; set; }
+
+                /// <summary>
+                /// Media that is shown when the user chooses an incorrect answer or taps on the lamp icon; pass null if none. Must be one of the following types:
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("explanation_media")]
+                public InputMessageContent ExplanationMedia { get; set; }
             }
         }
     }

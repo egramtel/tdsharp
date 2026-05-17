@@ -10,15 +10,15 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Information about the message sent by answerWebAppQuery
+        /// A detailed statistics about poll votes
         /// </summary>
-        public partial class SentWebAppMessage : Object
+        public partial class PollVoteStatistics : Object
         {
             /// <summary>
             /// Data type for serialization
             /// </summary>
             [JsonProperty("@type")]
-            public override string DataType { get; set; } = "sentWebAppMessage";
+            public override string DataType { get; set; } = "pollVoteStatistics";
 
             /// <summary>
             /// Extra data attached to the object
@@ -27,11 +27,11 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Identifier of the sent inline message, if known
+            /// A graph containing distribution of votes in the poll
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("inline_message_id")]
-            public string InlineMessageId { get; set; }
+            [JsonProperty("vote_graph")]
+            public StatisticalGraph VoteGraph { get; set; }
         }
     }
 }

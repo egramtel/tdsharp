@@ -60,7 +60,7 @@ namespace TdLib
             public MessageSender[] RecentVoterIds { get; set; }
 
             /// <summary>
-            /// True, if the current user can get voters in the poll
+            /// True, if the current user can get voters in the poll using getPollVoters
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("can_get_voters")]
@@ -86,6 +86,19 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("allows_revoting")]
             public bool AllowsRevoting { get; set; }
+
+            /// <summary>
+            /// True, if only the users that are members of the chat for more than a day will be able to vote
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("members_only")]
+            public bool MembersOnly { get; set; }
+
+            /// <summary>
+            /// The list of two-letter ISO 3166-1 alpha-2 codes of countries, users from which will be able to vote. If empty, then all users can participate in the poll
+            /// </summary>
+            [JsonProperty("country_codes", ItemConverterType = typeof(Converter))]
+            public string[] CountryCodes { get; set; }
 
             /// <summary>
             /// The list of 0-based poll identifiers in which the options of the poll must be shown; empty if the order of options must not be changed
@@ -120,6 +133,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_closed")]
             public bool IsClosed { get; set; }
+
+            /// <summary>
+            /// The reason describing, why the current user can't vote in the poll; may be null if the user can vote in the poll
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("vote_restriction_reason")]
+            public PollVoteRestrictionReason VoteRestrictionReason { get; set; }
         }
     }
 }

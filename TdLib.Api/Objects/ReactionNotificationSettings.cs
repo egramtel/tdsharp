@@ -48,7 +48,7 @@ namespace TdLib
             public ReactionNotificationSource PollVoteSource { get; set; }
 
             /// <summary>
-            /// Identifier of the notification sound to be played; 0 if sound is disabled
+            /// Identifier of the notification sound to be played; 0 if sound is disabled; pass -1 to use the app-dependent default sound
             /// </summary>
             [JsonConverter(typeof(Converter.Int64))]
             [JsonProperty("sound_id")]

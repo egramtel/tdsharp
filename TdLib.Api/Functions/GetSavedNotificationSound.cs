@@ -13,7 +13,7 @@ namespace TdLib
         /// <summary>
         /// Returns saved notification sound by its identifier. Returns a 404 error if there is no saved notification sound with the specified identifier
         /// </summary>
-        public class GetSavedNotificationSound : Function<NotificationSounds>
+        public class GetSavedNotificationSound : Function<NotificationSound>
         {
             /// <summary>
             /// Data type for serialization
@@ -38,7 +38,7 @@ namespace TdLib
         /// <summary>
         /// Returns saved notification sound by its identifier. Returns a 404 error if there is no saved notification sound with the specified identifier
         /// </summary>
-        public static Task<NotificationSounds> GetSavedNotificationSoundAsync(
+        public static Task<NotificationSound> GetSavedNotificationSoundAsync(
             this IClient client, long notificationSoundId = default)
         {
             return client.ExecuteAsync(new GetSavedNotificationSound

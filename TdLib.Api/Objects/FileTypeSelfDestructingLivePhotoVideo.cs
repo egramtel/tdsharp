@@ -12,7 +12,7 @@ namespace TdLib
         public partial class FileType : Object
         {
             /// <summary>
-            /// The file is a seld-destructing video for a live photo in a private chat
+            /// The file is a self-destructing video for a live photo in a private chat
             /// </summary>
             public class FileTypeSelfDestructingLivePhotoVideo : FileType
             {

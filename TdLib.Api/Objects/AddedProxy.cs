@@ -48,6 +48,13 @@ namespace TdLib
             public bool IsEnabled { get; set; }
 
             /// <summary>
+            /// Comment for the proxy added by the user
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("comment")]
+            public string Comment { get; set; }
+
+            /// <summary>
             /// The proxy
             /// </summary>
             [JsonConverter(typeof(Converter))]

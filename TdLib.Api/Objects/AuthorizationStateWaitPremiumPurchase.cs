@@ -36,6 +36,13 @@ namespace TdLib
                 public string StoreProductId { get; set; }
 
                 /// <summary>
+                /// Duration of the Telegram Premium subscription after the purchase; may be 0 if Telegram Premium subscription will not be granted
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("premium_day_count")]
+                public int PremiumDayCount { get; set; }
+
+                /// <summary>
                 /// Email address to use for support if the user has issues with Telegram Premium purchase
                 /// </summary>
                 [JsonConverter(typeof(Converter))]

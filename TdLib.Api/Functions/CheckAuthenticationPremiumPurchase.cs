@@ -28,6 +28,13 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
+            /// The number of days for which the Telegram Premium subscription will be granted
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("premium_day_count")]
+            public int PremiumDayCount { get; set; }
+
+            /// <summary>
             /// ISO 4217 currency code of the payment currency
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -46,11 +53,11 @@ namespace TdLib
         /// Checks whether an in-store purchase of Telegram Premium is possible before authorization. Works only when the current authorization state is authorizationStateWaitPremiumPurchase
         /// </summary>
         public static Task<Ok> CheckAuthenticationPremiumPurchaseAsync(
-            this IClient client, string currency = default, long amount = default)
+            this IClient client, int premiumDayCount = default, string currency = default, long amount = default)
         {
             return client.ExecuteAsync(new CheckAuthenticationPremiumPurchase
             {
-                Currency = currency, Amount = amount
+                PremiumDayCount = premiumDayCount, Currency = currency, Amount = amount
             });
         }
     }

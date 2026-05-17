@@ -42,6 +42,13 @@ namespace TdLib
             public bool IsRestore { get; set; }
 
             /// <summary>
+            /// The number of days for which the Telegram Premium subscription will be granted
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("premium_day_count")]
+            public int PremiumDayCount { get; set; }
+
+            /// <summary>
             /// ISO 4217 currency code of the payment currency
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -60,11 +67,11 @@ namespace TdLib
         /// Informs server about an in-store purchase of Telegram Premium before authorization. Works only when the current authorization state is authorizationStateWaitPremiumPurchase
         /// </summary>
         public static Task<Ok> SetAuthenticationPremiumPurchaseTransactionAsync(
-            this IClient client, StoreTransaction transaction = default, bool isRestore = default, string currency = default, long amount = default)
+            this IClient client, StoreTransaction transaction = default, bool isRestore = default, int premiumDayCount = default, string currency = default, long amount = default)
         {
             return client.ExecuteAsync(new SetAuthenticationPremiumPurchaseTransaction
             {
-                Transaction = transaction, IsRestore = isRestore, Currency = currency, Amount = amount
+                Transaction = transaction, IsRestore = isRestore, PremiumDayCount = premiumDayCount, Currency = currency, Amount = amount
             });
         }
     }

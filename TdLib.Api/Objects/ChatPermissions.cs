@@ -97,6 +97,13 @@ namespace TdLib
             public bool CanAddLinkPreviews { get; set; }
 
             /// <summary>
+            /// True, if the user can react to messages
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("can_react_to_messages")]
+            public bool CanReactToMessages { get; set; }
+
+            /// <summary>
             /// True, if the user may change the tag of self
             /// </summary>
             [JsonConverter(typeof(Converter))]

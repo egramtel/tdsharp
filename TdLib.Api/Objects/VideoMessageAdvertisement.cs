@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Describes an advertisent to be shown while a video from a message is watched
+        /// Describes an advertisement to be shown while a video from a message is watched
         /// </summary>
         public partial class VideoMessageAdvertisement : Object
         {

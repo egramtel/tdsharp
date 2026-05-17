@@ -47,17 +47,24 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("enable")]
             public bool Enable { get; set; }
+
+            /// <summary>
+            /// New comment for the proxy
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("comment")]
+            public string Comment { get; set; }
         }
 
         /// <summary>
         /// Edits an existing proxy server for network requests. Can be called before authorization
         /// </summary>
         public static Task<AddedProxy> EditProxyAsync(
-            this IClient client, int proxyId = default, Proxy proxy = default, bool enable = default)
+            this IClient client, int proxyId = default, Proxy proxy = default, bool enable = default, string comment = default)
         {
             return client.ExecuteAsync(new EditProxy
             {
-                ProxyId = proxyId, Proxy = proxy, Enable = enable
+                ProxyId = proxyId, Proxy = proxy, Enable = enable, Comment = comment
             });
         }
     }

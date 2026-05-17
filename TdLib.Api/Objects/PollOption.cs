@@ -27,7 +27,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Unique identifier of the option in the poll
+            /// Unique identifier of the option in the poll; may be empty if yet unassigned
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("id")]
@@ -41,7 +41,7 @@ namespace TdLib
             public FormattedText Text { get; set; }
 
             /// <summary>
-            /// Option media. Currently, can be only of the types messageAnimation, messageLocation, messagePhoto, messageSticker, messageVenue, or messageVideo without caption
+            /// Option media; may be null if none. If present, currently, can be only of the types messageAnimation, messageLocation, messagePhoto, messageSticker, messageVenue, or messageVideo without caption
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("media")]

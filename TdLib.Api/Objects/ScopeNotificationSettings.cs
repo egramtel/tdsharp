@@ -34,7 +34,7 @@ namespace TdLib
             public int MuteFor { get; set; }
 
             /// <summary>
-            /// Identifier of the notification sound to be played; 0 if sound is disabled
+            /// Identifier of the notification sound to be played; 0 if sound is disabled; pass -1 to use the app-dependent default sound
             /// </summary>
             [JsonConverter(typeof(Converter.Int64))]
             [JsonProperty("sound_id")]
@@ -62,7 +62,7 @@ namespace TdLib
             public bool MuteStories { get; set; }
 
             /// <summary>
-            /// Identifier of the notification sound to be played for stories; 0 if sound is disabled
+            /// Identifier of the notification sound to be played for stories; 0 if sound is disabled; pass -1 to use the app-dependent default sound
             /// </summary>
             [JsonConverter(typeof(Converter.Int64))]
             [JsonProperty("story_sound_id")]

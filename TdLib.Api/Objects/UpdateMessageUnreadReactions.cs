@@ -49,7 +49,7 @@ namespace TdLib
                 public UnreadReaction[] UnreadReactions { get; set; }
 
                 /// <summary>
-                /// The new number of messages with unread reactions left in the chat
+                /// The new number of messages with unread reactions in the chat
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("unread_reaction_count")]

@@ -32,6 +32,14 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("text")]
             public FormattedText Text { get; set; }
+
+            /// <summary>
+            /// Option media; pass null if none; ignored in addPollOption. Must be one of the following types:
+            /// inputMessageAnimation, non-live inputMessageLocation, inputMessagePhoto, inputMessageSticker, inputMessageVenue, or inputMessageVideo without caption
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("media")]
+            public InputMessageContent Media { get; set; }
         }
     }
 }

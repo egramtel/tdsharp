@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Adds an option to a poll
+        /// Deletes an option from a poll
         /// </summary>
         public class DeletePollOption : Function<Ok>
         {
@@ -50,7 +50,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Adds an option to a poll
+        /// Deletes an option from a poll
         /// </summary>
         public static Task<Ok> DeletePollOptionAsync(
             this IClient client, long chatId = default, long messageId = default, string optionId = default)
