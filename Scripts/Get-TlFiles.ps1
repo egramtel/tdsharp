@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: MIT
 
 param(
-    [string] $CommitHash = '7f163d850abbebecf749e99fb412271cc1f4e805',
+    [string] $CommitHash = '49b3bcbb6bfebf2ed44dd9f25102d2e1a94a58c4',
     [string] $TdApiUrl = "https://github.com/tdlib/td/raw/$CommitHash/td/generate/scheme/td_api.tl",
 
     [string] $SourceRoot = "$PSScriptRoot/..",
