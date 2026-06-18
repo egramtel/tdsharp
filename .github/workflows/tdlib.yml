@@ -1,4 +1,4 @@
-﻿# SPDX-FileCopyrightText: 2025 Friedrich von Never <friedrich@fornever.me>
+# SPDX-FileCopyrightText: 2025 Friedrich von Never <friedrich@fornever.me>
 #
 # SPDX-License-Identifier: MIT
 
@@ -28,7 +28,7 @@ jobs:
 
     steps:
       - name: Check out the sources
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: NuGet cache
         uses: actions/cache@v5
