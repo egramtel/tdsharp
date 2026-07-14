@@ -14,7 +14,7 @@ SPDX-License-Identifier: MIT
         <PackageVersion Include="FSharp.Core" Version="10.1.301" />
         <PackageVersion Include="Meziantou.Analyzer" Version="3.0.122" />
         <PackageVersion Include="Microsoft.Extensions.Configuration.Abstractions" Version="10.0.5" />
-        <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.7.0" />
+        <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.8.1" />
         <PackageVersion Include="Newtonsoft.Json" Version="13.0.4" />
         <PackageVersion Include="tdlib.native" Version="1.8.64.1" />
         <PackageVersion Include="xunit" Version="2.9.3" />
