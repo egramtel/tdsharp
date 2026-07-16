@@ -43,7 +43,7 @@ namespace TdLib
                 public string Url { get; set; }
 
                 /// <summary>
-                /// True, if the URL has cached instant view server-side
+                /// True, if the URL has cached instant view server-side; instant view only
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_cached")]

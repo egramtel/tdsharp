@@ -11,9 +11,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns the business bot that is connected to the current user account. Returns a 404 error if there is no connected bot
+        /// Returns information about the business bot that is connected to the current user account. Returns a 404 error if there is no connected bot
         /// </summary>
-        public class GetBusinessConnectedBot : Function<BusinessConnectedBot>
+        public class GetBusinessConnectedBot : Function<BusinessConnectedBotInfo>
         {
             /// <summary>
             /// Data type for serialization
@@ -31,9 +31,9 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Returns the business bot that is connected to the current user account. Returns a 404 error if there is no connected bot
+        /// Returns information about the business bot that is connected to the current user account. Returns a 404 error if there is no connected bot
         /// </summary>
-        public static Task<BusinessConnectedBot> GetBusinessConnectedBotAsync(
+        public static Task<BusinessConnectedBotInfo> GetBusinessConnectedBotAsync(
             this IClient client)
         {
             return client.ExecuteAsync(new GetBusinessConnectedBot

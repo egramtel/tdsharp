@@ -272,6 +272,13 @@ namespace TdLib
             public ChatInviteLink InviteLink { get; set; }
 
             /// <summary>
+            /// User identifier of the guard bot in the group; for chat administrators only
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("guard_bot_user_id")]
+            public long GuardBotUserId { get; set; }
+
+            /// <summary>
             /// List of commands of bots in the group
             /// </summary>
             [JsonProperty("bot_commands", ItemConverterType = typeof(Converter))]

@@ -57,7 +57,7 @@ namespace TdLib
                 public int Height { get; set; }
 
                 /// <summary>
-                /// Block caption
+                /// Block caption; may be null if none
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("caption")]

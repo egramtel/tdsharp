@@ -113,7 +113,7 @@ namespace TdLib
             public bool JoinToSendMessages { get; set; }
 
             /// <summary>
-            /// True, if all users directly joining the supergroup need to be approved by supergroup administrators. May be true only for non-broadcast supergroups with username, location, or a linked chat
+            /// True, if all users directly joining the supergroup need to be approved by supergroup administrators
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("join_by_request")]

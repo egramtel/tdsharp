@@ -40,17 +40,31 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("join_by_request")]
             public bool JoinByRequest { get; set; }
+
+            /// <summary>
+            /// Identifier of the bot which will be the guard bot in the group; pass 0 if none; ignored if join_by_request == false.
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("guard_bot_user_id")]
+            public long GuardBotUserId { get; set; }
+
+            /// <summary>
+            /// Pass true to apply the change to the existing invite links, including primary links
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("apply_to_invite_links")]
+            public bool ApplyToInviteLinks { get; set; }
         }
 
         /// <summary>
         /// Toggles whether all users directly joining the supergroup need to be approved by supergroup administrators; requires can_restrict_members administrator right
         /// </summary>
         public static Task<Ok> ToggleSupergroupJoinByRequestAsync(
-            this IClient client, long supergroupId = default, bool joinByRequest = default)
+            this IClient client, long supergroupId = default, bool joinByRequest = default, long guardBotUserId = default, bool applyToInviteLinks = default)
         {
             return client.ExecuteAsync(new ToggleSupergroupJoinByRequest
             {
-                SupergroupId = supergroupId, JoinByRequest = joinByRequest
+                SupergroupId = supergroupId, JoinByRequest = joinByRequest, GuardBotUserId = guardBotUserId, ApplyToInviteLinks = applyToInviteLinks
             });
         }
     }

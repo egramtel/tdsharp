@@ -27,18 +27,18 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Session identifier
-            /// </summary>
-            [JsonConverter(typeof(Converter.Int64))]
-            [JsonProperty("id")]
-            public long Id { get; set; }
-
-            /// <summary>
-            /// Point in time (Unix timestamp) when the user has logged in
+            /// Session type
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("log_in_date")]
-            public int LogInDate { get; set; }
+            [JsonProperty("type")]
+            public SessionType Type { get; set; }
+
+            /// <summary>
+            /// Point in time (Unix timestamp) when the user has logged in or the business bot was connected
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("date")]
+            public int Date { get; set; }
 
             /// <summary>
             /// Model of the device that was used for the session creation, as provided by the application

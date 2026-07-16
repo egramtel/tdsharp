@@ -43,7 +43,7 @@ namespace TdLib
                 public string AnchorName { get; set; }
 
                 /// <summary>
-                /// An HTTP URL, opening the anchor
+                /// An HTTP URL that opens the anchor
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("url")]

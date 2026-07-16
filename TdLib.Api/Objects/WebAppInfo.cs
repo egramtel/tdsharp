@@ -34,11 +34,11 @@ namespace TdLib
             public long LaunchId { get; set; }
 
             /// <summary>
-            /// A Web App URL to open in a web view
+            /// The Web App URL to open in a web view
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("url")]
-            public string Url { get; set; }
+            public WebAppUrl Url { get; set; }
         }
     }
 }

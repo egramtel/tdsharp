@@ -43,11 +43,11 @@ namespace TdLib
                 public FormattedText Description { get; set; }
 
                 /// <summary>
-                /// Media attached to the poll; may be null if none. If present, currently, can be only of the types messageAnimation, messageAudio, messageDocument, messageLocation, messagePhoto, messageVenue, or messageVideo without caption
+                /// Media attached to the poll; may be null if none. If present, currently, can be only of the types pollMediaAnimation, pollMediaAudio, pollMediaDocument, pollMediaLocation, pollMediaPhoto, pollMediaVenue, or pollMediaVideo
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("media")]
-                public MessageContent Media { get; set; }
+                public PollMedia Media { get; set; }
 
                 /// <summary>
                 /// True, if an option can be added to the poll using addPollOption

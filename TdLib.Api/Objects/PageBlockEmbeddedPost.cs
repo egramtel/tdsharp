@@ -12,7 +12,7 @@ namespace TdLib
         public partial class PageBlock : Object
         {
             /// <summary>
-            /// An embedded post
+            /// An embedded post; instant view only
             /// </summary>
             public class PageBlockEmbeddedPost : PageBlock
             {
@@ -59,11 +59,11 @@ namespace TdLib
                 /// <summary>
                 /// Post content
                 /// </summary>
-                [JsonProperty("page_blocks", ItemConverterType = typeof(Converter))]
-                public PageBlock[] PageBlocks { get; set; }
+                [JsonProperty("blocks", ItemConverterType = typeof(Converter))]
+                public PageBlock[] Blocks { get; set; }
 
                 /// <summary>
-                /// Post caption
+                /// Post caption; may be null if none
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("caption")]

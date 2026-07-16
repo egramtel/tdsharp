@@ -29,14 +29,13 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Quote text
+                /// Quote blocks
                 /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("text")]
-                public RichText Text { get; set; }
+                [JsonProperty("blocks", ItemConverterType = typeof(Converter))]
+                public PageBlock[] Blocks { get; set; }
 
                 /// <summary>
-                /// Quote credit
+                /// Quote credit; may be null if none
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("credit")]

@@ -12,7 +12,7 @@ namespace TdLib
         public partial class RichText : Object
         {
             /// <summary>
-            /// A reference to a richTexts object on the same page
+            /// A reference
             /// </summary>
             public class RichTextReference : RichText
             {
@@ -29,25 +29,18 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// The text
+                /// Reference name
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("name")]
+                public string Name { get; set; }
+
+                /// <summary>
+                /// Text of the reference
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("text")]
                 public RichText Text { get; set; }
-
-                /// <summary>
-                /// The name of a richTextAnchor object, which is the first element of the target richTexts object
-                /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("anchor_name")]
-                public string AnchorName { get; set; }
-
-                /// <summary>
-                /// An HTTP URL, opening the reference
-                /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("url")]
-                public string Url { get; set; }
             }
         }
     }

@@ -13,7 +13,7 @@ namespace TdLib
         /// <summary>
         /// Returns an HTTPS URL of a Web App to open from the side menu, a keyboardButtonTypeWebApp button, or an inlineQueryResultsButtonTypeWebApp button
         /// </summary>
-        public class GetWebAppUrl : Function<HttpUrl>
+        public class GetWebAppUrl : Function<WebAppUrl>
         {
             /// <summary>
             /// Data type for serialization
@@ -52,7 +52,7 @@ namespace TdLib
         /// <summary>
         /// Returns an HTTPS URL of a Web App to open from the side menu, a keyboardButtonTypeWebApp button, or an inlineQueryResultsButtonTypeWebApp button
         /// </summary>
-        public static Task<HttpUrl> GetWebAppUrlAsync(
+        public static Task<WebAppUrl> GetWebAppUrlAsync(
             this IClient client, long botUserId = default, string url = default, WebAppOpenParameters parameters = default)
         {
             return client.ExecuteAsync(new GetWebAppUrl

@@ -36,7 +36,7 @@ namespace TdLib
                 public RichText Text { get; set; }
 
                 /// <summary>
-                /// Quote credit
+                /// Quote credit; may be null if none
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("credit")]

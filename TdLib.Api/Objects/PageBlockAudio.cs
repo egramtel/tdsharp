@@ -36,7 +36,7 @@ namespace TdLib
                 public Audio Audio { get; set; }
 
                 /// <summary>
-                /// Audio file caption
+                /// Audio file caption; may be null if none
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("caption")]

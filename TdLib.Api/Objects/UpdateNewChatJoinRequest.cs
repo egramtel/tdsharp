@@ -55,6 +55,13 @@ namespace TdLib
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("invite_link")]
                 public ChatInviteLink InviteLink { get; set; }
+
+                /// <summary>
+                /// Identifier of the join request query, which can be used in answerChatJoinRequestQuery; 0 if none
+                /// </summary>
+                [JsonConverter(typeof(Converter.Int64))]
+                [JsonProperty("query_id")]
+                public long QueryId { get; set; }
             }
         }
     }

@@ -50,32 +50,12 @@ namespace TdLib
             public ReplyMarkup ReplyMarkup { get; set; }
 
             /// <summary>
-            /// New location content of the message; pass null to stop sharing the live location
+            /// New live location of the message; pass null to stop sharing the live location. If the new live_period isn't set to 0x7FFFFFFF,
+            /// then it must not exceed the current live_period by more than a day, and the live location expiration date must remain in the next 90 days
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("location")]
-            public Location Location { get; set; }
-
-            /// <summary>
-            /// New time relative to the message send date, for which the location can be updated, in seconds. If 0x7FFFFFFF specified, then the location can be updated forever.
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("live_period")]
-            public int LivePeriod { get; set; }
-
-            /// <summary>
-            /// The new direction in which the location moves, in degrees; 1-360. Pass 0 if unknown
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("heading")]
-            public int Heading { get; set; }
-
-            /// <summary>
-            /// The new maximum distance for proximity alerts, in meters (0-100000). Pass 0 if the notification is disabled
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("proximity_alert_radius")]
-            public int ProximityAlertRadius { get; set; }
+            public LiveLocation Location { get; set; }
         }
 
         /// <summary>
@@ -83,11 +63,11 @@ namespace TdLib
         /// Returns the edited message after the edit is completed on the server side
         /// </summary>
         public static Task<Message> EditMessageLiveLocationAsync(
-            this IClient client, long chatId = default, long messageId = default, ReplyMarkup replyMarkup = default, Location location = default, int livePeriod = default, int heading = default, int proximityAlertRadius = default)
+            this IClient client, long chatId = default, long messageId = default, ReplyMarkup replyMarkup = default, LiveLocation location = default)
         {
             return client.ExecuteAsync(new EditMessageLiveLocation
             {
-                ChatId = chatId, MessageId = messageId, ReplyMarkup = replyMarkup, Location = location, LivePeriod = livePeriod, Heading = heading, ProximityAlertRadius = proximityAlertRadius
+                ChatId = chatId, MessageId = messageId, ReplyMarkup = replyMarkup, Location = location
             });
         }
     }

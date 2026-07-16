@@ -12,7 +12,7 @@ namespace TdLib
         public partial class PageBlock : Object
         {
             /// <summary>
-            /// A link to a chat
+            /// A link to a chat; instant view only
             /// </summary>
             public class PageBlockChatLink : PageBlock
             {

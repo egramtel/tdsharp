@@ -35,6 +35,13 @@ namespace TdLib
             public string Query { get; set; }
 
             /// <summary>
+            /// Additional filter for type of the chats to be returned; pass null to search for chats of all types
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("type_filter")]
+            public SearchChatTypeFilter TypeFilter { get; set; }
+
+            /// <summary>
             /// The maximum number of chats to be returned
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -46,11 +53,11 @@ namespace TdLib
         /// Searches for the specified query in the title and username of already known chats via request to the server. Returns chats in the order seen in the main chat list
         /// </summary>
         public static Task<Chats> SearchChatsOnServerAsync(
-            this IClient client, string query = default, int limit = default)
+            this IClient client, string query = default, SearchChatTypeFilter typeFilter = default, int limit = default)
         {
             return client.ExecuteAsync(new SearchChatsOnServer
             {
-                Query = query, Limit = limit
+                Query = query, TypeFilter = typeFilter, Limit = limit
             });
         }
     }

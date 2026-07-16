@@ -41,11 +41,11 @@ namespace TdLib
             public int Date { get; set; }
 
             /// <summary>
-            /// Content of the message draft; must be of the type inputMessageText, inputMessageVideoNote, or inputMessageVoiceNote
+            /// Content of the message draft
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("input_message_text")]
-            public InputMessageContent InputMessageText { get; set; }
+            [JsonProperty("content")]
+            public DraftMessageContent Content { get; set; }
 
             /// <summary>
             /// Identifier of the effect to apply to the message when it is sent; 0 if none

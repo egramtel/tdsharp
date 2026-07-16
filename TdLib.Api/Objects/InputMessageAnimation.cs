@@ -29,45 +29,11 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Animation file to be sent
+                /// The animation to be sent
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("animation")]
-                public InputFile Animation { get; set; }
-
-                /// <summary>
-                /// Animation thumbnail; pass null to skip thumbnail uploading
-                /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("thumbnail")]
-                public InputThumbnail Thumbnail { get; set; }
-
-                /// <summary>
-                /// File identifiers of the stickers added to the animation, if applicable
-                /// </summary>
-                [JsonProperty("added_sticker_file_ids", ItemConverterType = typeof(Converter))]
-                public int[] AddedStickerFileIds { get; set; }
-
-                /// <summary>
-                /// Duration of the animation, in seconds
-                /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("duration")]
-                public int Duration { get; set; }
-
-                /// <summary>
-                /// Width of the animation; may be replaced by the server
-                /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("width")]
-                public int Width { get; set; }
-
-                /// <summary>
-                /// Height of the animation; may be replaced by the server
-                /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("height")]
-                public int Height { get; set; }
+                public InputAnimation Animation { get; set; }
 
                 /// <summary>
                 /// Animation caption; pass null to use an empty caption; 0-getOption("message_caption_length_max") characters

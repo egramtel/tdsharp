@@ -12,7 +12,7 @@ namespace TdLib
         public partial class PageBlock : Object
         {
             /// <summary>
-            /// An embedded web page
+            /// An embedded web page; instant view only
             /// </summary>
             public class PageBlockEmbedded : PageBlock
             {
@@ -64,7 +64,7 @@ namespace TdLib
                 public int Height { get; set; }
 
                 /// <summary>
-                /// Block caption
+                /// Block caption; may be null if none
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("caption")]

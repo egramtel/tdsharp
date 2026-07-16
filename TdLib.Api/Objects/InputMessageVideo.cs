@@ -29,66 +29,11 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Video to be sent. The video is expected to be re-encoded to MPEG4 format with H.264 codec by the sender
+                /// Video to be sent
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("video")]
-                public InputFile Video { get; set; }
-
-                /// <summary>
-                /// Video thumbnail; pass null to skip thumbnail uploading
-                /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("thumbnail")]
-                public InputThumbnail Thumbnail { get; set; }
-
-                /// <summary>
-                /// Cover of the video; pass null to skip cover uploading; not supported in secret chats and for self-destructing messages
-                /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("cover")]
-                public InputFile Cover { get; set; }
-
-                /// <summary>
-                /// Timestamp from which the video playing must start, in seconds
-                /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("start_timestamp")]
-                public int StartTimestamp { get; set; }
-
-                /// <summary>
-                /// File identifiers of the stickers added to the video, if applicable
-                /// </summary>
-                [JsonProperty("added_sticker_file_ids", ItemConverterType = typeof(Converter))]
-                public int[] AddedStickerFileIds { get; set; }
-
-                /// <summary>
-                /// Duration of the video, in seconds
-                /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("duration")]
-                public int Duration { get; set; }
-
-                /// <summary>
-                /// Video width
-                /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("width")]
-                public int Width { get; set; }
-
-                /// <summary>
-                /// Video height
-                /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("height")]
-                public int Height { get; set; }
-
-                /// <summary>
-                /// True, if the video is expected to be streamed
-                /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("supports_streaming")]
-                public bool SupportsStreaming { get; set; }
+                public InputVideo Video { get; set; }
 
                 /// <summary>
                 /// Video caption; pass null to use an empty caption; 0-getOption("message_caption_length_max") characters

@@ -38,8 +38,8 @@ namespace TdLib
                 /// <summary>
                 /// Block contents
                 /// </summary>
-                [JsonProperty("page_blocks", ItemConverterType = typeof(Converter))]
-                public PageBlock[] PageBlocks { get; set; }
+                [JsonProperty("blocks", ItemConverterType = typeof(Converter))]
+                public PageBlock[] Blocks { get; set; }
 
                 /// <summary>
                 /// True, if the block is open by default

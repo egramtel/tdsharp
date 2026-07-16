@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns information about the recent locations of chat members that were sent to the chat. Returns up to 1 location message per user
+        /// Returns information about the recent live locations of chat members that were sent to the chat. Returns at most one live location message per user
         /// </summary>
         public class SearchChatRecentLocationMessages : Function<Messages>
         {
@@ -43,7 +43,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Returns information about the recent locations of chat members that were sent to the chat. Returns up to 1 location message per user
+        /// Returns information about the recent live locations of chat members that were sent to the chat. Returns at most one live location message per user
         /// </summary>
         public static Task<Messages> SearchChatRecentLocationMessagesAsync(
             this IClient client, long chatId = default, int limit = default)

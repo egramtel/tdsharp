@@ -29,45 +29,11 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Photo to send. The photo must be at most 10 MB in size. The photo's width and height must not exceed 10000 in total. Width and height ratio must be at most 20
+                /// Photo to be sent
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("photo")]
-                public InputFile Photo { get; set; }
-
-                /// <summary>
-                /// Photo thumbnail to be sent; pass null to skip thumbnail uploading. The thumbnail is sent to the other party only in secret chats
-                /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("thumbnail")]
-                public InputThumbnail Thumbnail { get; set; }
-
-                /// <summary>
-                /// Video of the live photo; not supported in secret chats; pass null if the photo isn't a live photo
-                /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("video")]
-                public InputFile Video { get; set; }
-
-                /// <summary>
-                /// File identifiers of the stickers added to the photo, if applicable
-                /// </summary>
-                [JsonProperty("added_sticker_file_ids", ItemConverterType = typeof(Converter))]
-                public int[] AddedStickerFileIds { get; set; }
-
-                /// <summary>
-                /// Photo width
-                /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("width")]
-                public int Width { get; set; }
-
-                /// <summary>
-                /// Photo height
-                /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("height")]
-                public int Height { get; set; }
+                public InputPhoto Photo { get; set; }
 
                 /// <summary>
                 /// Photo caption; pass null to use an empty caption; 0-getOption("message_caption_length_max") characters

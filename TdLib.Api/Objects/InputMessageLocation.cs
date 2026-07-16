@@ -34,27 +34,6 @@ namespace TdLib
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("location")]
                 public Location Location { get; set; }
-
-                /// <summary>
-                /// Period for which the location can be updated, in seconds; must be between 60 and 86400 for a temporary live location, 0x7FFFFFFF for permanent live location, and 0 otherwise
-                /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("live_period")]
-                public int LivePeriod { get; set; }
-
-                /// <summary>
-                /// For live locations, a direction in which the location moves, in degrees; 1-360. Pass 0 if unknown
-                /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("heading")]
-                public int Heading { get; set; }
-
-                /// <summary>
-                /// For live locations, a maximum distance to another chat member for proximity alerts, in meters (0-100000). Pass 0 if the notification is disabled. Can't be enabled in channels and Saved Messages
-                /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("proximity_alert_radius")]
-                public int ProximityAlertRadius { get; set; }
             }
         }
     }

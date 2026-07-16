@@ -12,7 +12,7 @@ namespace TdLib
         public partial class PageBlock : Object
         {
             /// <summary>
-            /// The author and publishing date of a page
+            /// The author and publishing date of a page; instant view only
             /// </summary>
             public class PageBlockAuthorDate : PageBlock
             {

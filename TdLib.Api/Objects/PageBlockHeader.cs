@@ -12,7 +12,7 @@ namespace TdLib
         public partial class PageBlock : Object
         {
             /// <summary>
-            /// A header
+            /// A header; instant view only
             /// </summary>
             public class PageBlockHeader : PageBlock
             {

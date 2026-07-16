@@ -34,7 +34,7 @@ namespace TdLib
             public RichText Text { get; set; }
 
             /// <summary>
-            /// Block credit (like HTML tag &lt;cite&gt;)
+            /// Block credit (like HTML tag &lt;cite&gt;); may be null if none
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("credit")]

@@ -12,7 +12,7 @@ namespace TdLib
         public partial class RichText : Object
         {
             /// <summary>
-            /// A small image inside the text
+            /// A small image inside the text; instant view only
             /// </summary>
             public class RichTextIcon : RichText
             {

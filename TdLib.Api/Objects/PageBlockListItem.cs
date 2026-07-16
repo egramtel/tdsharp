@@ -36,8 +36,37 @@ namespace TdLib
             /// <summary>
             /// Item blocks
             /// </summary>
-            [JsonProperty("page_blocks", ItemConverterType = typeof(Converter))]
-            public PageBlock[] PageBlocks { get; set; }
+            [JsonProperty("blocks", ItemConverterType = typeof(Converter))]
+            public PageBlock[] Blocks { get; set; }
+
+            /// <summary>
+            /// True, if the item has a checkbox
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("has_checkbox")]
+            public bool HasCheckbox { get; set; }
+
+            /// <summary>
+            /// True, if the item is checked
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("is_checked")]
+            public bool IsChecked { get; set; }
+
+            /// <summary>
+            /// Value of the item; 0 for unordered lists
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("value")]
+            public int Value { get; set; }
+
+            /// <summary>
+            /// Type of the item numbering type; must be one of "a" for a lowercase letters, "A" for an uppercase letters, "i" for lowercase Roman numerals, "I" for uppercase Roman numerals,
+            /// "1" for decimal numbers, or empty for unordered lists
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("type")]
+            public string Type { get; set; }
         }
     }
 }

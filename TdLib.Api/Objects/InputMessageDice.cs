@@ -36,7 +36,7 @@ namespace TdLib
                 public string Emoji { get; set; }
 
                 /// <summary>
-                /// True, if the chat message draft must be deleted
+                /// Pass true to delete message draft in the chat
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("clear_draft")]

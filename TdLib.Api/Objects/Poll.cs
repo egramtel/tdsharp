@@ -67,6 +67,13 @@ namespace TdLib
             public bool CanGetVoters { get; set; }
 
             /// <summary>
+            /// True, if the current user can see results of the poll
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("can_see_results")]
+            public bool CanSeeResults { get; set; }
+
+            /// <summary>
             /// True, if the poll is anonymous
             /// </summary>
             [JsonConverter(typeof(Converter))]

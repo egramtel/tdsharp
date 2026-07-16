@@ -29,39 +29,11 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Audio file to be sent
+                /// Audio to be sent
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("audio")]
-                public InputFile Audio { get; set; }
-
-                /// <summary>
-                /// Thumbnail of the cover for the album; pass null to skip thumbnail uploading
-                /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("album_cover_thumbnail")]
-                public InputThumbnail AlbumCoverThumbnail { get; set; }
-
-                /// <summary>
-                /// Duration of the audio, in seconds; may be replaced by the server
-                /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("duration")]
-                public int Duration { get; set; }
-
-                /// <summary>
-                /// Title of the audio; 0-64 characters; may be replaced by the server
-                /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("title")]
-                public string Title { get; set; }
-
-                /// <summary>
-                /// Performer of the audio; 0-64 characters, may be replaced by the server
-                /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("performer")]
-                public string Performer { get; set; }
+                public InputAudio Audio { get; set; }
 
                 /// <summary>
                 /// Audio caption; pass null to use an empty caption; 0-getOption("message_caption_length_max") characters

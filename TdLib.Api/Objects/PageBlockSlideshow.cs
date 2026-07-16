@@ -31,11 +31,11 @@ namespace TdLib
                 /// <summary>
                 /// Slideshow item contents
                 /// </summary>
-                [JsonProperty("page_blocks", ItemConverterType = typeof(Converter))]
-                public PageBlock[] PageBlocks { get; set; }
+                [JsonProperty("blocks", ItemConverterType = typeof(Converter))]
+                public PageBlock[] Blocks { get; set; }
 
                 /// <summary>
-                /// Block caption
+                /// Block caption; may be null if none
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("caption")]

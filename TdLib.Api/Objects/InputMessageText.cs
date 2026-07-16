@@ -43,7 +43,7 @@ namespace TdLib
                 public LinkPreviewOptions LinkPreviewOptions { get; set; }
 
                 /// <summary>
-                /// True, if the chat message draft must be deleted
+                /// Pass true to delete message draft in the chat
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("clear_draft")]

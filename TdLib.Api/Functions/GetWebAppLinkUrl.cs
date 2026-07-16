@@ -13,7 +13,7 @@ namespace TdLib
         /// <summary>
         /// Returns an HTTPS URL of a Web App to open after a link of the type internalLinkTypeWebApp is clicked
         /// </summary>
-        public class GetWebAppLinkUrl : Function<HttpUrl>
+        public class GetWebAppLinkUrl : Function<WebAppUrl>
         {
             /// <summary>
             /// Data type for serialization
@@ -73,7 +73,7 @@ namespace TdLib
         /// <summary>
         /// Returns an HTTPS URL of a Web App to open after a link of the type internalLinkTypeWebApp is clicked
         /// </summary>
-        public static Task<HttpUrl> GetWebAppLinkUrlAsync(
+        public static Task<WebAppUrl> GetWebAppLinkUrlAsync(
             this IClient client, long chatId = default, long botUserId = default, string webAppShortName = default, string startParameter = default, bool allowWriteAccess = default, WebAppOpenParameters parameters = default)
         {
             return client.ExecuteAsync(new GetWebAppLinkUrl
