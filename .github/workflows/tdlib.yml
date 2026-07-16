@@ -36,7 +36,7 @@ jobs:
           path: ${{ env.NUGET_PACKAGES }}
           key: ${{ runner.os }}.nuget.${{ hashFiles('Scripts/*.fsx') }}
       - name: Set up .NET SDK
-        uses: actions/setup-dotnet@v5
+        uses: actions/setup-dotnet@v6
 
       - id: update-tdlib
         name: Update TDLib
