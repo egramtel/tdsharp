@@ -36,7 +36,7 @@ namespace TdLib
                 public Animation Animation { get; set; }
 
                 /// <summary>
-                /// Animation caption
+                /// Animation caption; may be null if none
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("caption")]
@@ -48,6 +48,13 @@ namespace TdLib
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("need_autoplay")]
                 public bool NeedAutoplay { get; set; }
+
+                /// <summary>
+                /// True, if the animation preview must be covered by a spoiler animation
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("has_spoiler")]
+                public bool HasSpoiler { get; set; }
             }
         }
     }

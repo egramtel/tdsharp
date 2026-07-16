@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns all active sessions of the current user
+        /// Returns all active sessions of the current user. Additionally, getBusinessConnectedBot must be used to show the bot on top of active sessions
         /// </summary>
         public class GetActiveSessions : Function<Sessions>
         {
@@ -31,7 +31,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Returns all active sessions of the current user
+        /// Returns all active sessions of the current user. Additionally, getBusinessConnectedBot must be used to show the bot on top of active sessions
         /// </summary>
         public static Task<Sessions> GetActiveSessionsAsync(
             this IClient client)

@@ -36,18 +36,25 @@ namespace TdLib
                 public Photo Photo { get; set; }
 
                 /// <summary>
-                /// Photo caption
+                /// Photo caption; may be null if none
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("caption")]
                 public PageBlockCaption Caption { get; set; }
 
                 /// <summary>
-                /// URL that needs to be opened when the photo is clicked
+                /// URL that needs to be opened when the photo is clicked; instant view only
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("url")]
                 public string Url { get; set; }
+
+                /// <summary>
+                /// True, if the photo preview must be covered by a spoiler animation
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("has_spoiler")]
+                public bool HasSpoiler { get; set; }
             }
         }
     }

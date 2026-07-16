@@ -12,7 +12,7 @@ namespace TdLib
     {
         /// <summary>
         /// Returns the user who will become the owner of the chat after 7 days if the current user does not return to the supergroup or channel during that period or immediately for basic groups; requires owner privileges in the chat.
-        /// Available only for supergroups and channel chats
+        /// Available only for basic groups, supergroups, and channel chats
         /// </summary>
         public class GetChatOwnerAfterLeaving : Function<User>
         {
@@ -38,7 +38,7 @@ namespace TdLib
 
         /// <summary>
         /// Returns the user who will become the owner of the chat after 7 days if the current user does not return to the supergroup or channel during that period or immediately for basic groups; requires owner privileges in the chat.
-        /// Available only for supergroups and channel chats
+        /// Available only for basic groups, supergroups, and channel chats
         /// </summary>
         public static Task<User> GetChatOwnerAfterLeavingAsync(
             this IClient client, long chatId = default)

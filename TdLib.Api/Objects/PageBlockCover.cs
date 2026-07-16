@@ -12,7 +12,7 @@ namespace TdLib
         public partial class PageBlock : Object
         {
             /// <summary>
-            /// A page cover
+            /// A page cover; instant view only
             /// </summary>
             public class PageBlockCover : PageBlock
             {

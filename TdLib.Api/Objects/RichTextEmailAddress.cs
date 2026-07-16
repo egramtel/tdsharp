@@ -12,7 +12,7 @@ namespace TdLib
         public partial class RichText : Object
         {
             /// <summary>
-            /// A rich text email link
+            /// A rich text email address
             /// </summary>
             public class RichTextEmailAddress : RichText
             {

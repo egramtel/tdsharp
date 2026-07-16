@@ -36,7 +36,7 @@ namespace TdLib
                 public VoiceNote VoiceNote { get; set; }
 
                 /// <summary>
-                /// Voice note caption
+                /// Voice note caption; may be null if none
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("caption")]

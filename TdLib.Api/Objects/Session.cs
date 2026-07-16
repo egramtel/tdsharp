@@ -69,11 +69,11 @@ namespace TdLib
             public bool CanAcceptCalls { get; set; }
 
             /// <summary>
-            /// Session type based on the system and application version, which can be used to display a corresponding icon
+            /// Session device type based on the system and application version, which can be used to display a corresponding icon
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("type")]
-            public SessionType Type { get; set; }
+            [JsonProperty("device_type")]
+            public SessionDeviceType DeviceType { get; set; }
 
             /// <summary>
             /// Telegram API identifier, as provided by the application

@@ -12,7 +12,7 @@ namespace TdLib
         public partial class PageBlock : Object
         {
             /// <summary>
-            /// Related articles
+            /// Related articles; instant view only
             /// </summary>
             public class PageBlockRelatedArticles : PageBlock
             {

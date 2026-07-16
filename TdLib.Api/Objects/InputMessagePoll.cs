@@ -49,12 +49,12 @@ namespace TdLib
                 public FormattedText Description { get; set; }
 
                 /// <summary>
-                /// Media attached to the poll; pass null if none. Must be one of the following types: inputMessageAnimation, inputMessageAudio, inputMessageDocument, non-live inputMessageLocation,
-                /// inputMessagePhoto, inputMessageVenue, or inputMessageVideo without caption
+                /// Media attached to the poll; pass null if none. Must be one of the following types: inputPollMediaAnimation, inputPollMediaAudio, inputPollMediaDocument, inputPollMediaLocation,
+                /// inputPollMediaPhoto, inputPollMediaVenue, or inputPollMediaVideo without caption
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("media")]
-                public InputMessageContent Media { get; set; }
+                public InputPollMedia Media { get; set; }
 
                 /// <summary>
                 /// True, if the poll voters are anonymous. Non-anonymous polls can't be sent or forwarded to channels

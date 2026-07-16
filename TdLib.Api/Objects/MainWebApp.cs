@@ -31,7 +31,7 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("url")]
-            public string Url { get; set; }
+            public WebAppUrl Url { get; set; }
 
             /// <summary>
             /// The mode in which the Web App must be opened

@@ -36,7 +36,7 @@ namespace TdLib
                 public Video Video { get; set; }
 
                 /// <summary>
-                /// Video caption
+                /// Video caption; may be null if none
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("caption")]
@@ -55,6 +55,13 @@ namespace TdLib
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_looped")]
                 public bool IsLooped { get; set; }
+
+                /// <summary>
+                /// True, if the video preview must be covered by a spoiler animation
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("has_spoiler")]
+                public bool HasSpoiler { get; set; }
             }
         }
     }

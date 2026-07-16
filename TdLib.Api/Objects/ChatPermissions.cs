@@ -27,7 +27,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// True, if the user can send text messages, contacts, giveaways, giveaway winners, invoices, locations, and venues
+            /// True, if the user can send text messages, rich messages, contacts, giveaways, giveaway winners, invoices, locations, and venues
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("can_send_basic_messages")]

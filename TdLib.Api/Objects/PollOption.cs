@@ -41,11 +41,11 @@ namespace TdLib
             public FormattedText Text { get; set; }
 
             /// <summary>
-            /// Option media; may be null if none. If present, currently, can be only of the types messageAnimation, messageLocation, messagePhoto, messageSticker, messageVenue, or messageVideo without caption
+            /// Option media; may be null if none. If present, currently, can be only of the types pollMediaAnimation, pollMediaLink, pollMediaLocation, pollMediaPhoto, pollMediaSticker, pollMediaVenue, or pollMediaVideo
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("media")]
-            public MessageContent Media { get; set; }
+            public PollMedia Media { get; set; }
 
             /// <summary>
             /// Number of voters for this option, available only for closed or voted polls, or if the current user is the creator of the poll

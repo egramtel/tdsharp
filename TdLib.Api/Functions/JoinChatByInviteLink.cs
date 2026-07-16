@@ -11,9 +11,9 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Uses an invite link to add the current user to the chat if possible. May return an error with a message "INVITE_REQUEST_SENT" if only a join request was created
+        /// Uses an invite link to add the current user to the chat if possible
         /// </summary>
-        public class JoinChatByInviteLink : Function<Chat>
+        public class JoinChatByInviteLink : Function<ChatJoinResult>
         {
             /// <summary>
             /// Data type for serialization
@@ -36,9 +36,9 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Uses an invite link to add the current user to the chat if possible. May return an error with a message "INVITE_REQUEST_SENT" if only a join request was created
+        /// Uses an invite link to add the current user to the chat if possible
         /// </summary>
-        public static Task<Chat> JoinChatByInviteLinkAsync(
+        public static Task<ChatJoinResult> JoinChatByInviteLinkAsync(
             this IClient client, string inviteLink = default)
         {
             return client.ExecuteAsync(new JoinChatByInviteLink

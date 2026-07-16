@@ -46,7 +46,7 @@ namespace TdLib
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("explanation_media")]
-                public MessageContent ExplanationMedia { get; set; }
+                public PollMedia ExplanationMedia { get; set; }
             }
         }
     }

@@ -12,7 +12,7 @@ namespace TdLib
         public partial class PageBlock : Object
         {
             /// <summary>
-            /// The subtitle of a page
+            /// The subtitle of a page; instant view only
             /// </summary>
             public class PageBlockSubtitle : PageBlock
             {

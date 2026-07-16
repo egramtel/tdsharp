@@ -41,7 +41,7 @@ namespace TdLib
             public string DisplayUrl { get; set; }
 
             /// <summary>
-            /// Short name of the site (e.g., Google Docs, App Store)
+            /// Short name of the website (e.g., Google Docs, App Store)
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("site_name")]

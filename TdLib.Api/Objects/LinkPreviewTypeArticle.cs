@@ -12,7 +12,7 @@ namespace TdLib
         public partial class LinkPreviewType : Object
         {
             /// <summary>
-            /// The link is a link to a web site
+            /// The link is a link to a website
             /// </summary>
             public class LinkPreviewTypeArticle : LinkPreviewType
             {

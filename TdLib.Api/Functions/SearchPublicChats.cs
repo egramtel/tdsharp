@@ -34,6 +34,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("query")]
             public string Query { get; set; }
+
+            /// <summary>
+            /// Additional filter for type of the chats to be returned; pass null to search for chats of all types
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("type_filter")]
+            public SearchChatTypeFilter TypeFilter { get; set; }
         }
 
         /// <summary>
@@ -41,11 +48,11 @@ namespace TdLib
         /// Excludes private chats with contacts and chats from the chat list from the results
         /// </summary>
         public static Task<Chats> SearchPublicChatsAsync(
-            this IClient client, string query = default)
+            this IClient client, string query = default, SearchChatTypeFilter typeFilter = default)
         {
             return client.ExecuteAsync(new SearchPublicChats
             {
-                Query = query
+                Query = query, TypeFilter = typeFilter
             });
         }
     }

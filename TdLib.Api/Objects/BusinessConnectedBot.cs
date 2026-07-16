@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Describes a bot connected to a business account
+        /// Describes a business bot connected to an account
         /// </summary>
         public partial class BusinessConnectedBot : Object
         {

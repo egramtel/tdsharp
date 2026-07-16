@@ -29,8 +29,8 @@ namespace TdLib
             /// <summary>
             /// Content of the instant view page
             /// </summary>
-            [JsonProperty("page_blocks", ItemConverterType = typeof(Converter))]
-            public PageBlock[] PageBlocks { get; set; }
+            [JsonProperty("blocks", ItemConverterType = typeof(Converter))]
+            public PageBlock[] Blocks { get; set; }
 
             /// <summary>
             /// Number of the instant view views; 0 if unknown

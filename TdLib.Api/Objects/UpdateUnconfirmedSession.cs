@@ -34,6 +34,13 @@ namespace TdLib
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("session")]
                 public UnconfirmedSession Session { get; set; }
+
+                /// <summary>
+                /// The total number of unconfirmed sessions
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("unconfirmed_session_count")]
+                public int UnconfirmedSessionCount { get; set; }
             }
         }
     }

@@ -33,21 +33,7 @@ namespace TdLib
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("document")]
-                public InputFile Document { get; set; }
-
-                /// <summary>
-                /// Document thumbnail; pass null to skip thumbnail uploading
-                /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("thumbnail")]
-                public InputThumbnail Thumbnail { get; set; }
-
-                /// <summary>
-                /// Pass true to disable automatic file type detection and send the document as a file. Always true for files sent to secret chats
-                /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("disable_content_type_detection")]
-                public bool DisableContentTypeDetection { get; set; }
+                public InputDocument Document { get; set; }
 
                 /// <summary>
                 /// Document caption; pass null to use an empty caption; 0-getOption("message_caption_length_max") characters

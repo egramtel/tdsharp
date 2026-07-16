@@ -12,7 +12,7 @@ namespace TdLib
         public partial class PageBlock : Object
         {
             /// <summary>
-            /// A kicker
+            /// A kicker; instant view only
             /// </summary>
             public class PageBlockKicker : PageBlock
             {

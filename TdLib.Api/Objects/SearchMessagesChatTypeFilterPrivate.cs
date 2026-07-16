@@ -12,7 +12,7 @@ namespace TdLib
         public partial class SearchMessagesChatTypeFilter : Object
         {
             /// <summary>
-            /// Represents a filter for type of the chats in which to search messages
+            /// Represents a filter for type of the chats in which to search for messages
             /// </summary>
             public class SearchMessagesChatTypeFilterPrivate : SearchMessagesChatTypeFilter
             {

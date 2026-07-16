@@ -99,6 +99,13 @@ namespace TdLib
                 public bool SupportsGuestQueries { get; set; }
 
                 /// <summary>
+                /// True, if the bot can be set as a guard bot in supergroup chats
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("is_guard")]
+                public bool IsGuard { get; set; }
+
+                /// <summary>
                 /// True, if the location of the user is expected to be sent with every inline query to this bot
                 /// </summary>
                 [JsonConverter(typeof(Converter))]

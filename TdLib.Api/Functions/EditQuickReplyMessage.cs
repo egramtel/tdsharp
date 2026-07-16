@@ -44,7 +44,7 @@ namespace TdLib
             public long MessageId { get; set; }
 
             /// <summary>
-            /// New content of the message. Must be one of the following types: inputMessageAnimation, inputMessageAudio, inputMessageChecklist, inputMessageDocument, inputMessagePhoto, inputMessageText, or inputMessageVideo
+            /// New content of the message. Must be one of the following types: inputMessageAnimation, inputMessageAudio, inputMessageChecklist, inputMessageDocument, inputMessagePhoto, inputMessageRichMessage, inputMessageText, or inputMessageVideo
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("input_message_content")]

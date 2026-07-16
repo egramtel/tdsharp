@@ -64,7 +64,7 @@ namespace TdLib
                 public ReplyMarkup ReplyMarkup { get; set; }
 
                 /// <summary>
-                /// The content of the message to be sent. Must be one of the following types: inputMessageText, inputMessageVoiceNote, inputMessageInvoice, inputMessageLocation, inputMessageVenue or inputMessageContact
+                /// The content of the message to be sent. Must be one of the following types: inputMessageText, inputMessageRichMessage, inputMessageVoiceNote, inputMessageInvoice, inputMessageLiveLocation, inputMessageLocation, inputMessageVenue or inputMessageContact
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("input_message_content")]
