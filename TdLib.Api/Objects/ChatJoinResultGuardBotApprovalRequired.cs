@@ -36,16 +36,9 @@ namespace TdLib
                 public long BotUserId { get; set; }
 
                 /// <summary>
-                /// The URL of the Web App to open
+                /// Unique identifier of the join request, which will be used in getGuardBotWebAppUrl and updateChatJoinResult
                 /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("url")]
-                public WebAppUrl Url { get; set; }
-
-                /// <summary>
-                /// Unique identifier of the join request, which will be used in updateChatJoinResult
-                /// </summary>
-                [JsonConverter(typeof(Converter))]
+                [JsonConverter(typeof(Converter.Int64))]
                 [JsonProperty("query_id")]
                 public long QueryId { get; set; }
             }

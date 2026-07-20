@@ -34,6 +34,12 @@ namespace TdLib
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("text")]
                 public string Text { get; set; }
+
+                /// <summary>
+                /// Media used in the message
+                /// </summary>
+                [JsonProperty("media", ItemConverterType = typeof(Converter))]
+                public InputRichMessageMedia[] Media { get; set; }
             }
         }
     }

@@ -39,6 +39,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("description")]
             public string Description { get; set; }
+
+            /// <summary>
+            /// True, if the command must send an ephemeral message instead of a regular one
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("is_ephemeral")]
+            public bool IsEphemeral { get; set; }
         }
     }
 }

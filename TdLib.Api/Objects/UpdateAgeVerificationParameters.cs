@@ -12,7 +12,7 @@ namespace TdLib
         public partial class Update : Object
         {
             /// <summary>
-            /// The parameters for age verification of the current user's account has changed
+            /// The parameters for age verification of the current user's account have changed
             /// </summary>
             public class UpdateAgeVerificationParameters : Update
             {

@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Edits the text of an inline text or game message sent via a bot; for bots only
+        /// Edits the text of an inline text or game message sent via the bot; for bots only
         /// </summary>
         public class EditInlineMessageText : Function<Ok>
         {
@@ -42,7 +42,7 @@ namespace TdLib
             public ReplyMarkup ReplyMarkup { get; set; }
 
             /// <summary>
-            /// New text content of the message. Must be of type inputMessageText or inputMessageRichMessage
+            /// New text content of the message. Must be of type inputMessageText or inputMessageRichMessage; file upload isn't supported
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("input_message_content")]
@@ -50,7 +50,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Edits the text of an inline text or game message sent via a bot; for bots only
+        /// Edits the text of an inline text or game message sent via the bot; for bots only
         /// </summary>
         public static Task<Ok> EditInlineMessageTextAsync(
             this IClient client, string inlineMessageId = default, ReplyMarkup replyMarkup = default, InputMessageContent inputMessageContent = default)

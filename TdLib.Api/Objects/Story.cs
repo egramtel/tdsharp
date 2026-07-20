@@ -153,7 +153,7 @@ namespace TdLib
             public bool CanGetInteractions { get; set; }
 
             /// <summary>
-            /// True, if users viewed the story can't be received, because the story has expired more than getOption("story_viewers_expiration_delay") seconds ago
+            /// True, if users who viewed the story can't be received, because the story has expired more than getOption("story_viewers_expiration_delay") seconds ago
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("has_expired_viewers")]

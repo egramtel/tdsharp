@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Represents a transaction changing the amount of owned Toncoins
+        /// Represents a transaction changing the amount of owned TON Grams
         /// </summary>
         public partial class TonTransaction : Object
         {
@@ -34,11 +34,11 @@ namespace TdLib
             public string Id { get; set; }
 
             /// <summary>
-            /// The amount of added owned Toncoins; negative for outgoing transactions
+            /// The amount of added owned Grams, in the smallest units of the cryptocurrency; negative for outgoing transactions
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("ton_amount")]
-            public long TonAmount { get; set; }
+            [JsonProperty("gram_amount")]
+            public long GramAmount { get; set; }
 
             /// <summary>
             /// True, if the transaction is a refund of a previous transaction

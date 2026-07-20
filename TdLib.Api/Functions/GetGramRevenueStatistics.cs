@@ -11,15 +11,15 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns detailed Toncoin revenue statistics of the current user
+        /// Returns detailed TON Gram revenue statistics of the current user
         /// </summary>
-        public class GetTonRevenueStatistics : Function<TonRevenueStatistics>
+        public class GetGramRevenueStatistics : Function<GramRevenueStatistics>
         {
             /// <summary>
             /// Data type for serialization
             /// </summary>
             [JsonProperty("@type")]
-            public override string DataType { get; set; } = "getTonRevenueStatistics";
+            public override string DataType { get; set; } = "getGramRevenueStatistics";
 
             /// <summary>
             /// Extra data attached to the function
@@ -36,12 +36,12 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Returns detailed Toncoin revenue statistics of the current user
+        /// Returns detailed TON Gram revenue statistics of the current user
         /// </summary>
-        public static Task<TonRevenueStatistics> GetTonRevenueStatisticsAsync(
+        public static Task<GramRevenueStatistics> GetGramRevenueStatisticsAsync(
             this IClient client, bool isDark = default)
         {
-            return client.ExecuteAsync(new GetTonRevenueStatistics
+            return client.ExecuteAsync(new GetGramRevenueStatistics
             {
                 IsDark = isDark
             });

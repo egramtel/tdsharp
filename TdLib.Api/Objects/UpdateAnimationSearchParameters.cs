@@ -12,7 +12,7 @@ namespace TdLib
         public partial class Update : Object
         {
             /// <summary>
-            /// The parameters of animation search through getOption("animation_search_bot_username") bot has changed
+            /// The parameters of animation search through getOption("animation_search_bot_username") bot have changed
             /// </summary>
             public class UpdateAnimationSearchParameters : Update
             {

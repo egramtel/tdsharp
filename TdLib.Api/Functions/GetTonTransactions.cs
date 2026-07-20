@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns the list of Toncoin transactions of the current user
+        /// Returns the list of TON blockchain transactions of the current user
         /// </summary>
         public class GetTonTransactions : Function<TonTransactions>
         {
@@ -50,7 +50,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Returns the list of Toncoin transactions of the current user
+        /// Returns the list of TON blockchain transactions of the current user
         /// </summary>
         public static Task<TonTransactions> GetTonTransactionsAsync(
             this IClient client, TransactionDirection direction = default, string offset = default, int limit = default)

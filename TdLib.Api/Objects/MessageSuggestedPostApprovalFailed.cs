@@ -12,7 +12,7 @@ namespace TdLib
         public partial class MessageContent : Object
         {
             /// <summary>
-            /// Approval of suggested post has failed, because the user which proposed the post had no enough funds
+            /// Approval of suggested post has failed, because the user who proposed the post didn't have enough funds
             /// </summary>
             public class MessageSuggestedPostApprovalFailed : MessageContent
             {

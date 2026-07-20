@@ -76,7 +76,7 @@ namespace TdLib
             public bool PreloadNextAudio { get; set; }
 
             /// <summary>
-            /// True, if stories needs to be preloaded
+            /// True, if stories need to be preloaded
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("preload_stories")]

@@ -50,18 +50,18 @@ namespace TdLib
                 public int Value { get; set; }
 
                 /// <summary>
-                /// The Toncoin amount that was staked; in the smallest units of the currency
+                /// The TON Gram amount that was staked; in the smallest units of the currency
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("stake_toncoin_amount")]
-                public long StakeToncoinAmount { get; set; }
+                [JsonProperty("stake_gram_amount")]
+                public long StakeGramAmount { get; set; }
 
                 /// <summary>
-                /// The Toncoin amount that was gained from the roll; in the smallest units of the currency; -1 if the dice don't have final state yet
+                /// The TON Gram amount that was gained from the roll; in the smallest units of the currency; -1 if the dice don't have final state yet
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("prize_toncoin_amount")]
-                public long PrizeToncoinAmount { get; set; }
+                [JsonProperty("prize_gram_amount")]
+                public long PrizeGramAmount { get; set; }
             }
         }
     }

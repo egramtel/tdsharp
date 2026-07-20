@@ -76,7 +76,7 @@ namespace TdLib
             public string Prompt { get; set; }
 
             /// <summary>
-            /// User identifier of the creator of the style; 0 if none of unknown
+            /// User identifier of the creator of the style; 0 if none or unknown
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("creator_user_id")]

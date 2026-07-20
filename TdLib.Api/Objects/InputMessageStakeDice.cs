@@ -36,12 +36,12 @@ namespace TdLib
                 public string StateHash { get; set; }
 
                 /// <summary>
-                /// The Toncoin amount that will be staked; in the smallest units of the currency. Must be in the range
+                /// The TON Gram amount that will be staked; in the smallest units of the currency. Must be in the range
                 /// getOption("stake_dice_stake_amount_min")-getOption("stake_dice_stake_amount_max")
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("stake_toncoin_amount")]
-                public long StakeToncoinAmount { get; set; }
+                [JsonProperty("stake_gram_amount")]
+                public long StakeGramAmount { get; set; }
 
                 /// <summary>
                 /// Pass true to delete message draft in the chat

@@ -41,7 +41,7 @@ namespace TdLib
             public BusinessRecipients Recipients { get; set; }
 
             /// <summary>
-            /// The number of days after which a chat will be considered as inactive; currently, must be on of 7, 14, 21, or 28
+            /// The number of days after which a chat will be considered as inactive; currently, must be one of 7, 14, 21, or 28
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("inactivity_days")]

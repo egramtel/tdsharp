@@ -48,6 +48,13 @@ namespace TdLib
             public string EnglishName { get; set; }
 
             /// <summary>
+            /// An emoji for the flag of the country; may be empty if unknown
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("flag_emoji")]
+            public string FlagEmoji { get; set; }
+
+            /// <summary>
             /// True, if the country must be hidden from the list of all countries
             /// </summary>
             [JsonConverter(typeof(Converter))]

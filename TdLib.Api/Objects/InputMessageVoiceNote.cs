@@ -29,25 +29,11 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Voice note to be sent. The voice note must be encoded with the Opus codec and stored inside an OGG container with a single audio channel, or be in MP3 or M4A format as regular audio
+                /// Voice note to be sent
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("voice_note")]
-                public InputFile VoiceNote { get; set; }
-
-                /// <summary>
-                /// Duration of the voice note, in seconds
-                /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("duration")]
-                public int Duration { get; set; }
-
-                /// <summary>
-                /// Waveform representation of the voice note in 5-bit format
-                /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("waveform")]
-                public byte[] Waveform { get; set; }
+                public InputVoiceNote VoiceNote { get; set; }
 
                 /// <summary>
                 /// Voice note caption; pass null to use an empty caption; 0-getOption("message_caption_length_max") characters

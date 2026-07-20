@@ -29,32 +29,11 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Video note to be sent. The video is expected to be encoded to MPEG4 format with H.264 codec and have no data outside of the visible circle
+                /// Video note to be sent
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("video_note")]
-                public InputFile VideoNote { get; set; }
-
-                /// <summary>
-                /// Video thumbnail; may be null if empty; pass null to skip thumbnail uploading
-                /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("thumbnail")]
-                public InputThumbnail Thumbnail { get; set; }
-
-                /// <summary>
-                /// Duration of the video, in seconds; 0-60
-                /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("duration")]
-                public int Duration { get; set; }
-
-                /// <summary>
-                /// Video width and height; must be positive and not greater than 640
-                /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("length")]
-                public int Length { get; set; }
+                public InputVideoNote VideoNote { get; set; }
 
                 /// <summary>
                 /// Video note self-destruct type; may be null if none; pass null if none; private chats only

@@ -12,7 +12,7 @@ namespace TdLib
         public partial class Update : Object
         {
             /// <summary>
-            /// The parameters of speech recognition without Telegram Premium subscription has changed
+            /// The parameters of speech recognition without Telegram Premium subscription have changed
             /// </summary>
             public class UpdateSpeechRecognitionTrial : Update
             {

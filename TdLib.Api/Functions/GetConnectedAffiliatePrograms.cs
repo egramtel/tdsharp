@@ -28,7 +28,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// The affiliate to which the affiliate program were connected
+            /// The affiliate to which the affiliate programs were connected
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("affiliate")]

@@ -90,7 +90,7 @@ namespace TdLib
             public bool IsBurned { get; set; }
 
             /// <summary>
-            /// True, if the gift was craft from another gifts
+            /// True, if the gift was crafted from other gifts
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_crafted")]

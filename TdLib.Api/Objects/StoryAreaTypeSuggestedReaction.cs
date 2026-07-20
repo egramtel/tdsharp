@@ -12,7 +12,7 @@ namespace TdLib
         public partial class StoryAreaType : Object
         {
             /// <summary>
-            /// An area pointing to a suggested reaction. App needs to show a clickable reaction on the area and call setStoryReaction when the are is clicked
+            /// An area pointing to a suggested reaction. App needs to show a clickable reaction on the area and call setStoryReaction when the area is clicked
             /// </summary>
             public class StoryAreaTypeSuggestedReaction : StoryAreaType
             {

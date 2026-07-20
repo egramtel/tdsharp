@@ -12,7 +12,7 @@ namespace TdLib
         public partial class InputPaidMediaType : Object
         {
             /// <summary>
-            /// Describes type of paid media to sent
+            /// Describes type of paid media to send
             /// </summary>
             public class InputPaidMediaTypePhoto : InputPaidMediaType
             {

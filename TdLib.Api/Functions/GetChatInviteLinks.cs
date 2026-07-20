@@ -42,7 +42,7 @@ namespace TdLib
             public long CreatorUserId { get; set; }
 
             /// <summary>
-            /// Pass true if revoked links needs to be returned instead of active or expired
+            /// Pass true if revoked links need to be returned instead of active or expired
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_revoked")]

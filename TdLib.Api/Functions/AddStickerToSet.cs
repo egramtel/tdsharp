@@ -46,14 +46,14 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("sticker")]
-            public InputSticker Sticker { get; set; }
+            public NewSticker Sticker { get; set; }
         }
 
         /// <summary>
         /// Adds a new sticker to a set
         /// </summary>
         public static Task<Ok> AddStickerToSetAsync(
-            this IClient client, long userId = default, string name = default, InputSticker sticker = default)
+            this IClient client, long userId = default, string name = default, NewSticker sticker = default)
         {
             return client.ExecuteAsync(new AddStickerToSet
             {

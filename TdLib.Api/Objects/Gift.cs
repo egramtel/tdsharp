@@ -119,7 +119,7 @@ namespace TdLib
             public GiftPurchaseLimits UserLimits { get; set; }
 
             /// <summary>
-            /// Number of times the gift can be purchased all users; may be null if not limited
+            /// Number of times the gift can be purchased by all users; may be null if not limited
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("overall_limits")]
@@ -133,14 +133,14 @@ namespace TdLib
             public GiftBackground Background { get; set; }
 
             /// <summary>
-            /// Point in time (Unix timestamp) when the gift was send for the first time; for sold out gifts only
+            /// Point in time (Unix timestamp) when the gift was sent for the first time; for sold out gifts only
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("first_send_date")]
             public int FirstSendDate { get; set; }
 
             /// <summary>
-            /// Point in time (Unix timestamp) when the gift was send for the last time; for sold out gifts only
+            /// Point in time (Unix timestamp) when the gift was sent for the last time; for sold out gifts only
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("last_send_date")]

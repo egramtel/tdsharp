@@ -43,11 +43,11 @@ namespace TdLib
                 public StarAmount StarAmount { get; set; }
 
                 /// <summary>
-                /// The amount of received Toncoins; in the smallest units of the cryptocurrency
+                /// The amount of received TON Grams; in the smallest units of the cryptocurrency
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("ton_amount")]
-                public long TonAmount { get; set; }
+                [JsonProperty("gram_amount")]
+                public long GramAmount { get; set; }
             }
         }
     }

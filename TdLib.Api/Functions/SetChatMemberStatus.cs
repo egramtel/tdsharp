@@ -13,7 +13,7 @@ namespace TdLib
         /// <summary>
         /// Changes the status of a chat member; requires can_invite_users member right to add a chat member, can_promote_members administrator right to change administrator rights of the member,
         /// and can_restrict_members administrator right to change restrictions of a user. This function is currently not suitable for transferring chat ownership; use transferChatOwnership instead.
-        /// Use addChatMember or banChatMember if some additional parameters needs to be passed
+        /// Use addChatMember or banChatMember if some additional parameters need to be passed
         /// </summary>
         public class SetChatMemberStatus : Function<Ok>
         {
@@ -54,7 +54,7 @@ namespace TdLib
         /// <summary>
         /// Changes the status of a chat member; requires can_invite_users member right to add a chat member, can_promote_members administrator right to change administrator rights of the member,
         /// and can_restrict_members administrator right to change restrictions of a user. This function is currently not suitable for transferring chat ownership; use transferChatOwnership instead.
-        /// Use addChatMember or banChatMember if some additional parameters needs to be passed
+        /// Use addChatMember or banChatMember if some additional parameters need to be passed
         /// </summary>
         public static Task<Ok> SetChatMemberStatusAsync(
             this IClient client, long chatId = default, MessageSender memberId = default, ChatMemberStatus status = default)

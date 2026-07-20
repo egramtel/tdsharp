@@ -53,14 +53,14 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("new_sticker")]
-            public InputSticker NewSticker { get; set; }
+            public NewSticker NewSticker { get; set; }
         }
 
         /// <summary>
         /// Replaces existing sticker in a set. The function is equivalent to removeStickerFromSet, then addStickerToSet, then setStickerPositionInSet
         /// </summary>
         public static Task<Ok> ReplaceStickerInSetAsync(
-            this IClient client, long userId = default, string name = default, InputFile oldSticker = default, InputSticker newSticker = default)
+            this IClient client, long userId = default, string name = default, InputFile oldSticker = default, NewSticker newSticker = default)
         {
             return client.ExecuteAsync(new ReplaceStickerInSet
             {

@@ -12,7 +12,7 @@ namespace TdLib
         public partial class Update : Object
         {
             /// <summary>
-            /// The list of auctions in which participate the current user has changed
+            /// The list of auctions in which the current user participates has changed
             /// </summary>
             public class UpdateActiveGiftAuctions : Update
             {
