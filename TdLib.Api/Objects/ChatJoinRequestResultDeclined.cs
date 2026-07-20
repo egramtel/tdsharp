@@ -12,7 +12,7 @@ namespace TdLib
         public partial class ChatJoinRequestResult : Object
         {
             /// <summary>
-            /// The request was decline
+            /// The request was declined
             /// </summary>
             public class ChatJoinRequestResultDeclined : ChatJoinRequestResult
             {

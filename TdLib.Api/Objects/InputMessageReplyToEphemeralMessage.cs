@@ -9,18 +9,18 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        public partial class Update : Object
+        public partial class InputMessageReplyTo : Object
         {
             /// <summary>
-            /// The number of Toncoins owned by the current user has changed
+            /// Describes an ephemeral message to be replied; for bots only
             /// </summary>
-            public class UpdateOwnedTonCount : Update
+            public class InputMessageReplyToEphemeralMessage : InputMessageReplyTo
             {
                 /// <summary>
                 /// Data type for serialization
                 /// </summary>
                 [JsonProperty("@type")]
-                public override string DataType { get; set; } = "updateOwnedTonCount";
+                public override string DataType { get; set; } = "inputMessageReplyToEphemeralMessage";
 
                 /// <summary>
                 /// Extra data attached to the message
@@ -29,11 +29,11 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// The new amount of owned Toncoins; in the smallest units of the cryptocurrency
+                /// The identifier of the ephemeral message to be replied
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("ton_amount")]
-                public long TonAmount { get; set; }
+                [JsonProperty("ephemeral_message_id")]
+                public int EphemeralMessageId { get; set; }
             }
         }
     }

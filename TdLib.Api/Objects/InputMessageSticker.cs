@@ -33,28 +33,7 @@ namespace TdLib
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("sticker")]
-                public InputFile Sticker { get; set; }
-
-                /// <summary>
-                /// Sticker thumbnail; pass null to skip thumbnail uploading
-                /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("thumbnail")]
-                public InputThumbnail Thumbnail { get; set; }
-
-                /// <summary>
-                /// Sticker width
-                /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("width")]
-                public int Width { get; set; }
-
-                /// <summary>
-                /// Sticker height
-                /// </summary>
-                [JsonConverter(typeof(Converter))]
-                [JsonProperty("height")]
-                public int Height { get; set; }
+                public InputSticker Sticker { get; set; }
 
                 /// <summary>
                 /// Emoji used to choose the sticker

@@ -11,16 +11,16 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns a URL for Toncoin withdrawal from the current user's account. The user must have at least 10 toncoins to withdraw
-        /// and can withdraw up to 100000 Toncoins in one transaction
+        /// Returns a URL for TON Gram withdrawal from the current user's account. The user must have at least 10 Grams to withdraw
+        /// and can withdraw up to 100000 Grams in one transaction
         /// </summary>
-        public class GetTonWithdrawalUrl : Function<HttpUrl>
+        public class GetGramWithdrawalUrl : Function<HttpUrl>
         {
             /// <summary>
             /// Data type for serialization
             /// </summary>
             [JsonProperty("@type")]
-            public override string DataType { get; set; } = "getTonWithdrawalUrl";
+            public override string DataType { get; set; } = "getGramWithdrawalUrl";
 
             /// <summary>
             /// Extra data attached to the function
@@ -37,13 +37,13 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Returns a URL for Toncoin withdrawal from the current user's account. The user must have at least 10 toncoins to withdraw
-        /// and can withdraw up to 100000 Toncoins in one transaction
+        /// Returns a URL for TON Gram withdrawal from the current user's account. The user must have at least 10 Grams to withdraw
+        /// and can withdraw up to 100000 Grams in one transaction
         /// </summary>
-        public static Task<HttpUrl> GetTonWithdrawalUrlAsync(
+        public static Task<HttpUrl> GetGramWithdrawalUrlAsync(
             this IClient client, string password = default)
         {
-            return client.ExecuteAsync(new GetTonWithdrawalUrl
+            return client.ExecuteAsync(new GetGramWithdrawalUrl
             {
                 Password = password
             });

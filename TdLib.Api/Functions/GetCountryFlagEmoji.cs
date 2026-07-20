@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns an emoji for the given country. Returns an empty string on failure. Can be called synchronously
+        /// Returns an emoji for the flag of the given country. Returns an empty string on failure. Can be called synchronously
         /// </summary>
         public class GetCountryFlagEmoji : Function<Text>
         {
@@ -36,7 +36,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Returns an emoji for the given country. Returns an empty string on failure. Can be called synchronously
+        /// Returns an emoji for the flag of the given country. Returns an empty string on failure. Can be called synchronously
         /// </summary>
         public static Task<Text> GetCountryFlagEmojiAsync(
             this IClient client, string countryCode = default)

@@ -120,7 +120,7 @@ namespace TdLib
                 public int ExportDate { get; set; }
 
                 /// <summary>
-                /// Point in time (Unix timestamp) when the gift can be used to craft another gift can be in the past; only for the receiver of the gift
+                /// Point in time (Unix timestamp) when the gift can be used to craft another gift; can be in the past; only for the receiver of the gift
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("craft_date")]

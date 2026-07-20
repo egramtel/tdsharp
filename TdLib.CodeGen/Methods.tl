@@ -298,7 +298,7 @@ getMessageAuthor chat_id:int53 message_id:int53 = User;
 //@description Returns information about a file. This is an offline method @file_id Identifier of the file to get
 getFile file_id:int32 = File;
 
-//@description Returns information about a file by its remote identifier. This is an offline method. Can be used to register a URL as a file for further uploading, or sending as a message. Even the request succeeds, the file can be used only if it is still accessible to the user.
+//@description Returns information about a file by its remote identifier. This is an offline method. Can be used to register a URL as a file for further uploading, or sending as a message. Even if the request succeeds, the file can be used only if it is still accessible to the user.
 //-For example, if the file is from a message, then the message must be not deleted and accessible to the user. If the file database is disabled, then the corresponding object with the file must be preloaded by the application
 //@remote_file_id Remote identifier of the file to get
 //@file_type File type; pass null if unknown
@@ -799,7 +799,8 @@ searchTextCompositionStyle name:string = TextCompositionStyle;
 //@example_number 0-based unique number of the requested example; must be non-negative and less than getOption("text_composition_style_example_count")
 getTextCompositionStyleExample name:string example_number:int32 = TextCompositionStyleExample;
 
-//@description Adds a custom text composition style to the list of used by the user styles. May return an error with a message "TONES_SAVED_TOO_MANY" if the maximum number of added custom styles has been reached
+//@description Adds a custom text composition style to the list of used by the user styles. May return an error with a message "TONES_SAVED_TOO_MANY"
+//-if the maximum number of added custom styles getOption("added_text_composition_style_count_max") has been reached
 //@name Name of the style
 addTextCompositionStyle name:string = Ok;
 
@@ -817,12 +818,25 @@ removeTextCompositionStyle name:string = Ok;
 //@tone Tone of the translation; must be one of "", "formal", "neutral", "casual"; defaults to "neutral"
 translateText text:formattedText to_language_code:string tone:string = FormattedText;
 
+//@description Translates a rich message to the given language
+//@message Rich message to translate
+//@to_language_code Language code of the language to which the message is translated. See translateText.to_language_code for the list of supported values
+//@tone Tone of the translation; see translateText.tone for the list of supported values
+translateRichMessage message:inputRichMessage to_language_code:string tone:string = RichMessage;
+
 //@description Extracts text or caption of the given message and translates it to the given language; must not be used in secret chats. If the current user is a Telegram Premium user, then text formatting is preserved
 //@chat_id Identifier of the chat to which the message belongs
 //@message_id Identifier of the message
 //@to_language_code Language code of the language to which the message is translated. See translateText.to_language_code for the list of supported values
 //@tone Tone of the translation; see translateText.tone for the list of supported values
 translateMessageText chat_id:int53 message_id:int53 to_language_code:string tone:string = FormattedText;
+
+//@description Extracts rich message of the given message and translates it to the given language
+//@chat_id Identifier of the chat to which the message belongs
+//@message_id Identifier of the message
+//@to_language_code Language code of the language to which the message is translated. See translateText.to_language_code for the list of supported values
+//@tone Tone of the translation; see translateText.tone for the list of supported values
+translateMessageRichMessage chat_id:int53 message_id:int53 to_language_code:string tone:string = RichMessage;
 
 //@description Summarizes content of the message with non-empty summary_language_code
 //@chat_id Identifier of the chat to which the message belongs
@@ -838,9 +852,27 @@ summarizeMessage chat_id:int53 message_id:int53 translate_to_language_code:strin
 //@add_emojis Pass true to add emoji to the text
 composeTextWithAi text:formattedText translate_to_language_code:string style_name:string add_emojis:Bool = FormattedText;
 
+//@description Changes a rich message using an AI model. May return an error with a message "AICOMPOSE_FLOOD_PREMIUM" if Telegram Premium is required to send further requests
+//@message The original message
+//@translate_to_language_code Pass a language code to which the text will be translated; pass an empty string if translation isn't needed. See translateText.to_language_code for the list of supported values
+//@style_name Name of the style of the resulted text; handle updateTextCompositionStyles to get the list of supported styles; pass an empty string to keep the current style of the text or if a custom prompt is used
+//@custom_prompt Custom prompt that will be used instead of style_name; 0-getOption("text_composition_style_prompt_length_max") characters
+//@add_emojis Pass true to add emoji to the text
+composeRichMessageWithAi message:inputRichMessage translate_to_language_code:string style_name:string custom_prompt:string add_emojis:Bool = RichMessage;
+
+//@description Creates a new rich message using an AI model. May return an error with a message "AICOMPOSE_FLOOD_PREMIUM" if Telegram Premium is required to send further requests
+//@prompt Prompt that will be used to create the message; 0-getOption("text_composition_style_prompt_length_max") characters
+//@language_code Pass a language code in which the text will be created
+//@add_emojis Pass true to add emoji to the text
+createRichMessageWithAi prompt:string language_code:string add_emojis:Bool = RichMessage;
+
 //@description Fixes text using an AI model; must not be used in secret chats. May return an error with a message "AICOMPOSE_FLOOD_PREMIUM" if Telegram Premium is required to send further requests
 //@text The original text
 fixTextWithAi text:formattedText = FixedText;
+
+//@description Fixes a rich message using an AI model. May return an error with a message "AICOMPOSE_FLOOD_PREMIUM" if Telegram Premium is required to send further requests
+//@message The original message
+fixRichMessageWithAi message:inputRichMessage = RichMessage;
 
 //@description Recognizes speech in a video note or a voice note message
 //@chat_id Identifier of the chat to which the message belongs
@@ -917,6 +949,21 @@ sendQuickReplyShortcutMessages chat_id:int53 shortcut_id:int32 sending_id:int32 
 //@paid_message_star_count The number of Telegram Stars the user agreed to pay to send the messages. Ignored if messageSendingStateFailed.required_paid_message_star_count == 0
 resendMessages chat_id:int53 message_ids:vector<int53> quote:inputTextQuote paid_message_star_count:int53 = Messages;
 
+//@description Sends an ephemeral message which will be received only by one bot in a chat. Currently, only ephemeral bot commands and replies to bot ephemeral messages can be sent using the method.
+//-The message is persistent across application restarts only if the message database is used. Returns the sent message
+//@chat_id Target chat
+//@topic_id Topic in which the message will be sent; pass null if none
+//@receiver_user_id Identifier of the user who will receive the message
+//@callback_query_id Identifier of the callback query which triggered the message; for bots only
+//@reply_to Information about the message to be replied; pass null if none. The message can be an incoming ephemeral message
+//@sending_id Non-persistent identifier, which will be returned back in messageSendingStatePending object and can be used to match sent messages and corresponding updateNewMessage updates
+//@only_preview Pass true to get a fake message instead of actually sending them
+//@reply_markup Markup for replying to the message; pass null if none; for bots only
+//@input_message_content The content of the message to be sent. Must be one of the following types: inputMessageText, inputMessageAnimation,
+//-inputMessageAudio, inputMessageDocument, inputMessagePhoto, inputMessageSticker, inputMessageVideo, inputMessageVideoNote, inputMessageVoiceNote,
+//-inputMessageLocation, inputMessageVenue, inputMessageContact
+sendEphemeralMessage chat_id:int53 topic_id:MessageTopic receiver_user_id:int53 callback_query_id:int64 reply_to:InputMessageReplyTo sending_id:int32 only_preview:Bool reply_markup:ReplyMarkup input_message_content:InputMessageContent = Message;
+
 //@description Adds a local message to a chat. The message is persistent across application restarts only if the message database is used. Returns the added message
 //@chat_id Target chat; channel direct messages chats aren't supported
 //@sender_id Identifier of the sender of the message
@@ -930,6 +977,12 @@ addLocalMessage chat_id:int53 sender_id:MessageSender reply_to:InputMessageReply
 //@message_ids Identifiers of the messages to be deleted. Use messageProperties.can_be_deleted_only_for_self and messageProperties.can_be_deleted_for_all_users to get suitable messages
 //@revoke Pass true to delete messages for all chat members. Always true for supergroups, channels and secret chats
 deleteMessages chat_id:int53 message_ids:vector<int53> revoke:Bool = Ok;
+
+//@description Deletes an ephemeral message; for bots only
+//@chat_id Chat identifier
+//@receiver_user_id Identifier of the user who received the message
+//@ephemeral_message_id Identifiers of the message to be deleted
+deleteEphemeralMessage chat_id:int53 receiver_user_id:int53 ephemeral_message_id:int32 = Ok;
 
 //@description Deletes all messages sent by the specified message sender in a chat. Supported only for supergroups; requires can_delete_messages administrator right @chat_id Chat identifier @sender_id Identifier of the sender of messages to delete
 deleteChatMessagesBySender chat_id:int53 sender_id:MessageSender = Ok;
@@ -987,10 +1040,10 @@ editMessageCaption chat_id:int53 message_id:int53 reply_markup:ReplyMarkup capti
 //@reply_markup The new message reply markup; pass null if none
 editMessageReplyMarkup chat_id:int53 message_id:int53 reply_markup:ReplyMarkup = Message;
 
-//@description Edits the text of an inline text or game message sent via a bot; for bots only
+//@description Edits the text of an inline text or game message sent via the bot; for bots only
 //@inline_message_id Inline message identifier
 //@reply_markup The new message reply markup; pass null if none
-//@input_message_content New text content of the message. Must be of type inputMessageText or inputMessageRichMessage
+//@input_message_content New text content of the message. Must be of type inputMessageText or inputMessageRichMessage; file upload isn't supported
 editInlineMessageText inline_message_id:string reply_markup:ReplyMarkup input_message_content:InputMessageContent = Ok;
 
 //@description Edits the content of a live location in an inline message sent via a bot; for bots only
@@ -1017,6 +1070,15 @@ editInlineMessageCaption inline_message_id:string reply_markup:ReplyMarkup capti
 //@inline_message_id Inline message identifier
 //@reply_markup The new message reply markup; pass null if none
 editInlineMessageReplyMarkup inline_message_id:string reply_markup:ReplyMarkup = Ok;
+
+//@description Edits the text, caption or reply markup of an ephemeral message sent by the bot; for bots only
+//@chat_id The chat the message belongs to
+//@receiver_user_id Identifier of the user who received the message
+//@ephemeral_message_id Identifier of the ephemeral message
+//@reply_markup The new message reply markup; pass null if none
+//@input_message_content New content of the message; pass null to edit only reply markup. Must be one of the following types: inputMessageText, inputMessageAnimation,
+//-inputMessageAudio, inputMessageDocument, inputMessagePhoto, inputMessageSticker, inputMessageVideo, inputMessageVideoNote, inputMessageVoiceNote
+editEphemeralMessage chat_id:int53 receiver_user_id:int53 ephemeral_message_id:int32 reply_markup:ReplyMarkup input_message_content:InputMessageContent = Ok;
 
 //@description Edits the time when a scheduled message will be sent. Scheduling state of all messages in the same album or forwarded together with the message will be also changed
 //@chat_id The chat the message belongs to
@@ -1470,7 +1532,7 @@ parseMarkdown text:formattedText = FormattedText;
 //@description Replaces text entities with Markdown formatting in a human-friendly format. Entities that can't be represented in Markdown unambiguously are kept as is. Can be called synchronously @text The text
 getMarkdownText text:formattedText = FormattedText;
 
-//@description Returns an emoji for the given country. Returns an empty string on failure. Can be called synchronously @country_code A two-letter ISO 3166-1 alpha-2 country code as received from getCountries
+//@description Returns an emoji for the flag of the given country. Returns an empty string on failure. Can be called synchronously @country_code A two-letter ISO 3166-1 alpha-2 country code as received from getCountries
 getCountryFlagEmoji country_code:string = Text;
 
 //@description Returns the MIME type of a file, guessed by its extension. Returns an empty string on failure. Can be called synchronously @file_name The name of the file or path to the file
@@ -1675,6 +1737,11 @@ getMainWebApp chat_id:int53 bot_user_id:int53 start_parameter:string parameters:
 //@parameters Parameters to use to open the Web App
 getWebAppUrl bot_user_id:int53 url:string parameters:webAppOpenParameters = WebAppUrl;
 
+//@description Returns an HTTPS URL of a Web App of a guard bot to open after receiving chatJoinResultGuardBotApprovalRequired
+//@query_id Unique identifier of the join request as received in chatJoinResultGuardBotApprovalRequired
+//@parameters Parameters to use to open the Web App
+getGuardBotWebAppUrl query_id:int64 parameters:webAppOpenParameters = WebAppUrl;
+
 //@description Sends data received from a keyboardButtonTypeWebApp Web App to a bot
 //@bot_user_id Identifier of the target bot
 //@button_text Text of the keyboardButtonTypeWebApp button, which opened the Web App
@@ -1782,7 +1849,7 @@ sendTextMessageDraft chat_id:int53 forum_topic_id:int32 draft_id:int64 text:form
 //@chat_id Chat identifier
 //@forum_topic_id The forum topic identifier in which the message will be sent; pass 0 if none
 //@draft_id Unique identifier of the draft
-//@message Draft of the message
+//@message Draft of the message; file upload isn't supported
 sendRichMessageDraft chat_id:int53 forum_topic_id:int32 draft_id:int64 message:inputRichMessage = Ok;
 
 
@@ -2156,7 +2223,7 @@ addChatMembers chat_id:int53 user_ids:vector<int53> = FailedToAddMembers;
 
 //@description Changes the status of a chat member; requires can_invite_users member right to add a chat member, can_promote_members administrator right to change administrator rights of the member,
 //-and can_restrict_members administrator right to change restrictions of a user. This function is currently not suitable for transferring chat ownership; use transferChatOwnership instead.
-//-Use addChatMember or banChatMember if some additional parameters needs to be passed
+//-Use addChatMember or banChatMember if some additional parameters need to be passed
 //@chat_id Chat identifier
 //@member_id Member identifier. Chats can be only banned and unbanned in supergroups and channels
 //@status The new status of the member in the chat
@@ -2702,7 +2769,7 @@ getChatInviteLinkCounts chat_id:int53 = ChatInviteLinkCounts;
 //@description Returns invite links for a chat created by specified administrator. Requires administrator privileges and can_invite_users right in the chat to get own links and owner privileges to get other links
 //@chat_id Chat identifier
 //@creator_user_id User identifier of a chat administrator. Must be an identifier of the current user for non-owner
-//@is_revoked Pass true if revoked links needs to be returned instead of active or expired
+//@is_revoked Pass true if revoked links need to be returned instead of active or expired
 //@offset_date Creation date of an invite link starting after which to return invite links; use 0 to get results from the beginning
 //@offset_invite_link Invite link starting after which to return invite links; use empty string to get results from the beginning
 //@limit The maximum number of invite links to return; up to 100
@@ -3171,12 +3238,8 @@ getUserProfileAudios user_id:int53 offset:int32 limit:int32 = Audios;
 //@description Checks whether a file is in the profile audio files of the current user. Returns a 404 error if it isn't @file_id Identifier of the audio file to check
 isProfileAudio file_id:int32 = Ok;
 
-//@description Adds an audio file to the beginning of the profile audio files of the current user
-//@audio The audio file to be added
-//@duration Duration of the audio, in seconds; may be replaced by the server; ignored for already uploaded files
-//@title Title of the audio; 0-64 characters; may be replaced by the server; ignored for already uploaded files
-//@performer Performer of the audio; 0-64 characters, may be replaced by the server; ignored for already uploaded files
-addProfileAudio audio:InputFile duration:int32 title:string performer:string = Ok;
+//@description Adds an audio file to the beginning of the profile audio files of the current user @audio The audio to add
+addProfileAudio audio:inputAudio = Ok;
 
 //@description Changes position of an audio file in the profile audio files of the current user
 //@file_id Identifier of the file from profile audio files, which position will be changed
@@ -3595,7 +3658,7 @@ deleteBotMediaPreviews bot_user_id:int53 language_code:string file_ids:vector<in
 checkBotUsername username:string = CheckChatUsernameResult;
 
 //@description Creates a bot which will be managed by another bot. Returns the created bot. May return an error with a message "BOT_CREATE_LIMIT_EXCEEDED"
-//-if the user already owns the maximum allowed number of bots as per premiumLimitTypeOwnedBotCount. An internal link "https://t.me/BotFather?start=deletebot" can be processed to handle the error
+//-if the user already owns the maximum allowed number of bots as per getOption("owned_bot_count_max"). An internal link "https://t.me/BotFather?start=deletebot" can be processed to handle the error
 //@manager_bot_user_id Identifier of the bot that will manage the created bot
 //@name Name of the bot; 1-64 characters
 //@username Username of the bot. The username must end with "bot". Use checkBotUsername to find whether the name is suitable
@@ -3942,7 +4005,7 @@ getUpgradedGiftVariants regular_gift_id:int64 return_upgrade_models:Bool return_
 //@business_connection_id Unique identifier of business connection on behalf of which to send the request; for bots only
 //@received_gift_id Identifier of the gift
 //@keep_original_details Pass true to keep the original gift text, sender and receiver in the upgraded gift
-//@star_count The Telegram Star amount required to pay for the upgrade. It the gift has prepaid_upgrade_star_count > 0, then pass 0, otherwise, pass gift.upgrade_star_count
+//@star_count The Telegram Star amount required to pay for the upgrade. If the gift has prepaid_upgrade_star_count > 0, then pass 0, otherwise, pass gift.upgrade_star_count
 upgradeGift business_connection_id:string received_gift_id:string keep_original_details:Bool star_count:int53 = UpgradeGiftResult;
 
 //@description Pays for upgrade of a regular gift that is owned by another user or channel chat
@@ -4032,7 +4095,7 @@ getUpgradedGiftsPromotionalAnimation = Animation;
 //@received_gift_id Identifier of the unique gift
 //@price The new price for the unique gift; pass null to disallow gift resale. The current user will receive
 //-getOption("gift_resale_star_earnings_per_mille") Telegram Stars for each 1000 Telegram Stars paid for the gift if the gift price is in Telegram Stars or
-//-getOption("gift_resale_ton_earnings_per_mille") Toncoins for each 1000 Toncoins paid for the gift if the gift price is in Toncoins
+//-getOption("gift_resale_ton_earnings_per_mille") TON Grams for each 1000 Grams paid for the gift if the gift price is in Grams
 setGiftResalePrice received_gift_id:string price:GiftResalePrice = Ok;
 
 //@description Returns upgraded gifts that can be bought from other owners using sendResoldGift
@@ -4297,7 +4360,7 @@ getChatRevenueWithdrawalUrl chat_id:int53 password:string = HttpUrl;
 //@limit The maximum number of transactions to be returned; up to 100
 getChatRevenueTransactions chat_id:int53 offset:string limit:int32 = ChatRevenueTransactions;
 
-//@description Returns the list of Toncoin transactions of the current user
+//@description Returns the list of TON blockchain transactions of the current user
 //@direction Direction of the transactions to receive; pass null to get all transactions
 //@offset Offset of the first transaction to return as received from the previous request; use empty string to get the first chunk of results
 //@limit The maximum number of transactions to return
@@ -4319,13 +4382,13 @@ getStarWithdrawalUrl owner_id:MessageSender star_count:int53 password:string = H
 //@owner_id Identifier of the owner of the Telegram Stars; can be identifier of an owned bot, or identifier of an owned channel chat
 getStarAdAccountUrl owner_id:MessageSender = HttpUrl;
 
-//@description Returns detailed Toncoin revenue statistics of the current user @is_dark Pass true if a dark theme is used by the application
-getTonRevenueStatistics is_dark:Bool = TonRevenueStatistics;
+//@description Returns detailed TON Gram revenue statistics of the current user @is_dark Pass true if a dark theme is used by the application
+getGramRevenueStatistics is_dark:Bool = GramRevenueStatistics;
 
-//@description Returns a URL for Toncoin withdrawal from the current user's account. The user must have at least 10 toncoins to withdraw
-//-and can withdraw up to 100000 Toncoins in one transaction
+//@description Returns a URL for TON Gram withdrawal from the current user's account. The user must have at least 10 Grams to withdraw
+//-and can withdraw up to 100000 Grams in one transaction
 //@password The 2-step verification password of the current user
-getTonWithdrawalUrl password:string = HttpUrl;
+getGramWithdrawalUrl password:string = HttpUrl;
 
 
 //@description Returns detailed statistics about a chat. Currently, this method can be used only for supergroups and channels. Can be used only if supergroupFullInfo.can_get_statistics == true @chat_id Chat identifier @is_dark Pass true if a dark theme is used by the application
@@ -4436,7 +4499,7 @@ setPassportElement element:InputPassportElement password:string = PassportElemen
 //@description Deletes a Telegram Passport element @type Element type
 deletePassportElement type:PassportElementType = Ok;
 
-//@description Informs the user who some of the elements in their Telegram Passport contain errors; for bots only. The user will not be able to resend the elements, until the errors are fixed @user_id User identifier @errors The errors
+//@description Informs the user that some of the elements in their Telegram Passport contain errors; for bots only. The user will not be able to resend the elements, until the errors are fixed @user_id User identifier @errors The errors
 setPassportElementErrors user_id:int53 errors:vector<inputPassportElementError> = Ok;
 
 
@@ -4479,7 +4542,7 @@ setBotUpdatesStatus pending_update_count:int32 error_message:string = Ok;
 //@description Uploads a file with a sticker; returns the uploaded file
 //@user_id Sticker file owner; ignored for regular users
 //@sticker_format Sticker format
-//@sticker File file to upload; must fit in a 512x512 square. For WEBP stickers the file must be in WEBP or PNG format, which will be converted to WEBP server-side.
+//@sticker File to upload; must fit in a 512x512 square. For WEBP stickers the file must be in WEBP or PNG format, which will be converted to WEBP server-side.
 //-See https://core.telegram.org/animated_stickers#technical-requirements for technical requirements
 uploadStickerFile user_id:int53 sticker_format:StickerFormat sticker:InputFile = File;
 
@@ -4498,20 +4561,20 @@ checkStickerSetName name:string = CheckStickerSetNameResult;
 //@needs_repainting Pass true if stickers in the sticker set must be repainted; for custom emoji sticker sets only
 //@stickers List of stickers to be added to the set; 1-200 stickers for custom emoji sticker sets, and 1-120 stickers otherwise. For TGS stickers, uploadStickerFile must be used before the sticker is shown
 //@source Source of the sticker set; may be empty if unknown
-createNewStickerSet user_id:int53 title:string name:string sticker_type:StickerType needs_repainting:Bool stickers:vector<inputSticker> source:string = StickerSet;
+createNewStickerSet user_id:int53 title:string name:string sticker_type:StickerType needs_repainting:Bool stickers:vector<newSticker> source:string = StickerSet;
 
 //@description Adds a new sticker to a set
 //@user_id Sticker set owner; ignored for regular users
 //@name Sticker set name. The sticker set must be owned by the current user, and contain less than 200 stickers for custom emoji sticker sets and less than 120 otherwise
 //@sticker Sticker to add to the set
-addStickerToSet user_id:int53 name:string sticker:inputSticker = Ok;
+addStickerToSet user_id:int53 name:string sticker:newSticker = Ok;
 
 //@description Replaces existing sticker in a set. The function is equivalent to removeStickerFromSet, then addStickerToSet, then setStickerPositionInSet
 //@user_id Sticker set owner; ignored for regular users
 //@name Sticker set name. The sticker set must be owned by the current user
 //@old_sticker Sticker to remove from the set
 //@new_sticker Sticker to add to the set
-replaceStickerInSet user_id:int53 name:string old_sticker:InputFile new_sticker:inputSticker = Ok;
+replaceStickerInSet user_id:int53 name:string old_sticker:InputFile new_sticker:newSticker = Ok;
 
 //@description Sets a sticker set thumbnail
 //@user_id Sticker set owner; ignored for regular users
@@ -4642,7 +4705,7 @@ getStarGiveawayPaymentOptions = StarGiveawayPaymentOptions;
 getStarTransactions owner_id:MessageSender subscription_id:string direction:TransactionDirection offset:string limit:int32 = StarTransactions;
 
 //@description Returns the list of Telegram Star subscriptions for the current user
-//@only_expiring Pass true to receive only expiring subscriptions for which there are no enough Telegram Stars to extend
+//@only_expiring Pass true to receive only expiring subscriptions for which there aren't enough Telegram Stars to extend
 //@offset Offset of the first subscription to return as received from the previous request; use empty string to get the first chunk of results
 getStarSubscriptions only_expiring:Bool offset:string = StarSubscriptions;
 
@@ -4701,7 +4764,7 @@ disconnectAffiliateProgram affiliate:AffiliateType url:string = ConnectedAffilia
 getConnectedAffiliateProgram affiliate:AffiliateType bot_user_id:int53 = ConnectedAffiliateProgram;
 
 //@description Returns affiliate programs that were connected to the given affiliate
-//@affiliate The affiliate to which the affiliate program were connected
+//@affiliate The affiliate to which the affiliate programs were connected
 //@offset Offset of the first affiliate program to return as received from the previous request; use empty string to get the first chunk of results
 //@limit The maximum number of affiliate programs to return
 getConnectedAffiliatePrograms affiliate:AffiliateType offset:string limit:int32 = ConnectedAffiliatePrograms;
@@ -4711,7 +4774,7 @@ getConnectedAffiliatePrograms affiliate:AffiliateType offset:string limit:int32 
 getBusinessFeatures source:BusinessFeature = BusinessFeatures;
 
 
-//@description Accepts Telegram terms of services @terms_of_service_id Terms of service identifier
+//@description Accepts Telegram terms of service @terms_of_service_id Terms of service identifier
 acceptTermsOfService terms_of_service_id:string = Ok;
 
 

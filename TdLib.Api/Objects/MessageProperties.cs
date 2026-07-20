@@ -111,7 +111,7 @@ namespace TdLib
             public bool CanBePinned { get; set; }
 
             /// <summary>
-            /// True, if the message can be replied in the same chat and forum topic using inputMessageReplyToMessage
+            /// True, if the message can be replied in the same chat and forum topic using inputMessageReplyToMessage. Ephemeral messages can be replied only by other ephemeral messages
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("can_be_replied")]

@@ -9,18 +9,18 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        public partial class Update : Object
+        public partial class SuggestedPostPrice : Object
         {
             /// <summary>
-            /// The Toncoin revenue earned by the current user has changed. If Toncoin transaction screen of the chat is opened, then getTonTransactions may be called to fetch new transactions
+            /// Describes price of a suggested post in TON Grams
             /// </summary>
-            public class UpdateTonRevenueStatus : Update
+            public class SuggestedPostPriceGram : SuggestedPostPrice
             {
                 /// <summary>
                 /// Data type for serialization
                 /// </summary>
                 [JsonProperty("@type")]
-                public override string DataType { get; set; } = "updateTonRevenueStatus";
+                public override string DataType { get; set; } = "suggestedPostPriceGram";
 
                 /// <summary>
                 /// Extra data attached to the message
@@ -29,11 +29,11 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// New Toncoin revenue status
+                /// The amount of 1/100 of Gram expected to be paid for the post; getOption("suggested_post_gram_cent_count_min")-getOption("suggested_post_gram_cent_count_max")
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("status")]
-                public TonRevenueStatus Status { get; set; }
+                [JsonProperty("gram_cent_count")]
+                public long GramCentCount { get; set; }
             }
         }
     }

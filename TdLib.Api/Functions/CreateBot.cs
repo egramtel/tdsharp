@@ -12,7 +12,7 @@ namespace TdLib
     {
         /// <summary>
         /// Creates a bot which will be managed by another bot. Returns the created bot. May return an error with a message "BOT_CREATE_LIMIT_EXCEEDED"
-        /// if the user already owns the maximum allowed number of bots as per premiumLimitTypeOwnedBotCount. An internal link "https://t.me/BotFather?start=deletebot" can be processed to handle the error
+        /// if the user already owns the maximum allowed number of bots as per getOption("owned_bot_count_max"). An internal link "https://t.me/BotFather?start=deletebot" can be processed to handle the error
         /// </summary>
         public class CreateBot : Function<User>
         {
@@ -59,7 +59,7 @@ namespace TdLib
 
         /// <summary>
         /// Creates a bot which will be managed by another bot. Returns the created bot. May return an error with a message "BOT_CREATE_LIMIT_EXCEEDED"
-        /// if the user already owns the maximum allowed number of bots as per premiumLimitTypeOwnedBotCount. An internal link "https://t.me/BotFather?start=deletebot" can be processed to handle the error
+        /// if the user already owns the maximum allowed number of bots as per getOption("owned_bot_count_max"). An internal link "https://t.me/BotFather?start=deletebot" can be processed to handle the error
         /// </summary>
         public static Task<User> CreateBotAsync(
             this IClient client, long managerBotUserId = default, string name = default, string username = default, bool viaLink = default)

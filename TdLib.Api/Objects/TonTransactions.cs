@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Represents a list of Toncoin transactions
+        /// Represents a list of TON Gram transactions
         /// </summary>
         public partial class TonTransactions : Object
         {
@@ -27,14 +27,14 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// The total amount of owned Toncoins
+            /// The total amount of owned Grams, in the smallest units of the cryptocurrency
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("ton_amount")]
-            public long TonAmount { get; set; }
+            [JsonProperty("gram_amount")]
+            public long GramAmount { get; set; }
 
             /// <summary>
-            /// List of Toncoin transactions
+            /// List of Gram transactions
             /// </summary>
             [JsonProperty("transactions", ItemConverterType = typeof(Converter))]
             public TonTransaction[] Transactions { get; set; }

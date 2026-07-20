@@ -9,18 +9,18 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        public partial class SuggestedPostPrice : Object
+        public partial class GiftResalePrice : Object
         {
             /// <summary>
-            /// Describes price of a suggested post in Toncoins
+            /// Describes price of a resold gift in TON Grams
             /// </summary>
-            public class SuggestedPostPriceTon : SuggestedPostPrice
+            public class GiftResalePriceGram : GiftResalePrice
             {
                 /// <summary>
                 /// Data type for serialization
                 /// </summary>
                 [JsonProperty("@type")]
-                public override string DataType { get; set; } = "suggestedPostPriceTon";
+                public override string DataType { get; set; } = "giftResalePriceGram";
 
                 /// <summary>
                 /// Extra data attached to the message
@@ -29,11 +29,11 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// The amount of 1/100 of Toncoin expected to be paid for the post; getOption("suggested_post_toncoin_cent_count_min")-getOption("suggested_post_toncoin_cent_count_max")
+                /// The amount of 1/100 of Gram expected to be paid for the gift. Must be in the range
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("toncoin_cent_count")]
-                public long ToncoinCentCount { get; set; }
+                [JsonProperty("gram_cent_count")]
+                public long GramCentCount { get; set; }
             }
         }
     }

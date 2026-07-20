@@ -62,7 +62,7 @@ namespace TdLib
             public string MimeType { get; set; }
 
             /// <summary>
-            /// True, if stickers were added to the animation. The list of corresponding sticker set can be received using getAttachedStickerSets
+            /// True, if stickers were added to the animation. The list of corresponding sticker sets can be received using getAttachedStickerSets
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("has_stickers")]

@@ -49,7 +49,7 @@ namespace TdLib
             public long DraftId { get; set; }
 
             /// <summary>
-            /// Draft of the message
+            /// Draft of the message; file upload isn't supported
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("message")]

@@ -66,7 +66,7 @@ namespace TdLib
             /// List of stickers to be added to the set; 1-200 stickers for custom emoji sticker sets, and 1-120 stickers otherwise. For TGS stickers, uploadStickerFile must be used before the sticker is shown
             /// </summary>
             [JsonProperty("stickers", ItemConverterType = typeof(Converter))]
-            public InputSticker[] Stickers { get; set; }
+            public NewSticker[] Stickers { get; set; }
 
             /// <summary>
             /// Source of the sticker set; may be empty if unknown
@@ -80,7 +80,7 @@ namespace TdLib
         /// Creates a new sticker set. Returns the newly created sticker set
         /// </summary>
         public static Task<StickerSet> CreateNewStickerSetAsync(
-            this IClient client, long userId = default, string title = default, string name = default, StickerType stickerType = default, bool needsRepainting = default, InputSticker[] stickers = default, string source = default)
+            this IClient client, long userId = default, string title = default, string name = default, StickerType stickerType = default, bool needsRepainting = default, NewSticker[] stickers = default, string source = default)
         {
             return client.ExecuteAsync(new CreateNewStickerSet
             {

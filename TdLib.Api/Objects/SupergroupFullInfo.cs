@@ -34,6 +34,13 @@ namespace TdLib
             public ChatPhoto Photo { get; set; }
 
             /// <summary>
+            /// Identifier of the community to which the corresponding chat was added
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("community_id")]
+            public long CommunityId { get; set; }
+
+            /// <summary>
             /// 
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -182,6 +189,7 @@ namespace TdLib
 
             /// <summary>
             /// True, if new chat members will have access to old messages. In public, discussion, of forum groups and all channels, old messages are always available,
+            /// so this option affects only private non-forum supergroups without a linked chat. The value of this field is only available to chat administrators
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_all_history_available")]

@@ -90,7 +90,7 @@ namespace TdLib
             public bool CanManageTopics { get; set; }
 
             /// <summary>
-            /// True, if the administrator can add new administrators with a subset of their own privileges or demote administrators that were directly or indirectly promoted by them
+            /// True, if the administrator can add new administrators with a subset of their own privileges or demote administrators that were directly or indirectly promoted by them; applicable to supergroups and channels only
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("can_promote_members")]

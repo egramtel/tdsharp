@@ -48,6 +48,13 @@ namespace TdLib
             public ChatPhoto PublicPhoto { get; set; }
 
             /// <summary>
+            /// Identifier of the community to which chat with the bot was added; for bots only
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("community_id")]
+            public long CommunityId { get; set; }
+
+            /// <summary>
             /// Block list to which the user is added; may be null if none
             /// </summary>
             [JsonConverter(typeof(Converter))]

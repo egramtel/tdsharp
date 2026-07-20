@@ -28,43 +28,22 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// The audio file to be added
+            /// The audio to add
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("audio")]
-            public InputFile Audio { get; set; }
-
-            /// <summary>
-            /// Duration of the audio, in seconds; may be replaced by the server; ignored for already uploaded files
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("duration")]
-            public int Duration { get; set; }
-
-            /// <summary>
-            /// Title of the audio; 0-64 characters; may be replaced by the server; ignored for already uploaded files
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("title")]
-            public string Title { get; set; }
-
-            /// <summary>
-            /// Performer of the audio; 0-64 characters, may be replaced by the server; ignored for already uploaded files
-            /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("performer")]
-            public string Performer { get; set; }
+            public InputAudio Audio { get; set; }
         }
 
         /// <summary>
         /// Adds an audio file to the beginning of the profile audio files of the current user
         /// </summary>
         public static Task<Ok> AddProfileAudioAsync(
-            this IClient client, InputFile audio = default, int duration = default, string title = default, string performer = default)
+            this IClient client, InputAudio audio = default)
         {
             return client.ExecuteAsync(new AddProfileAudio
             {
-                Audio = audio, Duration = duration, Title = title, Performer = performer
+                Audio = audio
             });
         }
     }

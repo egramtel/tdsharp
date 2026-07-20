@@ -10,15 +10,15 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// A detailed statistics about Toncoins earned by the current user
+        /// A detailed statistics about TON Grams earned by the current user
         /// </summary>
-        public partial class TonRevenueStatistics : Object
+        public partial class GramRevenueStatistics : Object
         {
             /// <summary>
             /// Data type for serialization
             /// </summary>
             [JsonProperty("@type")]
-            public override string DataType { get; set; } = "tonRevenueStatistics";
+            public override string DataType { get; set; } = "gramRevenueStatistics";
 
             /// <summary>
             /// Extra data attached to the object
@@ -38,10 +38,10 @@ namespace TdLib
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("status")]
-            public TonRevenueStatus Status { get; set; }
+            public GramRevenueStatus Status { get; set; }
 
             /// <summary>
-            /// Current conversion rate of nanotoncoin to USD cents
+            /// Current conversion rate of nanogram to USD cents
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("usd_rate")]

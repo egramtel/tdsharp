@@ -41,6 +41,13 @@ namespace TdLib
             public MessageSender SenderId { get; set; }
 
             /// <summary>
+            /// Identifier of the user or the chat which received the ephemeral message; may be null. Always null for non-ephemeral messages
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("receiver_id")]
+            public MessageSender ReceiverId { get; set; }
+
+            /// <summary>
             /// Chat identifier
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -111,11 +118,11 @@ namespace TdLib
             public bool IsPaidStarSuggestedPost { get; set; }
 
             /// <summary>
-            /// True, if the message is a suggested channel post which was paid in Toncoins; a warning must be shown if the message is deleted in less than getOption("suggested_post_lifetime_min") seconds after sending
+            /// True, if the message is a suggested channel post which was paid in TON Grams; a warning must be shown if the message is deleted in less than getOption("suggested_post_lifetime_min") seconds after sending
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("is_paid_ton_suggested_post")]
-            public bool IsPaidTonSuggestedPost { get; set; }
+            [JsonProperty("is_paid_gram_suggested_post")]
+            public bool IsPaidGramSuggestedPost { get; set; }
 
             /// <summary>
             /// True, if the message contains an unread mention for the current user
@@ -139,7 +146,8 @@ namespace TdLib
             public int Date { get; set; }
 
             /// <summary>
-            /// Point in time (Unix timestamp) when the message was last edited; 0 for scheduled messages
+            /// Point in time (Unix timestamp) when the message was last edited; 0 for scheduled messages. If getOption("show_message_edit_date_by_default") is true,
+            /// then the date must be shown along with the message instead of the date when the message was sent
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("edit_date")]
@@ -311,6 +319,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("reply_markup")]
             public ReplyMarkup ReplyMarkup { get; set; }
+
+            /// <summary>
+            /// Unique identifier of the ephemeral message if the message is ephemeral; for bots only
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("ephemeral_message_id")]
+            public int EphemeralMessageId { get; set; }
         }
     }
 }

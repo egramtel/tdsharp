@@ -55,7 +55,7 @@ namespace TdLib
             public bool IsCanceled { get; set; }
 
             /// <summary>
-            /// True, if the subscription expires soon and there are no enough Telegram Stars on the user's balance to extend it
+            /// True, if the subscription expires soon and there aren't enough Telegram Stars on the user's balance to extend it
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_expiring")]

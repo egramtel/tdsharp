@@ -12,7 +12,7 @@ namespace TdLib
         public partial class MessageContent : Object
         {
             /// <summary>
-            /// Toncoins were gifted to a user
+            /// TON Grams were gifted to a user
             /// </summary>
             public class MessageGiftedTon : MessageContent
             {
@@ -29,28 +29,28 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// The identifier of a user who gifted Toncoins; 0 if the gift was anonymous or is outgoing
+                /// The identifier of a user who gifted Grams; 0 if the gift was anonymous or is outgoing
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("gifter_user_id")]
                 public long GifterUserId { get; set; }
 
                 /// <summary>
-                /// The identifier of a user who received Toncoins; 0 if the gift is incoming
+                /// The identifier of a user who received Grams; 0 if the gift is incoming
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("receiver_user_id")]
                 public long ReceiverUserId { get; set; }
 
                 /// <summary>
-                /// The received Toncoin amount, in the smallest units of the cryptocurrency
+                /// The received Gram amount, in the smallest units of the cryptocurrency
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("ton_amount")]
-                public long TonAmount { get; set; }
+                [JsonProperty("gram_amount")]
+                public long GramAmount { get; set; }
 
                 /// <summary>
-                /// Identifier of the transaction for Toncoin credit; for receiver only
+                /// Identifier of the transaction for Gram credit; for receiver only
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("transaction_id")]

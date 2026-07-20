@@ -34,17 +34,17 @@ namespace TdLib
             public string StateHash { get; set; }
 
             /// <summary>
-            /// The Toncoin amount that was staked in the previous roll; in the smallest units of the currency
+            /// The amount of TON Grams staked in the previous roll; in the smallest units of the currency
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("stake_toncoin_amount")]
-            public long StakeToncoinAmount { get; set; }
+            [JsonProperty("stake_gram_amount")]
+            public long StakeGramAmount { get; set; }
 
             /// <summary>
-            /// The amounts of Toncoins that are suggested to be staked; in the smallest units of the currency
+            /// The amounts of Grams that are suggested to be staked; in the smallest units of the currency
             /// </summary>
-            [JsonProperty("suggested_stake_toncoin_amounts", ItemConverterType = typeof(Converter))]
-            public long[] SuggestedStakeToncoinAmounts { get; set; }
+            [JsonProperty("suggested_stake_gram_amounts", ItemConverterType = typeof(Converter))]
+            public long[] SuggestedStakeGramAmounts { get; set; }
 
             /// <summary>
             /// The number of rolled sixes towards the streak; 0-2
@@ -54,13 +54,13 @@ namespace TdLib
             public int CurrentStreak { get; set; }
 
             /// <summary>
-            /// The number of Toncoins received by the user for each 1000 Toncoins staked if the dice outcome is 1-6 correspondingly; may be empty if the stake dice can't be sent by the current user
+            /// The number of Grams received by the user for each 1000 Grams staked if the dice outcome is 1-6 correspondingly; may be empty if the stake dice can't be sent by the current user
             /// </summary>
             [JsonProperty("prize_per_mille", ItemConverterType = typeof(Converter))]
             public int[] PrizePerMille { get; set; }
 
             /// <summary>
-            /// The number of Toncoins received by the user for each 1000 Toncoins staked if the dice outcome is 6 three times in a row with the same stake
+            /// The number of Grams received by the user for each 1000 Grams staked if the dice outcome is 6 three times in a row with the same stake
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("streak_prize_per_mille")]

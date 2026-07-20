@@ -9,18 +9,18 @@ namespace TdLib
     /// </summary>
     public static partial class TdApi
     {
-        public partial class GiftResalePrice : Object
+        public partial class InputPageBlock : Object
         {
             /// <summary>
-            /// Describes price of a resold gift in Toncoins
+            /// A block quote
             /// </summary>
-            public class GiftResalePriceTon : GiftResalePrice
+            public class InputPageBlockBlockQuote : InputPageBlock
             {
                 /// <summary>
                 /// Data type for serialization
                 /// </summary>
                 [JsonProperty("@type")]
-                public override string DataType { get; set; } = "giftResalePriceTon";
+                public override string DataType { get; set; } = "inputPageBlockBlockQuote";
 
                 /// <summary>
                 /// Extra data attached to the message
@@ -29,11 +29,17 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// The amount of 1/100 of Toncoin expected to be paid for the gift. Must be in the range
+                /// Quote blocks
+                /// </summary>
+                [JsonProperty("blocks", ItemConverterType = typeof(Converter))]
+                public InputPageBlock[] Blocks { get; set; }
+
+                /// <summary>
+                /// Quote credit; pass null if none
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
-                [JsonProperty("toncoin_cent_count")]
-                public long ToncoinCentCount { get; set; }
+                [JsonProperty("credit")]
+                public RichText Credit { get; set; }
             }
         }
     }

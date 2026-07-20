@@ -10,7 +10,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// A sticker to be added to a sticker set
+        /// A sticker to be sent
         /// </summary>
         public partial class InputSticker : Object
         {
@@ -27,38 +27,32 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// File with the sticker; must fit in a 512x512 square. For WEBP stickers the file must be in WEBP or PNG format, which will be converted to WEBP server-side.
+            /// Sticker to be sent
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("sticker")]
             public InputFile Sticker { get; set; }
 
             /// <summary>
-            /// Format of the sticker
+            /// Sticker thumbnail; pass null to skip thumbnail uploading
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("format")]
-            public StickerFormat Format { get; set; }
+            [JsonProperty("thumbnail")]
+            public InputThumbnail Thumbnail { get; set; }
 
             /// <summary>
-            /// String with 1-20 emoji corresponding to the sticker
+            /// Sticker width
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("emojis")]
-            public string Emojis { get; set; }
+            [JsonProperty("width")]
+            public int Width { get; set; }
 
             /// <summary>
-            /// Position where the mask is placed; pass null if not specified
+            /// Sticker height
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("mask_position")]
-            public MaskPosition MaskPosition { get; set; }
-
-            /// <summary>
-            /// List of up to 20 keywords with total length up to 64 characters, which can be used to find the sticker
-            /// </summary>
-            [JsonProperty("keywords", ItemConverterType = typeof(Converter))]
-            public string[] Keywords { get; set; }
+            [JsonProperty("height")]
+            public int Height { get; set; }
         }
     }
 }

@@ -12,7 +12,7 @@ namespace TdLib
         public partial class MessageContent : Object
         {
             /// <summary>
-            /// A Telegram Stars were received by the current user from a giveaway
+            /// Telegram Stars were received by the current user from a giveaway
             /// </summary>
             public class MessageGiveawayPrizeStars : MessageContent
             {

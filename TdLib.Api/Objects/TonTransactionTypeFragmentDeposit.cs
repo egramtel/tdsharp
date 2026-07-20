@@ -12,7 +12,7 @@ namespace TdLib
         public partial class TonTransactionType : Object
         {
             /// <summary>
-            /// Describes type of transaction with Toncoins
+            /// Describes type of transaction with TON Grams
             /// </summary>
             public class TonTransactionTypeFragmentDeposit : TonTransactionType
             {

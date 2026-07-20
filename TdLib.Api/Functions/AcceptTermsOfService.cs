@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Accepts Telegram terms of services
+        /// Accepts Telegram terms of service
         /// </summary>
         public class AcceptTermsOfService : Function<Ok>
         {
@@ -36,7 +36,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Accepts Telegram terms of services
+        /// Accepts Telegram terms of service
         /// </summary>
         public static Task<Ok> AcceptTermsOfServiceAsync(
             this IClient client, string termsOfServiceId = default)

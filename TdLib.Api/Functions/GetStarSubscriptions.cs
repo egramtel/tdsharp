@@ -28,7 +28,7 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Pass true to receive only expiring subscriptions for which there are no enough Telegram Stars to extend
+            /// Pass true to receive only expiring subscriptions for which there aren't enough Telegram Stars to extend
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("only_expiring")]

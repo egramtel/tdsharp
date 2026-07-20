@@ -27,11 +27,11 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// The amount of owned Toncoins; in the smallest units of the cryptocurrency
+            /// The amount of owned TON Grams; in the smallest units of the cryptocurrency
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("ton_amount")]
-            public long TonAmount { get; set; }
+            [JsonProperty("gram_amount")]
+            public long GramAmount { get; set; }
 
             /// <summary>
             /// List of transactions

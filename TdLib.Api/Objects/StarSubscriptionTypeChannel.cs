@@ -36,7 +36,7 @@ namespace TdLib
                 public bool CanReuse { get; set; }
 
                 /// <summary>
-                /// The invite link that can be used to renew the subscription if it has been expired; may be empty, if the link isn't available anymore
+                /// The invite link that can be used to renew the subscription if it has expired; may be empty if the link isn't available anymore
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("invite_link")]

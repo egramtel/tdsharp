@@ -34,18 +34,18 @@ namespace TdLib
             public long StarCount { get; set; }
 
             /// <summary>
-            /// Resale price of the gift in 1/100 of Toncoin
+            /// Resale price of the gift in 1/100 of TON Gram
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("toncoin_cent_count")]
-            public long ToncoinCentCount { get; set; }
+            [JsonProperty("gram_cent_count")]
+            public long GramCentCount { get; set; }
 
             /// <summary>
-            /// True, if the gift can be bought only using Toncoins
+            /// True, if the gift can be bought only using Grams
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("toncoin_only")]
-            public bool ToncoinOnly { get; set; }
+            [JsonProperty("gram_only")]
+            public bool GramOnly { get; set; }
         }
     }
 }

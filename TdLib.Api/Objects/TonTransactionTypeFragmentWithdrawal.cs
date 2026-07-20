@@ -12,7 +12,7 @@ namespace TdLib
         public partial class TonTransactionType : Object
         {
             /// <summary>
-            /// The transaction is a withdrawal of earned Toncoins to Fragment
+            /// The transaction is a withdrawal of earned Grams to Fragment
             /// </summary>
             public class TonTransactionTypeFragmentWithdrawal : TonTransactionType
             {

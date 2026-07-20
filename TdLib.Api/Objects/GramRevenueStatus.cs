@@ -10,15 +10,15 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Contains information about Toncoins earned by the current user
+        /// Contains information about TON Grams earned by the current user
         /// </summary>
-        public partial class TonRevenueStatus : Object
+        public partial class GramRevenueStatus : Object
         {
             /// <summary>
             /// Data type for serialization
             /// </summary>
             [JsonProperty("@type")]
-            public override string DataType { get; set; } = "tonRevenueStatus";
+            public override string DataType { get; set; } = "gramRevenueStatus";
 
             /// <summary>
             /// Extra data attached to the object
@@ -27,28 +27,28 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Total Toncoin amount earned; in the smallest units of the cryptocurrency
+            /// Total Gram amount earned; in the smallest units of the cryptocurrency
             /// </summary>
             [JsonConverter(typeof(Converter.Int64))]
             [JsonProperty("total_amount")]
             public long TotalAmount { get; set; }
 
             /// <summary>
-            /// The Toncoin amount that isn't withdrawn yet; in the smallest units of the cryptocurrency
+            /// The Gram amount that isn't withdrawn yet; in the smallest units of the cryptocurrency
             /// </summary>
             [JsonConverter(typeof(Converter.Int64))]
             [JsonProperty("balance_amount")]
             public long BalanceAmount { get; set; }
 
             /// <summary>
-            /// The Toncoin amount that is available for withdrawal; in the smallest units of the cryptocurrency
+            /// The Gram amount that is available for withdrawal; in the smallest units of the cryptocurrency
             /// </summary>
             [JsonConverter(typeof(Converter.Int64))]
             [JsonProperty("available_amount")]
             public long AvailableAmount { get; set; }
 
             /// <summary>
-            /// True, if Toncoins can be withdrawn
+            /// True, if Grams can be withdrawn
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("withdrawal_enabled")]
