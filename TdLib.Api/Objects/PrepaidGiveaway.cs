@@ -34,7 +34,7 @@ namespace TdLib
             public long Id { get; set; }
 
             /// <summary>
-            /// Number of users which will receive giveaway prize
+            /// Number of users who will receive giveaway prize
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("winner_count")]

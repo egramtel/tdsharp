@@ -42,18 +42,25 @@ namespace TdLib
                 public PageBlockTableCell[][] Cells { get; set; }
 
                 /// <summary>
-                /// True, if the table is bordered
+                /// Pass true if the table is bordered
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_bordered")]
                 public bool IsBordered { get; set; }
 
                 /// <summary>
-                /// True, if the table is striped
+                /// Pass true if the table is striped
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_striped")]
                 public bool IsStriped { get; set; }
+
+                /// <summary>
+                /// Pass true if table cells must have smaller indents
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("is_compact")]
+                public bool IsCompact { get; set; }
             }
         }
     }

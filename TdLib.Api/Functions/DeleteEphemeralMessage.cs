@@ -42,7 +42,7 @@ namespace TdLib
             public long ReceiverUserId { get; set; }
 
             /// <summary>
-            /// Identifiers of the message to be deleted
+            /// Identifier of the message to be deleted
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("ephemeral_message_id")]

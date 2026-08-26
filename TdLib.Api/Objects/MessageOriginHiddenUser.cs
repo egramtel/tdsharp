@@ -12,7 +12,7 @@ namespace TdLib
         public partial class MessageOrigin : Object
         {
             /// <summary>
-            /// The message was originally sent by a user, which is hidden by their privacy settings
+            /// The message was originally sent by a user who is hidden by their privacy settings
             /// </summary>
             public class MessageOriginHiddenUser : MessageOrigin
             {

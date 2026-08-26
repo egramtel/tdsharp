@@ -29,7 +29,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Number of users which will receive giveaway prizes; 0 for pinned message
+                /// Number of users who will receive giveaway prizes; 0 for pinned message
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("winner_count")]

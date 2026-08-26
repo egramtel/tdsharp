@@ -12,7 +12,7 @@ namespace TdLib
         public partial class SupergroupMembersFilter : Object
         {
             /// <summary>
-            /// Returns contacts of the user, which are members of the supergroup or channel
+            /// Returns contacts of the current user who are members of the supergroup or channel
             /// </summary>
             public class SupergroupMembersFilterContacts : SupergroupMembersFilter
             {

@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Edits the text, caption or reply markup of an ephemeral message sent by the bot; for bots only
+        /// Edits the text, media, or reply markup of an ephemeral message sent by the bot; for bots only
         /// </summary>
         public class EditEphemeralMessage : Function<Ok>
         {
@@ -64,7 +64,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Edits the text, caption or reply markup of an ephemeral message sent by the bot; for bots only
+        /// Edits the text, media, or reply markup of an ephemeral message sent by the bot; for bots only
         /// </summary>
         public static Task<Ok> EditEphemeralMessageAsync(
             this IClient client, long chatId = default, long receiverUserId = default, int ephemeralMessageId = default, ReplyMarkup replyMarkup = default, InputMessageContent inputMessageContent = default)

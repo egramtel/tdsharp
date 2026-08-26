@@ -510,6 +510,22 @@ toggleSavedMessagesTopicIsPinned saved_messages_topic_id:int53 is_pinned:Bool = 
 setPinnedSavedMessagesTopics saved_messages_topic_ids:vector<int53> = Ok;
 
 
+//@description Returns full information about a community. The data will be sent through update. @community_id Community identifier
+loadCommunityFullInfo community_id:int53 = Ok;
+
+//@description Creates a new community for the given chat. Returns identifier of the created community
+//@name Name of the new community
+//@chat_id Identifier of the chat in the community; only chats with owned bots and owned basic group, supergroup and channel chats are allowed;
+//-basic group chats will be automatically upgraded to supergroup chats
+//@is_chat_hidden Pass true if the chat will be visible only to administrators of the community
+createCommunity name:string chat_id:int53 is_chat_hidden:Bool = CommunityId;
+
+//@description Changes name of the given community; requires can_change_info administrator right in the community
+//@community_id Identifier of the community
+//@name New name of the community
+setCommunityName community_id:int53 name:string = Ok;
+
+
 //@description Returns a list of common group chats with a given user. Chats are sorted by their type and creation date
 //@user_id User identifier
 //@offset_chat_id Chat identifier starting from which to return chats; use 0 for the first request
@@ -955,14 +971,16 @@ resendMessages chat_id:int53 message_ids:vector<int53> quote:inputTextQuote paid
 //@topic_id Topic in which the message will be sent; pass null if none
 //@receiver_user_id Identifier of the user who will receive the message
 //@callback_query_id Identifier of the callback query which triggered the message; for bots only
+//@replace_callback_query_message Pass true if the ephemeral message must replace the message from which the callback query originated; for bots only
 //@reply_to Information about the message to be replied; pass null if none. The message can be an incoming ephemeral message
+//@protect_content Pass true if the content of the message must be protected from forwarding and saving; for bots only
 //@sending_id Non-persistent identifier, which will be returned back in messageSendingStatePending object and can be used to match sent messages and corresponding updateNewMessage updates
 //@only_preview Pass true to get a fake message instead of actually sending them
 //@reply_markup Markup for replying to the message; pass null if none; for bots only
 //@input_message_content The content of the message to be sent. Must be one of the following types: inputMessageText, inputMessageAnimation,
-//-inputMessageAudio, inputMessageDocument, inputMessagePhoto, inputMessageSticker, inputMessageVideo, inputMessageVideoNote, inputMessageVoiceNote,
+//-inputMessageAudio, inputMessageDocument, inputMessagePhoto, inputMessageRichMessage, inputMessageSticker, inputMessageVideo, inputMessageVideoNote, inputMessageVoiceNote,
 //-inputMessageLocation, inputMessageVenue, inputMessageContact
-sendEphemeralMessage chat_id:int53 topic_id:MessageTopic receiver_user_id:int53 callback_query_id:int64 reply_to:InputMessageReplyTo sending_id:int32 only_preview:Bool reply_markup:ReplyMarkup input_message_content:InputMessageContent = Message;
+sendEphemeralMessage chat_id:int53 topic_id:MessageTopic receiver_user_id:int53 callback_query_id:int64 replace_callback_query_message:Bool reply_to:InputMessageReplyTo protect_content:Bool sending_id:int32 only_preview:Bool reply_markup:ReplyMarkup input_message_content:InputMessageContent = Message;
 
 //@description Adds a local message to a chat. The message is persistent across application restarts only if the message database is used. Returns the added message
 //@chat_id Target chat; channel direct messages chats aren't supported
@@ -981,7 +999,7 @@ deleteMessages chat_id:int53 message_ids:vector<int53> revoke:Bool = Ok;
 //@description Deletes an ephemeral message; for bots only
 //@chat_id Chat identifier
 //@receiver_user_id Identifier of the user who received the message
-//@ephemeral_message_id Identifiers of the message to be deleted
+//@ephemeral_message_id Identifier of the message to be deleted
 deleteEphemeralMessage chat_id:int53 receiver_user_id:int53 ephemeral_message_id:int32 = Ok;
 
 //@description Deletes all messages sent by the specified message sender in a chat. Supported only for supergroups; requires can_delete_messages administrator right @chat_id Chat identifier @sender_id Identifier of the sender of messages to delete
@@ -1071,20 +1089,42 @@ editInlineMessageCaption inline_message_id:string reply_markup:ReplyMarkup capti
 //@reply_markup The new message reply markup; pass null if none
 editInlineMessageReplyMarkup inline_message_id:string reply_markup:ReplyMarkup = Ok;
 
-//@description Edits the text, caption or reply markup of an ephemeral message sent by the bot; for bots only
+//@description Edits the text, media, or reply markup of an ephemeral message sent by the bot; for bots only
 //@chat_id The chat the message belongs to
 //@receiver_user_id Identifier of the user who received the message
 //@ephemeral_message_id Identifier of the ephemeral message
 //@reply_markup The new message reply markup; pass null if none
 //@input_message_content New content of the message; pass null to edit only reply markup. Must be one of the following types: inputMessageText, inputMessageAnimation,
-//-inputMessageAudio, inputMessageDocument, inputMessagePhoto, inputMessageSticker, inputMessageVideo, inputMessageVideoNote, inputMessageVoiceNote
+//-inputMessageAudio, inputMessageDocument, inputMessagePhoto, inputMessageRichMessage, inputMessageSticker, inputMessageVideo, inputMessageVideoNote, inputMessageVoiceNote
 editEphemeralMessage chat_id:int53 receiver_user_id:int53 ephemeral_message_id:int32 reply_markup:ReplyMarkup input_message_content:InputMessageContent = Ok;
+
+//@description Edits the caption and reply markup of an ephemeral message sent by the bot; for bots only
+//@chat_id The chat the message belongs to
+//@receiver_user_id Identifier of the user who received the message
+//@ephemeral_message_id Identifier of the ephemeral message
+//@reply_markup The new message reply markup; pass null if none
+//@caption New message content caption; pass null to remove caption; 0-getOption("message_caption_length_max") characters
+//@show_caption_above_media Pass true to show the caption above the media; otherwise, the caption will be shown below the media. May be true only for animation, photo, and video messages
+editEphemeralMessageCaption chat_id:int53 receiver_user_id:int53 ephemeral_message_id:int32 reply_markup:ReplyMarkup caption:formattedText show_caption_above_media:Bool = Ok;
+
+//@description Edits the message from which a callback query has originated with an ephemeral message; for bots only
+//@callback_query_id Identifier of the callback query
+//@protect_content Pass true if the content of the message must be protected from forwarding and saving
+//@reply_markup The new message reply markup; pass null if none
+//@input_message_content New content of the message. Must be one of the following types: inputMessageText, inputMessageAnimation,
+//-inputMessageAudio, inputMessageDocument, inputMessagePhoto, inputMessageRichMessage, inputMessageSticker, inputMessageVideo, inputMessageVideoNote, inputMessageVoiceNote
+editCallbackQueryMessage callback_query_id:int64 protect_content:Bool reply_markup:ReplyMarkup input_message_content:InputMessageContent = Ok;
 
 //@description Edits the time when a scheduled message will be sent. Scheduling state of all messages in the same album or forwarded together with the message will be also changed
 //@chat_id The chat the message belongs to
 //@message_id Identifier of the message. Use messageProperties.can_edit_scheduling_state to check whether the message is suitable
 //@scheduling_state The new message scheduling state; pass null to send the message immediately. Must be null for messages in the state messageSchedulingStateSendWhenVideoProcessed
 editMessageSchedulingState chat_id:int53 message_id:int53 scheduling_state:MessageSchedulingState = Ok;
+
+//@description Removes message ephemeral content and reverts message state to the original
+//@chat_id The chat the message belongs to
+//@message_id Identifier of the message
+deleteMessageEphemeralContent chat_id:int53 message_id:int53 = Ok;
 
 
 //@description Changes the fact-check of a message. Can be only used if messageProperties.can_set_fact_check == true
@@ -1287,10 +1327,10 @@ addQuickReplyShortcutInlineQueryResultMessage shortcut_name:string reply_to_mess
 //@input_message_contents Contents of messages to be sent. At most 10 messages can be added to an album. All messages must have the same value of show_caption_above_media
 addQuickReplyShortcutMessageAlbum shortcut_name:string reply_to_message_id:int53 input_message_contents:vector<InputMessageContent> = QuickReplyMessages;
 
-//@description Readds quick reply messages which failed to add. Can be called only for messages for which messageSendingStateFailed.can_retry is true and after specified in messageSendingStateFailed.retry_after time passed.
-//-If a message is readded, the corresponding failed to send message is deleted. Returns the sent messages in the same order as the message identifiers passed in message_ids. If a message can't be readded, null will be returned instead of the message
+//@description Re-adds quick reply messages which failed to add. Can be called only for messages for which messageSendingStateFailed.can_retry is true and after specified in messageSendingStateFailed.retry_after time passed.
+//-If a message is re-added, the corresponding failed to send message is deleted. Returns the sent messages in the same order as the message identifiers passed in message_ids. If a message can't be re-added, null will be returned instead of the message
 //@shortcut_name Name of the target shortcut
-//@message_ids Identifiers of the quick reply messages to readd. Message identifiers must be in a strictly increasing order
+//@message_ids Identifiers of the quick reply messages to re-add. Message identifiers must be in a strictly increasing order
 readdQuickReplyShortcutMessages shortcut_name:string message_ids:vector<int53> = QuickReplyMessages;
 
 //@description Asynchronously edits the text, media or caption of a quick reply message. Use quickReplyMessage.can_be_edited to check whether a message can be edited.
@@ -1300,6 +1340,33 @@ readdQuickReplyShortcutMessages shortcut_name:string message_ids:vector<int53> =
 //@message_id Identifier of the message
 //@input_message_content New content of the message. Must be one of the following types: inputMessageAnimation, inputMessageAudio, inputMessageChecklist, inputMessageDocument, inputMessagePhoto, inputMessageRichMessage, inputMessageText, or inputMessageVideo
 editQuickReplyMessage shortcut_id:int32 message_id:int53 input_message_content:InputMessageContent = Ok;
+
+
+//@description Loads welcome messages of a chat; requires can_send_welcome_messages administrator right in the chat. The loaded messages will be sent through updateChatWelcomeMessages
+//@chat_id The identifier of the chat
+loadChatWelcomeMessages chat_id:int53 = Ok;
+
+//@description Adds a message to the list of welcome messages of a chat; requires can_send_welcome_messages administrator right in the chat. There can be up to getOption("welcome_message_count_max") welcome messages in a chat
+//@chat_id The identifier of the chat
+//@input_message_content The content of the message to be sent. Must be one of the following types: inputMessageText, inputMessageAnimation,
+//-inputMessageAudio, inputMessageDocument, inputMessagePhoto, inputMessageRichMessage, inputMessageSticker, inputMessageVideo, inputMessageVideoNote, inputMessageVoiceNote,
+//-inputMessageLocation, inputMessageVenue, inputMessageContact
+addChatWelcomeMessage chat_id:int53 input_message_content:InputMessageContent = Ok;
+
+//@description Edits a welcome message of a chat; requires can_send_welcome_messages administrator right in the chat
+//@chat_id The identifier of the chat
+//@welcome_message_id The identifier of the welcome message
+//@input_message_content New content of the message. Must be one of the following types: inputMessageText, inputMessageAnimation,
+//-inputMessageAudio, inputMessageDocument, inputMessagePhoto, inputMessageRichMessage, inputMessageSticker, inputMessageVideo, inputMessageVideoNote, inputMessageVoiceNote
+editChatWelcomeMessage chat_id:int53 welcome_message_id:int32 input_message_content:InputMessageContent = Ok;
+
+//@description Deletes a welcome message of a chat; requires can_send_welcome_messages administrator right in the chat
+//@chat_id The identifier of the chat
+//@welcome_message_id The identifier of the welcome message
+deleteChatWelcomeMessage chat_id:int53 welcome_message_id:int32 = Ok;
+
+//@description Deletes all welcome messages of a chat; requires can_send_welcome_messages administrator right in the chat @chat_id The identifier of the chat
+deleteAllChatWelcomeMessages chat_id:int53 = Ok;
 
 
 //@description Returns the list of custom emoji, which can be used as forum topic icon by all users
@@ -1842,15 +1909,25 @@ sendChatAction chat_id:int53 topic_id:MessageTopic business_connection_id:string
 //@chat_id Chat identifier
 //@forum_topic_id The forum topic identifier in which the message will be sent; pass 0 if none
 //@draft_id Unique identifier of the draft
+//@can_stop Pass true to show the user a button to stop further drafts
+//@keep_on_stop Pass true to keep the current draft when the user stops further generation
 //@text Draft text of the message; pass null to show a "Thinking..." placeholder
-sendTextMessageDraft chat_id:int53 forum_topic_id:int32 draft_id:int64 text:formattedText = Ok;
+sendTextMessageDraft chat_id:int53 forum_topic_id:int32 draft_id:int64 can_stop:Bool keep_on_stop:Bool text:formattedText = Ok;
 
 //@description Sends a draft for a being generated rich message; for bots only
 //@chat_id Chat identifier
 //@forum_topic_id The forum topic identifier in which the message will be sent; pass 0 if none
 //@draft_id Unique identifier of the draft
+//@can_stop Pass true to show the user a button to stop further drafts
+//@keep_on_stop Pass true to keep the current draft when the user stops further generation
 //@message Draft of the message; file upload isn't supported
-sendRichMessageDraft chat_id:int53 forum_topic_id:int32 draft_id:int64 message:inputRichMessage = Ok;
+sendRichMessageDraft chat_id:int53 forum_topic_id:int32 draft_id:int64 can_stop:Bool keep_on_stop:Bool message:inputRichMessage = Ok;
+
+//@description Stops a pending message generation by a bot
+//@chat_id Identifier of the chat with the bot
+//@topic_id Identifier of the topic in which the action is performed; pass null if none
+//@draft_id Unique identifier of the message draft within the message thread
+stopPendingMessage chat_id:int53 topic_id:MessageTopic draft_id:int64 = Ok;
 
 
 //@description Informs TDLib that the chat is opened by the user. Many useful activities depend on the chat being opened or closed (e.g., in supergroups and channels all updates are received only for opened chats) @chat_id Chat identifier
@@ -2127,7 +2204,7 @@ setChatTheme chat_id:int53 theme:InputChatTheme = Ok;
 //@description Changes the draft message in a chat or a topic
 //@chat_id Chat identifier
 //@topic_id Topic in which the draft will be changed; pass null to change the draft for the chat itself
-//@draft_message New draft message; pass null to remove the draft. All files in draft message content must be of the type inputFileLocal. Media thumbnails and captions are ignored
+//@draft_message New draft message; pass null to remove the draft
 setChatDraftMessage chat_id:int53 topic_id:MessageTopic draft_message:draftMessage = Ok;
 
 //@description Changes the notification settings of a chat. Notification settings of a chat with the current user (Saved Messages) can't be changed
@@ -2215,7 +2292,7 @@ leaveChat chat_id:int53 = Ok;
 //@forward_limit The number of earlier messages from the chat to be forwarded to the new member; up to 100. Ignored for supergroups and channels, or if the added user is a bot
 addChatMember chat_id:int53 user_id:int53 forward_limit:int32 = FailedToAddMembers;
 
-//@description Adds multiple new members to a chat; requires can_invite_users member right. Currently, this method is only available for supergroups and channels.
+//@description Adds multiple new members to a chat; requires can_invite_users member right. Currently, this method is available only in supergroups and channels.
 //-This method can't be used to join a chat. Members can't be added to a channel if it has more than 200 members. Returns information about members that weren't added
 //@chat_id Chat identifier
 //@user_ids Identifiers of the users to be added to the chat. The maximum number of added users is 20 for supergroups and 100 for channels
@@ -2231,7 +2308,7 @@ setChatMemberStatus chat_id:int53 member_id:MessageSender status:ChatMemberStatu
 
 //@description Changes the tag or custom title of a chat member; requires can_manage_tags administrator right to change tag of other users; for basic groups and supergroups only
 //@chat_id Chat identifier
-//@user_id Identifier of the user, which tag is changed. Chats can't have member tags
+//@user_id Identifier of the user whose tag is changed. Chats can't have member tags
 //@tag The new tag of the member in the chat; 0-16 characters without emoji
 setChatMemberTag chat_id:int53 user_id:int53 tag:string = Ok;
 
@@ -2251,8 +2328,8 @@ canTransferOwnership = CanTransferOwnershipResult;
 //@password The 2-step verification password of the current user
 transferChatOwnership chat_id:int53 user_id:int53 password:string = Ok;
 
-//@description Returns the user who will become the owner of the chat after 7 days if the current user does not return to the supergroup or channel during that period or immediately for basic groups; requires owner privileges in the chat.
-//-Available only for basic groups, supergroups, and channel chats
+//@description Returns the user who will become the owner of the chat after 7 days if the current user does not return to the supergroup or channel during that period or immediately for basic groups;
+//-requires owner privileges in the chat. Available only for basic groups, supergroups, and channel chats
 //@chat_id Chat identifier
 getChatOwnerAfterLeaving chat_id:int53 = User;
 
@@ -2741,7 +2818,7 @@ createChatInviteLink chat_id:int53 name:string expiration_date:int32 member_limi
 //-Subscription period must be 2592000 in production environment, and 60 or 300 if Telegram test environment is used
 createChatSubscriptionInviteLink chat_id:int53 name:string subscription_pricing:starSubscriptionPricing = ChatInviteLink;
 
-//@description Edits a non-primary invite link for a chat. Available for basic groups, supergroups, and channels.
+//@description Edits a non-primary invite link for a chat. Available in basic groups, supergroups, and channels.
 //-If the link creates a subscription, then expiration_date, member_limit and creates_join_request must not be used.
 //-Requires administrator privileges and can_invite_users right in the chat for own links and owner privileges for other links
 //@chat_id Chat identifier
@@ -2783,7 +2860,7 @@ getChatInviteLinks chat_id:int53 creator_user_id:int53 is_revoked:Bool offset_da
 //@limit The maximum number of chat members to return; up to 100
 getChatInviteLinkMembers chat_id:int53 invite_link:string only_with_expired_subscription:Bool offset_member:chatInviteLinkMember limit:int32 = ChatInviteLinkMembers;
 
-//@description Revokes invite link for a chat. Available for basic groups, supergroups, and channels. Requires administrator privileges and can_invite_users right in the chat for own links and owner privileges for other links.
+//@description Revokes invite link for a chat. Available in basic groups, supergroups, and channels. Requires administrator privileges and can_invite_users right in the chat for own links and owner privileges for other links.
 //-If a primary link is revoked, then additionally to the revoked link returns new primary link
 //@chat_id Chat identifier
 //@invite_link Invite link to be revoked
@@ -3880,7 +3957,7 @@ getSupergroupMembers supergroup_id:int53 filter:SupergroupMembersFilter offset:i
 closeSecretChat secret_chat_id:int32 = Ok;
 
 
-//@description Returns a list of service actions taken by chat members and administrators in the last 48 hours. Available only for supergroups and channels. Requires administrator rights. Returns results in reverse chronological order (i.e., in order of decreasing event_id)
+//@description Returns a list of service actions taken by chat members and administrators in the last 48 hours. Available only in supergroups and channels. Requires administrator rights. Returns results in reverse chronological order (i.e., in order of decreasing event_id)
 //@chat_id Chat identifier
 //@query Search query by which to filter events
 //@from_event_id Identifier of an event from which to return results. Use 0 to get results from the latest events
@@ -4036,7 +4113,10 @@ dropGiftOriginalDetails received_gift_id:string star_count:int53 = Ok;
 //@gift_name Name of the upgraded gift to send
 //@owner_id Identifier of the user or the channel chat that will receive the gift
 //@price The price that the user agreed to pay for the gift
-sendResoldGift gift_name:string owner_id:MessageSender price:GiftResalePrice = GiftResaleResult;
+//@text Text to show along with the gift; 0-getOption("gift_text_length_max") characters. Only Bold, Italic, Underline, Strikethrough, Spoiler, CustomEmoji, and DateTime entities are allowed.
+//-Must be empty if the receiver enabled paid messages and the price of the gift is less than the price of a paid message to the user
+//@is_private Pass true to show gift text and sender only to the gift receiver; otherwise, everyone will be able to see them
+sendResoldGift gift_name:string owner_id:MessageSender price:GiftResalePrice text:formattedText is_private:Bool = GiftResaleResult;
 
 //@description Sends an offer to purchase an upgraded gift
 //@owner_id Identifier of the user or the channel chat that currently owns the gift and will receive the offer
@@ -4095,7 +4175,7 @@ getUpgradedGiftsPromotionalAnimation = Animation;
 //@received_gift_id Identifier of the unique gift
 //@price The new price for the unique gift; pass null to disallow gift resale. The current user will receive
 //-getOption("gift_resale_star_earnings_per_mille") Telegram Stars for each 1000 Telegram Stars paid for the gift if the gift price is in Telegram Stars or
-//-getOption("gift_resale_ton_earnings_per_mille") TON Grams for each 1000 Grams paid for the gift if the gift price is in Grams
+//-getOption("gift_resale_gram_earnings_per_mille") TON Grams for each 1000 Grams paid for the gift if the gift price is in Grams
 setGiftResalePrice received_gift_id:string price:GiftResalePrice = Ok;
 
 //@description Returns upgraded gifts that can be bought from other owners using sendResoldGift
@@ -4668,7 +4748,7 @@ checkPremiumGiftCode code:string = PremiumGiftCodeInfo;
 applyPremiumGiftCode code:string = Ok;
 
 //@description Allows to buy a Telegram Premium subscription for another user with payment in Telegram Stars; for bots only
-//@user_id Identifier of the user which will receive Telegram Premium
+//@user_id Identifier of the user who will receive Telegram Premium
 //@star_count The number of Telegram Stars to pay for subscription
 //@month_count Number of months the Telegram Premium subscription will be active for the user
 //@text Text to show to the user receiving Telegram Premium; 0-getOption("gift_text_length_max") characters. Only Bold, Italic, Underline, Strikethrough, Spoiler, CustomEmoji, and DateTime entities are allowed

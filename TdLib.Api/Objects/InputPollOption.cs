@@ -34,7 +34,7 @@ namespace TdLib
             public FormattedText Text { get; set; }
 
             /// <summary>
-            /// Option media; pass null if none; ignored in addPollOption. Must be one of the following types:
+            /// Option media; pass null if none. Must be one of the following types:
             /// inputPollMediaAnimation, inputPollMediaLink, inputPollMediaLocation, inputPollMediaPhoto, inputPollMediaSticker, inputPollMediaVenue, or inputPollMediaVideo without caption
             /// </summary>
             [JsonConverter(typeof(Converter))]

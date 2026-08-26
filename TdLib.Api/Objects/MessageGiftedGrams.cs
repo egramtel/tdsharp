@@ -14,13 +14,13 @@ namespace TdLib
             /// <summary>
             /// TON Grams were gifted to a user
             /// </summary>
-            public class MessageGiftedTon : MessageContent
+            public class MessageGiftedGrams : MessageContent
             {
                 /// <summary>
                 /// Data type for serialization
                 /// </summary>
                 [JsonProperty("@type")]
-                public override string DataType { get; set; } = "messageGiftedTon";
+                public override string DataType { get; set; } = "messageGiftedGrams";
 
                 /// <summary>
                 /// Extra data attached to the message

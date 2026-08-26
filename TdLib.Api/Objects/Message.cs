@@ -314,6 +314,13 @@ namespace TdLib
             public MessageContent Content { get; set; }
 
             /// <summary>
+            /// Content of the message, which is visible only to the current user and must be shown instead of the regular content; may be null if none
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("ephemeral_content")]
+            public EphemeralMessageContent EphemeralContent { get; set; }
+
+            /// <summary>
             /// Reply markup for the message; may be null if none
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -326,6 +333,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("ephemeral_message_id")]
             public int EphemeralMessageId { get; set; }
+
+            /// <summary>
+            /// Identifier that uniquely corresponds to the chat to which the message was sent; for bots only
+            /// </summary>
+            [JsonConverter(typeof(Converter.Int64))]
+            [JsonProperty("chat_instance")]
+            public long ChatInstance { get; set; }
         }
     }
 }

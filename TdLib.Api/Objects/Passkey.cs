@@ -55,7 +55,7 @@ namespace TdLib
             public int LastUsageDate { get; set; }
 
             /// <summary>
-            /// Identifier of the custom emoji that is used as the icon of the software, which created the passkey; 0 if unknown
+            /// Identifier of the custom emoji that is used as the icon of the software that created the passkey; 0 if unknown
             /// </summary>
             [JsonConverter(typeof(Converter.Int64))]
             [JsonProperty("software_icon_custom_emoji_id")]

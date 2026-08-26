@@ -63,6 +63,13 @@ namespace TdLib
                 public bool IsPersonal { get; set; }
 
                 /// <summary>
+                /// True, if the keyboard must force reply to the message with the keyboard
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("force_reply")]
+                public bool ForceReply { get; set; }
+
+                /// <summary>
                 /// If non-empty, the placeholder to be shown in the input field when the keyboard is active; 0-64 characters
                 /// </summary>
                 [JsonConverter(typeof(Converter))]

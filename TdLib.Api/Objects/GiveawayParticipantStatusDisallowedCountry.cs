@@ -12,7 +12,7 @@ namespace TdLib
         public partial class GiveawayParticipantStatus : Object
         {
             /// <summary>
-            /// The user can't participate in the giveaway, because they phone number is from a disallowed country
+            /// The user can't participate in the giveaway, because their phone number is from a disallowed country
             /// </summary>
             public class GiveawayParticipantStatusDisallowedCountry : GiveawayParticipantStatus
             {

@@ -48,6 +48,21 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("price")]
             public GiftResalePrice Price { get; set; }
+
+            /// <summary>
+            /// Text to show along with the gift; 0-getOption("gift_text_length_max") characters. Only Bold, Italic, Underline, Strikethrough, Spoiler, CustomEmoji, and DateTime entities are allowed.
+            /// Must be empty if the receiver enabled paid messages and the price of the gift is less than the price of a paid message to the user
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("text")]
+            public FormattedText Text { get; set; }
+
+            /// <summary>
+            /// Pass true to show gift text and sender only to the gift receiver; otherwise, everyone will be able to see them
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("is_private")]
+            public bool IsPrivate { get; set; }
         }
 
         /// <summary>
@@ -55,11 +70,11 @@ namespace TdLib
         /// must be transferred using transferGift and can't be passed to the method
         /// </summary>
         public static Task<GiftResaleResult> SendResoldGiftAsync(
-            this IClient client, string giftName = default, MessageSender ownerId = default, GiftResalePrice price = default)
+            this IClient client, string giftName = default, MessageSender ownerId = default, GiftResalePrice price = default, FormattedText text = default, bool isPrivate = default)
         {
             return client.ExecuteAsync(new SendResoldGift
             {
-                GiftName = giftName, OwnerId = ownerId, Price = price
+                GiftName = giftName, OwnerId = ownerId, Price = price, Text = text, IsPrivate = isPrivate
             });
         }
     }

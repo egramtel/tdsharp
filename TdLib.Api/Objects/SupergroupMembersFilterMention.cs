@@ -12,7 +12,7 @@ namespace TdLib
         public partial class SupergroupMembersFilter : Object
         {
             /// <summary>
-            /// Returns users which can be mentioned in the supergroup
+            /// Returns users who can be mentioned in the supergroup
             /// </summary>
             public class SupergroupMembersFilterMention : SupergroupMembersFilter
             {

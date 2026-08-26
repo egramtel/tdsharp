@@ -49,6 +49,20 @@ namespace TdLib
             public long DraftId { get; set; }
 
             /// <summary>
+            /// Pass true to show the user a button to stop further drafts
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("can_stop")]
+            public bool CanStop { get; set; }
+
+            /// <summary>
+            /// Pass true to keep the current draft when the user stops further generation
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("keep_on_stop")]
+            public bool KeepOnStop { get; set; }
+
+            /// <summary>
             /// Draft of the message; file upload isn't supported
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -60,11 +74,11 @@ namespace TdLib
         /// Sends a draft for a being generated rich message; for bots only
         /// </summary>
         public static Task<Ok> SendRichMessageDraftAsync(
-            this IClient client, long chatId = default, int forumTopicId = default, long draftId = default, InputRichMessage message = default)
+            this IClient client, long chatId = default, int forumTopicId = default, long draftId = default, bool canStop = default, bool keepOnStop = default, InputRichMessage message = default)
         {
             return client.ExecuteAsync(new SendRichMessageDraft
             {
-                ChatId = chatId, ForumTopicId = forumTopicId, DraftId = draftId, Message = message
+                ChatId = chatId, ForumTopicId = forumTopicId, DraftId = draftId, CanStop = canStop, KeepOnStop = keepOnStop, Message = message
             });
         }
     }

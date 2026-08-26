@@ -29,7 +29,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Voice note; may be null
+                /// Voice note
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("voice_note")]

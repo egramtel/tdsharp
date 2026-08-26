@@ -34,6 +34,13 @@ namespace TdLib
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("bot_user_id")]
                 public long BotUserId { get; set; }
+
+                /// <summary>
+                /// Identifier of the bot which will manage the new bot
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("manager_bot_user_id")]
+                public long ManagerBotUserId { get; set; }
             }
         }
     }

@@ -41,7 +41,7 @@ namespace TdLib
             public long Amount { get; set; }
 
             /// <summary>
-            /// Number of users which will be able to activate the gift codes
+            /// Number of users who will be able to activate the gift codes
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("winner_count")]
