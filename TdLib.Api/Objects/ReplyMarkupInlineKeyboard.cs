@@ -33,6 +33,13 @@ namespace TdLib
                 /// </summary>
                 [JsonProperty("rows", ItemConverterType = typeof(Converter))]
                 public InlineKeyboardButton[][] Rows { get; set; }
+
+                /// <summary>
+                /// True, if a reply to the message must be forced when the message is received
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("force_reply")]
+                public bool ForceReply { get; set; }
             }
         }
     }

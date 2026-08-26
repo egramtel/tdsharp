@@ -57,11 +57,25 @@ namespace TdLib
             public long CallbackQueryId { get; set; }
 
             /// <summary>
+            /// Pass true if the ephemeral message must replace the message from which the callback query originated; for bots only
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("replace_callback_query_message")]
+            public bool ReplaceCallbackQueryMessage { get; set; }
+
+            /// <summary>
             /// Information about the message to be replied; pass null if none. The message can be an incoming ephemeral message
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("reply_to")]
             public InputMessageReplyTo ReplyTo { get; set; }
+
+            /// <summary>
+            /// Pass true if the content of the message must be protected from forwarding and saving; for bots only
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("protect_content")]
+            public bool ProtectContent { get; set; }
 
             /// <summary>
             /// Non-persistent identifier, which will be returned back in messageSendingStatePending object and can be used to match sent messages and corresponding updateNewMessage updates
@@ -97,11 +111,11 @@ namespace TdLib
         /// The message is persistent across application restarts only if the message database is used. Returns the sent message
         /// </summary>
         public static Task<Message> SendEphemeralMessageAsync(
-            this IClient client, long chatId = default, MessageTopic topicId = default, long receiverUserId = default, long callbackQueryId = default, InputMessageReplyTo replyTo = default, int sendingId = default, bool onlyPreview = default, ReplyMarkup replyMarkup = default, InputMessageContent inputMessageContent = default)
+            this IClient client, long chatId = default, MessageTopic topicId = default, long receiverUserId = default, long callbackQueryId = default, bool replaceCallbackQueryMessage = default, InputMessageReplyTo replyTo = default, bool protectContent = default, int sendingId = default, bool onlyPreview = default, ReplyMarkup replyMarkup = default, InputMessageContent inputMessageContent = default)
         {
             return client.ExecuteAsync(new SendEphemeralMessage
             {
-                ChatId = chatId, TopicId = topicId, ReceiverUserId = receiverUserId, CallbackQueryId = callbackQueryId, ReplyTo = replyTo, SendingId = sendingId, OnlyPreview = onlyPreview, ReplyMarkup = replyMarkup, InputMessageContent = inputMessageContent
+                ChatId = chatId, TopicId = topicId, ReceiverUserId = receiverUserId, CallbackQueryId = callbackQueryId, ReplaceCallbackQueryMessage = replaceCallbackQueryMessage, ReplyTo = replyTo, ProtectContent = protectContent, SendingId = sendingId, OnlyPreview = onlyPreview, ReplyMarkup = replyMarkup, InputMessageContent = inputMessageContent
             });
         }
     }

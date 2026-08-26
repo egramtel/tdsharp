@@ -49,6 +49,20 @@ namespace TdLib
             public long DraftId { get; set; }
 
             /// <summary>
+            /// Pass true to show the user a button to stop further drafts
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("can_stop")]
+            public bool CanStop { get; set; }
+
+            /// <summary>
+            /// Pass true to keep the current draft when the user stops further generation
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("keep_on_stop")]
+            public bool KeepOnStop { get; set; }
+
+            /// <summary>
             /// Draft text of the message; pass null to show a "Thinking..." placeholder
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -60,11 +74,11 @@ namespace TdLib
         /// Sends a draft for a being generated text message; for bots only
         /// </summary>
         public static Task<Ok> SendTextMessageDraftAsync(
-            this IClient client, long chatId = default, int forumTopicId = default, long draftId = default, FormattedText text = default)
+            this IClient client, long chatId = default, int forumTopicId = default, long draftId = default, bool canStop = default, bool keepOnStop = default, FormattedText text = default)
         {
             return client.ExecuteAsync(new SendTextMessageDraft
             {
-                ChatId = chatId, ForumTopicId = forumTopicId, DraftId = draftId, Text = text
+                ChatId = chatId, ForumTopicId = forumTopicId, DraftId = draftId, CanStop = canStop, KeepOnStop = keepOnStop, Text = text
             });
         }
     }

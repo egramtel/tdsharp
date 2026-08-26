@@ -12,7 +12,7 @@ namespace TdLib
         public partial class ChatMembersFilter : Object
         {
             /// <summary>
-            /// Returns users which can be mentioned in the chat
+            /// Returns users who can be mentioned in the chat
             /// </summary>
             public class ChatMembersFilterMention : ChatMembersFilter
             {

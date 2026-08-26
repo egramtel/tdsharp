@@ -35,7 +35,7 @@ namespace TdLib
             public long ChatId { get; set; }
 
             /// <summary>
-            /// Identifier of the user, which tag is changed. Chats can't have member tags
+            /// Identifier of the user whose tag is changed. Chats can't have member tags
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("user_id")]

@@ -36,7 +36,7 @@ namespace TdLib
                 public GiveawayParameters Parameters { get; set; }
 
                 /// <summary>
-                /// Number of users which will receive Telegram Premium subscription gift codes
+                /// Number of users who will receive Telegram Premium subscription gift codes
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("winner_count")]

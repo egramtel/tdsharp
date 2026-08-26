@@ -29,7 +29,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// Audio file; may be null
+                /// Audio file
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("audio")]

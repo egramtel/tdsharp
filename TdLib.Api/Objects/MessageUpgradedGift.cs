@@ -64,6 +64,20 @@ namespace TdLib
                 public string ReceivedGiftId { get; set; }
 
                 /// <summary>
+                /// Message added to the gift
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("text")]
+                public FormattedText Text { get; set; }
+
+                /// <summary>
+                /// True, if the sender and gift text are shown only to the gift receiver; otherwise, everyone will be able to see them
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("is_private")]
+                public bool IsPrivate { get; set; }
+
+                /// <summary>
                 /// True, if the gift is displayed on the user's or the channel's profile page; only for the receiver of the gift
                 /// </summary>
                 [JsonConverter(typeof(Converter))]

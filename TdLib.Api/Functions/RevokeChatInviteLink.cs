@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Revokes invite link for a chat. Available for basic groups, supergroups, and channels. Requires administrator privileges and can_invite_users right in the chat for own links and owner privileges for other links.
+        /// Revokes invite link for a chat. Available in basic groups, supergroups, and channels. Requires administrator privileges and can_invite_users right in the chat for own links and owner privileges for other links.
         /// If a primary link is revoked, then additionally to the revoked link returns new primary link
         /// </summary>
         public class RevokeChatInviteLink : Function<ChatInviteLinks>
@@ -44,7 +44,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Revokes invite link for a chat. Available for basic groups, supergroups, and channels. Requires administrator privileges and can_invite_users right in the chat for own links and owner privileges for other links.
+        /// Revokes invite link for a chat. Available in basic groups, supergroups, and channels. Requires administrator privileges and can_invite_users right in the chat for own links and owner privileges for other links.
         /// If a primary link is revoked, then additionally to the revoked link returns new primary link
         /// </summary>
         public static Task<ChatInviteLinks> RevokeChatInviteLinkAsync(

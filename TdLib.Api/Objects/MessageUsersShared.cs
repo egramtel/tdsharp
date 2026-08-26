@@ -12,7 +12,7 @@ namespace TdLib
         public partial class MessageContent : Object
         {
             /// <summary>
-            /// The current user shared users, which were requested by the bot
+            /// The current user shared users who were requested by the bot
             /// </summary>
             public class MessageUsersShared : MessageContent
             {

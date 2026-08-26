@@ -43,7 +43,7 @@ namespace TdLib
                 public long Amount { get; set; }
 
                 /// <summary>
-                /// Identifier of the user which will receive Telegram Premium
+                /// Identifier of the user who will receive Telegram Premium
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("user_id")]

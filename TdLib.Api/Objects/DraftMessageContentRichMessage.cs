@@ -29,7 +29,7 @@ namespace TdLib
                 public override string Extra { get; set; }
 
                 /// <summary>
-                /// The rich message; the message must not have not yet uploaded media
+                /// The rich message
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("message")]

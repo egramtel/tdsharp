@@ -50,7 +50,7 @@ namespace TdLib
                 public long Amount { get; set; }
 
                 /// <summary>
-                /// Identifiers of the users which can activate the gift codes
+                /// Identifiers of the users who can activate the gift codes
                 /// </summary>
                 [JsonProperty("user_ids", ItemConverterType = typeof(Converter))]
                 public long[] UserIds { get; set; }

@@ -54,6 +54,13 @@ namespace TdLib
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("is_striped")]
                 public bool IsStriped { get; set; }
+
+                /// <summary>
+                /// True, if table cells must have smaller indents
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("is_compact")]
+                public bool IsCompact { get; set; }
             }
         }
     }

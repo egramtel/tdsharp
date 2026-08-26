@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Edits a non-primary invite link for a chat. Available for basic groups, supergroups, and channels.
+        /// Edits a non-primary invite link for a chat. Available in basic groups, supergroups, and channels.
         /// If the link creates a subscription, then expiration_date, member_limit and creates_join_request must not be used.
         /// Requires administrator privileges and can_invite_users right in the chat for own links and owner privileges for other links
         /// </summary>
@@ -73,7 +73,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Edits a non-primary invite link for a chat. Available for basic groups, supergroups, and channels.
+        /// Edits a non-primary invite link for a chat. Available in basic groups, supergroups, and channels.
         /// If the link creates a subscription, then expiration_date, member_limit and creates_join_request must not be used.
         /// Requires administrator privileges and can_invite_users right in the chat for own links and owner privileges for other links
         /// </summary>

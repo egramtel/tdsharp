@@ -165,6 +165,13 @@ namespace TdLib
             public bool HasScheduledMessages { get; set; }
 
             /// <summary>
+            /// True, if the chat has welcome messages; for chat administrators with can_change_info administrator right only
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("has_welcome_messages")]
+            public bool HasWelcomeMessages { get; set; }
+
+            /// <summary>
             /// True, if the chat messages can be deleted only for the current user while other users will continue to see the messages
             /// </summary>
             [JsonConverter(typeof(Converter))]

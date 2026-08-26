@@ -42,7 +42,7 @@ namespace TdLib
             public MessageTopic TopicId { get; set; }
 
             /// <summary>
-            /// New draft message; pass null to remove the draft. All files in draft message content must be of the type inputFileLocal. Media thumbnails and captions are ignored
+            /// New draft message; pass null to remove the draft
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("draft_message")]

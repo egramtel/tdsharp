@@ -139,6 +139,13 @@ namespace TdLib
             public bool CanManageTags { get; set; }
 
             /// <summary>
+            /// True, if the administrator can manage and send welcome messages
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("can_send_welcome_messages")]
+            public bool CanSendWelcomeMessages { get; set; }
+
+            /// <summary>
             /// True, if the administrator isn't shown in the chat member list and sends messages anonymously; applicable to supergroups only
             /// </summary>
             [JsonConverter(typeof(Converter))]

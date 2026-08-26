@@ -13,7 +13,7 @@ namespace TdLib
         {
             /// <summary>
             /// A new pending text or rich message was received in a chat with a bot. The message must be shown in the chat for at most getOption("pending_text_message_period") seconds,
-            /// replace any other pending message with the same draft_id, and be deleted whenever any incoming message from the bot in the message thread is received
+            /// replace any other pending message with the same draft_id with animation, and be deleted whenever any incoming message or a pending message with another draft_id is received in the message thread
             /// </summary>
             public class UpdatePendingMessage : Update
             {
@@ -49,6 +49,20 @@ namespace TdLib
                 [JsonConverter(typeof(Converter.Int64))]
                 [JsonProperty("draft_id")]
                 public long DraftId { get; set; }
+
+                /// <summary>
+                /// True, if a button that calls stopPendingMessage to stop further message generation must be shown
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("can_stop")]
+                public bool CanStop { get; set; }
+
+                /// <summary>
+                /// True, if the pending message must not be automatically deleted when the user presses the Stop button
+                /// </summary>
+                [JsonConverter(typeof(Converter))]
+                [JsonProperty("keep_on_stop")]
+                public bool KeepOnStop { get; set; }
 
                 /// <summary>
                 /// Content of the message; always of the type messageText or messageRichMessage
