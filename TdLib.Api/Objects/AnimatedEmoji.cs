@@ -60,6 +60,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("sound")]
             public File Sound { get; set; }
+
+            /// <summary>
+            /// True, if the emoji is a regular emoji
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("is_regular_emoji")]
+            public bool IsRegularEmoji { get; set; }
         }
     }
 }

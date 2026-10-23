@@ -279,6 +279,12 @@ namespace TdLib
             public bool CanSetFactCheck { get; set; }
 
             /// <summary>
+            /// Identifiers of custom emoji used in the message
+            /// </summary>
+            [JsonProperty("custom_emoji_ids", ItemConverterType = typeof(Converter))]
+            public long[] CustomEmojiIds { get; set; }
+
+            /// <summary>
             /// True, if content of the message can't be saved locally, because it is protected by the current user; if true, then can_be_saved is false
             /// </summary>
             [JsonConverter(typeof(Converter))]

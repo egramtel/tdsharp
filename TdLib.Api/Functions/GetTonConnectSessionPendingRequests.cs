@@ -11,15 +11,15 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Returns full information about a community. The data will be sent through update.
+        /// Returns pending requests in a TON Connect session
         /// </summary>
-        public class LoadCommunityFullInfo : Function<Ok>
+        public class GetTonConnectSessionPendingRequests : Function<TonConnectRequests>
         {
             /// <summary>
             /// Data type for serialization
             /// </summary>
             [JsonProperty("@type")]
-            public override string DataType { get; set; } = "loadCommunityFullInfo";
+            public override string DataType { get; set; } = "getTonConnectSessionPendingRequests";
 
             /// <summary>
             /// Extra data attached to the function
@@ -28,22 +28,22 @@ namespace TdLib
             public override string Extra { get; set; }
 
             /// <summary>
-            /// Community identifier
+            /// Unique identifier of the session
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("community_id")]
-            public long CommunityId { get; set; }
+            [JsonConverter(typeof(Converter.Int64))]
+            [JsonProperty("session_id")]
+            public long SessionId { get; set; }
         }
 
         /// <summary>
-        /// Returns full information about a community. The data will be sent through update.
+        /// Returns pending requests in a TON Connect session
         /// </summary>
-        public static Task<Ok> LoadCommunityFullInfoAsync(
-            this IClient client, long communityId = default)
+        public static Task<TonConnectRequests> GetTonConnectSessionPendingRequestsAsync(
+            this IClient client, long sessionId = default)
         {
-            return client.ExecuteAsync(new LoadCommunityFullInfo
+            return client.ExecuteAsync(new GetTonConnectSessionPendingRequests
             {
-                CommunityId = communityId
+                SessionId = sessionId
             });
         }
     }

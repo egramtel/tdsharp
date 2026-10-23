@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Reports a chat to the Telegram moderators. A chat can be reported only from the chat action bar, or if chat.can_be_reported
+        /// Reports a chat to the Telegram moderators. A chat can be reported only from the chat action bar, if chat.can_be_reported, or if messageProperties.can_report_chat
         /// </summary>
         public class ReportChat : Function<ReportChatResult>
         {
@@ -56,7 +56,7 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Reports a chat to the Telegram moderators. A chat can be reported only from the chat action bar, or if chat.can_be_reported
+        /// Reports a chat to the Telegram moderators. A chat can be reported only from the chat action bar, if chat.can_be_reported, or if messageProperties.can_report_chat
         /// </summary>
         public static Task<ReportChatResult> ReportChatAsync(
             this IClient client, long chatId = default, byte[] optionId = default, long[] messageIds = default, string text = default)

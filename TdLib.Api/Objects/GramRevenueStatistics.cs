@@ -41,7 +41,7 @@ namespace TdLib
             public GramRevenueStatus Status { get; set; }
 
             /// <summary>
-            /// Current conversion rate of nanogram to USD cents
+            /// Current exchange rate of nanogram to USD cents
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("usd_rate")]

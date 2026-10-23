@@ -50,6 +50,13 @@ namespace TdLib
             /// </summary>
             [JsonProperty("collectible_usernames", ItemConverterType = typeof(Converter))]
             public string[] CollectibleUsernames { get; set; }
+
+            /// <summary>
+            /// Secondary non-collectible username; for bots only. Can't be used in toggleBotUsernameIsActive; use addBotSecondaryUsername or deleteBotSecondaryUsername to edit it.
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("secondary_username")]
+            public string SecondaryUsername { get; set; }
         }
     }
 }

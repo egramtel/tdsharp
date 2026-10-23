@@ -43,7 +43,7 @@ namespace TdLib
             public string Name { get; set; }
 
             /// <summary>
-            /// Username of the bot. The username must end with "bot". Use checkBotUsername to find whether the name is suitable
+            /// Username of the bot. The username must end with "bot" or a string from updateAllowedBotUsernamePremiumSuffixes case-insensitive.
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("username")]
