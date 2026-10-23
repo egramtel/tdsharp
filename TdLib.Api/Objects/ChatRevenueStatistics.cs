@@ -48,7 +48,7 @@ namespace TdLib
             public ChatRevenueAmount RevenueAmount { get; set; }
 
             /// <summary>
-            /// Current conversion rate of the cryptocurrency in which revenue is calculated to USD
+            /// Current exchange rate of the cryptocurrency in which revenue is calculated to USD
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("usd_rate")]

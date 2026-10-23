@@ -38,7 +38,7 @@ namespace TdLib
                 public string ManagerBotUsername { get; set; }
 
                 /// <summary>
-                /// Suggested username for the bot; always ends with "bot" case-insensitive
+                /// Suggested username for the bot; always ends with "bot" or a string from updateAllowedBotUsernamePremiumSuffixes case-insensitive
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("suggested_bot_username")]

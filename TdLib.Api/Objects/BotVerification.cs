@@ -41,7 +41,7 @@ namespace TdLib
             public long IconCustomEmojiId { get; set; }
 
             /// <summary>
-            /// Custom description of verification reason set by the bot. Can contain only Mention, Hashtag, Cashtag, PhoneNumber, BankCardNumber, Url, and EmailAddress entities
+            /// Custom description of verification reason set by the bot. Can contain only Mention, Hashtag, Cashtag, PhoneNumber, BankCardNumber, TonAddress, Url, and EmailAddress entities
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("custom_description")]

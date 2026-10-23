@@ -41,7 +41,7 @@ namespace TdLib
             public StarRevenueStatus Status { get; set; }
 
             /// <summary>
-            /// Current conversion rate of a Telegram Star to USD
+            /// Current exchange rate of a Telegram Star to USD
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("usd_rate")]

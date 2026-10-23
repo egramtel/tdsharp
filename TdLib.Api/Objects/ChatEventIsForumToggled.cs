@@ -12,7 +12,7 @@ namespace TdLib
         public partial class ChatEventAction : Object
         {
             /// <summary>
-            /// The is_forum setting of a channel was toggled
+            /// The is_forum setting of a supergroup was toggled
             /// </summary>
             public class ChatEventIsForumToggled : ChatEventAction
             {

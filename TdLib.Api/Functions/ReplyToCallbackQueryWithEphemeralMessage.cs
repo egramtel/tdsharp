@@ -11,15 +11,15 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Edits the message from which a callback query has originated with an ephemeral message; for bots only
+        /// Replies to a callback query with an ephemeral message; for bots only
         /// </summary>
-        public class EditCallbackQueryMessage : Function<Ok>
+        public class ReplyToCallbackQueryWithEphemeralMessage : Function<Ok>
         {
             /// <summary>
             /// Data type for serialization
             /// </summary>
             [JsonProperty("@type")]
-            public override string DataType { get; set; } = "editCallbackQueryMessage";
+            public override string DataType { get; set; } = "replyToCallbackQueryWithEphemeralMessage";
 
             /// <summary>
             /// Extra data attached to the function
@@ -33,6 +33,13 @@ namespace TdLib
             [JsonConverter(typeof(Converter.Int64))]
             [JsonProperty("callback_query_id")]
             public long CallbackQueryId { get; set; }
+
+            /// <summary>
+            /// Pass true if the ephemeral message must replace the message from which the callback query originated
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("replace_callback_query_message")]
+            public bool ReplaceCallbackQueryMessage { get; set; }
 
             /// <summary>
             /// Pass true if the content of the message must be protected from forwarding and saving
@@ -50,7 +57,6 @@ namespace TdLib
 
             /// <summary>
             /// New content of the message. Must be one of the following types: inputMessageText, inputMessageAnimation,
-            /// inputMessageAudio, inputMessageDocument, inputMessagePhoto, inputMessageRichMessage, inputMessageSticker, inputMessageVideo, inputMessageVideoNote, inputMessageVoiceNote
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("input_message_content")]
@@ -58,14 +64,14 @@ namespace TdLib
         }
 
         /// <summary>
-        /// Edits the message from which a callback query has originated with an ephemeral message; for bots only
+        /// Replies to a callback query with an ephemeral message; for bots only
         /// </summary>
-        public static Task<Ok> EditCallbackQueryMessageAsync(
-            this IClient client, long callbackQueryId = default, bool protectContent = default, ReplyMarkup replyMarkup = default, InputMessageContent inputMessageContent = default)
+        public static Task<Ok> ReplyToCallbackQueryWithEphemeralMessageAsync(
+            this IClient client, long callbackQueryId = default, bool replaceCallbackQueryMessage = default, bool protectContent = default, ReplyMarkup replyMarkup = default, InputMessageContent inputMessageContent = default)
         {
-            return client.ExecuteAsync(new EditCallbackQueryMessage
+            return client.ExecuteAsync(new ReplyToCallbackQueryWithEphemeralMessage
             {
-                CallbackQueryId = callbackQueryId, ProtectContent = protectContent, ReplyMarkup = replyMarkup, InputMessageContent = inputMessageContent
+                CallbackQueryId = callbackQueryId, ReplaceCallbackQueryMessage = replaceCallbackQueryMessage, ProtectContent = protectContent, ReplyMarkup = replyMarkup, InputMessageContent = inputMessageContent
             });
         }
     }

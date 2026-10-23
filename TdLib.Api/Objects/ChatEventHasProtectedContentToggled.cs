@@ -12,7 +12,7 @@ namespace TdLib
         public partial class ChatEventAction : Object
         {
             /// <summary>
-            /// The has_protected_content setting of a channel was toggled
+            /// The has_protected_content setting of a chat was toggled
             /// </summary>
             public class ChatEventHasProtectedContentToggled : ChatEventAction
             {

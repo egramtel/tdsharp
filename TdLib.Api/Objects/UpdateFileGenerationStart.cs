@@ -50,7 +50,7 @@ namespace TdLib
                 public string DestinationPath { get; set; }
 
                 /// <summary>
-                /// If the conversion is "#url#" than original_path contains an HTTP/HTTPS URL of a file that must be downloaded by the application.
+                /// If the conversion is "#url#", then original_path contains an HTTP/HTTPS URL of a file that must be downloaded by the application.
                 /// </summary>
                 [JsonConverter(typeof(Converter))]
                 [JsonProperty("conversion")]

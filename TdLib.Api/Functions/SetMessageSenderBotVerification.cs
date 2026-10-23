@@ -42,18 +42,18 @@ namespace TdLib
             public MessageSender VerifiedId { get; set; }
 
             /// <summary>
-            /// Custom description of verification reason; 0-getOption("bot_verification_custom_description_length_max").
+            /// Custom description of verification reason; 0-getOption("bot_verification_custom_description_length_max") characters. Only TextUrl entities are supported.
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("custom_description")]
-            public string CustomDescription { get; set; }
+            public FormattedText CustomDescription { get; set; }
         }
 
         /// <summary>
         /// Changes the verification status of a user or a chat by an owned bot
         /// </summary>
         public static Task<Ok> SetMessageSenderBotVerificationAsync(
-            this IClient client, long botUserId = default, MessageSender verifiedId = default, string customDescription = default)
+            this IClient client, long botUserId = default, MessageSender verifiedId = default, FormattedText customDescription = default)
         {
             return client.ExecuteAsync(new SetMessageSenderBotVerification
             {
