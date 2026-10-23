@@ -62,7 +62,14 @@ namespace TdLib
             public bool AnimateOutgoingMessageFill { get; set; }
 
             /// <summary>
-            /// Accent color of outgoing messages in ARGB format
+            /// True, if there is chosen accent color for outgoing messages; otherwise, the color must be deduced from other theme settings
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("has_outgoing_message_accent_color")]
+            public bool HasOutgoingMessageAccentColor { get; set; }
+
+            /// <summary>
+            /// Accent color of outgoing messages in ARGB format; must be ignored if has_outgoing_message_accent_color is false
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("outgoing_message_accent_color")]

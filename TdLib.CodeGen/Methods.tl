@@ -510,8 +510,8 @@ toggleSavedMessagesTopicIsPinned saved_messages_topic_id:int53 is_pinned:Bool = 
 setPinnedSavedMessagesTopics saved_messages_topic_ids:vector<int53> = Ok;
 
 
-//@description Returns full information about a community. The data will be sent through update. @community_id Community identifier
-loadCommunityFullInfo community_id:int53 = Ok;
+//@description Returns full information about a community @community_id Community identifier
+getCommunityFullInfo community_id:int53 = CommunityFullInfo;
 
 //@description Creates a new community for the given chat. Returns identifier of the created community
 //@name Name of the new community
@@ -524,6 +524,19 @@ createCommunity name:string chat_id:int53 is_chat_hidden:Bool = CommunityId;
 //@community_id Identifier of the community
 //@name New name of the community
 setCommunityName community_id:int53 name:string = Ok;
+
+//@description Changes the photo of a community; requires can_change_info administrator right in the community
+//@community_id Identifier of the community
+//@photo New chat photo; pass null to delete the chat photo
+setCommunityPhoto community_id:int53 photo:InputChatPhoto = Ok;
+
+//@description Changes permissions of regular members in the given community; requires can_ban_members administrator right in the community
+//@community_id Identifier of the community
+//@permissions New permissions of the community
+setCommunityPermissions community_id:int53 permissions:communityPermissions = Ok;
+
+//@description Deletes a community; requires owner privileges @community_id Identifier of the community
+deleteCommunity community_id:int53 = Ok;
 
 
 //@description Returns a list of common group chats with a given user. Chats are sorted by their type and creation date
@@ -1107,13 +1120,14 @@ editEphemeralMessage chat_id:int53 receiver_user_id:int53 ephemeral_message_id:i
 //@show_caption_above_media Pass true to show the caption above the media; otherwise, the caption will be shown below the media. May be true only for animation, photo, and video messages
 editEphemeralMessageCaption chat_id:int53 receiver_user_id:int53 ephemeral_message_id:int32 reply_markup:ReplyMarkup caption:formattedText show_caption_above_media:Bool = Ok;
 
-//@description Edits the message from which a callback query has originated with an ephemeral message; for bots only
+//@description Replies to a callback query with an ephemeral message; for bots only
 //@callback_query_id Identifier of the callback query
+//@replace_callback_query_message Pass true if the ephemeral message must replace the message from which the callback query originated
 //@protect_content Pass true if the content of the message must be protected from forwarding and saving
 //@reply_markup The new message reply markup; pass null if none
 //@input_message_content New content of the message. Must be one of the following types: inputMessageText, inputMessageAnimation,
 //-inputMessageAudio, inputMessageDocument, inputMessagePhoto, inputMessageRichMessage, inputMessageSticker, inputMessageVideo, inputMessageVideoNote, inputMessageVoiceNote
-editCallbackQueryMessage callback_query_id:int64 protect_content:Bool reply_markup:ReplyMarkup input_message_content:InputMessageContent = Ok;
+replyToCallbackQueryWithEphemeralMessage callback_query_id:int64 replace_callback_query_message:Bool protect_content:Bool reply_markup:ReplyMarkup input_message_content:InputMessageContent = Ok;
 
 //@description Edits the time when a scheduled message will be sent. Scheduling state of all messages in the same album or forwarded together with the message will be also changed
 //@chat_id The chat the message belongs to
@@ -1583,7 +1597,8 @@ getMessageEffect effect_id:int64 = MessageEffect;
 //@quote_position Approximate quote position in UTF-16 code units
 searchQuote text:formattedText quote:formattedText quote_position:int32 = FoundPosition;
 
-//@description Returns all entities (mentions, hashtags, cashtags, bot commands, bank card numbers, URLs, and email addresses) found in the text. Can be called synchronously @text The text in which to look for entities
+//@description Returns all entities (mentions, hashtags, cashtags, bot commands, bank card numbers, TON blockchain addresses, URLs, and email addresses) found in the text. Can be called synchronously
+//@text The text in which to look for entities
 getTextEntities text:string = TextEntities;
 
 //@description Parses Bold, Italic, Underline, Strikethrough, Spoiler, CustomEmoji, BlockQuote, ExpandableBlockQuote, Code, Pre, PreCode, TextUrl,
@@ -3730,15 +3745,18 @@ reorderBotMediaPreviews bot_user_id:int53 language_code:string file_ids:vector<i
 deleteBotMediaPreviews bot_user_id:int53 language_code:string file_ids:vector<int32> = Ok;
 
 
-//@description Checks whether a username can be set for a new bot. Use checkChatUsername to check username for other chat types
+//@description Checks whether a username can be set for a new bot or assigned as a secondary username to an existing bot. Use checkChatUsername to check username for other chat types
 //@username Username to be checked
-checkBotUsername username:string = CheckChatUsernameResult;
+//@is_secondary Pass true to check whether the username is suitable as a secondary username for an existing bot; pass false to check whether the username is suitable for createBot
+checkBotUsername username:string is_secondary:Bool = CheckChatUsernameResult;
 
 //@description Creates a bot which will be managed by another bot. Returns the created bot. May return an error with a message "BOT_CREATE_LIMIT_EXCEEDED"
 //-if the user already owns the maximum allowed number of bots as per getOption("owned_bot_count_max"). An internal link "https://t.me/BotFather?start=deletebot" can be processed to handle the error
 //@manager_bot_user_id Identifier of the bot that will manage the created bot
 //@name Name of the bot; 1-64 characters
-//@username Username of the bot. The username must end with "bot". Use checkBotUsername to find whether the name is suitable
+//@username Username of the bot. The username must end with "bot" or a string from updateAllowedBotUsernamePremiumSuffixes case-insensitive.
+//-Use checkBotUsername to find whether the name is suitable. If the username doesn't end with "bot", then the current user must have Telegram Premium subscription,
+//-the chosen username will be assigned as secondary and an additional regular username ending with "bot" will be automatically assigned to the created bot
 //@via_link Pass true if the bot is created from an internalLinkTypeRequestManagedBot link
 createBot manager_bot_user_id:int53 name:string username:string via_link:Bool = User;
 
@@ -3766,6 +3784,16 @@ getBotName bot_user_id:int53 language_code:string = Text;
 
 //@description Changes a profile photo for a bot @bot_user_id Identifier of the target bot @photo Profile photo to set; pass null to delete the chat photo
 setBotProfilePhoto bot_user_id:int53 photo:InputChatPhoto = Ok;
+
+//@description Adds a secondary username to a bot. Can be called only if userTypeBot.can_be_edited, the bot has no secondary username and the current user has Telegram Premium subscription.
+//-May return an error with a message "OWNER_USERNAMES_LIMIT_EXCEEDED" if the current user already owns at least getOption("secondary_bot_username_count_max") bots with a secondary username
+//@bot_user_id Identifier of the target bot
+//@username The new secondary username; must be non-empty. Use checkBotUsername to check username validness
+addBotSecondaryUsername bot_user_id:int53 username:string = Ok;
+
+//@description Removes a secondary username from a bot. Can be called only if userTypeBot.can_be_edited == true and the bot has a secondary username
+//@bot_user_id Identifier of the target bot
+deleteBotSecondaryUsername bot_user_id:int53 = Ok;
 
 //@description Changes active state for a username of a bot. The editable username can be disabled only if there are other active usernames.
 //-May return an error with a message "USERNAMES_ACTIVE_TOO_MUCH" if the maximum number of active usernames has been reached. Can be called only if userTypeBot.can_be_edited == true
@@ -3803,9 +3831,9 @@ getBotInfoShortDescription bot_user_id:int53 language_code:string = Text;
 //@description Changes the verification status of a user or a chat by an owned bot
 //@bot_user_id Identifier of the owned bot, which will verify the user or the chat
 //@verified_id Identifier of the user or the supergroup or channel chat, which will be verified by the bot
-//@custom_description Custom description of verification reason; 0-getOption("bot_verification_custom_description_length_max").
+//@custom_description Custom description of verification reason; 0-getOption("bot_verification_custom_description_length_max") characters. Only TextUrl entities are supported.
 //-If empty, then "was verified by organization "organization_name"" will be used as description. Can be specified only if the bot is allowed to provide custom description
-setMessageSenderBotVerification bot_user_id:int53 verified_id:MessageSender custom_description:string = Ok;
+setMessageSenderBotVerification bot_user_id:int53 verified_id:MessageSender custom_description:formattedText = Ok;
 
 //@description Removes the verification status of a user or a chat by an owned bot
 //@bot_user_id Identifier of the owned bot, which verified the user or the chat
@@ -4400,7 +4428,7 @@ getDefaultMessageAutoDeleteTime = MessageAutoDeleteTime;
 //@description Removes a chat action bar without any other action @chat_id Chat identifier
 removeChatActionBar chat_id:int53 = Ok;
 
-//@description Reports a chat to the Telegram moderators. A chat can be reported only from the chat action bar, or if chat.can_be_reported
+//@description Reports a chat to the Telegram moderators. A chat can be reported only from the chat action bar, if chat.can_be_reported, or if messageProperties.can_report_chat
 //@chat_id Chat identifier
 //@option_id Option identifier chosen by the user; leave empty for the initial request
 //@message_ids Identifiers of reported messages. Use messageProperties.can_report_chat to check whether the message can be reported
@@ -4440,11 +4468,196 @@ getChatRevenueWithdrawalUrl chat_id:int53 password:string = HttpUrl;
 //@limit The maximum number of transactions to be returned; up to 100
 getChatRevenueTransactions chat_id:int53 offset:string limit:int32 = ChatRevenueTransactions;
 
-//@description Returns the list of TON blockchain transactions of the current user
+//@description Returns the list of TON Gram transactions of the current user
 //@direction Direction of the transactions to receive; pass null to get all transactions
 //@offset Offset of the first transaction to return as received from the previous request; use empty string to get the first chunk of results
 //@limit The maximum number of transactions to return
 getTonTransactions direction:TransactionDirection offset:string limit:int32 = TonTransactions;
+
+//@description Returns the list of TON wallet transactions of the current user; can be used only if getOption("can_use_ton_wallet")
+//@direction Direction of the transactions to receive; pass null to get all transactions
+//@offset Offset of the first transaction to return as received from the previous request; use empty string to get the first chunk of results
+//@limit The maximum number of transactions to return
+getTonWalletTransactions direction:TransactionDirection offset:string limit:int32 = TonWalletTransactions;
+
+//@description Returns a TON wallet transaction by their identifier @transaction_id Identifier of the transaction
+getTonWalletTransaction transaction_id:string = TonWalletTransaction;
+
+//@description Returns a TON wallet transaction by their msg_hash; return an error if the transaction isn't finalized yet @msg_hash Value of msg_hash of the transaction
+getTonWalletTransactionByMsgHash msg_hash:string = TonWalletTransaction;
+
+
+//@description Loads state of the TON wallet of the current user; can be used only if getOption("can_use_ton_wallet")
+loadTonWalletState = Ok;
+
+//@description Loads or reloads the current state of gasless transfers for the current user; can be used only if getOption("can_use_ton_wallet")
+loadTonWalletGaslessTransfersInfo = Ok;
+
+//@description Returns information about balance of the current user in the bot https://t.me/walt; can be used only if getOption("can_use_ton_wallet")
+checkWalletBotBalance = WalletBotBalance;
+
+//@description Returns TON wallet addresses of the specified users; can be used only if getOption("can_use_ton_wallet")
+//@user_ids Identifiers of the users whose wallet addresses have to be returned. If a user has no TON wallet, it will be skipped in the result
+getUserTonWalletAddresses user_ids:vector<int53> = UserTonWalletAddresses;
+
+//@description Creates a TON wallet for the specified regular user; can be used only if getOption("can_use_ton_wallet"). The current user must have positive TON wallet balance @user_id Identifier of the user
+createUserTonWallet user_id:int53 = UserTonWalletAddress;
+
+//@description Returns information about a TON wallet with the given address; can be used only if getOption("can_use_ton_wallet") @address Address in the TON blockchain
+getAddressTonWallet address:string = UserTonWalletAddress;
+
+//@description Returns the secret phrase of the user's TON wallet as a space separated list of words. Works only if tonWalletState.can_export_phrase is true
+//@password Password of the current user; pass an empty string unless receive an error with a message "PASSWORD_MISSING" for a passwordless request
+getTonWalletSecretPhrase password:string = Text;
+
+//@description Returns a challenge which may be used to proof ownership of a TON wallet; can be used only if getOption("can_use_ton_wallet")
+getTonWalletOwnershipProofChallenge = TonWalletOwnershipProofChallenge;
+
+//@description Enables backup of the TON wallet of the user. Works only if tonWalletState.can_enable_backup is true
+//@secret_phrase The secret phrase of the user's TON wallet as a space separated list of words
+//@proof Proof of the TON wallet ownership; use getTonWalletOwnershipProofChallenge to get a challenge for the proof
+enableTonWalletBackup secret_phrase:string proof:tonWalletOwnershipProof = Ok;
+
+//@description Disables backup of the TON wallet of the user. Works only if tonWalletState.is_backup_enabled is true
+//@password Password of the current user; pass an empty string unless receive an error with a message "PASSWORD_MISSING" for a passwordless request
+disableTonWalletBackup password:string = Ok;
+
+//@description Disables backup of the TON wallet of the user using proof of wallet ownership instead of the password. Works only if tonWalletState.is_backup_enabled is true
+//@proof Proof of the TON wallet ownership; use getTonWalletOwnershipProofChallenge to get a challenge for the proof
+disableTonWalletBackupWithProof proof:tonWalletOwnershipProof = Ok;
+
+//@description Sends a cryptocurrency from the user's TON wallet; can be used only if getOption("can_use_ton_wallet")
+//@user_id Identifier of the user who will receive the transfer; pass 0 if unknown
+//@address Address in the TON blockchain of the transaction peer
+//@amount The amount of the sent cryptocurrency, in the smallest units of the cryptocurrency
+//@comment Comment added to the transaction
+//@is_comment_encrypted Pass true if the comment is encrypted and must be decrypted using the receiver's or sender's private key
+//@sending_id Non-persistent identifier, which will be returned back in messageSendingStatePending object and can be used to match sent messages and corresponding updateNewMessage updates
+//@regular_transfer_data Serialized data for regular cryptocurrency transfer request. The minimum allowed transfer amount is getOption("ton_wallet_transfer_amount_min")
+//@gasless_transfer_data Serialized data for gasless cryptocurrency transfer request; pass an empty string to force a regular request.
+//-The minimum allowed transfer amount for a gassless transfer is getOption("ton_wallet_gasless_transfer_amount_min")
+sendTonWalletTransfer user_id:int53 address:string amount:int53 comment:string is_comment_encrypted:Bool sending_id:int32 regular_transfer_data:bytes gasless_transfer_data:bytes = TonWalletTransferResult;
+
+//@description Deletes the current TON wallet of the user and creates a new one; can be used only if getOption("can_use_ton_wallet")
+//@password Password of the current user; pass an empty string unless receive an error with a message "PASSWORD_MISSING" for a passwordless request
+deleteTonWallet password:string = Ok;
+
+//@description Replaces the current TON wallet with another existing v6r2 wallet or changes private key of the current TON wallet; can be used only if getOption("can_use_ton_wallet")
+//@password Password of the current user; pass an empty string unless receive an error with a message "PASSWORD_MISSING" for a passwordless request
+//@anchor_public_key Original public key of the new TON wallet
+//@proof Proof of ownership of the new private key of the TON wallet; use getTonWalletOwnershipProofChallenge to get a challenge for the proof
+replaceTonWallet password:string anchor_public_key:bytes proof:tonWalletOwnershipProof = Ok;
+
+//@description Returns exchange rates of currencies to USD
+getCurrencyExchangeRates = CurrencyExchangeRates;
+
+//@description Returns NFTs stored on the TON wallet of the user; can be used only if getOption("can_use_ton_wallet")
+//@offset Offset of the first entry to return as received from the previous request; use empty string to get the first chunk of results
+//@limit The maximum number of NFTs to be returned; must be positive and can't be greater than 20
+getTonWalletNfts offset:string limit:int32 = TonNfts;
+
+
+//@description Returns active TON Connect sessions; can be used only if getOption("can_use_ton_wallet")
+getTonConnectSessions = TonConnectSessions;
+
+//@description Creates a TON Connect session; can be used only if getOption("can_use_ton_wallet")
+//@dapp_client_id Hex-encoded public X25519 key of the dApp
+//@manifest_url URL of the manifest of the dApp
+createTonConnectSession dapp_client_id:string manifest_url:string = TonConnectSession;
+
+//@description Sets wallet_client_id for a pending TON Connect session. Then, sendTonConnectSessionConnectResult must be used to accept or reject the session
+//@session_id Unique identifier of the session
+//@wallet_client_id Hex-encoded public X25519 key of the current user's application calculated from the TON wallet private key and session parameters
+setTonConnectSessionWalletClientId session_id:int64 wallet_client_id:string = TonConnectChallenge;
+
+//@description Accepts or rejects a TON Connect session
+//@session_id Unique identifier of the session
+//@challenge_answer Answer to the challenge received from setTonConnectSessionWalletClientId
+//@is_error Pass true to reject the request; pass false to accept it
+//@body Body of the result
+//@trace_id Identifier to trace the connection request
+sendTonConnectSessionConnectResult session_id:int64 challenge_answer:bytes is_error:Bool body:bytes trace_id:string = Ok;
+
+//@description Returns pending requests in a TON Connect session @session_id Unique identifier of the session
+getTonConnectSessionPendingRequests session_id:int64 = TonConnectRequests;
+
+//@description Returns pending requests with a dApp through TON Connect @dapp_client_id Hex-encoded public X25519 key of the dApp
+getTonConnectDAppPendingRequests dapp_client_id:string = TonConnectRequests;
+
+//@description Claims a request received through TON Connect for processing on this device
+//@session_id Unique identifier of the TON Connect session
+//@message_id Identifier of the message with the request
+//@dapp_request_id Identifier of the request assigned by the dApp
+//@is_rejected Pass true to reject the request
+claimTonConnectRequest session_id:int64 message_id:int53 dapp_request_id:string is_rejected:Bool = Ok;
+
+//@description Sends an answer for a request received through TON Connect
+//@session_id Unique identifier of the TON Connect session
+//@message_id Identifier of the message with the request
+//@trace_id Identifier to trace the request
+//@body Body of the response
+answerTonConnectRequest session_id:int64 message_id:int53 trace_id:string body:bytes = Ok;
+
+//@description Returns the next event identifier for the given TON Connect session @session_id Unique identifier of the TON Connect session
+getTonConnectSessionNextEventId session_id:int64 = TonConnectSessionEventId;
+
+//@description Closes a TON Connect session
+//@session_id Unique identifier of the TON Connect session to close
+//@body Encrypted body of the disconnect event; may be empty if the session has already been closed. Use getTonConnectSessionNextEventId to get event identifier for the event
+disconnectTonConnectSession session_id:int64 body:bytes = Ok;
+
+
+//@description Returns available on-ramp providers @cryptocurrency Pass a cryptocurrency to receive only providers that support it; pass an empty string to receive all providers
+getOnRampProviders cryptocurrency:string = OnRampProviders;
+
+//@description Returns the list of fiat currencies supported by an on-ramp provider for the given cryptocurrency
+//@provider_id Unique identifier of the on-ramp provider; only for providers that supports base currencies
+//@cryptocurrency The cryptocurrency that will be bought
+getOnRampProviderBaseCurrencies provider_id:string cryptocurrency:string = Currencies;
+
+//@description Returns the available on-ramp payment methods based on the current user location
+//@provider_id Unique identifier of the on-ramp provider
+//@cryptocurrency The cryptocurrency that will be bought
+//@base_currency ISO 4217 currency code of the currency that will be used for the purchase; pass an empty string if unknown
+getOnRampPaymentAvailability provider_id:string cryptocurrency:string base_currency:string = OnRampPaymentAvailability;
+
+//@description Returns the limits for an on-ramp payment; only for providers that supports limits retrieval
+//@provider_id Unique identifier of the on-ramp provider
+//@cryptocurrency The cryptocurrency that will be bought
+//@base_currency ISO 4217 currency code of the currency that will be used for the purchase
+//@payment_method_name Name of the chosen payment method; pass an empty string if none
+getOnRampPaymentLimits provider_id:string cryptocurrency:string base_currency:string payment_method_name:string = OnRampPaymentLimits;
+
+//@description Returns a quote for an on-ramp payment; only for providers that supports quote retrieval
+//@provider_id Unique identifier of the on-ramp provider
+//@cryptocurrency The cryptocurrency that will be bought
+//@base_currency ISO 4217 currency code of the currency that will be used for the purchase
+//@cryptocurrency_amount The amount of the cryptocurrency to buy; pass an empty string if the user selected base_currency_amount
+//@base_currency_amount The amount of the base currency to spend; pass an empty string if the user selected cryptocurrency_amount
+//@payment_method_name Name of the chosen payment method; pass an empty string if none
+getOnRampPaymentQuote provider_id:string cryptocurrency:string base_currency:string cryptocurrency_amount:string base_currency_amount:string payment_method_name:string = OnRampPaymentQuote;
+
+//@description Creates a session for an on-ramp payment
+//@provider_id Unique identifier of the on-ramp provider
+//@cryptocurrency The cryptocurrency that will be bought
+//@address Address to which the cryptocurrency will be sent
+//@payment_method_name Name of the chosen payment method; pass an empty string if none
+//@base_currency ISO 4217 currency code of the currency that will be used for the purchase; pass an empty string if unknown
+//@cryptocurrency_amount The amount of the cryptocurrency to buy; pass an empty string if the user selected base_currency_amount
+//@base_currency_amount The amount of the base currency to spend; pass an empty string if the user selected cryptocurrency_amount
+//@memo Memo for the query; pass an empty string if none
+//@theme Preferred theme for the WebView; pass "light" for a light theme, "dark" for a dark theme, or leave empty for a default theme
+//@success_return_url The URL opened on successful payment; pass an empty string if none
+//@fail_return_url The URL opened on failed payment; pass an empty string if none
+createOnRampPaymentSession provider_id:string cryptocurrency:string address:string payment_method_name:string base_currency:string cryptocurrency_amount:string base_currency_amount:string memo:string theme:string success_return_url:string fail_return_url:string = OnRampPaymentSession;
+
+//@description Sends a request to TON Center API and returns its response in JSON format
+//@endpoint The path of the requested endpoint. See https://toncenter.com/api/v3/index.html for the list of supported endpoints
+//@type Type of the request
+sendTonCenterApiRequest endpoint:string type:TonCenterApiRequestType = Text;
+
+//@description Returns a URL for TON Center Streaming API
+getTonCenterStreamingApiUrl = TonCenterStreamingApiUrl;
 
 
 //@description Returns detailed Telegram Star revenue statistics
@@ -4902,6 +5115,10 @@ getCollectibleItemInfo type:CollectibleItemType = CollectibleItemInfo;
 
 //@description Returns information about a tg:// deep link. Use "tg://need_update_for_some_feature" or "tg:some_unsupported_feature" for testing. Returns a 404 error for unknown links. Can be called before authorization @link The link
 getDeepLinkInfo link:string = DeepLinkInfo;
+
+
+//@description Dismissess a received web token without consumption; for official Telegram apps only @token The token to dismiss
+dismissWebToken token:string = Ok;
 
 
 //@description Returns application config, provided by the server. Can be called before authorization

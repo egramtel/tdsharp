@@ -11,7 +11,7 @@ namespace TdLib
     public static partial class TdApi
     {
         /// <summary>
-        /// Checks whether a username can be set for a new bot. Use checkChatUsername to check username for other chat types
+        /// Checks whether a username can be set for a new bot or assigned as a secondary username to an existing bot. Use checkChatUsername to check username for other chat types
         /// </summary>
         public class CheckBotUsername : Function<CheckChatUsernameResult>
         {
@@ -33,17 +33,24 @@ namespace TdLib
             [JsonConverter(typeof(Converter))]
             [JsonProperty("username")]
             public string Username { get; set; }
+
+            /// <summary>
+            /// Pass true to check whether the username is suitable as a secondary username for an existing bot; pass false to check whether the username is suitable for createBot
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("is_secondary")]
+            public bool IsSecondary { get; set; }
         }
 
         /// <summary>
-        /// Checks whether a username can be set for a new bot. Use checkChatUsername to check username for other chat types
+        /// Checks whether a username can be set for a new bot or assigned as a secondary username to an existing bot. Use checkChatUsername to check username for other chat types
         /// </summary>
         public static Task<CheckChatUsernameResult> CheckBotUsernameAsync(
-            this IClient client, string username = default)
+            this IClient client, string username = default, bool isSecondary = default)
         {
             return client.ExecuteAsync(new CheckBotUsername
             {
-                Username = username
+                Username = username, IsSecondary = isSecondary
             });
         }
     }
