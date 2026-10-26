@@ -101,7 +101,7 @@ let generateType (def: Parser.TlDef) (annotations: Parser.TlAnnotation list) =
 
     let tlTypeName = Utils.toCamelCase objectTypeName Utils.LowerCase
     let isObjectType = objectTypeName = baseTypeName
-    let tabulation = if isObjectType then 12 else 16
+    let tabulation = if isObjectType then 8 else 12
 
     let objectFields =
         fields
@@ -135,7 +135,7 @@ let generateFunc (def: Parser.TlDef) (annotations: Parser.TlAnnotation list) =
 
     let funcFields =
         fields
-        |> List.map (fun field -> generateField def field annotations 12)
+        |> List.map (fun field -> generateField def field annotations 8)
         |> String.concat "\n\n"
 
     let funcParams =

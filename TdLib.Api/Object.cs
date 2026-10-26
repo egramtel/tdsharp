@@ -1,21 +1,20 @@
-// SPDX-FileCopyrightText: 2024 tdsharp contributors <https://github.com/egramtel/tdsharp>
+// SPDX-FileCopyrightText: 2024-2026 tdsharp contributors <https://github.com/egramtel/tdsharp>
 //
 // SPDX-License-Identifier: MIT
 
 using Newtonsoft.Json;
 
-namespace TdLib
-{
-    public static partial class TdApi
-    {
-        /// <summary>
-        /// Base class for all objects
-        /// </summary>
-        public abstract class Object
-        {
-            [JsonProperty("@type")] public virtual string DataType { get; set; }
+namespace TdLib;
 
-            [JsonProperty("@extra")] public virtual string Extra { get; set; }
-        }
+public static partial class TdApi
+{
+    /// <summary>
+    /// Base class for all objects
+    /// </summary>
+    public abstract class Object
+    {
+        [JsonProperty("@type")] public virtual string DataType { get; set; }
+
+        [JsonProperty("@extra")] public virtual string ExtraData { get; set; }
     }
 }
