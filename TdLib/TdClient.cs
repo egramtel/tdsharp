@@ -118,7 +118,7 @@ namespace TdLib
 
         private void OnReceived(object _, TdApi.Object obj)
         {
-            if (int.TryParse(obj.Extra, NumberStyles.Integer, CultureInfo.InvariantCulture, out int id)
+            if (int.TryParse(obj.ExtraData, NumberStyles.Integer, CultureInfo.InvariantCulture, out int id)
                 && _tasks.TryRemove(id, out var action))
             {
                 action(obj);
@@ -196,7 +196,7 @@ namespace TdLib
             var id = Interlocked.Increment(ref _taskId);
             var tcs = new TaskCompletionSource<TResult>(TaskCreationOptions.RunContinuationsAsynchronously);
 
-            function.Extra = id.ToString(CultureInfo.InvariantCulture);
+            function.ExtraData = id.ToString(CultureInfo.InvariantCulture);
             _tasks.TryAdd(id, structure =>
             {
                 if (structure is TdApi.Error error)
