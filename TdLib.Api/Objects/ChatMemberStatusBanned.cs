@@ -30,6 +30,7 @@ public static partial class TdApi
 
             /// <summary>
             /// Point in time (Unix timestamp) when the user will be unbanned; 0 if never. If the user is banned for more than 366 days
+            /// or for less than 30 seconds from the current time, the user is considered to be banned forever. Always 0 in basic groups
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("banned_until_date")]

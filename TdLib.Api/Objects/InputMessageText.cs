@@ -30,6 +30,7 @@ public static partial class TdApi
 
             /// <summary>
             /// Formatted text to be sent; 0-getOption("message_text_length_max") characters. Only Bold, Italic, Underline, Strikethrough, Spoiler, CustomEmoji, BlockQuote, ExpandableBlockQuote,
+            /// Code, Pre, PreCode, TextUrl, MentionName, and DateTime entities are allowed to be specified manually
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("text")]

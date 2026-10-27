@@ -28,6 +28,7 @@ public static partial class TdApi
 
         /// <summary>
         /// The number of Telegram Stars received by the affiliate for each 1000 Telegram Stars received by the program owner;
+        /// getOption("affiliate_program_commission_per_mille_min")-getOption("affiliate_program_commission_per_mille_max")
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("commission_per_mille")]

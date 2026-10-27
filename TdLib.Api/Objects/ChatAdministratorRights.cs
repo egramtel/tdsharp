@@ -28,6 +28,7 @@ public static partial class TdApi
 
         /// <summary>
         /// True, if the administrator can access the chat event log, get boost list, see hidden supergroup and channel members, report supergroup spam messages,
+        /// ignore slow mode, and send messages to the chat without paying Telegram Stars. Implied by any other privilege; applicable to supergroups and channels only
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("can_manage_chat")]

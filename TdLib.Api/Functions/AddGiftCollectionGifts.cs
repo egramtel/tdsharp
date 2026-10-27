@@ -46,6 +46,7 @@ public static partial class TdApi
 
         /// <summary>
         /// Identifier of the gifts to add to the collection; 1-getOption("gift_collection_size_max") identifiers.
+        /// If after addition the collection has more than getOption("gift_collection_size_max") gifts, then the last ones are removed from the collection
         /// </summary>
         [JsonProperty("received_gift_ids", ItemConverterType = typeof(Converter))]
         public string[] ReceivedGiftIds { get; set; }

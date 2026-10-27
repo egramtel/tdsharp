@@ -111,6 +111,7 @@ public static partial class TdApi
 
         /// <summary>
         /// The upgraded gift corresponding to the NFT; may be null if none. Information about the owner of the gift isn't available.
+        /// Original details of the gift are available only to the sender and the receiver of the original gift
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("gift")]

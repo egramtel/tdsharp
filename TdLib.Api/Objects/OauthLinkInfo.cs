@@ -28,6 +28,7 @@ public static partial class TdApi
 
         /// <summary>
         /// Identifier of the user for which the link was generated; may be 0 if unknown. The corresponding user may be unknown.
+        /// If the user is logged in the application, then they must be chosen for authorization by default
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("user_id")]

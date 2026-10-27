@@ -28,6 +28,7 @@ public static partial class TdApi
 
         /// <summary>
         /// The 4 numbers that describe probability of the craft result to have the same attribute as one of the original gifts
+        /// if 1, 2, 3, or 4 gifts with the attribute are used in the craft. Each number represents the number of crafted gifts with the original attribute per 1000 successful crafts
         /// </summary>
         [JsonProperty("persistence_chance_per_mille", ItemConverterType = typeof(Converter))]
         public int[] PersistenceChancePerMille { get; set; }

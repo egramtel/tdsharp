@@ -75,6 +75,7 @@ public static partial class TdApi
 
         /// <summary>
         /// True, if the carrier is needed only to test the proxy and will be closed after the test.
+        /// The application may refuse to open such carriers, for example, to avoid creating a web view for every saved proxy
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("is_temporary")]

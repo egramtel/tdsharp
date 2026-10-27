@@ -61,6 +61,7 @@ public static partial class TdApi
 
         /// <summary>
         /// Identifier of the new custom emoji for topic icon; pass 0 to remove the custom emoji. Ignored if edit_icon_custom_emoji is false.
+        /// Telegram Premium users can use any custom emoji, other users can use only a custom emoji returned by getForumTopicDefaultIcons
         /// </summary>
         [JsonConverter(typeof(Converter.Int64))]
         [JsonProperty("icon_custom_emoji_id")]

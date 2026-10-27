@@ -61,6 +61,7 @@ public static partial class TdApi
 
         /// <summary>
         /// Additional filter for messages to search; pass null to search for all messages. Filters searchMessagesFilterMention, searchMessagesFilterUnreadMention, searchMessagesFilterUnreadReaction,
+        /// searchMessagesFilterUnreadPollVote, searchMessagesFilterFailedToSend, and searchMessagesFilterPinned are unsupported in this function
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("filter")]

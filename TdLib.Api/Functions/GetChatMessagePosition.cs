@@ -46,6 +46,7 @@ public static partial class TdApi
 
         /// <summary>
         /// Filter for message content; searchMessagesFilterEmpty, searchMessagesFilterUnreadMention, searchMessagesFilterUnreadReaction, searchMessagesFilterUnreadPollVote,
+        /// and searchMessagesFilterFailedToSend are unsupported in this function
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("filter")]

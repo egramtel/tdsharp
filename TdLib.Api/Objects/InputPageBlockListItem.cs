@@ -55,6 +55,7 @@ public static partial class TdApi
 
         /// <summary>
         /// Type of item numbering; pass "a" for lowercase letters, "A" for uppercase letters, "i" for lowercase Roman numerals, "I" for uppercase Roman numerals,
+        /// "1" for decimal numbers, or an empty string for unordered lists
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("type")]

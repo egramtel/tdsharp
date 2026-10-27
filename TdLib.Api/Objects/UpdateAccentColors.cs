@@ -30,6 +30,7 @@ public static partial class TdApi
 
             /// <summary>
             /// Information about supported colors; colors with identifiers 0 (red), 1 (orange), 2 (purple/violet), 3 (green), 4 (cyan), 5 (blue), 6 (pink) must always be supported
+            /// and aren't included in the list. The exact colors for the accent colors with identifiers 0-6 must be taken from the application theme
             /// </summary>
             [JsonProperty("colors", ItemConverterType = typeof(Converter))]
             public AccentColor[] Colors { get; set; }

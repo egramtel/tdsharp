@@ -30,6 +30,7 @@ public static partial class TdApi
 
             /// <summary>
             /// The Telegram Star amount expected to be paid for the gift. Must be in the range
+            /// getOption("gift_resale_star_count_min")-getOption("gift_resale_star_count_max") for gifts put for resale
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("star_count")]

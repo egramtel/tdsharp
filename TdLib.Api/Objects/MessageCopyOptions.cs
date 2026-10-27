@@ -28,6 +28,7 @@ public static partial class TdApi
 
         /// <summary>
         /// True, if content of the message needs to be copied without reference to the original sender. Always true if the message is forwarded to a secret chat or is local.
+        /// Use messageProperties.can_be_copied and messageProperties.can_be_copied_to_secret_chat to check whether the message is suitable
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("send_copy")]

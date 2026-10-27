@@ -43,6 +43,7 @@ public static partial class TdApi
 
             /// <summary>
             /// Media that is shown when the user chooses an incorrect answer or taps on the lamp icon; pass null if none. Must be one of the following types:
+            /// inputPollMediaAnimation, inputPollMediaAudio, inputPollMediaDocument, inputPollMediaLocation, inputPollMediaPhoto, inputPollMediaVenue, or inputPollMediaVideo without caption
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("explanation_media")]

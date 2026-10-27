@@ -60,6 +60,7 @@ public static partial class TdApi
 
         /// <summary>
         /// Attributes used to filter received gifts. If multiple attributes of the same type are specified, then all of them are allowed.
+        /// If none attributes of specific type are specified, then all values for this attribute type are allowed
         /// </summary>
         [JsonProperty("attributes", ItemConverterType = typeof(Converter))]
         public UpgradedGiftAttributeId[] Attributes { get; set; }

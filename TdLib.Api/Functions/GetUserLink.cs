@@ -46,6 +46,7 @@ public static partial class TdApi
 
         /// <summary>
         /// Pass true to revoke previously created links, which allow other users to send unpaid messages to the current user;
+        /// ignored if remove_messages_fee is false. If return_permanent_link is true, then the permanent link is revoked too; otherwise, only temporary links are revoked
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("revoke_previous_links")]

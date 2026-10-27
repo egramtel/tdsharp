@@ -86,6 +86,7 @@ public static partial class TdApi
 
             /// <summary>
             /// The list of two-letter ISO 3166-1 alpha-2 codes of countries, users from which will be able to vote; for channel chats only. If empty, then all users can participate in the poll.
+            /// There can be up to getOption("poll_country_count_max") chosen countries
             /// </summary>
             [JsonProperty("country_codes", ItemConverterType = typeof(Converter))]
             public string[] CountryCodes { get; set; }

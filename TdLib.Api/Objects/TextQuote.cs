@@ -28,6 +28,7 @@ public static partial class TdApi
 
         /// <summary>
         /// Text of the quote. Only Bold, Italic, Underline, Strikethrough, Spoiler, CustomEmoji, and DateTime entities can be present in the text.
+        /// May be empty if the quote was chosen from a rich message
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("text")]
@@ -35,12 +36,15 @@ public static partial class TdApi
 
         /// <summary>
         /// Rich text of the quote if it was chosen from a rich message; empty if the quote wasn't chosen from a rich message.
+        /// Only richTextPlain, richTextBold, richTextItalic, richTextUnderline, richTextStrikethrough, richTextSpoiler, richTextSubscript, richTextSuperscript,
+        /// richTextDateTime, richTextCustomEmoji, richTextMathematicalExpression, and richTexts can be present in the texts
         /// </summary>
         [JsonProperty("rich_texts", ItemConverterType = typeof(Converter))]
         public RichText[] RichTexts { get; set; }
 
         /// <summary>
         /// Approximate quote position in the original message in UTF-16 code units as specified by the message sender. For quotes from rich messages,
+        /// it is the position in the text formed by joining plain texts of all quotable texts of the message, separated by line feeds
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("position")]

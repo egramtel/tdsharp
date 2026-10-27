@@ -28,6 +28,7 @@ public static partial class TdApi
 
         /// <summary>
         /// Text of the quote; 0-getOption("message_reply_quote_length_max") characters. Only Bold, Italic, Underline, Strikethrough, Spoiler, CustomEmoji, and DateTime entities are allowed to be kept and must be kept in the quote.
+        /// Ignored if rich_texts are non-empty
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("text")]
@@ -35,12 +36,16 @@ public static partial class TdApi
 
         /// <summary>
         /// Quote from a rich message; pass an empty array if the quote isn't chosen from a rich message. Must contain one element for each quoted text of the message in the order of their appearance.
+        /// The first and the last elements can contain only a part of the corresponding text; all other elements must contain the whole text. Formatting of the quoted parts must be kept.
+        /// Mathematical expressions must be quoted entirely. Buttons in pageBlockButtonRow, anchors and dividers can't be quoted.
+        /// There can be up to 32 quoted texts with total length up to getOption("message_reply_quote_length_max") characters
         /// </summary>
         [JsonProperty("rich_texts", ItemConverterType = typeof(Converter))]
         public RichText[] RichTexts { get; set; }
 
         /// <summary>
         /// Quote position in the original message in UTF-16 code units. For quotes from rich messages, it is the position in the text formed by joining plain texts
+        /// of all quotable texts of the message, separated by line feeds
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("position")]

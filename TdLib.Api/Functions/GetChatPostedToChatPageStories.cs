@@ -47,6 +47,7 @@ public static partial class TdApi
 
         /// <summary>
         /// The maximum number of stories to be returned.
+        /// For optimal performance, the number of returned stories is chosen by TDLib and can be smaller than the specified limit
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("limit")]
