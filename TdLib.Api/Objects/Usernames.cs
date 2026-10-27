@@ -53,6 +53,7 @@ public static partial class TdApi
 
         /// <summary>
         /// Secondary non-collectible username. Currently, must be non-empty only for bot accounts. Can't be used in toggleBotUsernameIsActive;
+        /// use addBotSecondaryUsername or deleteBotSecondaryUsername to edit it. If the username is disabled, then Telegram Premium subscription is required to re-enable it
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("secondary_username")]

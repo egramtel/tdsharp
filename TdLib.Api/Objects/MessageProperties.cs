@@ -84,6 +84,7 @@ public static partial class TdApi
 
         /// <summary>
         /// True, if the message can be edited using the methods editMessageText, editMessageCaption, or editMessageReplyMarkup.
+        /// For live location, poll, and checklist messages this field shows whether editMessageLiveLocation, stopPoll, or editMessageChecklist respectively can be used with this message
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("can_be_edited")]

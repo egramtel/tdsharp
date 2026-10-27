@@ -46,6 +46,7 @@ public static partial class TdApi
 
         /// <summary>
         /// Sticker set name. Can contain only English letters, digits and underscores. Must end with *"_by_&lt;bot username&gt;"* (*&lt;bot_username&gt;* is case insensitive) for bots; 0-64 characters.
+        /// If empty, then the name returned by getSuggestedStickerSetName will be used automatically
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("name")]

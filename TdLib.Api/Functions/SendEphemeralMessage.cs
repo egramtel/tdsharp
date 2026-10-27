@@ -103,6 +103,8 @@ public static partial class TdApi
 
         /// <summary>
         /// The content of the message to be sent. Must be one of the following types: inputMessageText, inputMessageAnimation,
+        /// inputMessageAudio, inputMessageDocument, inputMessagePhoto, inputMessageRichMessage, inputMessageSticker, inputMessageVideo, inputMessageVideoNote, inputMessageVoiceNote,
+        /// inputMessageLocation, inputMessageVenue, inputMessageContact
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("input_message_content")]

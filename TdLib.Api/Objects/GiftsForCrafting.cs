@@ -41,6 +41,7 @@ public static partial class TdApi
 
         /// <summary>
         /// The 4 objects that describe probabilities of the crafted gift to have the backdrop or symbol of one of the original gifts
+        /// for the cases when 1-4 gifts are used in the craft correspondingly
         /// </summary>
         [JsonProperty("attribute_persistence_probabilities", ItemConverterType = typeof(Converter))]
         public AttributeCraftPersistenceProbability[] AttributePersistenceProbabilities { get; set; }

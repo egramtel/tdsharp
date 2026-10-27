@@ -28,6 +28,7 @@ public static partial class TdApi
 
         /// <summary>
         /// Identifier of the supergroup or channel chat, which will be automatically boosted by the winners of the giveaway for duration of the Telegram Premium subscription,
+        /// or for the specified time. If the chat is a channel, then can_post_messages administrator right is required in the channel, otherwise, the user must be an administrator in the supergroup
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("boosted_chat_id")]
@@ -62,6 +63,7 @@ public static partial class TdApi
 
         /// <summary>
         /// The list of two-letter ISO 3166-1 alpha-2 codes of countries, users from which will be eligible for the giveaway. If empty, then all users can participate in the giveaway.
+        /// There can be up to getOption("giveaway_country_count_max") chosen countries. Users with phone number that was bought at https://fragment.com can participate in any giveaway and the country code "FT" must not be specified in the list
         /// </summary>
         [JsonProperty("country_codes", ItemConverterType = typeof(Converter))]
         public string[] CountryCodes { get; set; }

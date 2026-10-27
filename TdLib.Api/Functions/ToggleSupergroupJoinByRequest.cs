@@ -46,6 +46,7 @@ public static partial class TdApi
 
         /// <summary>
         /// Identifier of the bot which will be the guard bot in the group; pass 0 if none; ignored if join_by_request == false.
+        /// The bot must have administrator privileges and can_invite_users right in the supergroup chat, and must have userTypeBot.is_guard == true
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("guard_bot_user_id")]

@@ -46,6 +46,7 @@ public static partial class TdApi
 
         /// <summary>
         /// The new number of Telegram Stars that must be paid for each message that is sent to the direct messages chat unless the sender is an administrator of the channel chat; 0-getOption("paid_message_star_count_max").
+        /// The channel will receive getOption("paid_message_earnings_per_mille") Telegram Stars for each 1000 Telegram Stars paid for message sending. Requires supergroupFullInfo.can_enable_paid_messages for positive amounts
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("paid_message_star_count")]

@@ -30,6 +30,7 @@ public static partial class TdApi
 
             /// <summary>
             /// The sent message. Almost any field of the new message can be different from the corresponding field of the original message.
+            /// For example, the field scheduling_state may change, making the message scheduled, or non-scheduled
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("message")]

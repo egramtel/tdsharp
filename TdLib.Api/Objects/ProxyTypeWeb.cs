@@ -31,6 +31,7 @@ public static partial class TdApi
 
             /// <summary>
             /// Base path of the relay on the server, without leading and trailing slashes; may be empty. Consists of 0-128 characters;
+            /// each "/"-separated segment must match [A-Za-z0-9][A-Za-z0-9_-]*
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("path")]

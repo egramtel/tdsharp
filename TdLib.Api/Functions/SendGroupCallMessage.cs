@@ -47,6 +47,7 @@ public static partial class TdApi
 
         /// <summary>
         /// The number of Telegram Stars the user agreed to pay to send the message; for live stories only; 0-getOption("paid_group_call_message_star_count_max").
+        /// Must be 0 for messages sent to live stories posted by the current user
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("paid_message_star_count")]

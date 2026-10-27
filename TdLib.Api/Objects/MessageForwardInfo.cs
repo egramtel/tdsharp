@@ -42,6 +42,7 @@ public static partial class TdApi
 
         /// <summary>
         /// For messages forwarded to the chat with the current user (Saved Messages), to the Replies bot chat, or to the channel's discussion group,
+        /// information about the source message from which the message was forwarded last time; may be null for other forwards or if unknown
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("source")]

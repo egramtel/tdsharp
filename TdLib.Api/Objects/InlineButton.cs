@@ -42,6 +42,9 @@ public static partial class TdApi
 
         /// <summary>
         /// Type of the button; must be one of inlineKeyboardButtonTypeUrl, inlineKeyboardButtonTypeLoginUrl, inlineKeyboardButtonTypeWebApp, inlineKeyboardButtonTypeCallback,
+        /// inlineKeyboardButtonTypeSwitchInline, inlineKeyboardButtonTypeUser, inlineKeyboardButtonTypeCopyText. Additionally,
+        /// inlineKeyboardButtonTypeCallbackWithPassword and inlineKeyboardButtonTypeDisabled may be received in incoming messages. Regular users may use only inlineKeyboardButtonTypeUrl,
+        /// inlineKeyboardButtonTypeUser and inlineKeyboardButtonTypeCopyText
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("type")]

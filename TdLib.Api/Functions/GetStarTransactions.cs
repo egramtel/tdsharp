@@ -32,6 +32,7 @@ public static partial class TdApi
 
         /// <summary>
         /// Identifier of the owner of the Telegram Stars; can be the identifier of the current user, identifier of an owned bot,
+        /// or identifier of a supergroup or a channel chat with supergroupFullInfo.can_get_star_revenue_statistics == true
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("owner_id")]

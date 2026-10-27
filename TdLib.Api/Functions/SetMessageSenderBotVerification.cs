@@ -46,6 +46,7 @@ public static partial class TdApi
 
         /// <summary>
         /// Custom description of verification reason; 0-getOption("bot_verification_custom_description_length_max") characters. Only TextUrl entities are supported.
+        /// If empty, then "was verified by organization "organization_name"" will be used as description. Can be specified only if the bot is allowed to provide custom description
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("custom_description")]

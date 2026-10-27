@@ -58,6 +58,7 @@ public static partial class TdApi
 
             /// <summary>
             /// An HTTP URL to open once the request is finished, canceled, or failed with the parameters tg_passport=success, tg_passport=cancel, or tg_passport=error&amp;error=... respectively.
+            /// If empty, then onActivityResult method must be used to return response on Android, or the link tgbot{bot_user_id}://passport/success or tgbot{bot_user_id}://passport/cancel must be opened otherwise
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("callback_url")]

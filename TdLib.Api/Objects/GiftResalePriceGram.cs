@@ -30,6 +30,7 @@ public static partial class TdApi
 
             /// <summary>
             /// The amount of 1/100 of Gram expected to be paid for the gift. Must be in the range
+            /// getOption("gift_resale_gram_cent_count_min")-getOption("gift_resale_gram_cent_count_max")
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("gram_cent_count")]

@@ -46,6 +46,7 @@ public static partial class TdApi
 
         /// <summary>
         /// New live location of the message; pass null to stop sharing the live location. If the new live_period isn't set to 0x7FFFFFFF,
+        /// then it must not exceed the current live_period by more than a day, and the live location expiration date must remain in the next 90 days
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("location")]

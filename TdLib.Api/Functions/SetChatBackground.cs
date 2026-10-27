@@ -46,6 +46,7 @@ public static partial class TdApi
 
         /// <summary>
         /// Background type; pass null to use default background type for the chosen background; backgroundTypeChatTheme isn't supported for private and secret chats.
+        /// Use chatBoostLevelFeatures.chat_theme_background_count and chatBoostLevelFeatures.can_set_custom_background to check whether the background type can be set in the boosted chat
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("type")]
