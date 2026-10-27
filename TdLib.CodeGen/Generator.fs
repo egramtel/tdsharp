@@ -183,13 +183,15 @@ let private splitIntoChunks(lines: string seq): string seq = seq {
         String.Join("\n", Seq.ofArray data)
 
     for line in lines do
-        match line with
-        | x when x.StartsWith "//" && buffer.Count = 0 -> buffer.Add x
-        | x when x.StartsWith "//-" && buffer.Count > 0 -> buffer.Add x
-        | x ->
+        if line.StartsWith "//-" && buffer.Count > 0 then
+            buffer.Add line
+        else
             if buffer.Count > 0 then
                 yield flushBuffer()
-            yield x
+            if line.StartsWith "//" then
+                buffer.Add line
+            else
+                yield line
 
     if buffer.Count > 0 then
         yield flushBuffer()
@@ -267,6 +269,31 @@ let ``splitIntoChunks should work properly``(): unit =
         "foo"
         "//-test\n//-test2"
     |], result)
+
+[<Fact>]
+let ``splitIntoChunks keeps continuation of consecutive annotation lines``(): unit =
+    let input = [| "//@a A"; "//@b B"; "//-B2"; "def" |]
+    let result = splitIntoChunks input |> Seq.toArray
+    Assert.Equal<string>([|
+        "//@a A"
+        "//@b B\n//-B2"
+        "def"
+    |], result)
+
+[<Fact>]
+let ``continuation of consecutive annotation lines is parsed into annotation text``(): unit =
+    let input = [| "//@a A"; "//@b B"; "//-B2" |]
+    let annotations =
+        splitIntoChunks input
+        |> Seq.collect (fun chunk ->
+            match run Parser.parseAnnotationList <| processCommentBlock chunk with
+            | Success(result, _, _) -> result
+            | Failure(err, _, _) -> failwith err)
+        |> Seq.toList
+    Assert.Equal<Parser.TlAnnotation list>([
+        Parser.TlFieldAnnotation("a", "A")
+        Parser.TlFieldAnnotation("b", "B\nB2")
+    ], annotations)
 
 [<Fact>]
 let ``processCommentBlock works with multiline comment``(): unit =
