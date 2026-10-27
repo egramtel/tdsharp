@@ -10,7 +10,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Contains information about a Telegram Passport elements and corresponding errors
+    /// Contains information about Telegram Passport elements and corresponding errors
     /// </summary>
     public partial class PassportElementsWithErrors : Object
     {

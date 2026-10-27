@@ -90,7 +90,7 @@ public static partial class TdApi
         public bool CanViewGiftsAndStars { get; set; }
 
         /// <summary>
-        /// True, if the bot can sell regular gifts received by the business account
+        /// True, if the bot can sell or delete regular gifts received by the business account
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("can_sell_gifts")]

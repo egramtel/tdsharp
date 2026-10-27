@@ -31,7 +31,7 @@ public static partial class TdApi
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("position")]
-        public StoryAreaPosition Position { get; set; }
+        public AreaPosition Position { get; set; }
 
         /// <summary>
         /// Type of the area

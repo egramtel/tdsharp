@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Adds tasks of a checklist in a message as done or not done
+    /// Marks tasks of a checklist in a message as done or not done
     /// </summary>
     public class MarkChecklistTasksAsDone : Function<Ok>
     {
@@ -58,7 +58,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Adds tasks of a checklist in a message as done or not done
+    /// Marks tasks of a checklist in a message as done or not done
     /// </summary>
     public static Task<Ok> MarkChecklistTasksAsDoneAsync(
         this IClient client, long chatId = default, long messageId = default, int[] markedAsDoneTaskIds = default, int[] markedAsNotDoneTaskIds = default)

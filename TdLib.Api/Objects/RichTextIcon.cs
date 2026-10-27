@@ -29,7 +29,7 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// The image represented as a document. The image can be in GIF, JPEG or PNG format
+            /// The image represented as a document. The image can be in GIF, JPEG, or PNG format
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("document")]

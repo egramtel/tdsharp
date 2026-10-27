@@ -11,7 +11,8 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Creates a new supergroup from an existing basic group and sends a corresponding messageChatUpgradeTo and messageChatUpgradeFrom; requires owner privileges. Deactivates the original basic group
+    /// Creates a new supergroup from an existing basic group and sends a corresponding messageChatUpgradeTo and messageChatUpgradeFrom; requires owner privileges.
+    /// Deactivates the original basic group
     /// </summary>
     public class UpgradeBasicGroupChatToSupergroupChat : Function<Chat>
     {
@@ -39,7 +40,8 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Creates a new supergroup from an existing basic group and sends a corresponding messageChatUpgradeTo and messageChatUpgradeFrom; requires owner privileges. Deactivates the original basic group
+    /// Creates a new supergroup from an existing basic group and sends a corresponding messageChatUpgradeTo and messageChatUpgradeFrom; requires owner privileges.
+    /// Deactivates the original basic group
     /// </summary>
     public static Task<Chat> UpgradeBasicGroupChatToSupergroupChatAsync(
         this IClient client, long chatId = default)

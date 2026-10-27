@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns a TON wallet transaction by their msg_hash; return an error if the transaction isn't finalized yet
+    /// Returns a TON wallet transaction by its msg_hash; returns an error if the transaction isn't finalized yet
     /// </summary>
     public class GetTonWalletTransactionByMsgHash : Function<TonWalletTransaction>
     {
@@ -39,7 +39,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns a TON wallet transaction by their msg_hash; return an error if the transaction isn't finalized yet
+    /// Returns a TON wallet transaction by its msg_hash; returns an error if the transaction isn't finalized yet
     /// </summary>
     public static Task<TonWalletTransaction> GetTonWalletTransactionByMsgHashAsync(
         this IClient client, string msgHash = default)

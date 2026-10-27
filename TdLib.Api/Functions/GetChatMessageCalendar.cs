@@ -11,7 +11,9 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns information about the next messages of the specified type in the chat split by days. Returns the results in reverse chronological order. Can return partial result for the last returned day. Behavior of this method depends on the value of the option "utc_time_offset"
+    /// Returns information about the next messages of the specified type in the chat split by days.
+    /// Returns the results in reverse chronological order. Can return partial result for the last returned day.
+    /// Behavior of this method depends on the value of the option "utc_time_offset"
     /// </summary>
     public class GetChatMessageCalendar : Function<MessageCalendar>
     {
@@ -60,7 +62,9 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns information about the next messages of the specified type in the chat split by days. Returns the results in reverse chronological order. Can return partial result for the last returned day. Behavior of this method depends on the value of the option "utc_time_offset"
+    /// Returns information about the next messages of the specified type in the chat split by days.
+    /// Returns the results in reverse chronological order. Can return partial result for the last returned day.
+    /// Behavior of this method depends on the value of the option "utc_time_offset"
     /// </summary>
     public static Task<MessageCalendar> GetChatMessageCalendarAsync(
         this IClient client, long chatId = default, MessageTopic topicId = default, SearchMessagesFilter filter = default, long fromMessageId = default)

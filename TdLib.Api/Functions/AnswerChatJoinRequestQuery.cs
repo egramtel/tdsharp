@@ -38,14 +38,14 @@ public static partial class TdApi
         public long QueryId { get; set; }
 
         /// <summary>
-        /// The result
+        /// The result; must be null if a URL is passed
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("result")]
         public ChatJoinRequestResult Result { get; set; }
 
         /// <summary>
-        /// URL of the Web App to open
+        /// URL of the Web App to open; must be empty if a result is passed
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("url")]

@@ -31,7 +31,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Number of reaction per row, 5-25
+        /// Number of reactions per row, 5-25
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("row_size")]

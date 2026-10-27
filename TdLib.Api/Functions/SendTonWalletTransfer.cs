@@ -81,7 +81,7 @@ public static partial class TdApi
 
         /// <summary>
         /// Serialized data for gasless cryptocurrency transfer request; pass an empty string to force a regular request.
-        /// The minimum allowed transfer amount for a gassless transfer is getOption("ton_wallet_gasless_transfer_amount_min")
+        /// The minimum allowed transfer amount for a gasless transfer is getOption("ton_wallet_gasless_transfer_amount_min")
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("gasless_transfer_data")]

@@ -69,7 +69,7 @@ public static partial class TdApi
         public int SecondColor { get; set; }
 
         /// <summary>
-        /// Background color for the message the RGB format
+        /// Background color for the message in the RGB format
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("background_color")]

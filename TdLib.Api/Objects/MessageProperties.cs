@@ -188,7 +188,7 @@ public static partial class TdApi
         public bool CanGetLink { get; set; }
 
         /// <summary>
-        /// True, if media timestamp links can be generated for media timestamp entities in the message text, caption or link preview description using getMessageLink
+        /// True, if media timestamp links can be generated for media timestamp entities in the message text, caption, or link preview description using getMessageLink
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("can_get_media_timestamp_links")]

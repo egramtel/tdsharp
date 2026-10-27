@@ -10,7 +10,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Contains a chat revenue transactions
+    /// Contains a chat revenue transaction
     /// </summary>
     public partial class ChatRevenueTransaction : Object
     {

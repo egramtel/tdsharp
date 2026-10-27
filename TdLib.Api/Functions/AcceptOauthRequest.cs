@@ -58,6 +58,13 @@ public static partial class TdApi
         [JsonConverter(typeof(Converter))]
         [JsonProperty("allow_phone_number_access")]
         public bool AllowPhoneNumberAccess { get; set; }
+
+        /// <summary>
+        /// Pass data required to access the user's TON wallet via TON Connect if the current user allowed this; pass null if the access wasn't requested or the user declined access
+        /// </summary>
+        [JsonConverter(typeof(Converter))]
+        [JsonProperty("ton_connect_connect_data")]
+        public TonConnectConnectData TonConnectConnectData { get; set; }
     }
 
     /// <summary>
@@ -65,11 +72,11 @@ public static partial class TdApi
     /// May return an empty link if just a toast about successful login has to be shown
     /// </summary>
     public static Task<HttpUrl> AcceptOauthRequestAsync(
-        this IClient client, string url = default, string matchCode = default, bool allowWriteAccess = default, bool allowPhoneNumberAccess = default)
+        this IClient client, string url = default, string matchCode = default, bool allowWriteAccess = default, bool allowPhoneNumberAccess = default, TonConnectConnectData tonConnectConnectData = default)
     {
         return client.ExecuteAsync(new AcceptOauthRequest
         {
-            Url = url, MatchCode = matchCode, AllowWriteAccess = allowWriteAccess, AllowPhoneNumberAccess = allowPhoneNumberAccess
+            Url = url, MatchCode = matchCode, AllowWriteAccess = allowWriteAccess, AllowPhoneNumberAccess = allowPhoneNumberAccess, TonConnectConnectData = tonConnectConnectData
         });
     }
 }

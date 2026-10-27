@@ -31,7 +31,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Identifier of the chat the messages belong to
+        /// Identifier of the chat the message belongs to
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("chat_id")]

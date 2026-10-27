@@ -45,7 +45,7 @@ public static partial class TdApi
         public long MessageId { get; set; }
 
         /// <summary>
-        /// Number of reaction per row, 5-25
+        /// Number of reactions per row, 5-25
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("row_size")]

@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Deletes revoked chat invite links. Requires administrator privileges and can_invite_users right in the chat for own links and owner privileges for other links
+    /// Deletes a revoked chat invite link. Requires administrator privileges and can_invite_users right in the chat for own links and owner privileges for other links
     /// </summary>
     public class DeleteRevokedChatInviteLink : Function<Ok>
     {
@@ -38,7 +38,7 @@ public static partial class TdApi
         public long ChatId { get; set; }
 
         /// <summary>
-        /// Invite link to revoke
+        /// Invite link to delete
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("invite_link")]
@@ -46,7 +46,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Deletes revoked chat invite links. Requires administrator privileges and can_invite_users right in the chat for own links and owner privileges for other links
+    /// Deletes a revoked chat invite link. Requires administrator privileges and can_invite_users right in the chat for own links and owner privileges for other links
     /// </summary>
     public static Task<Ok> DeleteRevokedChatInviteLinkAsync(
         this IClient client, long chatId = default, string inviteLink = default)

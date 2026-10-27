@@ -59,7 +59,8 @@ public static partial class TdApi
         public int DarkThemeDimming { get; set; }
 
         /// <summary>
-        /// Pass true to set background only for self; pass false to set background for all chat users. Always false for backgrounds set in boosted chats. Background can be set for both users only by Telegram Premium users and if set background isn't of the type inputBackgroundPrevious
+        /// Pass true to set background only for self; pass false to set background for all chat users. Always false for backgrounds set in boosted chats.
+        /// Background can be set for both users only by Telegram Premium users and if set background isn't of the type inputBackgroundPrevious
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("only_for_self")]

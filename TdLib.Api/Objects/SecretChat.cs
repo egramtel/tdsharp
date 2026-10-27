@@ -55,7 +55,7 @@ public static partial class TdApi
         public bool IsOutbound { get; set; }
 
         /// <summary>
-        /// Hash of the currently used key for comparison with the hash of the chat partner's key. This is a string of 36 little-endian bytes, which must be split into groups of 2 bits, each denoting a pixel of one of 4 colors FFFFFF, D5E6F3, 2D5775, and 2F99C9.
+        /// Hash of the currently used key for comparison with the hash of the chat partner's key. This is a string of 36 little-endian bytes,
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("key_hash")]

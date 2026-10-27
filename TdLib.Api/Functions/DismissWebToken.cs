@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Dismissess a received web token without consumption; for official Telegram apps only
+    /// Dismisses a received web token without consumption; for official Telegram apps only
     /// </summary>
     public class DismissWebToken : Function<Ok>
     {
@@ -39,7 +39,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Dismissess a received web token without consumption; for official Telegram apps only
+    /// Dismisses a received web token without consumption; for official Telegram apps only
     /// </summary>
     public static Task<Ok> DismissWebTokenAsync(
         this IClient client, string token = default)

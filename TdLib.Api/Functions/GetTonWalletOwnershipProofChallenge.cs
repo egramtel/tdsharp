@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns a challenge which may be used to proof ownership of a TON wallet; can be used only if getOption("can_use_ton_wallet")
+    /// Returns a challenge which may be used to prove ownership of a TON wallet; can be used only if getOption("can_use_ton_wallet")
     /// </summary>
     public class GetTonWalletOwnershipProofChallenge : Function<TonWalletOwnershipProofChallenge>
     {
@@ -34,7 +34,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns a challenge which may be used to proof ownership of a TON wallet; can be used only if getOption("can_use_ton_wallet")
+    /// Returns a challenge which may be used to prove ownership of a TON wallet; can be used only if getOption("can_use_ton_wallet")
     /// </summary>
     public static Task<TonWalletOwnershipProofChallenge> GetTonWalletOwnershipProofChallengeAsync(
         this IClient client)

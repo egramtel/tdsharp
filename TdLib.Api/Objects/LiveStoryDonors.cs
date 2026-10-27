@@ -27,7 +27,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Total amount of spend Telegram Stars
+        /// Total amount of spent Telegram Stars
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("total_star_count")]

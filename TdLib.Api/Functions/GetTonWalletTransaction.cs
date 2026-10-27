@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns a TON wallet transaction by their identifier
+    /// Returns a TON wallet transaction by its identifier
     /// </summary>
     public class GetTonWalletTransaction : Function<TonWalletTransaction>
     {
@@ -39,7 +39,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns a TON wallet transaction by their identifier
+    /// Returns a TON wallet transaction by its identifier
     /// </summary>
     public static Task<TonWalletTransaction> GetTonWalletTransactionAsync(
         this IClient client, string transactionId = default)

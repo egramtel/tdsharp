@@ -237,6 +237,20 @@ public static partial class TdApi
         public FormattedText Note { get; set; }
 
         /// <summary>
+        /// TON wallet card of the user; may be null if none
+        /// </summary>
+        [JsonConverter(typeof(Converter))]
+        [JsonProperty("ton_wallet_card")]
+        public TonWalletCard TonWalletCard { get; set; }
+
+        /// <summary>
+        /// Theme of the screen for sharing a link to the user; may be null if the default theme is used
+        /// </summary>
+        [JsonConverter(typeof(Converter))]
+        [JsonProperty("share_theme")]
+        public ProfileShareTheme ShareTheme { get; set; }
+
+        /// <summary>
         /// Information about business settings for Telegram Business accounts; may be null if none
         /// </summary>
         [JsonConverter(typeof(Converter))]

@@ -11,7 +11,8 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns an IETF language tag of the language preferred in the country, which must be used to fill native fields in Telegram Passport personal details. Returns a 404 error if unknown
+    /// Returns an IETF language tag of the language preferred in the country, which must be used to fill native fields in Telegram Passport personal details.
+    /// Returns a 404 error if unknown
     /// </summary>
     public class GetPreferredCountryLanguage : Function<Text>
     {
@@ -39,7 +40,8 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns an IETF language tag of the language preferred in the country, which must be used to fill native fields in Telegram Passport personal details. Returns a 404 error if unknown
+    /// Returns an IETF language tag of the language preferred in the country, which must be used to fill native fields in Telegram Passport personal details.
+    /// Returns a 404 error if unknown
     /// </summary>
     public static Task<Text> GetPreferredCountryLanguageAsync(
         this IClient client, string countryCode = default)

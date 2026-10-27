@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns the limits for an on-ramp payment; only for providers that supports limits retrieval
+    /// Returns the limits for an on-ramp payment; only for providers that support limits retrieval
     /// </summary>
     public class GetOnRampPaymentLimits : Function<OnRampPaymentLimits>
     {
@@ -60,7 +60,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns the limits for an on-ramp payment; only for providers that supports limits retrieval
+    /// Returns the limits for an on-ramp payment; only for providers that support limits retrieval
     /// </summary>
     public static Task<OnRampPaymentLimits> GetOnRampPaymentLimitsAsync(
         this IClient client, string providerId = default, string cryptocurrency = default, string baseCurrency = default, string paymentMethodName = default)

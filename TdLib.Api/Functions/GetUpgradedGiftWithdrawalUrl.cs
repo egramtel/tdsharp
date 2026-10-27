@@ -11,7 +11,8 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns a URL for upgraded gift withdrawal in the TON blockchain as an NFT; requires owner privileges for gifts owned by a chat
+    /// Returns a URL for upgraded gift withdrawal in the TON blockchain as an NFT; requires owner privileges for gifts owned by a chat.
+    /// The user must have a valid temporary password; see createTemporaryPassword
     /// </summary>
     public class GetUpgradedGiftWithdrawalUrl : Function<HttpUrl>
     {
@@ -36,24 +37,18 @@ public static partial class TdApi
         [JsonConverter(typeof(Converter))]
         [JsonProperty("received_gift_id")]
         public string ReceivedGiftId { get; set; }
-
-        /// <summary>
-        /// The 2-step verification password of the current user
-        /// </summary>
-        [JsonConverter(typeof(Converter))]
-        [JsonProperty("password")]
-        public string Password { get; set; }
     }
 
     /// <summary>
-    /// Returns a URL for upgraded gift withdrawal in the TON blockchain as an NFT; requires owner privileges for gifts owned by a chat
+    /// Returns a URL for upgraded gift withdrawal in the TON blockchain as an NFT; requires owner privileges for gifts owned by a chat.
+    /// The user must have a valid temporary password; see createTemporaryPassword
     /// </summary>
     public static Task<HttpUrl> GetUpgradedGiftWithdrawalUrlAsync(
-        this IClient client, string receivedGiftId = default, string password = default)
+        this IClient client, string receivedGiftId = default)
     {
         return client.ExecuteAsync(new GetUpgradedGiftWithdrawalUrl
         {
-            ReceivedGiftId = receivedGiftId, Password = password
+            ReceivedGiftId = receivedGiftId
         });
     }
 }

@@ -34,7 +34,7 @@ public static partial class TdApi
         public string Url { get; set; }
 
         /// <summary>
-        /// User identifier of the bot created the program
+        /// User identifier of the bot that created the program
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("bot_user_id")]

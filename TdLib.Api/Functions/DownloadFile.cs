@@ -59,7 +59,7 @@ public static partial class TdApi
         public long Limit { get; set; }
 
         /// <summary>
-        /// Pass true to return response only after the file download has succeeded, has failed, has been canceled, or a new downloadFile request with different offset/limit parameters was sent; pass false to return file state immediately, just after the download has been started
+        /// Pass true to return response only after the file download has succeeded, has failed, has been canceled, or a new downloadFile request
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("synchronous")]

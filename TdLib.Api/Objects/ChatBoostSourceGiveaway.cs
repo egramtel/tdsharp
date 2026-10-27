@@ -36,7 +36,7 @@ public static partial class TdApi
             public long UserId { get; set; }
 
             /// <summary>
-            /// The created Telegram Premium gift code if it was used by the user or can be claimed by the current user; an empty string otherwise; for Telegram Premium giveways only
+            /// The created Telegram Premium gift code if it was used by the user or can be claimed by the current user; an empty string otherwise; for Telegram Premium giveaways only
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("gift_code")]

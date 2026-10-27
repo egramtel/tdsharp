@@ -11,7 +11,8 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns a list of recently inactive supergroups and channels. Can be used when user reaches limit on the number of joined supergroups and channels and receives the error "CHANNELS_TOO_MUCH". Also, the limit can be increased with Telegram Premium
+    /// Returns a list of recently inactive supergroups and channels. Can be used when user reaches limit on the number of joined supergroups and channels
+    /// and receives the error "CHANNELS_TOO_MUCH". Also, the limit can be increased with Telegram Premium
     /// </summary>
     public class GetInactiveSupergroupChats : Function<Chats>
     {
@@ -34,7 +35,8 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns a list of recently inactive supergroups and channels. Can be used when user reaches limit on the number of joined supergroups and channels and receives the error "CHANNELS_TOO_MUCH". Also, the limit can be increased with Telegram Premium
+    /// Returns a list of recently inactive supergroups and channels. Can be used when user reaches limit on the number of joined supergroups and channels
+    /// and receives the error "CHANNELS_TOO_MUCH". Also, the limit can be increased with Telegram Premium
     /// </summary>
     public static Task<Chats> GetInactiveSupergroupChatsAsync(
         this IClient client)

@@ -108,6 +108,13 @@ public static partial class TdApi
         [JsonConverter(typeof(Converter))]
         [JsonProperty("extra")]
         public JsonValue Extra { get; set; }
+
+        /// <summary>
+        /// The upgraded gift corresponding to the NFT; may be null if none. Information about the owner of the gift isn't available.
+        /// </summary>
+        [JsonConverter(typeof(Converter))]
+        [JsonProperty("gift")]
+        public UpgradedGift Gift { get; set; }
     }
 }
 // REUSE-IgnoreEnd

@@ -49,6 +49,14 @@ public static partial class TdApi
             [JsonConverter(typeof(Converter))]
             [JsonProperty("open_profile")]
             public bool OpenProfile { get; set; }
+
+            /// <summary>
+            /// Token, which allows the current user to send unpaid messages to the user; may be empty if none.
+            /// If the token isn't empty and the user is found, then call applyUnpaidMessagesToken with the user and the token
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("unpaid_messages_token")]
+            public string UnpaidMessagesToken { get; set; }
         }
     }
 }

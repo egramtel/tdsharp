@@ -29,7 +29,7 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// Identifier of Saved Messages topic which tags were changed; 0 if tags for the whole chat has changed
+            /// Identifier of Saved Messages topic which tags were changed; 0 if tags for the whole chat have changed
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("saved_messages_topic_id")]

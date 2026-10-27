@@ -11,9 +11,9 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns the secret phrase of the user's TON wallet as a space separated list of words. Works only if tonWalletState.can_export_phrase is true
+    /// Returns the secret phrase of the user's TON wallet. Works only if tonWalletState.can_export_phrase is true
     /// </summary>
-    public class GetTonWalletSecretPhrase : Function<Text>
+    public class GetTonWalletSecretPhrase : Function<TonWalletSecretPhrase>
     {
         /// <summary>
         /// Data type for serialization
@@ -39,9 +39,9 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns the secret phrase of the user's TON wallet as a space separated list of words. Works only if tonWalletState.can_export_phrase is true
+    /// Returns the secret phrase of the user's TON wallet. Works only if tonWalletState.can_export_phrase is true
     /// </summary>
-    public static Task<Text> GetTonWalletSecretPhraseAsync(
+    public static Task<TonWalletSecretPhrase> GetTonWalletSecretPhraseAsync(
         this IClient client, string password = default)
     {
         return client.ExecuteAsync(new GetTonWalletSecretPhrase

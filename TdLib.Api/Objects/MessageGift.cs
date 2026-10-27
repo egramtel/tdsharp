@@ -127,6 +127,13 @@ public static partial class TdApi
             public bool CanBeUpgraded { get; set; }
 
             /// <summary>
+            /// True, if the gift can be deleted using deleteGift; only for the receiver of the gift
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("can_be_deleted")]
+            public bool CanBeDeleted { get; set; }
+
+            /// <summary>
             /// True, if the gift was converted to Telegram Stars; only for the receiver of the gift
             /// </summary>
             [JsonConverter(typeof(Converter))]

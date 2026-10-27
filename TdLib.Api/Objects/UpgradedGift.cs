@@ -153,6 +153,13 @@ public static partial class TdApi
         public string GiftAddress { get; set; }
 
         /// <summary>
+        /// True, if the gift NFT can be used as background_nft_address in setTonWalletCardStickers
+        /// </summary>
+        [JsonConverter(typeof(Converter))]
+        [JsonProperty("can_be_ton_wallet_card_background")]
+        public bool CanBeTonWalletCardBackground { get; set; }
+
+        /// <summary>
         /// Model of the upgraded gift
         /// </summary>
         [JsonConverter(typeof(Converter))]

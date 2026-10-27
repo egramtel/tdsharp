@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class TonCenterApiRequestType : Object
     {
         /// <summary>
-        /// Describes state of active stories posted by a chat
+        /// Describes a type of request to the TON Center API
         /// </summary>
         public class TonCenterApiRequestTypeGet : TonCenterApiRequestType
         {

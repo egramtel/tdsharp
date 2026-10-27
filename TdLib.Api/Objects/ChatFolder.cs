@@ -55,19 +55,19 @@ public static partial class TdApi
         public bool IsShareable { get; set; }
 
         /// <summary>
-        /// The chat identifiers of pinned chats in the folder. There can be up to getOption("chat_folder_chosen_chat_count_max") pinned and always included non-secret chats and the same number of secret chats, but the limit can be increased with Telegram Premium
+        /// The chat identifiers of pinned chats in the folder. There can be up to getOption("chat_folder_chosen_chat_count_max") pinned
         /// </summary>
         [JsonProperty("pinned_chat_ids", ItemConverterType = typeof(Converter))]
         public long[] PinnedChatIds { get; set; }
 
         /// <summary>
-        /// The chat identifiers of always included chats in the folder. There can be up to getOption("chat_folder_chosen_chat_count_max") pinned and always included non-secret chats and the same number of secret chats, but the limit can be increased with Telegram Premium
+        /// The chat identifiers of always included chats in the folder. There can be up to getOption("chat_folder_chosen_chat_count_max") pinned
         /// </summary>
         [JsonProperty("included_chat_ids", ItemConverterType = typeof(Converter))]
         public long[] IncludedChatIds { get; set; }
 
         /// <summary>
-        /// The chat identifiers of always excluded chats in the folder. There can be up to getOption("chat_folder_chosen_chat_count_max") always excluded non-secret chats and the same number of secret chats, but the limit can be increased with Telegram Premium
+        /// The chat identifiers of always excluded chats in the folder. There can be up to getOption("chat_folder_chosen_chat_count_max") always excluded non-secret chats
         /// </summary>
         [JsonProperty("excluded_chat_ids", ItemConverterType = typeof(Converter))]
         public long[] ExcludedChatIds { get; set; }

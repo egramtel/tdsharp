@@ -11,8 +11,9 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Re-adds quick reply messages which failed to add. Can be called only for messages for which messageSendingStateFailed.can_retry is true and after specified in messageSendingStateFailed.retry_after time passed.
-    /// If a message is re-added, the corresponding failed to send message is deleted. Returns the sent messages in the same order as the message identifiers passed in message_ids. If a message can't be re-added, null will be returned instead of the message
+    /// Re-adds quick reply messages which failed to add. Can be called only for messages for which messageSendingStateFailed.can_retry is true
+    /// and after specified in messageSendingStateFailed.retry_after time passed. If a message is re-added, the corresponding failed to send message is deleted.
+    /// Returns the sent messages in the same order as the message identifiers passed in message_ids. If a message can't be re-added, null will be returned instead of the message
     /// </summary>
     public class ReaddQuickReplyShortcutMessages : Function<QuickReplyMessages>
     {
@@ -46,8 +47,9 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Re-adds quick reply messages which failed to add. Can be called only for messages for which messageSendingStateFailed.can_retry is true and after specified in messageSendingStateFailed.retry_after time passed.
-    /// If a message is re-added, the corresponding failed to send message is deleted. Returns the sent messages in the same order as the message identifiers passed in message_ids. If a message can't be re-added, null will be returned instead of the message
+    /// Re-adds quick reply messages which failed to add. Can be called only for messages for which messageSendingStateFailed.can_retry is true
+    /// and after specified in messageSendingStateFailed.retry_after time passed. If a message is re-added, the corresponding failed to send message is deleted.
+    /// Returns the sent messages in the same order as the message identifiers passed in message_ids. If a message can't be re-added, null will be returned instead of the message
     /// </summary>
     public static Task<QuickReplyMessages> ReaddQuickReplyShortcutMessagesAsync(
         this IClient client, string shortcutName = default, long[] messageIds = default)

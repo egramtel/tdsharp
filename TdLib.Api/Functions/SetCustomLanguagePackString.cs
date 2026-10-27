@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Adds, edits or deletes a string in a custom local language pack. Can be called before authorization
+    /// Adds, edits, or deletes a string in a custom local language pack. Can be called before authorization
     /// </summary>
     public class SetCustomLanguagePackString : Function<Ok>
     {
@@ -46,7 +46,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Adds, edits or deletes a string in a custom local language pack. Can be called before authorization
+    /// Adds, edits, or deletes a string in a custom local language pack. Can be called before authorization
     /// </summary>
     public static Task<Ok> SetCustomLanguagePackStringAsync(
         this IClient client, string languagePackId = default, LanguagePackString newString = default)

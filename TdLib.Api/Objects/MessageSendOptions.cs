@@ -69,7 +69,7 @@ public static partial class TdApi
         public long PaidMessageStarCount { get; set; }
 
         /// <summary>
-        /// Pass true if the user explicitly chosen a sticker or a custom emoji from an installed sticker set; applicable only to sendMessage and sendMessageAlbum
+        /// Pass true if the user has explicitly chosen a sticker or a custom emoji from an installed sticker set; applicable only to sendMessage and sendMessageAlbum
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("update_order_of_installed_sticker_sets")]

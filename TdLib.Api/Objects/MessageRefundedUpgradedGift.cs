@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class MessageContent : Object
     {
         /// <summary>
-        /// A gift which purchase, upgrade or transfer were refunded
+        /// A gift which purchase, upgrade, or transfer were refunded
         /// </summary>
         public class MessageRefundedUpgradedGift : MessageContent
         {

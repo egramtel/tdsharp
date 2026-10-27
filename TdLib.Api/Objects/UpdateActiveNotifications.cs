@@ -12,7 +12,8 @@ public static partial class TdApi
     public partial class Update : Object
     {
         /// <summary>
-        /// Contains active notifications that were shown on previous application launches. This update is sent only if the message database is used. In that case it comes once before any updateNotification and updateNotificationGroup update
+        /// Contains active notifications that were shown on previous application launches. This update is sent only
+        /// if the message database is used. In that case it comes once before any updateNotification and updateNotificationGroup update
         /// </summary>
         public class UpdateActiveNotifications : Update
         {

@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns upgraded gifts of the current user who can be used to craft another gifts
+    /// Returns upgraded gifts of the current user, which can be used to craft other gifts
     /// </summary>
     public class GetGiftsForCrafting : Function<GiftsForCrafting>
     {
@@ -53,7 +53,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns upgraded gifts of the current user who can be used to craft another gifts
+    /// Returns upgraded gifts of the current user, which can be used to craft other gifts
     /// </summary>
     public static Task<GiftsForCrafting> GetGiftsForCraftingAsync(
         this IClient client, long regularGiftId = default, string offset = default, int limit = default)

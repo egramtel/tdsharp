@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Saves an inline message to be sent by the given user
+    /// Returns an inline message prepared by a bot to be sent by the current user
     /// </summary>
     public class GetPreparedInlineMessage : Function<PreparedInlineMessage>
     {
@@ -46,7 +46,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Saves an inline message to be sent by the given user
+    /// Returns an inline message prepared by a bot to be sent by the current user
     /// </summary>
     public static Task<PreparedInlineMessage> GetPreparedInlineMessageAsync(
         this IClient client, long botUserId = default, string preparedMessageId = default)

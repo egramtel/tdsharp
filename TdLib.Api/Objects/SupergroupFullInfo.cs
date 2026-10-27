@@ -188,7 +188,7 @@ public static partial class TdApi
         public bool CanToggleAggressiveAntiSpam { get; set; }
 
         /// <summary>
-        /// True, if new chat members will have access to old messages. In public, discussion, of forum groups and all channels, old messages are always available,
+        /// True, if new chat members will have access to old messages. In public, discussion, or forum groups and all channels, old messages are always available,
         /// so this option affects only private non-forum supergroups without a linked chat. The value of this field is only available to chat administrators
         /// </summary>
         [JsonConverter(typeof(Converter))]
@@ -305,6 +305,13 @@ public static partial class TdApi
         [JsonConverter(typeof(Converter))]
         [JsonProperty("main_profile_tab")]
         public ProfileTab MainProfileTab { get; set; }
+
+        /// <summary>
+        /// Theme of the screen for sharing a link to the supergroup or the channel; may be null if the default theme is used
+        /// </summary>
+        [JsonConverter(typeof(Converter))]
+        [JsonProperty("share_theme")]
+        public ProfileShareTheme ShareTheme { get; set; }
 
         /// <summary>
         /// Identifier of the basic group from which supergroup was upgraded; 0 if none
