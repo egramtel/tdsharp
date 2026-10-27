@@ -16,6 +16,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Update to [TDLib v1.8.69](https://github.com/ForNeVeR/tdlib-versioned/releases/tag/tdlib%2Fv1.8.69).
 - **(Breaking!)** `Object.Extra` has been renamed to `Object.ExtraData`, to free room for certain new TDLib properties also named `extra`.
 
+### Fixed
+- Some multi-line documentation comments in the generated API were truncated.
+
 ## [1.8.67] - 2026-08-27
 ### Changed
 - Update to [TDLib v1.8.67](https://github.com/ForNeVeR/tdlib-versioned/releases/tag/tdlib%2Fv1.8.67).
