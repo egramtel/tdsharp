@@ -108,7 +108,7 @@ public static partial class TdApi
         public string[] CountryCodes { get; set; }
 
         /// <summary>
-        /// The list of 0-based poll identifiers in which the options of the poll must be shown; empty if the order of options must not be changed
+        /// The list of 0-based poll option identifiers in which the options of the poll must be shown; empty if the order of options must not be changed
         /// </summary>
         [JsonProperty("option_order", ItemConverterType = typeof(Converter))]
         public int[] OptionOrder { get; set; }

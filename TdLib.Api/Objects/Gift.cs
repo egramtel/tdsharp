@@ -126,7 +126,7 @@ public static partial class TdApi
         public GiftPurchaseLimits OverallLimits { get; set; }
 
         /// <summary>
-        /// Background of the gift
+        /// Background of the gift; may be null if the gift has no background
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("background")]

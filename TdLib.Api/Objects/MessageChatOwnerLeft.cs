@@ -29,7 +29,7 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// Identifier of the user who will become the new owner of the chat if the previous owner isn't return; 0 if none
+            /// Identifier of the user who will become the new owner of the chat if the previous owner doesn't return; 0 if none
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("new_owner_user_id")]

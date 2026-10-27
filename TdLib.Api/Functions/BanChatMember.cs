@@ -11,7 +11,8 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Bans a member in a chat; requires can_restrict_members administrator right. Members can't be banned in private or secret chats. In supergroups and channels, the user will not be able to return to the group on their own using invite links, etc., unless unbanned first
+    /// Bans a member in a chat; requires can_restrict_members administrator right. Members can't be banned in private or secret chats.
+    /// In supergroups and channels, the user will not be able to return to the group on their own using invite links, etc., unless unbanned first
     /// </summary>
     public class BanChatMember : Function<Ok>
     {
@@ -45,7 +46,7 @@ public static partial class TdApi
         public MessageSender MemberId { get; set; }
 
         /// <summary>
-        /// Point in time (Unix timestamp) when the user will be unbanned; 0 if never. If the user is banned for more than 366 days or for less than 30 seconds from the current time, the user is considered to be banned forever. Ignored in basic groups and if a chat is banned
+        /// Point in time (Unix timestamp) when the user will be unbanned; 0 if never. If the user is banned for more than 366 days
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("banned_until_date")]
@@ -60,7 +61,8 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Bans a member in a chat; requires can_restrict_members administrator right. Members can't be banned in private or secret chats. In supergroups and channels, the user will not be able to return to the group on their own using invite links, etc., unless unbanned first
+    /// Bans a member in a chat; requires can_restrict_members administrator right. Members can't be banned in private or secret chats.
+    /// In supergroups and channels, the user will not be able to return to the group on their own using invite links, etc., unless unbanned first
     /// </summary>
     public static Task<Ok> BanChatMemberAsync(
         this IClient client, long chatId = default, MessageSender memberId = default, int bannedUntilDate = default, bool revokeMessages = default)

@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Asynchronously edits the text, media or caption of a quick reply message. Use quickReplyMessage.can_be_edited to check whether a message can be edited.
+    /// Asynchronously edits the text, media, or caption of a quick reply message. Use quickReplyMessage.can_be_edited to check whether a message can be edited.
     /// Media message can be edited only to a media message. Checklist messages can be edited only to a checklist message.
     /// The type of message content in an album can't be changed with exception of replacing a photo with a video or vice versa
     /// </summary>
@@ -47,7 +47,7 @@ public static partial class TdApi
         public long MessageId { get; set; }
 
         /// <summary>
-        /// New content of the message. Must be one of the following types: inputMessageAnimation, inputMessageAudio, inputMessageChecklist, inputMessageDocument, inputMessagePhoto, inputMessageRichMessage, inputMessageText, or inputMessageVideo
+        /// New content of the message. Must be one of the following types: inputMessageAnimation, inputMessageAudio,
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("input_message_content")]
@@ -55,7 +55,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Asynchronously edits the text, media or caption of a quick reply message. Use quickReplyMessage.can_be_edited to check whether a message can be edited.
+    /// Asynchronously edits the text, media, or caption of a quick reply message. Use quickReplyMessage.can_be_edited to check whether a message can be edited.
     /// Media message can be edited only to a media message. Checklist messages can be edited only to a checklist message.
     /// The type of message content in an album can't be changed with exception of replacing a photo with a video or vice versa
     /// </summary>

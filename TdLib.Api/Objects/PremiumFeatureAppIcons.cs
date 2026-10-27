@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class PremiumFeature : Object
     {
         /// <summary>
-        /// Allowed to set a premium application icons
+        /// Allowed to set premium application icons
         /// </summary>
         public class PremiumFeatureAppIcons : PremiumFeature
         {

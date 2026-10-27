@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Creates a new temporary password for processing payments
+    /// Creates a new temporary password for processing payments and withdrawal of upgraded gifts
     /// </summary>
     public class CreateTemporaryPassword : Function<TemporaryPasswordState>
     {
@@ -46,7 +46,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Creates a new temporary password for processing payments
+    /// Creates a new temporary password for processing payments and withdrawal of upgraded gifts
     /// </summary>
     public static Task<TemporaryPasswordState> CreateTemporaryPasswordAsync(
         this IClient client, string password = default, int validFor = default)

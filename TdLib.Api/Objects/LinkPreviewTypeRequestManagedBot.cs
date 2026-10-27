@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class LinkPreviewType : Object
     {
         /// <summary>
-        /// The link is a link to a dialog for creating of a managed bot
+        /// The link is a link to a dialog for creating a managed bot
         /// </summary>
         public class LinkPreviewTypeRequestManagedBot : LinkPreviewType
         {

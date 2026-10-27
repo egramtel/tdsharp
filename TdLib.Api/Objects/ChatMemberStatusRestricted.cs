@@ -36,7 +36,8 @@ public static partial class TdApi
             public bool IsMember { get; set; }
 
             /// <summary>
-            /// Point in time (Unix timestamp) when restrictions will be lifted from the user; 0 if never. If the user is restricted for more than 366 days or for less than 30 seconds from the current time, the user is considered to be restricted forever
+            /// Point in time (Unix timestamp) when restrictions will be lifted from the user; 0 if never.
+            /// If the user is restricted for more than 366 days or for less than 30 seconds from the current time, the user is considered to be restricted forever
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("restricted_until_date")]

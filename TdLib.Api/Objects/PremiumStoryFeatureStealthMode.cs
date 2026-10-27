@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class PremiumStoryFeature : Object
     {
         /// <summary>
-        /// The ability to hide the fact that the user viewed other's stories
+        /// The ability to hide the fact that the user viewed others' stories
         /// </summary>
         public class PremiumStoryFeatureStealthMode : PremiumStoryFeature
         {

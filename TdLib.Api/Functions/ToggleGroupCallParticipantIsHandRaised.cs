@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Toggles whether a group call participant hand is rased; for video chats only
+    /// Toggles whether a group call participant hand is raised; for video chats only
     /// </summary>
     public class ToggleGroupCallParticipantIsHandRaised : Function<Ok>
     {
@@ -53,7 +53,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Toggles whether a group call participant hand is rased; for video chats only
+    /// Toggles whether a group call participant hand is raised; for video chats only
     /// </summary>
     public static Task<Ok> ToggleGroupCallParticipantIsHandRaisedAsync(
         this IClient client, int groupCallId = default, MessageSender participantId = default, bool isHandRaised = default)

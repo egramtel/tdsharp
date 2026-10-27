@@ -55,7 +55,7 @@ public static partial class TdApi
         public int UniqueGiftNumber { get; set; }
 
         /// <summary>
-        /// True, if the sender and gift text are shown only to the gift receiver; otherwise, everyone are able to see them
+        /// True, if the sender and gift text are shown only to the gift receiver; otherwise, everyone is able to see them
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("is_private")]
@@ -88,6 +88,13 @@ public static partial class TdApi
         [JsonConverter(typeof(Converter))]
         [JsonProperty("can_be_transferred")]
         public bool CanBeTransferred { get; set; }
+
+        /// <summary>
+        /// True, if the gift is a regular gift that can be deleted using deleteGift; only for the receiver of the gift
+        /// </summary>
+        [JsonConverter(typeof(Converter))]
+        [JsonProperty("can_be_deleted")]
+        public bool CanBeDeleted { get; set; }
 
         /// <summary>
         /// True, if the gift was refunded and isn't available anymore

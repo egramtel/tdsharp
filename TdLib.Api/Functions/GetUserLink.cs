@@ -30,18 +30,37 @@ public static partial class TdApi
         [JsonProperty("@extra")]
         public override string ExtraData { get; set; }
 
+        /// <summary>
+        /// Pass true to get a link, which allows other users to send unpaid messages to the current user. By default, a temporary link is returned in this case
+        /// </summary>
+        [JsonConverter(typeof(Converter))]
+        [JsonProperty("remove_messages_fee")]
+        public bool RemoveMessagesFee { get; set; }
 
+        /// <summary>
+        /// Pass true to get a permanent link; ignored if remove_messages_fee is false. Can be used only if can_get_permanent_link is true in a previously received userLink
+        /// </summary>
+        [JsonConverter(typeof(Converter))]
+        [JsonProperty("return_permanent_link")]
+        public bool ReturnPermanentLink { get; set; }
+
+        /// <summary>
+        /// Pass true to revoke previously created links, which allow other users to send unpaid messages to the current user;
+        /// </summary>
+        [JsonConverter(typeof(Converter))]
+        [JsonProperty("revoke_previous_links")]
+        public bool RevokePreviousLinks { get; set; }
     }
 
     /// <summary>
     /// Returns an HTTPS link, which can be used to get information about the current user
     /// </summary>
     public static Task<UserLink> GetUserLinkAsync(
-        this IClient client)
+        this IClient client, bool removeMessagesFee = default, bool returnPermanentLink = default, bool revokePreviousLinks = default)
     {
         return client.ExecuteAsync(new GetUserLink
         {
-            
+            RemoveMessagesFee = removeMessagesFee, ReturnPermanentLink = returnPermanentLink, RevokePreviousLinks = revokePreviousLinks
         });
     }
 }

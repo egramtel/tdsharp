@@ -34,7 +34,7 @@ public static partial class TdApi
         public MessageSender ParticipantId { get; set; }
 
         /// <summary>
-        /// True, is the user has spoken recently
+        /// True, if the user has spoken recently
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("is_speaking")]

@@ -46,7 +46,7 @@ public static partial class TdApi
         public long ReplyToMessageId { get; set; }
 
         /// <summary>
-        /// The content of the message to be added; inputMessagePaidMedia, inputMessageForwarded and inputMessageLiveLocation
+        /// The content of the message to be added; inputMessagePaidMedia, inputMessageForwarded and inputMessageLiveLocation aren't supported
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("input_message_content")]

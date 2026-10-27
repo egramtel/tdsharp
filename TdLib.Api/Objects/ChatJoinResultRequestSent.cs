@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class ChatJoinResult : Object
     {
         /// <summary>
-        /// The join request was sent and have to be approved by administrators of the chat
+        /// The join request was sent and has to be approved by administrators of the chat
         /// </summary>
         public class ChatJoinResultRequestSent : ChatJoinResult
         {

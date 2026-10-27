@@ -27,14 +27,20 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Text of the quote. Only Bold, Italic, Underline, Strikethrough, Spoiler, CustomEmoji, and DateTime entities can be present in the text
+        /// Text of the quote. Only Bold, Italic, Underline, Strikethrough, Spoiler, CustomEmoji, and DateTime entities can be present in the text.
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("text")]
         public FormattedText Text { get; set; }
 
         /// <summary>
-        /// Approximate quote position in the original message in UTF-16 code units as specified by the message sender
+        /// Rich text of the quote if it was chosen from a rich message; empty if the quote wasn't chosen from a rich message.
+        /// </summary>
+        [JsonProperty("rich_texts", ItemConverterType = typeof(Converter))]
+        public RichText[] RichTexts { get; set; }
+
+        /// <summary>
+        /// Approximate quote position in the original message in UTF-16 code units as specified by the message sender. For quotes from rich messages,
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("position")]

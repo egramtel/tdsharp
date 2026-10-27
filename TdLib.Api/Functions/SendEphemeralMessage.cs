@@ -88,7 +88,7 @@ public static partial class TdApi
         public int SendingId { get; set; }
 
         /// <summary>
-        /// Pass true to get a fake message instead of actually sending them
+        /// Pass true to get a fake message instead of actually sending it
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("only_preview")]

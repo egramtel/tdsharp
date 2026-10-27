@@ -34,11 +34,18 @@ public static partial class TdApi
         public string Url { get; set; }
 
         /// <summary>
-        /// Left time for which the link is valid, in seconds; 0 if the link is a public username link
+        /// Left time for which the link is valid, in seconds; 0 if the link is permanent
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("expires_in")]
         public int ExpiresIn { get; set; }
+
+        /// <summary>
+        /// True, if a permanent link to the current user can be received; false if all links to the current user expire
+        /// </summary>
+        [JsonConverter(typeof(Converter))]
+        [JsonProperty("can_get_permanent_link")]
+        public bool CanGetPermanentLink { get; set; }
     }
 }
 // REUSE-IgnoreEnd

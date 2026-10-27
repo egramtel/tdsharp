@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class UserPrivacySettingRule : Object
     {
         /// <summary>
-        /// A rule to allow all members of certain specified basic groups and supergroups to doing something
+        /// A rule to allow all members of certain specified basic groups and supergroups to do something
         /// </summary>
         public class UserPrivacySettingRuleAllowChatMembers : UserPrivacySettingRule
         {

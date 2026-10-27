@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns a quote for an on-ramp payment; only for providers that supports quote retrieval
+    /// Returns a quote for an on-ramp payment; only for providers that support quote retrieval
     /// </summary>
     public class GetOnRampPaymentQuote : Function<OnRampPaymentQuote>
     {
@@ -74,7 +74,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns a quote for an on-ramp payment; only for providers that supports quote retrieval
+    /// Returns a quote for an on-ramp payment; only for providers that support quote retrieval
     /// </summary>
     public static Task<OnRampPaymentQuote> GetOnRampPaymentQuoteAsync(
         this IClient client, string providerId = default, string cryptocurrency = default, string baseCurrency = default, string cryptocurrencyAmount = default, string baseCurrencyAmount = default, string paymentMethodName = default)

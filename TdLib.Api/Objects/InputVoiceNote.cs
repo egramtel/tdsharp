@@ -10,7 +10,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// A video note to be sent
+    /// A voice note to be sent
     /// </summary>
     public partial class InputVoiceNote : Object
     {

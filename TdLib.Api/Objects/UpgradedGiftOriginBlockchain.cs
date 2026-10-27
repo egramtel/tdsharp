@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class UpgradedGiftOrigin : Object
     {
         /// <summary>
-        /// The gift was assigned from blockchain and isn't owned by the current user. The gift can't be transferred, resold or withdrawn to blockchain
+        /// The gift was assigned from blockchain and isn't owned by the current user. The gift can't be transferred, resold, or withdrawn to blockchain
         /// </summary>
         public class UpgradedGiftOriginBlockchain : UpgradedGiftOrigin
         {

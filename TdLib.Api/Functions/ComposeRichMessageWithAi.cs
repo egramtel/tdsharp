@@ -45,7 +45,7 @@ public static partial class TdApi
         public string TranslateToLanguageCode { get; set; }
 
         /// <summary>
-        /// Name of the style of the resulted text; handle updateTextCompositionStyles to get the list of supported styles; pass an empty string to keep the current style of the text or if a custom prompt is used
+        /// Name of the style of the resulting text; handle updateTextCompositionStyles to get the list of supported styles; pass an empty string to keep the current style of the text or if a custom prompt is used
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("style_name")]

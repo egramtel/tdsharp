@@ -31,7 +31,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Unique identifier of the on-ramp provider; only for providers that supports base currencies
+        /// Unique identifier of the on-ramp provider; only for providers that support base currencies
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("provider_id")]

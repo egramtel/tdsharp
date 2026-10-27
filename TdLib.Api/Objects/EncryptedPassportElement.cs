@@ -41,7 +41,7 @@ public static partial class TdApi
         public byte[] Data { get; set; }
 
         /// <summary>
-        /// The front side of an identity document
+        /// The front side of an identity document; may be null if the element isn't an identity document
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("front_side")]

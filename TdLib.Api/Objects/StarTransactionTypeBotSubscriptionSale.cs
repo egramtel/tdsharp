@@ -43,7 +43,7 @@ public static partial class TdApi
             public int SubscriptionPeriod { get; set; }
 
             /// <summary>
-            /// Information about the bought subscription
+            /// Information about the bought subscription; may be null if no information about the subscription is available
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("product_info")]

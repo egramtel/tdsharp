@@ -55,7 +55,7 @@ public static partial class TdApi
         public long AvailableAmount { get; set; }
 
         /// <summary>
-        /// True, if Telegram Stars can be withdrawn now or later
+        /// True, if the cryptocurrency can be withdrawn now or later
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("withdrawal_enabled")]

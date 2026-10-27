@@ -258,7 +258,8 @@ public static partial class TdApi
         public int SenderBoostCount { get; set; }
 
         /// <summary>
-        /// Tag of the sender of the message in the supergroup at the time the message was sent; may be empty if none or unknown. For messages sent in basic groups or supergroup administrators, the current custom title or tag must be used instead
+        /// Tag of the sender of the message in the supergroup at the time the message was sent; may be empty if none or unknown.
+        /// For messages sent in basic groups or by supergroup administrators, the current custom title or tag must be used instead
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("sender_tag")]

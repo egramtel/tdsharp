@@ -11,7 +11,8 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns a list of service actions taken by chat members and administrators in the last 48 hours. Available only in supergroups and channels. Requires administrator rights. Returns results in reverse chronological order (i.e., in order of decreasing event_id)
+    /// Returns a list of service actions taken by chat members and administrators in the last 48 hours. Available only in supergroups and channels.
+    /// Requires administrator rights. Returns results in reverse chronological order (i.e., in order of decreasing event_id)
     /// </summary>
     public class GetChatEventLog : Function<ChatEvents>
     {
@@ -73,7 +74,8 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns a list of service actions taken by chat members and administrators in the last 48 hours. Available only in supergroups and channels. Requires administrator rights. Returns results in reverse chronological order (i.e., in order of decreasing event_id)
+    /// Returns a list of service actions taken by chat members and administrators in the last 48 hours. Available only in supergroups and channels.
+    /// Requires administrator rights. Returns results in reverse chronological order (i.e., in order of decreasing event_id)
     /// </summary>
     public static Task<ChatEvents> GetChatEventLogAsync(
         this IClient client, long chatId = default, string query = default, long fromEventId = default, int limit = default, ChatEventLogFilters filters = default, long[] userIds = default)

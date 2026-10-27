@@ -31,7 +31,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// The affiliate to which the affiliate program will be connected
+        /// The affiliate to which the affiliate program is connected
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("affiliate")]

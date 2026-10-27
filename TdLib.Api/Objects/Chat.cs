@@ -256,7 +256,8 @@ public static partial class TdApi
         public ChatAvailableReactions AvailableReactions { get; set; }
 
         /// <summary>
-        /// Current message auto-delete or self-destruct timer setting for the chat, in seconds; 0 if disabled. Self-destruct timer in secret chats starts after the message or its content is viewed. Auto-delete timer in other chats starts from the send date
+        /// Current message auto-delete or self-destruct timer setting for the chat, in seconds; 0 if disabled.
+        /// Self-destruct timer in secret chats starts after the message or its content is viewed. Auto-delete timer in other chats starts from the send date
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("message_auto_delete_time")]

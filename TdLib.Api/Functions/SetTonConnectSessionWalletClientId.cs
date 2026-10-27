@@ -11,7 +11,8 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Sets wallet_client_id for a pending TON Connect session. Then, sendTonConnectSessionConnectResult must be used to accept or reject the session
+    /// Sets wallet_client_id for a pending TON Connect session. Then, sendTonConnectSessionConnectResult must be used to accept or reject the session.
+    /// If the session was created for an OAuth request, then acceptOauthRequest must be used instead
     /// </summary>
     public class SetTonConnectSessionWalletClientId : Function<TonConnectChallenge>
     {
@@ -46,7 +47,8 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Sets wallet_client_id for a pending TON Connect session. Then, sendTonConnectSessionConnectResult must be used to accept or reject the session
+    /// Sets wallet_client_id for a pending TON Connect session. Then, sendTonConnectSessionConnectResult must be used to accept or reject the session.
+    /// If the session was created for an OAuth request, then acceptOauthRequest must be used instead
     /// </summary>
     public static Task<TonConnectChallenge> SetTonConnectSessionWalletClientIdAsync(
         this IClient client, long sessionId = default, string walletClientId = default)

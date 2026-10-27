@@ -29,7 +29,7 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// Identifier of the inline query, used to found the venue
+            /// Identifier of the inline query, used to find the venue
             /// </summary>
             [JsonConverter(typeof(Converter.Int64))]
             [JsonProperty("query_id")]

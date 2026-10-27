@@ -45,7 +45,7 @@ public static partial class TdApi
         public long MessageId { get; set; }
 
         /// <summary>
-        /// 0-based identifiers of answer options, chosen by the user. User can choose more than 1 answer option only is the poll allows multiple answers
+        /// 0-based identifiers of answer options, chosen by the user. User can choose more than 1 answer option only if the poll allows multiple answers
         /// </summary>
         [JsonProperty("option_ids", ItemConverterType = typeof(Converter))]
         public int[] OptionIds { get; set; }

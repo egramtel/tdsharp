@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Shares users after pressing a keyboardButtonTypeRequestUsers button with the bot
+    /// Shares users after pressing a keyboardButtonTypeRequestUsers or keyboardButtonTypeRequestManagedBot button with the bot
     /// </summary>
     public class ShareUsersWithBot : Function<Ok>
     {
@@ -59,7 +59,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Shares users after pressing a keyboardButtonTypeRequestUsers button with the bot
+    /// Shares users after pressing a keyboardButtonTypeRequestUsers or keyboardButtonTypeRequestManagedBot button with the bot
     /// </summary>
     public static Task<Ok> ShareUsersWithBotAsync(
         this IClient client, KeyboardButtonSource source = default, int buttonId = default, long[] sharedUserIds = default, bool onlyCheck = default)

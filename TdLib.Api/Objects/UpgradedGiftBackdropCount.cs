@@ -34,7 +34,7 @@ public static partial class TdApi
         public UpgradedGiftBackdrop Backdrop { get; set; }
 
         /// <summary>
-        /// Total number of gifts with the symbol
+        /// Total number of gifts with the backdrop
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("total_count")]

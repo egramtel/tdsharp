@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Process new chats added to a shareable chat folder by its owner
+    /// Processes new chats added to a shareable chat folder by its owner
     /// </summary>
     public class ProcessChatFolderNewChats : Function<Ok>
     {
@@ -45,7 +45,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Process new chats added to a shareable chat folder by its owner
+    /// Processes new chats added to a shareable chat folder by its owner
     /// </summary>
     public static Task<Ok> ProcessChatFolderNewChatsAsync(
         this IClient client, int chatFolderId = default, long[] addedChatIds = default)

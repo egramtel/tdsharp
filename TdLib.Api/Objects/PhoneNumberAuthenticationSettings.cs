@@ -55,7 +55,7 @@ public static partial class TdApi
         public bool HasUnknownPhoneNumber { get; set; }
 
         /// <summary>
-        /// For official applications only. True, if the application can use Android SMS Retriever API (requires Google Play Services &gt;= 10.2) to automatically receive the authentication code from the SMS. See https://developers.google.com/identity/sms-retriever/ for more details
+        /// For official applications only. True, if the application can use Android SMS Retriever API
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("allow_sms_retriever_api")]

@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns all website where the current user used Telegram to log in
+    /// Returns all websites where the current user used Telegram to log in
     /// </summary>
     public class GetConnectedWebsites : Function<ConnectedWebsites>
     {
@@ -34,7 +34,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns all website where the current user used Telegram to log in
+    /// Returns all websites where the current user used Telegram to log in
     /// </summary>
     public static Task<ConnectedWebsites> GetConnectedWebsitesAsync(
         this IClient client)

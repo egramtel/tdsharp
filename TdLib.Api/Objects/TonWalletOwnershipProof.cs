@@ -41,7 +41,7 @@ public static partial class TdApi
         public int Timestamp { get; set; }
 
         /// <summary>
-        /// The signature prooving the ownership
+        /// The signature proving the ownership
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("signature")]

@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Resends an authentication code to the user. Works only when the current authorization state is authorizationStateWaitCode, the next_code_type of the result is not null
+    /// Resends an authentication code to the user. Works only when the current authorization state is authorizationStateWaitCode, authorization_state.code_info.next_type is not null
     /// and the server-specified timeout has passed, or when the current authorization state is authorizationStateWaitEmailCode
     /// </summary>
     public class ResendAuthenticationCode : Function<Ok>
@@ -40,7 +40,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Resends an authentication code to the user. Works only when the current authorization state is authorizationStateWaitCode, the next_code_type of the result is not null
+    /// Resends an authentication code to the user. Works only when the current authorization state is authorizationStateWaitCode, authorization_state.code_info.next_type is not null
     /// and the server-specified timeout has passed, or when the current authorization state is authorizationStateWaitEmailCode
     /// </summary>
     public static Task<Ok> ResendAuthenticationCodeAsync(

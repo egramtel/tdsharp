@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class PremiumStoryFeature : Object
     {
         /// <summary>
-        /// The ability to save other's unprotected stories
+        /// The ability to save others' unprotected stories
         /// </summary>
         public class PremiumStoryFeatureSaveStories : PremiumStoryFeature
         {

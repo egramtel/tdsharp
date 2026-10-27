@@ -38,7 +38,7 @@ public static partial class TdApi
         public long ChatId { get; set; }
 
         /// <summary>
-        /// Identifier of the message with the request. The message must be incoming and has content of the type messageChatHasProtectedContentDisableRequested
+        /// Identifier of the message with the request. The message must be incoming and have content of the type messageChatHasProtectedContentDisableRequested
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("request_message_id")]

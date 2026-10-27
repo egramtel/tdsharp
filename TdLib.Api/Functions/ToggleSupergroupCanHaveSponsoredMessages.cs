@@ -11,7 +11,8 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Toggles whether sponsored messages are shown in the channel chat; requires owner privileges in the channel. The chat must have at least chatBoostFeatures.min_sponsored_message_disable_boost_level boost level to disable sponsored messages
+    /// Toggles whether sponsored messages are shown in the channel chat; requires owner privileges in the channel.
+    /// The chat must have at least chatBoostFeatures.min_sponsored_message_disable_boost_level boost level to disable sponsored messages
     /// </summary>
     public class ToggleSupergroupCanHaveSponsoredMessages : Function<Ok>
     {
@@ -46,7 +47,8 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Toggles whether sponsored messages are shown in the channel chat; requires owner privileges in the channel. The chat must have at least chatBoostFeatures.min_sponsored_message_disable_boost_level boost level to disable sponsored messages
+    /// Toggles whether sponsored messages are shown in the channel chat; requires owner privileges in the channel.
+    /// The chat must have at least chatBoostFeatures.min_sponsored_message_disable_boost_level boost level to disable sponsored messages
     /// </summary>
     public static Task<Ok> ToggleSupergroupCanHaveSponsoredMessagesAsync(
         this IClient client, long supergroupId = default, bool canHaveSponsoredMessages = default)

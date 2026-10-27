@@ -38,7 +38,7 @@ public static partial class TdApi
         public long CommunityId { get; set; }
 
         /// <summary>
-        /// New chat photo; pass null to delete the chat photo
+        /// New community photo; pass null to delete the community photo
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("photo")]

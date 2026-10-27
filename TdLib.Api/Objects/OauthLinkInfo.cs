@@ -83,6 +83,36 @@ public static partial class TdApi
         public bool RequestPhoneNumberAccess { get; set; }
 
         /// <summary>
+        /// True, if access to the user's TON wallet is requested by the app. If true and the user agrees to give access, then use createTonConnectSession
+        /// with dapp_client_id and ton_connect_manifest_url to create the TON Connect session, then setTonConnectSessionWalletClientId, then create a tonWalletOwnershipProof
+        /// for the given domain with the payload ton_proof_payload, and then pass all data to acceptOauthRequest in the parameter ton_connect_connect_data
+        /// </summary>
+        [JsonConverter(typeof(Converter))]
+        [JsonProperty("request_ton_wallet_access")]
+        public bool RequestTonWalletAccess { get; set; }
+
+        /// <summary>
+        /// Hex-encoded public X25519 key of the dApp; may be empty if TON wallet access wasn't requested
+        /// </summary>
+        [JsonConverter(typeof(Converter))]
+        [JsonProperty("dapp_client_id")]
+        public string DappClientId { get; set; }
+
+        /// <summary>
+        /// URL of the TON Connect manifest of the dApp; may be empty if TON wallet access wasn't requested
+        /// </summary>
+        [JsonConverter(typeof(Converter))]
+        [JsonProperty("ton_connect_manifest_url")]
+        public string TonConnectManifestUrl { get; set; }
+
+        /// <summary>
+        /// Payload for TON wallet ownership proof; may be empty if TON wallet access wasn't requested
+        /// </summary>
+        [JsonConverter(typeof(Converter))]
+        [JsonProperty("ton_proof_payload")]
+        public string TonProofPayload { get; set; }
+
+        /// <summary>
         /// The version of a browser used for the authorization
         /// </summary>
         [JsonConverter(typeof(Converter))]

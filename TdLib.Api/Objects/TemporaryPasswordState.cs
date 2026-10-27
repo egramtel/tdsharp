@@ -10,7 +10,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns information about the availability of a temporary password, which can be used for payments
+    /// Contains information about the availability of a temporary password, which can be used for payments and withdrawal of upgraded gifts
     /// </summary>
     public partial class TemporaryPasswordState : Object
     {

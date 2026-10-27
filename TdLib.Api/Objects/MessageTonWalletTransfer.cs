@@ -36,7 +36,7 @@ public static partial class TdApi
             public long SenderUserId { get; set; }
 
             /// <summary>
-            /// Unique identifier of the transaction; may be empty if the transfer isn't send yet. Use getTonWalletTransaction to get additional information about the transaction
+            /// Unique identifier of the transaction; may be empty if the transfer isn't sent yet. Use getTonWalletTransaction to get additional information about the transaction
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("transaction_id")]

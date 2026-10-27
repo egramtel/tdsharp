@@ -10,15 +10,15 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Describes position of a clickable rectangle area on a story media
+    /// Describes position of a rectangle area on a story media or a TON wallet card
     /// </summary>
-    public partial class StoryAreaPosition : Object
+    public partial class AreaPosition : Object
     {
         /// <summary>
         /// Data type for serialization
         /// </summary>
         [JsonProperty("@type")]
-        public override string DataType { get; set; } = "storyAreaPosition";
+        public override string DataType { get; set; } = "areaPosition";
 
         /// <summary>
         /// Extra data attached to the object.
@@ -27,28 +27,28 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// The abscissa of the rectangle's center, as a percentage of the media width
+        /// The abscissa of the rectangle's center, as a percentage of the media or the card width
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("x_percentage")]
         public double? XPercentage { get; set; }
 
         /// <summary>
-        /// The ordinate of the rectangle's center, as a percentage of the media height
+        /// The ordinate of the rectangle's center, as a percentage of the media or the card height
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("y_percentage")]
         public double? YPercentage { get; set; }
 
         /// <summary>
-        /// The width of the rectangle, as a percentage of the media width
+        /// The width of the rectangle, as a percentage of the media or the card width
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("width_percentage")]
         public double? WidthPercentage { get; set; }
 
         /// <summary>
-        /// The height of the rectangle, as a percentage of the media height
+        /// The height of the rectangle, as a percentage of the media or the card height
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("height_percentage")]
@@ -62,7 +62,7 @@ public static partial class TdApi
         public double? RotationAngle { get; set; }
 
         /// <summary>
-        /// The radius of the rectangle corner rounding, as a percentage of the media width
+        /// The radius of the rectangle corner rounding, as a percentage of the media or the card width
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("corner_radius_percentage")]

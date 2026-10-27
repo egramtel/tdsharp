@@ -54,7 +54,7 @@ public static partial class TdApi
         public int Value { get; set; }
 
         /// <summary>
-        /// Type of the item numbering type; must be one of "a" for a lowercase letter, "A" for an uppercase letter, "i" for lowercase Roman numerals, "I" for uppercase Roman numerals,
+        /// Type of item numbering; pass "a" for lowercase letters, "A" for uppercase letters, "i" for lowercase Roman numerals, "I" for uppercase Roman numerals,
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("type")]

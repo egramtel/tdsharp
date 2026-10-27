@@ -27,7 +27,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// List of active usernames; the first one must be shown as the primary username. The order of active usernames can be changed with reorderActiveUsernames, reorderBotActiveUsernames or reorderSupergroupActiveUsernames
+        /// List of active usernames; the first one must be shown as the primary username. The order of active usernames can be changed with reorderActiveUsernames, reorderBotActiveUsernames, or reorderSupergroupActiveUsernames
         /// </summary>
         [JsonProperty("active_usernames", ItemConverterType = typeof(Converter))]
         public string[] ActiveUsernames { get; set; }
@@ -52,7 +52,7 @@ public static partial class TdApi
         public string[] CollectibleUsernames { get; set; }
 
         /// <summary>
-        /// Secondary non-collectible username; for bots only. Can't be used in toggleBotUsernameIsActive; use addBotSecondaryUsername or deleteBotSecondaryUsername to edit it.
+        /// Secondary non-collectible username. Currently, must be non-empty only for bot accounts. Can't be used in toggleBotUsernameIsActive;
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("secondary_username")]

@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class PageBlockVerticalAlignment : Object
     {
         /// <summary>
-        /// Describes a Vertical alignment of a table cell content
+        /// Describes a vertical alignment of a table cell content
         /// </summary>
         public class PageBlockVerticalAlignmentTop : PageBlockVerticalAlignment
         {

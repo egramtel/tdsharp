@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class InputStoryAreaType : Object
     {
         /// <summary>
-        /// An area pointing to a HTTP or tg:// link
+        /// An area pointing to an HTTP or tg:// link
         /// </summary>
         public class InputStoryAreaTypeLink : InputStoryAreaType
         {

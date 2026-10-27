@@ -29,7 +29,7 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// The used feature; pass null if none specific feature was used
+            /// The used feature; pass null if no specific feature was used
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("feature")]

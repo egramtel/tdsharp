@@ -29,7 +29,7 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// The new state of the wallet
+            /// The new information about gasless transfers
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("info")]
