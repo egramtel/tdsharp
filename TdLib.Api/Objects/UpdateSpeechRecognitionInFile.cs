@@ -9,18 +9,18 @@ namespace TdLib;
 /// </summary>
 public static partial class TdApi
 {
-    public partial class InputStoryAreaType : Object
+    public partial class Update : Object
     {
         /// <summary>
-        /// An area pointing to a venue found by the bot getOption("venue_search_bot_username")
+        /// Speech in an audio file was partially recognized. The final result will be returned by the corresponding recognizeSpeechInFile request
         /// </summary>
-        public class InputStoryAreaTypeFoundVenue : InputStoryAreaType
+        public class UpdateSpeechRecognitionInFile : Update
         {
             /// <summary>
             /// Data type for serialization
             /// </summary>
             [JsonProperty("@type")]
-            public override string DataType { get; set; } = "inputStoryAreaTypeFoundVenue";
+            public override string DataType { get; set; } = "updateSpeechRecognitionInFile";
 
             /// <summary>
             /// Extra data attached to the message.
@@ -29,18 +29,18 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// Identifier of the inline query, used to find the venue
+            /// Identifier of the speech recognition as specified in recognizeSpeechInFile
             /// </summary>
             [JsonConverter(typeof(Converter.Int64))]
-            [JsonProperty("query_id")]
-            public long QueryId { get; set; }
+            [JsonProperty("recognition_id")]
+            public long RecognitionId { get; set; }
 
             /// <summary>
-            /// Identifier of the inline query result
+            /// Partially recognized text
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("result_id")]
-            public string ResultId { get; set; }
+            [JsonProperty("partial_text")]
+            public string PartialText { get; set; }
         }
     }
 }

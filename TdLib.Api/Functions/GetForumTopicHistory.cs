@@ -12,7 +12,7 @@ public static partial class TdApi
 {
     /// <summary>
     /// Returns messages in a topic in a forum supergroup chat or a chat with a bot with topics. The messages are returned in reverse chronological order
-    /// (i.e., in order of decreasing message_id). For optimal performance, the number of returned messages is chosen by TDLib
+    /// (i.e., in order of decreasing message.id). For optimal performance, the number of returned messages is chosen by TDLib
     /// </summary>
     public class GetForumTopicHistory : Function<Messages>
     {
@@ -70,7 +70,7 @@ public static partial class TdApi
 
     /// <summary>
     /// Returns messages in a topic in a forum supergroup chat or a chat with a bot with topics. The messages are returned in reverse chronological order
-    /// (i.e., in order of decreasing message_id). For optimal performance, the number of returned messages is chosen by TDLib
+    /// (i.e., in order of decreasing message.id). For optimal performance, the number of returned messages is chosen by TDLib
     /// </summary>
     public static Task<Messages> GetForumTopicHistoryAsync(
         this IClient client, long chatId = default, int forumTopicId = default, long fromMessageId = default, int offset = default, int limit = default)

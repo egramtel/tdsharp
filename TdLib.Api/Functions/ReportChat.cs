@@ -45,7 +45,7 @@ public static partial class TdApi
         public byte[] OptionId { get; set; }
 
         /// <summary>
-        /// Identifiers of reported messages. Use messageProperties.can_report_chat to check whether the message can be reported
+        /// Identifiers of reported messages. Use messageProperties.can_report_chat to check whether the message can be reported. Ephemeral messages must be reported separately
         /// </summary>
         [JsonProperty("message_ids", ItemConverterType = typeof(Converter))]
         public long[] MessageIds { get; set; }

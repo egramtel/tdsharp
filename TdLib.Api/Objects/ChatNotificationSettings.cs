@@ -27,7 +27,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// If true, the value for the relevant type of chat or the forum chat is used instead of mute_for
+        /// If true, the value for the topic's chat, the chat's community, or the relevant type of chat is used instead of mute_for
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("use_default_mute_for")]
@@ -41,7 +41,7 @@ public static partial class TdApi
         public int MuteFor { get; set; }
 
         /// <summary>
-        /// If true, the value for the relevant type of chat or the forum chat is used instead of sound_id
+        /// If true, the value for the topic's chat, the chat's community, or the relevant type of chat is used instead of sound_id
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("use_default_sound")]
@@ -55,7 +55,7 @@ public static partial class TdApi
         public long SoundId { get; set; }
 
         /// <summary>
-        /// If true, the value for the relevant type of chat or the forum chat is used instead of show_preview
+        /// If true, the value for the topic's chat, the chat's community, or the relevant type of chat is used instead of show_preview
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("use_default_show_preview")]
@@ -69,7 +69,7 @@ public static partial class TdApi
         public bool ShowPreview { get; set; }
 
         /// <summary>
-        /// If true, the value for the relevant type of chat is used instead of mute_stories
+        /// If true, the value for the chat's community or the relevant type of chat is used instead of mute_stories
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("use_default_mute_stories")]
@@ -83,7 +83,7 @@ public static partial class TdApi
         public bool MuteStories { get; set; }
 
         /// <summary>
-        /// If true, the value for the relevant type of chat is used instead of story_sound_id
+        /// If true, the value for the chat's community or the relevant type of chat is used instead of story_sound_id
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("use_default_story_sound")]
@@ -97,7 +97,7 @@ public static partial class TdApi
         public long StorySoundId { get; set; }
 
         /// <summary>
-        /// If true, the value for the relevant type of chat is used instead of show_story_poster
+        /// If true, the value for the chat's community or the relevant type of chat is used instead of show_story_poster
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("use_default_show_story_poster")]
@@ -111,7 +111,7 @@ public static partial class TdApi
         public bool ShowStoryPoster { get; set; }
 
         /// <summary>
-        /// If true, the value for the relevant type of chat or the forum chat is used instead of disable_pinned_message_notifications
+        /// If true, the value for the topic's chat, the chat's community, or the relevant type of chat is used instead of disable_pinned_message_notifications
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("use_default_disable_pinned_message_notifications")]
@@ -125,7 +125,7 @@ public static partial class TdApi
         public bool DisablePinnedMessageNotifications { get; set; }
 
         /// <summary>
-        /// If true, the value for the relevant type of chat or the forum chat is used instead of disable_mention_notifications
+        /// If true, the value for the topic's chat, the chat's community, or the relevant type of chat is used instead of disable_mention_notifications
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("use_default_disable_mention_notifications")]

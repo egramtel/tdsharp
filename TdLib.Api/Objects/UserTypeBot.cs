@@ -64,6 +64,13 @@ public static partial class TdApi
             public bool HasTopics { get; set; }
 
             /// <summary>
+            /// True, if the bot has topics, which are shown in a sidebar
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("has_topic_sidebar")]
+            public bool HasTopicSidebar { get; set; }
+
+            /// <summary>
             /// True, if users can create and delete topics in the chat with the bot
             /// </summary>
             [JsonConverter(typeof(Converter))]

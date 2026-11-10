@@ -208,6 +208,13 @@ public static partial class TdApi
         public FormattedText Caption { get; set; }
 
         /// <summary>
+        /// Music attached to the story; may be null if none
+        /// </summary>
+        [JsonConverter(typeof(Converter))]
+        [JsonProperty("music")]
+        public Audio Music { get; set; }
+
+        /// <summary>
         /// Identifiers of story albums to which the story is added; only for manageable stories
         /// </summary>
         [JsonProperty("album_ids", ItemConverterType = typeof(Converter))]

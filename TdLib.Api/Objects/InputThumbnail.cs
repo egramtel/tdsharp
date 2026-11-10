@@ -27,7 +27,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Thumbnail file to send. Sending thumbnails by file_id is currently not supported
+        /// Thumbnail file to send. Sending thumbnails by inputFileId or inputFileRemote is currently not supported
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("thumbnail")]

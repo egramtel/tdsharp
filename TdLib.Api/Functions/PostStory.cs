@@ -59,6 +59,13 @@ public static partial class TdApi
         public FormattedText Caption { get; set; }
 
         /// <summary>
+        /// Music to be attached to the story; pass null if none. The music can be up to 60 seconds long
+        /// </summary>
+        [JsonConverter(typeof(Converter))]
+        [JsonProperty("music")]
+        public InputAudio Music { get; set; }
+
+        /// <summary>
         /// The privacy settings for the story; ignored for stories posted on behalf of supergroup and channel chats
         /// </summary>
         [JsonConverter(typeof(Converter))]
@@ -104,11 +111,11 @@ public static partial class TdApi
     /// Posts a new story on behalf of a chat; requires can_post_stories administrator right for supergroup and channel chats. Returns a temporary story
     /// </summary>
     public static Task<Story> PostStoryAsync(
-        this IClient client, long chatId = default, InputStoryContent content = default, InputStoryAreas areas = default, FormattedText caption = default, StoryPrivacySettings privacySettings = default, int[] albumIds = default, int activePeriod = default, StoryFullId fromStoryFullId = default, bool isPostedToChatPage = default, bool protectContent = default)
+        this IClient client, long chatId = default, InputStoryContent content = default, InputStoryAreas areas = default, FormattedText caption = default, InputAudio music = default, StoryPrivacySettings privacySettings = default, int[] albumIds = default, int activePeriod = default, StoryFullId fromStoryFullId = default, bool isPostedToChatPage = default, bool protectContent = default)
     {
         return client.ExecuteAsync(new PostStory
         {
-            ChatId = chatId, Content = content, Areas = areas, Caption = caption, PrivacySettings = privacySettings, AlbumIds = albumIds, ActivePeriod = activePeriod, FromStoryFullId = fromStoryFullId, IsPostedToChatPage = isPostedToChatPage, ProtectContent = protectContent
+            ChatId = chatId, Content = content, Areas = areas, Caption = caption, Music = music, PrivacySettings = privacySettings, AlbumIds = albumIds, ActivePeriod = activePeriod, FromStoryFullId = fromStoryFullId, IsPostedToChatPage = isPostedToChatPage, ProtectContent = protectContent
         });
     }
 }
