@@ -12,7 +12,7 @@ public static partial class TdApi
 {
     /// <summary>
     /// Returns the list of stories that were posted by the given chat to its chat page. If from_story_id == 0, then pinned stories are returned first.
-    /// Then, stories are returned in reverse chronological order (i.e., in order of decreasing story_id). For optimal performance, the number of returned stories is chosen by TDLib
+    /// Then, stories are returned in reverse chronological order (i.e., in order of decreasing story.id). For optimal performance, the number of returned stories is chosen by TDLib
     /// </summary>
     public class GetChatPostedToChatPageStories : Function<Stories>
     {
@@ -56,7 +56,7 @@ public static partial class TdApi
 
     /// <summary>
     /// Returns the list of stories that were posted by the given chat to its chat page. If from_story_id == 0, then pinned stories are returned first.
-    /// Then, stories are returned in reverse chronological order (i.e., in order of decreasing story_id). For optimal performance, the number of returned stories is chosen by TDLib
+    /// Then, stories are returned in reverse chronological order (i.e., in order of decreasing story.id). For optimal performance, the number of returned stories is chosen by TDLib
     /// </summary>
     public static Task<Stories> GetChatPostedToChatPageStoriesAsync(
         this IClient client, long chatId = default, int fromStoryId = default, int limit = default)

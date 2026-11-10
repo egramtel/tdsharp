@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns messages in the topic in a channel direct messages chat administered by the current user. The messages are returned in reverse chronological order (i.e., in order of decreasing message_id)
+    /// Returns messages in the topic in a channel direct messages chat administered by the current user. The messages are returned in reverse chronological order (i.e., in order of decreasing message.id)
     /// </summary>
     public class GetDirectMessagesChatTopicHistory : Function<Messages>
     {
@@ -68,7 +68,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns messages in the topic in a channel direct messages chat administered by the current user. The messages are returned in reverse chronological order (i.e., in order of decreasing message_id)
+    /// Returns messages in the topic in a channel direct messages chat administered by the current user. The messages are returned in reverse chronological order (i.e., in order of decreasing message.id)
     /// </summary>
     public static Task<Messages> GetDirectMessagesChatTopicHistoryAsync(
         this IClient client, long chatId = default, long topicId = default, long fromMessageId = default, int offset = default, int limit = default)

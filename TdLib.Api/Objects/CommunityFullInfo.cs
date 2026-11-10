@@ -59,6 +59,13 @@ public static partial class TdApi
         [JsonConverter(typeof(Converter))]
         [JsonProperty("add_chat_request_count")]
         public int AddChatRequestCount { get; set; }
+
+        /// <summary>
+        /// Notification settings for the community. Default notification settings are chosen based on the type of a chat in the community
+        /// </summary>
+        [JsonConverter(typeof(Converter))]
+        [JsonProperty("notification_settings")]
+        public ChatNotificationSettings NotificationSettings { get; set; }
     }
 }
 // REUSE-IgnoreEnd

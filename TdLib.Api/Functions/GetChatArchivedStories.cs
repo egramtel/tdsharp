@@ -12,7 +12,7 @@ public static partial class TdApi
 {
     /// <summary>
     /// Returns the list of all stories posted by the given chat; requires can_edit_stories administrator right in the chat.
-    /// The stories are returned in reverse chronological order (i.e., in order of decreasing story_id). For optimal performance, the number of returned stories is chosen by TDLib
+    /// The stories are returned in reverse chronological order (i.e., in order of decreasing story.id). For optimal performance, the number of returned stories is chosen by TDLib
     /// </summary>
     public class GetChatArchivedStories : Function<Stories>
     {
@@ -56,7 +56,7 @@ public static partial class TdApi
 
     /// <summary>
     /// Returns the list of all stories posted by the given chat; requires can_edit_stories administrator right in the chat.
-    /// The stories are returned in reverse chronological order (i.e., in order of decreasing story_id). For optimal performance, the number of returned stories is chosen by TDLib
+    /// The stories are returned in reverse chronological order (i.e., in order of decreasing story.id). For optimal performance, the number of returned stories is chosen by TDLib
     /// </summary>
     public static Task<Stories> GetChatArchivedStoriesAsync(
         this IClient client, long chatId = default, int fromStoryId = default, int limit = default)

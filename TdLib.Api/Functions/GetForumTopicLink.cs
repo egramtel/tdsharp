@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns an HTTPS link to a topic in a forum supergroup chat. This is an offline method
+    /// Returns an HTTPS link to a topic in a forum supergroup chat or a chat with a bot. This is an offline method
     /// </summary>
     public class GetForumTopicLink : Function<MessageLink>
     {
@@ -46,7 +46,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns an HTTPS link to a topic in a forum supergroup chat. This is an offline method
+    /// Returns an HTTPS link to a topic in a forum supergroup chat or a chat with a bot. This is an offline method
     /// </summary>
     public static Task<MessageLink> GetForumTopicLinkAsync(
         this IClient client, long chatId = default, int forumTopicId = default)

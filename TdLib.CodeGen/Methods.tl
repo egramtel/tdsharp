@@ -443,6 +443,9 @@ getInactiveSupergroupChats = Chats;
 //@description Returns a list of channel chats, which can be used as a personal chat
 getSuitablePersonalChats = Chats;
 
+//@description Returns a list of supergroup and channel chats owned by the current user, which can be added to a community
+getSuitableCommunityChats = Chats;
+
 
 //@description Loads more topics in a channel direct messages chat administered by the current user. The loaded topics will be sent through updateDirectMessagesChatTopic.
 //-Topics are sorted by their topic.order in descending order. Returns a 404 error if all topics have been loaded
@@ -455,7 +458,7 @@ loadDirectMessagesChatTopics chat_id:int53 limit:int32 = Ok;
 //@topic_id Identifier of the topic to get
 getDirectMessagesChatTopic chat_id:int53 topic_id:int53 = DirectMessagesChatTopic;
 
-//@description Returns messages in the topic in a channel direct messages chat administered by the current user. The messages are returned in reverse chronological order (i.e., in order of decreasing message_id)
+//@description Returns messages in the topic in a channel direct messages chat administered by the current user. The messages are returned in reverse chronological order (i.e., in order of decreasing message.id)
 //@chat_id Chat identifier of the channel direct messages chat
 //@topic_id Identifier of the topic which messages will be fetched
 //@from_message_id Identifier of the message starting from which messages must be fetched; use 0 to get results from the last message
@@ -515,7 +518,7 @@ toggleDirectMessagesChatTopicCanSendUnpaidMessages chat_id:int53 topic_id:int53 
 //@limit The maximum number of topics to be loaded. For optimal performance, the number of loaded topics is chosen by TDLib and can be smaller than the specified limit, even if the end of the list is not reached
 loadSavedMessagesTopics limit:int32 = Ok;
 
-//@description Returns messages in a Saved Messages topic. The messages are returned in reverse chronological order (i.e., in order of decreasing message_id)
+//@description Returns messages in a Saved Messages topic. The messages are returned in reverse chronological order (i.e., in order of decreasing message.id)
 //@saved_messages_topic_id Identifier of Saved Messages topic which messages will be fetched
 //@from_message_id Identifier of the message starting from which messages must be fetched; use 0 to get results from the last message
 //@offset Specify 0 to get results from exactly the message from_message_id or a negative number from -99 to -1 to get additionally -offset newer messages
@@ -549,6 +552,9 @@ setPinnedSavedMessagesTopics saved_messages_topic_ids:vector<int53> = Ok;
 //@description Returns full information about a community @community_id Community identifier
 getCommunityFullInfo community_id:int53 = CommunityFullInfo;
 
+//@description Returns the list of communities joined by the current user
+getJoinedCommunities = Communities;
+
 //@description Creates a new community for the given chat. Returns identifier of the created community
 //@name Name of the new community
 //@chat_id Identifier of the chat in the community; only chats with owned bots and owned basic group, supergroup and channel chats are allowed;
@@ -571,6 +577,63 @@ setCommunityPhoto community_id:int53 photo:InputChatPhoto = Ok;
 //@permissions New permissions of the community
 setCommunityPermissions community_id:int53 permissions:communityPermissions = Ok;
 
+//@description Changes notification settings of a community
+//@community_id Identifier of the community
+//@notification_settings New notification settings for the community
+setCommunityNotificationSettings community_id:int53 notification_settings:chatNotificationSettings = Ok;
+
+//@description Adds a chat to a community. If the current user isn't allowed to change the list of chats in the community, then a request to add the chat
+//-is sent to administrators of the community instead and the method fails with the error "COMMUNITY_REQUEST_CREATED"
+//@community_id Identifier of the community
+//@chat_id Identifier of the chat to add; only chats with owned bots and owned basic group, supergroup and channel chats are allowed;
+//-basic group chats will be automatically upgraded to supergroup chats. A community can have up to getOption("community_chat_count_max") supergroup and channel chats
+//-and up to getOption("community_bot_count_max") chats with bots; otherwise, the method fails with the error "COMMUNITY_PEERS_TOO_MUCH"
+//@is_hidden Pass true if the chat will be visible only to administrators of the community
+addCommunityChat community_id:int53 chat_id:int53 is_hidden:Bool = Ok;
+
+//@description Removes a chat from a community. Members of the chat, which aren't members of other chats in the community, will be removed from the community.
+//-Requires owner privileges in the supergroup or channel chat, or ownership of the bot for chats with bots, or can_edit_chat_list administrator right in the community
+//@community_id Identifier of the community
+//@chat_id Identifier of the chat to remove
+removeCommunityChat community_id:int53 chat_id:int53 = Ok;
+
+//@description Returns pending requests to add chats to a community. Administrators of the community with can_edit_chat_list right receive all requests; other users receive only requests sent by them
+//@community_id Identifier of the community
+//@offset Offset of the first entry to return as received from the previous request; use empty string to get the first chunk of results
+//@limit The maximum number of requests to return
+getCommunityAddChatRequests community_id:int53 offset:string limit:int32 = CommunityAddChatRequests;
+
+//@description Handles a pending request to add a chat to a community; requires can_edit_chat_list administrator right in the community
+//@community_id Identifier of the community
+//@chat_id Identifier of the chat from the request
+//@approve Pass true to approve the request and add the chat to the community; pass false to decline it.
+//-If the community already has the maximum number of chats, then approval fails with the error "COMMUNITY_PEERS_TOO_MUCH"
+processCommunityAddChatRequest community_id:int53 chat_id:int53 approve:Bool = Ok;
+
+//@description Handles all pending requests to add chats to a community; requires can_edit_chat_list administrator right in the community
+//@community_id Identifier of the community
+//@approve Pass true to approve all requests and add the chats to the community; pass false to decline them
+processCommunityAddChatRequests community_id:int53 approve:Bool = Ok;
+
+//@description Changes whether all chats of a community are collapsed into one entry in the chat list. If the chats are expanded, then the community is removed from all chat folders
+//@community_id Identifier of the community
+//@are_chats_collapsed Pass true to collapse all chats of the community into one entry in the chat list
+toggleCommunityAreChatsCollapsed community_id:int53 are_chats_collapsed:Bool = Ok;
+
+//@description Bans or unbans a member of a community; requires can_ban_members administrator right in the community. A banned member is banned in all chats of the community.
+//-Administrators of the community can be banned only by the owner of the community and administrators, which can edit administrator rights of the member.
+//-If an owner of a chat in the community is banned, then the chat is removed from the community; in this case, can_edit_chat_list administrator right is also required
+//@community_id Identifier of the community
+//@member_id Identifier of the member to ban or unban
+//@is_banned Pass true to ban the member; pass false to unban the member
+toggleCommunityMemberIsBanned community_id:int53 member_id:MessageSender is_banned:Bool = Ok;
+
+//@description Returns chats in a community, which were joined by a member of the community; requires can_ban_members administrator right in the community.
+//-Can be used to show chats that will be affected by the member ban
+//@community_id Identifier of the community
+//@member_id Identifier of the member
+getCommunityMemberChats community_id:int53 member_id:MessageSender = CommunityMemberChats;
+
 //@description Deletes a community; requires owner privileges @community_id Identifier of the community
 deleteCommunity community_id:int53 = Ok;
 
@@ -582,7 +645,7 @@ deleteCommunity community_id:int53 = Ok;
 getGroupsInCommon user_id:int53 offset_chat_id:int53 limit:int32 = Chats;
 
 
-//@description Returns messages in a chat. The messages are returned in reverse chronological order (i.e., in order of decreasing message_id).
+//@description Returns messages in a chat. The messages are returned in reverse chronological order (i.e., in order of decreasing message.id).
 //-For optimal performance, the number of returned messages is chosen by TDLib. This is an offline method if only_local is true
 //@chat_id Chat identifier
 //@from_message_id Identifier of the message starting from which history must be fetched; use 0 to get results from the last message
@@ -593,7 +656,7 @@ getGroupsInCommon user_id:int53 offset_chat_id:int53 limit:int32 = Chats;
 getChatHistory chat_id:int53 from_message_id:int53 offset:int32 limit:int32 only_local:Bool = Messages;
 
 //@description Returns messages in a message thread of a message. Can be used only if messageProperties.can_get_message_thread == true. Message thread of a channel message is in the channel's linked supergroup.
-//-The messages are returned in reverse chronological order (i.e., in order of decreasing message_id). For optimal performance, the number of returned messages is chosen by TDLib
+//-The messages are returned in reverse chronological order (i.e., in order of decreasing message.id). For optimal performance, the number of returned messages is chosen by TDLib
 //@chat_id Chat identifier
 //@message_id Message identifier, which thread history needs to be returned
 //@from_message_id Identifier of the message starting from which history must be fetched; use 0 to get results from the last message
@@ -613,7 +676,7 @@ deleteChatHistory chat_id:int53 remove_from_chat_list:Bool revoke:Bool = Ok;
 //@chat_id Chat identifier
 deleteChat chat_id:int53 = Ok;
 
-//@description Searches for messages with given words in the chat. Returns the results in reverse chronological order, i.e. in order of decreasing message_id. Cannot be used in secret chats with a non-empty query
+//@description Searches for messages with given words in the chat. Returns the results in reverse chronological order, i.e. in order of decreasing message.id. Cannot be used in secret chats with a non-empty query
 //-(searchSecretMessages must be used instead), or without an enabled message database. For optimal performance, the number of returned messages is chosen by TDLib and can be smaller than the specified limit.
 //-A combination of query, sender_id, filter and topic_id search criteria is expected to be supported, only if it is required for Telegram official application implementation
 //@chat_id Identifier of the chat in which to search messages
@@ -627,7 +690,7 @@ deleteChat chat_id:int53 = Ok;
 //@filter Additional filter for messages to search; pass null to search for all messages
 searchChatMessages chat_id:int53 topic_id:MessageTopic query:string sender_id:MessageSender from_message_id:int53 offset:int32 limit:int32 filter:SearchMessagesFilter = FoundChatMessages;
 
-//@description Searches for messages in all chats except secret chats. Returns the results in reverse chronological order (i.e., in order of decreasing (date, chat_id, message_id)).
+//@description Searches for messages in all chats except secret chats. Returns the results in reverse chronological order (i.e., in order of decreasing (message.date, message.chat_id, message.id)).
 //-For optimal performance, the number of returned messages is chosen by TDLib and can be smaller than the specified limit
 //@chat_list Chat list in which to search messages; pass null to search in all chats regardless of their chat list. Only Main and Archive chat lists are supported
 //@query Query to search for
@@ -649,7 +712,7 @@ searchMessages chat_list:ChatList query:string offset:string limit:int32 filter:
 searchSecretMessages chat_id:int53 query:string offset:string limit:int32 filter:SearchMessagesFilter = FoundMessages;
 
 //@description Searches for messages tagged by the given reaction and with the given words in the Saved Messages chat; for Telegram Premium users only.
-//-Returns the results in reverse chronological order, i.e. in order of decreasing message_id.
+//-Returns the results in reverse chronological order, i.e. in order of decreasing message.id.
 //-For optimal performance, the number of returned messages is chosen by TDLib and can be smaller than the specified limit
 //@saved_messages_topic_id If not 0, only messages in the specified Saved Messages topic will be considered; pass 0 to consider all messages
 //@tag Tag to search for; pass null to return all suitable messages
@@ -660,7 +723,7 @@ searchSecretMessages chat_id:int53 query:string offset:string limit:int32 filter
 //-For optimal performance, the number of returned messages is chosen by TDLib and can be smaller than the specified limit
 searchSavedMessages saved_messages_topic_id:int53 tag:ReactionType query:string from_message_id:int53 offset:int32 limit:int32 = FoundChatMessages;
 
-//@description Searches for call and group call messages. Returns the results in reverse chronological order (i.e., in order of decreasing message_id). For optimal performance, the number of returned messages is chosen by TDLib
+//@description Searches for call and group call messages. Returns the results in reverse chronological order (i.e., in order of decreasing message.id). For optimal performance, the number of returned messages is chosen by TDLib
 //@offset Offset of the first entry to return as received from the previous request; use empty string to get the first chunk of results
 //@limit The maximum number of messages to be returned; up to 100. For optimal performance, the number of returned messages is chosen by TDLib and can be smaller than the specified limit
 //@only_missed Pass true to search only for messages with missed/declined calls
@@ -767,7 +830,7 @@ getChatMessageCount chat_id:int53 topic_id:MessageTopic filter:SearchMessagesFil
 //@message_id Message identifier
 getChatMessagePosition chat_id:int53 topic_id:MessageTopic filter:SearchMessagesFilter message_id:int53 = Count;
 
-//@description Returns all scheduled messages in a chat. The messages are returned in reverse chronological order (i.e., in order of decreasing message_id) @chat_id Chat identifier
+//@description Returns all scheduled messages in a chat. The messages are returned in reverse chronological order (i.e., in order of decreasing message.id) @chat_id Chat identifier
 getChatScheduledMessages chat_id:int53 = Messages;
 
 //@description Returns sponsored messages to be shown in a chat; for channel chats and chats with bots only @chat_id Identifier of the chat
@@ -950,6 +1013,16 @@ fixTextWithAi text:formattedText = FixedText;
 //@message The original message
 fixRichMessageWithAi message:inputRichMessage = RichMessage;
 
+//@description Fixes text received as a result of speech recognition using an AI model by correcting recognition errors and adding punctuation; must not be used in secret chats.
+//-May return an error with a message "AICOMPOSE_FLOOD_PREMIUM" if Telegram Premium is required to send further requests
+//@text The recognized text
+fixRecognizedTextWithAi text:formattedText = FormattedText;
+
+//@description Fixes a rich message with text received as a result of speech recognition using an AI model by correcting recognition errors and adding punctuation.
+//-May return an error with a message "AICOMPOSE_FLOOD_PREMIUM" if Telegram Premium is required to send further requests
+//@message The message with the recognized text
+fixRecognizedRichMessageWithAi message:inputRichMessage = RichMessage;
+
 //@description Recognizes speech in a video note or a voice note message
 //@chat_id Identifier of the chat to which the message belongs
 //@message_id Identifier of the message. Use messageProperties.can_recognize_speech to check whether the message is suitable
@@ -960,6 +1033,15 @@ recognizeSpeech chat_id:int53 message_id:int53 = Ok;
 //@message_id Identifier of the message
 //@is_good Pass true if the speech recognition is good
 rateSpeechRecognition chat_id:int53 message_id:int53 is_good:Bool = Ok;
+
+//@description Recognizes speech in an audio file and returns the recognized text. The file must be in OGG format with Opus codec and must have size up to 1 MB.
+//-The same rules as for recognizeSpeech apply to the Telegram Premium requirement and speech recognition trial; must not be used in secret chats
+//@audio_file The audio file
+//@recognition_id Unique identifier of the speech recognition, which will be used in updateSpeechRecognitionInFile to send partially recognized text; pass 0 if partial results aren't needed
+recognizeSpeechInFile audio_file:InputFile recognition_id:int64 = Text;
+
+//@description Returns 1-3 most probable languages of speech in voice notes @chat_id Identifier of the chat; pass 0 if none
+getSpeechRecognitionLanguages chat_id:int53 = SpeechRecognitionLanguages;
 
 
 //@description Returns the list of message sender identifiers, which can be used to send messages in a chat @chat_id Chat identifier
@@ -1000,7 +1082,7 @@ sendBotStartMessage bot_user_id:int53 chat_id:int53 parameter:string = Message;
 //@options Options to be used to send the message; pass null to use default options
 //@query_id Identifier of the inline query
 //@result_id Identifier of the inline query result
-//@hide_via_bot Pass true to hide the bot, via which the message is sent. Can be used only for bots getOption("animation_search_bot_username"), getOption("photo_search_bot_username"), and getOption("venue_search_bot_username")
+//@hide_via_bot Pass true to hide the bot, via which the message is sent. Can be used only for bots getOption("animation_search_bot_username") and getOption("photo_search_bot_username")
 sendInlineQueryResultMessage chat_id:int53 topic_id:MessageTopic reply_to:InputMessageReplyTo options:messageSendOptions query_id:int64 result_id:string hide_via_bot:Bool = Message;
 
 //@description Forwards previously sent messages. Returns the forwarded messages in the same order as the message identifiers passed in message_ids. If a message can't be forwarded, null will be returned instead of the message
@@ -1124,6 +1206,15 @@ editMessageCaption chat_id:int53 message_id:int53 reply_markup:ReplyMarkup capti
 //@reply_markup The new message reply markup; pass null if none
 editMessageReplyMarkup chat_id:int53 message_id:int53 reply_markup:ReplyMarkup = Message;
 
+//@description Edits data of a widget sent by the bot; for bots only
+//@chat_id The chat the message belongs to
+//@message_id Identifier of the widget message
+//@edit_public_data Pass true to edit public data of the widget
+//@public_data New public data of the widget; ignored if edit_public_data is false
+//@edit_chat_data Pass true to edit data of the widget, which is specific to the chat
+//@chat_data New data of the widget, which is specific to the chat; ignored if edit_chat_data is false
+editMessageWidgetData chat_id:int53 message_id:int53 edit_public_data:Bool public_data:string edit_chat_data:Bool chat_data:string = Ok;
+
 //@description Edits the text of an inline text or game message sent via the bot; for bots only
 //@inline_message_id Inline message identifier
 //@reply_markup The new message reply markup; pass null if none
@@ -1155,6 +1246,20 @@ editInlineMessageCaption inline_message_id:string reply_markup:ReplyMarkup capti
 //@reply_markup The new message reply markup; pass null if none
 editInlineMessageReplyMarkup inline_message_id:string reply_markup:ReplyMarkup = Ok;
 
+//@description Edits data of a widget in an inline message sent via the bot; for bots only
+//@inline_message_id Inline message identifier
+//@edit_public_data Pass true to edit public data of the widget
+//@public_data New public data of the widget; ignored if edit_public_data is false
+//@edit_chat_data Pass true to edit data of the widget, which is specific to the chat
+//@chat_data New data of the widget, which is specific to the chat; ignored if edit_chat_data is false
+editInlineMessageWidgetData inline_message_id:string edit_public_data:Bool public_data:string edit_chat_data:Bool chat_data:string = Ok;
+
+//@description Edits public data of a shared widget created by the bot; for bots only
+//@widget_id Identifier of the shared widget
+//@public_data New public data of the widget
+//@cache_time Time during which the public data can be cached, in seconds; 5-3600. Pass 0 to keep the current value, which is 30 by default
+editWidgetData widget_id:int64 public_data:string cache_time:int32 = Ok;
+
 //@description Edits the text, media, or reply markup of an ephemeral message sent by the bot; for bots only
 //@chat_id The chat the message belongs to
 //@receiver_user_id Identifier of the user who received the message
@@ -1179,7 +1284,8 @@ editEphemeralMessageCaption chat_id:int53 receiver_user_id:int53 ephemeral_messa
 //@protect_content Pass true if the content of the message must be protected from forwarding and saving
 //@reply_markup The new message reply markup; pass null if none
 //@input_message_content New content of the message. Must be one of the following types: inputMessageText, inputMessageAnimation,
-//-inputMessageAudio, inputMessageDocument, inputMessagePhoto, inputMessageRichMessage, inputMessageSticker, inputMessageVideo, inputMessageVideoNote, inputMessageVoiceNote
+//-inputMessageAudio, inputMessageDocument, inputMessagePhoto, inputMessageRichMessage, inputMessageSticker, inputMessageVideo, inputMessageVideoNote, inputMessageVoiceNote,
+//-inputMessageLocation, inputMessageVenue, inputMessageContact
 replyToCallbackQueryWithEphemeralMessage callback_query_id:int64 replace_callback_query_message:Bool protect_content:Bool reply_markup:ReplyMarkup input_message_content:InputMessageContent = Ok;
 
 //@description Edits the time when a scheduled message will be sent. Scheduling state of all messages in the same album or forwarded together with the message will be also changed
@@ -1386,7 +1492,7 @@ addQuickReplyShortcutMessage shortcut_name:string reply_to_message_id:int53 inpu
 //@reply_to_message_id Identifier of a quick reply message in the same shortcut to be replied; pass 0 if none
 //@query_id Identifier of the inline query
 //@result_id Identifier of the inline query result
-//@hide_via_bot Pass true to hide the bot, via which the message is sent. Can be used only for bots getOption("animation_search_bot_username"), getOption("photo_search_bot_username"), and getOption("venue_search_bot_username")
+//@hide_via_bot Pass true to hide the bot, via which the message is sent. Can be used only for bots getOption("animation_search_bot_username") and getOption("photo_search_bot_username")
 addQuickReplyShortcutInlineQueryResultMessage shortcut_name:string reply_to_message_id:int53 query_id:int64 result_id:string hide_via_bot:Bool = QuickReplyMessage;
 
 //@description Adds 2-10 messages grouped together into an album to a quick reply shortcut. Currently, only audio, document, photo and video messages can be grouped into an album.
@@ -1467,7 +1573,7 @@ editForumTopic chat_id:int53 forum_topic_id:int32 name:string edit_icon_custom_e
 getForumTopic chat_id:int53 forum_topic_id:int32 = ForumTopic;
 
 //@description Returns messages in a topic in a forum supergroup chat or a chat with a bot with topics. The messages are returned in reverse chronological order
-//-(i.e., in order of decreasing message_id). For optimal performance, the number of returned messages is chosen by TDLib
+//-(i.e., in order of decreasing message.id). For optimal performance, the number of returned messages is chosen by TDLib
 //@chat_id Chat identifier
 //@forum_topic_id Forum topic identifier
 //@from_message_id Identifier of the message starting from which history must be fetched; use 0 to get results from the last message
@@ -1476,7 +1582,7 @@ getForumTopic chat_id:int53 forum_topic_id:int32 = ForumTopic;
 //-For optimal performance, the number of returned messages is chosen by TDLib and can be smaller than the specified limit
 getForumTopicHistory chat_id:int53 forum_topic_id:int32 from_message_id:int53 offset:int32 limit:int32 = Messages;
 
-//@description Returns an HTTPS link to a topic in a forum supergroup chat. This is an offline method @chat_id Identifier of the chat @forum_topic_id Forum topic identifier
+//@description Returns an HTTPS link to a topic in a forum supergroup chat or a chat with a bot. This is an offline method @chat_id Identifier of the chat @forum_topic_id Forum topic identifier
 getForumTopicLink chat_id:int53 forum_topic_id:int32 = MessageLink;
 
 //@description Returns found forum topics in a forum supergroup chat or a chat with a bot with topics. This is a temporary method for getting information about topic list from the server
@@ -1659,6 +1765,10 @@ searchQuote text:formattedText quote:formattedText quote_position:int32 = FoundP
 //@description Returns all entities (mentions, hashtags, cashtags, bot commands, bank card numbers, TON blockchain addresses, URLs, and email addresses) found in the text. Can be called synchronously
 //@text The text in which to look for entities
 getTextEntities text:string = TextEntities;
+
+//@description Returns positions of all emoji found in the text in order of their appearance. Can be called synchronously
+//@text The text in which to look for emoji
+getTextEmojiRanges text:string = TextRanges;
 
 //@description Parses Bold, Italic, Underline, Strikethrough, Spoiler, CustomEmoji, BlockQuote, ExpandableBlockQuote, Code, Pre, PreCode, TextUrl,
 //-MentionName, and DateTime entities from a marked-up text. Can be called synchronously
@@ -1939,6 +2049,24 @@ getCallbackQueryAnswer chat_id:int53 message_id:int53 payload:CallbackQueryPaylo
 //@url URL to be opened
 //@cache_time Time during which the result of the query can be cached, in seconds
 answerCallbackQuery callback_query_id:int64 text:string show_alert:Bool url:string cache_time:int32 = Ok;
+
+//@description Sets the result of a widget query; for bots only
+//@widget_query_id Identifier of the widget query
+//@data Data to be returned to the widget
+answerWidgetQuery widget_query_id:int64 data:string = Ok;
+
+
+//@description Sends a widget query to a bot and returns an answer. Returns an error with code 502 if the bot fails to answer the query before the query timeout expires
+//@chat_id Identifier of the chat with the message
+//@message_id Identifier of the widget message from which the query originated. The message must not be scheduled
+//@query_type Type of the query
+//@data Data of the query
+getWidgetQueryAnswer chat_id:int53 message_id:int53 query_type:WidgetQueryType data:bytes = WidgetQueryAnswer;
+
+//@description Returns the current public data of a widget. Must be called only if the widget is visible on the screen and asked to poll its public data
+//@chat_id Identifier of the chat with the message
+//@message_id Identifier of the widget message. The message must not be scheduled
+getWidgetPublicData chat_id:int53 message_id:int53 = WidgetPublicData;
 
 
 //@description Sets the result of a shipping query; for bots only
@@ -2554,13 +2682,14 @@ canPostStory chat_id:int53 = CanPostStoryResult;
 //@content Content of the story
 //@areas Clickable rectangle areas to be shown on the story media; pass null if none
 //@caption Story caption; pass null to use an empty caption; 0-getOption("story_caption_length_max") characters; can have entities only if getOption("can_use_text_entities_in_story_caption")
+//@music Music to be attached to the story; pass null if none. The music can be up to 60 seconds long
 //@privacy_settings The privacy settings for the story; ignored for stories posted on behalf of supergroup and channel chats
 //@album_ids Identifiers of story albums to which the story will be added upon posting. An album can have up to getOption("story_album_size_max") stories
 //@active_period Period after which the story is moved to archive, in seconds; must be one of 6 * 3600, 12 * 3600, 86400, or 2 * 86400 for Telegram Premium users, and 86400 otherwise
 //@from_story_full_id Full identifier of the original story, which content was used to create the story; pass null if the story isn't repost of another story
 //@is_posted_to_chat_page Pass true to keep the story accessible after expiration
 //@protect_content Pass true if the content of the story must be protected from forwarding and screenshotting
-postStory chat_id:int53 content:InputStoryContent areas:inputStoryAreas caption:formattedText privacy_settings:StoryPrivacySettings album_ids:vector<int32> active_period:int32 from_story_full_id:storyFullId is_posted_to_chat_page:Bool protect_content:Bool = Story;
+postStory chat_id:int53 content:InputStoryContent areas:inputStoryAreas caption:formattedText music:inputAudio privacy_settings:StoryPrivacySettings album_ids:vector<int32> active_period:int32 from_story_full_id:storyFullId is_posted_to_chat_page:Bool protect_content:Bool = Story;
 
 //@description Starts a new live story on behalf of a chat; requires can_post_stories administrator right for channel chats
 //@chat_id Identifier of the chat that will start the live story. Pass Saved Messages chat identifier when starting a live story on behalf of the current user, or a channel chat identifier
@@ -2585,6 +2714,12 @@ editStory story_poster_chat_id:int53 story_id:int32 content:InputStoryContent ar
 //@cover_frame_timestamp New timestamp of the frame, which will be used as video thumbnail
 editStoryCover story_poster_chat_id:int53 story_id:int32 cover_frame_timestamp:double = Ok;
 
+//@description Changes music attached to a story. Can be called only if story.can_be_edited == true and the story isn't being edited now
+//@story_poster_chat_id Identifier of the chat that posted the story
+//@story_id Identifier of the story to edit
+//@music The new music; pass null to remove music from the story. The music can be up to 60 seconds long
+editStoryMusic story_poster_chat_id:int53 story_id:int32 music:inputAudio = Ok;
+
 //@description Changes privacy settings of a story. The method can be called only for stories posted on behalf of the current user and if story.can_set_privacy_settings == true
 //@story_id Identifier of the story
 //@privacy_settings The new privacy settings for the story
@@ -2605,7 +2740,7 @@ deleteStory story_poster_chat_id:int53 story_id:int32 = Ok;
 getStoryNotificationSettingsExceptions = Chats;
 
 //@description Loads more active stories from a story list. The loaded stories will be sent through updates. Active stories are sorted by
-//-the pair (active_stories.order, active_stories.story_poster_chat_id) in descending order. Returns a 404 error if all active stories have been loaded
+//-the pair (active_stories.order, active_stories.chat_id) in descending order. Returns a 404 error if all active stories have been loaded
 //@story_list The story list in which to load active stories
 loadActiveStories story_list:StoryList = Ok;
 
@@ -2618,7 +2753,7 @@ setChatActiveStoriesList chat_id:int53 story_list:StoryList = Ok;
 getChatActiveStories chat_id:int53 = ChatActiveStories;
 
 //@description Returns the list of stories that were posted by the given chat to its chat page. If from_story_id == 0, then pinned stories are returned first.
-//-Then, stories are returned in reverse chronological order (i.e., in order of decreasing story_id). For optimal performance, the number of returned stories is chosen by TDLib
+//-Then, stories are returned in reverse chronological order (i.e., in order of decreasing story.id). For optimal performance, the number of returned stories is chosen by TDLib
 //@chat_id Chat identifier
 //@from_story_id Identifier of the story starting from which stories must be returned; use 0 to get results from pinned and the newest story
 //@limit The maximum number of stories to be returned.
@@ -2626,7 +2761,7 @@ getChatActiveStories chat_id:int53 = ChatActiveStories;
 getChatPostedToChatPageStories chat_id:int53 from_story_id:int32 limit:int32 = Stories;
 
 //@description Returns the list of all stories posted by the given chat; requires can_edit_stories administrator right in the chat.
-//-The stories are returned in reverse chronological order (i.e., in order of decreasing story_id). For optimal performance, the number of returned stories is chosen by TDLib
+//-The stories are returned in reverse chronological order (i.e., in order of decreasing story.id). For optimal performance, the number of returned stories is chosen by TDLib
 //@chat_id Chat identifier
 //@from_story_id Identifier of the story starting from which stories must be returned; use 0 to get results from the last story
 //@limit The maximum number of stories to be returned.
@@ -4149,7 +4284,8 @@ toggleSupergroupHasAggressiveAntiSpamEnabled supergroup_id:int53 has_aggressive_
 //@supergroup_id Identifier of the supergroup
 //@is_forum New value of is_forum
 //@has_forum_tabs New value of has_forum_tabs; ignored if is_forum is false
-toggleSupergroupIsForum supergroup_id:int53 is_forum:Bool has_forum_tabs:Bool = Ok;
+//@has_forum_sidebar New value of has_forum_sidebar; ignored if is_forum is false. Must be false if has_forum_tabs is true
+toggleSupergroupIsForum supergroup_id:int53 is_forum:Bool has_forum_tabs:Bool has_forum_sidebar:Bool = Ok;
 
 //@description Upgrades supergroup to a broadcast group; requires owner privileges in the supergroup @supergroup_id Identifier of the supergroup
 toggleSupergroupIsBroadcastGroup supergroup_id:int53 = Ok;
@@ -4177,7 +4313,7 @@ closeSecretChat secret_chat_id:int32 = Ok;
 
 
 //@description Returns a list of service actions taken by chat members and administrators in the last 48 hours. Available only in supergroups and channels.
-//-Requires administrator rights. Returns results in reverse chronological order (i.e., in order of decreasing event_id)
+//-Requires administrator rights. Returns results in reverse chronological order (i.e., in order of decreasing chatEvent.id)
 //@chat_id Chat identifier
 //@query Search query by which to filter events
 //@from_event_id Identifier of an event from which to return results. Use 0 to get results from the latest events
@@ -4318,7 +4454,8 @@ buyGiftUpgrade owner_id:MessageSender prepaid_upgrade_hash:string star_count:int
 
 //@description Crafts a new gift from other gifts that will be permanently lost
 //@received_gift_ids Identifier of the gifts to use for crafting. In the case of a successful craft, the resulting gift will have the number of the first gift.
-//-Consequently, the first gift must not have been withdrawn to the TON blockchain as an NFT and must have an empty gift_address
+//-Consequently, unless getOption("can_craft_from_withdrawn_first_gift") is true, the first gift must not have been withdrawn to the TON blockchain as an NFT
+//-and must have an empty gift_address
 craftGift received_gift_ids:vector<string> = CraftGiftResult;
 
 //@description Sends an upgraded gift to another user or channel chat
@@ -4667,7 +4804,7 @@ removeChatActionBar chat_id:int53 = Ok;
 //@description Reports a chat to the Telegram moderators. A chat can be reported only from the chat action bar, if chat.can_be_reported, or if messageProperties.can_report_chat
 //@chat_id Chat identifier
 //@option_id Option identifier chosen by the user; leave empty for the initial request
-//@message_ids Identifiers of reported messages. Use messageProperties.can_report_chat to check whether the message can be reported
+//@message_ids Identifiers of reported messages. Use messageProperties.can_report_chat to check whether the message can be reported. Ephemeral messages must be reported separately
 //@text Additional report details if asked by the server; 0-1024 characters; leave empty for the initial request
 reportChat chat_id:int53 option_id:bytes message_ids:vector<int53> text:string = ReportChatResult;
 
@@ -4773,7 +4910,7 @@ disableTonWalletBackupWithProof proof:tonWalletOwnershipProof = Ok;
 //@regular_transfer_data Serialized data for regular cryptocurrency transfer request. The minimum allowed transfer amount is getOption("ton_wallet_transfer_amount_min")
 //@gasless_transfer_data Serialized data for gasless cryptocurrency transfer request; pass an empty string to force a regular request.
 //-The minimum allowed transfer amount for a gasless transfer is getOption("ton_wallet_gasless_transfer_amount_min")
-sendTonWalletTransfer user_id:int53 address:string amount:int53 comment:string is_comment_encrypted:Bool sending_id:int32 regular_transfer_data:bytes gasless_transfer_data:bytes = TonWalletTransferResult;
+sendTonWalletTransfer user_id:int53 address:string amount:int64 comment:string is_comment_encrypted:Bool sending_id:int32 regular_transfer_data:bytes gasless_transfer_data:bytes = TonWalletTransferResult;
 
 //@description Deletes the current TON wallet of the user and creates a new one; can be used only if getOption("can_use_ton_wallet")
 //@password Password of the current user; pass an empty string unless receive an error with a message "PASSWORD_MISSING" for a passwordless request

@@ -74,6 +74,13 @@ public static partial class TdApi
         [JsonConverter(typeof(Converter))]
         [JsonProperty("permissions")]
         public CommunityPermissions Permissions { get; set; }
+
+        /// <summary>
+        /// True, if all chats of the community are collapsed into one entry in the chat list
+        /// </summary>
+        [JsonConverter(typeof(Converter))]
+        [JsonProperty("are_chats_collapsed")]
+        public bool AreChatsCollapsed { get; set; }
     }
 }
 // REUSE-IgnoreEnd

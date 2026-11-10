@@ -50,17 +50,24 @@ public static partial class TdApi
         [JsonConverter(typeof(Converter))]
         [JsonProperty("has_forum_tabs")]
         public bool HasForumTabs { get; set; }
+
+        /// <summary>
+        /// New value of has_forum_sidebar; ignored if is_forum is false. Must be false if has_forum_tabs is true
+        /// </summary>
+        [JsonConverter(typeof(Converter))]
+        [JsonProperty("has_forum_sidebar")]
+        public bool HasForumSidebar { get; set; }
     }
 
     /// <summary>
     /// Toggles whether the supergroup is a forum; requires owner privileges in the supergroup. Discussion supergroups can't be converted to forums
     /// </summary>
     public static Task<Ok> ToggleSupergroupIsForumAsync(
-        this IClient client, long supergroupId = default, bool isForum = default, bool hasForumTabs = default)
+        this IClient client, long supergroupId = default, bool isForum = default, bool hasForumTabs = default, bool hasForumSidebar = default)
     {
         return client.ExecuteAsync(new ToggleSupergroupIsForum
         {
-            SupergroupId = supergroupId, IsForum = isForum, HasForumTabs = hasForumTabs
+            SupergroupId = supergroupId, IsForum = isForum, HasForumTabs = hasForumTabs, HasForumSidebar = hasForumSidebar
         });
     }
 }

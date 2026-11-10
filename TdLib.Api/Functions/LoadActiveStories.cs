@@ -12,7 +12,7 @@ public static partial class TdApi
 {
     /// <summary>
     /// Loads more active stories from a story list. The loaded stories will be sent through updates. Active stories are sorted by
-    /// the pair (active_stories.order, active_stories.story_poster_chat_id) in descending order. Returns a 404 error if all active stories have been loaded
+    /// the pair (active_stories.order, active_stories.chat_id) in descending order. Returns a 404 error if all active stories have been loaded
     /// </summary>
     public class LoadActiveStories : Function<Ok>
     {
@@ -41,7 +41,7 @@ public static partial class TdApi
 
     /// <summary>
     /// Loads more active stories from a story list. The loaded stories will be sent through updates. Active stories are sorted by
-    /// the pair (active_stories.order, active_stories.story_poster_chat_id) in descending order. Returns a 404 error if all active stories have been loaded
+    /// the pair (active_stories.order, active_stories.chat_id) in descending order. Returns a 404 error if all active stories have been loaded
     /// </summary>
     public static Task<Ok> LoadActiveStoriesAsync(
         this IClient client, StoryList storyList = default)

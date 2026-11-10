@@ -83,7 +83,7 @@ public static partial class TdApi
         public bool CanSendPolls { get; set; }
 
         /// <summary>
-        /// True, if the user can send animations, games, stickers, and dice and use inline bots
+        /// True, if the user can send animations, games, stickers, widgets, and dice and use inline bots
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("can_send_other_messages")]

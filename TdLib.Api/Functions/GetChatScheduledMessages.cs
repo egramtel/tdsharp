@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns all scheduled messages in a chat. The messages are returned in reverse chronological order (i.e., in order of decreasing message_id)
+    /// Returns all scheduled messages in a chat. The messages are returned in reverse chronological order (i.e., in order of decreasing message.id)
     /// </summary>
     public class GetChatScheduledMessages : Function<Messages>
     {
@@ -39,7 +39,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns all scheduled messages in a chat. The messages are returned in reverse chronological order (i.e., in order of decreasing message_id)
+    /// Returns all scheduled messages in a chat. The messages are returned in reverse chronological order (i.e., in order of decreasing message.id)
     /// </summary>
     public static Task<Messages> GetChatScheduledMessagesAsync(
         this IClient client, long chatId = default)

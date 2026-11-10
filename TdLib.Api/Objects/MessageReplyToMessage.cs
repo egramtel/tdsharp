@@ -81,7 +81,7 @@ public static partial class TdApi
             /// Media content of the message if the message was from another chat or topic; may be null for messages from the same chat and messages without media.
             /// Can be only one of the following types: messageAnimation, messageAudio, messageChecklist, messageContact, messageDice, messageDocument, messageGame,
             /// messageGiveaway, messageGiveawayWinners, messageInvoice, messageLocation, messagePaidMedia, messagePhoto, messagePoll, messageStakeDice,
-            /// messageSticker, messageStory, messageText (for link preview), messageVenue, messageVideo, messageVideoNote, or messageVoiceNote
+            /// messageSticker, messageStory, messageText (for link preview), messageVenue, messageVideo, messageVideoNote, messageVoiceNote, or messageWidget
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("content")]

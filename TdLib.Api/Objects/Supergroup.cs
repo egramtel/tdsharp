@@ -184,6 +184,13 @@ public static partial class TdApi
         public bool HasForumTabs { get; set; }
 
         /// <summary>
+        /// True, if the supergroup is a forum, which topics are shown in a sidebar. If true, then has_forum_tabs is false
+        /// </summary>
+        [JsonConverter(typeof(Converter))]
+        [JsonProperty("has_forum_sidebar")]
+        public bool HasForumSidebar { get; set; }
+
+        /// <summary>
         /// Information about the restrictions that must be applied to the corresponding supergroup or channel chat; may be null if none
         /// </summary>
         [JsonConverter(typeof(Converter))]

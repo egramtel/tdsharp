@@ -64,7 +64,7 @@ public static partial class TdApi
         /// <summary>
         /// The fee amount paid for the transaction in TON Grams, in the smallest units of the cryptocurrency
         /// </summary>
-        [JsonConverter(typeof(Converter))]
+        [JsonConverter(typeof(Converter.Int64))]
         [JsonProperty("fee_amount")]
         public long FeeAmount { get; set; }
 

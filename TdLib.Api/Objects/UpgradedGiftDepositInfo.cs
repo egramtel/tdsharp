@@ -44,7 +44,7 @@ public static partial class TdApi
         /// <summary>
         /// The amount of TON Grams that must be attached to the message to cover fees, in the smallest units of the cryptocurrency; excess amount will be returned to the wallet
         /// </summary>
-        [JsonConverter(typeof(Converter))]
+        [JsonConverter(typeof(Converter.Int64))]
         [JsonProperty("gram_amount")]
         public long GramAmount { get; set; }
     }

@@ -36,7 +36,7 @@ public static partial class TdApi
         /// <summary>
         /// Balance of the wallet, in the smallest units of the cryptocurrency; may be slightly outdated
         /// </summary>
-        [JsonConverter(typeof(Converter))]
+        [JsonConverter(typeof(Converter.Int64))]
         [JsonProperty("gram_amount")]
         public long GramAmount { get; set; }
 

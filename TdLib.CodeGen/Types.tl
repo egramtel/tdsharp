@@ -115,6 +115,14 @@ textEntity offset:int32 length:int32 type:TextEntityType = TextEntity;
 //@description Contains a list of text entities @entities List of text entities
 textEntities entities:vector<textEntity> = TextEntities;
 
+//@description Describes a part of a text
+//@offset Offset of the part, in UTF-16 code units
+//@length Length of the part, in UTF-16 code units
+textRange offset:int32 length:int32 = TextRange;
+
+//@description Contains a list of text parts @ranges List of text parts
+textRanges ranges:vector<textRange> = TextRanges;
+
 //@description A text with some entities @text The text @entities Entities contained in the text. Entities can be nested, but must not mutually intersect with each other.
 //-Pre, Code, PreCode, and DateTime entities can't contain other entities. BlockQuote entities can't contain other BlockQuote entities.
 //-Bold, Italic, Underline, Strikethrough, and Spoiler entities can contain and can be part of any other entities.
@@ -825,6 +833,7 @@ userTypeDeleted = UserType;
 //@can_read_all_group_messages True, if the bot can read all messages in basic group or supergroup chats and not just those addressed to the bot. In private and channel chats a bot can always read all messages
 //@has_main_web_app True, if the bot has the main Web App
 //@has_topics True, if the bot has topics
+//@has_topic_sidebar True, if the bot has topics, which are shown in a sidebar
 //@allows_users_to_create_topics True, if users can create and delete topics in the chat with the bot
 //@can_manage_bots True, if the bot can manage other bots
 //@is_inline True, if the bot supports inline queries
@@ -835,7 +844,7 @@ userTypeDeleted = UserType;
 //@can_connect_to_business True, if the bot supports connection to user accounts for chat automation
 //@can_be_added_to_attachment_menu True, if the bot can be added to attachment or side menu
 //@active_user_count The number of recently active users of the bot
-userTypeBot can_be_edited:Bool can_join_groups:Bool can_read_all_group_messages:Bool has_main_web_app:Bool has_topics:Bool allows_users_to_create_topics:Bool can_manage_bots:Bool is_inline:Bool inline_query_placeholder:string supports_guest_queries:Bool is_guard:Bool need_location:Bool can_connect_to_business:Bool can_be_added_to_attachment_menu:Bool active_user_count:int32 = UserType;
+userTypeBot can_be_edited:Bool can_join_groups:Bool can_read_all_group_messages:Bool has_main_web_app:Bool has_topics:Bool has_topic_sidebar:Bool allows_users_to_create_topics:Bool can_manage_bots:Bool is_inline:Bool inline_query_placeholder:string supports_guest_queries:Bool is_guard:Bool need_location:Bool can_connect_to_business:Bool can_be_added_to_attachment_menu:Bool active_user_count:int32 = UserType;
 
 //@description No information on the user besides the user identifier is available, yet this user has not been deleted.
 //-This object is extremely rare and must be handled like a deleted user. It is not possible to perform any actions on users of this type
@@ -1082,7 +1091,7 @@ inputChatPhotoSticker sticker:chatPhotoSticker = InputChatPhoto;
 //@can_send_video_notes True, if the user can send video notes
 //@can_send_voice_notes True, if the user can send voice notes
 //@can_send_polls True, if the user can send polls and checklists
-//@can_send_other_messages True, if the user can send animations, games, stickers, and dice and use inline bots
+//@can_send_other_messages True, if the user can send animations, games, stickers, widgets, and dice and use inline bots
 //@can_add_link_previews True, if the user may add a link preview to their messages
 //@can_react_to_messages True, if the user can react to messages
 //@can_edit_tag True, if the user may change the tag of self
@@ -1685,7 +1694,7 @@ upgradedGiftValueInfo currency:string value:int53 is_value_average:Bool initial_
 //@nft_address Address in TON blockchain to which the message must be sent
 //@payload Body of the NFT transfer message
 //@gram_amount The amount of TON Grams that must be attached to the message to cover fees, in the smallest units of the cryptocurrency; excess amount will be returned to the wallet
-upgradedGiftDepositInfo nft_address:string payload:bytes gram_amount:int53 = UpgradedGiftDepositInfo;
+upgradedGiftDepositInfo nft_address:string payload:bytes gram_amount:int64 = UpgradedGiftDepositInfo;
 
 //@description Contains result of gift upgrading
 //@gift The upgraded gift
@@ -2348,7 +2357,7 @@ onRampPaymentSession session_id:string expiration_date:int32 url:string = OnRamp
 //@is_backup_enabled True, if backup for the wallet key is enabled
 //@can_enable_backup True, if the user can enable backup for the wallet key
 //@can_export_phrase True, if the wallet key can be exported using getTonWalletSecretPhrase
-tonWalletState address:string public_key:bytes gram_amount:int53 is_being_created:Bool is_backup_enabled:Bool can_enable_backup:Bool can_export_phrase:Bool = TonWalletState;
+tonWalletState address:string public_key:bytes gram_amount:int64 is_being_created:Bool is_backup_enabled:Bool can_enable_backup:Bool can_export_phrase:Bool = TonWalletState;
 
 //@description Represents an attribute of an NFT in the TON blockchain
 //@trait_type Trait type
@@ -2387,7 +2396,7 @@ tonWalletCardSticker position:areaPosition nft:tonNft = TonWalletCardSticker;
 //@gram_amount Balance of the wallet, in the smallest units of the cryptocurrency; may be slightly outdated
 //@stickers Stickers placed on the card
 //@background_nft_address Address of the NFT of one of the stickers, whose colors must be used for the card background; may be empty if the default background must be used
-tonWalletCard address:string gram_amount:int53 stickers:vector<tonWalletCardSticker> background_nft_address:string = TonWalletCard;
+tonWalletCard address:string gram_amount:int64 stickers:vector<tonWalletCardSticker> background_nft_address:string = TonWalletCard;
 
 //@description Describes a sticker to be placed on the TON wallet card of the current user
 //@position Position of the sticker on the card
@@ -2413,14 +2422,14 @@ tonWalletTransactionStateFailed = TonWalletTransactionState;
 //@description The transaction is a deposit from an on-ramp provider
 //@amount The amount of received cryptocurrency, in the smallest units of the cryptocurrency
 //@provider_name Name of the on-ramp provider
-tonWalletTransactionTypeOnRampDeposit amount:int53 provider_name:string = TonWalletTransactionType;
+tonWalletTransactionTypeOnRampDeposit amount:int64 provider_name:string = TonWalletTransactionType;
 
 //@description A transfer of TON Grams to or from the wallet
 //@amount The amount of received cryptocurrency, in the smallest units of the cryptocurrency; negative for outgoing transactions
 //@is_gasless True, if the fee was paid by Telegram
 //@comment Comment added to the transaction
 //@is_comment_encrypted True, if the comment is encrypted and must be decrypted using the user's private key
-tonWalletTransactionTypeTransfer amount:int53 is_gasless:Bool comment:string is_comment_encrypted:Bool = TonWalletTransactionType;
+tonWalletTransactionTypeTransfer amount:int64 is_gasless:Bool comment:string is_comment_encrypted:Bool = TonWalletTransactionType;
 
 //@description A transfer of a TON NFT to or from the wallet
 //@nft The transferred NFT
@@ -2448,13 +2457,13 @@ tonWalletTransactionTypeKeyChange = TonWalletTransactionType;
 //@fee_amount The fee amount paid for the transaction in TON Grams, in the smallest units of the cryptocurrency
 //@state State of the transaction
 //@type Type of the transaction
-tonWalletTransaction id:string peer_address:string peer_user_id:int53 peer_domain:string date:int32 fee_amount:int53 state:TonWalletTransactionState type:TonWalletTransactionType = TonWalletTransaction;
+tonWalletTransaction id:string peer_address:string peer_user_id:int53 peer_domain:string date:int32 fee_amount:int64 state:TonWalletTransactionState type:TonWalletTransactionType = TonWalletTransaction;
 
 //@description Represents a list of TON Gram transactions
 //@gram_amount The total amount of owned TON Grams, in the smallest units of the cryptocurrency
 //@transactions List of transactions
 //@next_offset The offset for the next request. If empty, then there are no more results
-tonWalletTransactions gram_amount:int53 transactions:vector<tonWalletTransaction> next_offset:string = TonWalletTransactions;
+tonWalletTransactions gram_amount:int64 transactions:vector<tonWalletTransaction> next_offset:string = TonWalletTransactions;
 
 
 //@class TonConnectRequestState @description Describes state of a request received from a dApp through TON Connect
@@ -2661,6 +2670,71 @@ profileAccentColors palette_colors:vector<int32> background_colors:vector<int32>
 profileAccentColor id:int32 light_theme_colors:profileAccentColors dark_theme_colors:profileAccentColors min_supergroup_chat_boost_level:int32 min_channel_chat_boost_level:int32 = ProfileAccentColor;
 
 
+//@class NotificationSettingsScope @description Describes the types of chats to which notification settings are relevant
+
+//@description Notification settings applied to all private and secret chats when the corresponding chat setting has a default value
+notificationSettingsScopePrivateChats = NotificationSettingsScope;
+
+//@description Notification settings applied to all basic group and supergroup chats when the corresponding chat setting has a default value
+notificationSettingsScopeGroupChats = NotificationSettingsScope;
+
+//@description Notification settings applied to all channel chats when the corresponding chat setting has a default value
+notificationSettingsScopeChannelChats = NotificationSettingsScope;
+
+
+//@description Contains information about notification settings for a chat or a forum topic
+//@use_default_mute_for If true, the value for the topic's chat, the chat's community, or the relevant type of chat is used instead of mute_for
+//@mute_for Time left before notifications will be unmuted, in seconds
+//@use_default_sound If true, the value for the topic's chat, the chat's community, or the relevant type of chat is used instead of sound_id
+//@sound_id Identifier of the notification sound to be played for messages; 0 if sound is disabled
+//@use_default_show_preview If true, the value for the topic's chat, the chat's community, or the relevant type of chat is used instead of show_preview
+//@show_preview True, if message content must be displayed in notifications
+//@use_default_mute_stories If true, the value for the chat's community or the relevant type of chat is used instead of mute_stories
+//@mute_stories True, if story notifications are disabled for the chat
+//@use_default_story_sound If true, the value for the chat's community or the relevant type of chat is used instead of story_sound_id
+//@story_sound_id Identifier of the notification sound to be played for stories; 0 if sound is disabled
+//@use_default_show_story_poster If true, the value for the chat's community or the relevant type of chat is used instead of show_story_poster
+//@show_story_poster True, if the chat that posted a story must be displayed in notifications
+//@use_default_disable_pinned_message_notifications If true, the value for the topic's chat, the chat's community, or the relevant type of chat is used instead of disable_pinned_message_notifications
+//@disable_pinned_message_notifications If true, notifications for incoming pinned messages will be created as for an ordinary unread message
+//@use_default_disable_mention_notifications If true, the value for the topic's chat, the chat's community, or the relevant type of chat is used instead of disable_mention_notifications
+//@disable_mention_notifications If true, notifications for messages with mentions will be created as for an ordinary unread message
+chatNotificationSettings use_default_mute_for:Bool mute_for:int32 use_default_sound:Bool sound_id:int64 use_default_show_preview:Bool show_preview:Bool use_default_mute_stories:Bool mute_stories:Bool use_default_story_sound:Bool story_sound_id:int64 use_default_show_story_poster:Bool show_story_poster:Bool use_default_disable_pinned_message_notifications:Bool disable_pinned_message_notifications:Bool use_default_disable_mention_notifications:Bool disable_mention_notifications:Bool = ChatNotificationSettings;
+
+//@description Contains information about notification settings for several chats
+//@mute_for Time left before notifications will be unmuted, in seconds
+//@sound_id Identifier of the notification sound to be played; 0 if sound is disabled; pass -1 to use the app-dependent default sound
+//@show_preview True, if message content must be displayed in notifications
+//@use_default_mute_stories If true, story notifications are received only for the first 5 chats from topChatCategoryUsers regardless of the value of mute_stories
+//@mute_stories True, if story notifications are disabled
+//@story_sound_id Identifier of the notification sound to be played for stories; 0 if sound is disabled; pass -1 to use the app-dependent default sound
+//@show_story_poster True, if the chat that posted a story must be displayed in notifications
+//@disable_pinned_message_notifications True, if notifications for incoming pinned messages will be created as for an ordinary unread message
+//@disable_mention_notifications True, if notifications for messages with mentions will be created as for an ordinary unread message
+scopeNotificationSettings mute_for:int32 sound_id:int64 show_preview:Bool use_default_mute_stories:Bool mute_stories:Bool story_sound_id:int64 show_story_poster:Bool disable_pinned_message_notifications:Bool disable_mention_notifications:Bool = ScopeNotificationSettings;
+
+
+//@class ReactionNotificationSource @description Describes sources of reactions for which notifications will be shown
+
+//@description Notifications for reactions are disabled
+reactionNotificationSourceNone = ReactionNotificationSource;
+
+//@description Notifications for reactions are shown only for reactions from contacts
+reactionNotificationSourceContacts = ReactionNotificationSource;
+
+//@description Notifications for reactions are shown for all reactions
+reactionNotificationSourceAll = ReactionNotificationSource;
+
+
+//@description Contains information about notification settings for reactions and poll votes
+//@message_reaction_source Source of message reactions for which notifications are shown
+//@story_reaction_source Source of story reactions for which notifications are shown
+//@poll_vote_source Source of poll votes for which notifications are shown
+//@sound_id Identifier of the notification sound to be played; 0 if sound is disabled; pass -1 to use the app-dependent default sound
+//@show_preview True, if reaction sender and emoji must be displayed in notifications
+reactionNotificationSettings message_reaction_source:ReactionNotificationSource story_reaction_source:ReactionNotificationSource poll_vote_source:ReactionNotificationSource sound_id:int64 show_preview:Bool = ReactionNotificationSettings;
+
+
 //@description Contains identifier of a community @id Community identifier
 communityId id:int53 = CommunityId;
 
@@ -2703,7 +2777,8 @@ communityMemberStatusBanned = CommunityMemberStatus;
 //@date Point in time (Unix timestamp) when the community was joined, or the point in time when the community was created, in case the user is not a member of any chat in the community
 //@status Status of the current user in the community
 //@permissions Actions that non-administrator community members are allowed to take in the community
-community id:int53 have_access:Bool name:string photo:chatPhotoInfo date:int32 status:CommunityMemberStatus permissions:communityPermissions = Community;
+//@are_chats_collapsed True, if all chats of the community are collapsed into one entry in the chat list
+community id:int53 have_access:Bool name:string photo:chatPhotoInfo date:int32 status:CommunityMemberStatus permissions:communityPermissions are_chats_collapsed:Bool = Community;
 
 //@description Describes a chat in a community
 //@chat_id Identifier of the chat in the community
@@ -2717,7 +2792,29 @@ communityChat chat_id:int53 can_view_history:Bool is_hidden:Bool = CommunityChat
 //@administrator_count Number of privileged users in the community; 0 if the current user isn't an administrator of the community
 //@banned_count Number of users banned from the community; 0 if the current user isn't an administrator of the community
 //@add_chat_request_count Number of pending requests for addition of chats to the community; 0 if the current user isn't an administrator of the community
-communityFullInfo photo:chatPhoto chats:vector<communityChat> administrator_count:int32 banned_count:int32 add_chat_request_count:int32 = CommunityFullInfo;
+//@notification_settings Notification settings for the community. Default notification settings are chosen based on the type of a chat in the community
+communityFullInfo photo:chatPhoto chats:vector<communityChat> administrator_count:int32 banned_count:int32 add_chat_request_count:int32 notification_settings:chatNotificationSettings = CommunityFullInfo;
+
+//@description Represents a list of communities @community_ids List of community identifiers
+communities community_ids:vector<int53> = Communities;
+
+//@description Describes a request to add a chat to a community
+//@chat_id Identifier of the chat to be added
+//@is_hidden True, if the chat will be visible only to administrators of the community
+//@sender_user_id Identifier of the user who sent the request
+//@date Point in time (Unix timestamp) when the request was sent
+communityAddChatRequest chat_id:int53 is_hidden:Bool sender_user_id:int53 date:int32 = CommunityAddChatRequest;
+
+//@description Contains a list of requests to add chats to a community
+//@total_count Approximate total number of requests found
+//@requests List of the requests
+//@next_offset The offset for the next getCommunityAddChatRequests request. If empty, then there are no more results
+communityAddChatRequests total_count:int32 requests:vector<communityAddChatRequest> next_offset:string = CommunityAddChatRequests;
+
+//@description Contains information about chats in a community, which are joined or owned by a member of the community
+//@owned_chat_ids Identifiers of the chats owned by the member. The chats will be removed from the community if the member is banned in the community
+//@joined_chat_ids Identifiers of the non-owned chats joined by the member
+communityMemberChats owned_chat_ids:vector<int53> joined_chat_ids:vector<int53> = CommunityMemberChats;
 
 
 //@description Contains description of user rating
@@ -3156,10 +3253,11 @@ basicGroupFullInfo photo:chatPhoto description:string creator_user_id:int53 memb
 //@verification_status Information about verification status of the supergroup or channel; may be null if none
 //@has_direct_messages_group True, if the channel has direct messages group
 //@has_forum_tabs True, if the supergroup is a forum, which topics are shown in the same way as in channel direct messages groups
+//@has_forum_sidebar True, if the supergroup is a forum, which topics are shown in a sidebar. If true, then has_forum_tabs is false
 //@restriction_info Information about the restrictions that must be applied to the corresponding supergroup or channel chat; may be null if none
 //@paid_message_star_count Number of Telegram Stars that must be paid by non-administrator users of the supergroup chat for each sent message
 //@active_story_state State of active stories of the supergroup or channel; may be null if there are no active stories
-supergroup id:int53 usernames:usernames date:int32 status:ChatMemberStatus member_count:int32 boost_level:int32 has_automatic_translation:Bool has_linked_chat:Bool has_location:Bool sign_messages:Bool show_message_sender:Bool join_to_send_messages:Bool join_by_request:Bool is_slow_mode_enabled:Bool is_channel:Bool is_broadcast_group:Bool is_forum:Bool is_direct_messages_group:Bool is_administered_direct_messages_group:Bool verification_status:verificationStatus has_direct_messages_group:Bool has_forum_tabs:Bool restriction_info:restrictionInfo paid_message_star_count:int53 active_story_state:ActiveStoryState = Supergroup;
+supergroup id:int53 usernames:usernames date:int32 status:ChatMemberStatus member_count:int32 boost_level:int32 has_automatic_translation:Bool has_linked_chat:Bool has_location:Bool sign_messages:Bool show_message_sender:Bool join_to_send_messages:Bool join_by_request:Bool is_slow_mode_enabled:Bool is_channel:Bool is_broadcast_group:Bool is_forum:Bool is_direct_messages_group:Bool is_administered_direct_messages_group:Bool verification_status:verificationStatus has_direct_messages_group:Bool has_forum_tabs:Bool has_forum_sidebar:Bool restriction_info:restrictionInfo paid_message_star_count:int53 active_story_state:ActiveStoryState = Supergroup;
 
 //@description Contains full information about a supergroup or channel
 //@photo Chat photo; may be null if empty or unknown. If non-null, then it is the same photo as in chat.photo
@@ -3501,7 +3599,7 @@ inputTextQuote text:formattedText rich_texts:vector<RichText> position:int32 = I
 //@content Media content of the message if the message was from another chat or topic; may be null for messages from the same chat and messages without media.
 //-Can be only one of the following types: messageAnimation, messageAudio, messageChecklist, messageContact, messageDice, messageDocument, messageGame,
 //-messageGiveaway, messageGiveawayWinners, messageInvoice, messageLocation, messagePaidMedia, messagePhoto, messagePoll, messageStakeDice,
-//-messageSticker, messageStory, messageText (for link preview), messageVenue, messageVideo, messageVideoNote, or messageVoiceNote
+//-messageSticker, messageStory, messageText (for link preview), messageVenue, messageVideo, messageVideoNote, messageVoiceNote, or messageWidget
 messageReplyToMessage chat_id:int53 message_id:int53 quote:textQuote checklist_task_id:int32 poll_option_id:string origin:MessageOrigin origin_send_date:int32 content:MessageContent = MessageReplyTo;
 
 //@description Describes a story replied by a given message @story_poster_chat_id The identifier of the poster of the story @story_id The identifier of the story
@@ -3777,71 +3875,6 @@ downloadedFileCounts active_count:int32 paused_count:int32 completed_count:int32
 //@files The list of files
 //@next_offset The offset for the next request. If empty, then there are no more results
 foundFileDownloads total_counts:downloadedFileCounts files:vector<fileDownload> next_offset:string = FoundFileDownloads;
-
-
-//@class NotificationSettingsScope @description Describes the types of chats to which notification settings are relevant
-
-//@description Notification settings applied to all private and secret chats when the corresponding chat setting has a default value
-notificationSettingsScopePrivateChats = NotificationSettingsScope;
-
-//@description Notification settings applied to all basic group and supergroup chats when the corresponding chat setting has a default value
-notificationSettingsScopeGroupChats = NotificationSettingsScope;
-
-//@description Notification settings applied to all channel chats when the corresponding chat setting has a default value
-notificationSettingsScopeChannelChats = NotificationSettingsScope;
-
-
-//@description Contains information about notification settings for a chat or a forum topic
-//@use_default_mute_for If true, the value for the relevant type of chat or the forum chat is used instead of mute_for
-//@mute_for Time left before notifications will be unmuted, in seconds
-//@use_default_sound If true, the value for the relevant type of chat or the forum chat is used instead of sound_id
-//@sound_id Identifier of the notification sound to be played for messages; 0 if sound is disabled
-//@use_default_show_preview If true, the value for the relevant type of chat or the forum chat is used instead of show_preview
-//@show_preview True, if message content must be displayed in notifications
-//@use_default_mute_stories If true, the value for the relevant type of chat is used instead of mute_stories
-//@mute_stories True, if story notifications are disabled for the chat
-//@use_default_story_sound If true, the value for the relevant type of chat is used instead of story_sound_id
-//@story_sound_id Identifier of the notification sound to be played for stories; 0 if sound is disabled
-//@use_default_show_story_poster If true, the value for the relevant type of chat is used instead of show_story_poster
-//@show_story_poster True, if the chat that posted a story must be displayed in notifications
-//@use_default_disable_pinned_message_notifications If true, the value for the relevant type of chat or the forum chat is used instead of disable_pinned_message_notifications
-//@disable_pinned_message_notifications If true, notifications for incoming pinned messages will be created as for an ordinary unread message
-//@use_default_disable_mention_notifications If true, the value for the relevant type of chat or the forum chat is used instead of disable_mention_notifications
-//@disable_mention_notifications If true, notifications for messages with mentions will be created as for an ordinary unread message
-chatNotificationSettings use_default_mute_for:Bool mute_for:int32 use_default_sound:Bool sound_id:int64 use_default_show_preview:Bool show_preview:Bool use_default_mute_stories:Bool mute_stories:Bool use_default_story_sound:Bool story_sound_id:int64 use_default_show_story_poster:Bool show_story_poster:Bool use_default_disable_pinned_message_notifications:Bool disable_pinned_message_notifications:Bool use_default_disable_mention_notifications:Bool disable_mention_notifications:Bool = ChatNotificationSettings;
-
-//@description Contains information about notification settings for several chats
-//@mute_for Time left before notifications will be unmuted, in seconds
-//@sound_id Identifier of the notification sound to be played; 0 if sound is disabled; pass -1 to use the app-dependent default sound
-//@show_preview True, if message content must be displayed in notifications
-//@use_default_mute_stories If true, story notifications are received only for the first 5 chats from topChatCategoryUsers regardless of the value of mute_stories
-//@mute_stories True, if story notifications are disabled
-//@story_sound_id Identifier of the notification sound to be played for stories; 0 if sound is disabled; pass -1 to use the app-dependent default sound
-//@show_story_poster True, if the chat that posted a story must be displayed in notifications
-//@disable_pinned_message_notifications True, if notifications for incoming pinned messages will be created as for an ordinary unread message
-//@disable_mention_notifications True, if notifications for messages with mentions will be created as for an ordinary unread message
-scopeNotificationSettings mute_for:int32 sound_id:int64 show_preview:Bool use_default_mute_stories:Bool mute_stories:Bool story_sound_id:int64 show_story_poster:Bool disable_pinned_message_notifications:Bool disable_mention_notifications:Bool = ScopeNotificationSettings;
-
-
-//@class ReactionNotificationSource @description Describes sources of reactions for which notifications will be shown
-
-//@description Notifications for reactions are disabled
-reactionNotificationSourceNone = ReactionNotificationSource;
-
-//@description Notifications for reactions are shown only for reactions from contacts
-reactionNotificationSourceContacts = ReactionNotificationSource;
-
-//@description Notifications for reactions are shown for all reactions
-reactionNotificationSourceAll = ReactionNotificationSource;
-
-
-//@description Contains information about notification settings for reactions and poll votes
-//@message_reaction_source Source of message reactions for which notifications are shown
-//@story_reaction_source Source of story reactions for which notifications are shown
-//@poll_vote_source Source of poll votes for which notifications are shown
-//@sound_id Identifier of the notification sound to be played; 0 if sound is disabled; pass -1 to use the app-dependent default sound
-//@show_preview True, if reaction sender and emoji must be displayed in notifications
-reactionNotificationSettings message_reaction_source:ReactionNotificationSource story_reaction_source:ReactionNotificationSource poll_vote_source:ReactionNotificationSource sound_id:int64 show_preview:Bool = ReactionNotificationSettings;
 
 
 //@class DraftMessageContent @description Content of the message draft
@@ -4357,7 +4390,7 @@ oauthLinkInfo user_id:int53 url:string domain:string from_app:Bool verified_app_
 //@message_thread_id Message thread identifier, unique within the chat
 //@reply_info Information about the message thread; may be null for forum topic threads
 //@unread_message_count Approximate number of unread messages in the message thread
-//@messages The messages from which the thread starts. The messages are returned in reverse chronological order (i.e., in order of decreasing message_id)
+//@messages The messages from which the thread starts. The messages are returned in reverse chronological order (i.e., in order of decreasing message.id)
 //@draft_message A draft of a message in the message thread; may be null if none
 messageThreadInfo chat_id:int53 message_thread_id:int53 reply_info:messageReplyInfo unread_message_count:int32 messages:vector<message> draft_message:draftMessage = MessageThreadInfo;
 
@@ -5809,6 +5842,20 @@ messageStakeDice initial_state:DiceStickers final_state:DiceStickers value:int32
 //@via_mention True, if the story was automatically forwarded because of a mention of the user
 messageStory story_poster_chat_id:int53 story_id:int32 via_mention:Bool = MessageContent;
 
+//@description A message with an HTML widget
+//@width Width of the widget; 0 if the widget must occupy the whole width of the message bubble
+//@height Height of the widget; 0 if the height of the widget isn't fixed
+//@html HTML code of the widget
+//@public_data Public data of the widget
+//@chat_data Data of the widget, which is specific to the chat
+//@widget_id Identifier of the shared widget; 0 if the widget isn't shared
+//@caption Widget caption
+//@show_caption_above_media True, if the caption must be shown above the widget; otherwise, the caption must be shown below the widget
+//@is_copy True, if the message is a copy of the widget
+//@can_send_queries True, if the widget can send queries to the bot
+//@can_send_background_queries True, if the widget can send queries to the bot in the background
+messageWidget width:int32 height:int32 html:string public_data:string chat_data:string widget_id:int64 caption:formattedText show_caption_above_media:Bool is_copy:Bool can_send_queries:Bool can_send_background_queries:Bool = MessageContent;
+
 //@description A message with a checklist @list The checklist description
 messageChecklist list:checklist = MessageContent;
 
@@ -6118,7 +6165,7 @@ messageGiveawayPrizeStars star_count:int53 transaction_id:string boosted_chat_id
 //@amount The amount of received cryptocurrency, in the smallest units of the cryptocurrency; negative for outgoing transactions
 //@comment Comment added to the transaction
 //@is_comment_encrypted True, if the comment is encrypted and must be decrypted using the receiver's or sender's private key
-messageTonWalletTransfer sender_user_id:int53 transaction_id:string peer_address:string amount:int53 comment:string is_comment_encrypted:Bool = MessageContent;
+messageTonWalletTransfer sender_user_id:int53 transaction_id:string peer_address:string amount:int64 comment:string is_comment_encrypted:Bool = MessageContent;
 
 //@description A request from a dApp was received through TON Connect
 //@session_id Unique identifier of the TON Connect session
@@ -6396,7 +6443,7 @@ diffEntityTypeDelete = DiffEntityType;
 
 
 //@description A thumbnail to be sent along with a file; must be in JPEG or WEBP format for stickers, and less than 200 KB in size
-//@thumbnail Thumbnail file to send. Sending thumbnails by file_id is currently not supported
+//@thumbnail Thumbnail file to send. Sending thumbnails by inputFileId or inputFileRemote is currently not supported
 //@width Thumbnail width, usually shouldn't exceed 320. Use 0 if unknown
 //@height Thumbnail height, usually shouldn't exceed 320. Use 0 if unknown
 inputThumbnail thumbnail:InputFile width:int32 height:int32 = InputThumbnail;
@@ -6808,6 +6855,25 @@ inputMessageStory story_poster_chat_id:int53 story_id:int32 = InputMessageConten
 //@checklist The checklist to send
 inputMessageChecklist checklist:inputChecklist = InputMessageContent;
 
+//@description A message with an HTML widget; for bots only
+//@width Width of the widget; 0 if the widget must occupy the whole width of the message bubble
+//@height Height of the widget; 0 if the height of the widget isn't fixed
+//@html HTML code of the widget; 1-32768 bytes; must not exceed 4096 bytes when compressed by zlib with the maximal compression level
+//@public_data Public data of the widget, which will be available in copies and forwards of the message
+//@chat_data Data of the widget, which is specific to the chat
+//@caption Widget caption; pass null to use an empty caption; 0-getOption("message_caption_length_max") characters
+//@show_caption_above_media True, if the caption must be shown above the widget; otherwise, the caption must be shown below the widget
+//@allow_queries Pass true to allow the widget to send queries to the bot
+//@is_shared Pass true to create a shared widget, which can be sent again by its identifier
+inputMessageWidget width:int32 height:int32 html:string public_data:string chat_data:string caption:formattedText show_caption_above_media:Bool allow_queries:Bool is_shared:Bool = InputMessageContent;
+
+//@description A message with an existing shared widget; for bots only
+//@widget_id Identifier of the shared widget
+//@chat_data Data of the widget, which is specific to the chat
+//@caption Widget caption; pass null to use an empty caption; 0-getOption("message_caption_length_max") characters
+//@show_caption_above_media True, if the caption must be shown above the widget; otherwise, the caption must be shown below the widget
+inputMessageSharedWidget widget_id:int64 chat_data:string caption:formattedText show_caption_above_media:Bool = InputMessageContent;
+
 //@description A forwarded message
 //@from_chat_id Identifier for the chat this forwarded message came from
 //@message_id Identifier of the message to forward. A message can be forwarded only if messageProperties.can_be_forwarded
@@ -7168,11 +7234,6 @@ storyArea position:areaPosition type:StoryAreaType = StoryArea;
 //@description An area pointing to a location @location The location @address Address of the location; pass null if unknown
 inputStoryAreaTypeLocation location:location address:locationAddress = InputStoryAreaType;
 
-//@description An area pointing to a venue found by the bot getOption("venue_search_bot_username")
-//@query_id Identifier of the inline query, used to find the venue
-//@result_id Identifier of the inline query result
-inputStoryAreaTypeFoundVenue query_id:int64 result_id:string = InputStoryAreaType;
-
 //@description An area pointing to a venue already added to the story
 //@venue_provider Provider of the venue
 //@venue_id Identifier of the venue in the provider database
@@ -7207,7 +7268,7 @@ inputStoryAreaTypeUpgradedGift gift_name:string = InputStoryAreaType;
 inputStoryArea position:areaPosition type:InputStoryAreaType = InputStoryArea;
 
 //@description Contains a list of story areas to be added @areas List of input story areas. Currently, a story can have
-//-up to 10 inputStoryAreaTypeLocation, inputStoryAreaTypeFoundVenue, and inputStoryAreaTypePreviousVenue areas,
+//-up to 10 inputStoryAreaTypeLocation and inputStoryAreaTypePreviousVenue areas,
 //-up to getOption("story_suggested_reaction_area_count_max") inputStoryAreaTypeSuggestedReaction areas,
 //-up to 1 inputStoryAreaTypeMessage area,
 //-up to getOption("story_link_area_count_max") inputStoryAreaTypeLink areas if the current user is a Telegram Premium user,
@@ -7337,8 +7398,9 @@ storyInteractionInfo view_count:int32 forward_count:int32 reaction_count:int32 r
 //@content Content of the story
 //@areas Clickable areas to be shown on the story content
 //@caption Caption of the story
+//@music Music attached to the story; may be null if none
 //@album_ids Identifiers of story albums to which the story is added; only for manageable stories
-story id:int32 poster_chat_id:int53 poster_id:MessageSender date:int32 is_being_posted:Bool is_being_edited:Bool is_edited:Bool is_posted_to_chat_page:Bool is_visible_only_for_self:Bool can_be_added_to_album:Bool can_be_deleted:Bool can_be_edited:Bool can_be_forwarded:Bool can_be_replied:Bool can_set_privacy_settings:Bool can_toggle_is_posted_to_chat_page:Bool can_get_statistics:Bool can_get_interactions:Bool has_expired_viewers:Bool repost_info:storyRepostInfo interaction_info:storyInteractionInfo chosen_reaction_type:ReactionType privacy_settings:StoryPrivacySettings content:StoryContent areas:vector<storyArea> caption:formattedText album_ids:vector<int32> = Story;
+story id:int32 poster_chat_id:int53 poster_id:MessageSender date:int32 is_being_posted:Bool is_being_edited:Bool is_edited:Bool is_posted_to_chat_page:Bool is_visible_only_for_self:Bool can_be_added_to_album:Bool can_be_deleted:Bool can_be_edited:Bool can_be_forwarded:Bool can_be_replied:Bool can_set_privacy_settings:Bool can_toggle_is_posted_to_chat_page:Bool can_get_statistics:Bool can_get_interactions:Bool has_expired_viewers:Bool repost_info:storyRepostInfo interaction_info:storyInteractionInfo chosen_reaction_type:ReactionType privacy_settings:StoryPrivacySettings content:StoryContent areas:vector<storyArea> caption:formattedText music:audio album_ids:vector<int32> = Story;
 
 //@description Represents a list of stories
 //@total_count Approximate total number of stories found
@@ -7377,7 +7439,7 @@ storyInfo story_id:int32 date:int32 is_for_close_friends:Bool is_live:Bool = Sto
 //@description Describes active stories posted by a chat
 //@chat_id Identifier of the chat that posted the stories
 //@list Identifier of the story list in which the stories are shown; may be null if the stories aren't shown in a story list
-//@order A parameter used to determine order of the stories in the story list; 0 if the stories don't need to be shown in the story list. Stories must be sorted by the pair (order, story_poster_chat_id) in descending order
+//@order A parameter used to determine order of the stories in the story list; 0 if the stories don't need to be shown in the story list. Stories must be sorted by the pair (order, chat_id) in descending order
 //@can_be_archived True, if the stories are shown in the main story list and can be archived; otherwise, the stories can be hidden from the main story list
 //-only by calling removeTopChat with topChatCategoryUsers and the chat_id. Stories of the current user can't be archived nor hidden using removeTopChat
 //@max_read_story_id Identifier of the last read active story
@@ -8013,6 +8075,9 @@ speechRecognitionResultText text:string = SpeechRecognitionResult;
 //@description The speech recognition failed @error Recognition error. An error with a message "MSG_VOICE_TOO_LONG" is returned when media duration is too big to be recognized
 speechRecognitionResultError error:error = SpeechRecognitionResult;
 
+//@description Contains a list of probable languages of speech @language_codes IETF language tags of the languages in descending order of their probability; for example, "en-US"
+speechRecognitionLanguages language_codes:vector<string> = SpeechRecognitionLanguages;
+
 
 //@description Describes a connection of the bot with a business account
 //@id Unique identifier of the connection
@@ -8116,7 +8181,7 @@ targetChatInternalLink link:InternalLinkType = TargetChat;
 //@video_height Height of the video
 //@reply_markup The message reply markup; pass null if none. Must be of type replyMarkupInlineKeyboard or null
 //@input_message_content The content of the message to be sent. Must be one of the following types: inputMessageText, inputMessageRichMessage,
-//-inputMessageAnimation, inputMessageInvoice, inputMessageLiveLocation, inputMessageLocation, inputMessageVenue, or inputMessageContact
+//-inputMessageAnimation, inputMessageInvoice, inputMessageLiveLocation, inputMessageLocation, inputMessageVenue, inputMessageWidget, inputMessageSharedWidget, or inputMessageContact
 inputInlineQueryResultAnimation id:string title:string thumbnail_url:string thumbnail_mime_type:string video_url:string video_mime_type:string video_duration:int32 video_width:int32 video_height:int32 reply_markup:ReplyMarkup input_message_content:InputMessageContent = InputInlineQueryResult;
 
 //@description Represents a link to an article or web page
@@ -8129,7 +8194,7 @@ inputInlineQueryResultAnimation id:string title:string thumbnail_url:string thum
 //@thumbnail_height Thumbnail height, if known
 //@reply_markup The message reply markup; pass null if none. Must be of type replyMarkupInlineKeyboard or null
 //@input_message_content The content of the message to be sent. Must be one of the following types: inputMessageText, inputMessageRichMessage,
-//-inputMessageInvoice, inputMessageLiveLocation, inputMessageLocation, inputMessageVenue, or inputMessageContact
+//-inputMessageInvoice, inputMessageLiveLocation, inputMessageLocation, inputMessageVenue, inputMessageWidget, inputMessageSharedWidget, or inputMessageContact
 inputInlineQueryResultArticle id:string url:string title:string description:string thumbnail_url:string thumbnail_width:int32 thumbnail_height:int32 reply_markup:ReplyMarkup input_message_content:InputMessageContent = InputInlineQueryResult;
 
 //@description Represents a link to an MP3 audio file
@@ -8140,7 +8205,7 @@ inputInlineQueryResultArticle id:string url:string title:string description:stri
 //@audio_duration Audio file duration, in seconds
 //@reply_markup The message reply markup; pass null if none. Must be of type replyMarkupInlineKeyboard or null
 //@input_message_content The content of the message to be sent. Must be one of the following types: inputMessageText, inputMessageRichMessage,
-//-inputMessageAudio, inputMessageInvoice, inputMessageLiveLocation, inputMessageLocation, inputMessageVenue, or inputMessageContact
+//-inputMessageAudio, inputMessageInvoice, inputMessageLiveLocation, inputMessageLocation, inputMessageVenue, inputMessageWidget, inputMessageSharedWidget, or inputMessageContact
 inputInlineQueryResultAudio id:string title:string performer:string audio_url:string audio_duration:int32 reply_markup:ReplyMarkup input_message_content:InputMessageContent = InputInlineQueryResult;
 
 //@description Represents a user contact
@@ -8151,7 +8216,7 @@ inputInlineQueryResultAudio id:string title:string performer:string audio_url:st
 //@thumbnail_height Thumbnail height, if known
 //@reply_markup The message reply markup; pass null if none. Must be of type replyMarkupInlineKeyboard or null
 //@input_message_content The content of the message to be sent. Must be one of the following types: inputMessageText, inputMessageRichMessage,
-//-inputMessageInvoice, inputMessageLiveLocation, inputMessageLocation, inputMessageVenue, or inputMessageContact
+//-inputMessageInvoice, inputMessageLiveLocation, inputMessageLocation, inputMessageVenue, inputMessageWidget, inputMessageSharedWidget, or inputMessageContact
 inputInlineQueryResultContact id:string contact:contact thumbnail_url:string thumbnail_width:int32 thumbnail_height:int32 reply_markup:ReplyMarkup input_message_content:InputMessageContent = InputInlineQueryResult;
 
 //@description Represents a link to a file
@@ -8165,7 +8230,7 @@ inputInlineQueryResultContact id:string contact:contact thumbnail_url:string thu
 //@thumbnail_height Height of the thumbnail
 //@reply_markup The message reply markup; pass null if none. Must be of type replyMarkupInlineKeyboard or null
 //@input_message_content The content of the message to be sent. Must be one of the following types: inputMessageText, inputMessageRichMessage,
-//-inputMessageDocument, inputMessageInvoice, inputMessageLiveLocation, inputMessageLocation, inputMessageVenue, or inputMessageContact
+//-inputMessageDocument, inputMessageInvoice, inputMessageLiveLocation, inputMessageLocation, inputMessageVenue, inputMessageWidget, inputMessageSharedWidget, or inputMessageContact
 inputInlineQueryResultDocument id:string title:string description:string document_url:string mime_type:string thumbnail_url:string thumbnail_width:int32 thumbnail_height:int32 reply_markup:ReplyMarkup input_message_content:InputMessageContent = InputInlineQueryResult;
 
 //@description Represents a game
@@ -8184,7 +8249,7 @@ inputInlineQueryResultGame id:string game_short_name:string reply_markup:ReplyMa
 //@thumbnail_height Thumbnail height, if known
 //@reply_markup The message reply markup; pass null if none. Must be of type replyMarkupInlineKeyboard or null
 //@input_message_content The content of the message to be sent. Must be one of the following types: inputMessageText, inputMessageRichMessage,
-//-inputMessageInvoice, inputMessageLiveLocation, inputMessageLocation, inputMessageVenue, or inputMessageContact
+//-inputMessageInvoice, inputMessageLiveLocation, inputMessageLocation, inputMessageVenue, inputMessageWidget, inputMessageSharedWidget, or inputMessageContact
 inputInlineQueryResultLocation id:string location:location live_period:int32 title:string thumbnail_url:string thumbnail_width:int32 thumbnail_height:int32 reply_markup:ReplyMarkup input_message_content:InputMessageContent = InputInlineQueryResult;
 
 //@description Represents link to a JPEG image
@@ -8197,7 +8262,7 @@ inputInlineQueryResultLocation id:string location:location live_period:int32 tit
 //@photo_height Height of the photo
 //@reply_markup The message reply markup; pass null if none. Must be of type replyMarkupInlineKeyboard or null
 //@input_message_content The content of the message to be sent. Must be one of the following types: inputMessageText, inputMessageRichMessage,
-//-inputMessagePhoto, inputMessageInvoice, inputMessageLiveLocation, inputMessageLocation, inputMessageVenue, or inputMessageContact
+//-inputMessagePhoto, inputMessageInvoice, inputMessageLiveLocation, inputMessageLocation, inputMessageVenue, inputMessageWidget, inputMessageSharedWidget, or inputMessageContact
 inputInlineQueryResultPhoto id:string title:string description:string thumbnail_url:string photo_url:string photo_width:int32 photo_height:int32 reply_markup:ReplyMarkup input_message_content:InputMessageContent = InputInlineQueryResult;
 
 //@description Represents a link to a WEBP, TGS, or WEBM sticker
@@ -8208,7 +8273,7 @@ inputInlineQueryResultPhoto id:string title:string description:string thumbnail_
 //@sticker_height Height of the sticker
 //@reply_markup The message reply markup; pass null if none. Must be of type replyMarkupInlineKeyboard or null
 //@input_message_content The content of the message to be sent. Must be one of the following types: inputMessageText, inputMessageRichMessage,
-//-inputMessageSticker, inputMessageInvoice, inputMessageLiveLocation, inputMessageLocation, inputMessageVenue, or inputMessageContact
+//-inputMessageSticker, inputMessageInvoice, inputMessageLiveLocation, inputMessageLocation, inputMessageVenue, inputMessageWidget, inputMessageSharedWidget, or inputMessageContact
 inputInlineQueryResultSticker id:string thumbnail_url:string sticker_url:string sticker_width:int32 sticker_height:int32 reply_markup:ReplyMarkup input_message_content:InputMessageContent = InputInlineQueryResult;
 
 //@description Represents information about a venue
@@ -8219,7 +8284,7 @@ inputInlineQueryResultSticker id:string thumbnail_url:string sticker_url:string 
 //@thumbnail_height Thumbnail height, if known
 //@reply_markup The message reply markup; pass null if none. Must be of type replyMarkupInlineKeyboard or null
 //@input_message_content The content of the message to be sent. Must be one of the following types: inputMessageText, inputMessageRichMessage,
-//-inputMessageInvoice, inputMessageLiveLocation, inputMessageLocation, inputMessageVenue, or inputMessageContact
+//-inputMessageInvoice, inputMessageLiveLocation, inputMessageLocation, inputMessageVenue, inputMessageWidget, inputMessageSharedWidget, or inputMessageContact
 inputInlineQueryResultVenue id:string venue:venue thumbnail_url:string thumbnail_width:int32 thumbnail_height:int32 reply_markup:ReplyMarkup input_message_content:InputMessageContent = InputInlineQueryResult;
 
 //@description Represents a link to a page containing an embedded video player or a video file
@@ -8234,7 +8299,7 @@ inputInlineQueryResultVenue id:string venue:venue thumbnail_url:string thumbnail
 //@video_duration Video duration, in seconds
 //@reply_markup The message reply markup; pass null if none. Must be of type replyMarkupInlineKeyboard or null
 //@input_message_content The content of the message to be sent. Must be one of the following types: inputMessageText, inputMessageRichMessage,
-//-inputMessageVideo, inputMessageInvoice, inputMessageLiveLocation, inputMessageLocation, inputMessageVenue, or inputMessageContact
+//-inputMessageVideo, inputMessageInvoice, inputMessageLiveLocation, inputMessageLocation, inputMessageVenue, inputMessageWidget, inputMessageSharedWidget, or inputMessageContact
 inputInlineQueryResultVideo id:string title:string description:string thumbnail_url:string video_url:string mime_type:string video_width:int32 video_height:int32 video_duration:int32 reply_markup:ReplyMarkup input_message_content:InputMessageContent = InputInlineQueryResult;
 
 //@description Represents a link to an opus-encoded audio file within an OGG container, single channel audio
@@ -8244,7 +8309,7 @@ inputInlineQueryResultVideo id:string title:string description:string thumbnail_
 //@voice_note_duration Duration of the voice note, in seconds
 //@reply_markup The message reply markup; pass null if none. Must be of type replyMarkupInlineKeyboard or null
 //@input_message_content The content of the message to be sent. Must be one of the following types: inputMessageText, inputMessageRichMessage,
-//-inputMessageVoiceNote, inputMessageInvoice, inputMessageLiveLocation, inputMessageLocation, inputMessageVenue, or inputMessageContact
+//-inputMessageVoiceNote, inputMessageInvoice, inputMessageLiveLocation, inputMessageLocation, inputMessageVenue, inputMessageWidget, inputMessageSharedWidget, or inputMessageContact
 inputInlineQueryResultVoiceNote id:string title:string voice_note_url:string voice_note_duration:int32 reply_markup:ReplyMarkup input_message_content:InputMessageContent = InputInlineQueryResult;
 
 
@@ -8382,6 +8447,38 @@ callbackQueryPayloadGame game_short_name:string = CallbackQueryPayload;
 //@show_alert True, if an alert must be shown to the user instead of a toast notification
 //@url URL to be opened
 callbackQueryAnswer text:string show_alert:Bool url:string = CallbackQueryAnswer;
+
+//@description Describes a TON wallet of the user, who is used in a widget query
+//@address Address of the wallet
+//@gram_amount Balance of the wallet, in the smallest units of the cryptocurrency
+//@public_key Public key of the wallet; may be empty if unknown
+//@state_init Serialized StateInit of the wallet contract; must be empty if and only if public_key is empty
+widgetQueryWallet address:string gram_amount:int64 public_key:bytes state_init:bytes = WidgetQueryWallet;
+
+
+//@class WidgetQueryType @description Describes type of a widget query
+
+//@description The query contains data for the bot @with_wallet True, if the TON wallet card of the user who sends the query is sent to the bot along with the query
+widgetQueryTypeData with_wallet:Bool = WidgetQueryType;
+
+//@description The query contains data signed by a TON wallet of the user who sends the query
+//@wallet The wallet that signed the data
+//@sign_data JSON-serialized signed data
+widgetQueryTypeSignData wallet:widgetQueryWallet sign_data:string = WidgetQueryType;
+
+//@description The query notifies the bot about a transaction sent from a TON wallet of the user who sends the query
+//@wallet The wallet from which the transaction was sent
+//@msg_hash Value of msg_hash of the transaction
+widgetQueryTypeSentTransaction wallet:widgetQueryWallet msg_hash:string = WidgetQueryType;
+
+
+//@description Contains an answer to a widget query @data Data returned by the bot
+widgetQueryAnswer data:string = WidgetQueryAnswer;
+
+//@description Contains public data of a widget
+//@data Public data of the widget
+//@poll_period The number of seconds after which the public data can be polled again
+widgetPublicData data:string poll_period:int32 = WidgetPublicData;
 
 
 //@description Contains the result of a custom request @result A JSON-serialized result
@@ -10349,7 +10446,7 @@ internalLinkTypeTonConnect version:int32 dapp_client_id:string connect_request:t
 //@description The link is a link for sending Grams from the user's TON wallet
 //@receiver Chosen receiver of the transfer; may be null if none
 //@gram_amount The pre-filled amount of TON Grams to send; in the smallest units of the cryptocurrency
-internalLinkTypeTonWalletTransfer receiver:TonWalletTransferReceiver gram_amount:int53 = InternalLinkType;
+internalLinkTypeTonWalletTransfer receiver:TonWalletTransferReceiver gram_amount:int64 = InternalLinkType;
 
 //@description The link is an unknown tg: link. Call getDeepLinkInfo to process the link @link Link to be passed to getDeepLinkInfo
 internalLinkTypeUnknownDeepLink link:string = InternalLinkType;
@@ -11920,6 +12017,11 @@ updateGramRevenueStatus status:gramRevenueStatus = Update;
 //@next_reset_date Point in time (Unix timestamp) when the weekly number of tries will reset; 0 if unknown
 updateSpeechRecognitionTrial max_media_duration:int32 weekly_count:int32 left_count:int32 next_reset_date:int32 = Update;
 
+//@description Speech in an audio file was partially recognized. The final result will be returned by the corresponding recognizeSpeechInFile request
+//@recognition_id Identifier of the speech recognition as specified in recognizeSpeechInFile
+//@partial_text Partially recognized text
+updateSpeechRecognitionInFile recognition_id:int64 partial_text:string = Update;
+
 //@description The levels of live story group call messages have changed @levels New description of the levels in decreasing order of groupCallMessageLevel.min_star_count
 updateGroupCallMessageLevels levels:vector<groupCallMessageLevel> = Update;
 
@@ -12023,6 +12125,40 @@ updateNewInlineCallbackQuery id:int64 sender_user_id:int53 inline_message_id:str
 //@chat_instance An identifier uniquely corresponding to the chat a message was sent to
 //@payload Query payload
 updateNewBusinessCallbackQuery id:int64 sender_user_id:int53 connection_id:string message:businessMessage chat_instance:int64 payload:CallbackQueryPayload = Update;
+
+//@description A new incoming widget query; for bots only
+//@id Unique query identifier
+//@sender_user_id Identifier of the user who sent the query
+//@chat_id Identifier of the chat where the query was sent
+//@message_id Identifier of the message from which the query originated
+//@chat_instance Identifier that uniquely corresponds to the chat to which the message was sent
+//@chat_type Type of the chat to which the message was sent
+//@query_type Type of the query
+//@data Data of the query
+//@widget_id Identifier of the shared widget from which the query originated; 0 if the widget isn't shared
+//@wallet_card TON wallet card of the user who sent the query; may be null if none
+updateNewWidgetQuery id:int64 sender_user_id:int53 chat_id:int53 message_id:int53 chat_instance:int64 chat_type:string query_type:WidgetQueryType data:bytes widget_id:int64 wallet_card:tonWalletCard = Update;
+
+//@description A new incoming widget query from a message sent via a bot; for bots only
+//@id Unique query identifier
+//@sender_user_id Identifier of the user who sent the query
+//@inline_message_id Identifier of the inline message from which the query originated
+//@chat_instance Identifier that uniquely corresponds to the chat to which the message was sent
+//@chat_type Type of the chat to which the message was sent
+//@query_type Type of the query
+//@data Data of the query
+//@widget_id Identifier of the shared widget from which the query originated; 0 if the widget isn't shared
+//@wallet_card TON wallet card of the user who sent the query; may be null if none
+updateNewInlineWidgetQuery id:int64 sender_user_id:int53 inline_message_id:string chat_instance:int64 chat_type:string query_type:WidgetQueryType data:bytes widget_id:int64 wallet_card:tonWalletCard = Update;
+
+//@description A new incoming widget query from a copy of a shared widget; for bots only
+//@id Unique query identifier
+//@sender_user_id Identifier of the user who sent the query
+//@query_type Type of the query
+//@data Data of the query
+//@widget_id Identifier of the shared widget from which the query originated
+//@wallet_card TON wallet card of the user who sent the query; may be null if none
+updateNewWidgetCopyQuery id:int64 sender_user_id:int53 query_type:WidgetQueryType data:bytes widget_id:int64 wallet_card:tonWalletCard = Update;
 
 //@description A new incoming shipping query; for bots only. Only for invoices with flexible price
 //@id Unique query identifier

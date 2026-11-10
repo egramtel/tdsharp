@@ -47,7 +47,7 @@ public static partial class TdApi
         /// <summary>
         /// The amount of the sent cryptocurrency, in the smallest units of the cryptocurrency
         /// </summary>
-        [JsonConverter(typeof(Converter))]
+        [JsonConverter(typeof(Converter.Int64))]
         [JsonProperty("amount")]
         public long Amount { get; set; }
 
