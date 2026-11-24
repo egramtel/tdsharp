@@ -83,7 +83,7 @@ public static partial class TdApi
         public bool PreloadStories { get; set; }
 
         /// <summary>
-        /// True, if "use less data for calls" option needs to be enabled
+        /// True, if the "use less data for calls" option needs to be enabled
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("use_less_data_for_calls")]

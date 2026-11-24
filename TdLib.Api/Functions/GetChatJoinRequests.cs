@@ -38,14 +38,15 @@ public static partial class TdApi
         public long ChatId { get; set; }
 
         /// <summary>
-        /// Invite link for which to return join requests. If empty, all join requests will be returned. Requires administrator privileges and can_invite_users right in the chat for own links and owner privileges for other links
+        /// Invite link for which to return join requests. If empty, all join requests will be returned.
+        /// Requires administrator privileges and can_invite_users right in the chat for own links and owner privileges for other links
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("invite_link")]
         public string InviteLink { get; set; }
 
         /// <summary>
-        /// A query to search for in the first names, last names and usernames of the users to return
+        /// A query to search for in the first names, last names, and usernames of the users to return
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("query")]

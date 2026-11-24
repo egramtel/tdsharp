@@ -48,14 +48,15 @@ public static partial class TdApi
         public long NextBidStarCount { get; set; }
 
         /// <summary>
-        /// Identifier of the user or the chat that will receive the auctioned item. If the auction is opened in context of another user or chat, then a warning is supposed to be shown to the current user
+        /// Identifier of the user or the chat that will receive the auctioned item.
+        /// If the auction is opened in the context of another user or chat, then a warning is supposed to be shown to the current user
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("owner_id")]
         public MessageSender OwnerId { get; set; }
 
         /// <summary>
-        /// True, if the bid was returned to the user, because it was outbid and can't win anymore
+        /// True, if the bid was returned to the user because it was outbid and can't win anymore
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("was_returned")]

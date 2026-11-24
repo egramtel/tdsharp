@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class LinkPreviewType : Object
     {
         /// <summary>
-        /// The link preview type is unsupported yet
+        /// The link preview type isn't supported yet
         /// </summary>
         public class LinkPreviewTypeUnsupported : LinkPreviewType
         {

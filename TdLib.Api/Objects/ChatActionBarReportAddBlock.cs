@@ -30,7 +30,8 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// If true, the chat was automatically archived and can be moved back to the main chat list using addChatToList simultaneously with setting chat notification settings to default using setChatNotificationSettings
+            /// If true, the chat was automatically archived
+            /// and can be moved back to the main chat list using addChatToList simultaneously with setting chat notification settings to default using setChatNotificationSettings
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("can_unarchive")]

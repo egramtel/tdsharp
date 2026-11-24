@@ -55,7 +55,7 @@ public static partial class TdApi
         public MessageSender UsedSenderId { get; set; }
 
         /// <summary>
-        /// Identifiers of at most 3 recent message senders, added the reaction; available in private, basic group and supergroup chats
+        /// Identifiers of at most 3 recent message senders who added the reaction; available in private, basic group and supergroup chats
         /// </summary>
         [JsonProperty("recent_sender_ids", ItemConverterType = typeof(Converter))]
         public MessageSender[] RecentSenderIds { get; set; }

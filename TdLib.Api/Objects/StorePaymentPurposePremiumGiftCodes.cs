@@ -29,7 +29,7 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// Identifier of the supergroup or channel chat, which will be automatically boosted by the users for duration of the Premium subscription and which is administered by the user
+            /// Identifier of the supergroup or channel chat that will be automatically boosted by the users for the duration of the Premium subscription and that is administered by the user
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("boosted_chat_id")]

@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class StarTransactionType : Object
     {
         /// <summary>
-        /// The transaction is a receiving of a payment for a suggested post by the channel chat; relevant for channel chats only
+        /// The transaction is the receiving of a payment for a suggested post by the channel chat; relevant for channel chats only
         /// </summary>
         public class StarTransactionTypeSuggestedPostPaymentReceive : StarTransactionType
         {

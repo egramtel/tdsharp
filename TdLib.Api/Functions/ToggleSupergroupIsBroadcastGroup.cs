@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Upgrades supergroup to a broadcast group; requires owner privileges in the supergroup
+    /// Upgrades a supergroup to a broadcast group; requires owner privileges in the supergroup
     /// </summary>
     public class ToggleSupergroupIsBroadcastGroup : Function<Ok>
     {
@@ -39,7 +39,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Upgrades supergroup to a broadcast group; requires owner privileges in the supergroup
+    /// Upgrades a supergroup to a broadcast group; requires owner privileges in the supergroup
     /// </summary>
     public static Task<Ok> ToggleSupergroupIsBroadcastGroupAsync(
         this IClient client, long supergroupId = default)

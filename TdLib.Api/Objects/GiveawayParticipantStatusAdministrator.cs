@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class GiveawayParticipantStatus : Object
     {
         /// <summary>
-        /// The user can't participate in the giveaway, because they are an administrator in one of the chats that created the giveaway
+        /// The user can't participate in the giveaway because they are an administrator in one of the chats that created the giveaway
         /// </summary>
         public class GiveawayParticipantStatusAdministrator : GiveawayParticipantStatus
         {

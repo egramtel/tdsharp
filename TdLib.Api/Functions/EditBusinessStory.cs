@@ -52,7 +52,7 @@ public static partial class TdApi
         public InputStoryContent Content { get; set; }
 
         /// <summary>
-        /// New clickable rectangle areas to be shown on the story media
+        /// New clickable rectangular areas to be shown on the story media
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("areas")]

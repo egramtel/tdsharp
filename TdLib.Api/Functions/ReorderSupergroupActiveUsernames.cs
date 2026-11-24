@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Changes order of active usernames of a supergroup or channel, requires owner privileges in the supergroup or channel
+    /// Changes the order of active usernames of a supergroup or channel; requires owner privileges in the supergroup or channel
     /// </summary>
     public class ReorderSupergroupActiveUsernames : Function<Ok>
     {
@@ -45,7 +45,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Changes order of active usernames of a supergroup or channel, requires owner privileges in the supergroup or channel
+    /// Changes the order of active usernames of a supergroup or channel; requires owner privileges in the supergroup or channel
     /// </summary>
     public static Task<Ok> ReorderSupergroupActiveUsernamesAsync(
         this IClient client, long supergroupId = default, string[] usernames = default)

@@ -27,7 +27,8 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Voice note file to be sent. The voice note must be encoded with the Opus codec and stored inside an OGG container with a single audio channel, or be in MP3 or M4A format as regular audio
+        /// Voice note file to be sent.
+        /// The voice note must be encoded with the Opus codec and stored inside an OGG container with a single audio channel, or be in MP3 or M4A format as regular audio
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("voice_note")]

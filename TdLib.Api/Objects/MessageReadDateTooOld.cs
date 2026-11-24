@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class MessageReadDate : Object
     {
         /// <summary>
-        /// The message is too old to get read date
+        /// The message is too old to get the read date
         /// </summary>
         public class MessageReadDateTooOld : MessageReadDate
         {

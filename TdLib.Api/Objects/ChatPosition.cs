@@ -34,7 +34,7 @@ public static partial class TdApi
         public ChatList List { get; set; }
 
         /// <summary>
-        /// A parameter used to determine order of the chat in the chat list. Chats must be sorted by the pair (order, chat.id) in descending order
+        /// A parameter used to determine the order of the chat in the chat list. Chats must be sorted by the pair (order, chat.id) in descending order
         /// </summary>
         [JsonConverter(typeof(Converter.Int64))]
         [JsonProperty("order")]

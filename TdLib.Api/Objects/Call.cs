@@ -27,14 +27,14 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Call identifier, not persistent
+        /// Call identifier; not persistent
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("id")]
         public int Id { get; set; }
 
         /// <summary>
-        /// Persistent unique call identifier; 0 if isn't assigned yet by the server
+        /// Persistent unique call identifier; 0 if it isn't assigned yet by the server
         /// </summary>
         [JsonConverter(typeof(Converter.Int64))]
         [JsonProperty("unique_id")]

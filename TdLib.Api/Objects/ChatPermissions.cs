@@ -104,7 +104,7 @@ public static partial class TdApi
         public bool CanReactToMessages { get; set; }
 
         /// <summary>
-        /// True, if the user may change the tag of self
+        /// True, if the user may change their own tag
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("can_edit_tag")]

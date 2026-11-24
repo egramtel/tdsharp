@@ -10,7 +10,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Contains information about verification status of a chat or a user
+    /// Contains information about the verification status of a chat or a user
     /// </summary>
     public partial class VerificationStatus : Object
     {

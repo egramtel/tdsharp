@@ -10,7 +10,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Describes a color to highlight a bot added to attachment menu
+    /// Describes a color to highlight a bot added to the attachment menu
     /// </summary>
     public partial class AttachmentMenuBotColor : Object
     {

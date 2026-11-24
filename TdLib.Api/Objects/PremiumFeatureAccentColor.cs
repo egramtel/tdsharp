@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class PremiumFeature : Object
     {
         /// <summary>
-        /// The ability to choose accent color for replies and user profile
+        /// The ability to choose an accent color for replies and the user profile
         /// </summary>
         public class PremiumFeatureAccentColor : PremiumFeature
         {

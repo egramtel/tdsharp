@@ -55,14 +55,14 @@ public static partial class TdApi
         public Animation Animation { get; set; }
 
         /// <summary>
-        /// Identifier of the bot, which manages the bot; 0 if none or unknown; for owner of the bot only
+        /// Identifier of the bot that manages the bot; 0 if none or unknown; for the owner of the bot only
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("manager_bot_user_id")]
         public long ManagerBotUserId { get; set; }
 
         /// <summary>
-        /// Information about a button to show instead of the bot commands menu button; may be null if ordinary bot commands menu must be shown
+        /// Information about a button to show instead of the bot commands menu button; may be null if the ordinary bot commands menu must be shown
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("menu_button")]
@@ -75,7 +75,8 @@ public static partial class TdApi
         public BotCommand[] Commands { get; set; }
 
         /// <summary>
-        /// The HTTP link to the privacy policy of the bot. If empty, then /privacy command must be used if supported by the bot. If the command isn't supported, then https://telegram.org/privacy-tpa must be opened
+        /// The HTTP link to the privacy policy of the bot. If empty, then the /privacy command must be used if supported by the bot.
+        /// If the command isn't supported, then https://telegram.org/privacy-tpa must be opened
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("privacy_policy_url")]
@@ -145,7 +146,7 @@ public static partial class TdApi
         public bool CanGetRevenueStatistics { get; set; }
 
         /// <summary>
-        /// True, if the bot can manage emoji status of the current user
+        /// True, if the bot can manage the emoji status of the current user
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("can_manage_emoji_status")]
@@ -159,28 +160,28 @@ public static partial class TdApi
         public bool HasMediaPreviews { get; set; }
 
         /// <summary>
-        /// The internal link, which can be used to edit bot commands; may be null
+        /// The internal link that can be used to edit bot commands; may be null
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("edit_commands_link")]
         public InternalLinkType EditCommandsLink { get; set; }
 
         /// <summary>
-        /// The internal link, which can be used to edit bot description; may be null
+        /// The internal link that can be used to edit the bot description; may be null
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("edit_description_link")]
         public InternalLinkType EditDescriptionLink { get; set; }
 
         /// <summary>
-        /// The internal link, which can be used to edit the photo or animation shown in the chat with the bot if the chat is empty; may be null
+        /// The internal link that can be used to edit the photo or animation shown in the chat with the bot if the chat is empty; may be null
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("edit_description_media_link")]
         public InternalLinkType EditDescriptionMediaLink { get; set; }
 
         /// <summary>
-        /// The internal link, which can be used to edit bot settings; may be null
+        /// The internal link that can be used to edit bot settings; may be null
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("edit_settings_link")]

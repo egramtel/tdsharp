@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns saved notification sound by its identifier. Returns a 404 error if there is no saved notification sound with the specified identifier
+    /// Returns a saved notification sound by its identifier. Returns a 404 error if there is no saved notification sound with the specified identifier
     /// </summary>
     public class GetSavedNotificationSound : Function<NotificationSound>
     {
@@ -39,7 +39,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns saved notification sound by its identifier. Returns a 404 error if there is no saved notification sound with the specified identifier
+    /// Returns a saved notification sound by its identifier. Returns a 404 error if there is no saved notification sound with the specified identifier
     /// </summary>
     public static Task<NotificationSound> GetSavedNotificationSoundAsync(
         this IClient client, long notificationSoundId = default)

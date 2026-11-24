@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns parameters for creating of a new passkey as JSON-serialized string
+    /// Returns parameters for creating a new passkey as a JSON-serialized string
     /// </summary>
     public class GetPasskeyParameters : Function<Text>
     {
@@ -34,7 +34,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns parameters for creating of a new passkey as JSON-serialized string
+    /// Returns parameters for creating a new passkey as a JSON-serialized string
     /// </summary>
     public static Task<Text> GetPasskeyParametersAsync(
         this IClient client)

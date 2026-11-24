@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class InputStoryAreaType : Object
     {
         /// <summary>
-        /// Describes type of clickable area on a story media to be added
+        /// Describes type of clickable area on story media to be added
         /// </summary>
         public class InputStoryAreaTypeLocation : InputStoryAreaType
         {

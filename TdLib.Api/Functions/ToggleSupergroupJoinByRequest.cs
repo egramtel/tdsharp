@@ -31,7 +31,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Identifier of the supergroup that isn't a broadcast group and isn't a channel direct message group
+        /// Identifier of the supergroup that isn't a broadcast group and isn't a channel direct messages group
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("supergroup_id")]
@@ -45,7 +45,7 @@ public static partial class TdApi
         public bool JoinByRequest { get; set; }
 
         /// <summary>
-        /// Identifier of the bot which will be the guard bot in the group; pass 0 if none; ignored if join_by_request == false.
+        /// Identifier of the bot that will be the guard bot in the group; pass 0 if none; ignored if join_by_request == false.
         /// The bot must have administrator privileges and can_invite_users right in the supergroup chat, and must have userTypeBot.is_guard == true
         /// </summary>
         [JsonConverter(typeof(Converter))]

@@ -38,7 +38,7 @@ public static partial class TdApi
         public long ChatId { get; set; }
 
         /// <summary>
-        /// Identifier of the topic which messages will be deleted
+        /// Identifier of the topic whose messages will be deleted
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("topic_id")]

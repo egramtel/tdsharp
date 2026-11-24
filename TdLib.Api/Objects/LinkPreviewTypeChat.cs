@@ -43,7 +43,7 @@ public static partial class TdApi
             public ChatPhoto Photo { get; set; }
 
             /// <summary>
-            /// True, if the link only creates join request
+            /// True, if the link only creates a join request
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("creates_join_request")]

@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns identifiers of pinned or always included chats from a chat folder, which are suggested to be left when the chat folder is deleted
+    /// Returns identifiers of pinned or always included chats from a chat folder that are suggested to be left when the chat folder is deleted
     /// </summary>
     public class GetChatFolderChatsToLeave : Function<Chats>
     {
@@ -39,7 +39,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns identifiers of pinned or always included chats from a chat folder, which are suggested to be left when the chat folder is deleted
+    /// Returns identifiers of pinned or always included chats from a chat folder that are suggested to be left when the chat folder is deleted
     /// </summary>
     public static Task<Chats> GetChatFolderChatsToLeaveAsync(
         this IClient client, int chatFolderId = default)

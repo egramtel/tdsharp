@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns up to 8 emoji statuses, which must be shown in the emoji status list for chats
+    /// Returns up to 8 emoji statuses that must be shown in the emoji status list for chats
     /// </summary>
     public class GetThemedChatEmojiStatuses : Function<EmojiStatusCustomEmojis>
     {
@@ -34,7 +34,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns up to 8 emoji statuses, which must be shown in the emoji status list for chats
+    /// Returns up to 8 emoji statuses that must be shown in the emoji status list for chats
     /// </summary>
     public static Task<EmojiStatusCustomEmojis> GetThemedChatEmojiStatusesAsync(
         this IClient client)

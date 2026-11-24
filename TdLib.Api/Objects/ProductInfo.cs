@@ -10,7 +10,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Contains information about a product that can be paid with invoice
+    /// Contains information about a product that can be paid for with an invoice
     /// </summary>
     public partial class ProductInfo : Object
     {

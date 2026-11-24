@@ -36,7 +36,7 @@ public static partial class TdApi
             public long ChatId { get; set; }
 
             /// <summary>
-            /// Identifier of the message with live location
+            /// Identifier of the message with the live location
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("message_id")]

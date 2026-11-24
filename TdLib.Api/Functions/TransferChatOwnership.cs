@@ -11,7 +11,8 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Changes the owner of a chat; for basic groups, supergroups and channel chats only; requires owner privileges in the chat. Use the method canTransferOwnership to check whether the ownership can be transferred from the current session
+    /// Changes the owner of a chat; for basic groups, supergroups, and channel chats only; requires owner privileges in the chat.
+    /// Use the method canTransferOwnership to check whether the ownership can be transferred from the current session
     /// </summary>
     public class TransferChatOwnership : Function<Ok>
     {
@@ -38,7 +39,7 @@ public static partial class TdApi
         public long ChatId { get; set; }
 
         /// <summary>
-        /// Identifier of the user to which transfer the ownership. The ownership can't be transferred to a bot or to a deleted user
+        /// Identifier of the user to whom to transfer the ownership. The ownership can't be transferred to a bot or to a deleted user
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("user_id")]
@@ -53,7 +54,8 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Changes the owner of a chat; for basic groups, supergroups and channel chats only; requires owner privileges in the chat. Use the method canTransferOwnership to check whether the ownership can be transferred from the current session
+    /// Changes the owner of a chat; for basic groups, supergroups, and channel chats only; requires owner privileges in the chat.
+    /// Use the method canTransferOwnership to check whether the ownership can be transferred from the current session
     /// </summary>
     public static Task<Ok> TransferChatOwnershipAsync(
         this IClient client, long chatId = default, long userId = default, string password = default)

@@ -27,7 +27,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// True, if the user has positive TON Gram balance
+        /// True, if the user has a positive TON Gram balance
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("has_balance")]

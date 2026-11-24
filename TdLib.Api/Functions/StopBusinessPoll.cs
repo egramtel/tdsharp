@@ -31,7 +31,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Unique identifier of business connection on behalf of which the message with the poll was sent
+        /// Unique identifier of the business connection on behalf of which the message with the poll was sent
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("business_connection_id")]

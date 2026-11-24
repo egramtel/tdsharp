@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class TextEntityType : Object
     {
         /// <summary>
-        /// An address in the TON blockchain
+        /// An address on the TON blockchain
         /// </summary>
         public class TextEntityTypeTonAddress : TextEntityType
         {

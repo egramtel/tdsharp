@@ -41,14 +41,15 @@ public static partial class TdApi
         public FormattedText Text { get; set; }
 
         /// <summary>
-        /// Option media; may be null if none. If present, currently, can be only of the types pollMediaAnimation, pollMediaLink, pollMediaLocation, pollMediaPhoto, pollMediaSticker, pollMediaVenue, or pollMediaVideo
+        /// Option media; may be null if none.
+        /// If present, currently, can only be of the types pollMediaAnimation, pollMediaLink, pollMediaLocation, pollMediaPhoto, pollMediaSticker, pollMediaVenue, or pollMediaVideo
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("media")]
         public PollMedia Media { get; set; }
 
         /// <summary>
-        /// Number of voters for this option, available only for closed or voted polls, or if the current user is the creator of the poll
+        /// Number of voters for this option; available only for closed or voted polls, or if the current user is the creator of the poll
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("voter_count")]
@@ -82,7 +83,7 @@ public static partial class TdApi
         public bool IsBeingChosen { get; set; }
 
         /// <summary>
-        /// Identifier of the user or chat who added the option; may be null if the option existed from creation of the poll
+        /// Identifier of the user or chat that added the option; may be null if the option existed from creation of the poll
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("author")]

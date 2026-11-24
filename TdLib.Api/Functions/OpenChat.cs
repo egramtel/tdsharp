@@ -11,7 +11,8 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Informs TDLib that the chat is opened by the user. Many useful activities depend on the chat being opened or closed (e.g., in supergroups and channels all updates are received only for opened chats)
+    /// Informs TDLib that the chat is opened by the user.
+    /// Many useful activities depend on the chat being opened or closed (e.g., in supergroups and channels, all updates are received only for opened chats)
     /// </summary>
     public class OpenChat : Function<Ok>
     {
@@ -39,7 +40,8 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Informs TDLib that the chat is opened by the user. Many useful activities depend on the chat being opened or closed (e.g., in supergroups and channels all updates are received only for opened chats)
+    /// Informs TDLib that the chat is opened by the user.
+    /// Many useful activities depend on the chat being opened or closed (e.g., in supergroups and channels, all updates are received only for opened chats)
     /// </summary>
     public static Task<Ok> OpenChatAsync(
         this IClient client, long chatId = default)

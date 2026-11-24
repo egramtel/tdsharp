@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns the list of message sender identifiers, on whose behalf messages can be sent to a live story
+    /// Returns the list of message sender identifiers on whose behalf messages can be sent to a live story
     /// </summary>
     public class GetLiveStoryAvailableMessageSenders : Function<ChatMessageSenders>
     {
@@ -39,7 +39,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns the list of message sender identifiers, on whose behalf messages can be sent to a live story
+    /// Returns the list of message sender identifiers on whose behalf messages can be sent to a live story
     /// </summary>
     public static Task<ChatMessageSenders> GetLiveStoryAvailableMessageSendersAsync(
         this IClient client, int groupCallId = default)

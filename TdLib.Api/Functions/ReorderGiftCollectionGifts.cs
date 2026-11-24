@@ -11,7 +11,8 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Changes order of gifts in a collection. If the collection is owned by a channel chat, then requires can_post_messages administrator right in the channel chat. Returns the changed collection
+    /// Changes the order of gifts in a collection. If the collection is owned by a channel chat, then requires can_post_messages administrator right in the channel chat.
+    /// Returns the changed collection
     /// </summary>
     public class ReorderGiftCollectionGifts : Function<GiftCollection>
     {
@@ -45,14 +46,15 @@ public static partial class TdApi
         public int CollectionId { get; set; }
 
         /// <summary>
-        /// Identifier of the gifts to move to the beginning of the collection. All other gifts are placed in the current order after the specified gifts
+        /// Identifiers of the gifts to move to the beginning of the collection. All other gifts are placed in the current order after the specified gifts
         /// </summary>
         [JsonProperty("received_gift_ids", ItemConverterType = typeof(Converter))]
         public string[] ReceivedGiftIds { get; set; }
     }
 
     /// <summary>
-    /// Changes order of gifts in a collection. If the collection is owned by a channel chat, then requires can_post_messages administrator right in the channel chat. Returns the changed collection
+    /// Changes the order of gifts in a collection. If the collection is owned by a channel chat, then requires can_post_messages administrator right in the channel chat.
+    /// Returns the changed collection
     /// </summary>
     public static Task<GiftCollection> ReorderGiftCollectionGiftsAsync(
         this IClient client, MessageSender ownerId = default, int collectionId = default, string[] receivedGiftIds = default)

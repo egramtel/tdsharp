@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns information about value of an upgraded gift by its name
+    /// Returns information about the value of an upgraded gift by its name
     /// </summary>
     public class GetUpgradedGiftValueInfo : Function<UpgradedGiftValueInfo>
     {
@@ -39,7 +39,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns information about value of an upgraded gift by its name
+    /// Returns information about the value of an upgraded gift by its name
     /// </summary>
     public static Task<UpgradedGiftValueInfo> GetUpgradedGiftValueInfoAsync(
         this IClient client, string name = default)

@@ -34,7 +34,7 @@ public static partial class TdApi
         public string Name { get; set; }
 
         /// <summary>
-        /// Custom emoji sticker, which represents icon of the category
+        /// Custom emoji sticker that represents the icon of the category
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("icon")]

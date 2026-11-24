@@ -27,7 +27,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Information about the suggested post; pass null if none. For messages to channel direct messages chat only. Applicable only to sendMessage and addOffer
+        /// Information about the suggested post; pass null if none. For messages to a channel direct messages chat only. Applicable only to sendMessage and addOffer
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("suggested_post_info")]
@@ -76,7 +76,7 @@ public static partial class TdApi
         public bool UpdateOrderOfInstalledStickerSets { get; set; }
 
         /// <summary>
-        /// Message scheduling state; pass null to send message immediately. Messages sent to a secret chat, to a chat with paid messages, to a channel direct messages chat,
+        /// Message scheduling state; pass null to send the message immediately. Messages sent to a secret chat, to a chat with paid messages, to a channel direct messages chat,
         /// live location messages and self-destructing messages can't be scheduled
         /// </summary>
         [JsonConverter(typeof(Converter))]
@@ -91,14 +91,14 @@ public static partial class TdApi
         public long EffectId { get; set; }
 
         /// <summary>
-        /// Non-persistent identifier, which will be returned back in messageSendingStatePending object and can be used to match sent messages and corresponding updateNewMessage updates
+        /// Non-persistent identifier, which will be returned in the messageSendingStatePending object and can be used to match sent messages and corresponding updateNewMessage updates
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("sending_id")]
         public int SendingId { get; set; }
 
         /// <summary>
-        /// Pass true to get a fake message instead of actually sending them
+        /// Pass true to get fake messages instead of actually sending them
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("only_preview")]

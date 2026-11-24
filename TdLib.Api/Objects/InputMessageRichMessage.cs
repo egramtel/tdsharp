@@ -36,7 +36,7 @@ public static partial class TdApi
             public InputRichMessage Message { get; set; }
 
             /// <summary>
-            /// Pass true to delete message draft in the chat
+            /// Pass true to delete the message draft in the chat
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("clear_draft")]

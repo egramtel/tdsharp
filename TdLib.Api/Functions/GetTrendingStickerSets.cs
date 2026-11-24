@@ -45,7 +45,8 @@ public static partial class TdApi
         public int Offset { get; set; }
 
         /// <summary>
-        /// The maximum number of sticker sets to be returned; up to 100. For optimal performance, the number of returned sticker sets is chosen by TDLib and can be smaller than the specified limit, even if the end of the list has not been reached
+        /// The maximum number of sticker sets to be returned; up to 100.
+        /// For optimal performance, the number of returned sticker sets is chosen by TDLib and can be smaller than the specified limit, even if the end of the list has not been reached
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("limit")]

@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class Update : Object
     {
         /// <summary>
-        /// An automatically scheduled message with video has been successfully sent after conversion
+        /// An automatically scheduled message with a video has been successfully sent after conversion
         /// </summary>
         public class UpdateVideoPublished : Update
         {

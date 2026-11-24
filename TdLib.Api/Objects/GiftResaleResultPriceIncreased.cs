@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class GiftResaleResult : Object
     {
         /// <summary>
-        /// Operation has failed, because price has increased. If the price has decreased, then the buying will succeed anyway
+        /// The operation has failed because the price has increased. If the price has decreased, then the buying will succeed anyway
         /// </summary>
         public class GiftResaleResultPriceIncreased : GiftResaleResult
         {

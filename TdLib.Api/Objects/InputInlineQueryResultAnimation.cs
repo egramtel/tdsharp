@@ -50,14 +50,14 @@ public static partial class TdApi
             public string ThumbnailUrl { get; set; }
 
             /// <summary>
-            /// MIME type of the video thumbnail. If non-empty, must be one of "image/jpeg", "image/gif" and "video/mp4"
+            /// MIME type of the video thumbnail. If non-empty, must be one of "image/jpeg", "image/gif", and "video/mp4"
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("thumbnail_mime_type")]
             public string ThumbnailMimeType { get; set; }
 
             /// <summary>
-            /// The URL of the video file (file size must not exceed 1MB)
+            /// The URL of the video file (file size must not exceed 1 MB)
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("video_url")]
@@ -92,7 +92,7 @@ public static partial class TdApi
             public int VideoHeight { get; set; }
 
             /// <summary>
-            /// The message reply markup; pass null if none. Must be of type replyMarkupInlineKeyboard or null
+            /// The message reply markup; pass null if none. Must be of the type replyMarkupInlineKeyboard or null
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("reply_markup")]

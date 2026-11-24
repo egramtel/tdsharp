@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Requests QR code authentication by scanning a QR code on another logged in device. Works only when the current authorization state is authorizationStateWaitPhoneNumber,
+    /// Requests QR code authentication by scanning a QR code on another logged-in device. Works only when the current authorization state is authorizationStateWaitPhoneNumber,
     /// or if there is no pending authentication query and the current authorization state is authorizationStateWaitPremiumPurchase, authorizationStateWaitEmailAddress,
     /// authorizationStateWaitEmailCode, authorizationStateWaitCode, authorizationStateWaitRegistration, or authorizationStateWaitPassword
     /// </summary>
@@ -40,7 +40,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Requests QR code authentication by scanning a QR code on another logged in device. Works only when the current authorization state is authorizationStateWaitPhoneNumber,
+    /// Requests QR code authentication by scanning a QR code on another logged-in device. Works only when the current authorization state is authorizationStateWaitPhoneNumber,
     /// or if there is no pending authentication query and the current authorization state is authorizationStateWaitPremiumPurchase, authorizationStateWaitEmailAddress,
     /// authorizationStateWaitEmailCode, authorizationStateWaitCode, authorizationStateWaitRegistration, or authorizationStateWaitPassword
     /// </summary>

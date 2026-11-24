@@ -38,7 +38,7 @@ public static partial class TdApi
         public long ChatId { get; set; }
 
         /// <summary>
-        /// Forum topic identifier in which mentions are marked as read
+        /// Identifier of the forum topic in which mentions are marked as read
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("forum_topic_id")]

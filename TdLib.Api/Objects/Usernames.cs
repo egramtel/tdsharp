@@ -27,7 +27,8 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// List of active usernames; the first one must be shown as the primary username. The order of active usernames can be changed with reorderActiveUsernames, reorderBotActiveUsernames, or reorderSupergroupActiveUsernames
+        /// List of active usernames; the first one must be shown as the primary username.
+        /// The order of active usernames can be changed with reorderActiveUsernames, reorderBotActiveUsernames, or reorderSupergroupActiveUsernames
         /// </summary>
         [JsonProperty("active_usernames", ItemConverterType = typeof(Converter))]
         public string[] ActiveUsernames { get; set; }
@@ -53,7 +54,7 @@ public static partial class TdApi
 
         /// <summary>
         /// Secondary non-collectible username. Currently, must be non-empty only for bot accounts. Can't be used in toggleBotUsernameIsActive;
-        /// use addBotSecondaryUsername or deleteBotSecondaryUsername to edit it. If the username is disabled, then Telegram Premium subscription is required to re-enable it
+        /// use addBotSecondaryUsername or deleteBotSecondaryUsername to edit it. If the username is disabled, then a Telegram Premium subscription is required to re-enable it
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("secondary_username")]

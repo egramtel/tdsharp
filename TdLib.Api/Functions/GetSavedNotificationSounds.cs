@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns the list of saved notification sounds. If a sound isn't in the list, then default sound needs to be used
+    /// Returns the list of saved notification sounds. If a sound isn't in the list, then the default sound needs to be used
     /// </summary>
     public class GetSavedNotificationSounds : Function<NotificationSounds>
     {
@@ -34,7 +34,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns the list of saved notification sounds. If a sound isn't in the list, then default sound needs to be used
+    /// Returns the list of saved notification sounds. If a sound isn't in the list, then the default sound needs to be used
     /// </summary>
     public static Task<NotificationSounds> GetSavedNotificationSoundsAsync(
         this IClient client)

@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class TargetChat : Object
     {
         /// <summary>
-        /// The chat needs to be open with the provided internal link
+        /// The chat needs to be opened with the provided internal link
         /// </summary>
         public class TargetChatInternalLink : TargetChat
         {

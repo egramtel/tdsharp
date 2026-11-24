@@ -34,7 +34,7 @@ public static partial class TdApi
         public Message Message { get; set; }
 
         /// <summary>
-        /// Message that is replied by the message in the same chat; may be null if none
+        /// Message that is replied to by the message in the same chat; may be null if none
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("reply_to_message")]

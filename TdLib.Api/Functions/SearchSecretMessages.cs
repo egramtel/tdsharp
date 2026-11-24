@@ -45,7 +45,7 @@ public static partial class TdApi
         public string Query { get; set; }
 
         /// <summary>
-        /// Offset of the first entry to return as received from the previous request; use empty string to get the first chunk of results
+        /// Offset of the first entry to return as received from the previous request; use an empty string to get the first chunk of results
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("offset")]

@@ -34,7 +34,7 @@ public static partial class TdApi
         public string Id { get; set; }
 
         /// <summary>
-        /// The amount of added owned Grams, in the smallest units of the cryptocurrency; negative for outgoing transactions
+        /// The added amount, in the smallest units of TON Grams; negative for outgoing transactions
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("gram_amount")]

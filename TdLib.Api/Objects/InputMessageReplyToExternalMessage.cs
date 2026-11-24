@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class InputMessageReplyTo : Object
     {
         /// <summary>
-        /// Describes a message to be replied that is from a different chat or a forum topic; not supported in secret chats
+        /// Describes a message to be replied to that is from a different chat or a forum topic; not supported in secret chats
         /// </summary>
         public class InputMessageReplyToExternalMessage : InputMessageReplyTo
         {
@@ -29,35 +29,35 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// The identifier of the chat to which the message to be replied belongs
+            /// The identifier of the chat to which the message to be replied to belongs
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_id")]
             public long ChatId { get; set; }
 
             /// <summary>
-            /// The identifier of the message to be replied in the specified chat. A message can be replied in another chat or forum topic only if messageProperties.can_be_replied_in_another_chat
+            /// The identifier of the message to be replied to in the specified chat. A message can be replied to in another chat or forum topic only if messageProperties.can_be_replied_in_another_chat
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("message_id")]
             public long MessageId { get; set; }
 
             /// <summary>
-            /// Quote from the message to be replied; pass null if none
+            /// Quote from the message to be replied to; pass null if none
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("quote")]
             public InputTextQuote Quote { get; set; }
 
             /// <summary>
-            /// Identifier of the checklist task in the message to be replied; pass 0 to reply to the whole message
+            /// Identifier of the checklist task in the message to be replied to; pass 0 to reply to the whole message
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("checklist_task_id")]
             public int ChecklistTaskId { get; set; }
 
             /// <summary>
-            /// Identifier of the poll option in the message to be replied; pass an empty string if none
+            /// Identifier of the poll option in the message to be replied to; pass an empty string if none
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("poll_option_id")]

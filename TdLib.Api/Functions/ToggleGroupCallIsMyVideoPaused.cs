@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Toggles whether current user's video is paused
+    /// Toggles whether the current user's video is paused
     /// </summary>
     public class ToggleGroupCallIsMyVideoPaused : Function<Ok>
     {
@@ -46,7 +46,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Toggles whether current user's video is paused
+    /// Toggles whether the current user's video is paused
     /// </summary>
     public static Task<Ok> ToggleGroupCallIsMyVideoPausedAsync(
         this IClient client, int groupCallId = default, bool isMyVideoPaused = default)

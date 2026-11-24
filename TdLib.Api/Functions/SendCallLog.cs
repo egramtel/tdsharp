@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Sends log file for a call to Telegram servers
+    /// Sends a log file for a call to Telegram servers
     /// </summary>
     public class SendCallLog : Function<Ok>
     {
@@ -46,7 +46,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Sends log file for a call to Telegram servers
+    /// Sends a log file for a call to Telegram servers
     /// </summary>
     public static Task<Ok> SendCallLogAsync(
         this IClient client, InputCall callId = default, InputFile logFile = default)

@@ -11,7 +11,8 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Deletes all messages between the specified dates in the topic in a channel direct messages chat administered by the current user. Messages sent in the last 30 seconds will not be deleted
+    /// Deletes all messages between the specified dates in the topic in a channel direct messages chat administered by the current user.
+    /// Messages sent in the last 30 seconds will not be deleted
     /// </summary>
     public class DeleteDirectMessagesChatTopicMessagesByDate : Function<Ok>
     {
@@ -38,7 +39,7 @@ public static partial class TdApi
         public long ChatId { get; set; }
 
         /// <summary>
-        /// Identifier of the topic which messages will be deleted
+        /// Identifier of the topic whose messages will be deleted
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("topic_id")]
@@ -60,7 +61,8 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Deletes all messages between the specified dates in the topic in a channel direct messages chat administered by the current user. Messages sent in the last 30 seconds will not be deleted
+    /// Deletes all messages between the specified dates in the topic in a channel direct messages chat administered by the current user.
+    /// Messages sent in the last 30 seconds will not be deleted
     /// </summary>
     public static Task<Ok> DeleteDirectMessagesChatTopicMessagesByDateAsync(
         this IClient client, long chatId = default, long topicId = default, int minDate = default, int maxDate = default)

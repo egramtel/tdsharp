@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Informs server about an in-store purchase of Telegram Premium before authorization. Works only when the current authorization state is authorizationStateWaitPremiumPurchase
+    /// Informs the server about an in-store purchase of Telegram Premium before authorization. Works only when the current authorization state is authorizationStateWaitPremiumPurchase
     /// </summary>
     public class SetAuthenticationPremiumPurchaseTransaction : Function<Ok>
     {
@@ -38,7 +38,7 @@ public static partial class TdApi
         public StoreTransaction Transaction { get; set; }
 
         /// <summary>
-        /// Pass true if this is a restore of a Telegram Premium purchase; only for App Store
+        /// Pass true if this is a restore of a Telegram Premium purchase; only for the App Store
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("is_restore")]
@@ -67,7 +67,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Informs server about an in-store purchase of Telegram Premium before authorization. Works only when the current authorization state is authorizationStateWaitPremiumPurchase
+    /// Informs the server about an in-store purchase of Telegram Premium before authorization. Works only when the current authorization state is authorizationStateWaitPremiumPurchase
     /// </summary>
     public static Task<Ok> SetAuthenticationPremiumPurchaseTransactionAsync(
         this IClient client, StoreTransaction transaction = default, bool isRestore = default, int premiumDayCount = default, string currency = default, long amount = default)

@@ -71,21 +71,21 @@ public static partial class TdApi
             public int MaxQuantity { get; set; }
 
             /// <summary>
-            /// Pass true to request name of the users; bots only
+            /// Pass true to request the names of the users; bots only
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("request_name")]
             public bool RequestName { get; set; }
 
             /// <summary>
-            /// Pass true to request username of the users; bots only
+            /// Pass true to request the usernames of the users; bots only
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("request_username")]
             public bool RequestUsername { get; set; }
 
             /// <summary>
-            /// Pass true to request photo of the users; bots only
+            /// Pass true to request the photos of the users; bots only
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("request_photo")]

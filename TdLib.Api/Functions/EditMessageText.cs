@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Edits the text of a message (or a text of a game message). Returns the edited message after the edit is completed on the server side
+    /// Edits the text of a message (or the text of a game message). Returns the edited message after the edit is completed on the server side
     /// </summary>
     public class EditMessageText : Function<Message>
     {
@@ -52,7 +52,7 @@ public static partial class TdApi
         public ReplyMarkup ReplyMarkup { get; set; }
 
         /// <summary>
-        /// New text content of the message. Must be of type inputMessageText or inputMessageRichMessage
+        /// New text content of the message. Must be of the type inputMessageText or inputMessageRichMessage
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("input_message_content")]
@@ -60,7 +60,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Edits the text of a message (or a text of a game message). Returns the edited message after the edit is completed on the server side
+    /// Edits the text of a message (or the text of a game message). Returns the edited message after the edit is completed on the server side
     /// </summary>
     public static Task<Message> EditMessageTextAsync(
         this IClient client, long chatId = default, long messageId = default, ReplyMarkup replyMarkup = default, InputMessageContent inputMessageContent = default)

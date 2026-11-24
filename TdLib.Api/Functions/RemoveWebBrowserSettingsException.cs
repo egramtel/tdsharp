@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Removes a special handling for the opening of the specified URL
+    /// Removes special handling for the opening of the specified URL
     /// </summary>
     public class RemoveWebBrowserSettingsException : Function<Ok>
     {
@@ -39,7 +39,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Removes a special handling for the opening of the specified URL
+    /// Removes special handling for the opening of the specified URL
     /// </summary>
     public static Task<Ok> RemoveWebBrowserSettingsExceptionAsync(
         this IClient client, string url = default)

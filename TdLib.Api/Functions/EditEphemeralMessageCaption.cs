@@ -59,7 +59,7 @@ public static partial class TdApi
         public ReplyMarkup ReplyMarkup { get; set; }
 
         /// <summary>
-        /// New message content caption; pass null to remove caption; 0-getOption("message_caption_length_max") characters
+        /// New message content caption; pass null to remove the caption; 0-getOption("message_caption_length_max") characters
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("caption")]

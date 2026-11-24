@@ -29,7 +29,7 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// Currency for price of the product
+            /// Currency for the price of the product
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("currency")]

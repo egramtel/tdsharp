@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Changes the fact-check of a message. Can be only used if messageProperties.can_set_fact_check == true
+    /// Changes the fact-check of a message. Can only be used if messageProperties.can_set_fact_check == true
     /// </summary>
     public class SetMessageFactCheck : Function<Ok>
     {
@@ -53,7 +53,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Changes the fact-check of a message. Can be only used if messageProperties.can_set_fact_check == true
+    /// Changes the fact-check of a message. Can only be used if messageProperties.can_set_fact_check == true
     /// </summary>
     public static Task<Ok> SetMessageFactCheckAsync(
         this IClient client, long chatId = default, long messageId = default, FormattedText text = default)

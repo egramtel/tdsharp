@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Removes message ephemeral content and reverts message state to the original
+    /// Removes the ephemeral content of a message and reverts the message state to the original
     /// </summary>
     public class DeleteMessageEphemeralContent : Function<Ok>
     {
@@ -46,7 +46,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Removes message ephemeral content and reverts message state to the original
+    /// Removes the ephemeral content of a message and reverts the message state to the original
     /// </summary>
     public static Task<Ok> DeleteMessageEphemeralContentAsync(
         this IClient client, long chatId = default, long messageId = default)

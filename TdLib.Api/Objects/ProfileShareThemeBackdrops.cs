@@ -10,7 +10,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Contains a list of backdrops, which can be used as a background of a theme of the screen for sharing a link to a user or a chat
+    /// Contains a list of backdrops that can be used as a background of a theme of the screen for sharing a link to a user or a chat
     /// </summary>
     public partial class ProfileShareThemeBackdrops : Object
     {

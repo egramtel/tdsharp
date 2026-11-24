@@ -41,7 +41,7 @@ public static partial class TdApi
         public string Name { get; set; }
 
         /// <summary>
-        /// User identifier of an administrator created the link
+        /// User identifier of an administrator who created the link
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("creator_user_id")]
@@ -69,28 +69,28 @@ public static partial class TdApi
         public int ExpirationDate { get; set; }
 
         /// <summary>
-        /// Information about subscription plan that is applied to the users joining the chat by the link; may be null if the link doesn't require subscription
+        /// Information about the subscription plan that is applied to the users joining the chat by the link; may be null if the link doesn't require a subscription
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("subscription_pricing")]
         public StarSubscriptionPricing SubscriptionPricing { get; set; }
 
         /// <summary>
-        /// The maximum number of members, which can join the chat using the link simultaneously; 0 if not limited. Always 0 if the link requires approval
+        /// The maximum number of members who can join the chat using the link simultaneously; 0 if not limited. Always 0 if the link requires approval
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("member_limit")]
         public int MemberLimit { get; set; }
 
         /// <summary>
-        /// Number of chat members, which joined the chat using the link
+        /// Number of chat members who joined the chat using the link
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("member_count")]
         public int MemberCount { get; set; }
 
         /// <summary>
-        /// Number of chat members, which joined the chat using the link, but have already left because of expired subscription; for subscription links only
+        /// Number of chat members who joined the chat using the link, but have already left because of an expired subscription; for subscription links only
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("expired_member_count")]
@@ -104,14 +104,15 @@ public static partial class TdApi
         public int PendingJoinRequestCount { get; set; }
 
         /// <summary>
-        /// True, if the link only creates join request. If true, total number of joining members will be unlimited
+        /// True, if the link only creates a join request. If true, the total number of joining members will be unlimited
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("creates_join_request")]
         public bool CreatesJoinRequest { get; set; }
 
         /// <summary>
-        /// True, if the link is primary. Primary invite link can't have name, expiration date, or usage limit. Primary link can create join requests only if this is set up using toggleSupergroupJoinByRequest.
+        /// True, if the link is primary. A primary invite link can't have a name, expiration date, or usage limit.
+        /// A primary link can create join requests only if this is set up using toggleSupergroupJoinByRequest.
         /// There is exactly one primary invite link for each administrator with can_invite_users right at a given time
         /// </summary>
         [JsonConverter(typeof(Converter))]

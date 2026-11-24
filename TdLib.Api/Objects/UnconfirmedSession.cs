@@ -34,7 +34,7 @@ public static partial class TdApi
         public SessionType Type { get; set; }
 
         /// <summary>
-        /// Point in time (Unix timestamp) when the user has logged in or the business bot was connected
+        /// Point in time (Unix timestamp) when the user logged in or the business bot was connected
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("date")]

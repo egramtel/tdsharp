@@ -76,42 +76,42 @@ public static partial class TdApi
         public LinkPreviewType Type { get; set; }
 
         /// <summary>
-        /// True, if size of media in the preview can be changed
+        /// True, if the size of media in the preview can be changed
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("has_large_media")]
         public bool HasLargeMedia { get; set; }
 
         /// <summary>
-        /// True, if large media preview must be shown; otherwise, the media preview must be shown small and only the first frame must be shown for videos
+        /// True, if a large media preview must be shown; otherwise, the media preview must be shown small and only the first frame must be shown for videos
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("show_large_media")]
         public bool ShowLargeMedia { get; set; }
 
         /// <summary>
-        /// True, if media must be shown above link preview description; otherwise, the media must be shown below the description
+        /// True, if media must be shown above the link preview description; otherwise, the media must be shown below the description
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("show_media_above_description")]
         public bool ShowMediaAboveDescription { get; set; }
 
         /// <summary>
-        /// True, if there is no need to show an ordinary open URL confirmation, when opening the URL from the preview, because the URL is shown in the message text in clear
+        /// True, if there is no need to show an ordinary open URL confirmation when opening the URL from the preview, because the URL is shown in the message text in clear
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("skip_confirmation")]
         public bool SkipConfirmation { get; set; }
 
         /// <summary>
-        /// True, if the link preview must be shown above message text; otherwise, the link preview must be shown below the message text
+        /// True, if the link preview must be shown above the message text; otherwise, the link preview must be shown below the message text
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("show_above_text")]
         public bool ShowAboveText { get; set; }
 
         /// <summary>
-        /// Version of instant view (currently, can be 1 or 2) for the web page; 0 if none
+        /// Version of the instant view (currently, can be 1 or 2) for the web page; 0 if none
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("instant_view_version")]

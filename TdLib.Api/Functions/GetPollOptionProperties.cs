@@ -45,7 +45,7 @@ public static partial class TdApi
         public long MessageId { get; set; }
 
         /// <summary>
-        /// Unique identifier of the answer option, which properties will be returned
+        /// Unique identifier of the answer option whose properties will be returned
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("poll_option_id")]

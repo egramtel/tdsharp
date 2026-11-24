@@ -45,7 +45,7 @@ public static partial class TdApi
         public bool IsDisconnected { get; set; }
 
         /// <summary>
-        /// If the call was upgraded to a group call, pass invite link to the group call
+        /// If the call was upgraded to a group call, pass the invite link to the group call
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("invite_link")]

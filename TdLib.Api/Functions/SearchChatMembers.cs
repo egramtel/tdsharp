@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Searches for a specified query in the first name, last name and usernames of the members of a specified chat. Requires administrator rights if the chat is a channel
+    /// Searches for a specified query in the first name, last name, and usernames of the members of a specified chat. Requires administrator rights if the chat is a channel
     /// </summary>
     public class SearchChatMembers : Function<ChatMembers>
     {
@@ -60,7 +60,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Searches for a specified query in the first name, last name and usernames of the members of a specified chat. Requires administrator rights if the chat is a channel
+    /// Searches for a specified query in the first name, last name, and usernames of the members of a specified chat. Requires administrator rights if the chat is a channel
     /// </summary>
     public static Task<ChatMembers> SearchChatMembersAsync(
         this IClient client, long chatId = default, string query = default, int limit = default, ChatMembersFilter filter = default)

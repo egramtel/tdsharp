@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class TextEntityType : Object
     {
         /// <summary>
-        /// Represents a part of the text which must be formatted differently
+        /// Represents a part of the text that must be formatted differently
         /// </summary>
         public class TextEntityTypeMention : TextEntityType
         {

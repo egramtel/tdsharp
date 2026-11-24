@@ -36,14 +36,14 @@ public static partial class TdApi
             public string PublishableKey { get; set; }
 
             /// <summary>
-            /// True, if the user country must be provided
+            /// True, if the user's country must be provided
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("need_country")]
             public bool NeedCountry { get; set; }
 
             /// <summary>
-            /// True, if the user ZIP/postal code must be provided
+            /// True, if the user's ZIP/postal code must be provided
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("need_postal_code")]

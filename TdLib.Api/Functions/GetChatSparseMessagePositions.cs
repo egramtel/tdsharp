@@ -11,8 +11,9 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns sparse positions of messages of the specified type in the chat to be used for Shared Media scroll implementation. Returns the results in reverse chronological order (i.e., in order of decreasing message_id).
-    /// Cannot be used in secret chats or with searchMessagesFilterFailedToSend filter without an enabled message database
+    /// Returns sparse positions of messages of the specified type in the chat to be used for Shared Media scroll implementation.
+    /// Returns the results in reverse chronological order (i.e., in order of decreasing message_id).
+    /// Cannot be used in secret chats or with the searchMessagesFilterFailedToSend filter without an enabled message database
     /// </summary>
     public class GetChatSparseMessagePositions : Function<MessagePositions>
     {
@@ -54,7 +55,7 @@ public static partial class TdApi
         public long FromMessageId { get; set; }
 
         /// <summary>
-        /// The expected number of message positions to be returned; 50-2000. A smaller number of positions can be returned, if there are not enough appropriate messages
+        /// The expected number of message positions to be returned; 50-2000. A smaller number of positions can be returned if there are not enough appropriate messages
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("limit")]
@@ -69,8 +70,9 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns sparse positions of messages of the specified type in the chat to be used for Shared Media scroll implementation. Returns the results in reverse chronological order (i.e., in order of decreasing message_id).
-    /// Cannot be used in secret chats or with searchMessagesFilterFailedToSend filter without an enabled message database
+    /// Returns sparse positions of messages of the specified type in the chat to be used for Shared Media scroll implementation.
+    /// Returns the results in reverse chronological order (i.e., in order of decreasing message_id).
+    /// Cannot be used in secret chats or with the searchMessagesFilterFailedToSend filter without an enabled message database
     /// </summary>
     public static Task<MessagePositions> GetChatSparseMessagePositionsAsync(
         this IClient client, long chatId = default, SearchMessagesFilter filter = default, long fromMessageId = default, int limit = default, long savedMessagesTopicId = default)

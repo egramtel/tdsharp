@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Deletes default background for chats
+    /// Deletes the default background for chats
     /// </summary>
     public class DeleteDefaultBackground : Function<Ok>
     {
@@ -39,7 +39,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Deletes default background for chats
+    /// Deletes the default background for chats
     /// </summary>
     public static Task<Ok> DeleteDefaultBackgroundAsync(
         this IClient client, bool forDarkTheme = default)

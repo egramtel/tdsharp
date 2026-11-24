@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class Update : Object
     {
         /// <summary>
-        /// Information about suggested post of a message was changed
+        /// Information about the suggested post of a message was changed
         /// </summary>
         public class UpdateMessageSuggestedPostInfo : Update
         {

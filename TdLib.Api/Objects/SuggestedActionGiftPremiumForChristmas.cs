@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class SuggestedAction : Object
     {
         /// <summary>
-        /// Suggests the user to gift Telegram Premium to friends for Christmas
+        /// Suggests that the user gift Telegram Premium to friends for Christmas
         /// </summary>
         public class SuggestedActionGiftPremiumForChristmas : SuggestedAction
         {

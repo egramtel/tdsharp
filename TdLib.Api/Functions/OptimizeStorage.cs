@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Optimizes storage usage, i.e. deletes some files and returns new storage usage statistics. Secret thumbnails can't be deleted
+    /// Optimizes storage usage, i.e., deletes some files and returns new storage usage statistics. Secret thumbnails can't be deleted
     /// </summary>
     public class OptimizeStorage : Function<StorageStatistics>
     {
@@ -59,7 +59,7 @@ public static partial class TdApi
         public int ImmunityDelay { get; set; }
 
         /// <summary>
-        /// If non-empty, only files with the given types are considered. By default, all types except thumbnails, profile photos, stickers and wallpapers are deleted
+        /// If non-empty, only files with the given types are considered. By default, all types except thumbnails, profile photos, stickers, and wallpapers are deleted
         /// </summary>
         [JsonProperty("file_types", ItemConverterType = typeof(Converter))]
         public FileType[] FileTypes { get; set; }
@@ -92,7 +92,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Optimizes storage usage, i.e. deletes some files and returns new storage usage statistics. Secret thumbnails can't be deleted
+    /// Optimizes storage usage, i.e., deletes some files and returns new storage usage statistics. Secret thumbnails can't be deleted
     /// </summary>
     public static Task<StorageStatistics> OptimizeStorageAsync(
         this IClient client, long size = default, int ttl = default, int count = default, int immunityDelay = default, FileType[] fileTypes = default, long[] chatIds = default, long[] excludeChatIds = default, bool returnDeletedFileStatistics = default, int chatLimit = default)

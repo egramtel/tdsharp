@@ -85,7 +85,7 @@ public static partial class TdApi
             public long CryptocurrencyAmount { get; set; }
 
             /// <summary>
-            /// Number of months the Telegram Premium subscription will be active after code activation; 0 if the number of months isn't integer
+            /// Number of months the Telegram Premium subscription will be active after code activation; 0 if the number of months isn't an integer
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("month_count")]

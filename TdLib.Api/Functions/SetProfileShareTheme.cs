@@ -32,7 +32,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Identifier of the chat with the current user, or identifier of a supergroup or a channel chat
+        /// Identifier of the chat with the current user, or an identifier of a supergroup or a channel chat
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("chat_id")]

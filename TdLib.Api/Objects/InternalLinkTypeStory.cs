@@ -12,7 +12,8 @@ public static partial class TdApi
     public partial class InternalLinkType : Object
     {
         /// <summary>
-        /// The link is a link to a story. Call searchPublicChat with the given poster username, then call getStory with the received chat identifier and the given story identifier, then show the story if received
+        /// The link is a link to a story.
+        /// Call searchPublicChat with the given poster username, then call getStory with the received chat identifier and the given story identifier, then show the story if received
         /// </summary>
         public class InternalLinkTypeStory : InternalLinkType
         {

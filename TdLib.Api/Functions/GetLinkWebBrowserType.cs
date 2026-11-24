@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns a type of the web browser which must be used to open the link
+    /// Returns the type of the web browser that must be used to open the link
     /// </summary>
     public class GetLinkWebBrowserType : Function<WebBrowserType>
     {
@@ -39,7 +39,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns a type of the web browser which must be used to open the link
+    /// Returns the type of the web browser that must be used to open the link
     /// </summary>
     public static Task<WebBrowserType> GetLinkWebBrowserTypeAsync(
         this IClient client, string link = default)

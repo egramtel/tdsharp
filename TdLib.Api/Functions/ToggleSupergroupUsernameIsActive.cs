@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Changes active state for a username of a supergroup or channel, requires owner privileges in the supergroup or channel. The editable username can't be disabled.
+    /// Changes the active state for a username of a supergroup or channel; requires owner privileges in the supergroup or channel. The editable username can't be disabled.
     /// May return an error with a message "USERNAMES_ACTIVE_TOO_MUCH" if the maximum number of active usernames has been reached
     /// </summary>
     public class ToggleSupergroupUsernameIsActive : Function<Ok>
@@ -54,7 +54,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Changes active state for a username of a supergroup or channel, requires owner privileges in the supergroup or channel. The editable username can't be disabled.
+    /// Changes the active state for a username of a supergroup or channel; requires owner privileges in the supergroup or channel. The editable username can't be disabled.
     /// May return an error with a message "USERNAMES_ACTIVE_TOO_MUCH" if the maximum number of active usernames has been reached
     /// </summary>
     public static Task<Ok> ToggleSupergroupUsernameIsActiveAsync(

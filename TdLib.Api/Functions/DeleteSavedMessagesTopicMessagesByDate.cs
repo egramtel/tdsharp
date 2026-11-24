@@ -31,7 +31,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Identifier of Saved Messages topic which messages will be deleted
+        /// Identifier of the Saved Messages topic whose messages will be deleted
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("saved_messages_topic_id")]

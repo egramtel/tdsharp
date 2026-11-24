@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class Update : Object
     {
         /// <summary>
-        /// Subscription of a user to the bot was changed; for bots only
+        /// The subscription of a user to the bot was changed; for bots only
         /// </summary>
         public class UpdateUserSubscription : Update
         {

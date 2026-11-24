@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Cancels reset of 2-step verification password. The method can be called if passwordState.pending_reset_date &gt; 0
+    /// Cancels the reset of the 2-step verification password. The method can be called if passwordState.pending_reset_date &gt; 0
     /// </summary>
     public class CancelPasswordReset : Function<Ok>
     {
@@ -34,7 +34,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Cancels reset of 2-step verification password. The method can be called if passwordState.pending_reset_date &gt; 0
+    /// Cancels the reset of the 2-step verification password. The method can be called if passwordState.pending_reset_date &gt; 0
     /// </summary>
     public static Task<Ok> CancelPasswordResetAsync(
         this IClient client)

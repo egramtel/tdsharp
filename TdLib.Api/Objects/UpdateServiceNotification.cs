@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class Update : Object
     {
         /// <summary>
-        /// A service notification from the server was received. Upon receiving this the application must show a popup with the content of the notification
+        /// A service notification from the server was received. Upon receiving this, the application must show a popup with the content of the notification
         /// </summary>
         public class UpdateServiceNotification : Update
         {
@@ -29,7 +29,8 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// Notification type. If type begins with "AUTH_KEY_DROP_", then two buttons "Cancel" and "Log out" must be shown under notification; if user presses the second, all local data must be destroyed using Destroy method
+            /// Notification type. If the type begins with "AUTH_KEY_DROP_", then two buttons "Cancel" and "Log out" must be shown under the notification;
+            /// if the user presses the second, all local data must be destroyed using the Destroy method
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("type")]

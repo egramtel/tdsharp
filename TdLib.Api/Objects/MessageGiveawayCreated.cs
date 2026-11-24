@@ -12,7 +12,8 @@ public static partial class TdApi
     public partial class MessageContent : Object
     {
         /// <summary>
-        /// A giveaway was created for the chat. Use telegramPaymentPurposePremiumGiveaway, storePaymentPurposePremiumGiveaway, telegramPaymentPurposeStarGiveaway, or storePaymentPurposeStarGiveaway to create a giveaway
+        /// A giveaway was created for the chat.
+        /// Use telegramPaymentPurposePremiumGiveaway, storePaymentPurposePremiumGiveaway, telegramPaymentPurposeStarGiveaway, or storePaymentPurposeStarGiveaway to create a giveaway
         /// </summary>
         public class MessageGiveawayCreated : MessageContent
         {

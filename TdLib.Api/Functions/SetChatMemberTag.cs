@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Changes the tag or custom title of a chat member; requires can_manage_tags administrator right to change tag of other users; for basic groups and supergroups only
+    /// Changes the tag or custom title of a chat member; requires can_manage_tags administrator right to change the tag of other users; for basic groups and supergroups only
     /// </summary>
     public class SetChatMemberTag : Function<Ok>
     {
@@ -53,7 +53,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Changes the tag or custom title of a chat member; requires can_manage_tags administrator right to change tag of other users; for basic groups and supergroups only
+    /// Changes the tag or custom title of a chat member; requires can_manage_tags administrator right to change the tag of other users; for basic groups and supergroups only
     /// </summary>
     public static Task<Ok> SetChatMemberTagAsync(
         this IClient client, long chatId = default, long userId = default, string tag = default)

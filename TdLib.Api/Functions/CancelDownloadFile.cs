@@ -38,7 +38,7 @@ public static partial class TdApi
         public int FileId { get; set; }
 
         /// <summary>
-        /// Pass true to stop downloading only if it hasn't been started, i.e. request hasn't been sent to server
+        /// Pass true to stop downloading only if it hasn't been started, i.e., the request hasn't been sent to the server
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("only_if_pending")]

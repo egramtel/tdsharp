@@ -10,7 +10,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Contains a list of users and chats that spend most money on paid messages and reactions in a live story
+    /// Contains a list of users and chats that spend the most money on paid messages and reactions in a live story
     /// </summary>
     public partial class LiveStoryDonors : Object
     {

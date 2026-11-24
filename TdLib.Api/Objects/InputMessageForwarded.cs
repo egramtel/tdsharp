@@ -50,7 +50,7 @@ public static partial class TdApi
             public bool InGameShare { get; set; }
 
             /// <summary>
-            /// Pass true to replace video start timestamp in the forwarded message
+            /// Pass true to replace the video start timestamp in the forwarded message
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("replace_video_start_timestamp")]
@@ -64,7 +64,7 @@ public static partial class TdApi
             public int NewVideoStartTimestamp { get; set; }
 
             /// <summary>
-            /// Options to be used to copy content of the message without reference to the original sender; pass null to forward the message as usual
+            /// Options to be used to copy the content of the message without reference to the original sender; pass null to forward the message as usual
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("copy_options")]

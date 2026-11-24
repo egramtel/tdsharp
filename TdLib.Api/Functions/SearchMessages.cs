@@ -46,7 +46,7 @@ public static partial class TdApi
         public string Query { get; set; }
 
         /// <summary>
-        /// Offset of the first entry to return as received from the previous request; use empty string to get the first chunk of results
+        /// Offset of the first entry to return as received from the previous request; use an empty string to get the first chunk of results
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("offset")]
@@ -68,7 +68,7 @@ public static partial class TdApi
         public SearchMessagesFilter Filter { get; set; }
 
         /// <summary>
-        /// Additional filter for type of the chat of the searched messages; pass null to search for messages in all chats
+        /// Additional filter for the type of the chat of the searched messages; pass null to search for messages in all chats
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("chat_type_filter")]

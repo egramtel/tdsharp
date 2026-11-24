@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class ChatRevenueTransactionType : Object
     {
         /// <summary>
-        /// Describes a refund for failed withdrawal of earnings through Fragment
+        /// Describes a refund for a failed withdrawal of earnings through Fragment
         /// </summary>
         public class ChatRevenueTransactionTypeFragmentRefund : ChatRevenueTransactionType
         {

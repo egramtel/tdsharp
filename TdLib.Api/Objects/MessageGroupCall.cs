@@ -13,7 +13,7 @@ public static partial class TdApi
     {
         /// <summary>
         /// A message with information about a group call not bound to a chat. If the message is incoming, the call isn't active, isn't missed, and has no duration,
-        /// and getOption("can_accept_calls") is true, then incoming call screen must be shown to the user. Use getGroupCallParticipants to show current group call participants on the screen.
+        /// and getOption("can_accept_calls") is true, then the incoming call screen must be shown to the user. Use getGroupCallParticipants to show current group call participants on the screen.
         /// Use joinGroupCall to accept the call or declineGroupCallInvitation to decline it. If the call becomes active or missed, then the call screen must be hidden
         /// </summary>
         public class MessageGroupCall : MessageContent
@@ -38,7 +38,7 @@ public static partial class TdApi
             public long UniqueId { get; set; }
 
             /// <summary>
-            /// True, if the call is active, i.e. the called user joined the call
+            /// True, if the call is active, i.e., the called user joined the call
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_active")]

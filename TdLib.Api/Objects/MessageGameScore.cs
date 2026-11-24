@@ -29,7 +29,7 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// Identifier of the message with the game, can be an identifier of a deleted message
+            /// Identifier of the message with the game; can be an identifier of a deleted message
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("game_message_id")]

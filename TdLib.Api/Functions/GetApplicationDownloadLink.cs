@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns the link for downloading official Telegram application to be used when the current user invites friends to Telegram
+    /// Returns the link for downloading the official Telegram application to be used when the current user invites friends to Telegram
     /// </summary>
     public class GetApplicationDownloadLink : Function<HttpUrl>
     {
@@ -34,7 +34,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns the link for downloading official Telegram application to be used when the current user invites friends to Telegram
+    /// Returns the link for downloading the official Telegram application to be used when the current user invites friends to Telegram
     /// </summary>
     public static Task<HttpUrl> GetApplicationDownloadLinkAsync(
         this IClient client)

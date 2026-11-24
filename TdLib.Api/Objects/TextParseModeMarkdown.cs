@@ -29,7 +29,7 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// Version of the parser: 0 or 1 - Telegram Bot API "Markdown" parse mode, 2 - Telegram Bot API "MarkdownV2" parse mode
+            /// Version of the parser: 0 or 1 for the Telegram Bot API "Markdown" parse mode; 2 for the Telegram Bot API "MarkdownV2" parse mode
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("version")]

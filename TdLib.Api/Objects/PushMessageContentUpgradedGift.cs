@@ -29,14 +29,14 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// True, if the gift was obtained by upgrading of a previously received gift; otherwise, if is_prepaid_upgrade == false, then this is a transferred or resold gift
+            /// True, if the gift was obtained by upgrading a previously received gift; otherwise, if is_prepaid_upgrade == false, then this is a transferred or resold gift
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_upgrade")]
             public bool IsUpgrade { get; set; }
 
             /// <summary>
-            /// True, if the message is about completion of prepaid upgrade of the gift instead of actual receiving of a new gift
+            /// True, if the message is about the completion of a prepaid upgrade of the gift instead of the actual receipt of a new gift
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_prepaid_upgrade")]

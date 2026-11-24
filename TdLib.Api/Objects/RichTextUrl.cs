@@ -43,7 +43,7 @@ public static partial class TdApi
             public string Url { get; set; }
 
             /// <summary>
-            /// True, if the URL has cached instant view server-side; instant view only
+            /// True, if the URL has a cached instant view server-side; instant view only
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_cached")]

@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns 1-3 most probable languages of speech in voice notes
+    /// Returns the 1-3 most probable languages of speech in voice notes
     /// </summary>
     public class GetSpeechRecognitionLanguages : Function<SpeechRecognitionLanguages>
     {
@@ -39,7 +39,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns 1-3 most probable languages of speech in voice notes
+    /// Returns the 1-3 most probable languages of speech in voice notes
     /// </summary>
     public static Task<SpeechRecognitionLanguages> GetSpeechRecognitionLanguagesAsync(
         this IClient client, long chatId = default)

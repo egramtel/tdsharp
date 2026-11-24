@@ -29,7 +29,7 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// Previous identifier of chat's profile accent color; -1 if none
+            /// Previous identifier of the chat's profile accent color; -1 if none
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("old_profile_accent_color_id")]
@@ -43,7 +43,7 @@ public static partial class TdApi
             public long OldProfileBackgroundCustomEmojiId { get; set; }
 
             /// <summary>
-            /// New identifier of chat's profile accent color; -1 if none
+            /// New identifier of the chat's profile accent color; -1 if none
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("new_profile_accent_color_id")]

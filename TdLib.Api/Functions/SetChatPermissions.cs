@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Changes the chat members permissions. Supported only for basic groups and supergroups. Requires can_restrict_members administrator right
+    /// Changes the chat members' permissions. Supported only for basic groups and supergroups. Requires can_restrict_members administrator right
     /// </summary>
     public class SetChatPermissions : Function<Ok>
     {
@@ -38,7 +38,7 @@ public static partial class TdApi
         public long ChatId { get; set; }
 
         /// <summary>
-        /// New non-administrator members permissions in the chat
+        /// New non-administrator members' permissions in the chat
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("permissions")]
@@ -46,7 +46,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Changes the chat members permissions. Supported only for basic groups and supergroups. Requires can_restrict_members administrator right
+    /// Changes the chat members' permissions. Supported only for basic groups and supergroups. Requires can_restrict_members administrator right
     /// </summary>
     public static Task<Ok> SetChatPermissionsAsync(
         this IClient client, long chatId = default, ChatPermissions permissions = default)

@@ -36,7 +36,7 @@ public static partial class TdApi
             public int GroupCallId { get; set; }
 
             /// <summary>
-            /// The call state generation to which the emoji corresponds. If generation is different for two users, then their emoji may be also different
+            /// The call state generation to which the emoji corresponds. If the generation is different for two users, then their emoji may also be different
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("generation")]

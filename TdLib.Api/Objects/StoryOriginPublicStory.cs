@@ -29,7 +29,7 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// Identifier of the chat that posted original story
+            /// Identifier of the chat that posted the original story
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_id")]

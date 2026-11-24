@@ -10,7 +10,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Represents a list of message senders, which can be used to send messages in a chat
+    /// Represents a list of message senders that can be used to send messages in a chat
     /// </summary>
     public partial class ChatMessageSenders : Object
     {

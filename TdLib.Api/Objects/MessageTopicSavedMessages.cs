@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class MessageTopic : Object
     {
         /// <summary>
-        /// A topic in Saved Messages chat
+        /// A topic in the Saved Messages chat
         /// </summary>
         public class MessageTopicSavedMessages : MessageTopic
         {

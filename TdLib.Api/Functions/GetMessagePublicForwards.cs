@@ -46,14 +46,15 @@ public static partial class TdApi
         public long MessageId { get; set; }
 
         /// <summary>
-        /// Offset of the first entry to return as received from the previous request; use empty string to get the first chunk of results
+        /// Offset of the first entry to return as received from the previous request; use an empty string to get the first chunk of results
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("offset")]
         public string Offset { get; set; }
 
         /// <summary>
-        /// The maximum number of messages and stories to be returned; must be positive and can't be greater than 100. For optimal performance, the number of returned objects is chosen by TDLib and can be smaller than the specified limit
+        /// The maximum number of messages and stories to be returned; must be positive and can't be greater than 100.
+        /// For optimal performance, the number of returned objects is chosen by TDLib and can be smaller than the specified limit
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("limit")]

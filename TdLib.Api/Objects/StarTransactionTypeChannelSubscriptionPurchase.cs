@@ -36,7 +36,7 @@ public static partial class TdApi
             public long ChatId { get; set; }
 
             /// <summary>
-            /// The number of seconds between consecutive Telegram Star debitings
+            /// The number of seconds between consecutive Telegram Star debits
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("subscription_period")]

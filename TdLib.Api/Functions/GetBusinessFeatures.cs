@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns information about features, available to Business users
+    /// Returns information about features available to Business users
     /// </summary>
     public class GetBusinessFeatures : Function<BusinessFeatures>
     {
@@ -39,7 +39,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns information about features, available to Business users
+    /// Returns information about features available to Business users
     /// </summary>
     public static Task<BusinessFeatures> GetBusinessFeaturesAsync(
         this IClient client, BusinessFeature source = default)

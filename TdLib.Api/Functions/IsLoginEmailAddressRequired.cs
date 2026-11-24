@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Checks whether the current user is required to set login email address
+    /// Checks whether the current user is required to set a login email address
     /// </summary>
     public class IsLoginEmailAddressRequired : Function<Ok>
     {
@@ -34,7 +34,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Checks whether the current user is required to set login email address
+    /// Checks whether the current user is required to set a login email address
     /// </summary>
     public static Task<Ok> IsLoginEmailAddressRequiredAsync(
         this IClient client)

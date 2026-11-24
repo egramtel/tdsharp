@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns upgraded gifts that can be bought from other owners using sendResoldGift
+    /// Returns upgraded gifts that can be bought from other owners using sendResoldGift or getGiftOnChainPurchaseTransaction
     /// </summary>
     public class SearchGiftsForResale : Function<GiftsForResale>
     {
@@ -52,21 +52,39 @@ public static partial class TdApi
         public bool ForCrafting { get; set; }
 
         /// <summary>
-        /// Pass true to get only gifts that can be bought using Telegram Stars
+        /// Pass true to get gifts that can be bought using Telegram Stars.
+        /// If none of for_stars, for_grams, and for_fragment is true, then gifts that can be bought using Telegram Stars or TON Grams are returned, except gifts sold on-chain.
+        /// The filter must be shown only if getOption("show_gift_resale_star_filter") is true and must be selected by default if getOption("select_gift_resale_star_filter_by_default") is true
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("for_stars")]
         public bool ForStars { get; set; }
 
         /// <summary>
-        /// Attributes used to filter received gifts. If multiple attributes of the same type are specified, then all of them are allowed.
-        /// If none attributes of specific type are specified, then all values for this attribute type are allowed
+        /// Pass true to get gifts that can be bought using TON Grams, including gifts sold on-chain using a fixed-price sale contract if getOption("can_buy_on_chain_fixed_price_gifts") is true.
+        /// The filter must be shown only if getOption("show_gift_resale_gram_filter") is true and must be selected by default if getOption("select_gift_resale_gram_filter_by_default") is true
+        /// </summary>
+        [JsonConverter(typeof(Converter))]
+        [JsonProperty("for_grams")]
+        public bool ForGrams { get; set; }
+
+        /// <summary>
+        /// Pass true to get gifts sold on-chain on Fragment; may be true only if getOption("can_buy_on_chain_gifts") is true.
+        /// Must be false if for_crafting is true or if the gift will be bought for another user or a channel chat
+        /// </summary>
+        [JsonConverter(typeof(Converter))]
+        [JsonProperty("for_fragment")]
+        public bool ForFragment { get; set; }
+
+        /// <summary>
+        /// Attributes used to filter gifts. If multiple attributes of the same type are specified, then all of them are allowed.
+        /// If no attributes of a specific type are specified, then all values for this attribute type are allowed
         /// </summary>
         [JsonProperty("attributes", ItemConverterType = typeof(Converter))]
         public UpgradedGiftAttributeId[] Attributes { get; set; }
 
         /// <summary>
-        /// Offset of the first entry to return as received from the previous request with the same order and attributes; use empty string to get the first chunk of results
+        /// Offset of the first entry to return as received from the previous request with the same order and attributes; use an empty string to get the first chunk of results
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("offset")]
@@ -81,14 +99,14 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns upgraded gifts that can be bought from other owners using sendResoldGift
+    /// Returns upgraded gifts that can be bought from other owners using sendResoldGift or getGiftOnChainPurchaseTransaction
     /// </summary>
     public static Task<GiftsForResale> SearchGiftsForResaleAsync(
-        this IClient client, long giftId = default, GiftForResaleOrder order = default, bool forCrafting = default, bool forStars = default, UpgradedGiftAttributeId[] attributes = default, string offset = default, int limit = default)
+        this IClient client, long giftId = default, GiftForResaleOrder order = default, bool forCrafting = default, bool forStars = default, bool forGrams = default, bool forFragment = default, UpgradedGiftAttributeId[] attributes = default, string offset = default, int limit = default)
     {
         return client.ExecuteAsync(new SearchGiftsForResale
         {
-            GiftId = giftId, Order = order, ForCrafting = forCrafting, ForStars = forStars, Attributes = attributes, Offset = offset, Limit = limit
+            GiftId = giftId, Order = order, ForCrafting = forCrafting, ForStars = forStars, ForGrams = forGrams, ForFragment = forFragment, Attributes = attributes, Offset = offset, Limit = limit
         });
     }
 }

@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class PremiumLimitType : Object
     {
         /// <summary>
-        /// The maximum number of pinned and always included, or always excluded chats in a chat folder
+        /// The maximum number of pinned and always included or always excluded chats in a chat folder
         /// </summary>
         public class PremiumLimitTypeChatFolderChosenChatCount : PremiumLimitType
         {

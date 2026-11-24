@@ -10,7 +10,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Contains information about value of an upgraded gift
+    /// Contains information about the value of an upgraded gift
     /// </summary>
     public partial class UpgradedGiftValueInfo : Object
     {
@@ -34,14 +34,14 @@ public static partial class TdApi
         public string Currency { get; set; }
 
         /// <summary>
-        /// Estimated value of the gift; in the smallest units of the currency
+        /// Estimated value of the gift, in the smallest units of the currency
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("value")]
         public long Value { get; set; }
 
         /// <summary>
-        /// True, if the value is calculated as average value of similar sold gifts. Otherwise, it is based on the sale price of the gift
+        /// True, if the value is calculated as the average value of similar sold gifts. Otherwise, it is based on the sale price of the gift
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("is_value_average")]
@@ -62,21 +62,21 @@ public static partial class TdApi
         public long InitialSaleStarCount { get; set; }
 
         /// <summary>
-        /// Initial price of the gift; in the smallest units of the currency
+        /// Initial price of the gift, in the smallest units of the currency
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("initial_sale_price")]
         public long InitialSalePrice { get; set; }
 
         /// <summary>
-        /// Point in time (Unix timestamp) when the upgraded gift was purchased last time; 0 if never
+        /// Point in time (Unix timestamp) when the upgraded gift was last purchased; 0 if never
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("last_sale_date")]
         public int LastSaleDate { get; set; }
 
         /// <summary>
-        /// Last purchase price of the gift; in the smallest units of the currency; 0 if the gift has never been resold
+        /// Last purchase price of the gift, in the smallest units of the currency; 0 if the gift has never been resold
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("last_sale_price")]
@@ -90,14 +90,14 @@ public static partial class TdApi
         public bool IsLastSaleOnFragment { get; set; }
 
         /// <summary>
-        /// The current minimum price of gifts upgraded from the same gift; in the smallest units of the currency; 0 if there are no such gifts
+        /// The current minimum price of gifts upgraded from the same gift, in the smallest units of the currency; 0 if there are no such gifts
         /// </summary>
         [JsonConverter(typeof(Converter))]
-        [JsonProperty("minimum_price")]
-        public long MinimumPrice { get; set; }
+        [JsonProperty("min_price")]
+        public long MinPrice { get; set; }
 
         /// <summary>
-        /// The average sale price in the last month of gifts upgraded from the same gift; in the smallest units of the currency; 0 if there were no such sales
+        /// The average sale price in the last month of gifts upgraded from the same gift, in the smallest units of the currency; 0 if there were no such sales
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("average_sale_price")]
@@ -118,7 +118,7 @@ public static partial class TdApi
         public int FragmentListedGiftCount { get; set; }
 
         /// <summary>
-        /// The HTTPS link to the Fragment for the gift; may be empty if there are no such gifts being sold on Fragment
+        /// The HTTPS link to Fragment for the gift; may be empty if there are no such gifts being sold on Fragment
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("fragment_url")]

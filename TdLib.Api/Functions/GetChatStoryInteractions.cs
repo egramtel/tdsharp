@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns interactions with a story posted in a chat. Can be used only if story is posted on behalf of a chat and the user is an administrator in the chat
+    /// Returns interactions with a story posted in a chat. Can be used only if the story is posted on behalf of a chat and the user is an administrator in the chat
     /// </summary>
     public class GetChatStoryInteractions : Function<StoryInteractions>
     {
@@ -45,7 +45,8 @@ public static partial class TdApi
         public int StoryId { get; set; }
 
         /// <summary>
-        /// Pass the default heart reaction or a suggested reaction type to receive only interactions with the specified reaction type; pass null to receive all interactions; reactionTypePaid isn't supported
+        /// Pass the default heart reaction or a suggested reaction type to receive only interactions with the specified reaction type; pass null to receive all interactions;
+        /// reactionTypePaid isn't supported
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("reaction_type")]
@@ -59,7 +60,7 @@ public static partial class TdApi
         public bool PreferForwards { get; set; }
 
         /// <summary>
-        /// Offset of the first entry to return as received from the previous request; use empty string to get the first chunk of results
+        /// Offset of the first entry to return as received from the previous request; use an empty string to get the first chunk of results
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("offset")]
@@ -74,7 +75,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns interactions with a story posted in a chat. Can be used only if story is posted on behalf of a chat and the user is an administrator in the chat
+    /// Returns interactions with a story posted in a chat. Can be used only if the story is posted on behalf of a chat and the user is an administrator in the chat
     /// </summary>
     public static Task<StoryInteractions> GetChatStoryInteractionsAsync(
         this IClient client, long storyPosterChatId = default, int storyId = default, ReactionType reactionType = default, bool preferForwards = default, string offset = default, int limit = default)

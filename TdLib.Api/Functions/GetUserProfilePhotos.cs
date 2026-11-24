@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns the profile photos of a user. Personal and public photo aren't returned
+    /// Returns the profile photos of a user. Personal and public photos aren't returned
     /// </summary>
     public class GetUserProfilePhotos : Function<ChatPhotos>
     {
@@ -53,7 +53,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns the profile photos of a user. Personal and public photo aren't returned
+    /// Returns the profile photos of a user. Personal and public photos aren't returned
     /// </summary>
     public static Task<ChatPhotos> GetUserProfilePhotosAsync(
         this IClient client, long userId = default, int offset = default, int limit = default)

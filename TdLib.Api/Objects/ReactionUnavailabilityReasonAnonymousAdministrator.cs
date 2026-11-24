@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class ReactionUnavailabilityReason : Object
     {
         /// <summary>
-        /// Describes why the current user can't add reactions to the message, despite some other users can
+        /// Describes why the current user can't add reactions to the message, even though some other users can
         /// </summary>
         public class ReactionUnavailabilityReasonAnonymousAdministrator : ReactionUnavailabilityReason
         {

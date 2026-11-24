@@ -36,7 +36,7 @@ public static partial class TdApi
             public long SuggestedPostMessageId { get; set; }
 
             /// <summary>
-            /// Reason of the refund
+            /// Reason for the refund
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("reason")]

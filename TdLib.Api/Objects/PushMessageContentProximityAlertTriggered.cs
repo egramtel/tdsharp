@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class PushMessageContent : Object
     {
         /// <summary>
-        /// A user in the chat came within proximity alert range from the current user
+        /// A user in the chat came within the proximity alert range from the current user
         /// </summary>
         public class PushMessageContentProximityAlertTriggered : PushMessageContent
         {

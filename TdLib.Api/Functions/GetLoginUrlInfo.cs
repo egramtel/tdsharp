@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns information about a button of type inlineKeyboardButtonTypeLoginUrl. The method needs to be called when the user presses the button
+    /// Returns information about a button of the type inlineKeyboardButtonTypeLoginUrl. The method needs to be called when the user presses the button
     /// </summary>
     public class GetLoginUrlInfo : Function<LoginUrlInfo>
     {
@@ -53,7 +53,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns information about a button of type inlineKeyboardButtonTypeLoginUrl. The method needs to be called when the user presses the button
+    /// Returns information about a button of the type inlineKeyboardButtonTypeLoginUrl. The method needs to be called when the user presses the button
     /// </summary>
     public static Task<LoginUrlInfo> GetLoginUrlInfoAsync(
         this IClient client, long chatId = default, long messageId = default, long buttonId = default)

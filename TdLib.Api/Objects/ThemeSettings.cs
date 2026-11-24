@@ -62,7 +62,7 @@ public static partial class TdApi
         public bool AnimateOutgoingMessageFill { get; set; }
 
         /// <summary>
-        /// True, if there is chosen accent color for outgoing messages; otherwise, the color must be deduced from other theme settings
+        /// True, if there is a chosen accent color for outgoing messages; otherwise, the color must be deduced from other theme settings
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("has_outgoing_message_accent_color")]

@@ -12,7 +12,8 @@ public static partial class TdApi
     public partial class InternalLinkType : Object
     {
         /// <summary>
-        /// The link contains a request of Telegram passport data. Call getPassportAuthorizationForm with the given parameters to process the link if the link was received from outside of the application; otherwise, ignore it
+        /// The link contains a request for Telegram Passport data.
+        /// Call getPassportAuthorizationForm with the given parameters to process the link if the link was received from outside of the application; otherwise, ignore it
         /// </summary>
         public class InternalLinkTypePassportDataRequest : InternalLinkType
         {
@@ -29,7 +30,7 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// User identifier of the service's bot; the corresponding user may be unknown yet
+            /// User identifier of the service's bot; the corresponding user may not be known yet
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("bot_user_id")]
@@ -57,8 +58,9 @@ public static partial class TdApi
             public string Nonce { get; set; }
 
             /// <summary>
-            /// An HTTP URL to open once the request is finished, canceled, or failed with the parameters tg_passport=success, tg_passport=cancel, or tg_passport=error&amp;error=... respectively.
-            /// If empty, then onActivityResult method must be used to return response on Android, or the link tgbot{bot_user_id}://passport/success or tgbot{bot_user_id}://passport/cancel must be opened otherwise
+            /// An HTTP URL to open once the request is finished, canceled, or failed with the parameters tg_passport=success, tg_passport=cancel, or tg_passport=error&amp;error=..., respectively.
+            /// If empty, then the onActivityResult method must be used to return the response on Android,
+            /// or the link tgbot{bot_user_id}://passport/success or tgbot{bot_user_id}://passport/cancel must be opened otherwise
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("callback_url")]

@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Adds a special handling for the opening of the specified URL
+    /// Adds special handling for the opening of the specified URL
     /// </summary>
     public class AddWebBrowserSettingsException : Function<Ok>
     {
@@ -31,7 +31,8 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Pass true if the specified website must be opened in an external browser; pass false to open it in the in-app browser. There can be at most 100 exceptions in each list of the exceptions
+        /// Pass true if the specified website must be opened in an external browser; pass false to open it in the in-app browser.
+        /// There can be at most 100 exceptions in each list of the exceptions
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("open_external_browser")]
@@ -46,7 +47,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Adds a special handling for the opening of the specified URL
+    /// Adds special handling for the opening of the specified URL
     /// </summary>
     public static Task<Ok> AddWebBrowserSettingsExceptionAsync(
         this IClient client, bool openExternalBrowser = default, string url = default)

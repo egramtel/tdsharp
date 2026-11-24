@@ -36,7 +36,7 @@ public static partial class TdApi
             public int StartDate { get; set; }
 
             /// <summary>
-            /// Point in time (Unix timestamp) when the auction will be ended
+            /// Point in time (Unix timestamp) when the auction will end
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("end_date")]
@@ -50,7 +50,7 @@ public static partial class TdApi
             public long AveragePrice { get; set; }
 
             /// <summary>
-            /// The number of items that were purchased by the current user on the auction
+            /// The number of items that were purchased by the current user at the auction
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("acquired_item_count")]
@@ -71,7 +71,7 @@ public static partial class TdApi
             public int FragmentListedItemCount { get; set; }
 
             /// <summary>
-            /// The HTTPS link to the Fragment for the resold items; may be empty if there are no such items being sold on Fragment
+            /// The HTTPS link to Fragment for the resold items; may be empty if there are no such items being sold on Fragment
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("fragment_url")]

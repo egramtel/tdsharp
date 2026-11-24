@@ -34,7 +34,7 @@ public static partial class TdApi
         public long Id { get; set; }
 
         /// <summary>
-        /// Number of users who will receive giveaway prize
+        /// Number of users who will receive a giveaway prize
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("winner_count")]

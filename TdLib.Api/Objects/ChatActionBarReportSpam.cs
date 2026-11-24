@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class ChatActionBar : Object
     {
         /// <summary>
-        /// Describes actions which must be possible to do through a chat action bar
+        /// Describes actions that must be possible to do through a chat action bar
         /// </summary>
         public class ChatActionBarReportSpam : ChatActionBar
         {
@@ -29,7 +29,8 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// If true, the chat was automatically archived and can be moved back to the main chat list using addChatToList simultaneously with setting chat notification settings to default using setChatNotificationSettings
+            /// If true, the chat was automatically archived
+            /// and can be moved back to the main chat list using addChatToList simultaneously with setting chat notification settings to default using setChatNotificationSettings
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("can_unarchive")]

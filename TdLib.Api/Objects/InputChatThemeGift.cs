@@ -30,7 +30,7 @@ public static partial class TdApi
 
             /// <summary>
             /// Name of the upgraded gift. A gift can be used only in one chat at a time.
-            /// When the same gift is used in another chat, theme in the previous chat is reset to default
+            /// When the same gift is used in another chat, the theme in the previous chat is reset to the default
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("name")]

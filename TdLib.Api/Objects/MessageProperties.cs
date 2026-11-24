@@ -34,7 +34,7 @@ public static partial class TdApi
         public bool CanAddOffer { get; set; }
 
         /// <summary>
-        /// True, if tasks can be added to the message's checklist using addChecklistTasks if the current user has Telegram Premium subscription
+        /// True, if tasks can be added to the message's checklist using addChecklistTasks if the current user has a Telegram Premium subscription
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("can_add_tasks")]
@@ -48,14 +48,14 @@ public static partial class TdApi
         public bool CanBeApproved { get; set; }
 
         /// <summary>
-        /// True, if content of the message can be copied using inputMessageForwarded or forwardMessages with copy options
+        /// True, if the content of the message can be copied using inputMessageForwarded or forwardMessages with copy options
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("can_be_copied")]
         public bool CanBeCopied { get; set; }
 
         /// <summary>
-        /// True, if content of the message can be copied to a secret chat using inputMessageForwarded or forwardMessages with copy options
+        /// True, if the content of the message can be copied to a secret chat using inputMessageForwarded or forwardMessages with copy options
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("can_be_copied_to_secret_chat")]
@@ -84,7 +84,7 @@ public static partial class TdApi
 
         /// <summary>
         /// True, if the message can be edited using the methods editMessageText, editMessageCaption, or editMessageReplyMarkup.
-        /// For live location, poll, and checklist messages this field shows whether editMessageLiveLocation, stopPoll, or editMessageChecklist respectively can be used with this message
+        /// For live location, poll, and checklist messages, this field shows whether editMessageLiveLocation, stopPoll, or editMessageChecklist respectively can be used with this message
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("can_be_edited")]
@@ -98,7 +98,7 @@ public static partial class TdApi
         public bool CanBeForwarded { get; set; }
 
         /// <summary>
-        /// True, if the message can be paid using inputInvoiceMessage
+        /// True, if the message can be paid for using inputInvoiceMessage
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("can_be_paid")]
@@ -112,21 +112,21 @@ public static partial class TdApi
         public bool CanBePinned { get; set; }
 
         /// <summary>
-        /// True, if the message can be replied in the same chat and forum topic using inputMessageReplyToMessage. Ephemeral messages can be replied only by other ephemeral messages
+        /// True, if the message can be replied to in the same chat and forum topic using inputMessageReplyToMessage. Ephemeral messages can be replied to only by other ephemeral messages
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("can_be_replied")]
         public bool CanBeReplied { get; set; }
 
         /// <summary>
-        /// True, if the message can be replied in another chat or forum topic using inputMessageReplyToExternalMessage
+        /// True, if the message can be replied to in another chat or forum topic using inputMessageReplyToExternalMessage
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("can_be_replied_in_another_chat")]
         public bool CanBeRepliedInAnotherChat { get; set; }
 
         /// <summary>
-        /// True, if content of the message can be saved locally
+        /// True, if the content of the message can be saved locally
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("can_be_saved")]
@@ -154,7 +154,7 @@ public static partial class TdApi
         public bool CanEditMedia { get; set; }
 
         /// <summary>
-        /// True, if scheduling state of the message can be edited
+        /// True, if the scheduling state of the message can be edited
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("can_edit_scheduling_state")]
@@ -168,7 +168,7 @@ public static partial class TdApi
         public bool CanEditSuggestedPostInfo { get; set; }
 
         /// <summary>
-        /// True, if author of the message sent on behalf of a chat can be received through getMessageAuthor
+        /// True, if the author of the message sent on behalf of a chat can be received through getMessageAuthor
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("can_get_author")]
@@ -210,7 +210,7 @@ public static partial class TdApi
         public bool CanGetPollVoteStatistics { get; set; }
 
         /// <summary>
-        /// True, if read date of the message can be received through getMessageReadDate
+        /// True, if the read date of the message can be received through getMessageReadDate
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("can_get_read_date")]
@@ -224,21 +224,21 @@ public static partial class TdApi
         public bool CanGetStatistics { get; set; }
 
         /// <summary>
-        /// True, if advertisements for video of the message can be received through getVideoMessageAdvertisements
+        /// True, if advertisements for the video of the message can be received through getVideoMessageAdvertisements
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("can_get_video_advertisements")]
         public bool CanGetVideoAdvertisements { get; set; }
 
         /// <summary>
-        /// True, if chat members already viewed the message can be received through getMessageViewers
+        /// True, if chat members who already viewed the message can be received through getMessageViewers
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("can_get_viewers")]
         public bool CanGetViewers { get; set; }
 
         /// <summary>
-        /// True, if tasks can be marked as done or not done in the message's checklist using markChecklistTasksAsDone if the current user has Telegram Premium subscription
+        /// True, if tasks can be marked as done or not done in the message's checklist using markChecklistTasksAsDone if the current user has a Telegram Premium subscription
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("can_mark_tasks_as_done")]
@@ -273,7 +273,7 @@ public static partial class TdApi
         public bool CanReportSupergroupSpam { get; set; }
 
         /// <summary>
-        /// True, if fact check for the message can be changed through setMessageFactCheck
+        /// True, if the fact-check for the message can be changed through setMessageFactCheck
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("can_set_fact_check")]
@@ -286,21 +286,21 @@ public static partial class TdApi
         public long[] CustomEmojiIds { get; set; }
 
         /// <summary>
-        /// True, if content of the message can't be saved locally, because it is protected by the current user; if true, then can_be_saved is false
+        /// True, if the content of the message can't be saved locally because it is protected by the current user; if true, then can_be_saved is false
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("has_protected_content_by_current_user")]
         public bool HasProtectedContentByCurrentUser { get; set; }
 
         /// <summary>
-        /// True, if content of the message can't be saved locally, because it is protected by the other user; if true, then can_be_saved is false
+        /// True, if the content of the message can't be saved locally because it is protected by the other user; if true, then can_be_saved is false
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("has_protected_content_by_other_user")]
         public bool HasProtectedContentByOtherUser { get; set; }
 
         /// <summary>
-        /// True, if message statistics must be available from context menu of the message
+        /// True, if message statistics must be available from the context menu of the message
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("need_show_statistics")]

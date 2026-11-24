@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Checks whether the current session can be used to transfer a chat ownership to another user
+    /// Checks whether the current session can be used to transfer chat ownership to another user
     /// </summary>
     public class CanTransferOwnership : Function<CanTransferOwnershipResult>
     {
@@ -34,7 +34,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Checks whether the current session can be used to transfer a chat ownership to another user
+    /// Checks whether the current session can be used to transfer chat ownership to another user
     /// </summary>
     public static Task<CanTransferOwnershipResult> CanTransferOwnershipAsync(
         this IClient client)

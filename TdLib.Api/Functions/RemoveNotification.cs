@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Removes an active notification from notification list. Needs to be called only if the notification is removed by the current user
+    /// Removes an active notification from the notification list. Needs to be called only if the notification is removed by the current user
     /// </summary>
     public class RemoveNotification : Function<Ok>
     {
@@ -31,14 +31,14 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Identifier of notification group to which the notification belongs
+        /// Identifier of the notification group to which the notification belongs
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("notification_group_id")]
         public int NotificationGroupId { get; set; }
 
         /// <summary>
-        /// Identifier of removed notification
+        /// Identifier of the removed notification
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("notification_id")]
@@ -46,7 +46,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Removes an active notification from notification list. Needs to be called only if the notification is removed by the current user
+    /// Removes an active notification from the notification list. Needs to be called only if the notification is removed by the current user
     /// </summary>
     public static Task<Ok> RemoveNotificationAsync(
         this IClient client, int notificationGroupId = default, int notificationId = default)

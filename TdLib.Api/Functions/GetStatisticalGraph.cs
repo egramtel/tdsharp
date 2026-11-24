@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Loads an asynchronous or a zoomed in statistical graph
+    /// Loads an asynchronous or a zoomed-in statistical graph
     /// </summary>
     public class GetStatisticalGraph : Function<StatisticalGraph>
     {
@@ -45,7 +45,7 @@ public static partial class TdApi
         public string Token { get; set; }
 
         /// <summary>
-        /// X-value for zoomed in graph or 0 otherwise
+        /// X-value for a zoomed-in graph or 0 otherwise
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("x")]
@@ -53,7 +53,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Loads an asynchronous or a zoomed in statistical graph
+    /// Loads an asynchronous or a zoomed-in statistical graph
     /// </summary>
     public static Task<StatisticalGraph> GetStatisticalGraphAsync(
         this IClient client, long chatId = default, string token = default, long x = default)

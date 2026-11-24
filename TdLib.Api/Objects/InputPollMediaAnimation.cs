@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class InputPollMedia : Object
     {
         /// <summary>
-        /// The content of a poll media to send
+        /// The content of poll media to send
         /// </summary>
         public class InputPollMediaAnimation : InputPollMedia
         {

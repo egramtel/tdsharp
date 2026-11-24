@@ -53,7 +53,7 @@ public static partial class TdApi
         public FormattedText Text { get; set; }
 
         /// <summary>
-        /// Pass true to show gift text and sender only to the gift receiver; otherwise, everyone will be able to see them
+        /// Pass true to show the gift text and sender only to the gift receiver; otherwise, everyone will be able to see them
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("is_private")]

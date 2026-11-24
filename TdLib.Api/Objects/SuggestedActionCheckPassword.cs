@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class SuggestedAction : Object
     {
         /// <summary>
-        /// Suggests the user to check whether they still remember their 2-step verification password
+        /// Suggests that the user check whether they still remember their 2-step verification password
         /// </summary>
         public class SuggestedActionCheckPassword : SuggestedAction
         {

@@ -53,8 +53,9 @@ public static partial class TdApi
 
         /// <summary>
         /// Pass true to check that the chat can be shared by the button instead of actually sharing it. Doesn't check bot_is_member and bot_administrator_rights restrictions.
-        /// If the bot must be a member, then all chats from getGroupsInCommon and all chats, where the user can add the bot, are suitable. In the latter case the bot will be automatically added to the chat.
-        /// If the bot must be an administrator, then all chats, where the bot already has requested rights or can be added to administrators by the user, are suitable. In the latter case the bot will be automatically granted requested rights
+        /// If the bot must be a member, then all chats from getGroupsInCommon and all chats where the user can add the bot are suitable. In the latter case, the bot will be automatically added to the chat.
+        /// If the bot must be an administrator, then all chats where the bot already has the requested rights or can be added to administrators by the user are suitable.
+        /// In the latter case, the bot will be automatically granted the requested rights
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("only_check")]

@@ -34,7 +34,7 @@ public static partial class TdApi
         public long Id { get; set; }
 
         /// <summary>
-        /// If false, the community is inaccessible, and the only information known about the community is inside this class. Identifier of the community can't be passed to any method
+        /// If false, the community is inaccessible, and the only information known about the community is inside this class. The identifier of the community can't be passed to any method
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("have_access")]

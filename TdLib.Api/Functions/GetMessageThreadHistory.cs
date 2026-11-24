@@ -11,7 +11,8 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns messages in a message thread of a message. Can be used only if messageProperties.can_get_message_thread == true. Message thread of a channel message is in the channel's linked supergroup.
+    /// Returns messages in a message thread of a message. Can be used only if messageProperties.can_get_message_thread == true.
+    /// The message thread of a channel message is in the channel's linked supergroup.
     /// The messages are returned in reverse chronological order (i.e., in order of decreasing message.id). For optimal performance, the number of returned messages is chosen by TDLib
     /// </summary>
     public class GetMessageThreadHistory : Function<Messages>
@@ -39,7 +40,7 @@ public static partial class TdApi
         public long ChatId { get; set; }
 
         /// <summary>
-        /// Message identifier, which thread history needs to be returned
+        /// Identifier of the message whose thread history needs to be returned
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("message_id")]
@@ -69,7 +70,8 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns messages in a message thread of a message. Can be used only if messageProperties.can_get_message_thread == true. Message thread of a channel message is in the channel's linked supergroup.
+    /// Returns messages in a message thread of a message. Can be used only if messageProperties.can_get_message_thread == true.
+    /// The message thread of a channel message is in the channel's linked supergroup.
     /// The messages are returned in reverse chronological order (i.e., in order of decreasing message.id). For optimal performance, the number of returned messages is chosen by TDLib
     /// </summary>
     public static Task<Messages> GetMessageThreadHistoryAsync(

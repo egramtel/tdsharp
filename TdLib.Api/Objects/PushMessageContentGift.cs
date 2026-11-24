@@ -29,14 +29,14 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// Number of Telegram Stars that sender paid for the gift
+            /// Number of Telegram Stars that the sender paid for the gift
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("star_count")]
             public long StarCount { get; set; }
 
             /// <summary>
-            /// True, if the message is about prepaid upgrade of the gift by another user instead of actual receiving of a new gift
+            /// True, if the message is about a prepaid upgrade of the gift by another user instead of the actual receipt of a new gift
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_prepaid_upgrade")]

@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Sets access settings of a managed bot; for bots only
+    /// Sets the access settings of a managed bot; for bots only
     /// </summary>
     public class SetManagedBotAccessSettings : Function<Ok>
     {
@@ -46,7 +46,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Sets access settings of a managed bot; for bots only
+    /// Sets the access settings of a managed bot; for bots only
     /// </summary>
     public static Task<Ok> SetManagedBotAccessSettingsAsync(
         this IClient client, long botUserId = default, BotAccessSettings settings = default)

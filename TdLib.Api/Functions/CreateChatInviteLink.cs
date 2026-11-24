@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Creates a new invite link for a chat. Available for basic groups, supergroups, and channels. Requires administrator privileges and can_invite_users right in the chat
+    /// Creates a new invite link for a chat. Available in basic groups, supergroups, and channels. Requires administrator privileges and can_invite_users right in the chat
     /// </summary>
     public class CreateChatInviteLink : Function<ChatInviteLink>
     {
@@ -52,7 +52,7 @@ public static partial class TdApi
         public int ExpirationDate { get; set; }
 
         /// <summary>
-        /// The maximum number of chat members that can join the chat via the link simultaneously; 0-99999; pass 0 if not limited
+        /// The maximum number of chat members who can join the chat via the link simultaneously; 0-99999; pass 0 if not limited
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("member_limit")]
@@ -67,7 +67,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Creates a new invite link for a chat. Available for basic groups, supergroups, and channels. Requires administrator privileges and can_invite_users right in the chat
+    /// Creates a new invite link for a chat. Available in basic groups, supergroups, and channels. Requires administrator privileges and can_invite_users right in the chat
     /// </summary>
     public static Task<ChatInviteLink> CreateChatInviteLinkAsync(
         this IClient client, long chatId = default, string name = default, int expirationDate = default, int memberLimit = default, bool createsJoinRequest = default)

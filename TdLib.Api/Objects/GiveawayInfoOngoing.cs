@@ -43,7 +43,7 @@ public static partial class TdApi
             public GiveawayParticipantStatus Status { get; set; }
 
             /// <summary>
-            /// True, if the giveaway has ended and results are being prepared
+            /// True, if the giveaway has ended and the results are being prepared
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_ended")]

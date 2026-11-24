@@ -10,7 +10,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Describes a clickable rectangle area on a story media
+    /// Describes a clickable rectangular area on story media
     /// </summary>
     public partial class StoryArea : Object
     {

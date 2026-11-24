@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class TextEntityType : Object
     {
         /// <summary>
-        /// Text that must be formatted as if inside a blockquote HTML tag and collapsed by default to 3 lines with the ability to show full text; not supported in secret chats
+        /// Text that must be formatted as if inside a blockquote HTML tag and collapsed by default to 3 lines with the ability to show the full text; not supported in secret chats
         /// </summary>
         public class TextEntityTypeExpandableBlockQuote : TextEntityType
         {

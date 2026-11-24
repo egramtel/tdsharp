@@ -38,7 +38,7 @@ public static partial class TdApi
         public bool OpenExternalBrowser { get; set; }
 
         /// <summary>
-        /// Pass true if a close button must be shown in the in-app browser; for Android app only
+        /// Pass true if a close button must be shown in the in-app browser; for the Android app only
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("display_close_button")]

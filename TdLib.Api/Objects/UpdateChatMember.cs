@@ -36,7 +36,7 @@ public static partial class TdApi
             public long ChatId { get; set; }
 
             /// <summary>
-            /// Identifier of the user, changing the rights
+            /// Identifier of the user changing the rights
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("actor_user_id")]
@@ -50,7 +50,7 @@ public static partial class TdApi
             public int Date { get; set; }
 
             /// <summary>
-            /// If user has joined the chat using an invite link, the invite link; may be null
+            /// If the user has joined the chat using an invite link, the invite link; may be null
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("invite_link")]

@@ -34,11 +34,18 @@ public static partial class TdApi
         public long StarCount { get; set; }
 
         /// <summary>
-        /// Resale price of the gift in 1/100 of TON Gram
+        /// Resale price of the gift in 1/100 of a TON Gram
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("gram_cent_count")]
         public long GramCentCount { get; set; }
+
+        /// <summary>
+        /// Exact resale price of the gift, in the smallest units of TON Grams; must be passed to getGiftOnChainPurchaseTransaction if upgradedGift.uses_on_chain_resale is true
+        /// </summary>
+        [JsonConverter(typeof(Converter.Int64))]
+        [JsonProperty("gram_amount")]
+        public long GramAmount { get; set; }
 
         /// <summary>
         /// True, if the gift can be bought only using Grams
@@ -46,6 +53,22 @@ public static partial class TdApi
         [JsonConverter(typeof(Converter))]
         [JsonProperty("gram_only")]
         public bool GramOnly { get; set; }
+
+        /// <summary>
+        /// True, if the gift is sold on-chain using a fixed-price sale contract
+        /// </summary>
+        [JsonConverter(typeof(Converter))]
+        [JsonProperty("is_fixed_on_chain")]
+        public bool IsFixedOnChain { get; set; }
+
+        /// <summary>
+        /// True, if the sale of the gift is managed by the current user. If upgradedGift.uses_on_chain_resale is true, then the sale can be canceled
+        /// using getGiftOnChainDelistingTransaction, and the price can be changed using getGiftOnChainListingTransaction if is_fixed_on_chain is true.
+        /// Otherwise, the price can be changed and the sale can be canceled using setGiftResalePrice
+        /// </summary>
+        [JsonConverter(typeof(Converter))]
+        [JsonProperty("can_be_managed")]
+        public bool CanBeManaged { get; set; }
     }
 }
 // REUSE-IgnoreEnd

@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Replaces the current TON wallet with another existing v6r2 wallet or changes private key of the current TON wallet; can be used only if getOption("can_use_ton_wallet")
+    /// Replaces the current TON wallet with another existing v6r2 wallet or changes the private key of the current TON wallet; can be used only if getOption("can_use_ton_wallet")
     /// </summary>
     public class ReplaceTonWallet : Function<Ok>
     {
@@ -31,7 +31,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Password of the current user; pass an empty string unless receive an error with a message "PASSWORD_MISSING" for a passwordless request
+        /// Password of the current user; pass an empty string unless an error with a message "PASSWORD_MISSING" was received for a passwordless request
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("password")]
@@ -53,7 +53,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Replaces the current TON wallet with another existing v6r2 wallet or changes private key of the current TON wallet; can be used only if getOption("can_use_ton_wallet")
+    /// Replaces the current TON wallet with another existing v6r2 wallet or changes the private key of the current TON wallet; can be used only if getOption("can_use_ton_wallet")
     /// </summary>
     public static Task<Ok> ReplaceTonWalletAsync(
         this IClient client, string password = default, byte[] anchorPublicKey = default, TonWalletOwnershipProof proof = default)

@@ -29,7 +29,8 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// True, if the bot is owned by the current user and can be edited using the methods toggleBotUsernameIsActive, reorderBotActiveUsernames, setBotProfilePhoto, setBotName, setBotInfoDescription, and setBotInfoShortDescription
+            /// True, if the bot is owned by the current user and can be edited using the methods toggleBotUsernameIsActive, reorderBotActiveUsernames, setBotProfilePhoto,
+            /// setBotName, setBotInfoDescription, and setBotInfoShortDescription
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("can_be_edited")]
@@ -43,7 +44,8 @@ public static partial class TdApi
             public bool CanJoinGroups { get; set; }
 
             /// <summary>
-            /// True, if the bot can read all messages in basic group or supergroup chats and not just those addressed to the bot. In private and channel chats a bot can always read all messages
+            /// True, if the bot can read all messages in basic group or supergroup chats and not just those addressed to the bot.
+            /// In private and channel chats a bot can always read all messages
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("can_read_all_group_messages")]
@@ -92,7 +94,7 @@ public static partial class TdApi
             public bool IsInline { get; set; }
 
             /// <summary>
-            /// Placeholder for inline queries (displayed on the application input field)
+            /// Placeholder for inline queries (displayed in the application input field)
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("inline_query_placeholder")]
@@ -127,7 +129,7 @@ public static partial class TdApi
             public bool CanConnectToBusiness { get; set; }
 
             /// <summary>
-            /// True, if the bot can be added to attachment or side menu
+            /// True, if the bot can be added to the attachment or side menu
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("can_be_added_to_attachment_menu")]

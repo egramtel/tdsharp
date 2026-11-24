@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class ChatStatistics : Object
     {
         /// <summary>
-        /// A detailed statistics about a channel chat
+        /// Detailed statistics about a channel chat
         /// </summary>
         public class ChatStatisticsChannel : ChatStatistics
         {
@@ -29,7 +29,7 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// A period to which the statistics applies
+            /// A period to which the statistics apply
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("period")]
@@ -92,91 +92,91 @@ public static partial class TdApi
             public double? EnabledNotificationsPercentage { get; set; }
 
             /// <summary>
-            /// A graph containing number of members in the chat
+            /// A graph containing the number of members in the chat
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("member_count_graph")]
             public StatisticalGraph MemberCountGraph { get; set; }
 
             /// <summary>
-            /// A graph containing number of members joined and left the chat
+            /// A graph containing the number of members who joined and left the chat
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("join_graph")]
             public StatisticalGraph JoinGraph { get; set; }
 
             /// <summary>
-            /// A graph containing number of members muted and unmuted the chat
+            /// A graph containing the number of members who muted and unmuted the chat
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("mute_graph")]
             public StatisticalGraph MuteGraph { get; set; }
 
             /// <summary>
-            /// A graph containing number of message views in a given hour in the last two weeks
+            /// A graph containing the number of message views in a given hour in the last two weeks
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("view_count_by_hour_graph")]
             public StatisticalGraph ViewCountByHourGraph { get; set; }
 
             /// <summary>
-            /// A graph containing number of message views per source
+            /// A graph containing the number of message views per source
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("view_count_by_source_graph")]
             public StatisticalGraph ViewCountBySourceGraph { get; set; }
 
             /// <summary>
-            /// A graph containing number of new member joins per source
+            /// A graph containing the number of new member joins per source
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("join_by_source_graph")]
             public StatisticalGraph JoinBySourceGraph { get; set; }
 
             /// <summary>
-            /// A graph containing number of users viewed chat messages per language
+            /// A graph containing the number of users who viewed chat messages per language
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("language_graph")]
             public StatisticalGraph LanguageGraph { get; set; }
 
             /// <summary>
-            /// A graph containing number of chat message views and shares
+            /// A graph containing the number of chat message views and shares
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("message_interaction_graph")]
             public StatisticalGraph MessageInteractionGraph { get; set; }
 
             /// <summary>
-            /// A graph containing number of reactions on messages
+            /// A graph containing the number of reactions on messages
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("message_reaction_graph")]
             public StatisticalGraph MessageReactionGraph { get; set; }
 
             /// <summary>
-            /// A graph containing number of story views and shares
+            /// A graph containing the number of story views and shares
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("story_interaction_graph")]
             public StatisticalGraph StoryInteractionGraph { get; set; }
 
             /// <summary>
-            /// A graph containing number of reactions on stories
+            /// A graph containing the number of reactions on stories
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("story_reaction_graph")]
             public StatisticalGraph StoryReactionGraph { get; set; }
 
             /// <summary>
-            /// A graph containing number of views of associated with the chat instant views
+            /// A graph containing the number of views of instant views associated with the chat
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("instant_view_interaction_graph")]
             public StatisticalGraph InstantViewInteractionGraph { get; set; }
 
             /// <summary>
-            /// Detailed statistics about number of views and shares of recently sent messages and posted stories
+            /// Detailed statistics about the number of views and shares of recently sent messages and posted stories
             /// </summary>
             [JsonProperty("recent_interactions", ItemConverterType = typeof(Converter))]
             public ChatStatisticsInteractionInfo[] RecentInteractions { get; set; }

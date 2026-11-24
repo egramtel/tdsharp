@@ -10,7 +10,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Describes a paid media to be sent
+    /// Describes paid media to be sent
     /// </summary>
     public partial class InputPaidMedia : Object
     {

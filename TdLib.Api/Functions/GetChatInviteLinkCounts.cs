@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns the list of chat administrators with number of their invite links. Requires owner privileges in the chat
+    /// Returns the list of chat administrators with the number of their invite links. Requires owner privileges in the chat
     /// </summary>
     public class GetChatInviteLinkCounts : Function<ChatInviteLinkCounts>
     {
@@ -39,7 +39,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns the list of chat administrators with number of their invite links. Requires owner privileges in the chat
+    /// Returns the list of chat administrators with the number of their invite links. Requires owner privileges in the chat
     /// </summary>
     public static Task<ChatInviteLinkCounts> GetChatInviteLinkCountsAsync(
         this IClient client, long chatId = default)

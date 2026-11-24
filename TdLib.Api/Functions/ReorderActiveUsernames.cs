@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Changes order of active usernames of the current user
+    /// Changes the order of active usernames of the current user
     /// </summary>
     public class ReorderActiveUsernames : Function<Ok>
     {
@@ -38,7 +38,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Changes order of active usernames of the current user
+    /// Changes the order of active usernames of the current user
     /// </summary>
     public static Task<Ok> ReorderActiveUsernamesAsync(
         this IClient client, string[] usernames = default)

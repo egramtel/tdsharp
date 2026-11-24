@@ -10,7 +10,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Describes a chat member joined a chat via an invite link
+    /// Describes a chat member who joined a chat via an invite link
     /// </summary>
     public partial class ChatInviteLinkMember : Object
     {
@@ -48,7 +48,7 @@ public static partial class TdApi
         public bool ViaChatFolderInviteLink { get; set; }
 
         /// <summary>
-        /// User identifier of the chat administrator, approved user join request
+        /// User identifier of the chat administrator who approved the user join request
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("approver_user_id")]

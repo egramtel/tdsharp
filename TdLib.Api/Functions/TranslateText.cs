@@ -49,7 +49,7 @@ public static partial class TdApi
         public string ToLanguageCode { get; set; }
 
         /// <summary>
-        /// Tone of the translation; must be one of "", "formal", "neutral", "casual"; defaults to "neutral"
+        /// Tone of the translation; must be one of "", "formal", "neutral", or "casual"; defaults to "neutral"
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("tone")]

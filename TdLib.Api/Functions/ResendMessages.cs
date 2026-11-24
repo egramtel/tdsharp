@@ -11,8 +11,8 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Resends messages which failed to send. Can be called only for messages for which messageSendingStateFailed.can_retry is true
-    /// and after specified in messageSendingStateFailed.retry_after time passed. If a message is re-sent, the corresponding failed to send message is deleted.
+    /// Resends messages that failed to send. Can be called only for messages for which messageSendingStateFailed.can_retry is true
+    /// and after the time specified in messageSendingStateFailed.retry_after has passed. If a message is re-sent, the corresponding message that failed to send is deleted.
     /// Returns the sent messages in the same order as the message identifiers passed in message_ids. If a message can't be re-sent, null will be returned instead of the message
     /// </summary>
     public class ResendMessages : Function<Messages>
@@ -33,7 +33,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Identifier of the chat to send messages
+        /// Identifier of the chat to which to send messages
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("chat_id")]
@@ -46,7 +46,7 @@ public static partial class TdApi
         public long[] MessageIds { get; set; }
 
         /// <summary>
-        /// New manually chosen quote from the message to be replied; pass null if none. Ignored if more than one message is re-sent, or if messageSendingStateFailed.need_another_reply_quote == false
+        /// New manually chosen quote from the message to be replied to; pass null if none. Ignored if more than one message is re-sent, or if messageSendingStateFailed.need_another_reply_quote == false
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("quote")]
@@ -61,8 +61,8 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Resends messages which failed to send. Can be called only for messages for which messageSendingStateFailed.can_retry is true
-    /// and after specified in messageSendingStateFailed.retry_after time passed. If a message is re-sent, the corresponding failed to send message is deleted.
+    /// Resends messages that failed to send. Can be called only for messages for which messageSendingStateFailed.can_retry is true
+    /// and after the time specified in messageSendingStateFailed.retry_after has passed. If a message is re-sent, the corresponding message that failed to send is deleted.
     /// Returns the sent messages in the same order as the message identifiers passed in message_ids. If a message can't be re-sent, null will be returned instead of the message
     /// </summary>
     public static Task<Messages> ResendMessagesAsync(

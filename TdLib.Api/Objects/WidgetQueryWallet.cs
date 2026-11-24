@@ -10,7 +10,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Describes a TON wallet of the user, who is used in a widget query
+    /// Describes the user's TON wallet used in a widget query
     /// </summary>
     public partial class WidgetQueryWallet : Object
     {
@@ -34,7 +34,7 @@ public static partial class TdApi
         public string Address { get; set; }
 
         /// <summary>
-        /// Balance of the wallet, in the smallest units of the cryptocurrency
+        /// Balance of the wallet, in the smallest units of TON Grams
         /// </summary>
         [JsonConverter(typeof(Converter.Int64))]
         [JsonProperty("gram_amount")]

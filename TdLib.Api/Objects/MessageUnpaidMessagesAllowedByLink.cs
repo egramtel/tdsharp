@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class MessageContent : Object
     {
         /// <summary>
-        /// The sender of the message used a link of the other user, which allows sending unpaid messages to the user
+        /// The sender of the message used the other user's link that allows sending unpaid messages to them
         /// </summary>
         public class MessageUnpaidMessagesAllowedByLink : MessageContent
         {

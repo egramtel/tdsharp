@@ -139,7 +139,7 @@ public static partial class TdApi
         public bool IsCloseFriend { get; set; }
 
         /// <summary>
-        /// Information about verification status of the user; may be null if none
+        /// Information about the verification status of the user; may be null if none
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("verification_status")]
@@ -153,7 +153,7 @@ public static partial class TdApi
         public bool IsPremium { get; set; }
 
         /// <summary>
-        /// True, if the user is Telegram support account
+        /// True, if the user is a Telegram support account
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("is_support")]
@@ -181,14 +181,15 @@ public static partial class TdApi
         public bool RestrictsNewChats { get; set; }
 
         /// <summary>
-        /// Number of Telegram Stars that must be paid by general user for each sent message to the user. If positive and userFullInfo is unknown, use canSendMessageToUser to check whether the current user must pay
+        /// Number of Telegram Stars that must be paid by a general user for each sent message to the user.
+        /// If positive and userFullInfo is unknown, use canSendMessageToUser to check whether the current user must pay
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("paid_message_star_count")]
         public long PaidMessageStarCount { get; set; }
 
         /// <summary>
-        /// If false, the user is inaccessible, and the only information known about the user is inside this class. Identifier of the user can't be passed to any method
+        /// If false, the user is inaccessible, and the only information known about the user is inside this class. The identifier of the user can't be passed to any method
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("have_access")]
@@ -209,7 +210,7 @@ public static partial class TdApi
         public string LanguageCode { get; set; }
 
         /// <summary>
-        /// True, if the user added the current bot to attachment menu; only available to bots
+        /// True, if the user added the current bot to the attachment menu; only available to bots
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("added_to_attachment_menu")]

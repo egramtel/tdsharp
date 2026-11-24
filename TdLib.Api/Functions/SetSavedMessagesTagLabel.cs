@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Changes label of a Saved Messages tag; for Telegram Premium users only
+    /// Changes the label of a Saved Messages tag; for Telegram Premium users only
     /// </summary>
     public class SetSavedMessagesTagLabel : Function<Ok>
     {
@@ -31,7 +31,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// The tag which label will be changed
+        /// The tag whose label will be changed
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("tag")]
@@ -46,7 +46,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Changes label of a Saved Messages tag; for Telegram Premium users only
+    /// Changes the label of a Saved Messages tag; for Telegram Premium users only
     /// </summary>
     public static Task<Ok> SetSavedMessagesTagLabelAsync(
         this IClient client, ReactionType tag = default, string label = default)

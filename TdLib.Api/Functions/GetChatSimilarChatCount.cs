@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns approximate number of chats similar to the given chat
+    /// Returns the approximate number of chats similar to the given chat
     /// </summary>
     public class GetChatSimilarChatCount : Function<Count>
     {
@@ -46,7 +46,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns approximate number of chats similar to the given chat
+    /// Returns the approximate number of chats similar to the given chat
     /// </summary>
     public static Task<Count> GetChatSimilarChatCountAsync(
         this IClient client, long chatId = default, bool returnLocal = default)

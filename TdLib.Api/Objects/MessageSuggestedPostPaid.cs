@@ -43,7 +43,7 @@ public static partial class TdApi
             public StarAmount StarAmount { get; set; }
 
             /// <summary>
-            /// The amount of received TON Grams; in the smallest units of the cryptocurrency
+            /// The received amount, in the smallest units of TON Grams
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("gram_amount")]

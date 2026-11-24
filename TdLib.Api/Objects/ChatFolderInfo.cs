@@ -48,7 +48,7 @@ public static partial class TdApi
         public ChatFolderIcon Icon { get; set; }
 
         /// <summary>
-        /// The identifier of the chosen color for the chat folder icon; from -1 to 6. If -1, then color is disabled
+        /// The identifier of the chosen color for the chat folder icon; from -1 to 6. If -1, then the color is disabled
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("color_id")]

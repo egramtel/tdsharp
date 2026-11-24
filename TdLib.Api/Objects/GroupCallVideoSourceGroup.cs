@@ -27,7 +27,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// The semantics of sources, one of "SIM" or "FID"
+        /// The semantics of sources; one of "SIM" or "FID"
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("semantics")]

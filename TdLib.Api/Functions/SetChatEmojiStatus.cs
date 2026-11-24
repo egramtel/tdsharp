@@ -38,7 +38,7 @@ public static partial class TdApi
         public long ChatId { get; set; }
 
         /// <summary>
-        /// New emoji status; pass null to remove emoji status
+        /// New emoji status; pass null to remove the emoji status
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("emoji_status")]

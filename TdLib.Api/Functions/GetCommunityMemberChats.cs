@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns chats in a community, which were joined by a member of the community; requires can_ban_members administrator right in the community.
+    /// Returns chats in a community that were joined by a member of the community; requires can_ban_members administrator right in the community.
     /// Can be used to show chats that will be affected by the member ban
     /// </summary>
     public class GetCommunityMemberChats : Function<CommunityMemberChats>
@@ -47,7 +47,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns chats in a community, which were joined by a member of the community; requires can_ban_members administrator right in the community.
+    /// Returns chats in a community that were joined by a member of the community; requires can_ban_members administrator right in the community.
     /// Can be used to show chats that will be affected by the member ban
     /// </summary>
     public static Task<CommunityMemberChats> GetCommunityMemberChatsAsync(

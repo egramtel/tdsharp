@@ -45,7 +45,7 @@ public static partial class TdApi
         public string LanguageCode { get; set; }
 
         /// <summary>
-        /// New bot's short description on the specified language
+        /// New bot's short description in the specified language
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("short_description")]

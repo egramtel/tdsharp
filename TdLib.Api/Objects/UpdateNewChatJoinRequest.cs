@@ -50,7 +50,7 @@ public static partial class TdApi
             public long UserChatId { get; set; }
 
             /// <summary>
-            /// The invite link, which was used to send join request; may be null
+            /// The invite link that was used to send the join request; may be null
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("invite_link")]

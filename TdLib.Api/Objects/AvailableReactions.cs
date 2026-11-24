@@ -59,7 +59,7 @@ public static partial class TdApi
         public bool AreTags { get; set; }
 
         /// <summary>
-        /// The reason why the current user can't add reactions to the message, despite some other users can; may be null if none
+        /// The reason why the current user can't add reactions to the message, even though some other users can; may be null if none
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("unavailability_reason")]

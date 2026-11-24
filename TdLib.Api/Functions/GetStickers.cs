@@ -11,7 +11,8 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns stickers from the installed sticker sets that correspond to any of the given emoji or can be found by sticker-specific keywords. If the query is non-empty, then favorite, recently used or trending stickers may also be returned
+    /// Returns stickers from the installed sticker sets that correspond to any of the given emoji or can be found by sticker-specific keywords.
+    /// If the query is non-empty, then favorite, recently used, or trending stickers may also be returned
     /// </summary>
     public class GetStickers : Function<Stickers>
     {
@@ -60,7 +61,8 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns stickers from the installed sticker sets that correspond to any of the given emoji or can be found by sticker-specific keywords. If the query is non-empty, then favorite, recently used or trending stickers may also be returned
+    /// Returns stickers from the installed sticker sets that correspond to any of the given emoji or can be found by sticker-specific keywords.
+    /// If the query is non-empty, then favorite, recently used, or trending stickers may also be returned
     /// </summary>
     public static Task<Stickers> GetStickersAsync(
         this IClient client, StickerType stickerType = default, string query = default, int limit = default, long chatId = default)

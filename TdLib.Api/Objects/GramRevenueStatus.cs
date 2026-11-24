@@ -27,21 +27,21 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Total Gram amount earned; in the smallest units of the cryptocurrency
+        /// Total amount earned, in the smallest units of TON Grams
         /// </summary>
         [JsonConverter(typeof(Converter.Int64))]
         [JsonProperty("total_amount")]
         public long TotalAmount { get; set; }
 
         /// <summary>
-        /// The Gram amount that isn't withdrawn yet; in the smallest units of the cryptocurrency
+        /// The amount that isn't withdrawn yet, in the smallest units of TON Grams
         /// </summary>
         [JsonConverter(typeof(Converter.Int64))]
         [JsonProperty("balance_amount")]
         public long BalanceAmount { get; set; }
 
         /// <summary>
-        /// The Gram amount that is available for withdrawal; in the smallest units of the cryptocurrency
+        /// The amount that is available for withdrawal, in the smallest units of TON Grams
         /// </summary>
         [JsonConverter(typeof(Converter.Int64))]
         [JsonProperty("available_amount")]

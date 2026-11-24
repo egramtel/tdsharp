@@ -48,7 +48,7 @@ public static partial class TdApi
         public string LastName { get; set; }
 
         /// <summary>
-        /// Additional data about the user in a form of vCard; 0-2048 bytes in length
+        /// Additional data about the user in the form of a vCard; 0-2048 bytes in length
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("vcard")]

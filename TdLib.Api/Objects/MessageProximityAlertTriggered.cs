@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class MessageContent : Object
     {
         /// <summary>
-        /// A user in the chat came within proximity alert range
+        /// A user in the chat came within the proximity alert range
         /// </summary>
         public class MessageProximityAlertTriggered : MessageContent
         {
@@ -36,7 +36,7 @@ public static partial class TdApi
             public MessageSender TravelerId { get; set; }
 
             /// <summary>
-            /// The identifier of a user or chat that subscribed for the proximity alert
+            /// The identifier of a user or chat that subscribed to the proximity alert
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("watcher_id")]

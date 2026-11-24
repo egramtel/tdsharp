@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Searches a user by a token from the user's link
+    /// Searches for a user by a token from the user's link
     /// </summary>
     public class SearchUserByToken : Function<User>
     {
@@ -39,7 +39,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Searches a user by a token from the user's link
+    /// Searches for a user by a token from the user's link
     /// </summary>
     public static Task<User> SearchUserByTokenAsync(
         this IClient client, string token = default)

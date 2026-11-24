@@ -10,7 +10,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Contains a list of websites the current user is logged in with Telegram
+    /// Contains a list of websites the current user is logged in to with Telegram
     /// </summary>
     public partial class ConnectedWebsites : Object
     {

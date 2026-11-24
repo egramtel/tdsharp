@@ -10,7 +10,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Describes an option for buying Telegram Premium to a user
+    /// Describes an option for buying Telegram Premium for a user
     /// </summary>
     public partial class PremiumPaymentOption : Object
     {
@@ -62,7 +62,7 @@ public static partial class TdApi
         public string StoreProductId { get; set; }
 
         /// <summary>
-        /// An internal link to be opened for buying Telegram Premium to the user if store payment isn't possible; may be null if direct payment isn't available
+        /// An internal link to be opened for buying Telegram Premium for the user if store payment isn't possible; may be null if direct payment isn't available
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("payment_link")]

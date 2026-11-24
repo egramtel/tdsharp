@@ -43,7 +43,8 @@ public static partial class TdApi
             public FormattedText Description { get; set; }
 
             /// <summary>
-            /// Media attached to the poll; may be null if none. If present, currently, can be only of the types pollMediaAnimation, pollMediaAudio, pollMediaDocument, pollMediaLocation, pollMediaPhoto, pollMediaVenue, or pollMediaVideo
+            /// Media attached to the poll; may be null if none.
+            /// If present, currently, can only be of the types pollMediaAnimation, pollMediaAudio, pollMediaDocument, pollMediaLocation, pollMediaPhoto, pollMediaVenue, or pollMediaVideo
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("media")]

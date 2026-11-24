@@ -31,7 +31,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Reason of code resending; pass null if unknown
+        /// Reason for code resending; pass null if unknown
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("reason")]

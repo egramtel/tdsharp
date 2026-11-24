@@ -27,7 +27,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Sticker for the emoji; may be null if yet unknown for a custom emoji. If the sticker is a custom emoji, then it can have arbitrary format
+        /// Sticker for the emoji; may be null if yet unknown for a custom emoji. If the sticker is a custom emoji, then it can have an arbitrary format
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("sticker")]
@@ -48,14 +48,14 @@ public static partial class TdApi
         public int StickerHeight { get; set; }
 
         /// <summary>
-        /// Emoji modifier fitzpatrick type; 0-6; 0 if none
+        /// Emoji modifier Fitzpatrick type; 0-6; 0 if none
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("fitzpatrick_type")]
         public int FitzpatrickType { get; set; }
 
         /// <summary>
-        /// File containing the sound to be played when the sticker is clicked; may be null. The sound is encoded with the Opus codec, and stored inside an OGG container
+        /// File containing the sound to be played when the sticker is clicked; may be null. The sound is encoded with the Opus codec and stored inside an OGG container
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("sound")]

@@ -62,7 +62,7 @@ public static partial class TdApi
             public string[] Emojis { get; set; }
 
             /// <summary>
-            /// True, if peer-to-peer connection is allowed by users privacy settings
+            /// True, if a peer-to-peer connection is allowed by users' privacy settings
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("allow_p2p")]

@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class PaidMedia : Object
     {
         /// <summary>
-        /// Describes a paid media
+        /// Describes paid media
         /// </summary>
         public class PaidMediaPreview : PaidMedia
         {

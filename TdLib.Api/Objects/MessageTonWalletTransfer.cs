@@ -43,14 +43,14 @@ public static partial class TdApi
             public string TransactionId { get; set; }
 
             /// <summary>
-            /// Address in the TON blockchain of the transaction peer
+            /// Address on the TON blockchain of the transaction peer
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("peer_address")]
             public string PeerAddress { get; set; }
 
             /// <summary>
-            /// The amount of received cryptocurrency, in the smallest units of the cryptocurrency; negative for outgoing transactions
+            /// The received amount, in the smallest units of TON Grams; negative for outgoing transactions
             /// </summary>
             [JsonConverter(typeof(Converter.Int64))]
             [JsonProperty("amount")]
@@ -69,6 +69,13 @@ public static partial class TdApi
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_comment_encrypted")]
             public bool IsCommentEncrypted { get; set; }
+
+            /// <summary>
+            /// Name of the on-ramp provider if the transfer is an on-ramp deposit; empty otherwise
+            /// </summary>
+            [JsonConverter(typeof(Converter))]
+            [JsonProperty("on_ramp_provider_name")]
+            public string OnRampProviderName { get; set; }
         }
     }
 }

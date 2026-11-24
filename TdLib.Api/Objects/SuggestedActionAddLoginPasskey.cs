@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class SuggestedAction : Object
     {
         /// <summary>
-        /// Suggests the user to add a passkey for login using addLoginPasskey
+        /// Suggests that the user add a passkey for login using addLoginPasskey
         /// </summary>
         public class SuggestedActionAddLoginPasskey : SuggestedAction
         {

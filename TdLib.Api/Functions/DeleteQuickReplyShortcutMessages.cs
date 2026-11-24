@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Deletes specified quick reply messages
+    /// Deletes the specified quick reply messages
     /// </summary>
     public class DeleteQuickReplyShortcutMessages : Function<Ok>
     {
@@ -45,7 +45,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Deletes specified quick reply messages
+    /// Deletes the specified quick reply messages
     /// </summary>
     public static Task<Ok> DeleteQuickReplyShortcutMessagesAsync(
         this IClient client, int shortcutId = default, long[] messageIds = default)

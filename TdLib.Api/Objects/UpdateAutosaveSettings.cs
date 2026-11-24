@@ -36,7 +36,7 @@ public static partial class TdApi
             public AutosaveSettingsScope Scope { get; set; }
 
             /// <summary>
-            /// The new autosave settings; may be null if the settings are reset to default
+            /// The new autosave settings; may be null if the settings are reset to the default
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("settings")]

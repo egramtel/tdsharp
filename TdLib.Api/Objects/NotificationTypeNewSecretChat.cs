@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class NotificationType : Object
     {
         /// <summary>
-        /// New secret chat was created
+        /// A new secret chat was created
         /// </summary>
         public class NotificationTypeNewSecretChat : NotificationType
         {

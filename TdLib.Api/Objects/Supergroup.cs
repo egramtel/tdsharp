@@ -86,14 +86,14 @@ public static partial class TdApi
         public bool HasLinkedChat { get; set; }
 
         /// <summary>
-        /// True, if the supergroup is connected to a location, i.e. the supergroup is a location-based supergroup
+        /// True, if the supergroup is connected to a location, i.e., the supergroup is a location-based supergroup
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("has_location")]
         public bool HasLocation { get; set; }
 
         /// <summary>
-        /// True, if messages sent to the channel contains name of the sender. This field is only applicable to channels
+        /// True, if messages sent to the channel contain the name of the sender. This field is only applicable to channels
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("sign_messages")]
@@ -135,7 +135,7 @@ public static partial class TdApi
         public bool IsChannel { get; set; }
 
         /// <summary>
-        /// True, if the supergroup is a broadcast group, i.e. only administrators can send messages and there is no limit on the number of members
+        /// True, if the supergroup is a broadcast group, i.e., only administrators can send messages and there is no limit on the number of members
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("is_broadcast_group")]
@@ -149,7 +149,7 @@ public static partial class TdApi
         public bool IsForum { get; set; }
 
         /// <summary>
-        /// True, if the supergroup is a direct message group for a channel chat
+        /// True, if the supergroup is a direct messages group for a channel chat
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("is_direct_messages_group")]
@@ -163,28 +163,28 @@ public static partial class TdApi
         public bool IsAdministeredDirectMessagesGroup { get; set; }
 
         /// <summary>
-        /// Information about verification status of the supergroup or channel; may be null if none
+        /// Information about the verification status of the supergroup or channel; may be null if none
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("verification_status")]
         public VerificationStatus VerificationStatus { get; set; }
 
         /// <summary>
-        /// True, if the channel has direct messages group
+        /// True, if the channel has a direct messages group
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("has_direct_messages_group")]
         public bool HasDirectMessagesGroup { get; set; }
 
         /// <summary>
-        /// True, if the supergroup is a forum, which topics are shown in the same way as in channel direct messages groups
+        /// True, if the supergroup is a forum whose topics are shown in the same way as in channel direct messages groups
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("has_forum_tabs")]
         public bool HasForumTabs { get; set; }
 
         /// <summary>
-        /// True, if the supergroup is a forum, which topics are shown in a sidebar. If true, then has_forum_tabs is false
+        /// True, if the supergroup is a forum whose topics are shown in a sidebar. If true, then has_forum_tabs is false
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("has_forum_sidebar")]

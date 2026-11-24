@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns application config, provided by the server. Can be called before authorization
+    /// Returns the application config provided by the server. Can be called before authorization
     /// </summary>
     public class GetApplicationConfig : Function<JsonValue>
     {
@@ -34,7 +34,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns application config, provided by the server. Can be called before authorization
+    /// Returns the application config provided by the server. Can be called before authorization
     /// </summary>
     public static Task<JsonValue> GetApplicationConfigAsync(
         this IClient client)

@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class Update : Object
     {
         /// <summary>
-        /// The bar for managing business bot was changed in a chat
+        /// The bar for managing a business bot was changed in a chat
         /// </summary>
         public class UpdateChatBusinessBotManageBar : Update
         {

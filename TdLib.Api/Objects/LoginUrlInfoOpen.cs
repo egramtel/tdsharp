@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class LoginUrlInfo : Object
     {
         /// <summary>
-        /// Contains information about an inline button of type inlineKeyboardButtonTypeLoginUrl or an external link
+        /// Contains information about an inline button of the type inlineKeyboardButtonTypeLoginUrl or an external link
         /// </summary>
         public class LoginUrlInfoOpen : LoginUrlInfo
         {

@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns default message auto-delete time setting for new chats
+    /// Returns the default message auto-delete time setting for new chats
     /// </summary>
     public class GetDefaultMessageAutoDeleteTime : Function<MessageAutoDeleteTime>
     {
@@ -34,7 +34,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns default message auto-delete time setting for new chats
+    /// Returns the default message auto-delete time setting for new chats
     /// </summary>
     public static Task<MessageAutoDeleteTime> GetDefaultMessageAutoDeleteTimeAsync(
         this IClient client)

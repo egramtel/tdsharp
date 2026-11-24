@@ -39,7 +39,7 @@ public static partial class TdApi
         public int[] BackgroundColors { get; set; }
 
         /// <summary>
-        /// The list of 2 colors in RGB format, describing the colors of the gradient to be used for the unread active story indicator around profile photo
+        /// The list of 2 colors in RGB format, describing the colors of the gradient to be used for the unread active story indicator around the profile photo
         /// </summary>
         [JsonProperty("story_colors", ItemConverterType = typeof(Converter))]
         public int[] StoryColors { get; set; }

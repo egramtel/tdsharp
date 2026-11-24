@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class CanTransferOwnershipResult : Object
     {
         /// <summary>
-        /// The 2-step verification was enabled recently, user needs to wait
+        /// The 2-step verification was enabled recently; the user needs to wait
         /// </summary>
         public class CanTransferOwnershipResultPasswordTooFresh : CanTransferOwnershipResult
         {

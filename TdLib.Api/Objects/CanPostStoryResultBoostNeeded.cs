@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class CanPostStoryResult : Object
     {
         /// <summary>
-        /// The chat must be boosted first by Telegram Premium subscribers to post more stories. Call getChatBoostStatus to get current boost status of the chat
+        /// The chat must be boosted first by Telegram Premium subscribers to post more stories. Call getChatBoostStatus to get the current boost status of the chat
         /// </summary>
         public class CanPostStoryResultBoostNeeded : CanPostStoryResult
         {

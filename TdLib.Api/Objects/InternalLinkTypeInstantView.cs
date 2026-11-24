@@ -13,7 +13,7 @@ public static partial class TdApi
     {
         /// <summary>
         /// The link must be opened in an Instant View. Call getWebPageInstantView with the given URL to process the link.
-        /// If Instant View is found, then show it, otherwise, open the fallback URL in an external browser
+        /// If Instant View is found, then show it; otherwise, open the fallback URL in an external browser
         /// </summary>
         public class InternalLinkTypeInstantView : InternalLinkType
         {
@@ -37,7 +37,7 @@ public static partial class TdApi
             public string Url { get; set; }
 
             /// <summary>
-            /// An URL to open if getWebPageInstantView fails
+            /// A URL to open if getWebPageInstantView fails
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("fallback_url")]

@@ -12,7 +12,8 @@ public static partial class TdApi
     public partial class InternalLinkType : Object
     {
         /// <summary>
-        /// The link is a link to the Premium features screen of the application from which the user can subscribe to Telegram Premium. Call getPremiumFeatures with the given referrer to process the link
+        /// The link is a link to the Premium features screen of the application from which the user can subscribe to Telegram Premium.
+        /// Call getPremiumFeatures with the given referrer to process the link
         /// </summary>
         public class InternalLinkTypePremiumFeaturesPage : InternalLinkType
         {

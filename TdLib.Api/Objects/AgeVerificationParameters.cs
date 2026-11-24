@@ -34,14 +34,14 @@ public static partial class TdApi
         public int MinAge { get; set; }
 
         /// <summary>
-        /// Username of the bot which main Web App may be used to verify age of the user
+        /// Username of the bot whose main Web App may be used to verify the age of the user
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("verification_bot_username")]
         public string VerificationBotUsername { get; set; }
 
         /// <summary>
-        /// Unique name for the country or region, which legislation required age verification. May be used to get the corresponding localization key
+        /// Unique name for the country or region whose legislation required age verification. May be used to get the corresponding localization key
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("country")]

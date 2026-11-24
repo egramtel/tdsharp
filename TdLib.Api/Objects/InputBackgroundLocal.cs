@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class InputBackground : Object
     {
         /// <summary>
-        /// Contains information about background to set
+        /// Contains information about the background to set
         /// </summary>
         public class InputBackgroundLocal : InputBackground
         {

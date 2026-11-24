@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Removes a chat from a community. Members of the chat, which aren't members of other chats in the community, will be removed from the community.
+    /// Removes a chat from a community. Members of the chat who aren't members of other chats in the community will be removed from the community.
     /// Requires owner privileges in the supergroup or channel chat, or ownership of the bot for chats with bots, or can_edit_chat_list administrator right in the community
     /// </summary>
     public class RemoveCommunityChat : Function<Ok>
@@ -47,7 +47,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Removes a chat from a community. Members of the chat, which aren't members of other chats in the community, will be removed from the community.
+    /// Removes a chat from a community. Members of the chat who aren't members of other chats in the community will be removed from the community.
     /// Requires owner privileges in the supergroup or channel chat, or ownership of the bot for chats with bots, or can_edit_chat_list administrator right in the community
     /// </summary>
     public static Task<Ok> RemoveCommunityChatAsync(

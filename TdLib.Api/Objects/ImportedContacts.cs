@@ -33,7 +33,7 @@ public static partial class TdApi
         public long[] UserIds { get; set; }
 
         /// <summary>
-        /// The number of users that imported the corresponding contact; 0 for already registered users or if unavailable
+        /// The number of users who imported the corresponding contact; 0 for already registered users or if unavailable
         /// </summary>
         [JsonProperty("importer_count", ItemConverterType = typeof(Converter))]
         public int[] ImporterCount { get; set; }

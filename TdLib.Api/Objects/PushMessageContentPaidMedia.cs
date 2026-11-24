@@ -29,7 +29,7 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// Number of Telegram Stars needed to buy access to the media in the message; 0 for pinned message
+            /// Number of Telegram Stars needed to buy access to the media in the message; 0 for a pinned message
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("star_count")]

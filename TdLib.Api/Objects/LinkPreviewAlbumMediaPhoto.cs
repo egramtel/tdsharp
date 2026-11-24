@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class LinkPreviewAlbumMedia : Object
     {
         /// <summary>
-        /// Describes a media from a link preview album
+        /// Describes media from a link preview album
         /// </summary>
         public class LinkPreviewAlbumMediaPhoto : LinkPreviewAlbumMedia
         {

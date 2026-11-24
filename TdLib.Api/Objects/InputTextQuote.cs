@@ -27,7 +27,8 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Text of the quote; 0-getOption("message_reply_quote_length_max") characters. Only Bold, Italic, Underline, Strikethrough, Spoiler, CustomEmoji, and DateTime entities are allowed to be kept and must be kept in the quote.
+        /// Text of the quote; 0-getOption("message_reply_quote_length_max") characters.
+        /// Only Bold, Italic, Underline, Strikethrough, Spoiler, CustomEmoji, and DateTime entities are allowed to be kept and must be kept in the quote.
         /// Ignored if rich_texts are non-empty
         /// </summary>
         [JsonConverter(typeof(Converter))]
@@ -35,7 +36,8 @@ public static partial class TdApi
         public FormattedText Text { get; set; }
 
         /// <summary>
-        /// Quote from a rich message; pass an empty array if the quote isn't chosen from a rich message. Must contain one element for each quoted text of the message in the order of their appearance.
+        /// Quote from a rich message; pass an empty array if the quote isn't chosen from a rich message.
+        /// Must contain one element for each quoted text of the message in the order of their appearance.
         /// The first and the last elements can contain only a part of the corresponding text; all other elements must contain the whole text. Formatting of the quoted parts must be kept.
         /// Mathematical expressions must be quoted entirely. Buttons in pageBlockButtonRow, anchors and dividers can't be quoted.
         /// There can be up to 32 quoted texts with total length up to getOption("message_reply_quote_length_max") characters

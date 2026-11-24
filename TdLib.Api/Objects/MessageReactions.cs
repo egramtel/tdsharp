@@ -40,7 +40,7 @@ public static partial class TdApi
         public bool AreTags { get; set; }
 
         /// <summary>
-        /// Information about top users that added the paid reaction
+        /// Information about top users who added the paid reaction
         /// </summary>
         [JsonProperty("paid_reactors", ItemConverterType = typeof(Converter))]
         public PaidReactor[] PaidReactors { get; set; }

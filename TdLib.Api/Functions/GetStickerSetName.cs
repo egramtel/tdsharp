@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns name of a sticker set by its identifier
+    /// Returns the name of a sticker set by its identifier
     /// </summary>
     public class GetStickerSetName : Function<Text>
     {
@@ -39,7 +39,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns name of a sticker set by its identifier
+    /// Returns the name of a sticker set by its identifier
     /// </summary>
     public static Task<Text> GetStickerSetNameAsync(
         this IClient client, long setId = default)

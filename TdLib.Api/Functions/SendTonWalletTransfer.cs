@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Sends a cryptocurrency from the user's TON wallet; can be used only if getOption("can_use_ton_wallet")
+    /// Sends TON Grams from the user's TON wallet; can be used only if getOption("can_use_ton_wallet")
     /// </summary>
     public class SendTonWalletTransfer : Function<TonWalletTransferResult>
     {
@@ -38,14 +38,14 @@ public static partial class TdApi
         public long UserId { get; set; }
 
         /// <summary>
-        /// Address in the TON blockchain of the transaction peer
+        /// Address on the TON blockchain of the transaction peer
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("address")]
         public string Address { get; set; }
 
         /// <summary>
-        /// The amount of the sent cryptocurrency, in the smallest units of the cryptocurrency
+        /// The sent amount, in the smallest units of TON Grams
         /// </summary>
         [JsonConverter(typeof(Converter.Int64))]
         [JsonProperty("amount")]
@@ -66,21 +66,21 @@ public static partial class TdApi
         public bool IsCommentEncrypted { get; set; }
 
         /// <summary>
-        /// Non-persistent identifier, which will be returned back in messageSendingStatePending object and can be used to match sent messages and corresponding updateNewMessage updates
+        /// Non-persistent identifier, which will be returned in the messageSendingStatePending object and can be used to match sent messages and corresponding updateNewMessage updates
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("sending_id")]
         public int SendingId { get; set; }
 
         /// <summary>
-        /// Serialized data for regular cryptocurrency transfer request. The minimum allowed transfer amount is getOption("ton_wallet_transfer_amount_min")
+        /// Serialized data for a regular transfer request. The minimum allowed transfer amount is getOption("ton_wallet_transfer_amount_min")
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("regular_transfer_data")]
         public byte[] RegularTransferData { get; set; }
 
         /// <summary>
-        /// Serialized data for gasless cryptocurrency transfer request; pass an empty string to force a regular request.
+        /// Serialized data for a gasless transfer request; pass an empty string to force a regular request.
         /// The minimum allowed transfer amount for a gasless transfer is getOption("ton_wallet_gasless_transfer_amount_min")
         /// </summary>
         [JsonConverter(typeof(Converter))]
@@ -89,7 +89,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Sends a cryptocurrency from the user's TON wallet; can be used only if getOption("can_use_ton_wallet")
+    /// Sends TON Grams from the user's TON wallet; can be used only if getOption("can_use_ton_wallet")
     /// </summary>
     public static Task<TonWalletTransferResult> SendTonWalletTransferAsync(
         this IClient client, long userId = default, string address = default, long amount = default, string comment = default, bool isCommentEncrypted = default, int sendingId = default, byte[] regularTransferData = default, byte[] gaslessTransferData = default)

@@ -55,7 +55,7 @@ public static partial class TdApi
         public long SoundId { get; set; }
 
         /// <summary>
-        /// True, if reaction sender and emoji must be displayed in notifications
+        /// True, if the reaction sender and emoji must be displayed in notifications
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("show_preview")]

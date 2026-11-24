@@ -38,7 +38,7 @@ public static partial class TdApi
         public InputFile Sticker { get; set; }
 
         /// <summary>
-        /// List of up to 20 keywords with total length up to 64 characters, which can be used to find the sticker
+        /// List of up to 20 keywords with a total length of up to 64 characters, which can be used to find the sticker
         /// </summary>
         [JsonProperty("keywords", ItemConverterType = typeof(Converter))]
         public string[] Keywords { get; set; }

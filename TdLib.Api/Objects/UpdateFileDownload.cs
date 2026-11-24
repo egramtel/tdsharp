@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class Update : Object
     {
         /// <summary>
-        /// A file download was changed. This update is sent only after file download list is loaded for the first time
+        /// A file download was changed. This update is sent only after the file download list is loaded for the first time
         /// </summary>
         public class UpdateFileDownload : Update
         {
@@ -50,7 +50,7 @@ public static partial class TdApi
             public bool IsPaused { get; set; }
 
             /// <summary>
-            /// New number of being downloaded and recently downloaded files found
+            /// New number of files being downloaded and recently downloaded files found
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("counts")]

@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns information about messages. If a message is not found, returns null on the corresponding position of the result
+    /// Returns information about messages. If a message is not found, returns null at the corresponding position of the result
     /// </summary>
     public class GetMessages : Function<Messages>
     {
@@ -45,7 +45,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns information about messages. If a message is not found, returns null on the corresponding position of the result
+    /// Returns information about messages. If a message is not found, returns null at the corresponding position of the result
     /// </summary>
     public static Task<Messages> GetMessagesAsync(
         this IClient client, long chatId = default, long[] messageIds = default)

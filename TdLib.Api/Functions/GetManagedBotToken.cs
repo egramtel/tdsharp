@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns token of a managed bot; for bots only
+    /// Returns the token of a managed bot; for bots only
     /// </summary>
     public class GetManagedBotToken : Function<Text>
     {
@@ -46,7 +46,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns token of a managed bot; for bots only
+    /// Returns the token of a managed bot; for bots only
     /// </summary>
     public static Task<Text> GetManagedBotTokenAsync(
         this IClient client, long botUserId = default, bool revoke = default)

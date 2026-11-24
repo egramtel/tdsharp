@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class Update : Object
     {
         /// <summary>
-        /// The list of top donors in live story group call has changed
+        /// The list of top donors in the live story group call has changed
         /// </summary>
         public class UpdateLiveStoryTopDonors : Update
         {

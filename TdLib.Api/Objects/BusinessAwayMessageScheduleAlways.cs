@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class BusinessAwayMessageSchedule : Object
     {
         /// <summary>
-        /// Describes conditions for sending of away messages by a Telegram Business account
+        /// Describes conditions for sending away messages by a Telegram Business account
         /// </summary>
         public class BusinessAwayMessageScheduleAlways : BusinessAwayMessageSchedule
         {

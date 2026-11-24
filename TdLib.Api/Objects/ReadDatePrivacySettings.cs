@@ -10,7 +10,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Contains privacy settings for message read date in private chats. Read dates are always shown to the users that can see online status of the current user regardless of this setting
+    /// Contains privacy settings for message read date in private chats. Read dates are always shown to the users who can see the online status of the current user regardless of this setting
     /// </summary>
     public partial class ReadDatePrivacySettings : Object
     {
@@ -27,7 +27,8 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// True, if message read date is shown to other users in private chats. If false and the current user isn't a Telegram Premium user, then they will not be able to see others' message read date
+        /// True, if the message read date is shown to other users in private chats.
+        /// If false and the current user isn't a Telegram Premium user, then they will not be able to see others' message read date
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("show_read_date")]

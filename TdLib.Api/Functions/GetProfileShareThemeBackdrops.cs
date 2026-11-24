@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns the list of backdrops, which can be used as a background of a theme of the screen for sharing a link to a user or a chat
+    /// Returns the list of backdrops that can be used as a background of a theme of the screen for sharing a link to a user or a chat
     /// </summary>
     public class GetProfileShareThemeBackdrops : Function<ProfileShareThemeBackdrops>
     {
@@ -34,7 +34,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns the list of backdrops, which can be used as a background of a theme of the screen for sharing a link to a user or a chat
+    /// Returns the list of backdrops that can be used as a background of a theme of the screen for sharing a link to a user or a chat
     /// </summary>
     public static Task<ProfileShareThemeBackdrops> GetProfileShareThemeBackdropsAsync(
         this IClient client)

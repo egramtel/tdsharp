@@ -10,7 +10,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Contains information about color scheme for user's name, background of empty chat photo, replies to messages and link previews
+    /// Contains information about color scheme for user's name, background of empty chat photo, replies to messages, and link previews
     /// </summary>
     public partial class UpgradedGiftColors : Object
     {

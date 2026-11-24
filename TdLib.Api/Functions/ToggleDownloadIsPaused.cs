@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Changes pause state of a file in the file download list
+    /// Changes the pause state of a file in the file download list
     /// </summary>
     public class ToggleDownloadIsPaused : Function<Ok>
     {
@@ -46,7 +46,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Changes pause state of a file in the file download list
+    /// Changes the pause state of a file in the file download list
     /// </summary>
     public static Task<Ok> ToggleDownloadIsPausedAsync(
         this IClient client, int fileId = default, bool isPaused = default)

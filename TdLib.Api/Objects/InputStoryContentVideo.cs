@@ -49,7 +49,7 @@ public static partial class TdApi
             public double? Duration { get; set; }
 
             /// <summary>
-            /// Timestamp of the frame, which will be used as video thumbnail
+            /// Timestamp of the frame that will be used as the video thumbnail
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("cover_frame_timestamp")]

@@ -38,7 +38,7 @@ public static partial class TdApi
         public int StoryId { get; set; }
 
         /// <summary>
-        /// Query to search for in names, usernames and titles; may be empty to get all relevant interactions
+        /// Query to search for in names, usernames, and titles; may be empty to get all relevant interactions
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("query")]
@@ -59,14 +59,14 @@ public static partial class TdApi
         public bool PreferForwards { get; set; }
 
         /// <summary>
-        /// Pass true to get interactions with reaction first; pass false to get interactions sorted just by interaction date. Ignored if prefer_forwards == true
+        /// Pass true to get interactions with a reaction first; pass false to get interactions sorted just by interaction date. Ignored if prefer_forwards == true
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("prefer_with_reaction")]
         public bool PreferWithReaction { get; set; }
 
         /// <summary>
-        /// Offset of the first entry to return as received from the previous request; use empty string to get the first chunk of results
+        /// Offset of the first entry to return as received from the previous request; use an empty string to get the first chunk of results
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("offset")]

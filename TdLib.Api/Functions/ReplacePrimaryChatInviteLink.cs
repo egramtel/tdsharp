@@ -11,7 +11,8 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Replaces current primary invite link for a chat with a new primary invite link. Available for basic groups, supergroups, and channels. Requires administrator privileges and can_invite_users right
+    /// Replaces the current primary invite link for a chat with a new primary invite link. Available in basic groups, supergroups, and channels.
+    /// Requires administrator privileges and can_invite_users right
     /// </summary>
     public class ReplacePrimaryChatInviteLink : Function<ChatInviteLink>
     {
@@ -39,7 +40,8 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Replaces current primary invite link for a chat with a new primary invite link. Available for basic groups, supergroups, and channels. Requires administrator privileges and can_invite_users right
+    /// Replaces the current primary invite link for a chat with a new primary invite link. Available in basic groups, supergroups, and channels.
+    /// Requires administrator privileges and can_invite_users right
     /// </summary>
     public static Task<ChatInviteLink> ReplacePrimaryChatInviteLinkAsync(
         this IClient client, long chatId = default)

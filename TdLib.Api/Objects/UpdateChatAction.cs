@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class Update : Object
     {
         /// <summary>
-        /// A message sender activity in the chat has changed
+        /// A message sender's activity in the chat has changed
         /// </summary>
         public class UpdateChatAction : Update
         {

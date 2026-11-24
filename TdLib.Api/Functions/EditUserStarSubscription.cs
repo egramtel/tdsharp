@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Cancels or re-enables Telegram Star subscription for a user; for bots only
+    /// Cancels or re-enables a Telegram Star subscription for a user; for bots only
     /// </summary>
     public class EditUserStarSubscription : Function<Ok>
     {
@@ -53,7 +53,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Cancels or re-enables Telegram Star subscription for a user; for bots only
+    /// Cancels or re-enables a Telegram Star subscription for a user; for bots only
     /// </summary>
     public static Task<Ok> EditUserStarSubscriptionAsync(
         this IClient client, long userId = default, string telegramPaymentChargeId = default, bool isCanceled = default)

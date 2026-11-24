@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class TopChatCategory : Object
     {
         /// <summary>
-        /// A category containing frequently used chats with bots, which Web Apps were opened
+        /// A category containing frequently used chats with bots whose Web Apps were opened
         /// </summary>
         public class TopChatCategoryWebAppBots : TopChatCategory
         {

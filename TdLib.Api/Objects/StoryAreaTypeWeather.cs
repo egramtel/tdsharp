@@ -29,7 +29,7 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// Temperature, in degree Celsius
+            /// Temperature, in degrees Celsius
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("temperature")]

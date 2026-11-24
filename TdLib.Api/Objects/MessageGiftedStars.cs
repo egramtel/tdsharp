@@ -78,7 +78,7 @@ public static partial class TdApi
             public long StarCount { get; set; }
 
             /// <summary>
-            /// Identifier of the transaction for Telegram Stars purchase; for receiver only
+            /// Identifier of the transaction for Telegram Stars purchase; for the receiver only
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("transaction_id")]

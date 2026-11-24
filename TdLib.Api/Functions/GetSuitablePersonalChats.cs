@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns a list of channel chats, which can be used as a personal chat
+    /// Returns a list of channel chats that can be used as a personal chat
     /// </summary>
     public class GetSuitablePersonalChats : Function<Chats>
     {
@@ -34,7 +34,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns a list of channel chats, which can be used as a personal chat
+    /// Returns a list of channel chats that can be used as a personal chat
     /// </summary>
     public static Task<Chats> GetSuitablePersonalChatsAsync(
         this IClient client)

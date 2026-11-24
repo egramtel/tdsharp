@@ -55,14 +55,14 @@ public static partial class TdApi
         public bool IsCustom { get; set; }
 
         /// <summary>
-        /// True, if the user is creator of the style
+        /// True, if the user is the creator of the style
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("is_creator")]
         public bool IsCreator { get; set; }
 
         /// <summary>
-        /// Number of users that installed the style; for created custom styles only; 0 if unknown
+        /// Number of users who installed the style; for created custom styles only; 0 if unknown
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("install_count")]

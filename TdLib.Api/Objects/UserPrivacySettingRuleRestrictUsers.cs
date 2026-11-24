@@ -29,7 +29,7 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// The user identifiers, total number of users in all rules must not exceed 1000
+            /// The user identifiers; the total number of users in all rules must not exceed 1000
             /// </summary>
             [JsonProperty("user_ids", ItemConverterType = typeof(Converter))]
             public long[] UserIds { get; set; }

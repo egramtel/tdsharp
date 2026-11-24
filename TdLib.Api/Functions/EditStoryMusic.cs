@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Changes music attached to a story. Can be called only if story.can_be_edited == true and the story isn't being edited now
+    /// Changes the music attached to a story. Can be called only if story.can_be_edited == true and the story isn't being edited now
     /// </summary>
     public class EditStoryMusic : Function<Ok>
     {
@@ -53,7 +53,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Changes music attached to a story. Can be called only if story.can_be_edited == true and the story isn't being edited now
+    /// Changes the music attached to a story. Can be called only if story.can_be_edited == true and the story isn't being edited now
     /// </summary>
     public static Task<Ok> EditStoryMusicAsync(
         this IClient client, long storyPosterChatId = default, int storyId = default, InputAudio music = default)

@@ -55,7 +55,7 @@ public static partial class TdApi
         public string Title { get; set; }
 
         /// <summary>
-        /// Performer of the audio; 0-64 characters, may be replaced by the server
+        /// Performer of the audio; 0-64 characters; may be replaced by the server
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("performer")]

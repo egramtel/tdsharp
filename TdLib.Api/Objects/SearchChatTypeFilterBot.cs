@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class SearchChatTypeFilter : Object
     {
         /// <summary>
-        /// Represents a filter for type of the chats to search for
+        /// Represents a filter for the type of the chats to search for
         /// </summary>
         public class SearchChatTypeFilterBot : SearchChatTypeFilter
         {

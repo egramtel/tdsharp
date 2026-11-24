@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Allows to send unpaid messages to the given topic of the channel direct messages chat administered by the current user
+    /// Allows sending unpaid messages to the given topic of the channel direct messages chat administered by the current user
     /// </summary>
     public class ToggleDirectMessagesChatTopicCanSendUnpaidMessages : Function<Ok>
     {
@@ -60,7 +60,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Allows to send unpaid messages to the given topic of the channel direct messages chat administered by the current user
+    /// Allows sending unpaid messages to the given topic of the channel direct messages chat administered by the current user
     /// </summary>
     public static Task<Ok> ToggleDirectMessagesChatTopicCanSendUnpaidMessagesAsync(
         this IClient client, long chatId = default, long topicId = default, bool canSendUnpaidMessages = default, bool refundPayments = default)

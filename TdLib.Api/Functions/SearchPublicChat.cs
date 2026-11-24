@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Searches a public chat by its username. Currently, only private chats, supergroups and channels can be public. Returns the chat if found; otherwise, an error is returned
+    /// Searches for a public chat by its username. Currently, only private chats, supergroups, and channels can be public. Returns the chat if found; otherwise, an error is returned
     /// </summary>
     public class SearchPublicChat : Function<Chat>
     {
@@ -39,7 +39,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Searches a public chat by its username. Currently, only private chats, supergroups and channels can be public. Returns the chat if found; otherwise, an error is returned
+    /// Searches for a public chat by its username. Currently, only private chats, supergroups, and channels can be public. Returns the chat if found; otherwise, an error is returned
     /// </summary>
     public static Task<Chat> SearchPublicChatAsync(
         this IClient client, string username = default)

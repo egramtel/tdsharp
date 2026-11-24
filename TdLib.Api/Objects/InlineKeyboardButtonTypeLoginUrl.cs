@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class InlineKeyboardButtonType : Object
     {
         /// <summary>
-        /// A button that opens a specified URL and automatically authorize the current user by calling getLoginUrlInfo; not supported in ephemeral messages
+        /// A button that opens a specified URL and automatically authorizes the current user by calling getLoginUrlInfo; not supported in ephemeral messages
         /// </summary>
         public class InlineKeyboardButtonTypeLoginUrl : InlineKeyboardButtonType
         {

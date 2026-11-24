@@ -38,7 +38,7 @@ public static partial class TdApi
         public long ChatId { get; set; }
 
         /// <summary>
-        /// Forum topic identifier in which messages will be unpinned
+        /// Identifier of the forum topic in which messages will be unpinned
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("forum_topic_id")]

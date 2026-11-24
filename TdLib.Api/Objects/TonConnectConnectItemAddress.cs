@@ -29,7 +29,7 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// Stringified TON network global_id (e.g. "-239" for mainnet); may be empty
+            /// Stringified TON network global_id (e.g., "-239" for mainnet); may be empty
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("network")]

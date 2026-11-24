@@ -38,7 +38,7 @@ public static partial class TdApi
         public string Name { get; set; }
 
         /// <summary>
-        /// The new value of the option; pass null to reset option value to a default value
+        /// The new value of the option; pass null to reset the option value to the default value
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("value")]

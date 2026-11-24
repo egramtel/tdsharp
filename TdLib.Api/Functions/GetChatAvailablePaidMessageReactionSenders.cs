@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns the list of message sender identifiers, which can be used to send a paid reaction in a chat
+    /// Returns the list of message sender identifiers that can be used to send a paid reaction in a chat
     /// </summary>
     public class GetChatAvailablePaidMessageReactionSenders : Function<MessageSenders>
     {
@@ -39,7 +39,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns the list of message sender identifiers, which can be used to send a paid reaction in a chat
+    /// Returns the list of message sender identifiers that can be used to send a paid reaction in a chat
     /// </summary>
     public static Task<MessageSenders> GetChatAvailablePaidMessageReactionSendersAsync(
         this IClient client, long chatId = default)

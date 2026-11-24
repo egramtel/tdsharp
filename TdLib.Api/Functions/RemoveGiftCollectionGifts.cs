@@ -45,7 +45,7 @@ public static partial class TdApi
         public int CollectionId { get; set; }
 
         /// <summary>
-        /// Identifier of the gifts to remove from the collection
+        /// Identifiers of the gifts to remove from the collection
         /// </summary>
         [JsonProperty("received_gift_ids", ItemConverterType = typeof(Converter))]
         public string[] ReceivedGiftIds { get; set; }

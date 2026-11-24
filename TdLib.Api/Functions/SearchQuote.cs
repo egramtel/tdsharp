@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Searches for a given quote in a text. Returns found quote start position in UTF-16 code units. Returns a 404 error if the quote is not found. Can be called synchronously
+    /// Searches for a given quote in a text. Returns the start position of the found quote in UTF-16 code units. Returns a 404 error if the quote is not found. Can be called synchronously
     /// </summary>
     public class SearchQuote : Function<FoundPosition>
     {
@@ -53,7 +53,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Searches for a given quote in a text. Returns found quote start position in UTF-16 code units. Returns a 404 error if the quote is not found. Can be called synchronously
+    /// Searches for a given quote in a text. Returns the start position of the found quote in UTF-16 code units. Returns a 404 error if the quote is not found. Can be called synchronously
     /// </summary>
     public static Task<FoundPosition> SearchQuoteAsync(
         this IClient client, FormattedText text = default, FormattedText quote = default, int quotePosition = default)

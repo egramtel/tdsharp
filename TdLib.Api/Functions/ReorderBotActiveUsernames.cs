@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Changes order of active usernames of a bot. Can be called only if userTypeBot.can_be_edited == true
+    /// Changes the order of active usernames of a bot. Can be called only if userTypeBot.can_be_edited == true
     /// </summary>
     public class ReorderBotActiveUsernames : Function<Ok>
     {
@@ -45,7 +45,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Changes order of active usernames of a bot. Can be called only if userTypeBot.can_be_edited == true
+    /// Changes the order of active usernames of a bot. Can be called only if userTypeBot.can_be_edited == true
     /// </summary>
     public static Task<Ok> ReorderBotActiveUsernamesAsync(
         this IClient client, long botUserId = default, string[] usernames = default)

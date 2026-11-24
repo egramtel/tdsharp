@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class ButtonStyle : Object
     {
         /// <summary>
-        /// The button has green color
+        /// The button has a green color
         /// </summary>
         public class ButtonStyleSuccess : ButtonStyle
         {

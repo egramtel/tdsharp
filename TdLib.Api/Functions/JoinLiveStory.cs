@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Joins a group call of an active live story. Returns join response payload for tgcalls
+    /// Joins a group call of an active live story. Returns the join response payload for tgcalls
     /// </summary>
     public class JoinLiveStory : Function<Text>
     {
@@ -46,7 +46,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Joins a group call of an active live story. Returns join response payload for tgcalls
+    /// Joins a group call of an active live story. Returns the join response payload for tgcalls
     /// </summary>
     public static Task<Text> JoinLiveStoryAsync(
         this IClient client, int groupCallId = default, GroupCallJoinParameters joinParameters = default)

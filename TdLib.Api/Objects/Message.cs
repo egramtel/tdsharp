@@ -41,7 +41,7 @@ public static partial class TdApi
         public MessageSender SenderId { get; set; }
 
         /// <summary>
-        /// Identifier of the user or the chat which received the ephemeral message; may be null. Always null for non-ephemeral messages
+        /// Identifier of the user or the chat that received the ephemeral message; may be null. Always null for non-ephemeral messages
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("receiver_id")]
@@ -83,42 +83,44 @@ public static partial class TdApi
         public bool IsPinned { get; set; }
 
         /// <summary>
-        /// True, if the message was sent because of a scheduled action by the message sender, for example, as away, or greeting service message
+        /// True, if the message was sent because of a scheduled action by the message sender, for example, as an away or greeting service message
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("is_from_offline")]
         public bool IsFromOffline { get; set; }
 
         /// <summary>
-        /// True, if content of the message can be saved locally
+        /// True, if the content of the message can be saved locally
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("can_be_saved")]
         public bool CanBeSaved { get; set; }
 
         /// <summary>
-        /// True, if media timestamp entities refers to a media in this message as opposed to a media in the replied message
+        /// True, if media timestamp entities refer to media in this message as opposed to media in the replied-to message
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("has_timestamped_media")]
         public bool HasTimestampedMedia { get; set; }
 
         /// <summary>
-        /// True, if the message is a channel post. All messages to channels are channel posts, all other messages are not channel posts
+        /// True, if the message is a channel post. All messages to channels are channel posts; all other messages are not channel posts
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("is_channel_post")]
         public bool IsChannelPost { get; set; }
 
         /// <summary>
-        /// True, if the message is a suggested channel post which was paid in Telegram Stars; a warning must be shown if the message is deleted in less than getOption("suggested_post_lifetime_min") seconds after sending
+        /// True, if the message is a suggested channel post that was paid for in Telegram Stars;
+        /// a warning must be shown if the message is deleted in less than getOption("suggested_post_lifetime_min") seconds after sending
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("is_paid_star_suggested_post")]
         public bool IsPaidStarSuggestedPost { get; set; }
 
         /// <summary>
-        /// True, if the message is a suggested channel post which was paid in TON Grams; a warning must be shown if the message is deleted in less than getOption("suggested_post_lifetime_min") seconds after sending
+        /// True, if the message is a suggested channel post that was paid for in TON Grams;
+        /// a warning must be shown if the message is deleted in less than getOption("suggested_post_lifetime_min") seconds after sending
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("is_paid_gram_suggested_post")]
@@ -181,7 +183,7 @@ public static partial class TdApi
         public UnreadReaction[] UnreadReactions { get; set; }
 
         /// <summary>
-        /// Information about fact-check added to the message; may be null if none
+        /// Information about the fact-check added to the message; may be null if none
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("fact_check")]
@@ -223,7 +225,7 @@ public static partial class TdApi
         public double? SelfDestructIn { get; set; }
 
         /// <summary>
-        /// Time left before the message will be automatically deleted by message_auto_delete_time setting of the chat, in seconds; 0 if never
+        /// Time left before the message will be automatically deleted by the message_auto_delete_time setting of the chat, in seconds; 0 if never
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("auto_delete_in")]
@@ -237,7 +239,7 @@ public static partial class TdApi
         public long ViaBotUserId { get; set; }
 
         /// <summary>
-        /// The identifier of the user or chat which used a guest bot to send the message; may be null if none
+        /// The identifier of the user or chat that used a guest bot to send the message; may be null if none
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("guest_bot_caller_id")]
@@ -251,7 +253,8 @@ public static partial class TdApi
         public long SenderBusinessBotUserId { get; set; }
 
         /// <summary>
-        /// Number of times the sender of the message boosted the supergroup at the time the message was sent; 0 if none or unknown. For messages sent by the current user, supergroupFullInfo.my_boost_count must be used instead
+        /// Number of times the sender of the message boosted the supergroup at the time the message was sent; 0 if none or unknown.
+        /// For messages sent by the current user, supergroupFullInfo.my_boost_count must be used instead
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("sender_boost_count")]
@@ -301,7 +304,7 @@ public static partial class TdApi
         public RestrictionInfo RestrictionInfo { get; set; }
 
         /// <summary>
-        /// IETF language tag of the message language on which it can be summarized; empty if summary isn't available for the message
+        /// IETF language tag of the message language in which it can be summarized; empty if a summary isn't available for the message
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("summary_language_code")]

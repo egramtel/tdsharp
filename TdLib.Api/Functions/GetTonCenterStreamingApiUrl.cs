@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns a URL for TON Center Streaming API
+    /// Returns a URL for the TON Center Streaming API
     /// </summary>
     public class GetTonCenterStreamingApiUrl : Function<TonCenterStreamingApiUrl>
     {
@@ -34,7 +34,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns a URL for TON Center Streaming API
+    /// Returns a URL for the TON Center Streaming API
     /// </summary>
     public static Task<TonCenterStreamingApiUrl> GetTonCenterStreamingApiUrlAsync(
         this IClient client)

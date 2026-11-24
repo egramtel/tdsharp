@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Changes type of default reaction for the current user
+    /// Changes the type of the default reaction for the current user
     /// </summary>
     public class SetDefaultReactionType : Function<Ok>
     {
@@ -39,7 +39,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Changes type of default reaction for the current user
+    /// Changes the type of the default reaction for the current user
     /// </summary>
     public static Task<Ok> SetDefaultReactionTypeAsync(
         this IClient client, ReactionType reactionType = default)

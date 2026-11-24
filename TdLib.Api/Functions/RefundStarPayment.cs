@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Refunds a previously done payment in Telegram Stars; for bots only
+    /// Refunds a previously made payment in Telegram Stars; for bots only
     /// </summary>
     public class RefundStarPayment : Function<Ok>
     {
@@ -31,7 +31,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Identifier of the user who did the payment
+        /// Identifier of the user who made the payment
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("user_id")]
@@ -46,7 +46,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Refunds a previously done payment in Telegram Stars; for bots only
+    /// Refunds a previously made payment in Telegram Stars; for bots only
     /// </summary>
     public static Task<Ok> RefundStarPaymentAsync(
         this IClient client, long userId = default, string telegramPaymentChargeId = default)

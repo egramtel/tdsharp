@@ -29,7 +29,7 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// The new amount of owned Grams; in the smallest units of the cryptocurrency
+            /// The new owned amount, in the smallest units of TON Grams
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("gram_amount")]

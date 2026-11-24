@@ -71,7 +71,8 @@ public static partial class TdApi
             public int UniqueGiftNumber { get; set; }
 
             /// <summary>
-            /// Number of Telegram Stars that can be claimed by the receiver instead of the regular gift; 0 if the gift can't be sold by the receiver
+            /// Number of Telegram Stars that can be claimed by the receiver instead of the regular gift within getOption("gift_sell_period") seconds from its sending;
+            /// 0 if the gift can't be sold by the receiver
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("sell_star_count")]
@@ -85,14 +86,14 @@ public static partial class TdApi
             public long PrepaidUpgradeStarCount { get; set; }
 
             /// <summary>
-            /// True, if the upgrade was bought after the gift was sent. In this case, prepaid upgrade cost must not be added to the gift cost
+            /// True, if the upgrade was bought after the gift was sent. In this case, the prepaid upgrade cost must not be added to the gift cost
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_upgrade_separate")]
             public bool IsUpgradeSeparate { get; set; }
 
             /// <summary>
-            /// True, if the message is a notification about a gift won on an auction
+            /// True, if the message is a notification about a gift won at an auction
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_from_auction")]

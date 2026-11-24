@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class UpgradedGiftOrigin : Object
     {
         /// <summary>
-        /// The gift was assigned from blockchain and isn't owned by the current user. The gift can't be transferred, resold, or withdrawn to blockchain
+        /// The minted gift was linked to a user or a chat and isn't owned by the current user. The gift can't be transferred or resold
         /// </summary>
         public class UpgradedGiftOriginBlockchain : UpgradedGiftOrigin
         {

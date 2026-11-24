@@ -27,7 +27,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// True, if the administrator can access the chat event log, get boost list, see hidden supergroup and channel members, report supergroup spam messages,
+        /// True, if the administrator can access the chat event log, get the boost list, see hidden supergroup and channel members, report supergroup spam messages,
         /// ignore slow mode, and send messages to the chat without paying Telegram Stars. Implied by any other privilege; applicable to supergroups and channels only
         /// </summary>
         [JsonConverter(typeof(Converter))]
@@ -91,7 +91,8 @@ public static partial class TdApi
         public bool CanManageTopics { get; set; }
 
         /// <summary>
-        /// True, if the administrator can add new administrators with a subset of their own privileges or demote administrators that were directly or indirectly promoted by them; applicable to supergroups and channels only
+        /// True, if the administrator can add new administrators with a subset of their own privileges or demote administrators
+        /// who were directly or indirectly promoted by them; applicable to supergroups and channels only
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("can_promote_members")]
@@ -112,7 +113,8 @@ public static partial class TdApi
         public bool CanPostStories { get; set; }
 
         /// <summary>
-        /// True, if the administrator can edit stories posted by other users, post stories to the chat page, pin chat stories, and access story archive; applicable to supergroups and channels only
+        /// True, if the administrator can edit stories posted by other users, post stories to the chat page, pin chat stories, and access the story archive;
+        /// applicable to supergroups and channels only
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("can_edit_stories")]
@@ -126,7 +128,7 @@ public static partial class TdApi
         public bool CanDeleteStories { get; set; }
 
         /// <summary>
-        /// True, if the administrator can answer to channel direct messages; applicable to channels only
+        /// True, if the administrator can answer channel direct messages; applicable to channels only
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("can_manage_direct_messages")]

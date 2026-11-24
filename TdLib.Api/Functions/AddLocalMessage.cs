@@ -45,7 +45,7 @@ public static partial class TdApi
         public MessageSender SenderId { get; set; }
 
         /// <summary>
-        /// Information about the message or story to be replied; pass null if none
+        /// Information about the message or story to be replied to; pass null if none
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("reply_to")]

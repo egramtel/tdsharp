@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Changes the location of a chat. Available only for some location-based supergroups, use supergroupFullInfo.can_set_location to check whether the method is allowed to use
+    /// Changes the location of a chat. Use supergroupFullInfo.can_set_location to check whether the method can be used
     /// </summary>
     public class SetChatLocation : Function<Ok>
     {
@@ -46,7 +46,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Changes the location of a chat. Available only for some location-based supergroups, use supergroupFullInfo.can_set_location to check whether the method is allowed to use
+    /// Changes the location of a chat. Use supergroupFullInfo.can_set_location to check whether the method can be used
     /// </summary>
     public static Task<Ok> SetChatLocationAsync(
         this IClient client, long chatId = default, ChatLocation location = default)

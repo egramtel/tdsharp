@@ -34,7 +34,7 @@ public static partial class TdApi
         public long ChatId { get; set; }
 
         /// <summary>
-        /// Information about failed to add members
+        /// Information about members who failed to be added
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("failed_to_add_members")]

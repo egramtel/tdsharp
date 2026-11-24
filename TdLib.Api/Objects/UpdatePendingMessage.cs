@@ -37,7 +37,7 @@ public static partial class TdApi
             public long ChatId { get; set; }
 
             /// <summary>
-            /// The forum topic identifier in which the message will be sent; 0 if none
+            /// The identifier of the forum topic in which the message will be sent; 0 if none
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("forum_topic_id")]

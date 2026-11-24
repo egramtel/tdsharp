@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class LogStream : Object
     {
         /// <summary>
-        /// Describes a stream to which TDLib internal log is written
+        /// Describes a stream to which the TDLib internal log is written
         /// </summary>
         public class LogStreamDefault : LogStream
         {

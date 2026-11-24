@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class StarTransactionType : Object
     {
         /// <summary>
-        /// The transaction is a withdrawal of earned Telegram Stars to Telegram Ad platform; relevant for bots and channel chats only
+        /// The transaction is a withdrawal of earned Telegram Stars to the Telegram Ad platform; relevant for bots and channel chats only
         /// </summary>
         public class StarTransactionTypeTelegramAdsWithdrawal : StarTransactionType
         {

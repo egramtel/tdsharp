@@ -36,7 +36,7 @@ public static partial class TdApi
             public long ChatId { get; set; }
 
             /// <summary>
-            /// New chat position. If new order is 0, then the chat needs to be removed from the list
+            /// New chat position. If the new order is 0, then the chat needs to be removed from the list
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("position")]

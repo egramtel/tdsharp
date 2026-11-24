@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class TonTransactionType : Object
     {
         /// <summary>
-        /// The transaction is a payment for successful stake dice throw
+        /// The transaction is a payment for a successful stake dice throw
         /// </summary>
         public class TonTransactionTypeStakeDicePayout : TonTransactionType
         {

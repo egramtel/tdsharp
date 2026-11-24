@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Changes accent color and background custom emoji of a channel chat. Requires can_change_info administrator right
+    /// Changes the accent color and background custom emoji of a channel chat. Requires can_change_info administrator right
     /// </summary>
     public class SetChatAccentColor : Function<Ok>
     {
@@ -45,7 +45,8 @@ public static partial class TdApi
         public int AccentColorId { get; set; }
 
         /// <summary>
-        /// Identifier of a custom emoji to be shown on the reply header and link preview background; 0 if none. Use chatBoostLevelFeatures.can_set_background_custom_emoji to check whether a custom emoji can be set
+        /// Identifier of a custom emoji to be shown on the reply header and link preview background; 0 if none.
+        /// Use chatBoostLevelFeatures.can_set_background_custom_emoji to check whether a custom emoji can be set
         /// </summary>
         [JsonConverter(typeof(Converter.Int64))]
         [JsonProperty("background_custom_emoji_id")]
@@ -53,7 +54,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Changes accent color and background custom emoji of a channel chat. Requires can_change_info administrator right
+    /// Changes the accent color and background custom emoji of a channel chat. Requires can_change_info administrator right
     /// </summary>
     public static Task<Ok> SetChatAccentColorAsync(
         this IClient client, long chatId = default, int accentColorId = default, long backgroundCustomEmojiId = default)

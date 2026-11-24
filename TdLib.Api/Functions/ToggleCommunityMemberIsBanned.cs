@@ -12,7 +12,7 @@ public static partial class TdApi
 {
     /// <summary>
     /// Bans or unbans a member of a community; requires can_ban_members administrator right in the community. A banned member is banned in all chats of the community.
-    /// Administrators of the community can be banned only by the owner of the community and administrators, which can edit administrator rights of the member.
+    /// Administrators of the community can be banned only by the owner of the community and administrators who can edit administrator rights of the member.
     /// If an owner of a chat in the community is banned, then the chat is removed from the community; in this case, can_edit_chat_list administrator right is also required
     /// </summary>
     public class ToggleCommunityMemberIsBanned : Function<Ok>
@@ -56,7 +56,7 @@ public static partial class TdApi
 
     /// <summary>
     /// Bans or unbans a member of a community; requires can_ban_members administrator right in the community. A banned member is banned in all chats of the community.
-    /// Administrators of the community can be banned only by the owner of the community and administrators, which can edit administrator rights of the member.
+    /// Administrators of the community can be banned only by the owner of the community and administrators who can edit administrator rights of the member.
     /// If an owner of a chat in the community is banned, then the chat is removed from the community; in this case, can_edit_chat_list administrator right is also required
     /// </summary>
     public static Task<Ok> ToggleCommunityMemberIsBannedAsync(

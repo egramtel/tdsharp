@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns a globally unique push notification subscription identifier for identification of an account, which has received a push notification. Can be called synchronously
+    /// Returns a globally unique push notification subscription identifier for identification of an account that has received a push notification. Can be called synchronously
     /// </summary>
     public class GetPushReceiverId : Function<PushReceiverId>
     {
@@ -39,7 +39,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns a globally unique push notification subscription identifier for identification of an account, which has received a push notification. Can be called synchronously
+    /// Returns a globally unique push notification subscription identifier for identification of an account that has received a push notification. Can be called synchronously
     /// </summary>
     public static Task<PushReceiverId> GetPushReceiverIdAsync(
         this IClient client, string payload = default)

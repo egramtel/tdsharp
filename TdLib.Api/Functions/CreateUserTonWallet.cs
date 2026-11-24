@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Creates a TON wallet for the specified regular user; can be used only if getOption("can_use_ton_wallet"). The current user must have positive TON wallet balance
+    /// Creates a TON wallet for the specified regular user; can be used only if getOption("can_use_ton_wallet"). The current user must have a positive TON wallet balance
     /// </summary>
     public class CreateUserTonWallet : Function<UserTonWalletAddress>
     {
@@ -39,7 +39,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Creates a TON wallet for the specified regular user; can be used only if getOption("can_use_ton_wallet"). The current user must have positive TON wallet balance
+    /// Creates a TON wallet for the specified regular user; can be used only if getOption("can_use_ton_wallet"). The current user must have a positive TON wallet balance
     /// </summary>
     public static Task<UserTonWalletAddress> CreateUserTonWalletAsync(
         this IClient client, long userId = default)

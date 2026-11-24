@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Toggles whether the bot can manage emoji status of the current user
+    /// Toggles whether the bot can manage the emoji status of the current user
     /// </summary>
     public class ToggleBotCanManageEmojiStatus : Function<Ok>
     {
@@ -38,7 +38,7 @@ public static partial class TdApi
         public long BotUserId { get; set; }
 
         /// <summary>
-        /// Pass true if the bot is allowed to change emoji status of the user; pass false otherwise
+        /// Pass true if the bot is allowed to change the emoji status of the user; pass false otherwise
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("can_manage_emoji_status")]
@@ -46,7 +46,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Toggles whether the bot can manage emoji status of the current user
+    /// Toggles whether the bot can manage the emoji status of the current user
     /// </summary>
     public static Task<Ok> ToggleBotCanManageEmojiStatusAsync(
         this IClient client, long botUserId = default, bool canManageEmojiStatus = default)

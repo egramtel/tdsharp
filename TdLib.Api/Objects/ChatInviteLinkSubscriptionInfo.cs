@@ -10,7 +10,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Contains information about subscription plan that must be paid by the user to use a chat invite link
+    /// Contains information about the subscription plan that must be paid for by the user to use a chat invite link
     /// </summary>
     public partial class ChatInviteLinkSubscriptionInfo : Object
     {
@@ -27,7 +27,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Information about subscription plan that must be paid by the user to use the link
+        /// Information about the subscription plan that must be paid for by the user to use the link
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("pricing")]
@@ -41,7 +41,7 @@ public static partial class TdApi
         public bool CanReuse { get; set; }
 
         /// <summary>
-        /// Identifier of the payment form to use for subscription payment; 0 if the subscription can't be paid
+        /// Identifier of the payment form to use for subscription payment; 0 if the subscription can't be paid for
         /// </summary>
         [JsonConverter(typeof(Converter.Int64))]
         [JsonProperty("form_id")]

@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class InlineQueryResultsButtonType : Object
     {
         /// <summary>
-        /// Represents type of button in results of inline query
+        /// Represents type of button in the results of an inline query
         /// </summary>
         public class InlineQueryResultsButtonTypeStartBot : InlineQueryResultsButtonType
         {

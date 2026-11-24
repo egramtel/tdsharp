@@ -50,7 +50,7 @@ public static partial class TdApi
             public long BotUserId { get; set; }
 
             /// <summary>
-            /// True, if the user must be asked for the permission to the bot to send them messages
+            /// True, if the user must be asked for the permission for the bot to send them messages
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("request_write_access")]

@@ -13,7 +13,7 @@ public static partial class TdApi
     {
         /// <summary>
         /// The link is a link to a business chat. Use getBusinessChatLinkInfo with the provided link name to get information about the link,
-        /// then open received private chat and replace chat draft with the provided text
+        /// then open the received private chat and replace the chat draft with the provided text
         /// </summary>
         public class InternalLinkTypeBusinessChat : InternalLinkType
         {

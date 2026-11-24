@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class DiceStickers : Object
     {
         /// <summary>
-        /// Contains animated stickers which must be used for dice animation rendering
+        /// Contains animated stickers that must be used for dice animation rendering
         /// </summary>
         public class DiceStickersRegular : DiceStickers
         {

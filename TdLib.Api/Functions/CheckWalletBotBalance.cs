@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns information about balance of the current user in the bot https://t.me/walt; can be used only if getOption("can_use_ton_wallet")
+    /// Returns information about the balance of the current user in the bot https://t.me/walt; can be used only if getOption("can_use_ton_wallet")
     /// </summary>
     public class CheckWalletBotBalance : Function<WalletBotBalance>
     {
@@ -34,7 +34,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns information about balance of the current user in the bot https://t.me/walt; can be used only if getOption("can_use_ton_wallet")
+    /// Returns information about the balance of the current user in the bot https://t.me/walt; can be used only if getOption("can_use_ton_wallet")
     /// </summary>
     public static Task<WalletBotBalance> CheckWalletBotBalanceAsync(
         this IClient client)

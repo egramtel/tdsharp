@@ -50,7 +50,7 @@ public static partial class TdApi
             public byte[] InvoicePayload { get; set; }
 
             /// <summary>
-            /// Information about the affiliate which received commission from the transaction; may be null if none
+            /// Information about the affiliate that received commission from the transaction; may be null if none
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("affiliate")]

@@ -31,7 +31,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Identifier of the original bot, which similar bots were requested
+        /// Identifier of the original bot for which similar bots were requested
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("bot_user_id")]

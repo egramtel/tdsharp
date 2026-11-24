@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class Update : Object
     {
         /// <summary>
-        /// Lists of suffixes allowed in secondary bot usernames, which can be added additionally to the main username if the bot's owner has a Telegram Premium subscription
+        /// Lists of suffixes allowed in secondary bot usernames, which can be added in addition to the main username if the bot's owner has a Telegram Premium subscription
         /// </summary>
         public class UpdateAllowedBotUsernamePremiumSuffixes : Update
         {

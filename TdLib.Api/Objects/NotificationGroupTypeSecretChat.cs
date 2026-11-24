@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class NotificationGroupType : Object
     {
         /// <summary>
-        /// A group containing a notification of type notificationTypeNewSecretChat
+        /// A group containing a notification of the type notificationTypeNewSecretChat
         /// </summary>
         public class NotificationGroupTypeSecretChat : NotificationGroupType
         {

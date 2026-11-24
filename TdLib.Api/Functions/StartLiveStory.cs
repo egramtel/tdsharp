@@ -31,7 +31,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Identifier of the chat that will start the live story. Pass Saved Messages chat identifier when starting a live story on behalf of the current user, or a channel chat identifier
+        /// Identifier of the chat that will start the live story. Pass the Saved Messages chat identifier when starting a live story on behalf of the current user, or a channel chat identifier
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("chat_id")]

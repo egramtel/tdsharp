@@ -29,7 +29,7 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// True, if direct messages group was enabled for the channel; false otherwise
+            /// True, if the direct messages group was enabled for the channel; false otherwise
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_enabled")]

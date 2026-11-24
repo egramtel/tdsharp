@@ -48,15 +48,15 @@ public static partial class TdApi
         public string Title { get; set; }
 
         /// <summary>
-        /// Invite link for the group call; for group calls that aren't bound to a chat. For video chats call getVideoChatInviteLink to get the link.
-        /// For live stories in chats with username call getInternalLink with internalLinkTypeLiveStory
+        /// Invite link for the group call; for group calls that aren't bound to a chat. For video chats, call getVideoChatInviteLink to get the link.
+        /// For live stories in chats with a username, call getInternalLink with internalLinkTypeLiveStory
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("invite_link")]
         public string InviteLink { get; set; }
 
         /// <summary>
-        /// The minimum number of Telegram Stars that must be paid by general participant for each sent message to the call; for live stories only
+        /// The minimum number of Telegram Stars that must be paid by a general participant for each sent message to the call; for live stories only
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("paid_message_star_count")]
@@ -112,14 +112,14 @@ public static partial class TdApi
         public bool IsJoined { get; set; }
 
         /// <summary>
-        /// True, if user was kicked from the call because of network loss and the call needs to be rejoined
+        /// True, if the user was kicked from the call because of network loss and the call needs to be rejoined
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("need_rejoin")]
         public bool NeedRejoin { get; set; }
 
         /// <summary>
-        /// True, if the user is the owner of the call and can end the call, change volume level of other users, or ban users there; for group calls that aren't bound to a chat
+        /// True, if the user is the owner of the call and can end the call, change the volume level of other users, or ban users there; for group calls that aren't bound to a chat
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("is_owned")]
@@ -140,7 +140,7 @@ public static partial class TdApi
         public int ParticipantCount { get; set; }
 
         /// <summary>
-        /// True, if group call participants, which are muted, aren't returned in participant list; for video chats only
+        /// True, if group call participants who are muted aren't returned in the participant list; for video chats only
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("has_hidden_listeners")]
@@ -195,7 +195,7 @@ public static partial class TdApi
         public bool MuteNewParticipants { get; set; }
 
         /// <summary>
-        /// True, if the current user can enable or disable mute_new_participants setting; for video chats only
+        /// True, if the current user can enable or disable the mute_new_participants setting; for video chats only
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("can_toggle_mute_new_participants")]
@@ -230,7 +230,7 @@ public static partial class TdApi
         public bool CanDeleteMessages { get; set; }
 
         /// <summary>
-        /// Duration of the ongoing group call recording, in seconds; 0 if none. An updateGroupCall update is not triggered when value of this field changes, but the same recording goes on
+        /// Duration of the ongoing group call recording, in seconds; 0 if none. An updateGroupCall update is not triggered when the value of this field changes, but the same recording goes on
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("record_duration")]

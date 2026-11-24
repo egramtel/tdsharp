@@ -34,7 +34,7 @@ public static partial class TdApi
         public bool IsPublic { get; set; }
 
         /// <summary>
-        /// If found, identifier of the chat to which the link points, 0 otherwise
+        /// If found, the identifier of the chat to which the link points; 0 otherwise
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("chat_id")]

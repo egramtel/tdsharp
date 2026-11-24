@@ -29,14 +29,14 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// Path to the file to where the internal TDLib log will be written
+            /// Path to the file to which the internal TDLib log will be written
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("path")]
             public string Path { get; set; }
 
             /// <summary>
-            /// The maximum size of the file to where the internal TDLib log is written before the file will automatically be rotated, in bytes
+            /// The maximum size of the file to which the internal TDLib log is written before the file will automatically be rotated, in bytes
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("max_file_size")]

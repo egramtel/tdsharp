@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class CheckChatUsernameResult : Object
     {
         /// <summary>
-        /// The user has too many chats with username, one of them must be made private first
+        /// The user has too many chats with a username; one of them must be made private first
         /// </summary>
         public class CheckChatUsernameResultPublicChatsTooMany : CheckChatUsernameResult
         {

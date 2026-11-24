@@ -12,7 +12,8 @@ public static partial class TdApi
     public partial class Update : Object
     {
         /// <summary>
-        /// Basic information about a topic in a channel direct messages chat administered by the current user has changed. This update is guaranteed to come before the topic identifier is returned to the application
+        /// Basic information about a topic in a channel direct messages chat administered by the current user has changed.
+        /// This update is guaranteed to come before the topic identifier is returned to the application
         /// </summary>
         public class UpdateDirectMessagesChatTopic : Update
         {

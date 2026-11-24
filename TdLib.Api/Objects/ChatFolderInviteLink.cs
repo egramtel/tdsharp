@@ -41,7 +41,7 @@ public static partial class TdApi
         public string Name { get; set; }
 
         /// <summary>
-        /// Identifiers of chats, included in the link
+        /// Identifiers of chats included in the link
         /// </summary>
         [JsonProperty("chat_ids", ItemConverterType = typeof(Converter))]
         public long[] ChatIds { get; set; }

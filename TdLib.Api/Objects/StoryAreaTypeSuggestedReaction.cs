@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class StoryAreaType : Object
     {
         /// <summary>
-        /// An area pointing to a suggested reaction. App needs to show a clickable reaction on the area and call setStoryReaction when the area is clicked
+        /// An area pointing to a suggested reaction. The app needs to show a clickable reaction on the area and call setStoryReaction when the area is clicked
         /// </summary>
         public class StoryAreaTypeSuggestedReaction : StoryAreaType
         {
@@ -43,14 +43,14 @@ public static partial class TdApi
             public int TotalCount { get; set; }
 
             /// <summary>
-            /// True, if reaction has a dark background
+            /// True, if the reaction has a dark background
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_dark")]
             public bool IsDark { get; set; }
 
             /// <summary>
-            /// True, if reaction corner is flipped
+            /// True, if the reaction corner is flipped
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_flipped")]

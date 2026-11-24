@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Searches for the specified query in the title and username of already known chats via request to the server. Returns chats in the order seen in the main chat list
+    /// Searches for the specified query in the title and username of already known chats via a request to the server. Returns chats in the order seen in the main chat list
     /// </summary>
     public class SearchChatsOnServer : Function<Chats>
     {
@@ -38,7 +38,7 @@ public static partial class TdApi
         public string Query { get; set; }
 
         /// <summary>
-        /// Additional filter for type of the chats to be returned; pass null to search for chats of all types
+        /// Additional filter for the type of the chats to be returned; pass null to search for chats of all types
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("type_filter")]
@@ -53,7 +53,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Searches for the specified query in the title and username of already known chats via request to the server. Returns chats in the order seen in the main chat list
+    /// Searches for the specified query in the title and username of already known chats via a request to the server. Returns chats in the order seen in the main chat list
     /// </summary>
     public static Task<Chats> SearchChatsOnServerAsync(
         this IClient client, string query = default, SearchChatTypeFilter typeFilter = default, int limit = default)

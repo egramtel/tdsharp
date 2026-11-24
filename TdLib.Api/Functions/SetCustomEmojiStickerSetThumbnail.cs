@@ -38,7 +38,7 @@ public static partial class TdApi
         public string Name { get; set; }
 
         /// <summary>
-        /// Identifier of the custom emoji from the sticker set, which will be set as sticker set thumbnail; pass 0 to remove the sticker set thumbnail
+        /// Identifier of the custom emoji from the sticker set that will be set as sticker set thumbnail; pass 0 to remove the sticker set thumbnail
         /// </summary>
         [JsonConverter(typeof(Converter.Int64))]
         [JsonProperty("custom_emoji_id")]

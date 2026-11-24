@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class SearchMessagesFilter : Object
     {
         /// <summary>
-        /// Returns only failed to send messages. This filter can be used only if the message database is used
+        /// Returns only messages that failed to send. This filter can be used only if the message database is used
         /// </summary>
         public class SearchMessagesFilterFailedToSend : SearchMessagesFilter
         {

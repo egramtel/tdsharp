@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class SuggestedAction : Object
     {
         /// <summary>
-        /// Suggests the user to view a hint about receiving of the first TON wallet transfer
+        /// Suggests that the user view a hint about receiving the first TON wallet transfer
         /// </summary>
         public class SuggestedActionViewFirstTonWalletTransferHint : SuggestedAction
         {

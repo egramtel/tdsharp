@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class WidgetQueryType : Object
     {
         /// <summary>
-        /// Describes type of a widget query
+        /// Describes type of widget query
         /// </summary>
         public class WidgetQueryTypeData : WidgetQueryType
         {

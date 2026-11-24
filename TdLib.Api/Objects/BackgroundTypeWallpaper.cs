@@ -29,14 +29,14 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// True, if the wallpaper must be downscaled to fit in 450x450 square and then box-blurred with radius 12
+            /// True, if the wallpaper must be downscaled to fit in a 450x450 square and then box-blurred with a radius of 12
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_blurred")]
             public bool IsBlurred { get; set; }
 
             /// <summary>
-            /// True, if the background needs to be slightly moved when device is tilted
+            /// True, if the background needs to be slightly moved when the device is tilted
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_moving")]

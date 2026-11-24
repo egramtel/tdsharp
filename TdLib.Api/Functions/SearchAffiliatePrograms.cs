@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Searches affiliate programs that can be connected to the given affiliate
+    /// Searches for affiliate programs that can be connected to the given affiliate
     /// </summary>
     public class SearchAffiliatePrograms : Function<FoundAffiliatePrograms>
     {
@@ -31,7 +31,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// The affiliate for which affiliate programs are searched for
+        /// The affiliate for which affiliate programs are searched
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("affiliate")]
@@ -45,7 +45,7 @@ public static partial class TdApi
         public AffiliateProgramSortOrder SortOrder { get; set; }
 
         /// <summary>
-        /// Offset of the first affiliate program to return as received from the previous request; use empty string to get the first chunk of results
+        /// Offset of the first affiliate program to return as received from the previous request; use an empty string to get the first chunk of results
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("offset")]
@@ -60,7 +60,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Searches affiliate programs that can be connected to the given affiliate
+    /// Searches for affiliate programs that can be connected to the given affiliate
     /// </summary>
     public static Task<FoundAffiliatePrograms> SearchAffiliateProgramsAsync(
         this IClient client, AffiliateType affiliate = default, AffiliateProgramSortOrder sortOrder = default, string offset = default, int limit = default)

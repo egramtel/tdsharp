@@ -12,8 +12,8 @@ public static partial class TdApi
 {
     /// <summary>
     /// Asynchronously edits the text, media, or caption of a quick reply message. Use quickReplyMessage.can_be_edited to check whether a message can be edited.
-    /// Media message can be edited only to a media message. Checklist messages can be edited only to a checklist message.
-    /// The type of message content in an album can't be changed with exception of replacing a photo with a video or vice versa
+    /// A media message can be edited only to a media message. Checklist messages can be edited only to a checklist message.
+    /// The type of message content in an album can't be changed with the exception of replacing a photo with a video or vice versa
     /// </summary>
     public class EditQuickReplyMessage : Function<Ok>
     {
@@ -57,8 +57,8 @@ public static partial class TdApi
 
     /// <summary>
     /// Asynchronously edits the text, media, or caption of a quick reply message. Use quickReplyMessage.can_be_edited to check whether a message can be edited.
-    /// Media message can be edited only to a media message. Checklist messages can be edited only to a checklist message.
-    /// The type of message content in an album can't be changed with exception of replacing a photo with a video or vice versa
+    /// A media message can be edited only to a media message. Checklist messages can be edited only to a checklist message.
+    /// The type of message content in an album can't be changed with the exception of replacing a photo with a video or vice versa
     /// </summary>
     public static Task<Ok> EditQuickReplyMessageAsync(
         this IClient client, int shortcutId = default, long messageId = default, InputMessageContent inputMessageContent = default)

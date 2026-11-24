@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns information about a language pack. Returned language pack identifier may be different from a provided one. Can be called before authorization
+    /// Returns information about a language pack. The returned language pack identifier may be different from the provided one. Can be called before authorization
     /// </summary>
     public class GetLanguagePackInfo : Function<LanguagePackInfo>
     {
@@ -39,7 +39,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns information about a language pack. Returned language pack identifier may be different from a provided one. Can be called before authorization
+    /// Returns information about a language pack. The returned language pack identifier may be different from the provided one. Can be called before authorization
     /// </summary>
     public static Task<LanguagePackInfo> GetLanguagePackInfoAsync(
         this IClient client, string languagePackId = default)

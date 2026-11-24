@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class ReportSponsoredResult : Object
     {
         /// <summary>
-        /// The user must choose an option to report the message and repeat request with the chosen option
+        /// The user must choose an option to report the message and repeat the request with the chosen option
         /// </summary>
         public class ReportSponsoredResultOptionRequired : ReportSponsoredResult
         {

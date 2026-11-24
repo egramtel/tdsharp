@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Pays for upgrade of a regular gift that is owned by another user or channel chat
+    /// Pays for the upgrade of a regular gift that is owned by another user or channel chat
     /// </summary>
     public class BuyGiftUpgrade : Function<Ok>
     {
@@ -53,7 +53,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Pays for upgrade of a regular gift that is owned by another user or channel chat
+    /// Pays for the upgrade of a regular gift that is owned by another user or channel chat
     /// </summary>
     public static Task<Ok> BuyGiftUpgradeAsync(
         this IClient client, MessageSender ownerId = default, string prepaidUpgradeHash = default, long starCount = default)

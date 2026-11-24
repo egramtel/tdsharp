@@ -29,14 +29,14 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// Receipt of successful application token validation to compare with receipt from push notification
+            /// Receipt of successful application token validation to compare with the receipt from a push notification
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("receipt")]
             public string Receipt { get; set; }
 
             /// <summary>
-            /// Time after the next authentication method is expected to be used if verification push notification isn't received, in seconds
+            /// Time after which the next authentication method is expected to be used if the verification push notification isn't received, in seconds
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("push_timeout")]

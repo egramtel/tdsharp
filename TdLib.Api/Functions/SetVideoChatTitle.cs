@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Sets title of a video chat; requires groupCall.can_be_managed right
+    /// Sets the title of a video chat; requires groupCall.can_be_managed right
     /// </summary>
     public class SetVideoChatTitle : Function<Ok>
     {
@@ -46,7 +46,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Sets title of a video chat; requires groupCall.can_be_managed right
+    /// Sets the title of a video chat; requires groupCall.can_be_managed right
     /// </summary>
     public static Task<Ok> SetVideoChatTitleAsync(
         this IClient client, int groupCallId = default, string title = default)

@@ -27,7 +27,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// The total amount of owned TON Grams, in the smallest units of the cryptocurrency
+        /// The total owned amount, in the smallest units of TON Grams
         /// </summary>
         [JsonConverter(typeof(Converter.Int64))]
         [JsonProperty("gram_amount")]

@@ -31,8 +31,8 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Identifier of the owner of the Telegram Stars; can be the identifier of the current user, identifier of an owned bot,
-        /// or identifier of a supergroup or a channel chat with supergroupFullInfo.can_get_star_revenue_statistics == true
+        /// Identifier of the owner of the Telegram Stars; can be the identifier of the current user, an identifier of an owned bot,
+        /// or an identifier of a supergroup or a channel chat with supergroupFullInfo.can_get_star_revenue_statistics == true
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("owner_id")]
@@ -53,7 +53,7 @@ public static partial class TdApi
         public TransactionDirection Direction { get; set; }
 
         /// <summary>
-        /// Offset of the first transaction to return as received from the previous request; use empty string to get the first chunk of results
+        /// Offset of the first transaction to return as received from the previous request; use an empty string to get the first chunk of results
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("offset")]

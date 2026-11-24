@@ -10,7 +10,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Describes an ephemeral content of a regular message, which must be shown instead of the regular content
+    /// Describes ephemeral content of a regular message, which must be shown instead of the regular content
     /// </summary>
     public partial class EphemeralMessageContent : Object
     {
@@ -27,14 +27,14 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// True, if content of the message can be saved locally
+        /// True, if the content of the message can be saved locally
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("can_be_saved")]
         public bool CanBeSaved { get; set; }
 
         /// <summary>
-        /// True, if media timestamp entities refers to a media in this message as opposed to a media in the replied message
+        /// True, if media timestamp entities refer to media in this message as opposed to media in the replied-to message
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("has_timestamped_media")]

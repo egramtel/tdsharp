@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class AuthenticationCodeType : Object
     {
         /// <summary>
-        /// A digit-only authentication code is delivered via an SMS message to the specified phone number; non-official applications may not receive this type of code
+        /// A digit-only authentication code is delivered via an SMS message to the specified phone number; unofficial applications may not receive this type of code
         /// </summary>
         public class AuthenticationCodeTypeSms : AuthenticationCodeType
         {

@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class Update : Object
     {
         /// <summary>
-        /// State of a gift auction was updated
+        /// The state of a gift auction was updated
         /// </summary>
         public class UpdateGiftAuctionState : Update
         {

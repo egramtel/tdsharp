@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class StarTransactionType : Object
     {
         /// <summary>
-        /// The transaction is a receiving of a paid group call message; relevant for regular users and channel chats only
+        /// The transaction is the receiving of a paid group call message; relevant for regular users and channel chats only
         /// </summary>
         public class StarTransactionTypePaidGroupCallMessageReceive : StarTransactionType
         {
@@ -36,7 +36,7 @@ public static partial class TdApi
             public MessageSender SenderId { get; set; }
 
             /// <summary>
-            /// The number of Telegram Stars received by the Telegram for each 1000 Telegram Stars paid for message sending
+            /// The number of Telegram Stars received by Telegram for each 1000 Telegram Stars paid for message sending
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("commission_per_mille")]

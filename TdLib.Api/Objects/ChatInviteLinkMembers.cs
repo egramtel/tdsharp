@@ -10,7 +10,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Contains a list of chat members joined a chat via an invite link
+    /// Contains a list of chat members who joined a chat via an invite link
     /// </summary>
     public partial class ChatInviteLinkMembers : Object
     {
@@ -34,7 +34,7 @@ public static partial class TdApi
         public int TotalCount { get; set; }
 
         /// <summary>
-        /// List of chat members, joined a chat via an invite link
+        /// List of chat members who joined a chat via an invite link
         /// </summary>
         [JsonProperty("members", ItemConverterType = typeof(Converter))]
         public ChatInviteLinkMember[] Members { get; set; }

@@ -48,7 +48,7 @@ public static partial class TdApi
         public int AdditionDate { get; set; }
 
         /// <summary>
-        /// Point in time (Unix timestamp) when the passkey was used last time; 0 if never
+        /// Point in time (Unix timestamp) when the passkey was last used; 0 if never
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("last_usage_date")]

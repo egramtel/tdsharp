@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns the last message sent in a chat no later than the specified date. Returns a 404 error if such message doesn't exist
+    /// Returns the last message sent in a chat no later than the specified date. Returns a 404 error if such a message doesn't exist
     /// </summary>
     public class GetChatMessageByDate : Function<Message>
     {
@@ -46,7 +46,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns the last message sent in a chat no later than the specified date. Returns a 404 error if such message doesn't exist
+    /// Returns the last message sent in a chat no later than the specified date. Returns a 404 error if such a message doesn't exist
     /// </summary>
     public static Task<Message> GetChatMessageByDateAsync(
         this IClient client, long chatId = default, int date = default)

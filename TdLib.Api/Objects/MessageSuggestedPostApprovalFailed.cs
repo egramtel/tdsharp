@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class MessageContent : Object
     {
         /// <summary>
-        /// Approval of suggested post has failed, because the user who proposed the post didn't have enough funds
+        /// Approval of the suggested post has failed because the user who proposed the post didn't have enough funds
         /// </summary>
         public class MessageSuggestedPostApprovalFailed : MessageContent
         {

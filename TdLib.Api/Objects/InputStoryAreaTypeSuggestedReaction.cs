@@ -36,14 +36,14 @@ public static partial class TdApi
             public ReactionType ReactionType { get; set; }
 
             /// <summary>
-            /// True, if reaction has a dark background
+            /// True, if the reaction has a dark background
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_dark")]
             public bool IsDark { get; set; }
 
             /// <summary>
-            /// True, if reaction corner is flipped
+            /// True, if the reaction corner is flipped
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_flipped")]

@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns current verbosity level of the internal logging of TDLib. Can be called synchronously
+    /// Returns the current verbosity level of the internal logging of TDLib. Can be called synchronously
     /// </summary>
     public class GetLogVerbosityLevel : Function<LogVerbosityLevel>
     {
@@ -34,7 +34,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns current verbosity level of the internal logging of TDLib. Can be called synchronously
+    /// Returns the current verbosity level of the internal logging of TDLib. Can be called synchronously
     /// </summary>
     public static Task<LogVerbosityLevel> GetLogVerbosityLevelAsync(
         this IClient client)

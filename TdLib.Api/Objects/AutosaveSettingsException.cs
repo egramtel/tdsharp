@@ -10,7 +10,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Contains autosave settings for a chat, which overrides default settings for the corresponding scope
+    /// Contains autosave settings for a chat, which override default settings for the corresponding scope
     /// </summary>
     public partial class AutosaveSettingsException : Object
     {

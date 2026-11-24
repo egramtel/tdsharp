@@ -43,14 +43,14 @@ public static partial class TdApi
             public long ReceiverUserId { get; set; }
 
             /// <summary>
-            /// The received Gram amount, in the smallest units of the cryptocurrency
+            /// The received amount, in the smallest units of TON Grams
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("gram_amount")]
             public long GramAmount { get; set; }
 
             /// <summary>
-            /// Identifier of the transaction for Gram credit; for receiver only
+            /// Identifier of the transaction for Gram credit; for the receiver only
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("transaction_id")]

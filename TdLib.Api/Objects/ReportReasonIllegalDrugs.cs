@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class ReportReason : Object
     {
         /// <summary>
-        /// The chat has illegal drugs related content
+        /// The chat has content related to illegal drugs
         /// </summary>
         public class ReportReasonIllegalDrugs : ReportReason
         {

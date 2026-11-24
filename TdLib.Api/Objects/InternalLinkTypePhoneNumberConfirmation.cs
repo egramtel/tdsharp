@@ -12,8 +12,9 @@ public static partial class TdApi
     public partial class InternalLinkType : Object
     {
         /// <summary>
-        /// The link can be used to confirm ownership of a phone number to prevent account deletion. Call sendPhoneNumberCode with the given phone number and with phoneNumberCodeTypeConfirmOwnership with the given hash to process the link.
-        /// If succeeded, call checkPhoneNumberCode to check entered by the user code, or resendPhoneNumberCode to resend it
+        /// The link can be used to confirm ownership of a phone number to prevent account deletion.
+        /// Call sendPhoneNumberCode with the given phone number and with phoneNumberCodeTypeConfirmOwnership with the given hash to process the link.
+        /// If succeeded, call checkPhoneNumberCode to check the code entered by the user, or resendPhoneNumberCode to resend it
         /// </summary>
         public class InternalLinkTypePhoneNumberConfirmation : InternalLinkType
         {

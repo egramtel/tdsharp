@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class Update : Object
     {
         /// <summary>
-        /// New call was created or information about a call was updated
+        /// A new call was created or information about a call was updated
         /// </summary>
         public class UpdateCall : Update
         {

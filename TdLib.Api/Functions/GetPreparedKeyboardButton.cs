@@ -11,7 +11,8 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns a keyboard button prepared by the bot for the user. The button will be of the type keyboardButtonTypeRequestUsers, keyboardButtonTypeRequestChat, or keyboardButtonTypeRequestManagedBot
+    /// Returns a keyboard button prepared by the bot for the user.
+    /// The button will be of the type keyboardButtonTypeRequestUsers, keyboardButtonTypeRequestChat, or keyboardButtonTypeRequestManagedBot
     /// </summary>
     public class GetPreparedKeyboardButton : Function<KeyboardButton>
     {
@@ -46,7 +47,8 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns a keyboard button prepared by the bot for the user. The button will be of the type keyboardButtonTypeRequestUsers, keyboardButtonTypeRequestChat, or keyboardButtonTypeRequestManagedBot
+    /// Returns a keyboard button prepared by the bot for the user.
+    /// The button will be of the type keyboardButtonTypeRequestUsers, keyboardButtonTypeRequestChat, or keyboardButtonTypeRequestManagedBot
     /// </summary>
     public static Task<KeyboardButton> GetPreparedKeyboardButtonAsync(
         this IClient client, long botUserId = default, string preparedButtonId = default)

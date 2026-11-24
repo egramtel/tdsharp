@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class Update : Object
     {
         /// <summary>
-        /// The message content was opened. Updates voice note messages to "listened", video note messages to "viewed" and starts the self-destruct timer
+        /// The message content was opened. Updates voice note messages to "listened", video note messages to "viewed", and starts the self-destruct timer
         /// </summary>
         public class UpdateMessageContentOpened : Update
         {

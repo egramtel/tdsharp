@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Creates a new community for the given chat. Returns identifier of the created community
+    /// Creates a new community for the given chat. Returns the identifier of the created community
     /// </summary>
     public class CreateCommunity : Function<CommunityId>
     {
@@ -38,7 +38,7 @@ public static partial class TdApi
         public string Name { get; set; }
 
         /// <summary>
-        /// Identifier of the chat in the community; only chats with owned bots and owned basic group, supergroup and channel chats are allowed;
+        /// Identifier of the chat in the community; only chats with owned bots and owned basic group, supergroup, and channel chats are allowed;
         /// basic group chats will be automatically upgraded to supergroup chats
         /// </summary>
         [JsonConverter(typeof(Converter))]
@@ -54,7 +54,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Creates a new community for the given chat. Returns identifier of the created community
+    /// Creates a new community for the given chat. Returns the identifier of the created community
     /// </summary>
     public static Task<CommunityId> CreateCommunityAsync(
         this IClient client, string name = default, long chatId = default, bool isChatHidden = default)

@@ -36,7 +36,7 @@ public static partial class TdApi
             public long ChatId { get; set; }
 
             /// <summary>
-            /// New value of message_sender_id; may be null if the user can't change message sender
+            /// New value of message_sender_id; may be null if the user can't change the message sender
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("message_sender_id")]

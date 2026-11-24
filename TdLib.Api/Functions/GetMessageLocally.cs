@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns information about a message, if it is available without sending network request. Returns a 404 error if message isn't available locally. This is an offline method
+    /// Returns information about a message if it is available without sending a network request. Returns a 404 error if the message isn't available locally. This is an offline method
     /// </summary>
     public class GetMessageLocally : Function<Message>
     {
@@ -46,7 +46,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns information about a message, if it is available without sending network request. Returns a 404 error if message isn't available locally. This is an offline method
+    /// Returns information about a message if it is available without sending a network request. Returns a 404 error if the message isn't available locally. This is an offline method
     /// </summary>
     public static Task<Message> GetMessageLocallyAsync(
         this IClient client, long chatId = default, long messageId = default)

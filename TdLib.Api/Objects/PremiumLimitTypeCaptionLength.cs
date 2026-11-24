@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class PremiumLimitType : Object
     {
         /// <summary>
-        /// The maximum length of sent media caption
+        /// The maximum length of sent media captions
         /// </summary>
         public class PremiumLimitTypeCaptionLength : PremiumLimitType
         {

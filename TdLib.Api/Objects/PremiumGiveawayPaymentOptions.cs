@@ -10,7 +10,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Contains a list of options for creating of Telegram Premium giveaway or manual distribution of Telegram Premium among chat members
+    /// Contains a list of options for creating a Telegram Premium giveaway or manual distribution of Telegram Premium among chat members
     /// </summary>
     public partial class PremiumGiveawayPaymentOptions : Object
     {

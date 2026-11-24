@@ -57,7 +57,7 @@ public static partial class TdApi
             public long GiveawayMessageId { get; set; }
 
             /// <summary>
-            /// True, if the winner for the corresponding giveaway prize wasn't chosen, because there were not enough participants
+            /// True, if the winner for the corresponding giveaway prize wasn't chosen because there were not enough participants
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_unclaimed")]

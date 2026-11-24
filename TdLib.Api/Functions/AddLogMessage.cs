@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Adds a message to TDLib internal log. Can be called synchronously
+    /// Adds a message to the TDLib internal log. Can be called synchronously
     /// </summary>
     public class AddLogMessage : Function<Ok>
     {
@@ -46,7 +46,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Adds a message to TDLib internal log. Can be called synchronously
+    /// Adds a message to the TDLib internal log. Can be called synchronously
     /// </summary>
     public static Task<Ok> AddLogMessageAsync(
         this IClient client, int verbosityLevel = default, string text = default)

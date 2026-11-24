@@ -11,7 +11,8 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Closes the TDLib instance after a proper logout. Requires an available network connection. All local data will be destroyed. After the logout completes, updateAuthorizationState with authorizationStateClosed will be sent
+    /// Closes the TDLib instance after a proper logout. Requires an available network connection. All local data will be destroyed.
+    /// After the logout completes, updateAuthorizationState with authorizationStateClosed will be sent
     /// </summary>
     public class LogOut : Function<Ok>
     {
@@ -34,7 +35,8 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Closes the TDLib instance after a proper logout. Requires an available network connection. All local data will be destroyed. After the logout completes, updateAuthorizationState with authorizationStateClosed will be sent
+    /// Closes the TDLib instance after a proper logout. Requires an available network connection. All local data will be destroyed.
+    /// After the logout completes, updateAuthorizationState with authorizationStateClosed will be sent
     /// </summary>
     public static Task<Ok> LogOutAsync(
         this IClient client)

@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns RTMP URL for streaming to the video chat of a chat; requires can_manage_video_chats administrator right
+    /// Returns the RTMP URL for streaming to the video chat of a chat; requires can_manage_video_chats administrator right
     /// </summary>
     public class GetVideoChatRtmpUrl : Function<RtmpUrl>
     {
@@ -39,7 +39,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns RTMP URL for streaming to the video chat of a chat; requires can_manage_video_chats administrator right
+    /// Returns the RTMP URL for streaming to the video chat of a chat; requires can_manage_video_chats administrator right
     /// </summary>
     public static Task<RtmpUrl> GetVideoChatRtmpUrlAsync(
         this IClient client, long chatId = default)

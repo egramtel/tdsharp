@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Adds or changes business bot that is connected to the current user account
+    /// Adds or changes the business bot that is connected to the current user account
     /// </summary>
     public class SetBusinessConnectedBot : Function<Ok>
     {
@@ -39,7 +39,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Adds or changes business bot that is connected to the current user account
+    /// Adds or changes the business bot that is connected to the current user account
     /// </summary>
     public static Task<Ok> SetBusinessConnectedBotAsync(
         this IClient client, BusinessConnectedBot bot = default)

@@ -29,7 +29,7 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// Text of the keyboardButtonTypeWebApp button, which opened the Web App
+            /// Text of the keyboardButtonTypeWebApp button that opened the Web App
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("button_text")]

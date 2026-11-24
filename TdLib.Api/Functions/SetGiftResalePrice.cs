@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Changes resale price of a unique gift owned by the current user
+    /// Changes the resale price of a unique gift owned by the current user; can be used only for gifts for which upgradedGift.uses_on_chain_resale is false
     /// </summary>
     public class SetGiftResalePrice : Function<Ok>
     {
@@ -48,7 +48,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Changes resale price of a unique gift owned by the current user
+    /// Changes the resale price of a unique gift owned by the current user; can be used only for gifts for which upgradedGift.uses_on_chain_resale is false
     /// </summary>
     public static Task<Ok> SetGiftResalePriceAsync(
         this IClient client, string receivedGiftId = default, GiftResalePrice price = default)

@@ -11,7 +11,8 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns invite links for a chat created by specified administrator. Requires administrator privileges and can_invite_users right in the chat to get own links and owner privileges to get other links
+    /// Returns invite links for a chat created by the specified administrator.
+    /// Requires administrator privileges and can_invite_users right in the chat to get own links and owner privileges to get other links
     /// </summary>
     public class GetChatInviteLinks : Function<ChatInviteLinks>
     {
@@ -38,7 +39,7 @@ public static partial class TdApi
         public long ChatId { get; set; }
 
         /// <summary>
-        /// User identifier of a chat administrator. Must be an identifier of the current user for non-owner
+        /// User identifier of a chat administrator. Must be an identifier of the current user for non-owners
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("creator_user_id")]
@@ -59,7 +60,7 @@ public static partial class TdApi
         public int OffsetDate { get; set; }
 
         /// <summary>
-        /// Invite link starting after which to return invite links; use empty string to get results from the beginning
+        /// Invite link starting after which to return invite links; use an empty string to get results from the beginning
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("offset_invite_link")]
@@ -74,7 +75,8 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns invite links for a chat created by specified administrator. Requires administrator privileges and can_invite_users right in the chat to get own links and owner privileges to get other links
+    /// Returns invite links for a chat created by the specified administrator.
+    /// Requires administrator privileges and can_invite_users right in the chat to get own links and owner privileges to get other links
     /// </summary>
     public static Task<ChatInviteLinks> GetChatInviteLinksAsync(
         this IClient client, long chatId = default, long creatorUserId = default, bool isRevoked = default, int offsetDate = default, string offsetInviteLink = default, int limit = default)

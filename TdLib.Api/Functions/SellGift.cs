@@ -11,7 +11,8 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Sells a gift for Telegram Stars; requires owner privileges for gifts owned by a chat
+    /// Sells a gift for Telegram Stars. Use receivedGift.sell_star_count or messageGift.sell_star_count to check whether the gift is sellable.
+    /// A gift can be sold if it is sellable and not more than getOption("gift_sell_period") seconds have passed since the gift was sent
     /// </summary>
     public class SellGift : Function<Ok>
     {
@@ -31,7 +32,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Unique identifier of business connection on behalf of which to send the request; for bots only
+        /// Unique identifier of the business connection on behalf of which to send the request; for bots only
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("business_connection_id")]
@@ -46,7 +47,8 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Sells a gift for Telegram Stars; requires owner privileges for gifts owned by a chat
+    /// Sells a gift for Telegram Stars. Use receivedGift.sell_star_count or messageGift.sell_star_count to check whether the gift is sellable.
+    /// A gift can be sold if it is sellable and not more than getOption("gift_sell_period") seconds have passed since the gift was sent
     /// </summary>
     public static Task<Ok> SellGiftAsync(
         this IClient client, string businessConnectionId = default, string receivedGiftId = default)

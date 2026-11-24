@@ -11,7 +11,7 @@ public static partial class TdApi
 {
     /// <summary>
     /// Contains information needed to deposit an upgraded gift from the TON wallet of the current user to a Telegram account.
-    /// The gift must be transferred by an internal message from the wallet to nft_address with gram_amount attached and with payload as the message body
+    /// The gift must be transferred by an internal message from the wallet to nft_address with gram_amount attached and with payload as the message body. Use sendTonWalletTransaction to send the message
     /// </summary>
     public partial class UpgradedGiftDepositInfo : Object
     {
@@ -28,7 +28,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Address in TON blockchain to which the message must be sent
+        /// Address on the TON blockchain to which the message must be sent
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("nft_address")]
@@ -42,7 +42,7 @@ public static partial class TdApi
         public byte[] Payload { get; set; }
 
         /// <summary>
-        /// The amount of TON Grams that must be attached to the message to cover fees, in the smallest units of the cryptocurrency; excess amount will be returned to the wallet
+        /// The amount that must be attached to the message to cover fees, in the smallest units of TON Grams; the excess amount will be returned to the wallet
         /// </summary>
         [JsonConverter(typeof(Converter.Int64))]
         [JsonProperty("gram_amount")]

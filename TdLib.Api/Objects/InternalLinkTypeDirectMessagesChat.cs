@@ -12,8 +12,8 @@ public static partial class TdApi
     public partial class InternalLinkType : Object
     {
         /// <summary>
-        /// The link is a link to a channel direct messages chat by username of the channel. Call searchPublicChat with the given chat username to process the link.
-        /// If the chat is found and is channel, open the direct messages chat of the channel
+        /// The link is a link to a channel direct messages chat by the username of the channel. Call searchPublicChat with the given chat username to process the link.
+        /// If the chat is found and is a channel, open the direct messages chat of the channel
         /// </summary>
         public class InternalLinkTypeDirectMessagesChat : InternalLinkType
         {

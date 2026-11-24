@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Deletes existing chat folder
+    /// Deletes an existing chat folder
     /// </summary>
     public class DeleteChatFolder : Function<Ok>
     {
@@ -45,7 +45,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Deletes existing chat folder
+    /// Deletes an existing chat folder
     /// </summary>
     public static Task<Ok> DeleteChatFolderAsync(
         this IClient client, int chatFolderId = default, long[] leaveChatIds = default)

@@ -36,7 +36,7 @@ public static partial class TdApi
             public long ChatId { get; set; }
 
             /// <summary>
-            /// Identifier of last read outgoing message
+            /// Identifier of the last read outgoing message
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("last_read_outbox_message_id")]

@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class CanTransferOwnershipResult : Object
     {
         /// <summary>
-        /// The session was created recently, user needs to wait
+        /// The session was created recently; the user needs to wait
         /// </summary>
         public class CanTransferOwnershipResultSessionTooFresh : CanTransferOwnershipResult
         {

@@ -29,7 +29,7 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// Exact user's status is hidden because the current user enabled userPrivacySettingShowStatus privacy setting for the user and has no Telegram Premium
+            /// The user's exact status is hidden because the current user enabled the userPrivacySettingShowStatus privacy setting for the user and has no Telegram Premium
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("by_my_privacy_settings")]

@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class ResendCodeReason : Object
     {
         /// <summary>
-        /// The code is re-sent, because device verification has failed
+        /// The code is re-sent because device verification has failed
         /// </summary>
         public class ResendCodeReasonVerificationFailed : ResendCodeReason
         {

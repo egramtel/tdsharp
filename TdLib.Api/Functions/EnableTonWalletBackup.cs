@@ -31,7 +31,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// The secret phrase of the user's TON wallet as a space separated list of words
+        /// The secret phrase of the user's TON wallet as a space-separated list of words
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("secret_phrase")]

@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class PremiumFeature : Object
     {
         /// <summary>
-        /// The ability to set private chat background for both users
+        /// The ability to set a private chat background for both users
         /// </summary>
         public class PremiumFeatureBackgroundForBoth : PremiumFeature
         {

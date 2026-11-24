@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class EmojiCategoryType : Object
     {
         /// <summary>
-        /// The category must be used by default for regular sticker selection. It may contain greeting emoji category and premium stickers
+        /// The category must be used by default for regular sticker selection. It may contain the greeting emoji category and premium stickers
         /// </summary>
         public class EmojiCategoryTypeRegularStickers : EmojiCategoryType
         {

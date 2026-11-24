@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class ReplyMarkup : Object
     {
         /// <summary>
-        /// Instructs application to force a reply to this message
+        /// Instructs the application to force a reply to this message
         /// </summary>
         public class ReplyMarkupForceReply : ReplyMarkup
         {
@@ -29,7 +29,8 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// True, if a forced reply must automatically be shown to the current user. For outgoing messages, specify true to show the forced reply only for the mentioned users and for the target user of a reply
+            /// True, if a forced reply must automatically be shown to the current user.
+            /// For outgoing messages, specify true to show the forced reply only for the mentioned users and for the target user of a reply
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_personal")]

@@ -31,7 +31,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Parameters to join the call; pass null to only create call link without joining the call
+        /// Parameters to join the call; pass null to only create a call link without joining the call
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("join_parameters")]

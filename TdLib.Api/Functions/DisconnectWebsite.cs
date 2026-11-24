@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Disconnects website from the current user's Telegram account
+    /// Disconnects a website from the current user's Telegram account
     /// </summary>
     public class DisconnectWebsite : Function<Ok>
     {
@@ -39,7 +39,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Disconnects website from the current user's Telegram account
+    /// Disconnects a website from the current user's Telegram account
     /// </summary>
     public static Task<Ok> DisconnectWebsiteAsync(
         this IClient client, long websiteId = default)

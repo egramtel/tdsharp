@@ -38,7 +38,7 @@ public static partial class TdApi
         public InputInvoice InputInvoice { get; set; }
 
         /// <summary>
-        /// The order information, provided by the user; pass null if empty
+        /// The order information provided by the user; pass null if empty
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("order_info")]

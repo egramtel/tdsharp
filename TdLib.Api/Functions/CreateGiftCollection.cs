@@ -12,7 +12,8 @@ public static partial class TdApi
 {
     /// <summary>
     /// Creates a collection from gifts on the current user's or a channel's profile page; requires can_post_messages administrator right in the channel chat.
-    /// An owner can have up to getOption("gift_collection_count_max") gift collections. The new collection will be added to the end of the gift collection list of the owner. Returns the created collection
+    /// An owner can have up to getOption("gift_collection_count_max") gift collections. The new collection will be added to the end of the gift collection list of the owner.
+    /// Returns the created collection
     /// </summary>
     public class CreateGiftCollection : Function<GiftCollection>
     {
@@ -46,7 +47,7 @@ public static partial class TdApi
         public string Name { get; set; }
 
         /// <summary>
-        /// Identifier of the gifts to add to the collection; 0-getOption("gift_collection_size_max") identifiers
+        /// Identifiers of the gifts to add to the collection; 0-getOption("gift_collection_size_max") identifiers
         /// </summary>
         [JsonProperty("received_gift_ids", ItemConverterType = typeof(Converter))]
         public string[] ReceivedGiftIds { get; set; }
@@ -54,7 +55,8 @@ public static partial class TdApi
 
     /// <summary>
     /// Creates a collection from gifts on the current user's or a channel's profile page; requires can_post_messages administrator right in the channel chat.
-    /// An owner can have up to getOption("gift_collection_count_max") gift collections. The new collection will be added to the end of the gift collection list of the owner. Returns the created collection
+    /// An owner can have up to getOption("gift_collection_count_max") gift collections. The new collection will be added to the end of the gift collection list of the owner.
+    /// Returns the created collection
     /// </summary>
     public static Task<GiftCollection> CreateGiftCollectionAsync(
         this IClient client, MessageSender ownerId = default, string name = default, string[] receivedGiftIds = default)

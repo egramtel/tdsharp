@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Edits existing chat folder. Returns information about the edited chat folder
+    /// Edits an existing chat folder. Returns information about the edited chat folder
     /// </summary>
     public class EditChatFolder : Function<ChatFolderInfo>
     {
@@ -46,7 +46,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Edits existing chat folder. Returns information about the edited chat folder
+    /// Edits an existing chat folder. Returns information about the edited chat folder
     /// </summary>
     public static Task<ChatFolderInfo> EditChatFolderAsync(
         this IClient client, int chatFolderId = default, ChatFolder folder = default)

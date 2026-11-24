@@ -52,7 +52,7 @@ public static partial class TdApi
         public InputFile Thumbnail { get; set; }
 
         /// <summary>
-        /// Format of the thumbnail; pass null if thumbnail is removed
+        /// Format of the thumbnail; pass null if the thumbnail is removed
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("format")]

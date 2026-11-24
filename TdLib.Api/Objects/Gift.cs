@@ -55,7 +55,8 @@ public static partial class TdApi
         public long StarCount { get; set; }
 
         /// <summary>
-        /// Number of Telegram Stars that can be claimed by the receiver instead of the regular gift by default. If the gift was paid with just bought Telegram Stars, then full value can be claimed
+        /// Number of Telegram Stars that can be claimed by the receiver instead of the regular gift by default.
+        /// If the gift was paid for with just bought Telegram Stars, then the full value can be claimed
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("default_sell_star_count")]
@@ -97,15 +98,15 @@ public static partial class TdApi
         public bool IsPremium { get; set; }
 
         /// <summary>
-        /// Information about the auction on which the gift can be purchased; may be null if the gift can be purchased directly
+        /// Information about the auction at which the gift can be purchased; may be null if the gift can be purchased directly
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("auction_info")]
         public GiftAuction AuctionInfo { get; set; }
 
         /// <summary>
-        /// Point in time (Unix timestamp) when the gift can be sent next time by the current user; may be 0 or a date in the past.
-        /// If the date is in the future, then call canSendGift to get the reason, why the gift can't be sent now
+        /// Point in time (Unix timestamp) when the gift can next be sent by the current user; may be 0 or a date in the past.
+        /// If the date is in the future, then call canSendGift to get the reason why the gift can't be sent now
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("next_send_date")]
@@ -133,14 +134,14 @@ public static partial class TdApi
         public GiftBackground Background { get; set; }
 
         /// <summary>
-        /// Point in time (Unix timestamp) when the gift was sent for the first time; for sold out gifts only
+        /// Point in time (Unix timestamp) when the gift was sent for the first time; for sold-out gifts only
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("first_send_date")]
         public int FirstSendDate { get; set; }
 
         /// <summary>
-        /// Point in time (Unix timestamp) when the gift was sent for the last time; for sold out gifts only
+        /// Point in time (Unix timestamp) when the gift was sent for the last time; for sold-out gifts only
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("last_send_date")]

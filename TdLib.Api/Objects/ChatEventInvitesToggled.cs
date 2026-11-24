@@ -29,7 +29,7 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// New value of can_invite_users permission
+            /// New value of the can_invite_users permission
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("can_invite_users")]

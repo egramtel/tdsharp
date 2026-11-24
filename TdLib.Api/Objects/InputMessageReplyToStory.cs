@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class InputMessageReplyTo : Object
     {
         /// <summary>
-        /// Describes a story to be replied
+        /// Describes a story to be replied to
         /// </summary>
         public class InputMessageReplyToStory : InputMessageReplyTo
         {
@@ -29,7 +29,7 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// The identifier of the poster of the story. Currently, stories can be replied only in the chat that posted the story; channel stories can't be replied
+            /// The identifier of the poster of the story. Currently, stories can be replied to only in the chat that posted the story; channel stories can't be replied to
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("story_poster_chat_id")]

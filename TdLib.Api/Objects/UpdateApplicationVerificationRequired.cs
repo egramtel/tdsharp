@@ -38,7 +38,7 @@ public static partial class TdApi
 
             /// <summary>
             /// Unique base64url-encoded nonce for the classic Play Integrity verification (https://developer.android.com/google/play/integrity/classic) for Android,
-            /// or a unique string to compare with verify_nonce field from a push notification for iOS
+            /// or a unique string to compare with the verify_nonce field from a push notification for iOS
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("nonce")]

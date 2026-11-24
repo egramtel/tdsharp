@@ -29,7 +29,7 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// Game title, empty for pinned game message
+            /// Game title; empty for a pinned game message
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("title")]

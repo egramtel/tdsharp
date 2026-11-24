@@ -11,7 +11,8 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Forwards previously sent messages. Returns the forwarded messages in the same order as the message identifiers passed in message_ids. If a message can't be forwarded, null will be returned instead of the message
+    /// Forwards previously sent messages. Returns the forwarded messages in the same order as the message identifiers passed in message_ids.
+    /// If a message can't be forwarded, null will be returned instead of the message
     /// </summary>
     public class ForwardMessages : Function<Messages>
     {
@@ -52,7 +53,8 @@ public static partial class TdApi
         public long FromChatId { get; set; }
 
         /// <summary>
-        /// Identifiers of the messages to forward. Message identifiers must be in a strictly increasing order. At most 100 messages can be forwarded simultaneously. A message can be forwarded only if messageProperties.can_be_forwarded
+        /// Identifiers of the messages to forward. Message identifiers must be in a strictly increasing order. At most 100 messages can be forwarded simultaneously.
+        /// A message can be forwarded only if messageProperties.can_be_forwarded
         /// </summary>
         [JsonProperty("message_ids", ItemConverterType = typeof(Converter))]
         public long[] MessageIds { get; set; }
@@ -65,7 +67,7 @@ public static partial class TdApi
         public MessageSendOptions Options { get; set; }
 
         /// <summary>
-        /// Pass true to copy content of the messages without reference to the original sender. Always true if the messages are forwarded to a secret chat or are local.
+        /// Pass true to copy the content of the messages without reference to the original sender. Always true if the messages are forwarded to a secret chat or are local.
         /// Use messageProperties.can_be_copied and messageProperties.can_be_copied_to_secret_chat to check whether the message is suitable
         /// </summary>
         [JsonConverter(typeof(Converter))]
@@ -81,7 +83,8 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Forwards previously sent messages. Returns the forwarded messages in the same order as the message identifiers passed in message_ids. If a message can't be forwarded, null will be returned instead of the message
+    /// Forwards previously sent messages. Returns the forwarded messages in the same order as the message identifiers passed in message_ids.
+    /// If a message can't be forwarded, null will be returned instead of the message
     /// </summary>
     public static Task<Messages> ForwardMessagesAsync(
         this IClient client, long chatId = default, MessageTopic topicId = default, long fromChatId = default, long[] messageIds = default, MessageSendOptions options = default, bool sendCopy = default, bool removeCaption = default)

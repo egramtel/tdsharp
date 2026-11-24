@@ -11,8 +11,8 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Recognizes speech in an audio file and returns the recognized text. The file must be in OGG format with Opus codec and must have size up to 1 MB.
-    /// The same rules as for recognizeSpeech apply to the Telegram Premium requirement and speech recognition trial; must not be used in secret chats
+    /// Recognizes speech in an audio file and returns the recognized text; can be used only if getOption("can_recognize_speech") or speech recognition trial is available;
+    /// must not be used in secret chats. The file must be in OGG format with the Opus codec and must have a size of up to 1 MB
     /// </summary>
     public class RecognizeSpeechInFile : Function<Text>
     {
@@ -47,8 +47,8 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Recognizes speech in an audio file and returns the recognized text. The file must be in OGG format with Opus codec and must have size up to 1 MB.
-    /// The same rules as for recognizeSpeech apply to the Telegram Premium requirement and speech recognition trial; must not be used in secret chats
+    /// Recognizes speech in an audio file and returns the recognized text; can be used only if getOption("can_recognize_speech") or speech recognition trial is available;
+    /// must not be used in secret chats. The file must be in OGG format with the Opus codec and must have a size of up to 1 MB
     /// </summary>
     public static Task<Text> RecognizeSpeechInFileAsync(
         this IClient client, InputFile audioFile = default, long recognitionId = default)

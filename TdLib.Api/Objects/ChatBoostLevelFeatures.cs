@@ -62,28 +62,28 @@ public static partial class TdApi
         public int ProfileAccentColorCount { get; set; }
 
         /// <summary>
-        /// True, if custom emoji for profile background can be set
+        /// True, if a custom emoji for the profile background can be set
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("can_set_profile_background_custom_emoji")]
         public bool CanSetProfileBackgroundCustomEmoji { get; set; }
 
         /// <summary>
-        /// Number of custom colors for background of empty chat photo, replies to messages and link previews
+        /// Number of custom colors for background of empty chat photo, replies to messages, and link previews
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("accent_color_count")]
         public int AccentColorCount { get; set; }
 
         /// <summary>
-        /// True, if custom emoji for reply header and link preview background can be set
+        /// True, if a custom emoji for the reply header and link preview background can be set
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("can_set_background_custom_emoji")]
         public bool CanSetBackgroundCustomEmoji { get; set; }
 
         /// <summary>
-        /// True, if emoji status can be set
+        /// True, if an emoji status can be set
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("can_set_emoji_status")]
@@ -97,14 +97,14 @@ public static partial class TdApi
         public int ChatThemeBackgroundCount { get; set; }
 
         /// <summary>
-        /// True, if custom background can be set in the chat for all users
+        /// True, if a custom background can be set in the chat for all users
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("can_set_custom_background")]
         public bool CanSetCustomBackground { get; set; }
 
         /// <summary>
-        /// True, if custom emoji sticker set can be set for the chat
+        /// True, if a custom emoji sticker set can be set for the chat
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("can_set_custom_emoji_sticker_set")]

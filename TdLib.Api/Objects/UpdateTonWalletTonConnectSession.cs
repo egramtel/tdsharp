@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class Update : Object
     {
         /// <summary>
-        /// A session of a TON Connect has changed
+        /// A TON Connect session has changed
         /// </summary>
         public class UpdateTonWalletTonConnectSession : Update
         {

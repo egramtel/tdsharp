@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class PollVoteRestrictionReason : Object
     {
         /// <summary>
-        /// The poll can't be voted by the user due to some other reason
+        /// The user can't vote in the poll due to some other reason
         /// </summary>
         public class PollVoteRestrictionReasonOther : PollVoteRestrictionReason
         {

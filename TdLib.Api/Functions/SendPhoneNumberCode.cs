@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Sends a code to the specified phone number. Aborts previous phone number verification if there was one. On success, returns information about the sent code
+    /// Sends a code to the specified phone number. Aborts the previous phone number verification if there was one. On success, returns information about the sent code
     /// </summary>
     public class SendPhoneNumberCode : Function<AuthenticationCodeInfo>
     {
@@ -53,7 +53,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Sends a code to the specified phone number. Aborts previous phone number verification if there was one. On success, returns information about the sent code
+    /// Sends a code to the specified phone number. Aborts the previous phone number verification if there was one. On success, returns information about the sent code
     /// </summary>
     public static Task<AuthenticationCodeInfo> SendPhoneNumberCodeAsync(
         this IClient client, string phoneNumber = default, PhoneNumberAuthenticationSettings settings = default, PhoneNumberCodeType type = default)

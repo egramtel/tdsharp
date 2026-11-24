@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class CallbackQueryPayload : Object
     {
         /// <summary>
-        /// The payload for a callback button requiring password
+        /// The payload for a callback button requiring a password
         /// </summary>
         public class CallbackQueryPayloadDataWithPassword : CallbackQueryPayload
         {

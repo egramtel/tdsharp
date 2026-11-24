@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Changes active state for a username of a bot. The editable username can be disabled only if there are other active usernames.
+    /// Changes the active state for a username of a bot. The editable username can be disabled only if there are other active usernames.
     /// May return an error with a message "USERNAMES_ACTIVE_TOO_MUCH" if the maximum number of active usernames has been reached. Can be called only if userTypeBot.can_be_edited == true
     /// </summary>
     public class ToggleBotUsernameIsActive : Function<Ok>
@@ -54,7 +54,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Changes active state for a username of a bot. The editable username can be disabled only if there are other active usernames.
+    /// Changes the active state for a username of a bot. The editable username can be disabled only if there are other active usernames.
     /// May return an error with a message "USERNAMES_ACTIVE_TOO_MUCH" if the maximum number of active usernames has been reached. Can be called only if userTypeBot.can_be_edited == true
     /// </summary>
     public static Task<Ok> ToggleBotUsernameIsActiveAsync(

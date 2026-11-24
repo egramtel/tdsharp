@@ -10,7 +10,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Describes a message that can be used for quick reply
+    /// Describes a message that can be used for a quick reply
     /// </summary>
     public partial class QuickReplyMessage : Object
     {

@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Replaces media preview in the list of media previews of a bot. Returns the new preview after edit is completed server-side
+    /// Replaces a media preview in the list of media previews of a bot. Returns the new preview after the edit is completed server-side
     /// </summary>
     public class EditBotMediaPreview : Function<BotMediaPreview>
     {
@@ -60,7 +60,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Replaces media preview in the list of media previews of a bot. Returns the new preview after edit is completed server-side
+    /// Replaces a media preview in the list of media previews of a bot. Returns the new preview after the edit is completed server-side
     /// </summary>
     public static Task<BotMediaPreview> EditBotMediaPreviewAsync(
         this IClient client, long botUserId = default, string languageCode = default, int fileId = default, InputStoryContent content = default)

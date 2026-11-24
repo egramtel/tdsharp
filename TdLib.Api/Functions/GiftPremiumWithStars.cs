@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Allows to buy a Telegram Premium subscription for another user with payment in Telegram Stars; for bots only
+    /// Allows buying a Telegram Premium subscription for another user with payment in Telegram Stars; for bots only
     /// </summary>
     public class GiftPremiumWithStars : Function<Ok>
     {
@@ -38,7 +38,7 @@ public static partial class TdApi
         public long UserId { get; set; }
 
         /// <summary>
-        /// The number of Telegram Stars to pay for subscription
+        /// The number of Telegram Stars to pay for a subscription
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("star_count")]
@@ -52,7 +52,8 @@ public static partial class TdApi
         public int MonthCount { get; set; }
 
         /// <summary>
-        /// Text to show to the user receiving Telegram Premium; 0-getOption("gift_text_length_max") characters. Only Bold, Italic, Underline, Strikethrough, Spoiler, CustomEmoji, and DateTime entities are allowed
+        /// Text to show to the user receiving Telegram Premium; 0-getOption("gift_text_length_max") characters.
+        /// Only Bold, Italic, Underline, Strikethrough, Spoiler, CustomEmoji, and DateTime entities are allowed
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("text")]
@@ -60,7 +61,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Allows to buy a Telegram Premium subscription for another user with payment in Telegram Stars; for bots only
+    /// Allows buying a Telegram Premium subscription for another user with payment in Telegram Stars; for bots only
     /// </summary>
     public static Task<Ok> GiftPremiumWithStarsAsync(
         this IClient client, long userId = default, long starCount = default, int monthCount = default, FormattedText text = default)

@@ -34,14 +34,14 @@ public static partial class TdApi
         public bool CanBeDeleted { get; set; }
 
         /// <summary>
-        /// True, if the poll option can be replied in the same chat and forum topic using inputMessageReplyToMessage
+        /// True, if the poll option can be replied to in the same chat and forum topic using inputMessageReplyToMessage
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("can_be_replied")]
         public bool CanBeReplied { get; set; }
 
         /// <summary>
-        /// True, if the poll option can be replied in another chat or forum topic using inputMessageReplyToExternalMessage
+        /// True, if the poll option can be replied to in another chat or forum topic using inputMessageReplyToExternalMessage
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("can_be_replied_in_another_chat")]

@@ -10,7 +10,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Describes position of a rectangle area on a story media or a TON wallet card
+    /// Describes position of a rectangular area on story media or a TON wallet card
     /// </summary>
     public partial class AreaPosition : Object
     {

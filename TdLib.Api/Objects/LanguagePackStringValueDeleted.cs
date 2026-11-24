@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class LanguagePackStringValue : Object
     {
         /// <summary>
-        /// A deleted language pack string, the value must be taken from the built-in English language pack
+        /// A deleted language pack string; the value must be taken from the built-in English language pack
         /// </summary>
         public class LanguagePackStringValueDeleted : LanguagePackStringValue
         {

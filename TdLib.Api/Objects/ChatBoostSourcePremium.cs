@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class ChatBoostSource : Object
     {
         /// <summary>
-        /// A user with Telegram Premium subscription or gifted Telegram Premium boosted the chat
+        /// A user with a Telegram Premium subscription or gifted Telegram Premium boosted the chat
         /// </summary>
         public class ChatBoostSourcePremium : ChatBoostSource
         {

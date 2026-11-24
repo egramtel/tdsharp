@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Hides the list of contacts that have close birthdays for 24 hours
+    /// Hides the list of contacts who have close birthdays for 24 hours
     /// </summary>
     public class HideContactCloseBirthdays : Function<Ok>
     {
@@ -34,7 +34,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Hides the list of contacts that have close birthdays for 24 hours
+    /// Hides the list of contacts who have close birthdays for 24 hours
     /// </summary>
     public static Task<Ok> HideContactCloseBirthdaysAsync(
         this IClient client)

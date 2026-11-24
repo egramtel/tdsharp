@@ -11,7 +11,8 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Loads more Saved Messages topics. The loaded topics will be sent through updateSavedMessagesTopic. Topics are sorted by their topic.order in descending order. Returns a 404 error if all topics have been loaded
+    /// Loads more Saved Messages topics. The loaded topics will be sent through updateSavedMessagesTopic. Topics are sorted by their topic.order in descending order.
+    /// Returns a 404 error if all topics have been loaded
     /// </summary>
     public class LoadSavedMessagesTopics : Function<Ok>
     {
@@ -31,7 +32,8 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// The maximum number of topics to be loaded. For optimal performance, the number of loaded topics is chosen by TDLib and can be smaller than the specified limit, even if the end of the list is not reached
+        /// The maximum number of topics to be loaded.
+        /// For optimal performance, the number of loaded topics is chosen by TDLib and can be smaller than the specified limit, even if the end of the list is not reached
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("limit")]
@@ -39,7 +41,8 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Loads more Saved Messages topics. The loaded topics will be sent through updateSavedMessagesTopic. Topics are sorted by their topic.order in descending order. Returns a 404 error if all topics have been loaded
+    /// Loads more Saved Messages topics. The loaded topics will be sent through updateSavedMessagesTopic. Topics are sorted by their topic.order in descending order.
+    /// Returns a 404 error if all topics have been loaded
     /// </summary>
     public static Task<Ok> LoadSavedMessagesTopicsAsync(
         this IClient client, int limit = default)

@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns information about a file with a map thumbnail in PNG format. Only map thumbnail files with size less than 1MB can be downloaded
+    /// Returns information about a file with a map thumbnail in PNG format. Only map thumbnail files with a size of less than 1 MB can be downloaded
     /// </summary>
     public class GetMapThumbnailFile : Function<File>
     {
@@ -74,7 +74,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns information about a file with a map thumbnail in PNG format. Only map thumbnail files with size less than 1MB can be downloaded
+    /// Returns information about a file with a map thumbnail in PNG format. Only map thumbnail files with a size of less than 1 MB can be downloaded
     /// </summary>
     public static Task<File> GetMapThumbnailFileAsync(
         this IClient client, Location location = default, int zoom = default, int width = default, int height = default, int scale = default, long chatId = default)

@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Changes order of stories in an album. If the album is owned by a supergroup or a channel chat, then
+    /// Changes the order of stories in an album. If the album is owned by a supergroup or a channel chat, then
     /// requires can_edit_stories administrator right in the chat. Returns the changed album
     /// </summary>
     public class ReorderStoryAlbumStories : Function<StoryAlbum>
@@ -46,14 +46,14 @@ public static partial class TdApi
         public int StoryAlbumId { get; set; }
 
         /// <summary>
-        /// Identifier of the stories to move to the beginning of the album. All other stories are placed in the current order after the specified stories
+        /// Identifiers of the stories to move to the beginning of the album. All other stories are placed in the current order after the specified stories
         /// </summary>
         [JsonProperty("story_ids", ItemConverterType = typeof(Converter))]
         public int[] StoryIds { get; set; }
     }
 
     /// <summary>
-    /// Changes order of stories in an album. If the album is owned by a supergroup or a channel chat, then
+    /// Changes the order of stories in an album. If the album is owned by a supergroup or a channel chat, then
     /// requires can_edit_stories administrator right in the chat. Returns the changed album
     /// </summary>
     public static Task<StoryAlbum> ReorderStoryAlbumStoriesAsync(

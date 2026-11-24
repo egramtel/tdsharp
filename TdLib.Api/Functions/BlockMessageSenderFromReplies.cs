@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Blocks an original sender of a message in the Replies chat
+    /// Blocks the original sender of a message in the Replies chat
     /// </summary>
     public class BlockMessageSenderFromReplies : Function<Ok>
     {
@@ -60,7 +60,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Blocks an original sender of a message in the Replies chat
+    /// Blocks the original sender of a message in the Replies chat
     /// </summary>
     public static Task<Ok> BlockMessageSenderFromRepliesAsync(
         this IClient client, long messageId = default, bool deleteMessage = default, bool deleteAllMessages = default, bool reportSpam = default)

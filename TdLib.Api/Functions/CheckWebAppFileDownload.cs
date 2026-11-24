@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Checks whether a file can be downloaded and saved locally by Web App request
+    /// Checks whether a file can be downloaded and saved locally by a Web App request
     /// </summary>
     public class CheckWebAppFileDownload : Function<Ok>
     {
@@ -31,7 +31,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Identifier of the bot, providing the Web App
+        /// Identifier of the bot providing the Web App
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("bot_user_id")]
@@ -53,7 +53,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Checks whether a file can be downloaded and saved locally by Web App request
+    /// Checks whether a file can be downloaded and saved locally by a Web App request
     /// </summary>
     public static Task<Ok> CheckWebAppFileDownloadAsync(
         this IClient client, long botUserId = default, string fileName = default, string url = default)

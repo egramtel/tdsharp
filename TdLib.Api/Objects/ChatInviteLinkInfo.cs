@@ -83,34 +83,34 @@ public static partial class TdApi
         public int MemberCount { get; set; }
 
         /// <summary>
-        /// User identifiers of some chat members that may be known to the current user
+        /// User identifiers of some chat members who may be known to the current user
         /// </summary>
         [JsonProperty("member_user_ids", ItemConverterType = typeof(Converter))]
         public long[] MemberUserIds { get; set; }
 
         /// <summary>
-        /// Information about subscription plan that must be paid by the user to use the link; may be null if the link doesn't require subscription
+        /// Information about the subscription plan that must be paid for by the user to use the link; may be null if the link doesn't require a subscription
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("subscription_info")]
         public ChatInviteLinkSubscriptionInfo SubscriptionInfo { get; set; }
 
         /// <summary>
-        /// True, if the link only creates join request
+        /// True, if the link only creates a join request
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("creates_join_request")]
         public bool CreatesJoinRequest { get; set; }
 
         /// <summary>
-        /// True, if the chat is a public supergroup or channel, i.e. it has a username or it is a location-based supergroup
+        /// True, if the chat is a public supergroup or channel, i.e., it has a username or it is a location-based supergroup
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("is_public")]
         public bool IsPublic { get; set; }
 
         /// <summary>
-        /// Information about verification status of the chat; may be null if none
+        /// Information about the verification status of the chat; may be null if none
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("verification_status")]

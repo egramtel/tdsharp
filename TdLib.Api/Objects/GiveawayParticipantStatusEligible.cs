@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class GiveawayParticipantStatus : Object
     {
         /// <summary>
-        /// Contains information about status of a user in a giveaway
+        /// Contains information about the status of a user in a giveaway
         /// </summary>
         public class GiveawayParticipantStatusEligible : GiveawayParticipantStatus
         {

@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Extracts rich message of the given message and translates it to the given language
+    /// Extracts the rich message of the given message and translates it to the given language
     /// </summary>
     public class TranslateMessageRichMessage : Function<RichMessage>
     {
@@ -60,7 +60,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Extracts rich message of the given message and translates it to the given language
+    /// Extracts the rich message of the given message and translates it to the given language
     /// </summary>
     public static Task<RichMessage> TranslateMessageRichMessageAsync(
         this IClient client, long chatId = default, long messageId = default, string toLanguageCode = default, string tone = default)

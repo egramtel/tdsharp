@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class MessageSource : Object
     {
         /// <summary>
-        /// The message is from history of a topic in a channel direct messages chat administered by the current user
+        /// The message is from the history of a topic in a channel direct messages chat administered by the current user
         /// </summary>
         public class MessageSourceDirectMessagesChatTopicHistory : MessageSource
         {

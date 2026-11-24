@@ -54,7 +54,8 @@ public static partial class TdApi
         public ChatMember[] Members { get; set; }
 
         /// <summary>
-        /// True, if non-administrators and non-bots can be hidden in responses to getSupergroupMembers and searchChatMembers for non-administrators after upgrading the basic group to a supergroup
+        /// True, if non-administrators and non-bots can be hidden in responses to getSupergroupMembers and searchChatMembers for non-administrators
+        /// after upgrading the basic group to a supergroup
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("can_hide_members")]

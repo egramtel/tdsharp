@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class PremiumFeature : Object
     {
         /// <summary>
-        /// Allowed to translate chat messages real-time
+        /// Allowed to translate chat messages in real time
         /// </summary>
         public class PremiumFeatureRealTimeChatTranslation : PremiumFeature
         {

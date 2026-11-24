@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Searches for installed sticker sets by looking for specified query in their title and name
+    /// Searches for installed sticker sets by looking for the specified query in their title and name
     /// </summary>
     public class SearchInstalledStickerSets : Function<StickerSets>
     {
@@ -53,7 +53,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Searches for installed sticker sets by looking for specified query in their title and name
+    /// Searches for installed sticker sets by looking for the specified query in their title and name
     /// </summary>
     public static Task<StickerSets> SearchInstalledStickerSetsAsync(
         this IClient client, StickerType stickerType = default, string query = default, int limit = default)

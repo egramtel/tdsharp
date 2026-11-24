@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class Update : Object
     {
         /// <summary>
-        /// Number of unread chats, i.e. with unread messages or marked as unread, has changed. This update is sent only if the message database is used
+        /// The number of unread chats, i.e., with unread messages or marked as unread, has changed. This update is sent only if the message database is used
         /// </summary>
         public class UpdateUnreadChatCount : Update
         {
@@ -29,7 +29,7 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// The chat list with changed number of unread messages
+            /// The chat list with a changed number of unread messages
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_list")]

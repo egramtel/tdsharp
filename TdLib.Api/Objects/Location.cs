@@ -27,7 +27,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Latitude of the location in degrees; as defined by the sender
+        /// Latitude of the location, in degrees; as defined by the sender
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("latitude")]

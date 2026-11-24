@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Adds a secondary username to a bot. Can be called only if userTypeBot.can_be_edited, the bot has no secondary username and the current user has Telegram Premium subscription.
+    /// Adds a secondary username to a bot. Can be called only if userTypeBot.can_be_edited, the bot has no secondary username, and the current user has a Telegram Premium subscription.
     /// May return an error with a message "OWNER_USERNAMES_LIMIT_EXCEEDED" if the current user already owns at least getOption("secondary_bot_username_count_max") bots with a secondary username
     /// </summary>
     public class AddBotSecondaryUsername : Function<Ok>
@@ -39,7 +39,7 @@ public static partial class TdApi
         public long BotUserId { get; set; }
 
         /// <summary>
-        /// The new secondary username; must be non-empty. Use checkBotUsername to check username validness
+        /// The new secondary username; must be non-empty. Use checkBotUsername to check username validity
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("username")]
@@ -47,7 +47,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Adds a secondary username to a bot. Can be called only if userTypeBot.can_be_edited, the bot has no secondary username and the current user has Telegram Premium subscription.
+    /// Adds a secondary username to a bot. Can be called only if userTypeBot.can_be_edited, the bot has no secondary username, and the current user has a Telegram Premium subscription.
     /// May return an error with a message "OWNER_USERNAMES_LIMIT_EXCEEDED" if the current user already owns at least getOption("secondary_bot_username_count_max") bots with a secondary username
     /// </summary>
     public static Task<Ok> AddBotSecondaryUsernameAsync(

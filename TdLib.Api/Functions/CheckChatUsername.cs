@@ -31,7 +31,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Chat identifier; must be identifier of a supergroup chat, or a channel chat, or a private chat with self, or 0 if the chat is being created
+        /// Chat identifier; must be an identifier of a supergroup chat, or a channel chat, or a private chat with self, or 0 if the chat is being created
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("chat_id")]

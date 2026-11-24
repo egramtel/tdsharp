@@ -36,7 +36,8 @@ public static partial class TdApi
             public long ChatId { get; set; }
 
             /// <summary>
-            /// The new last message in the chat; may be null if the last message became unknown. While the last message is unknown, new messages can be added to the chat without corresponding updateNewMessage update
+            /// The new last message in the chat; may be null if the last message became unknown.
+            /// While the last message is unknown, new messages can be added to the chat without the corresponding updateNewMessage update
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("last_message")]

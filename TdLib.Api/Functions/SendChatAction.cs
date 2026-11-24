@@ -45,7 +45,7 @@ public static partial class TdApi
         public MessageTopic TopicId { get; set; }
 
         /// <summary>
-        /// Unique identifier of business connection on behalf of which to send the request; for bots only
+        /// Unique identifier of the business connection on behalf of which to send the request; for bots only
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("business_connection_id")]

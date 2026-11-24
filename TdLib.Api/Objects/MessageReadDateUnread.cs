@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class MessageReadDate : Object
     {
         /// <summary>
-        /// The message is unread yet
+        /// The message is still unread
         /// </summary>
         public class MessageReadDateUnread : MessageReadDate
         {

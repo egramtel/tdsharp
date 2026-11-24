@@ -12,7 +12,7 @@ public static partial class TdApi
 {
     /// <summary>
     /// Changes the list of stickers on the TON wallet card of the current user; can be used only if getOption("can_use_ton_wallet").
-    /// The whole list of stickers is replaced. The request can take up to 20 seconds to complete, so it must be called only on explicit user action.
+    /// The whole list of stickers is replaced. The request can take up to 20 seconds to complete, so it must be called only on an explicit user action.
     /// Stickers are removed automatically if the corresponding NFT leaves the wallet or the wallet is replaced. Returns the updated card
     /// </summary>
     public class SetTonWalletCardStickers : Function<TonWalletCard>
@@ -49,7 +49,7 @@ public static partial class TdApi
 
     /// <summary>
     /// Changes the list of stickers on the TON wallet card of the current user; can be used only if getOption("can_use_ton_wallet").
-    /// The whole list of stickers is replaced. The request can take up to 20 seconds to complete, so it must be called only on explicit user action.
+    /// The whole list of stickers is replaced. The request can take up to 20 seconds to complete, so it must be called only on an explicit user action.
     /// Stickers are removed automatically if the corresponding NFT leaves the wallet or the wallet is replaced. Returns the updated card
     /// </summary>
     public static Task<TonWalletCard> SetTonWalletCardStickersAsync(

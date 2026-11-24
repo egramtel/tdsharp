@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class Update : Object
     {
         /// <summary>
-        /// A file was removed from the file download list. This update is sent only after file download list is loaded for the first time
+        /// A file was removed from the file download list. This update is sent only after the file download list is loaded for the first time
         /// </summary>
         public class UpdateFileRemovedFromDownloads : Update
         {
@@ -36,7 +36,7 @@ public static partial class TdApi
             public int FileId { get; set; }
 
             /// <summary>
-            /// New number of being downloaded and recently downloaded files found
+            /// New number of files being downloaded and recently downloaded files found
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("counts")]

@@ -34,7 +34,7 @@ public static partial class TdApi
         public string Id { get; set; }
 
         /// <summary>
-        /// Address in the TON blockchain of the transaction peer; may be empty if the transaction isn't a wallet transfer
+        /// Address on the TON blockchain of the transaction peer; may be empty if the transaction isn't a wallet transfer
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("peer_address")]
@@ -62,11 +62,18 @@ public static partial class TdApi
         public int Date { get; set; }
 
         /// <summary>
-        /// The fee amount paid for the transaction in TON Grams, in the smallest units of the cryptocurrency
+        /// The fee amount paid for the transaction, in the smallest units of TON Grams
         /// </summary>
         [JsonConverter(typeof(Converter.Int64))]
         [JsonProperty("fee_amount")]
         public long FeeAmount { get; set; }
+
+        /// <summary>
+        /// True, if the transaction is suspected to be spam
+        /// </summary>
+        [JsonConverter(typeof(Converter))]
+        [JsonProperty("is_suspected_spam")]
+        public bool IsSuspectedSpam { get; set; }
 
         /// <summary>
         /// State of the transaction

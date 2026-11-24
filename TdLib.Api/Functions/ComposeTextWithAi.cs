@@ -38,7 +38,8 @@ public static partial class TdApi
         public FormattedText Text { get; set; }
 
         /// <summary>
-        /// Pass a language code to which the text will be translated; pass an empty string if translation isn't needed. See translateText.to_language_code for the list of supported values
+        /// Pass a language code to which the text will be translated; pass an empty string if translation isn't needed.
+        /// See translateText.to_language_code for the list of supported values
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("translate_to_language_code")]

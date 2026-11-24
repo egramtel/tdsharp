@@ -41,14 +41,14 @@ public static partial class TdApi
         public Sticker StaticIcon { get; set; }
 
         /// <summary>
-        /// Emoji corresponding to the effect that can be used if static icon isn't available
+        /// Emoji corresponding to the effect that can be used if the static icon isn't available
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("emoji")]
         public string Emoji { get; set; }
 
         /// <summary>
-        /// True, if Telegram Premium subscription is required to use the effect
+        /// True, if a Telegram Premium subscription is required to use the effect
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("is_premium")]

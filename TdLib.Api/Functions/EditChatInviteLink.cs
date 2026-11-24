@@ -12,7 +12,7 @@ public static partial class TdApi
 {
     /// <summary>
     /// Edits a non-primary invite link for a chat. Available in basic groups, supergroups, and channels.
-    /// If the link creates a subscription, then expiration_date, member_limit and creates_join_request must not be used.
+    /// If the link creates a subscription, then expiration_date, member_limit, and creates_join_request must not be used.
     /// Requires administrator privileges and can_invite_users right in the chat for own links and owner privileges for other links
     /// </summary>
     public class EditChatInviteLink : Function<ChatInviteLink>
@@ -61,7 +61,7 @@ public static partial class TdApi
         public int ExpirationDate { get; set; }
 
         /// <summary>
-        /// The maximum number of chat members that can join the chat via the link simultaneously; 0-99999; pass 0 if not limited
+        /// The maximum number of chat members who can join the chat via the link simultaneously; 0-99999; pass 0 if not limited
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("member_limit")]
@@ -77,7 +77,7 @@ public static partial class TdApi
 
     /// <summary>
     /// Edits a non-primary invite link for a chat. Available in basic groups, supergroups, and channels.
-    /// If the link creates a subscription, then expiration_date, member_limit and creates_join_request must not be used.
+    /// If the link creates a subscription, then expiration_date, member_limit, and creates_join_request must not be used.
     /// Requires administrator privileges and can_invite_users right in the chat for own links and owner privileges for other links
     /// </summary>
     public static Task<ChatInviteLink> EditChatInviteLinkAsync(

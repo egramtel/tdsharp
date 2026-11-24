@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns approximate number of chats in a being created chat folder. Main and archive chat lists must be fully preloaded for this function to work correctly
+    /// Returns the approximate number of chats in a chat folder being created. Main and archive chat lists must be fully preloaded for this function to work correctly
     /// </summary>
     public class GetChatFolderChatCount : Function<Count>
     {
@@ -39,7 +39,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns approximate number of chats in a being created chat folder. Main and archive chat lists must be fully preloaded for this function to work correctly
+    /// Returns the approximate number of chats in a chat folder being created. Main and archive chat lists must be fully preloaded for this function to work correctly
     /// </summary>
     public static Task<Count> GetChatFolderChatCountAsync(
         this IClient client, ChatFolder folder = default)

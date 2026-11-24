@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns outline of a sticker as an SVG path. This is an offline method. Returns an empty string if the outline isn't known
+    /// Returns the outline of a sticker as an SVG path. This is an offline method. Returns an empty string if the outline isn't known
     /// </summary>
     public class GetStickerOutlineSvgPath : Function<Text>
     {
@@ -45,7 +45,7 @@ public static partial class TdApi
         public bool ForAnimatedEmoji { get; set; }
 
         /// <summary>
-        /// Pass true to get the outline scaled for clicked animated emoji message
+        /// Pass true to get the outline scaled for a clicked animated emoji message
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("for_clicked_animated_emoji_message")]
@@ -53,7 +53,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns outline of a sticker as an SVG path. This is an offline method. Returns an empty string if the outline isn't known
+    /// Returns the outline of a sticker as an SVG path. This is an offline method. Returns an empty string if the outline isn't known
     /// </summary>
     public static Task<Text> GetStickerOutlineSvgPathAsync(
         this IClient client, int stickerFileId = default, bool forAnimatedEmoji = default, bool forClickedAnimatedEmojiMessage = default)

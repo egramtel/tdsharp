@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class BotWriteAccessAllowReason : Object
     {
         /// <summary>
-        /// The user accepted bot's request to send messages with allowBotToSendMessages
+        /// The user accepted the bot's request to send messages with allowBotToSendMessages
         /// </summary>
         public class BotWriteAccessAllowReasonAcceptedRequest : BotWriteAccessAllowReason
         {

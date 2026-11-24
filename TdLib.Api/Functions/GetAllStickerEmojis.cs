@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns unique emoji that correspond to stickers to be found by the getStickers(sticker_type, query, 1000000, chat_id)
+    /// Returns unique emoji that correspond to stickers to be found by getStickers(sticker_type, query, 1000000, chat_id)
     /// </summary>
     public class GetAllStickerEmojis : Function<Emojis>
     {
@@ -52,7 +52,7 @@ public static partial class TdApi
         public long ChatId { get; set; }
 
         /// <summary>
-        /// Pass true if only main emoji for each found sticker must be included in the result
+        /// Pass true if only the main emoji for each found sticker must be included in the result
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("return_only_main_emoji")]
@@ -60,7 +60,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns unique emoji that correspond to stickers to be found by the getStickers(sticker_type, query, 1000000, chat_id)
+    /// Returns unique emoji that correspond to stickers to be found by getStickers(sticker_type, query, 1000000, chat_id)
     /// </summary>
     public static Task<Emojis> GetAllStickerEmojisAsync(
         this IClient client, StickerType stickerType = default, string query = default, long chatId = default, bool returnOnlyMainEmoji = default)

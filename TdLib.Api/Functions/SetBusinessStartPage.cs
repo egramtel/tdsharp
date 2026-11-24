@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Changes the business start page of the current user. Requires Telegram Business subscription
+    /// Changes the business start page of the current user. Requires a Telegram Business subscription
     /// </summary>
     public class SetBusinessStartPage : Function<Ok>
     {
@@ -31,7 +31,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// The new start page of the business; pass null to remove custom start page
+        /// The new start page of the business; pass null to remove the custom start page
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("start_page")]
@@ -39,7 +39,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Changes the business start page of the current user. Requires Telegram Business subscription
+    /// Changes the business start page of the current user. Requires a Telegram Business subscription
     /// </summary>
     public static Task<Ok> SetBusinessStartPageAsync(
         this IClient client, InputBusinessStartPage startPage = default)

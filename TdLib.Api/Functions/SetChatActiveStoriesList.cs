@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Changes story list in which stories from the chat are shown
+    /// Changes the story list in which stories from the chat are shown
     /// </summary>
     public class SetChatActiveStoriesList : Function<Ok>
     {
@@ -46,7 +46,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Changes story list in which stories from the chat are shown
+    /// Changes the story list in which stories from the chat are shown
     /// </summary>
     public static Task<Ok> SetChatActiveStoriesListAsync(
         this IClient client, long chatId = default, StoryList storyList = default)

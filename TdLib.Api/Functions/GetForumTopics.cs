@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns found forum topics in a forum supergroup chat or a chat with a bot with topics. This is a temporary method for getting information about topic list from the server
+    /// Returns found forum topics in a forum supergroup chat or a chat with a bot with topics. This is a temporary method for getting information about the topic list from the server
     /// </summary>
     public class GetForumTopics : Function<ForumTopics>
     {
@@ -45,6 +45,27 @@ public static partial class TdApi
         public string Query { get; set; }
 
         /// <summary>
+        /// If non-zero, then only topics with the icon with the given custom emoji identifier will be returned; must be 0 in chats with bots
+        /// </summary>
+        [JsonConverter(typeof(Converter.Int64))]
+        [JsonProperty("icon_custom_emoji_id")]
+        public long IconCustomEmojiId { get; set; }
+
+        /// <summary>
+        /// Pass true to exclude open topics; must be false in chats with bots
+        /// </summary>
+        [JsonConverter(typeof(Converter))]
+        [JsonProperty("exclude_open")]
+        public bool ExcludeOpen { get; set; }
+
+        /// <summary>
+        /// Pass true to exclude closed topics; must be false in chats with bots
+        /// </summary>
+        [JsonConverter(typeof(Converter))]
+        [JsonProperty("exclude_closed")]
+        public bool ExcludeClosed { get; set; }
+
+        /// <summary>
         /// The date starting from which the results need to be fetched. Use 0 or any date in the future to get results from the last topic
         /// </summary>
         [JsonConverter(typeof(Converter))]
@@ -74,14 +95,14 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns found forum topics in a forum supergroup chat or a chat with a bot with topics. This is a temporary method for getting information about topic list from the server
+    /// Returns found forum topics in a forum supergroup chat or a chat with a bot with topics. This is a temporary method for getting information about the topic list from the server
     /// </summary>
     public static Task<ForumTopics> GetForumTopicsAsync(
-        this IClient client, long chatId = default, string query = default, int offsetDate = default, long offsetMessageId = default, int offsetForumTopicId = default, int limit = default)
+        this IClient client, long chatId = default, string query = default, long iconCustomEmojiId = default, bool excludeOpen = default, bool excludeClosed = default, int offsetDate = default, long offsetMessageId = default, int offsetForumTopicId = default, int limit = default)
     {
         return client.ExecuteAsync(new GetForumTopics
         {
-            ChatId = chatId, Query = query, OffsetDate = offsetDate, OffsetMessageId = offsetMessageId, OffsetForumTopicId = offsetForumTopicId, Limit = limit
+            ChatId = chatId, Query = query, IconCustomEmojiId = iconCustomEmojiId, ExcludeOpen = excludeOpen, ExcludeClosed = excludeClosed, OffsetDate = offsetDate, OffsetMessageId = offsetMessageId, OffsetForumTopicId = offsetForumTopicId, Limit = limit
         });
     }
 }

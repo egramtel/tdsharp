@@ -29,7 +29,7 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// Identifier of the user to which Telegram Stars are gifted
+            /// Identifier of the user to whom Telegram Stars are gifted
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("user_id")]

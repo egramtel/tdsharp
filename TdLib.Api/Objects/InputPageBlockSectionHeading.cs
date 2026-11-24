@@ -36,7 +36,7 @@ public static partial class TdApi
             public RichText Text { get; set; }
 
             /// <summary>
-            /// Relative size of the text font; 1-6, 1 is the largest, 6 is the smallest
+            /// Relative size of the text font; 1-6; 1 is the largest, 6 is the smallest
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("size")]

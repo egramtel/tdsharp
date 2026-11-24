@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class SuggestedAction : Object
     {
         /// <summary>
-        /// Suggests the user to set a 2-step verification password to be able to log in again
+        /// Suggests that the user set a 2-step verification password to be able to log in again
         /// </summary>
         public class SuggestedActionSetPassword : SuggestedAction
         {
@@ -29,7 +29,7 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// The number of days to pass between consecutive authorizations if the user declines to set password; if 0, then the user is advised to set the password for security reasons
+            /// The number of days to pass between consecutive authorizations if the user declines to set a password; if 0, then the user is advised to set the password for security reasons
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("authorization_delay")]

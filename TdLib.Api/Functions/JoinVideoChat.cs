@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Joins an active video chat. Returns join response payload for tgcalls
+    /// Joins an active video chat. Returns the join response payload for tgcalls
     /// </summary>
     public class JoinVideoChat : Function<Text>
     {
@@ -38,7 +38,7 @@ public static partial class TdApi
         public int GroupCallId { get; set; }
 
         /// <summary>
-        /// Identifier of a group call participant, which will be used to join the call; pass null to join as self
+        /// Identifier of a group call participant that will be used to join the call; pass null to join as self
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("participant_id")]
@@ -60,7 +60,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Joins an active video chat. Returns join response payload for tgcalls
+    /// Joins an active video chat. Returns the join response payload for tgcalls
     /// </summary>
     public static Task<Text> JoinVideoChatAsync(
         this IClient client, int groupCallId = default, MessageSender participantId = default, GroupCallJoinParameters joinParameters = default, string inviteHash = default)

@@ -11,8 +11,8 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Edits title and icon of a topic in a forum supergroup chat or a chat with a bot with topics; for supergroup chats requires can_manage_topics administrator right
-    /// unless the user is creator of the topic
+    /// Edits the title and icon of a topic in a forum supergroup chat or a chat with a bot with topics; for supergroup chats, requires can_manage_topics administrator right
+    /// unless the user is the creator of the topic
     /// </summary>
     public class EditForumTopic : Function<Ok>
     {
@@ -53,15 +53,15 @@ public static partial class TdApi
         public string Name { get; set; }
 
         /// <summary>
-        /// Pass true to edit the icon of the topic. Icon of the General topic can't be edited
+        /// Pass true to edit the icon of the topic. The icon of the General topic can't be edited
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("edit_icon_custom_emoji")]
         public bool EditIconCustomEmoji { get; set; }
 
         /// <summary>
-        /// Identifier of the new custom emoji for topic icon; pass 0 to remove the custom emoji. Ignored if edit_icon_custom_emoji is false.
-        /// Telegram Premium users can use any custom emoji, other users can use only a custom emoji returned by getForumTopicDefaultIcons
+        /// Identifier of the new custom emoji for the topic icon; pass 0 to remove the custom emoji. Ignored if edit_icon_custom_emoji is false.
+        /// Telegram Premium users can use any custom emoji; other users can use only a custom emoji returned by getForumTopicDefaultIcons
         /// </summary>
         [JsonConverter(typeof(Converter.Int64))]
         [JsonProperty("icon_custom_emoji_id")]
@@ -69,8 +69,8 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Edits title and icon of a topic in a forum supergroup chat or a chat with a bot with topics; for supergroup chats requires can_manage_topics administrator right
-    /// unless the user is creator of the topic
+    /// Edits the title and icon of a topic in a forum supergroup chat or a chat with a bot with topics; for supergroup chats, requires can_manage_topics administrator right
+    /// unless the user is the creator of the topic
     /// </summary>
     public static Task<Ok> EditForumTopicAsync(
         this IClient client, long chatId = default, int forumTopicId = default, string name = default, bool editIconCustomEmoji = default, long iconCustomEmojiId = default)

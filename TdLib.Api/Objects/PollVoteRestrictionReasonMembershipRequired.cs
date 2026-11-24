@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class PollVoteRestrictionReason : Object
     {
         /// <summary>
-        /// The user must be a member of the chat for at least a day to vote
+        /// The user must have been a member of the chat for at least a day to vote
         /// </summary>
         public class PollVoteRestrictionReasonMembershipRequired : PollVoteRestrictionReason
         {
@@ -29,7 +29,7 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// Identifier of the chat which must be joined for at least a day before the user can vote
+            /// Identifier of the chat that must be joined for at least a day before the user can vote
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_id")]

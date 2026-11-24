@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class ChatActionBar : Object
     {
         /// <summary>
-        /// The chat is a private chat with an administrator of a chat to which the user sent join request
+        /// The chat is a private chat with an administrator of a chat to which the user sent a join request
         /// </summary>
         public class ChatActionBarJoinRequest : ChatActionBar
         {

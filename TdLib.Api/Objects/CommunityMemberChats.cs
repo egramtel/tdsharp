@@ -10,7 +10,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Contains information about chats in a community, which are joined or owned by a member of the community
+    /// Contains information about chats in a community that are joined or owned by a member of the community
     /// </summary>
     public partial class CommunityMemberChats : Object
     {

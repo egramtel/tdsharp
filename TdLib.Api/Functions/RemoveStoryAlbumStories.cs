@@ -46,7 +46,7 @@ public static partial class TdApi
         public int StoryAlbumId { get; set; }
 
         /// <summary>
-        /// Identifier of the stories to remove from the album
+        /// Identifiers of the stories to remove from the album
         /// </summary>
         [JsonProperty("story_ids", ItemConverterType = typeof(Converter))]
         public int[] StoryIds { get; set; }

@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Adds pending paid reaction in a live story group call. Can't be used in live stories posted by the current user.
+    /// Adds a pending paid reaction in a live story group call. Can't be used in live stories posted by the current user.
     /// Call commitPendingLiveStoryReactions or removePendingLiveStoryReactions to actually send all pending reactions when the undo timer is over or abort the sending
     /// </summary>
     public class AddPendingLiveStoryReaction : Function<Ok>
@@ -47,7 +47,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Adds pending paid reaction in a live story group call. Can't be used in live stories posted by the current user.
+    /// Adds a pending paid reaction in a live story group call. Can't be used in live stories posted by the current user.
     /// Call commitPendingLiveStoryReactions or removePendingLiveStoryReactions to actually send all pending reactions when the undo timer is over or abort the sending
     /// </summary>
     public static Task<Ok> AddPendingLiveStoryReactionAsync(

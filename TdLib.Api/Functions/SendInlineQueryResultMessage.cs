@@ -45,7 +45,7 @@ public static partial class TdApi
         public MessageTopic TopicId { get; set; }
 
         /// <summary>
-        /// Information about the message or story to be replied; pass null if none
+        /// Information about the message or story to be replied to; pass null if none
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("reply_to")]
@@ -73,7 +73,7 @@ public static partial class TdApi
         public string ResultId { get; set; }
 
         /// <summary>
-        /// Pass true to hide the bot, via which the message is sent. Can be used only for bots getOption("animation_search_bot_username") and getOption("photo_search_bot_username")
+        /// Pass true to hide the bot via which the message is sent. Can be used only for bots getOption("animation_search_bot_username") and getOption("photo_search_bot_username")
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("hide_via_bot")]

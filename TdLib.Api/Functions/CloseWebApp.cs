@@ -31,7 +31,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Identifier of Web App launch, received from openWebApp
+        /// Identifier of the Web App launch, received from openWebApp
         /// </summary>
         [JsonConverter(typeof(Converter.Int64))]
         [JsonProperty("web_app_launch_id")]

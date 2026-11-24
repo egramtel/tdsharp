@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class Update : Object
     {
         /// <summary>
-        /// The TON Gram revenue earned by the current user has changed. If Gram transaction screen of the chat is opened, then getTonTransactions may be called to fetch new transactions
+        /// The TON Gram revenue earned by the current user has changed. If the Gram transaction screen of the chat is opened, then getTonTransactions may be called to fetch new transactions
         /// </summary>
         public class UpdateGramRevenueStatus : Update
         {

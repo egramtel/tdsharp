@@ -38,7 +38,7 @@ public static partial class TdApi
         public long PreCheckoutQueryId { get; set; }
 
         /// <summary>
-        /// An error message, empty on success
+        /// An error message; empty on success
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("error_message")]

@@ -41,7 +41,7 @@ public static partial class TdApi
         public Message LastMessage { get; set; }
 
         /// <summary>
-        /// A parameter used to determine order of the topic in the topic list. Topics must be sorted by the order in descending order
+        /// A parameter used to determine the order of the topic in the topic list. Topics must be sorted by the order in descending order
         /// </summary>
         [JsonConverter(typeof(Converter.Int64))]
         [JsonProperty("order")]

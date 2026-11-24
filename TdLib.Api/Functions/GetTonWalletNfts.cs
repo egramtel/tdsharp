@@ -11,7 +11,8 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns NFTs stored on the TON wallet of the user; can be used only if getOption("can_use_ton_wallet")
+    /// Returns NFTs stored on the TON wallet of the user; can be used only if getOption("can_use_ton_wallet"). The result also includes NFTs of the user
+    /// that are put up for sale using a fixed-price sale contract
     /// </summary>
     public class GetTonWalletNfts : Function<TonNfts>
     {
@@ -31,7 +32,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Offset of the first entry to return as received from the previous request; use empty string to get the first chunk of results
+        /// Offset of the first entry to return as received from the previous request; use an empty string to get the first chunk of results
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("offset")]
@@ -46,7 +47,8 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns NFTs stored on the TON wallet of the user; can be used only if getOption("can_use_ton_wallet")
+    /// Returns NFTs stored on the TON wallet of the user; can be used only if getOption("can_use_ton_wallet"). The result also includes NFTs of the user
+    /// that are put up for sale using a fixed-price sale contract
     /// </summary>
     public static Task<TonNfts> GetTonWalletNftsAsync(
         this IClient client, string offset = default, int limit = default)

@@ -10,7 +10,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// A chat. (Can be a private chat, basic group, supergroup, or secret chat)
+    /// A chat; can be a private chat, basic group, supergroup, or secret chat
     /// </summary>
     public partial class Chat : Object
     {
@@ -110,13 +110,14 @@ public static partial class TdApi
         public ChatPosition[] Positions { get; set; }
 
         /// <summary>
-        /// Chat lists to which the chat belongs. A chat can have a non-zero position in a chat list even if it doesn't belong to the chat list and have no position in a chat list even if it belongs to the chat list
+        /// Chat lists to which the chat belongs.
+        /// A chat can have a non-zero position in a chat list even if it doesn't belong to the chat list and have no position in a chat list even if it belongs to the chat list
         /// </summary>
         [JsonProperty("chat_lists", ItemConverterType = typeof(Converter))]
         public ChatList[] ChatLists { get; set; }
 
         /// <summary>
-        /// Identifier of a user or chat that is selected to send messages in the chat; may be null if the user can't change message sender
+        /// Identifier of a user or chat that is selected to send messages in the chat; may be null if the user can't change the message sender
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("message_sender_id")]
@@ -151,7 +152,7 @@ public static partial class TdApi
         public bool IsMarkedAsUnread { get; set; }
 
         /// <summary>
-        /// True, if the chat is a forum supergroup that must be shown in the "View as topics" mode, or Saved Messages chat that must be shown in the "View as chats"
+        /// True, if the chat is a forum supergroup that must be shown in the "View as topics" mode, or the Saved Messages chat that must be shown in the "View as chats" mode
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("view_as_topics")]
@@ -249,7 +250,7 @@ public static partial class TdApi
         public ChatNotificationSettings NotificationSettings { get; set; }
 
         /// <summary>
-        /// Types of reaction, available in the chat
+        /// Types of reaction available in the chat
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("available_reactions")]
@@ -257,14 +258,14 @@ public static partial class TdApi
 
         /// <summary>
         /// Current message auto-delete or self-destruct timer setting for the chat, in seconds; 0 if disabled.
-        /// Self-destruct timer in secret chats starts after the message or its content is viewed. Auto-delete timer in other chats starts from the send date
+        /// The self-destruct timer in secret chats starts after the message or its content is viewed. The auto-delete timer in other chats starts from the send date
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("message_auto_delete_time")]
         public int MessageAutoDeleteTime { get; set; }
 
         /// <summary>
-        /// Emoji status to be shown along with chat title; may be null
+        /// Emoji status to be shown along with the chat title; may be null
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("emoji_status")]
@@ -285,21 +286,21 @@ public static partial class TdApi
         public ChatTheme Theme { get; set; }
 
         /// <summary>
-        /// Information about actions which must be possible to do through the chat action bar; may be null if none
+        /// Information about actions that must be possible to do through the chat action bar; may be null if none
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("action_bar")]
         public ChatActionBar ActionBar { get; set; }
 
         /// <summary>
-        /// Information about bar for managing a business bot in the chat; may be null if none
+        /// Information about the bar for managing a business bot in the chat; may be null if none
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("business_bot_manage_bar")]
         public BusinessBotManageBar BusinessBotManageBar { get; set; }
 
         /// <summary>
-        /// Information about video chat of the chat
+        /// Information about the video chat of the chat
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("video_chat")]
@@ -313,7 +314,7 @@ public static partial class TdApi
         public ChatJoinRequestsInfo PendingJoinRequests { get; set; }
 
         /// <summary>
-        /// Identifier of the message from which reply markup needs to be used; 0 if there is no reply markup in the chat
+        /// Identifier of the message from which the reply markup needs to be used; 0 if there is no reply markup in the chat
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("reply_markup_message_id")]
@@ -327,7 +328,14 @@ public static partial class TdApi
         public DraftMessage DraftMessage { get; set; }
 
         /// <summary>
-        /// Application-specific data associated with the chat. (For example, the chat scroll position or local chat notification settings can be stored here.) Persistent if the message database is used
+        /// Default parameters for text composition with AI in the chat; may be null if none
+        /// </summary>
+        [JsonConverter(typeof(Converter))]
+        [JsonProperty("text_composition_parameters")]
+        public TextCompositionParameters TextCompositionParameters { get; set; }
+
+        /// <summary>
+        /// Application-specific data associated with the chat, for example, the chat scroll position or local chat notification settings. Persistent if the message database is used
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("client_data")]

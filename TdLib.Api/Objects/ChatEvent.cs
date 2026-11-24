@@ -41,7 +41,7 @@ public static partial class TdApi
         public int Date { get; set; }
 
         /// <summary>
-        /// Identifier of the user or chat who performed the action
+        /// Identifier of the user or chat that performed the action
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("member_id")]

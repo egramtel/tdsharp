@@ -38,7 +38,7 @@ public static partial class TdApi
         public AffiliateType Affiliate { get; set; }
 
         /// <summary>
-        /// Identifier of the bot, which affiliate program is connected
+        /// Identifier of the bot whose affiliate program is connected
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("bot_user_id")]

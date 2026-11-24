@@ -45,7 +45,7 @@ public static partial class TdApi
         public long MessageId { get; set; }
 
         /// <summary>
-        /// Identifier of the sender, which added the reaction
+        /// Identifier of the sender who added the reaction
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("sender_id")]

@@ -27,7 +27,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// File with the sticker; must fit in a 512x512 square. For WEBP stickers the file must be in WEBP or PNG format, which will be converted to WEBP server-side.
+        /// File with the sticker; must fit in a 512x512 square. For WEBP stickers, the file must be in WEBP or PNG format, which will be converted to WEBP server-side.
         /// See https://core.telegram.org/animated_stickers#technical-requirements for technical requirements
         /// </summary>
         [JsonConverter(typeof(Converter))]
@@ -56,7 +56,7 @@ public static partial class TdApi
         public MaskPosition MaskPosition { get; set; }
 
         /// <summary>
-        /// List of up to 20 keywords with total length up to 64 characters, which can be used to find the sticker
+        /// List of up to 20 keywords with a total length of up to 64 characters, which can be used to find the sticker
         /// </summary>
         [JsonProperty("keywords", ItemConverterType = typeof(Converter))]
         public string[] Keywords { get; set; }

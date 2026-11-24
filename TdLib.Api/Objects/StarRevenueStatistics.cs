@@ -10,7 +10,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// A detailed statistics about Telegram Stars earned by a user or a chat
+    /// Detailed statistics about Telegram Stars earned by a user or a chat
     /// </summary>
     public partial class StarRevenueStatistics : Object
     {
@@ -27,7 +27,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// A graph containing amount of revenue in a given day
+        /// A graph containing the amount of revenue on a given day
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("revenue_by_day_graph")]

@@ -29,14 +29,14 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// New value auto-delete or self-destruct time, in seconds; 0 if disabled
+            /// New value of the auto-delete or self-destruct time, in seconds; 0 if disabled
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("message_auto_delete_time")]
             public int MessageAutoDeleteTime { get; set; }
 
             /// <summary>
-            /// If not 0, a user identifier, which default setting was automatically applied
+            /// If not 0, the identifier of the user whose default setting was automatically applied
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("from_user_id")]

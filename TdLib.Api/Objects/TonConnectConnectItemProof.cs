@@ -29,7 +29,7 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// Payload to be used for the proof (e.g. nonce + expiration timestamp)
+            /// Payload to be used for the proof (e.g., nonce + expiration timestamp)
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("payload")]

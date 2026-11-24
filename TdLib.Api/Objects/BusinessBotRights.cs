@@ -55,35 +55,35 @@ public static partial class TdApi
         public bool CanDeleteAllMessages { get; set; }
 
         /// <summary>
-        /// True, if the bot can edit name of the business account
+        /// True, if the bot can edit the name of the business account
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("can_edit_name")]
         public bool CanEditName { get; set; }
 
         /// <summary>
-        /// True, if the bot can edit bio of the business account
+        /// True, if the bot can edit the bio of the business account
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("can_edit_bio")]
         public bool CanEditBio { get; set; }
 
         /// <summary>
-        /// True, if the bot can edit profile photo of the business account
+        /// True, if the bot can edit the profile photo of the business account
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("can_edit_profile_photo")]
         public bool CanEditProfilePhoto { get; set; }
 
         /// <summary>
-        /// True, if the bot can edit username of the business account
+        /// True, if the bot can edit the username of the business account
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("can_edit_username")]
         public bool CanEditUsername { get; set; }
 
         /// <summary>
-        /// True, if the bot can view gifts and Telegram Star amount owned by the business account
+        /// True, if the bot can view gifts and the Telegram Star amount owned by the business account
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("can_view_gifts_and_stars")]
@@ -111,7 +111,7 @@ public static partial class TdApi
         public bool CanTransferAndUpgradeGifts { get; set; }
 
         /// <summary>
-        /// True, if the bot can transfer Telegram Stars received by the business account to account of the bot, or use them to upgrade and transfer gifts
+        /// True, if the bot can transfer Telegram Stars received by the business account to the account of the bot, or use them to upgrade and transfer gifts
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("can_transfer_stars")]

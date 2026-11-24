@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class UserPrivacySettingRule : Object
     {
         /// <summary>
-        /// A rule to allow all Premium Users to do something; currently, allowed only for userPrivacySettingAllowChatInvites
+        /// A rule to allow all Premium users to do something; currently, allowed only for userPrivacySettingAllowChatInvites
         /// </summary>
         public class UserPrivacySettingRuleAllowPremiumUsers : UserPrivacySettingRule
         {

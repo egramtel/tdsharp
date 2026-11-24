@@ -43,14 +43,14 @@ public static partial class TdApi
             public UpgradedGift Gift { get; set; }
 
             /// <summary>
-            /// The number of Grams received by the Telegram for each 1000 Grams received by the seller of the gift
+            /// The number of Grams received by Telegram for each 1000 Grams received by the seller of the gift
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("commission_per_mille")]
             public int CommissionPerMille { get; set; }
 
             /// <summary>
-            /// The Gram amount that was received by the Telegram; in the smallest units of the currency
+            /// The Gram amount that was received by Telegram, in the smallest units of the currency
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("commission_gram_amount")]

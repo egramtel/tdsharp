@@ -38,7 +38,7 @@ public static partial class TdApi
         public int ChatFolderId { get; set; }
 
         /// <summary>
-        /// Identifiers of the new chats, which are added to the chat folder. The chats are automatically joined if they aren't joined yet
+        /// Identifiers of the new chats that are added to the chat folder. The chats are automatically joined if they aren't joined yet
         /// </summary>
         [JsonProperty("added_chat_ids", ItemConverterType = typeof(Converter))]
         public long[] AddedChatIds { get; set; }

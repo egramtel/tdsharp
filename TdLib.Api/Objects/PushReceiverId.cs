@@ -27,7 +27,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// The globally unique identifier of push notification subscription
+        /// The globally unique identifier of the push notification subscription
         /// </summary>
         [JsonConverter(typeof(Converter.Int64))]
         [JsonProperty("id")]

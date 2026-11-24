@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class CommunityMemberStatus : Object
     {
         /// <summary>
-        /// The user or the chat was banned in the community; implies ban in all chats in the community
+        /// The user or the chat was banned in the community; implies a ban in all chats in the community
         /// </summary>
         public class CommunityMemberStatusBanned : CommunityMemberStatus
         {

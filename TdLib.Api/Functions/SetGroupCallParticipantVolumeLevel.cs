@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Changes volume level of a participant of an active group call; not supported for live stories. If the current user can manage the group call or is the owner of the group call,
+    /// Changes the volume level of a participant of an active group call; not supported for live stories. If the current user can manage the group call or is the owner of the group call,
     /// then the participant's volume level will be changed for all users with the default volume level
     /// </summary>
     public class SetGroupCallParticipantVolumeLevel : Function<Ok>
@@ -46,7 +46,7 @@ public static partial class TdApi
         public MessageSender ParticipantId { get; set; }
 
         /// <summary>
-        /// New participant's volume level; 1-20000 in hundreds of percents
+        /// New participant's volume level; 1-20000 in hundredths of a percent
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("volume_level")]
@@ -54,7 +54,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Changes volume level of a participant of an active group call; not supported for live stories. If the current user can manage the group call or is the owner of the group call,
+    /// Changes the volume level of a participant of an active group call; not supported for live stories. If the current user can manage the group call or is the owner of the group call,
     /// then the participant's volume level will be changed for all users with the default volume level
     /// </summary>
     public static Task<Ok> SetGroupCallParticipantVolumeLevelAsync(

@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Changes position of an audio file in the profile audio files of the current user
+    /// Changes the position of an audio file in the profile audio files of the current user
     /// </summary>
     public class SetProfileAudioPosition : Function<Ok>
     {
@@ -31,7 +31,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Identifier of the file from profile audio files, which position will be changed
+        /// Identifier of the file from profile audio files whose position will be changed
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("file_id")]
@@ -46,7 +46,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Changes position of an audio file in the profile audio files of the current user
+    /// Changes the position of an audio file in the profile audio files of the current user
     /// </summary>
     public static Task<Ok> SetProfileAudioPositionAsync(
         this IClient client, int fileId = default, int afterFileId = default)

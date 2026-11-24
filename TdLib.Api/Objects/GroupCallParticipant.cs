@@ -48,14 +48,14 @@ public static partial class TdApi
         public int ScreenSharingAudioSourceId { get; set; }
 
         /// <summary>
-        /// Information about user's video channel; may be null if there is no active video
+        /// Information about the user's video channel; may be null if there is no active video
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("video_info")]
         public GroupCallParticipantVideoInfo VideoInfo { get; set; }
 
         /// <summary>
-        /// Information about user's screen sharing video channel; may be null if there is no active screen sharing video
+        /// Information about the user's screen sharing video channel; may be null if there is no active screen sharing video
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("screen_sharing_video_info")]
@@ -83,7 +83,7 @@ public static partial class TdApi
         public bool IsSpeaking { get; set; }
 
         /// <summary>
-        /// True, if the participant hand is raised
+        /// True, if the participant's hand is raised
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("is_hand_raised")]
@@ -139,14 +139,15 @@ public static partial class TdApi
         public bool CanUnmuteSelf { get; set; }
 
         /// <summary>
-        /// Participant's volume level; 1-20000 in hundreds of percents
+        /// Participant's volume level; 1-20000 in hundredths of a percent
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("volume_level")]
         public int VolumeLevel { get; set; }
 
         /// <summary>
-        /// User's order in the group call participant list. Orders must be compared lexicographically. The bigger is order, the higher is user in the list. If order is empty, the user must be removed from the participant list
+        /// User's order in the group call participant list. Orders must be compared lexicographically. The greater the order, the higher the user is in the list.
+        /// If the order is empty, the user must be removed from the participant list
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("order")]

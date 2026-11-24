@@ -43,7 +43,7 @@ public static partial class TdApi
             public string TransactionId { get; set; }
 
             /// <summary>
-            /// Identifier of the supergroup or channel chat, which was automatically boosted by the winners of the giveaway
+            /// Identifier of the supergroup or channel chat that was automatically boosted by the winners of the giveaway
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("boosted_chat_id")]

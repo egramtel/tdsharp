@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class Update : Object
     {
         /// <summary>
-        /// The list of suggested to the user actions has changed
+        /// The list of actions suggested to the user has changed
         /// </summary>
         public class UpdateSuggestedActions : Update
         {

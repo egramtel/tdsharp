@@ -34,7 +34,7 @@ public static partial class TdApi
         public long Id { get; set; }
 
         /// <summary>
-        /// Point in time (Unix timestamp) when the photo has been added
+        /// Point in time (Unix timestamp) when the photo was added
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("added_date")]

@@ -10,7 +10,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Contains information about features, available to Premium users
+    /// Contains information about features available to Premium users
     /// </summary>
     public partial class PremiumFeatures : Object
     {
@@ -33,7 +33,7 @@ public static partial class TdApi
         public PremiumFeature[] Features { get; set; }
 
         /// <summary>
-        /// The list of limits, increased for Premium users
+        /// The list of limits increased for Premium users
         /// </summary>
         [JsonProperty("limits", ItemConverterType = typeof(Converter))]
         public PremiumLimit[] Limits { get; set; }

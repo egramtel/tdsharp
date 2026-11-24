@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Creates a video chat (a group call bound to a chat); for basic groups, supergroups and channels only; requires can_manage_video_chats administrator right
+    /// Creates a video chat (a group call bound to a chat); for basic groups, supergroups, and channels only; requires can_manage_video_chats administrator right
     /// </summary>
     public class CreateVideoChat : Function<GroupCallId>
     {
@@ -38,14 +38,15 @@ public static partial class TdApi
         public long ChatId { get; set; }
 
         /// <summary>
-        /// Group call title; if empty, chat title will be used
+        /// Group call title; if empty, the chat title will be used
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("title")]
         public string Title { get; set; }
 
         /// <summary>
-        /// Point in time (Unix timestamp) when the group call is expected to be started by an administrator; 0 to start the video chat immediately. The date must be at least 10 seconds and at most 8 days in the future
+        /// Point in time (Unix timestamp) when the group call is expected to be started by an administrator; 0 to start the video chat immediately.
+        /// The date must be at least 10 seconds and at most 8 days in the future
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("start_date")]
@@ -60,7 +61,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Creates a video chat (a group call bound to a chat); for basic groups, supergroups and channels only; requires can_manage_video_chats administrator right
+    /// Creates a video chat (a group call bound to a chat); for basic groups, supergroups, and channels only; requires can_manage_video_chats administrator right
     /// </summary>
     public static Task<GroupCallId> CreateVideoChatAsync(
         this IClient client, long chatId = default, string title = default, int startDate = default, bool isRtmpStream = default)

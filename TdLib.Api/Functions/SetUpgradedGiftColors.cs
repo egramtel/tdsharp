@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Changes color scheme for the current user based on an owned or a hosted upgraded gift; for Telegram Premium users only
+    /// Changes the color scheme for the current user based on an owned or a hosted upgraded gift; for Telegram Premium users only
     /// </summary>
     public class SetUpgradedGiftColors : Function<Ok>
     {
@@ -39,7 +39,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Changes color scheme for the current user based on an owned or a hosted upgraded gift; for Telegram Premium users only
+    /// Changes the color scheme for the current user based on an owned or a hosted upgraded gift; for Telegram Premium users only
     /// </summary>
     public static Task<Ok> SetUpgradedGiftColorsAsync(
         this IClient client, long upgradedGiftColorsId = default)

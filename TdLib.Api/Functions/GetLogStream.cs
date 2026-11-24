@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns information about currently used log stream for internal logging of TDLib. Can be called synchronously
+    /// Returns information about the currently used log stream for internal logging of TDLib. Can be called synchronously
     /// </summary>
     public class GetLogStream : Function<LogStream>
     {
@@ -34,7 +34,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns information about currently used log stream for internal logging of TDLib. Can be called synchronously
+    /// Returns information about the currently used log stream for internal logging of TDLib. Can be called synchronously
     /// </summary>
     public static Task<LogStream> GetLogStreamAsync(
         this IClient client)

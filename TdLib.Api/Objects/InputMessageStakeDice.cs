@@ -36,7 +36,7 @@ public static partial class TdApi
             public string StateHash { get; set; }
 
             /// <summary>
-            /// The TON Gram amount that will be staked; in the smallest units of the currency. Must be in the range
+            /// The TON Gram amount that will be staked, in the smallest units of the currency. Must be in the range
             /// getOption("stake_dice_stake_amount_min")-getOption("stake_dice_stake_amount_max")
             /// </summary>
             [JsonConverter(typeof(Converter))]
@@ -44,7 +44,7 @@ public static partial class TdApi
             public long StakeGramAmount { get; set; }
 
             /// <summary>
-            /// Pass true to delete message draft in the chat
+            /// Pass true to delete the message draft in the chat
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("clear_draft")]

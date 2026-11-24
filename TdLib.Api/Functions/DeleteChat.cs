@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Deletes a chat along with all messages in the corresponding chat for all chat members. For group chats this will release the usernames and remove all members.
+    /// Deletes a chat along with all messages in the corresponding chat for all chat members. For group chats, this will release the usernames and remove all members.
     /// Use the field chat.can_be_deleted_for_all_users to find whether the method can be applied to the chat
     /// </summary>
     public class DeleteChat : Function<Ok>
@@ -40,7 +40,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Deletes a chat along with all messages in the corresponding chat for all chat members. For group chats this will release the usernames and remove all members.
+    /// Deletes a chat along with all messages in the corresponding chat for all chat members. For group chats, this will release the usernames and remove all members.
     /// Use the field chat.can_be_deleted_for_all_users to find whether the method can be applied to the chat
     /// </summary>
     public static Task<Ok> DeleteChatAsync(
