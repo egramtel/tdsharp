@@ -39,7 +39,7 @@ public static partial class TdApi
         public long CommunityId { get; set; }
 
         /// <summary>
-        /// Identifier of the chat to add; only chats with owned bots and owned basic group, supergroup and channel chats are allowed;
+        /// Identifier of the chat to add; only chats with owned bots and owned basic group, supergroup, and channel chats are allowed;
         /// basic group chats will be automatically upgraded to supergroup chats. A community can have up to getOption("community_chat_count_max") supergroup and channel chats
         /// and up to getOption("community_bot_count_max") chats with bots; otherwise, the method fails with the error "COMMUNITY_PEERS_TOO_MUCH"
         /// </summary>

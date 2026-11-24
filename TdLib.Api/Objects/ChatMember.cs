@@ -27,7 +27,8 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Identifier of the chat member. Currently, other chats can be only Left or Banned. Only supergroups and channels can have other chats as Left or Banned members and these chats must be supergroups or channels
+        /// Identifier of the chat member. Currently, other chats can only be Left or Banned.
+        /// Only supergroups and channels can have other chats as Left or Banned members and these chats must be supergroups or channels
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("member_id")]

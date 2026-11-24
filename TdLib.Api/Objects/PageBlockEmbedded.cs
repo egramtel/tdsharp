@@ -36,7 +36,7 @@ public static partial class TdApi
             public string Url { get; set; }
 
             /// <summary>
-            /// HTML-markup of the embedded page
+            /// HTML markup of the embedded page
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("html")]

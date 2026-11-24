@@ -11,7 +11,8 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Changes the 2-step verification password for the current user. If a new recovery email address is specified, then the change will not be applied until the new recovery email address is confirmed
+    /// Changes the 2-step verification password for the current user.
+    /// If a new recovery email address is specified, then the change will not be applied until the new recovery email address is confirmed
     /// </summary>
     public class SetPassword : Function<PasswordState>
     {
@@ -52,7 +53,7 @@ public static partial class TdApi
         public string NewHint { get; set; }
 
         /// <summary>
-        /// Pass true to change also the recovery email address
+        /// Pass true to also change the recovery email address
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("set_recovery_email_address")]
@@ -67,7 +68,8 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Changes the 2-step verification password for the current user. If a new recovery email address is specified, then the change will not be applied until the new recovery email address is confirmed
+    /// Changes the 2-step verification password for the current user.
+    /// If a new recovery email address is specified, then the change will not be applied until the new recovery email address is confirmed
     /// </summary>
     public static Task<PasswordState> SetPasswordAsync(
         this IClient client, string oldPassword = default, string newPassword = default, string newHint = default, bool setRecoveryEmailAddress = default, string newRecoveryEmailAddress = default)

@@ -36,7 +36,7 @@ public static partial class TdApi
             public long ChatId { get; set; }
 
             /// <summary>
-            /// The new chat background; may be null if background was reset to default
+            /// The new chat background; may be null if the background was reset to the default
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("background")]

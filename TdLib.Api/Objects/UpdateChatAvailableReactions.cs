@@ -36,7 +36,7 @@ public static partial class TdApi
             public long ChatId { get; set; }
 
             /// <summary>
-            /// The new reactions, available in the chat
+            /// The new reactions available in the chat
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("available_reactions")]

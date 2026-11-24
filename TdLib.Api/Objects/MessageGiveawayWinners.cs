@@ -29,7 +29,7 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// Identifier of the supergroup or channel chat, which was automatically boosted by the winners of the giveaway
+            /// Identifier of the supergroup or channel chat that was automatically boosted by the winners of the giveaway
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("boosted_chat_id")]
@@ -50,7 +50,7 @@ public static partial class TdApi
             public int AdditionalChatCount { get; set; }
 
             /// <summary>
-            /// Point in time (Unix timestamp) when the winners were selected. May be bigger than winners selection date specified in parameters of the giveaway
+            /// Point in time (Unix timestamp) when the winners were selected. May be later than the winners selection date specified in the parameters of the giveaway
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("actual_winners_selection_date")]

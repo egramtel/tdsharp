@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns already available Telegram Passport elements suitable for completing a Telegram Passport authorization form. Result can be received only once for each authorization form
+    /// Returns already available Telegram Passport elements suitable for completing a Telegram Passport authorization form. The result can be received only once for each authorization form
     /// </summary>
     public class GetPassportAuthorizationFormAvailableElements : Function<PassportElementsWithErrors>
     {
@@ -46,7 +46,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns already available Telegram Passport elements suitable for completing a Telegram Passport authorization form. Result can be received only once for each authorization form
+    /// Returns already available Telegram Passport elements suitable for completing a Telegram Passport authorization form. The result can be received only once for each authorization form
     /// </summary>
     public static Task<PassportElementsWithErrors> GetPassportAuthorizationFormAvailableElementsAsync(
         this IClient client, int authorizationFormId = default, string password = default)

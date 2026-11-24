@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class MessageReadDate : Object
     {
         /// <summary>
-        /// The read date is unknown due to privacy settings of the other user
+        /// The read date is unknown due to the privacy settings of the other user
         /// </summary>
         public class MessageReadDateUserPrivacyRestricted : MessageReadDate
         {

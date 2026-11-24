@@ -27,7 +27,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Information about the message to be replied; inputMessageReplyToStory is unsupported; may be null if none
+        /// Information about the message to be replied to; inputMessageReplyToStory is unsupported; may be null if none
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("reply_to")]

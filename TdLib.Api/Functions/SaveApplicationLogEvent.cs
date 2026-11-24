@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Saves application log event on the server. Can be called before authorization
+    /// Saves an application log event on the server. Can be called before authorization
     /// </summary>
     public class SaveApplicationLogEvent : Function<Ok>
     {
@@ -38,7 +38,7 @@ public static partial class TdApi
         public string Type { get; set; }
 
         /// <summary>
-        /// Optional chat identifier, associated with the event
+        /// Optional chat identifier associated with the event
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("chat_id")]
@@ -53,7 +53,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Saves application log event on the server. Can be called before authorization
+    /// Saves an application log event on the server. Can be called before authorization
     /// </summary>
     public static Task<Ok> SaveApplicationLogEventAsync(
         this IClient client, string type = default, long chatId = default, JsonValue data = default)

@@ -12,8 +12,8 @@ public static partial class TdApi
 {
     /// <summary>
     /// Returns information about the next messages of the specified type in the chat split by days.
-    /// Returns the results in reverse chronological order. Can return partial result for the last returned day.
-    /// Behavior of this method depends on the value of the option "utc_time_offset"
+    /// Returns the results in reverse chronological order. Can return a partial result for the last returned day.
+    /// The behavior of this method depends on the value of the option "utc_time_offset"
     /// </summary>
     public class GetChatMessageCalendar : Function<MessageCalendar>
     {
@@ -40,7 +40,7 @@ public static partial class TdApi
         public long ChatId { get; set; }
 
         /// <summary>
-        /// Pass topic identifier to get the result only in specific topic; pass null to get the result in all topics; forum topics and message threads aren't supported
+        /// Pass a topic identifier to get the result only in a specific topic; pass null to get the result in all topics; forum topics and message threads aren't supported
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("topic_id")]
@@ -64,8 +64,8 @@ public static partial class TdApi
 
     /// <summary>
     /// Returns information about the next messages of the specified type in the chat split by days.
-    /// Returns the results in reverse chronological order. Can return partial result for the last returned day.
-    /// Behavior of this method depends on the value of the option "utc_time_offset"
+    /// Returns the results in reverse chronological order. Can return a partial result for the last returned day.
+    /// The behavior of this method depends on the value of the option "utc_time_offset"
     /// </summary>
     public static Task<MessageCalendar> GetChatMessageCalendarAsync(
         this IClient client, long chatId = default, MessageTopic topicId = default, SearchMessagesFilter filter = default, long fromMessageId = default)

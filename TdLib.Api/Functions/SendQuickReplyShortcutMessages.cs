@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Sends messages from a quick reply shortcut. Requires Telegram Business subscription. Can't be used to send paid messages
+    /// Sends messages from a quick reply shortcut. Requires a Telegram Business subscription. Can't be used to send paid messages
     /// </summary>
     public class SendQuickReplyShortcutMessages : Function<Messages>
     {
@@ -45,7 +45,7 @@ public static partial class TdApi
         public int ShortcutId { get; set; }
 
         /// <summary>
-        /// Non-persistent identifier, which will be returned back in messageSendingStatePending object and can be used to match sent messages and corresponding updateNewMessage updates
+        /// Non-persistent identifier, which will be returned in the messageSendingStatePending object and can be used to match sent messages and corresponding updateNewMessage updates
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("sending_id")]
@@ -53,7 +53,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Sends messages from a quick reply shortcut. Requires Telegram Business subscription. Can't be used to send paid messages
+    /// Sends messages from a quick reply shortcut. Requires a Telegram Business subscription. Can't be used to send paid messages
     /// </summary>
     public static Task<Messages> SendQuickReplyShortcutMessagesAsync(
         this IClient client, long chatId = default, int shortcutId = default, int sendingId = default)

@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class InternalLinkType : Object
     {
         /// <summary>
-        /// The link contains a message draft text. A share screen needs to be shown to the user, then the chosen chat must be opened and the text is added to the input field
+        /// The link contains a message draft text. A share screen needs to be shown to the user; then the chosen chat must be opened and the text must be added to the input field
         /// </summary>
         public class InternalLinkTypeMessageDraft : InternalLinkType
         {

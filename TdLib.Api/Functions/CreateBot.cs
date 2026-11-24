@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Creates a bot which will be managed by another bot. Returns the created bot. May return an error with a message "BOT_CREATE_LIMIT_EXCEEDED"
+    /// Creates a bot that will be managed by another bot. Returns the created bot. May return an error with a message "BOT_CREATE_LIMIT_EXCEEDED"
     /// if the user already owns the maximum allowed number of bots as per getOption("owned_bot_count_max"). An internal link "https://t.me/BotFather?start=deletebot" can be processed to handle the error
     /// </summary>
     public class CreateBot : Function<User>
@@ -46,8 +46,8 @@ public static partial class TdApi
         public string Name { get; set; }
 
         /// <summary>
-        /// Username of the bot. The username must end with "bot" or a string from updateAllowedBotUsernamePremiumSuffixes case-insensitive.
-        /// Use checkBotUsername to find whether the name is suitable. If the username doesn't end with "bot", then the current user must have Telegram Premium subscription,
+        /// Username of the bot. The username must end with "bot" or a string from updateAllowedBotUsernamePremiumSuffixes, case-insensitive.
+        /// Use checkBotUsername to find whether the name is suitable. If the username doesn't end with "bot", then the current user must have a Telegram Premium subscription,
         /// the chosen username will be assigned as secondary and an additional regular username ending with "bot" will be automatically assigned to the created bot
         /// </summary>
         [JsonConverter(typeof(Converter))]
@@ -63,7 +63,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Creates a bot which will be managed by another bot. Returns the created bot. May return an error with a message "BOT_CREATE_LIMIT_EXCEEDED"
+    /// Creates a bot that will be managed by another bot. Returns the created bot. May return an error with a message "BOT_CREATE_LIMIT_EXCEEDED"
     /// if the user already owns the maximum allowed number of bots as per getOption("owned_bot_count_max"). An internal link "https://t.me/BotFather?start=deletebot" can be processed to handle the error
     /// </summary>
     public static Task<User> CreateBotAsync(

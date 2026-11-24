@@ -11,8 +11,8 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Sends Firebase Authentication SMS to the phone number of the user. Works only when the current authorization state is
-    /// authorizationStateWaitCode and the server returned code of the type authenticationCodeTypeFirebaseAndroid or authenticationCodeTypeFirebaseIos
+    /// Sends a Firebase Authentication SMS to the phone number of the user. Works only when the current authorization state is
+    /// authorizationStateWaitCode and the server returned a code of the type authenticationCodeTypeFirebaseAndroid or authenticationCodeTypeFirebaseIos
     /// </summary>
     public class SendAuthenticationFirebaseSms : Function<Ok>
     {
@@ -32,7 +32,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Play Integrity API or SafetyNet Attestation API token for the Android application, or secret from push notification for the iOS application
+        /// Play Integrity API or SafetyNet Attestation API token for the Android application, or secret from a push notification for the iOS application
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("token")]
@@ -40,8 +40,8 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Sends Firebase Authentication SMS to the phone number of the user. Works only when the current authorization state is
-    /// authorizationStateWaitCode and the server returned code of the type authenticationCodeTypeFirebaseAndroid or authenticationCodeTypeFirebaseIos
+    /// Sends a Firebase Authentication SMS to the phone number of the user. Works only when the current authorization state is
+    /// authorizationStateWaitCode and the server returned a code of the type authenticationCodeTypeFirebaseAndroid or authenticationCodeTypeFirebaseIos
     /// </summary>
     public static Task<Ok> SendAuthenticationFirebaseSmsAsync(
         this IClient client, string token = default)

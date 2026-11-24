@@ -36,7 +36,7 @@ public static partial class TdApi
             public long SuggestedPostMessageId { get; set; }
 
             /// <summary>
-            /// Comment added by administrator of the channel when the post was declined
+            /// Comment added by an administrator of the channel when the post was declined
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("comment")]

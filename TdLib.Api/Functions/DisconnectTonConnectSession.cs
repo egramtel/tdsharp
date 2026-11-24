@@ -38,7 +38,7 @@ public static partial class TdApi
         public long SessionId { get; set; }
 
         /// <summary>
-        /// Encrypted body of the disconnect event; may be empty if the session has already been closed. Use getTonConnectSessionNextEventId to get event identifier for the event
+        /// Encrypted body of the disconnect event; may be empty if the session has already been closed. Use getTonConnectSessionNextEventId to get the event identifier for the event
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("body")]

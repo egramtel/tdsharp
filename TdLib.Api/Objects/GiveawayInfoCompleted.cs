@@ -36,7 +36,7 @@ public static partial class TdApi
             public int CreationDate { get; set; }
 
             /// <summary>
-            /// Point in time (Unix timestamp) when the winners were selected. May be bigger than winners selection date specified in parameters of the giveaway
+            /// Point in time (Unix timestamp) when the winners were selected. May be later than the winners selection date specified in the parameters of the giveaway
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("actual_winners_selection_date")]
@@ -64,7 +64,7 @@ public static partial class TdApi
             public int WinnerCount { get; set; }
 
             /// <summary>
-            /// Number of winners, which activated their gift codes; for Telegram Premium giveaways only
+            /// Number of winners who activated their gift codes; for Telegram Premium giveaways only
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("activation_count")]

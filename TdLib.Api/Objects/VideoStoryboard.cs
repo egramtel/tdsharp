@@ -27,7 +27,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// A JPEG file that contains tiled previews of video
+        /// A JPEG file that contains tiled previews of the video
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("storyboard_file")]
@@ -48,7 +48,7 @@ public static partial class TdApi
         public int Height { get; set; }
 
         /// <summary>
-        /// File that describes mapping of position in the video to a tile in the JPEG file
+        /// File that describes the mapping of a position in the video to a tile in the JPEG file
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("map_file")]

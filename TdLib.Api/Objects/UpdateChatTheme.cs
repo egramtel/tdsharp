@@ -36,7 +36,7 @@ public static partial class TdApi
             public long ChatId { get; set; }
 
             /// <summary>
-            /// The new theme of the chat; may be null if theme was reset to default
+            /// The new theme of the chat; may be null if the theme was reset to the default
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("theme")]

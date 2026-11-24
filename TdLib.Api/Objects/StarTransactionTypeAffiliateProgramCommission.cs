@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class StarTransactionType : Object
     {
         /// <summary>
-        /// The transaction is a receiving of a commission from an affiliate program; relevant for regular users, bots and channel chats only
+        /// The transaction is the receiving of a commission from an affiliate program; relevant for regular users, bots, and channel chats only
         /// </summary>
         public class StarTransactionTypeAffiliateProgramCommission : StarTransactionType
         {

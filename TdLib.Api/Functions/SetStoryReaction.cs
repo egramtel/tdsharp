@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Changes chosen reaction on a story that has already been sent; not supported for live stories
+    /// Changes the chosen reaction on a story that has already been sent; not supported for live stories
     /// </summary>
     public class SetStoryReaction : Function<Ok>
     {
@@ -60,7 +60,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Changes chosen reaction on a story that has already been sent; not supported for live stories
+    /// Changes the chosen reaction on a story that has already been sent; not supported for live stories
     /// </summary>
     public static Task<Ok> SetStoryReactionAsync(
         this IClient client, long storyPosterChatId = default, int storyId = default, ReactionType reactionType = default, bool updateRecentReactions = default)

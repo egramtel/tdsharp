@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class MessageSource : Object
     {
         /// <summary>
-        /// The message is from chat, message thread or forum topic history preview
+        /// The message is from a chat, message thread or forum topic history preview
         /// </summary>
         public class MessageSourceHistoryPreview : MessageSource
         {

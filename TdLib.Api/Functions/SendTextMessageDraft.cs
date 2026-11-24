@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Sends a draft for a being generated text message; for bots only
+    /// Sends a draft for a text message being generated; for bots only
     /// </summary>
     public class SendTextMessageDraft : Function<Ok>
     {
@@ -38,7 +38,7 @@ public static partial class TdApi
         public long ChatId { get; set; }
 
         /// <summary>
-        /// The forum topic identifier in which the message will be sent; pass 0 if none
+        /// The identifier of the forum topic in which the message will be sent; pass 0 if none
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("forum_topic_id")]
@@ -74,7 +74,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Sends a draft for a being generated text message; for bots only
+    /// Sends a draft for a text message being generated; for bots only
     /// </summary>
     public static Task<Ok> SendTextMessageDraftAsync(
         this IClient client, long chatId = default, int forumTopicId = default, long draftId = default, bool canStop = default, bool keepOnStop = default, FormattedText text = default)

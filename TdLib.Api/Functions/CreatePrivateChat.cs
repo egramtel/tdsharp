@@ -38,7 +38,7 @@ public static partial class TdApi
         public long UserId { get; set; }
 
         /// <summary>
-        /// Pass true to create the chat without a network request. In this case all information about the chat except its type, title and photo can be incorrect
+        /// Pass true to create the chat without a network request. In this case, all information about the chat except its type, title, and photo can be incorrect
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("force")]

@@ -45,7 +45,7 @@ public static partial class TdApi
         public ReplyMarkup ReplyMarkup { get; set; }
 
         /// <summary>
-        /// New text content of the message. Must be of type inputMessageText or inputMessageRichMessage; file upload isn't supported
+        /// New text content of the message. Must be of the type inputMessageText or inputMessageRichMessage; file upload isn't supported
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("input_message_content")]

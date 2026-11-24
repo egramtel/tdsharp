@@ -12,7 +12,7 @@ public static partial class TdApi
 {
     /// <summary>
     /// Fetches the latest versions of all strings from a language pack in the current localization target from the server.
-    /// This method doesn't need to be called explicitly for the current used/base language packs. Can be called before authorization
+    /// This method doesn't need to be called explicitly for the currently used/base language packs. Can be called before authorization
     /// </summary>
     public class SynchronizeLanguagePack : Function<Ok>
     {
@@ -41,7 +41,7 @@ public static partial class TdApi
 
     /// <summary>
     /// Fetches the latest versions of all strings from a language pack in the current localization target from the server.
-    /// This method doesn't need to be called explicitly for the current used/base language packs. Can be called before authorization
+    /// This method doesn't need to be called explicitly for the currently used/base language packs. Can be called before authorization
     /// </summary>
     public static Task<Ok> SynchronizeLanguagePackAsync(
         this IClient client, string languagePackId = default)

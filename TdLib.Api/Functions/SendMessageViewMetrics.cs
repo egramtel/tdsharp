@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Informs TDLib about details of a message view by the user from a chat, a message thread or a forum topic history. The method must be called if
+    /// Informs TDLib about details of a message view by the user from a chat, a message thread, or a forum topic history. The method must be called if
     /// the message wasn't seen for more than 300 milliseconds, the viewport was destroyed, or the total view duration exceeded 5 minutes
     /// </summary>
     public class SendMessageViewMetrics : Function<Ok>
@@ -46,14 +46,14 @@ public static partial class TdApi
         public long MessageId { get; set; }
 
         /// <summary>
-        /// The amount of time the message was seen by at least 1 pixel; in milliseconds
+        /// The amount of time the message was seen by at least 1 pixel, in milliseconds
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("time_in_view_ms")]
         public int TimeInViewMs { get; set; }
 
         /// <summary>
-        /// The amount of time the message was seen by at least 1 pixel within 15 seconds after any action from the user; in milliseconds
+        /// The amount of time the message was seen by at least 1 pixel within 15 seconds after any action from the user, in milliseconds
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("active_time_in_view_ms")]
@@ -75,7 +75,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Informs TDLib about details of a message view by the user from a chat, a message thread or a forum topic history. The method must be called if
+    /// Informs TDLib about details of a message view by the user from a chat, a message thread, or a forum topic history. The method must be called if
     /// the message wasn't seen for more than 300 milliseconds, the viewport was destroyed, or the total view duration exceeded 5 minutes
     /// </summary>
     public static Task<Ok> SendMessageViewMetricsAsync(

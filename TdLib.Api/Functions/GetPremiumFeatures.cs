@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns information about features, available to Premium users
+    /// Returns information about features available to Premium users
     /// </summary>
     public class GetPremiumFeatures : Function<PremiumFeatures>
     {
@@ -39,7 +39,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns information about features, available to Premium users
+    /// Returns information about features available to Premium users
     /// </summary>
     public static Task<PremiumFeatures> GetPremiumFeaturesAsync(
         this IClient client, PremiumSource source = default)

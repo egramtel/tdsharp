@@ -124,7 +124,8 @@ public static partial class TdApi
         public int[] CollectionIds { get; set; }
 
         /// <summary>
-        /// Number of Telegram Stars that can be claimed by the receiver instead of the regular gift; 0 if the gift can't be sold by the current user
+        /// Number of Telegram Stars that can be claimed by the receiver instead of the regular gift within getOption("gift_sell_period") seconds from its sending;
+        /// 0 if the gift can't be sold by the receiver
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("sell_star_count")]
@@ -138,7 +139,7 @@ public static partial class TdApi
         public long PrepaidUpgradeStarCount { get; set; }
 
         /// <summary>
-        /// True, if the upgrade was bought after the gift was sent. In this case, prepaid upgrade cost must not be added to the gift cost
+        /// True, if the upgrade was bought after the gift was sent. In this case, the prepaid upgrade cost must not be added to the gift cost
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("is_upgrade_separate")]
@@ -152,14 +153,15 @@ public static partial class TdApi
         public long TransferStarCount { get; set; }
 
         /// <summary>
-        /// Number of Telegram Stars that must be paid to drop original details of the upgraded gift; 0 if not available; only for the receiver of the gift
+        /// Number of Telegram Stars that must be paid to drop the original details of the upgraded gift; 0 if not available; only for the receiver of the gift
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("drop_original_details_star_count")]
         public long DropOriginalDetailsStarCount { get; set; }
 
         /// <summary>
-        /// Point in time (Unix timestamp) when the gift can be transferred to another owner; can be in the past; 0 if the gift can be transferred immediately or transfer isn't possible; only for the receiver of the gift
+        /// Point in time (Unix timestamp) when the gift can be transferred to another owner; can be in the past;
+        /// 0 if the gift can be transferred immediately or transfer isn't possible; only for the receiver of the gift
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("next_transfer_date")]
@@ -173,11 +175,11 @@ public static partial class TdApi
         public int NextResaleDate { get; set; }
 
         /// <summary>
-        /// Point in time (Unix timestamp) when the upgraded gift can be transferred to the TON blockchain as an NFT; can be in the past; 0 if NFT export isn't possible; only for the receiver of the gift
+        /// Point in time (Unix timestamp) when the upgraded gift can be minted as an NFT; can be in the past; 0 if the gift can't be minted; only for the receiver of the gift
         /// </summary>
         [JsonConverter(typeof(Converter))]
-        [JsonProperty("export_date")]
-        public int ExportDate { get; set; }
+        [JsonProperty("mint_date")]
+        public int MintDate { get; set; }
 
         /// <summary>
         /// If non-empty, then the user can pay for an upgrade of the gift using buyGiftUpgrade

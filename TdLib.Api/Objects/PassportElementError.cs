@@ -27,7 +27,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Type of the Telegram Passport element which has the error
+        /// Type of the Telegram Passport element that has the error
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("type")]

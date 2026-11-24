@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class PollVoteRestrictionReason : Object
     {
         /// <summary>
-        /// Reason of vote restriction in the poll for the current user
+        /// Reason for vote restriction in the poll for the current user
         /// </summary>
         public class PollVoteRestrictionReasonClosed : PollVoteRestrictionReason
         {

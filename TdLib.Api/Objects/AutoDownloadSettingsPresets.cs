@@ -27,7 +27,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Preset with lowest settings; expected to be used by default when roaming
+        /// Preset with the lowest settings; expected to be used by default when roaming
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("low")]
@@ -41,7 +41,7 @@ public static partial class TdApi
         public AutoDownloadSettings Medium { get; set; }
 
         /// <summary>
-        /// Preset with highest settings; expected to be used by default when connected on Wi-Fi
+        /// Preset with the highest settings; expected to be used by default when connected on Wi-Fi
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("high")]

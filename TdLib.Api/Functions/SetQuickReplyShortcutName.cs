@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Changes name of a quick reply shortcut
+    /// Changes the name of a quick reply shortcut
     /// </summary>
     public class SetQuickReplyShortcutName : Function<Ok>
     {
@@ -38,7 +38,7 @@ public static partial class TdApi
         public int ShortcutId { get; set; }
 
         /// <summary>
-        /// New name for the shortcut. Use checkQuickReplyShortcutName to check its validness
+        /// New name for the shortcut. Use checkQuickReplyShortcutName to check its validity
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("name")]
@@ -46,7 +46,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Changes name of a quick reply shortcut
+    /// Changes the name of a quick reply shortcut
     /// </summary>
     public static Task<Ok> SetQuickReplyShortcutNameAsync(
         this IClient client, int shortcutId = default, string name = default)

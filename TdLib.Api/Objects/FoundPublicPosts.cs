@@ -47,7 +47,7 @@ public static partial class TdApi
         public PublicPostSearchLimits SearchLimits { get; set; }
 
         /// <summary>
-        /// True, if the query has failed because search limits are exceeded. In this case search_limits.daily_free_query_count will be equal to 0
+        /// True, if the query has failed because search limits are exceeded. In this case, search_limits.daily_free_query_count will be equal to 0
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("are_limits_exceeded")]

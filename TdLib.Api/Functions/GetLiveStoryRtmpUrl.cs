@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns RTMP URL for streaming to a live story; requires can_post_stories administrator right for channel chats
+    /// Returns the RTMP URL for streaming to a live story; requires can_post_stories administrator right for channel chats
     /// </summary>
     public class GetLiveStoryRtmpUrl : Function<RtmpUrl>
     {
@@ -39,7 +39,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns RTMP URL for streaming to a live story; requires can_post_stories administrator right for channel chats
+    /// Returns the RTMP URL for streaming to a live story; requires can_post_stories administrator right for channel chats
     /// </summary>
     public static Task<RtmpUrl> GetLiveStoryRtmpUrlAsync(
         this IClient client, long chatId = default)

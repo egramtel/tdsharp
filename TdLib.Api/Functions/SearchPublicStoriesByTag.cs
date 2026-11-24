@@ -11,7 +11,8 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Searches for public stories containing the given hashtag or cashtag. For optimal performance, the number of returned stories is chosen by TDLib and can be smaller than the specified limit
+    /// Searches for public stories containing the given hashtag or cashtag.
+    /// For optimal performance, the number of returned stories is chosen by TDLib and can be smaller than the specified limit
     /// </summary>
     public class SearchPublicStoriesByTag : Function<FoundStories>
     {
@@ -45,7 +46,7 @@ public static partial class TdApi
         public string Tag { get; set; }
 
         /// <summary>
-        /// Offset of the first entry to return as received from the previous request; use empty string to get the first chunk of results
+        /// Offset of the first entry to return as received from the previous request; use an empty string to get the first chunk of results
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("offset")]
@@ -60,7 +61,8 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Searches for public stories containing the given hashtag or cashtag. For optimal performance, the number of returned stories is chosen by TDLib and can be smaller than the specified limit
+    /// Searches for public stories containing the given hashtag or cashtag.
+    /// For optimal performance, the number of returned stories is chosen by TDLib and can be smaller than the specified limit
     /// </summary>
     public static Task<FoundStories> SearchPublicStoriesByTagAsync(
         this IClient client, long storyPosterChatId = default, string tag = default, string offset = default, int limit = default)

@@ -50,14 +50,14 @@ public static partial class TdApi
             public bool NeedAnotherSender { get; set; }
 
             /// <summary>
-            /// True, if the message can be re-sent only if another quote is chosen in the message that is replied by the given message
+            /// True, if the message can be re-sent only if another quote is chosen in the message that is replied to by the given message
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("need_another_reply_quote")]
             public bool NeedAnotherReplyQuote { get; set; }
 
             /// <summary>
-            /// True, if the message can be re-sent only if the message to be replied is removed. This will be done automatically by resendMessages
+            /// True, if the message can be re-sent only if the message to be replied to is removed. This will be done automatically by resendMessages
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("need_drop_reply")]

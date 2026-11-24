@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Changes order of media previews in the list of media previews of a bot
+    /// Changes the order of media previews in the list of media previews of a bot
     /// </summary>
     public class ReorderBotMediaPreviews : Function<Ok>
     {
@@ -52,7 +52,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Changes order of media previews in the list of media previews of a bot
+    /// Changes the order of media previews in the list of media previews of a bot
     /// </summary>
     public static Task<Ok> ReorderBotMediaPreviewsAsync(
         this IClient client, long botUserId = default, string languageCode = default, int[] fileIds = default)

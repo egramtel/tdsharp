@@ -125,7 +125,7 @@ public static partial class TdApi
         public int Size { get; set; }
 
         /// <summary>
-        /// Up to the first 5 stickers from the set, depending on the context. If the application needs more stickers the full sticker set needs to be requested
+        /// Up to the first 5 stickers from the set, depending on the context. If the application needs more stickers, the full sticker set needs to be requested
         /// </summary>
         [JsonProperty("covers", ItemConverterType = typeof(Converter))]
         public Sticker[] Covers { get; set; }

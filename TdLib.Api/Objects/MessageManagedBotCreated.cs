@@ -36,7 +36,7 @@ public static partial class TdApi
             public long BotUserId { get; set; }
 
             /// <summary>
-            /// Identifier of the bot which will manage the new bot
+            /// Identifier of the bot that will manage the new bot
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("manager_bot_user_id")]

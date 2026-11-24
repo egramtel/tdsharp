@@ -27,35 +27,35 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// True, if link preview must be disabled
+        /// True, if the link preview must be disabled
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("is_disabled")]
         public bool IsDisabled { get; set; }
 
         /// <summary>
-        /// URL to use for link preview. If empty, then the first URL found in the message text will be used
+        /// URL to use for the link preview. If empty, then the first URL found in the message text will be used
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("url")]
         public string Url { get; set; }
 
         /// <summary>
-        /// True, if shown media preview must be small; ignored in secret chats or if the URL isn't explicitly specified
+        /// True, if the shown media preview must be small; ignored in secret chats or if the URL isn't explicitly specified
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("force_small_media")]
         public bool ForceSmallMedia { get; set; }
 
         /// <summary>
-        /// True, if shown media preview must be large; ignored in secret chats or if the URL isn't explicitly specified
+        /// True, if the shown media preview must be large; ignored in secret chats or if the URL isn't explicitly specified
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("force_large_media")]
         public bool ForceLargeMedia { get; set; }
 
         /// <summary>
-        /// True, if link preview must be shown above message text; otherwise, the link preview will be shown below the message text; ignored in secret chats
+        /// True, if the link preview must be shown above the message text; otherwise, the link preview will be shown below the message text; ignored in secret chats
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("show_above_text")]

@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class CanSendMessageToUserResult : Object
     {
         /// <summary>
-        /// The user can't be messaged, because they are deleted or unknown
+        /// The user can't be messaged because they are deleted or unknown
         /// </summary>
         public class CanSendMessageToUserResultUserIsDeleted : CanSendMessageToUserResult
         {

@@ -12,8 +12,8 @@ public static partial class TdApi
     public partial class SuggestedAction : Object
     {
         /// <summary>
-        /// Suggests the user to extend their expiring Telegram Star subscriptions. Call getStarSubscriptions with only_expiring == true
-        /// to get the number of expiring subscriptions and the number of required to buy Telegram Stars
+        /// Suggests that the user extend their expiring Telegram Star subscriptions. Call getStarSubscriptions with only_expiring == true
+        /// to get the number of expiring subscriptions and the number of Telegram Stars that must be bought
         /// </summary>
         public class SuggestedActionExtendStarSubscriptions : SuggestedAction
         {

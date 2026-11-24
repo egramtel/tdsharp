@@ -32,7 +32,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Type of the public chats, for which to check the limit
+        /// Type of the public chats for which to check the limit
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("type")]

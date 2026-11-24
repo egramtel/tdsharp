@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class Update : Object
     {
         /// <summary>
-        /// User changed its reactions on a message with public reactions; for bots only
+        /// A user changed their reactions on a message with public reactions; for bots only
         /// </summary>
         public class UpdateMessageReaction : Update
         {

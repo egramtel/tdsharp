@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class StarTransactionType : Object
     {
         /// <summary>
-        /// The transaction is a withdrawal of earned Telegram Stars to Fragment; relevant for regular users, bots, supergroup and channel chats only
+        /// The transaction is a withdrawal of earned Telegram Stars to Fragment; relevant for regular users, bots, and supergroup and channel chats only
         /// </summary>
         public class StarTransactionTypeFragmentWithdrawal : StarTransactionType
         {

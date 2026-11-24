@@ -35,7 +35,7 @@ public static partial class TdApi
             public ChatFolderInfo[] ChatFolders { get; set; }
 
             /// <summary>
-            /// Position of the main chat list among chat folders, 0-based
+            /// Position of the main chat list among chat folders; 0-based
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("main_chat_list_position")]

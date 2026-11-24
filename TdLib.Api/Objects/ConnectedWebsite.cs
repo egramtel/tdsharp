@@ -10,7 +10,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Contains information about one website the current user is logged in with Telegram
+    /// Contains information about one website the current user is logged in to with Telegram
     /// </summary>
     public partial class ConnectedWebsite : Object
     {
@@ -69,7 +69,7 @@ public static partial class TdApi
         public int LogInDate { get; set; }
 
         /// <summary>
-        /// Point in time (Unix timestamp) when obtained authorization was last used
+        /// Point in time (Unix timestamp) when the obtained authorization was last used
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("last_active_date")]

@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class SuggestedAction : Object
     {
         /// <summary>
-        /// Suggests the user to view a hint about the meaning of one and two check marks on sent messages
+        /// Suggests that the user view a hint about the meaning of one and two check marks on sent messages
         /// </summary>
         public class SuggestedActionViewChecksHint : SuggestedAction
         {

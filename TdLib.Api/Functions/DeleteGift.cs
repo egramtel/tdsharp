@@ -11,7 +11,8 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Deletes a gift without receiving Telegram Stars for it. Use receivedGift.can_be_deleted or messageGift.can_be_deleted to check whether the gift can be deleted
+    /// Deletes a gift without receiving Telegram Stars for it. Use receivedGift.can_be_deleted or messageGift.can_be_deleted to check whether the gift can be deleted.
+    /// The gift may be deleted even if it can still be sold using sellGift
     /// </summary>
     public class DeleteGift : Function<Ok>
     {
@@ -31,7 +32,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Unique identifier of business connection on behalf of which to send the request; for bots only
+        /// Unique identifier of the business connection on behalf of which to send the request; for bots only
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("business_connection_id")]
@@ -46,7 +47,8 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Deletes a gift without receiving Telegram Stars for it. Use receivedGift.can_be_deleted or messageGift.can_be_deleted to check whether the gift can be deleted
+    /// Deletes a gift without receiving Telegram Stars for it. Use receivedGift.can_be_deleted or messageGift.can_be_deleted to check whether the gift can be deleted.
+    /// The gift may be deleted even if it can still be sold using sellGift
     /// </summary>
     public static Task<Ok> DeleteGiftAsync(
         this IClient client, string businessConnectionId = default, string receivedGiftId = default)

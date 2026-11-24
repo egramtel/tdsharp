@@ -34,7 +34,7 @@ public static partial class TdApi
         public Location Location { get; set; }
 
         /// <summary>
-        /// Time relative to the message send date, for which the location can be updated, in seconds; if 0x7FFFFFFF, then location can be updated forever
+        /// Time relative to the message send date, for which the location can be updated, in seconds; if 0x7FFFFFFF, then the location can be updated forever
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("live_period")]

@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns emojis matching the keyword. Supported only if the file database is enabled. Order of results is unspecified
+    /// Returns emojis matching the keyword. Supported only if the file database is enabled. The order of results is unspecified
     /// </summary>
     public class GetKeywordEmojis : Function<Emojis>
     {
@@ -45,7 +45,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns emojis matching the keyword. Supported only if the file database is enabled. Order of results is unspecified
+    /// Returns emojis matching the keyword. Supported only if the file database is enabled. The order of results is unspecified
     /// </summary>
     public static Task<Emojis> GetKeywordEmojisAsync(
         this IClient client, string text = default, string[] inputLanguageCodes = default)

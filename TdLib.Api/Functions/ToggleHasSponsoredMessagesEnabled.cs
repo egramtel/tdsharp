@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Toggles whether the current user has sponsored messages enabled. The setting has no effect for users without Telegram Premium for which sponsored messages are always enabled
+    /// Toggles whether the current user has sponsored messages enabled. The setting has no effect for users without Telegram Premium for whom sponsored messages are always enabled
     /// </summary>
     public class ToggleHasSponsoredMessagesEnabled : Function<Ok>
     {
@@ -39,7 +39,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Toggles whether the current user has sponsored messages enabled. The setting has no effect for users without Telegram Premium for which sponsored messages are always enabled
+    /// Toggles whether the current user has sponsored messages enabled. The setting has no effect for users without Telegram Premium for whom sponsored messages are always enabled
     /// </summary>
     public static Task<Ok> ToggleHasSponsoredMessagesEnabledAsync(
         this IClient client, bool hasSponsoredMessagesEnabled = default)

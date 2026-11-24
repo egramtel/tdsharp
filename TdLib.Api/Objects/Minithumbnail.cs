@@ -10,7 +10,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Thumbnail image of a very poor quality and low resolution
+    /// Thumbnail image of very poor quality and low resolution
     /// </summary>
     public partial class Minithumbnail : Object
     {
@@ -27,14 +27,14 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Thumbnail width, usually doesn't exceed 40
+        /// Thumbnail width; usually doesn't exceed 40
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("width")]
         public int Width { get; set; }
 
         /// <summary>
-        /// Thumbnail height, usually doesn't exceed 40
+        /// Thumbnail height; usually doesn't exceed 40
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("height")]

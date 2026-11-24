@@ -41,7 +41,7 @@ public static partial class TdApi
         public string Payload { get; set; }
 
         /// <summary>
-        /// Pass true to join the call with muted microphone
+        /// Pass true to join the call with a muted microphone
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("is_muted")]

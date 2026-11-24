@@ -12,8 +12,8 @@ public static partial class TdApi
     public partial class InternalLinkType : Object
     {
         /// <summary>
-        /// The link is a link to a user by its phone number. Call searchUserByPhoneNumber with the given phone number to process the link.
-        /// If the user is found, then call createPrivateChat and open user's profile information screen or the chat itself. If draft text isn't empty, then put the draft text in the input field
+        /// The link is a link to a user by their phone number. Call searchUserByPhoneNumber with the given phone number to process the link.
+        /// If the user is found, then call createPrivateChat and open the user's profile information screen or the chat itself. If the draft text isn't empty, then put the draft text in the input field
         /// </summary>
         public class InternalLinkTypeUserPhoneNumber : InternalLinkType
         {
@@ -37,21 +37,21 @@ public static partial class TdApi
             public string PhoneNumber { get; set; }
 
             /// <summary>
-            /// Draft text for message to send in the chat
+            /// Draft text for the message to send in the chat
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("draft_text")]
             public string DraftText { get; set; }
 
             /// <summary>
-            /// True, if user's profile information screen must be opened; otherwise, the chat itself must be opened
+            /// True, if the user's profile information screen must be opened; otherwise, the chat itself must be opened
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("open_profile")]
             public bool OpenProfile { get; set; }
 
             /// <summary>
-            /// Token, which allows the current user to send unpaid messages to the user; may be empty if none.
+            /// Token that allows the current user to send unpaid messages to the user; may be empty if none.
             /// If the token isn't empty and the user is found, then call applyUnpaidMessagesToken with the user and the token
             /// </summary>
             [JsonConverter(typeof(Converter))]

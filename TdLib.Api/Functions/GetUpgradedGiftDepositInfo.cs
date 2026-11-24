@@ -11,8 +11,8 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns information needed to deposit an upgraded gift from the TON wallet of the current user to a Telegram account. Use sendTonWalletTransfer to complete transfer of the gift.
-    /// The gift will be received by the new owner with a message about the gift after the transfer is confirmed in the blockchain
+    /// Returns information needed to deposit an upgraded gift from the TON wallet of the current user to a Telegram account. Use sendTonWalletTransaction to complete the transfer of the gift.
+    /// The gift will be received by the new owner with a message about the gift after the transfer is confirmed on the blockchain
     /// </summary>
     public class GetUpgradedGiftDepositInfo : Function<UpgradedGiftDepositInfo>
     {
@@ -54,8 +54,8 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns information needed to deposit an upgraded gift from the TON wallet of the current user to a Telegram account. Use sendTonWalletTransfer to complete transfer of the gift.
-    /// The gift will be received by the new owner with a message about the gift after the transfer is confirmed in the blockchain
+    /// Returns information needed to deposit an upgraded gift from the TON wallet of the current user to a Telegram account. Use sendTonWalletTransaction to complete the transfer of the gift.
+    /// The gift will be received by the new owner with a message about the gift after the transfer is confirmed on the blockchain
     /// </summary>
     public static Task<UpgradedGiftDepositInfo> GetUpgradedGiftDepositInfoAsync(
         this IClient client, MessageSender ownerId = default, string name = default, bool hideSender = default)

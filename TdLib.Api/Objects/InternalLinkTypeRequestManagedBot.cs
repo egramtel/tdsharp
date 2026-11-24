@@ -12,9 +12,9 @@ public static partial class TdApi
     public partial class InternalLinkType : Object
     {
         /// <summary>
-        /// The link is a link to a dialog for creating of a managed bot. Call searchPublicChat with the given manager bot username.
-        /// If the chat is found, the chat is a chat with a bot and the bot has can_manage_bots == true, then show bot creation confirmation dialog
-        /// with the given suggested_bot_username and suggested_bot_name. If user agrees, call createBot with via_link == true to create the bot
+        /// The link is a link to create a managed bot. Call searchPublicChat with the given manager bot username.
+        /// If the chat is found, the chat is a chat with a bot, and the bot has can_manage_bots == true, then show a bot creation confirmation dialog
+        /// with the given suggested_bot_username and suggested_bot_name. If the user agrees, call createBot with via_link == true to create the bot
         /// </summary>
         public class InternalLinkTypeRequestManagedBot : InternalLinkType
         {
@@ -31,14 +31,14 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// Username of the bot which will manage the new bot
+            /// Username of the bot that will manage the new bot
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("manager_bot_username")]
             public string ManagerBotUsername { get; set; }
 
             /// <summary>
-            /// Suggested username for the bot; always ends with "bot" or a string from updateAllowedBotUsernamePremiumSuffixes case-insensitive
+            /// Suggested username for the bot; always ends with "bot" or a string from updateAllowedBotUsernamePremiumSuffixes, case-insensitive
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("suggested_bot_username")]

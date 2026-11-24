@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns all updates needed to restore current TDLib state, i.e. all actual updateAuthorizationState/updateUser/updateNewChat and others.
+    /// Returns all updates needed to restore the current TDLib state, i.e., all actual updateAuthorizationState/updateUser/updateNewChat and others.
     /// This is especially useful if TDLib is run in a separate process. Can be called before initialization
     /// </summary>
     public class GetCurrentState : Function<Updates>
@@ -35,7 +35,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns all updates needed to restore current TDLib state, i.e. all actual updateAuthorizationState/updateUser/updateNewChat and others.
+    /// Returns all updates needed to restore the current TDLib state, i.e., all actual updateAuthorizationState/updateUser/updateNewChat and others.
     /// This is especially useful if TDLib is run in a separate process. Can be called before initialization
     /// </summary>
     public static Task<Updates> GetCurrentStateAsync(

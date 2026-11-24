@@ -31,14 +31,14 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Unique identifier of business connection through which the messages were received
+        /// Unique identifier of the business connection through which the messages were received
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("business_connection_id")]
         public string BusinessConnectionId { get; set; }
 
         /// <summary>
-        /// Identifier of the messages
+        /// Identifiers of the messages
         /// </summary>
         [JsonProperty("message_ids", ItemConverterType = typeof(Converter))]
         public long[] MessageIds { get; set; }

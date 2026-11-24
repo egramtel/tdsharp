@@ -31,7 +31,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Unique identifier of business connection on behalf of which the message was sent
+        /// Unique identifier of the business connection on behalf of which the message was sent
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("business_connection_id")]
@@ -59,7 +59,7 @@ public static partial class TdApi
         public ReplyMarkup ReplyMarkup { get; set; }
 
         /// <summary>
-        /// New text content of the message. Must be of type inputMessageText or inputMessageRichMessage
+        /// New text content of the message. Must be of the type inputMessageText or inputMessageRichMessage
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("input_message_content")]

@@ -45,7 +45,7 @@ public static partial class TdApi
         public long ChatId { get; set; }
 
         /// <summary>
-        /// Location of the user; pass null if unknown or the bot doesn't need user's location
+        /// Location of the user; pass null if unknown or the bot doesn't need the user's location
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("user_location")]
@@ -59,7 +59,7 @@ public static partial class TdApi
         public string Query { get; set; }
 
         /// <summary>
-        /// Offset of the first entry to return; use empty string to get the first chunk of results
+        /// Offset of the first entry to return; use an empty string to get the first chunk of results
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("offset")]

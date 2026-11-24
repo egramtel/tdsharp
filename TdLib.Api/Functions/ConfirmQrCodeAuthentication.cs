@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Confirms QR code authentication on another device. Returns created session on success
+    /// Confirms QR code authentication on another device. Returns the created session on success
     /// </summary>
     public class ConfirmQrCodeAuthentication : Function<Session>
     {
@@ -39,7 +39,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Confirms QR code authentication on another device. Returns created session on success
+    /// Confirms QR code authentication on another device. Returns the created session on success
     /// </summary>
     public static Task<Session> ConfirmQrCodeAuthenticationAsync(
         this IClient client, string link = default)

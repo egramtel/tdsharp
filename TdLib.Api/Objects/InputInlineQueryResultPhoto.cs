@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class InputInlineQueryResult : Object
     {
         /// <summary>
-        /// Represents link to a JPEG image
+        /// Represents a link to a JPEG image
         /// </summary>
         public class InputInlineQueryResultPhoto : InputInlineQueryResult
         {
@@ -57,7 +57,7 @@ public static partial class TdApi
             public string ThumbnailUrl { get; set; }
 
             /// <summary>
-            /// The URL of the JPEG photo (photo size must not exceed 5MB)
+            /// The URL of the JPEG photo (photo size must not exceed 5 MB)
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("photo_url")]
@@ -78,7 +78,7 @@ public static partial class TdApi
             public int PhotoHeight { get; set; }
 
             /// <summary>
-            /// The message reply markup; pass null if none. Must be of type replyMarkupInlineKeyboard or null
+            /// The message reply markup; pass null if none. Must be of the type replyMarkupInlineKeyboard or null
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("reply_markup")]

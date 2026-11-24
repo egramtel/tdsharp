@@ -10,7 +10,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Contains settings for automatic moving of chats to and from the Archive chat lists
+    /// Contains settings for automatic moving of chats to and from the Archive chat list
     /// </summary>
     public partial class ArchiveChatListSettings : Object
     {
@@ -27,7 +27,8 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// True, if new chats from non-contacts will be automatically archived and muted. Can be set to true only if the option "can_archive_and_mute_new_chats_from_unknown_users" is true
+        /// True, if new chats from non-contacts will be automatically archived and muted.
+        /// Can be set to true only if the option "can_archive_and_mute_new_chats_from_unknown_users" is true
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("archive_and_mute_new_chats_from_unknown_users")]
@@ -41,7 +42,8 @@ public static partial class TdApi
         public bool KeepUnmutedChatsArchived { get; set; }
 
         /// <summary>
-        /// True, if unmuted chats, that are always included or pinned in a folder, will be kept in the Archive chat list when they get a new message. Ignored if keep_unmuted_chats_archived == true
+        /// True, if unmuted chats that are always included or pinned in a folder will be kept in the Archive chat list when they get a new message.
+        /// Ignored if keep_unmuted_chats_archived == true
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("keep_chats_from_folders_archived")]

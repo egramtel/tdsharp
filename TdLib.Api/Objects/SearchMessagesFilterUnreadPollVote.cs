@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class SearchMessagesFilter : Object
     {
         /// <summary>
-        /// Returns only messages with unread poll votes for the current user. When using this filter the results can't be additionally filtered by a query or by the sending user
+        /// Returns only messages with unread poll votes for the current user. When using this filter, the results can't be additionally filtered by a query or by the sending user
         /// </summary>
         public class SearchMessagesFilterUnreadPollVote : SearchMessagesFilter
         {

@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class MaskPoint : Object
     {
         /// <summary>
-        /// The mask is placed relatively to the mouth
+        /// The mask is placed relative to the mouth
         /// </summary>
         public class MaskPointMouth : MaskPoint
         {

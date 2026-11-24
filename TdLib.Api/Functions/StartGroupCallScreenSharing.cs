@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Starts screen sharing in a joined group call; not supported in live stories. Returns join response payload for tgcalls
+    /// Starts screen sharing in a joined group call; not supported in live stories. Returns the join response payload for tgcalls
     /// </summary>
     public class StartGroupCallScreenSharing : Function<Text>
     {
@@ -53,7 +53,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Starts screen sharing in a joined group call; not supported in live stories. Returns join response payload for tgcalls
+    /// Starts screen sharing in a joined group call; not supported in live stories. Returns the join response payload for tgcalls
     /// </summary>
     public static Task<Text> StartGroupCallScreenSharingAsync(
         this IClient client, int groupCallId = default, int audioSourceId = default, string payload = default)

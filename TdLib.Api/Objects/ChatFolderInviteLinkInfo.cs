@@ -27,20 +27,20 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Basic information about the chat folder; chat folder identifier will be 0 if the user didn't have the chat folder yet
+        /// Basic information about the chat folder; the chat folder identifier will be 0 if the user doesn't have the chat folder yet
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("chat_folder_info")]
         public ChatFolderInfo ChatFolderInfo { get; set; }
 
         /// <summary>
-        /// Identifiers of the chats from the link, which aren't added to the folder yet
+        /// Identifiers of the chats from the link that aren't added to the folder yet
         /// </summary>
         [JsonProperty("missing_chat_ids", ItemConverterType = typeof(Converter))]
         public long[] MissingChatIds { get; set; }
 
         /// <summary>
-        /// Identifiers of the chats from the link, which are added to the folder already
+        /// Identifiers of the chats from the link that are added to the folder already
         /// </summary>
         [JsonProperty("added_chat_ids", ItemConverterType = typeof(Converter))]
         public long[] AddedChatIds { get; set; }

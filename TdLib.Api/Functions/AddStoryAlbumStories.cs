@@ -46,7 +46,7 @@ public static partial class TdApi
         public int StoryAlbumId { get; set; }
 
         /// <summary>
-        /// Identifier of the stories to add to the album; 1-getOption("story_album_size_max") identifiers.
+        /// Identifiers of the stories to add to the album; 1-getOption("story_album_size_max") identifiers.
         /// If after addition the album has more than getOption("story_album_size_max") stories, then the last ones are removed from the album
         /// </summary>
         [JsonProperty("story_ids", ItemConverterType = typeof(Converter))]

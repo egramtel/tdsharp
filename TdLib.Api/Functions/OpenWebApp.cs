@@ -39,7 +39,7 @@ public static partial class TdApi
         public long ChatId { get; set; }
 
         /// <summary>
-        /// Identifier of the bot, providing the Web App. If the bot is restricted for the current user, then show an error instead of calling the method
+        /// Identifier of the bot providing the Web App. If the bot is restricted for the current user, then show an error instead of calling the method
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("bot_user_id")]
@@ -60,7 +60,7 @@ public static partial class TdApi
         public MessageTopic TopicId { get; set; }
 
         /// <summary>
-        /// Information about the message or story to be replied in the message sent by the Web App; pass null if none
+        /// Information about the message or story to be replied to in the message sent by the Web App; pass null if none
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("reply_to")]

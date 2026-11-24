@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class Update : Object
     {
         /// <summary>
-        /// Number of chats in a story list has changed
+        /// The number of chats in a story list has changed
         /// </summary>
         public class UpdateStoryListChatCount : Update
         {

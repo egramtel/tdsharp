@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class MessageContent : Object
     {
         /// <summary>
-        /// A message content that is not supported in the current TDLib version
+        /// Message content that is not supported in the current TDLib version
         /// </summary>
         public class MessageUnsupported : MessageContent
         {

@@ -31,7 +31,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Logging tag to change verbosity level
+        /// Logging tag for which to change the verbosity level
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("tag")]

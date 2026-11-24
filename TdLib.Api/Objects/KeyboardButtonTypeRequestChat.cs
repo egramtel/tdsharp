@@ -99,21 +99,21 @@ public static partial class TdApi
             public bool BotIsMember { get; set; }
 
             /// <summary>
-            /// Pass true to request title of the chat; bots only
+            /// Pass true to request the title of the chat; bots only
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("request_title")]
             public bool RequestTitle { get; set; }
 
             /// <summary>
-            /// Pass true to request username of the chat; bots only
+            /// Pass true to request the username of the chat; bots only
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("request_username")]
             public bool RequestUsername { get; set; }
 
             /// <summary>
-            /// Pass true to request photo of the chat; bots only
+            /// Pass true to request the photo of the chat; bots only
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("request_photo")]

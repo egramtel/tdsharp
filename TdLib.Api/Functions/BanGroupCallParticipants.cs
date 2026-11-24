@@ -38,7 +38,7 @@ public static partial class TdApi
         public int GroupCallId { get; set; }
 
         /// <summary>
-        /// Identifiers of group call participants to ban; identifiers of unknown users from the update updateGroupCallParticipants can be also passed to the method
+        /// Identifiers of group call participants to ban; identifiers of unknown users from the update updateGroupCallParticipants can also be passed to the method
         /// </summary>
         [JsonProperty("user_ids", ItemConverterType = typeof(Converter))]
         public long[] UserIds { get; set; }

@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class Update : Object
     {
         /// <summary>
-        /// The list of bots added to attachment or side menu has changed
+        /// The list of bots added to the attachment or side menu has changed
         /// </summary>
         public class UpdateAttachmentMenuBots : Update
         {
@@ -29,7 +29,7 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// The new list of bots. The bots must not be shown on scheduled messages screen
+            /// The new list of bots. The bots must not be shown on the scheduled messages screen
             /// </summary>
             [JsonProperty("bots", ItemConverterType = typeof(Converter))]
             public AttachmentMenuBot[] Bots { get; set; }

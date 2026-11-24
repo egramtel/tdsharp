@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns reactions, which can be chosen for a story
+    /// Returns reactions that can be chosen for a story
     /// </summary>
     public class GetStoryAvailableReactions : Function<AvailableReactions>
     {
@@ -31,7 +31,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Number of reactions per row, 5-25
+        /// Number of reactions per row; 5-25
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("row_size")]
@@ -39,7 +39,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns reactions, which can be chosen for a story
+    /// Returns reactions that can be chosen for a story
     /// </summary>
     public static Task<AvailableReactions> GetStoryAvailableReactionsAsync(
         this IClient client, int rowSize = default)

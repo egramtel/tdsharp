@@ -12,7 +12,7 @@ public static partial class TdApi
 {
     /// <summary>
     /// Deletes all messages from a topic in a forum supergroup chat or a chat with a bot with topics; requires can_delete_messages administrator right in the supergroup
-    /// unless the user is creator of the topic, the topic has no messages from other users and has at most 11 messages
+    /// unless the user is the creator of the topic, the topic has no messages from other users and has at most 11 messages
     /// </summary>
     public class DeleteForumTopic : Function<Ok>
     {
@@ -48,7 +48,7 @@ public static partial class TdApi
 
     /// <summary>
     /// Deletes all messages from a topic in a forum supergroup chat or a chat with a bot with topics; requires can_delete_messages administrator right in the supergroup
-    /// unless the user is creator of the topic, the topic has no messages from other users and has at most 11 messages
+    /// unless the user is the creator of the topic, the topic has no messages from other users and has at most 11 messages
     /// </summary>
     public static Task<Ok> DeleteForumTopicAsync(
         this IClient client, long chatId = default, int forumTopicId = default)

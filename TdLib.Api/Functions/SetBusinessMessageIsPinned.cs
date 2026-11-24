@@ -31,7 +31,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Unique identifier of business connection on behalf of which the message was sent
+        /// Unique identifier of the business connection on behalf of which the message was sent
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("business_connection_id")]
@@ -52,7 +52,7 @@ public static partial class TdApi
         public long MessageId { get; set; }
 
         /// <summary>
-        /// Pass true to pin the message, pass false to unpin it
+        /// Pass true to pin the message; pass false to unpin it
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("is_pinned")]

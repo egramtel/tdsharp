@@ -52,7 +52,7 @@ public static partial class TdApi
         public bool RecordVideo { get; set; }
 
         /// <summary>
-        /// Pass true to use portrait orientation for video instead of landscape one
+        /// Pass true to use portrait orientation for video instead of the landscape one
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("use_portrait_orientation")]

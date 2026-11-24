@@ -36,7 +36,7 @@ public static partial class TdApi
             public long StarCount { get; set; }
 
             /// <summary>
-            /// Purpose of Telegram Star purchase. Arbitrary string specified by the server, for example, "subs" if the Telegram Stars are required to extend channel subscriptions
+            /// Purpose of the Telegram Star purchase. An arbitrary string specified by the server, for example, "subs" if the Telegram Stars are required to extend channel subscriptions
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("purpose")]

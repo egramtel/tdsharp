@@ -10,7 +10,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Contains information about supported accent color for user/chat name, background of empty chat photo, replies to messages and link previews
+    /// Contains information about a supported accent color for user/chat name, background of empty chat photo, replies to messages, and link previews
     /// </summary>
     public partial class AccentColor : Object
     {
@@ -34,7 +34,7 @@ public static partial class TdApi
         public int Id { get; set; }
 
         /// <summary>
-        /// Identifier of a built-in color to use in places, where only one color is needed; 0-6
+        /// Identifier of a built-in color to use in places where only one color is needed; 0-6
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("built_in_accent_color_id")]

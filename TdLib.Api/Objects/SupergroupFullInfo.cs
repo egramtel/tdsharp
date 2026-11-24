@@ -69,7 +69,7 @@ public static partial class TdApi
         public int RestrictedCount { get; set; }
 
         /// <summary>
-        /// Number of users banned from chat; 0 if unknown
+        /// Number of users banned from the chat; 0 if unknown
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("banned_count")]
@@ -97,21 +97,22 @@ public static partial class TdApi
         public int SlowModeDelay { get; set; }
 
         /// <summary>
-        /// Time left before next message can be sent in the supergroup, in seconds. An updateSupergroupFullInfo update is not triggered when value of this field changes, but both new and old values are non-zero
+        /// Time left before the next message can be sent in the supergroup, in seconds.
+        /// An updateSupergroupFullInfo update is not triggered when the value of this field changes, but both new and old values are non-zero
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("slow_mode_delay_expires_in")]
         public double? SlowModeDelayExpiresIn { get; set; }
 
         /// <summary>
-        /// True, if paid messages can be enabled in the supergroup chat; for supergroup only
+        /// True, if paid messages can be enabled in the supergroup chat; for supergroups only
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("can_enable_paid_messages")]
         public bool CanEnablePaidMessages { get; set; }
 
         /// <summary>
-        /// True, if paid reaction can be enabled in the channel chat; for channels only
+        /// True, if the paid reaction can be enabled in the channel chat; for channels only
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("can_enable_paid_reaction")]
@@ -224,7 +225,7 @@ public static partial class TdApi
         public bool HasPinnedStories { get; set; }
 
         /// <summary>
-        /// Number of saved to profile gifts for channels without can_post_messages administrator right, otherwise, the total number of received gifts
+        /// Number of gifts saved to the profile for channels without can_post_messages administrator right; otherwise, the total number of received gifts
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("gift_count")]
@@ -259,7 +260,7 @@ public static partial class TdApi
         public long StickerSetId { get; set; }
 
         /// <summary>
-        /// Identifier of the custom emoji sticker set that can be used in the supergroup without Telegram Premium subscription; 0 if none
+        /// Identifier of the custom emoji sticker set that can be used in the supergroup without a Telegram Premium subscription; 0 if none
         /// </summary>
         [JsonConverter(typeof(Converter.Int64))]
         [JsonProperty("custom_emoji_sticker_set_id")]
@@ -293,7 +294,7 @@ public static partial class TdApi
         public BotCommands[] BotCommands { get; set; }
 
         /// <summary>
-        /// Information about verification status of the supergroup or the channel provided by a bot; may be null if none or unknown
+        /// Information about the verification status of the supergroup or the channel provided by a bot; may be null if none or unknown
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("bot_verification")]
@@ -314,14 +315,14 @@ public static partial class TdApi
         public ProfileShareTheme ShareTheme { get; set; }
 
         /// <summary>
-        /// Identifier of the basic group from which supergroup was upgraded; 0 if none
+        /// Identifier of the basic group from which the supergroup was upgraded; 0 if none
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("upgraded_from_basic_group_id")]
         public long UpgradedFromBasicGroupId { get; set; }
 
         /// <summary>
-        /// Identifier of the last message in the basic group from which supergroup was upgraded; 0 if none
+        /// Identifier of the last message in the basic group from which the supergroup was upgraded; 0 if none
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("upgraded_from_max_message_id")]

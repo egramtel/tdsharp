@@ -12,8 +12,8 @@ public static partial class TdApi
 {
     /// <summary>
     /// Adds a file from a message to the list of file downloads. Download progress and completion of the download will be notified through updateFile updates.
-    /// If message database is used, the list of file downloads is persistent across application restarts. The downloading is independent of download using downloadFile,
-    /// i.e. it continues if downloadFile is canceled or is used to download a part of the file
+    /// If the message database is used, the list of file downloads is persistent across application restarts. The downloading is independent of download using downloadFile,
+    /// i.e., it continues if downloadFile is canceled or is used to download a part of the file
     /// </summary>
     public class AddFileToDownloads : Function<File>
     {
@@ -54,7 +54,8 @@ public static partial class TdApi
         public long MessageId { get; set; }
 
         /// <summary>
-        /// Priority of the download (1-32). The higher the priority, the earlier the file will be downloaded. If the priorities of two files are equal, then the last one for which downloadFile/addFileToDownloads was called will be downloaded first
+        /// Priority of the download (1-32). The higher the priority, the earlier the file will be downloaded.
+        /// If the priorities of two files are equal, then the last one for which downloadFile/addFileToDownloads was called will be downloaded first
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("priority")]
@@ -63,8 +64,8 @@ public static partial class TdApi
 
     /// <summary>
     /// Adds a file from a message to the list of file downloads. Download progress and completion of the download will be notified through updateFile updates.
-    /// If message database is used, the list of file downloads is persistent across application restarts. The downloading is independent of download using downloadFile,
-    /// i.e. it continues if downloadFile is canceled or is used to download a part of the file
+    /// If the message database is used, the list of file downloads is persistent across application restarts. The downloading is independent of download using downloadFile,
+    /// i.e., it continues if downloadFile is canceled or is used to download a part of the file
     /// </summary>
     public static Task<File> AddFileToDownloadsAsync(
         this IClient client, int fileId = default, long chatId = default, long messageId = default, int priority = default)

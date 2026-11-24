@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns a list of supergroup and channel chats owned by the current user, which can be added to a community
+    /// Returns a list of supergroup and channel chats owned by the current user that can be added to a community
     /// </summary>
     public class GetSuitableCommunityChats : Function<Chats>
     {
@@ -34,7 +34,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns a list of supergroup and channel chats owned by the current user, which can be added to a community
+    /// Returns a list of supergroup and channel chats owned by the current user that can be added to a community
     /// </summary>
     public static Task<Chats> GetSuitableCommunityChatsAsync(
         this IClient client)

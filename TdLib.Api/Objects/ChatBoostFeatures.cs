@@ -47,7 +47,7 @@ public static partial class TdApi
         public int MinBackgroundCustomEmojiBoostLevel { get; set; }
 
         /// <summary>
-        /// The minimum boost level required to set emoji status
+        /// The minimum boost level required to set an emoji status
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("min_emoji_status_boost_level")]
@@ -61,35 +61,35 @@ public static partial class TdApi
         public int MinChatThemeBackgroundBoostLevel { get; set; }
 
         /// <summary>
-        /// The minimum boost level required to set custom chat background
+        /// The minimum boost level required to set a custom chat background
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("min_custom_background_boost_level")]
         public int MinCustomBackgroundBoostLevel { get; set; }
 
         /// <summary>
-        /// The minimum boost level required to set custom emoji sticker set for the chat; for supergroup chats only
+        /// The minimum boost level required to set a custom emoji sticker set for the chat; for supergroup chats only
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("min_custom_emoji_sticker_set_boost_level")]
         public int MinCustomEmojiStickerSetBoostLevel { get; set; }
 
         /// <summary>
-        /// The minimum boost level allowing to enable automatic translation of messages for non-Premium users; for channel chats only
+        /// The minimum boost level required to enable automatic translation of messages for non-Premium users; for channel chats only
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("min_automatic_translation_boost_level")]
         public int MinAutomaticTranslationBoostLevel { get; set; }
 
         /// <summary>
-        /// The minimum boost level allowing to recognize speech in video note and voice note messages for non-Premium users; for supergroup chats only
+        /// The minimum boost level required to recognize speech in video note and voice note messages for non-Premium users; for supergroup chats only
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("min_speech_recognition_boost_level")]
         public int MinSpeechRecognitionBoostLevel { get; set; }
 
         /// <summary>
-        /// The minimum boost level allowing to disable sponsored messages in the chat; for channel chats only
+        /// The minimum boost level required to disable sponsored messages in the chat; for channel chats only
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("min_sponsored_message_disable_boost_level")]

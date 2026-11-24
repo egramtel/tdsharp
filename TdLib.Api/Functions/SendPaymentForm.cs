@@ -59,14 +59,14 @@ public static partial class TdApi
         public string ShippingOptionId { get; set; }
 
         /// <summary>
-        /// The credentials chosen by user for payment; pass null for a payment in Telegram Stars
+        /// The credentials chosen by the user for payment; pass null for a payment in Telegram Stars
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("credentials")]
         public InputCredentials Credentials { get; set; }
 
         /// <summary>
-        /// Chosen by the user amount of tip in the smallest units of the currency
+        /// Amount of the tip chosen by the user, in the smallest units of the currency
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("tip_amount")]

@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class Update : Object
     {
         /// <summary>
-        /// Describes whether there are some pending notification updates. Can be used to prevent application from killing, while there are some pending notifications
+        /// Describes whether there are some pending notification updates. Can be used to prevent the application from being killed while there are some pending notifications
         /// </summary>
         public class UpdateHavePendingNotifications : Update
         {

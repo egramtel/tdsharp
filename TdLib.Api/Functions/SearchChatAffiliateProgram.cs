@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Searches a chat with an affiliate program. Returns the chat if found and the program is active
+    /// Searches for a chat with an affiliate program. Returns the chat if found and the program is active
     /// </summary>
     public class SearchChatAffiliateProgram : Function<Chat>
     {
@@ -46,7 +46,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Searches a chat with an affiliate program. Returns the chat if found and the program is active
+    /// Searches for a chat with an affiliate program. Returns the chat if found and the program is active
     /// </summary>
     public static Task<Chat> SearchChatAffiliateProgramAsync(
         this IClient client, string username = default, string referrer = default)

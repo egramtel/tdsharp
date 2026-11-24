@@ -41,7 +41,7 @@ public static partial class TdApi
         public string Label { get; set; }
 
         /// <summary>
-        /// Number of times the tag was used; may be 0 if the tag has non-empty label
+        /// Number of times the tag was used; may be 0 if the tag has a non-empty label
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("count")]

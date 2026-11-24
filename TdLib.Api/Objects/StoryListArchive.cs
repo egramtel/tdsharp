@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class StoryList : Object
     {
         /// <summary>
-        /// The list of stories, shown in the Archive chat list
+        /// The list of stories shown in the Archive chat list
         /// </summary>
         public class StoryListArchive : StoryList
         {

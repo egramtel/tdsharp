@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class PremiumStoryFeature : Object
     {
         /// <summary>
-        /// The ability to set custom expiration duration for stories
+        /// The ability to set a custom expiration duration for stories
         /// </summary>
         public class PremiumStoryFeatureCustomExpirationDuration : PremiumStoryFeature
         {

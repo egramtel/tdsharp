@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Cancels or re-enables Telegram Star subscription
+    /// Cancels or re-enables a Telegram Star subscription
     /// </summary>
     public class EditStarSubscription : Function<Ok>
     {
@@ -46,7 +46,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Cancels or re-enables Telegram Star subscription
+    /// Cancels or re-enables a Telegram Star subscription
     /// </summary>
     public static Task<Ok> EditStarSubscriptionAsync(
         this IClient client, string subscriptionId = default, bool isCanceled = default)

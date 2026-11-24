@@ -11,7 +11,8 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Adds gifts to the beginning of a previously created collection. If the collection is owned by a channel chat, then requires can_post_messages administrator right in the channel chat. Returns the changed collection
+    /// Adds gifts to the beginning of a previously created collection.
+    /// If the collection is owned by a channel chat, then requires can_post_messages administrator right in the channel chat. Returns the changed collection
     /// </summary>
     public class AddGiftCollectionGifts : Function<GiftCollection>
     {
@@ -45,7 +46,7 @@ public static partial class TdApi
         public int CollectionId { get; set; }
 
         /// <summary>
-        /// Identifier of the gifts to add to the collection; 1-getOption("gift_collection_size_max") identifiers.
+        /// Identifiers of the gifts to add to the collection; 1-getOption("gift_collection_size_max") identifiers.
         /// If after addition the collection has more than getOption("gift_collection_size_max") gifts, then the last ones are removed from the collection
         /// </summary>
         [JsonProperty("received_gift_ids", ItemConverterType = typeof(Converter))]
@@ -53,7 +54,8 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Adds gifts to the beginning of a previously created collection. If the collection is owned by a channel chat, then requires can_post_messages administrator right in the channel chat. Returns the changed collection
+    /// Adds gifts to the beginning of a previously created collection.
+    /// If the collection is owned by a channel chat, then requires can_post_messages administrator right in the channel chat. Returns the changed collection
     /// </summary>
     public static Task<GiftCollection> AddGiftCollectionGiftsAsync(
         this IClient client, MessageSender ownerId = default, int collectionId = default, string[] receivedGiftIds = default)

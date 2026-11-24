@@ -11,7 +11,8 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Changes active state for a username of the current user. The editable username can't be disabled. May return an error with a message "USERNAMES_ACTIVE_TOO_MUCH" if the maximum number of active usernames has been reached
+    /// Changes the active state for a username of the current user. The editable username can't be disabled.
+    /// May return an error with a message "USERNAMES_ACTIVE_TOO_MUCH" if the maximum number of active usernames has been reached
     /// </summary>
     public class ToggleUsernameIsActive : Function<Ok>
     {
@@ -46,7 +47,8 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Changes active state for a username of the current user. The editable username can't be disabled. May return an error with a message "USERNAMES_ACTIVE_TOO_MUCH" if the maximum number of active usernames has been reached
+    /// Changes the active state for a username of the current user. The editable username can't be disabled.
+    /// May return an error with a message "USERNAMES_ACTIVE_TOO_MUCH" if the maximum number of active usernames has been reached
     /// </summary>
     public static Task<Ok> ToggleUsernameIsActiveAsync(
         this IClient client, string username = default, bool isActive = default)

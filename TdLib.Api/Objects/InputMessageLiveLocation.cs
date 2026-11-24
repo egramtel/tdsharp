@@ -29,7 +29,7 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// Initial state of the live location to be sent. Live period must be equal to 0x7FFFFFFF for permanent live locations, or between 60 and 86400
+            /// Initial state of the live location to be sent. The live period must be equal to 0x7FFFFFFF for permanent live locations, or between 60 and 86400
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("location")]

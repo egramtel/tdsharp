@@ -38,7 +38,7 @@ public static partial class TdApi
         public long VerificationId { get; set; }
 
         /// <summary>
-        /// Play Integrity API token for the Android application, or secret from push notification for the iOS application for application verification, or reCAPTCHA token for reCAPTCHA verifications;
+        /// Play Integrity API token for the Android application, or secret from a push notification for the iOS application for application verification, or reCAPTCHA token for reCAPTCHA verifications;
         /// pass an empty string to abort verification and receive the error "VERIFICATION_FAILED" for the request
         /// </summary>
         [JsonConverter(typeof(Converter))]

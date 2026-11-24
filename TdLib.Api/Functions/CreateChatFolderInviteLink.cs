@@ -45,7 +45,8 @@ public static partial class TdApi
         public string Name { get; set; }
 
         /// <summary>
-        /// Identifiers of chats to be accessible by the invite link. Use getChatsForChatFolderInviteLink to get suitable chats. Basic groups will be automatically converted to supergroups before link creation
+        /// Identifiers of chats to be accessible by the invite link. Use getChatsForChatFolderInviteLink to get suitable chats.
+        /// Basic groups will be automatically converted to supergroups before link creation
         /// </summary>
         [JsonProperty("chat_ids", ItemConverterType = typeof(Converter))]
         public long[] ChatIds { get; set; }

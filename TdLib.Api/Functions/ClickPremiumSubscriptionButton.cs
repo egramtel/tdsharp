@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Informs TDLib that the user clicked Premium subscription button on the Premium features screen
+    /// Informs TDLib that the user clicked the Premium subscription button on the Premium features screen
     /// </summary>
     public class ClickPremiumSubscriptionButton : Function<Ok>
     {
@@ -34,7 +34,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Informs TDLib that the user clicked Premium subscription button on the Premium features screen
+    /// Informs TDLib that the user clicked the Premium subscription button on the Premium features screen
     /// </summary>
     public static Task<Ok> ClickPremiumSubscriptionButtonAsync(
         this IClient client)

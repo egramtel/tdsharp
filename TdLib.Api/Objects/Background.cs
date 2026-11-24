@@ -34,14 +34,14 @@ public static partial class TdApi
         public long Id { get; set; }
 
         /// <summary>
-        /// True, if this is one of default backgrounds
+        /// True, if this is one of the default backgrounds
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("is_default")]
         public bool IsDefault { get; set; }
 
         /// <summary>
-        /// True, if the background is dark and is recommended to be used with dark theme
+        /// True, if the background is dark and is recommended to be used with a dark theme
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("is_dark")]

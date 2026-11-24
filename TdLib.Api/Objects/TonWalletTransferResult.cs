@@ -10,7 +10,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Represents result of cryptocurrency transfer from the current user's TON wallet
+    /// Represents result of sending a transaction from the current user's TON wallet
     /// </summary>
     public partial class TonWalletTransferResult : Object
     {

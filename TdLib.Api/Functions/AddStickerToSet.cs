@@ -38,7 +38,7 @@ public static partial class TdApi
         public long UserId { get; set; }
 
         /// <summary>
-        /// Sticker set name. The sticker set must be owned by the current user, and contain less than 200 stickers for custom emoji sticker sets and less than 120 otherwise
+        /// Sticker set name. The sticker set must be owned by the current user, and contain fewer than 200 stickers for custom emoji sticker sets and fewer than 120 otherwise
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("name")]

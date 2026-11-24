@@ -64,7 +64,7 @@ public static partial class TdApi
             public string VideoUrl { get; set; }
 
             /// <summary>
-            /// MIME type of the content of the video URL, only "text/html" or "video/mp4" are currently supported
+            /// MIME type of the content of the video URL; only "text/html" or "video/mp4" are currently supported
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("mime_type")]
@@ -92,7 +92,7 @@ public static partial class TdApi
             public int VideoDuration { get; set; }
 
             /// <summary>
-            /// The message reply markup; pass null if none. Must be of type replyMarkupInlineKeyboard or null
+            /// The message reply markup; pass null if none. Must be of the type replyMarkupInlineKeyboard or null
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("reply_markup")]

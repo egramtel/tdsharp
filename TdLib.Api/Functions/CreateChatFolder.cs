@@ -11,7 +11,8 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Creates new chat folder. Returns information about the created chat folder. There can be up to getOption("chat_folder_count_max") chat folders, but the limit can be increased with Telegram Premium
+    /// Creates a new chat folder. Returns information about the created chat folder.
+    /// There can be up to getOption("chat_folder_count_max") chat folders, but the limit can be increased with Telegram Premium
     /// </summary>
     public class CreateChatFolder : Function<ChatFolderInfo>
     {
@@ -39,7 +40,8 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Creates new chat folder. Returns information about the created chat folder. There can be up to getOption("chat_folder_count_max") chat folders, but the limit can be increased with Telegram Premium
+    /// Creates a new chat folder. Returns information about the created chat folder.
+    /// There can be up to getOption("chat_folder_count_max") chat folders, but the limit can be increased with Telegram Premium
     /// </summary>
     public static Task<ChatFolderInfo> CreateChatFolderAsync(
         this IClient client, ChatFolder folder = default)

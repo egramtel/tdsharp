@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class PaymentFormType : Object
     {
         /// <summary>
-        /// The payment form is for a payment in Telegram Stars for subscription
+        /// The payment form is for a payment in Telegram Stars for a subscription
         /// </summary>
         public class PaymentFormTypeStarSubscription : PaymentFormType
         {
@@ -29,7 +29,7 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// Information about subscription plan
+            /// Information about the subscription plan
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("pricing")]

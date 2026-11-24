@@ -38,7 +38,7 @@ public static partial class TdApi
         public BotCommandScope Scope { get; set; }
 
         /// <summary>
-        /// A two-letter ISO 639-1 language code. If empty, the commands will be applied to all users from the given scope, for which language there are no dedicated commands
+        /// A two-letter ISO 639-1 language code. If empty, the commands will be applied to all users from the given scope for whose language there are no dedicated commands
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("language_code")]

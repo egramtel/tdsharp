@@ -27,7 +27,8 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Identifier of a chat or a user who created the gift code; may be null if unknown. If null and the code is from messagePremiumGiftCode message, then creator_id from the message can be used
+        /// Identifier of a chat or a user who created the gift code; may be null if unknown.
+        /// If null and the code is from a messagePremiumGiftCode message, then creator_id from the message can be used
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("creator_id")]
@@ -55,7 +56,7 @@ public static partial class TdApi
         public long GiveawayMessageId { get; set; }
 
         /// <summary>
-        /// Number of months the Telegram Premium subscription will be active after code activation; 0 if the number of months isn't integer
+        /// Number of months the Telegram Premium subscription will be active after code activation; 0 if the number of months isn't an integer
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("month_count")]
@@ -69,7 +70,7 @@ public static partial class TdApi
         public int DayCount { get; set; }
 
         /// <summary>
-        /// Identifier of a user for which the code was created; 0 if none
+        /// Identifier of a user for whom the code was created; 0 if none
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("user_id")]

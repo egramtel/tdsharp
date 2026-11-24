@@ -55,7 +55,7 @@ public static partial class TdApi
         public bool WithdrawalEnabled { get; set; }
 
         /// <summary>
-        /// Time left before the next withdrawal can be started, in seconds; 0 if withdrawal can be started now
+        /// Time left before the next withdrawal can be started, in seconds; 0 if a withdrawal can be started now
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("next_withdrawal_in")]

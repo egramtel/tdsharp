@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class SuggestedAction : Object
     {
         /// <summary>
-        /// Suggests the user to check whether authorization phone number is correct and change the phone number if it is inaccessible
+        /// Suggests that the user check whether the authorization phone number is correct and change the phone number if it is inaccessible
         /// </summary>
         public class SuggestedActionCheckPhoneNumber : SuggestedAction
         {

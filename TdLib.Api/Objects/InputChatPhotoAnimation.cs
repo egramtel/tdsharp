@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class InputChatPhoto : Object
     {
         /// <summary>
-        /// An animation in MPEG4 format; must be square, at most 10 seconds long, have width between 160 and 1280 and be at most 2MB in size
+        /// An animation in MPEG4 format; must be square, at most 10 seconds long, have a width between 160 and 1280 and be at most 2 MB in size
         /// </summary>
         public class InputChatPhotoAnimation : InputChatPhoto
         {
@@ -36,7 +36,7 @@ public static partial class TdApi
             public InputFile Animation { get; set; }
 
             /// <summary>
-            /// Timestamp of the frame, which will be used as static chat photo
+            /// Timestamp of the frame that will be used as a static chat photo
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("main_frame_timestamp")]

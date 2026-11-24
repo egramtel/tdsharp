@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns localized name of the Telegram support user; for Telegram support only
+    /// Returns the localized name of the Telegram support user; for Telegram support only
     /// </summary>
     public class GetSupportName : Function<Text>
     {
@@ -34,7 +34,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns localized name of the Telegram support user; for Telegram support only
+    /// Returns the localized name of the Telegram support user; for Telegram support only
     /// </summary>
     public static Task<Text> GetSupportNameAsync(
         this IClient client)

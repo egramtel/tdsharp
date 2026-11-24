@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class StarTransactionType : Object
     {
         /// <summary>
-        /// The transaction is a drop of original details of an upgraded gift; relevant for regular users only
+        /// The transaction is a drop of the original details of an upgraded gift; relevant for regular users only
         /// </summary>
         public class StarTransactionTypeGiftOriginalDetailsDrop : StarTransactionType
         {

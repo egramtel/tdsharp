@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class TextParseMode : Object
     {
         /// <summary>
-        /// The text uses HTML-style formatting. The same as Telegram Bot API "HTML" parse mode
+        /// The text uses HTML-style formatting. The same as the Telegram Bot API "HTML" parse mode
         /// </summary>
         public class TextParseModeHTML : TextParseMode
         {

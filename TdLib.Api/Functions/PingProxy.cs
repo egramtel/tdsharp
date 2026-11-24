@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Computes time needed to receive a response from a Telegram server through a proxy. Can be called before authorization
+    /// Computes the time needed to receive a response from a Telegram server through a proxy. Can be called before authorization
     /// </summary>
     public class PingProxy : Function<Seconds>
     {
@@ -39,7 +39,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Computes time needed to receive a response from a Telegram server through a proxy. Can be called before authorization
+    /// Computes the time needed to receive a response from a Telegram server through a proxy. Can be called before authorization
     /// </summary>
     public static Task<Seconds> PingProxyAsync(
         this IClient client, Proxy proxy = default)

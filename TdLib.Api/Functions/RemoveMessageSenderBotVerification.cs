@@ -31,14 +31,14 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Identifier of the owned bot, which verified the user or the chat
+        /// Identifier of the owned bot that verified the user or the chat
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("bot_user_id")]
         public long BotUserId { get; set; }
 
         /// <summary>
-        /// Identifier of the user or the supergroup or channel chat, which verification is removed
+        /// Identifier of the user or the supergroup or channel chat whose verification is removed
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("verified_id")]

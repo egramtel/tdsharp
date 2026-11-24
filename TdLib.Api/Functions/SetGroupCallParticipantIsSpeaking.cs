@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Informs TDLib that speaking state of a participant of an active group call has changed. Returns identifier of the participant if it is found
+    /// Informs TDLib that the speaking state of a participant of an active group call has changed. Returns the identifier of the participant if it is found
     /// </summary>
     public class SetGroupCallParticipantIsSpeaking : Function<MessageSender>
     {
@@ -53,7 +53,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Informs TDLib that speaking state of a participant of an active group call has changed. Returns identifier of the participant if it is found
+    /// Informs TDLib that the speaking state of a participant of an active group call has changed. Returns the identifier of the participant if it is found
     /// </summary>
     public static Task<MessageSender> SetGroupCallParticipantIsSpeakingAsync(
         this IClient client, int groupCallId = default, int audioSource = default, bool isSpeaking = default)

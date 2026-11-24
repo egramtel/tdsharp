@@ -48,7 +48,7 @@ public static partial class TdApi
         public FormattedText DefaultCustomDescription { get; set; }
 
         /// <summary>
-        /// True, if the bot is allowed to provide custom description for verified entities
+        /// True, if the bot is allowed to provide a custom description for verified entities
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("can_set_custom_description")]

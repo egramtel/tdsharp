@@ -29,7 +29,7 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// Identifier of the chat, containing the corresponding invoice message
+            /// Identifier of the chat containing the corresponding invoice message
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("invoice_chat_id")]

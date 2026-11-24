@@ -27,7 +27,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// URL for which the exception is done
+        /// URL for which the exception is made
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("url")]
@@ -48,7 +48,7 @@ public static partial class TdApi
         public string Title { get; set; }
 
         /// <summary>
-        /// Identifier of the custom emoji with favicon of the website; may be 0 if unknown, in which case the first letter of the domain must be used
+        /// Identifier of the custom emoji with the favicon of the website; may be 0 if unknown, in which case the first letter of the domain must be used
         /// </summary>
         [JsonConverter(typeof(Converter.Int64))]
         [JsonProperty("favicon_custom_emoji_id")]

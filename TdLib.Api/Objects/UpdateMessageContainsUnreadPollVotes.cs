@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class Update : Object
     {
         /// <summary>
-        /// Unread votes were added or removed from a poll message
+        /// Unread votes were added to or removed from a poll message
         /// </summary>
         public class UpdateMessageContainsUnreadPollVotes : Update
         {

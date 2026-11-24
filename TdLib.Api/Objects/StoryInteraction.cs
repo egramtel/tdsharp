@@ -10,7 +10,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Represents interaction with a story
+    /// Represents an interaction with a story
     /// </summary>
     public partial class StoryInteraction : Object
     {

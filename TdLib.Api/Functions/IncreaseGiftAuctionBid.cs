@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Increases a bid for an auction gift without changing gift text and receiver
+    /// Increases a bid for an auction gift without changing the gift text and receiver
     /// </summary>
     public class IncreaseGiftAuctionBid : Function<Ok>
     {
@@ -46,7 +46,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Increases a bid for an auction gift without changing gift text and receiver
+    /// Increases a bid for an auction gift without changing the gift text and receiver
     /// </summary>
     public static Task<Ok> IncreaseGiftAuctionBidAsync(
         this IClient client, long giftId = default, long starCount = default)

@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Drops original details for an upgraded gift
+    /// Drops the original details for an upgraded gift
     /// </summary>
     public class DropGiftOriginalDetails : Function<Ok>
     {
@@ -38,7 +38,7 @@ public static partial class TdApi
         public string ReceivedGiftId { get; set; }
 
         /// <summary>
-        /// The Telegram Star amount required to pay for the operation
+        /// The Telegram Star amount that must be paid for the operation
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("star_count")]
@@ -46,7 +46,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Drops original details for an upgraded gift
+    /// Drops the original details for an upgraded gift
     /// </summary>
     public static Task<Ok> DropGiftOriginalDetailsAsync(
         this IClient client, string receivedGiftId = default, long starCount = default)

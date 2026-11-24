@@ -27,8 +27,8 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Identifier of the user for which the link was generated; may be 0 if unknown. The corresponding user may be unknown.
-        /// If the user is logged in the application, then they must be chosen for authorization by default
+        /// Identifier of the user for whom the link was generated; may be 0 if unknown. The corresponding user may be unknown.
+        /// If the user is logged in to the application, then they must be chosen for authorization by default
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("user_id")]
@@ -70,7 +70,7 @@ public static partial class TdApi
         public long BotUserId { get; set; }
 
         /// <summary>
-        /// True, if the user must be asked for the permission to the bot to send them messages
+        /// True, if the user must be asked for the permission for the bot to send them messages
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("request_write_access")]
@@ -142,7 +142,8 @@ public static partial class TdApi
         public string Location { get; set; }
 
         /// <summary>
-        /// True, if code matching dialog must be shown first and checkOauthRequestMatchCode must be called before acceptOauthRequest. Otherwise, checkOauthRequestMatchCode must not be called
+        /// True, if a code matching dialog must be shown first and checkOauthRequestMatchCode must be called before acceptOauthRequest.
+        /// Otherwise, checkOauthRequestMatchCode must not be called
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("match_code_first")]

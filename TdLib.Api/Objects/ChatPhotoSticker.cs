@@ -10,7 +10,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Information about the sticker, which was used to create the chat photo. The sticker is shown at the center of the photo and occupies at most 67% of it
+    /// Information about the sticker that was used to create the chat photo. The sticker is shown at the center of the photo and occupies at most 67% of it
     /// </summary>
     public partial class ChatPhotoSticker : Object
     {
@@ -34,7 +34,7 @@ public static partial class TdApi
         public ChatPhotoStickerType Type { get; set; }
 
         /// <summary>
-        /// The fill to be used as background for the sticker; rotation angle in backgroundFillGradient isn't supported
+        /// The fill to be used as the background for the sticker; rotation angle in backgroundFillGradient isn't supported
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("background_fill")]

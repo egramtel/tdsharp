@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class SuggestedAction : Object
     {
         /// <summary>
-        /// Suggests the user to set profile photo
+        /// Suggests that the user set a profile photo
         /// </summary>
         public class SuggestedActionSetProfilePhoto : SuggestedAction
         {

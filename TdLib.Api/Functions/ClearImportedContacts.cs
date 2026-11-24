@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Clears all imported contacts, contact list remains unchanged
+    /// Clears all imported contacts; the contact list remains unchanged
     /// </summary>
     public class ClearImportedContacts : Function<Ok>
     {
@@ -34,7 +34,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Clears all imported contacts, contact list remains unchanged
+    /// Clears all imported contacts; the contact list remains unchanged
     /// </summary>
     public static Task<Ok> ClearImportedContactsAsync(
         this IClient client)

@@ -38,7 +38,7 @@ public static partial class TdApi
         public int GroupCallId { get; set; }
 
         /// <summary>
-        /// Identifier of the group call participant, which sent the data
+        /// Identifier of the group call participant who sent the data
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("participant_id")]

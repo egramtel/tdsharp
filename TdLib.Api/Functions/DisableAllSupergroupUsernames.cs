@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Disables all active non-editable usernames of a supergroup or channel, requires owner privileges in the supergroup or channel
+    /// Disables all active non-editable usernames of a supergroup or channel; requires owner privileges in the supergroup or channel
     /// </summary>
     public class DisableAllSupergroupUsernames : Function<Ok>
     {
@@ -39,7 +39,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Disables all active non-editable usernames of a supergroup or channel, requires owner privileges in the supergroup or channel
+    /// Disables all active non-editable usernames of a supergroup or channel; requires owner privileges in the supergroup or channel
     /// </summary>
     public static Task<Ok> DisableAllSupergroupUsernamesAsync(
         this IClient client, long supergroupId = default)

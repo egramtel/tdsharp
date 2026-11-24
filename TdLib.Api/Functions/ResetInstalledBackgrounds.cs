@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Resets list of installed backgrounds to its default value
+    /// Resets the list of installed backgrounds to its default value
     /// </summary>
     public class ResetInstalledBackgrounds : Function<Ok>
     {
@@ -34,7 +34,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Resets list of installed backgrounds to its default value
+    /// Resets the list of installed backgrounds to its default value
     /// </summary>
     public static Task<Ok> ResetInstalledBackgroundsAsync(
         this IClient client)

@@ -29,7 +29,7 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// The amount of 1/100 of Gram expected to be paid for the gift. Must be in the range
+            /// The amount of 1/100 of a Gram expected to be paid for the gift. Must be in the range
             /// getOption("gift_resale_gram_cent_count_min")-getOption("gift_resale_gram_cent_count_max")
             /// </summary>
             [JsonConverter(typeof(Converter))]

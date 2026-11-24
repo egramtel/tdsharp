@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Changes content and caption of a story. Can be called only if story.can_be_edited == true
+    /// Changes the content and caption of a story. Can be called only if story.can_be_edited == true
     /// </summary>
     public class EditStory : Function<Ok>
     {
@@ -52,7 +52,7 @@ public static partial class TdApi
         public InputStoryContent Content { get; set; }
 
         /// <summary>
-        /// New clickable rectangle areas to be shown on the story media; pass null to keep the current areas. Areas can't be edited if story content isn't changed
+        /// New clickable rectangular areas to be shown on the story media; pass null to keep the current areas. Areas can't be edited if the story content isn't changed
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("areas")]
@@ -67,7 +67,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Changes content and caption of a story. Can be called only if story.can_be_edited == true
+    /// Changes the content and caption of a story. Can be called only if story.can_be_edited == true
     /// </summary>
     public static Task<Ok> EditStoryAsync(
         this IClient client, long storyPosterChatId = default, int storyId = default, InputStoryContent content = default, InputStoryAreas areas = default, FormattedText caption = default)

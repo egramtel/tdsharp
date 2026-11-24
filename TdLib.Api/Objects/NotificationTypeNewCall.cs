@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class NotificationType : Object
     {
         /// <summary>
-        /// New call was received
+        /// A new call was received
         /// </summary>
         public class NotificationTypeNewCall : NotificationType
         {

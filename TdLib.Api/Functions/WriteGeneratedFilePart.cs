@@ -11,7 +11,8 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Writes a part of a generated file. This method is intended to be used only if the application has no direct access to TDLib's file system, because it is usually slower than a direct write to the destination file
+    /// Writes a part of a generated file.
+    /// This method is intended to be used only if the application has no direct access to TDLib's file system, because it is usually slower than a direct write to the destination file
     /// </summary>
     public class WriteGeneratedFilePart : Function<Ok>
     {
@@ -53,7 +54,8 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Writes a part of a generated file. This method is intended to be used only if the application has no direct access to TDLib's file system, because it is usually slower than a direct write to the destination file
+    /// Writes a part of a generated file.
+    /// This method is intended to be used only if the application has no direct access to TDLib's file system, because it is usually slower than a direct write to the destination file
     /// </summary>
     public static Task<Ok> WriteGeneratedFilePartAsync(
         this IClient client, long generationId = default, long offset = default, byte[] data = default)

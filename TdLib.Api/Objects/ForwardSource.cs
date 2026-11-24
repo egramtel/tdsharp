@@ -10,7 +10,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Contains information about the last message from which a new message was forwarded last time
+    /// Contains information about the last message from which a new message was last forwarded
     /// </summary>
     public partial class ForwardSource : Object
     {
@@ -41,7 +41,7 @@ public static partial class TdApi
         public long MessageId { get; set; }
 
         /// <summary>
-        /// Identifier of the sender of the message; may be null if unknown or the new message was forwarded not to Saved Messages
+        /// Identifier of the sender of the message; may be null if unknown or the new message wasn't forwarded to Saved Messages
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("sender_id")]
@@ -55,14 +55,14 @@ public static partial class TdApi
         public string SenderName { get; set; }
 
         /// <summary>
-        /// Point in time (Unix timestamp) when the message is sent; 0 if unknown
+        /// Point in time (Unix timestamp) when the message was sent; 0 if unknown
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("date")]
         public int Date { get; set; }
 
         /// <summary>
-        /// True, if the message that was forwarded is outgoing; always false if sender is unknown
+        /// True, if the message that was forwarded is outgoing; always false if the sender is unknown
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("is_outgoing")]

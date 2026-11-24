@@ -106,14 +106,15 @@ public static partial class TdApi
             public long TransferStarCount { get; set; }
 
             /// <summary>
-            /// Number of Telegram Stars that must be paid to drop original details of the upgraded gift; 0 if not available; only for the receiver of the gift
+            /// Number of Telegram Stars that must be paid to drop the original details of the upgraded gift; 0 if not available; only for the receiver of the gift
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("drop_original_details_star_count")]
             public long DropOriginalDetailsStarCount { get; set; }
 
             /// <summary>
-            /// Point in time (Unix timestamp) when the gift can be transferred to another owner; can be in the past; 0 if the gift can be transferred immediately or transfer isn't possible; only for the receiver of the gift
+            /// Point in time (Unix timestamp) when the gift can be transferred to another owner; can be in the past;
+            /// 0 if the gift can be transferred immediately or transfer isn't possible; only for the receiver of the gift
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("next_transfer_date")]
@@ -127,11 +128,11 @@ public static partial class TdApi
             public int NextResaleDate { get; set; }
 
             /// <summary>
-            /// Point in time (Unix timestamp) when the gift can be transferred to the TON blockchain as an NFT; can be in the past; 0 if NFT export isn't possible; only for the receiver of the gift
+            /// Point in time (Unix timestamp) when the gift can be minted as an NFT; can be in the past; 0 if the gift can't be minted; only for the receiver of the gift
             /// </summary>
             [JsonConverter(typeof(Converter))]
-            [JsonProperty("export_date")]
-            public int ExportDate { get; set; }
+            [JsonProperty("mint_date")]
+            public int MintDate { get; set; }
 
             /// <summary>
             /// Point in time (Unix timestamp) when the gift can be used to craft another gift; can be in the past; only for the receiver of the gift

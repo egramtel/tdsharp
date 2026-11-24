@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Changes type of paid message reaction of the current user on a message. The message must have paid reaction added by the current user
+    /// Changes the type of the paid message reaction of the current user on a message. The message must have a paid reaction added by the current user
     /// </summary>
     public class SetPaidMessageReactionType : Function<Ok>
     {
@@ -53,7 +53,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Changes type of paid message reaction of the current user on a message. The message must have paid reaction added by the current user
+    /// Changes the type of the paid message reaction of the current user on a message. The message must have a paid reaction added by the current user
     /// </summary>
     public static Task<Ok> SetPaidMessageReactionTypeAsync(
         this IClient client, long chatId = default, long messageId = default, PaidReactionType type = default)

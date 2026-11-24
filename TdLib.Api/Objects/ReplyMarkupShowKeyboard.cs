@@ -56,14 +56,15 @@ public static partial class TdApi
             public bool OneTime { get; set; }
 
             /// <summary>
-            /// True, if the keyboard must automatically be shown to the current user. For outgoing messages, specify true to show the keyboard only for the mentioned users and for the target user of a reply
+            /// True, if the keyboard must automatically be shown to the current user.
+            /// For outgoing messages, specify true to show the keyboard only for the mentioned users and for the target user of a reply
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_personal")]
             public bool IsPersonal { get; set; }
 
             /// <summary>
-            /// True, if the keyboard must force reply to the message with the keyboard
+            /// True, if the keyboard must force a reply to the message with the keyboard
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("force_reply")]

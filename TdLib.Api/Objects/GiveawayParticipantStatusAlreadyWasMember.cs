@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class GiveawayParticipantStatus : Object
     {
         /// <summary>
-        /// The user can't participate in the giveaway, because they have already been member of the chat
+        /// The user can't participate in the giveaway because they have already been a member of the chat
         /// </summary>
         public class GiveawayParticipantStatusAlreadyWasMember : GiveawayParticipantStatus
         {

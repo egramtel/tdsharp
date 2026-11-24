@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class CanPostStoryResult : Object
     {
         /// <summary>
-        /// The monthly limit for the number of posted stories exceeded. The user needs to buy Telegram Premium or wait specified time
+        /// The monthly limit for the number of posted stories was exceeded. The user needs to buy Telegram Premium or wait for the specified time
         /// </summary>
         public class CanPostStoryResultMonthlyLimitExceeded : CanPostStoryResult
         {

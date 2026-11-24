@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns menu button set by the bot for the given user; for bots only
+    /// Returns the menu button set by the bot for the given user; for bots only
     /// </summary>
     public class GetMenuButton : Function<BotMenuButton>
     {
@@ -39,7 +39,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns menu button set by the bot for the given user; for bots only
+    /// Returns the menu button set by the bot for the given user; for bots only
     /// </summary>
     public static Task<BotMenuButton> GetMenuButtonAsync(
         this IClient client, long userId = default)

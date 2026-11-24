@@ -10,7 +10,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Represents an attribute of an NFT in the TON blockchain
+    /// Represents an attribute of an NFT on the TON blockchain
     /// </summary>
     public partial class TonNftAttribute : Object
     {

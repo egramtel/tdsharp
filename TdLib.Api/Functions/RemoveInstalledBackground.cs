@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Removes background from the list of installed backgrounds
+    /// Removes a background from the list of installed backgrounds
     /// </summary>
     public class RemoveInstalledBackground : Function<Ok>
     {
@@ -39,7 +39,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Removes background from the list of installed backgrounds
+    /// Removes a background from the list of installed backgrounds
     /// </summary>
     public static Task<Ok> RemoveInstalledBackgroundAsync(
         this IClient client, long backgroundId = default)

@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns up to 8 emoji statuses, which must be shown right after the default Premium Badge in the emoji status list for self status
+    /// Returns up to 8 emoji statuses that must be shown right after the default Premium badge in the emoji status list for self status
     /// </summary>
     public class GetThemedEmojiStatuses : Function<EmojiStatusCustomEmojis>
     {
@@ -34,7 +34,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns up to 8 emoji statuses, which must be shown right after the default Premium Badge in the emoji status list for self status
+    /// Returns up to 8 emoji statuses that must be shown right after the default Premium badge in the emoji status list for self status
     /// </summary>
     public static Task<EmojiStatusCustomEmojis> GetThemedEmojiStatusesAsync(
         this IClient client)

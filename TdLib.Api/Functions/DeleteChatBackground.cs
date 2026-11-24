@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Deletes background in a specific chat
+    /// Deletes the background in a specific chat
     /// </summary>
     public class DeleteChatBackground : Function<Ok>
     {
@@ -38,7 +38,7 @@ public static partial class TdApi
         public long ChatId { get; set; }
 
         /// <summary>
-        /// Pass true to restore previously set background. Can be used only in private and secret chats with non-deleted users if userFullInfo.set_chat_background == true.
+        /// Pass true to restore the previously set background. Can be used only in private and secret chats with non-deleted users if userFullInfo.set_chat_background == true.
         /// Supposed to be used from messageChatSetBackground messages with the currently set background that was set for both sides by the other user
         /// </summary>
         [JsonConverter(typeof(Converter))]
@@ -47,7 +47,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Deletes background in a specific chat
+    /// Deletes the background in a specific chat
     /// </summary>
     public static Task<Ok> DeleteChatBackgroundAsync(
         this IClient client, long chatId = default, bool restorePrevious = default)

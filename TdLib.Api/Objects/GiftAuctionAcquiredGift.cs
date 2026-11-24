@@ -10,7 +10,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Represents a gift that was acquired by the current user on an auction
+    /// Represents a gift that was acquired by the current user at an auction
     /// </summary>
     public partial class GiftAuctionAcquiredGift : Object
     {

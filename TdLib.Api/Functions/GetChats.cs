@@ -11,7 +11,8 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns an ordered list of chats from the beginning of a chat list. For informational purposes only. Use loadChats and updates processing instead to maintain chat lists in a consistent state
+    /// Returns an ordered list of chats from the beginning of a chat list. For informational purposes only.
+    /// Use loadChats and updates processing instead to maintain chat lists in a consistent state
     /// </summary>
     public class GetChats : Function<Chats>
     {
@@ -46,7 +47,8 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns an ordered list of chats from the beginning of a chat list. For informational purposes only. Use loadChats and updates processing instead to maintain chat lists in a consistent state
+    /// Returns an ordered list of chats from the beginning of a chat list. For informational purposes only.
+    /// Use loadChats and updates processing instead to maintain chat lists in a consistent state
     /// </summary>
     public static Task<Chats> GetChatsAsync(
         this IClient client, ChatList chatList = default, int limit = default)

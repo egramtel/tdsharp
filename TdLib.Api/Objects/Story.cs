@@ -83,7 +83,7 @@ public static partial class TdApi
         public bool IsPostedToChatPage { get; set; }
 
         /// <summary>
-        /// True, if the story is visible only for the current user
+        /// True, if the story is visible only to the current user
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("is_visible_only_for_self")]
@@ -111,14 +111,14 @@ public static partial class TdApi
         public bool CanBeEdited { get; set; }
 
         /// <summary>
-        /// True, if the story can be forwarded as a message or reposted as a story. Otherwise, screenshotting and saving of the story content must be also forbidden
+        /// True, if the story can be forwarded as a message or reposted as a story. Otherwise, screenshotting and saving of the story content must also be forbidden
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("can_be_forwarded")]
         public bool CanBeForwarded { get; set; }
 
         /// <summary>
-        /// True, if the story can be replied in the chat with the user who posted the story
+        /// True, if the story can be replied to in the chat with the user who posted the story
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("can_be_replied")]
@@ -153,7 +153,7 @@ public static partial class TdApi
         public bool CanGetInteractions { get; set; }
 
         /// <summary>
-        /// True, if users who viewed the story can't be received, because the story has expired more than getOption("story_viewers_expiration_delay") seconds ago
+        /// True, if users who viewed the story can't be received because the story expired more than getOption("story_viewers_expiration_delay") seconds ago
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("has_expired_viewers")]

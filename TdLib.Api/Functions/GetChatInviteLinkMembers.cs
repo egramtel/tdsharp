@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns chat members joined a chat via an invite link. Requires administrator privileges and can_invite_users right in the chat for own links and owner privileges for other links
+    /// Returns chat members who joined a chat via an invite link. Requires administrator privileges and can_invite_users right in the chat for own links and owner privileges for other links
     /// </summary>
     public class GetChatInviteLinkMembers : Function<ChatInviteLinkMembers>
     {
@@ -45,7 +45,7 @@ public static partial class TdApi
         public string InviteLink { get; set; }
 
         /// <summary>
-        /// Pass true if the link is a subscription link and only members with expired subscription must be returned
+        /// Pass true if the link is a subscription link and only members with an expired subscription must be returned
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("only_with_expired_subscription")]
@@ -67,7 +67,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns chat members joined a chat via an invite link. Requires administrator privileges and can_invite_users right in the chat for own links and owner privileges for other links
+    /// Returns chat members who joined a chat via an invite link. Requires administrator privileges and can_invite_users right in the chat for own links and owner privileges for other links
     /// </summary>
     public static Task<ChatInviteLinkMembers> GetChatInviteLinkMembersAsync(
         this IClient client, long chatId = default, string inviteLink = default, bool onlyWithExpiredSubscription = default, ChatInviteLinkMember offsetMember = default, int limit = default)

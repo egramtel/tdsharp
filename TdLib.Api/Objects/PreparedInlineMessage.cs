@@ -10,7 +10,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Represents a ready to send inline message. Use sendInlineQueryResultMessage to send the message
+    /// Represents a ready-to-send inline message. Use sendInlineQueryResultMessage to send the message
     /// </summary>
     public partial class PreparedInlineMessage : Object
     {
@@ -34,7 +34,7 @@ public static partial class TdApi
         public long InlineQueryId { get; set; }
 
         /// <summary>
-        /// Resulted inline message of the query
+        /// Resulting inline message of the query
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("result")]

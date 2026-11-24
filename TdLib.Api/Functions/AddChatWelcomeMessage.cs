@@ -11,7 +11,8 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Adds a message to the list of welcome messages of a chat; requires can_send_welcome_messages administrator right in the chat. There can be up to getOption("welcome_message_count_max") welcome messages in a chat
+    /// Adds a message to the list of welcome messages of a chat; requires can_send_welcome_messages administrator right in the chat.
+    /// There can be up to getOption("welcome_message_count_max") welcome messages in a chat
     /// </summary>
     public class AddChatWelcomeMessage : Function<Ok>
     {
@@ -40,7 +41,7 @@ public static partial class TdApi
         /// <summary>
         /// The content of the message to be sent. Must be one of the following types: inputMessageText, inputMessageAnimation,
         /// inputMessageAudio, inputMessageDocument, inputMessagePhoto, inputMessageRichMessage, inputMessageSticker, inputMessageVideo, inputMessageVideoNote, inputMessageVoiceNote,
-        /// inputMessageLocation, inputMessageVenue, inputMessageContact
+        /// inputMessageLocation, inputMessageVenue, or inputMessageContact
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("input_message_content")]
@@ -48,7 +49,8 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Adds a message to the list of welcome messages of a chat; requires can_send_welcome_messages administrator right in the chat. There can be up to getOption("welcome_message_count_max") welcome messages in a chat
+    /// Adds a message to the list of welcome messages of a chat; requires can_send_welcome_messages administrator right in the chat.
+    /// There can be up to getOption("welcome_message_count_max") welcome messages in a chat
     /// </summary>
     public static Task<Ok> AddChatWelcomeMessageAsync(
         this IClient client, long chatId = default, InputMessageContent inputMessageContent = default)

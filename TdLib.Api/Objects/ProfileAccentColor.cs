@@ -10,7 +10,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Contains information about supported accent color for user profile photo background
+    /// Contains information about a supported accent color for user profile photo background
     /// </summary>
     public partial class ProfileAccentColor : Object
     {

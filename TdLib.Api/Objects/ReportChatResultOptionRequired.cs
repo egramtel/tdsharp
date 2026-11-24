@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class ReportChatResult : Object
     {
         /// <summary>
-        /// The user must choose an option to report the chat and repeat request with the chosen option
+        /// The user must choose an option to report the chat and repeat the request with the chosen option
         /// </summary>
         public class ReportChatResultOptionRequired : ReportChatResult
         {

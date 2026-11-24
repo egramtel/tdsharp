@@ -36,7 +36,7 @@ public static partial class TdApi
             public int StartDate { get; set; }
 
             /// <summary>
-            /// Point in time (Unix timestamp) when the auction will be ended
+            /// Point in time (Unix timestamp) when the auction will end
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("end_date")]
@@ -56,7 +56,7 @@ public static partial class TdApi
             public AuctionBid[] BidLevels { get; set; }
 
             /// <summary>
-            /// User identifiers of at most 3 users with the biggest bids
+            /// User identifiers of at most 3 users with the largest bids
             /// </summary>
             [JsonProperty("top_bidder_user_ids", ItemConverterType = typeof(Converter))]
             public long[] TopBidderUserIds { get; set; }
@@ -89,21 +89,21 @@ public static partial class TdApi
             public int TotalRoundCount { get; set; }
 
             /// <summary>
-            /// The number of items that were purchased on the auction by all users
+            /// The number of items that were purchased at the auction by all users
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("distributed_item_count")]
             public int DistributedItemCount { get; set; }
 
             /// <summary>
-            /// The number of items that have to be distributed on the auction
+            /// The number of items that have to be distributed at the auction
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("left_item_count")]
             public int LeftItemCount { get; set; }
 
             /// <summary>
-            /// The number of items that were purchased by the current user on the auction
+            /// The number of items that were purchased by the current user at the auction
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("acquired_item_count")]

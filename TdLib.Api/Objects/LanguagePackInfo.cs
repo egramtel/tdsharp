@@ -34,7 +34,8 @@ public static partial class TdApi
         public string Id { get; set; }
 
         /// <summary>
-        /// Identifier of a base language pack; may be empty. If a string is missed in the language pack, then it must be fetched from base language pack. Unsupported in custom language packs
+        /// Identifier of a base language pack; may be empty. If a string is missing in the language pack, then it must be fetched from the base language pack.
+        /// Unsupported in custom language packs
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("base_language_pack_id")]
@@ -111,7 +112,7 @@ public static partial class TdApi
         public int LocalStringCount { get; set; }
 
         /// <summary>
-        /// Link to language translation interface; empty for custom local language packs
+        /// Link to the language translation interface; empty for custom local language packs
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("translation_url")]

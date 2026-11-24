@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class CanSendMessageToUserResult : Object
     {
         /// <summary>
-        /// The user can't be messaged, because they restrict new chats with non-contacts
+        /// The user can't be messaged because they restrict new chats with non-contacts
         /// </summary>
         public class CanSendMessageToUserResultUserRestrictsNewChats : CanSendMessageToUserResult
         {

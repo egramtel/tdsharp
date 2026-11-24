@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Sends an ephemeral message which will be received only by one bot in a chat. Currently, only ephemeral bot commands and replies to bot ephemeral messages can be sent using the method.
+    /// Sends an ephemeral message that will be received only by one bot in a chat. Currently, only ephemeral bot commands and replies to bot ephemeral messages can be sent using the method.
     /// The message is persistent across application restarts only if the message database is used. Returns the sent message
     /// </summary>
     public class SendEphemeralMessage : Function<Message>
@@ -53,7 +53,7 @@ public static partial class TdApi
         public long ReceiverUserId { get; set; }
 
         /// <summary>
-        /// Identifier of the callback query which triggered the message; for bots only
+        /// Identifier of the callback query that triggered the message; for bots only
         /// </summary>
         [JsonConverter(typeof(Converter.Int64))]
         [JsonProperty("callback_query_id")]
@@ -67,7 +67,7 @@ public static partial class TdApi
         public bool ReplaceCallbackQueryMessage { get; set; }
 
         /// <summary>
-        /// Information about the message to be replied; pass null if none. The message can be an incoming ephemeral message
+        /// Information about the message to be replied to; pass null if none. The message can be an incoming ephemeral message
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("reply_to")]
@@ -81,7 +81,7 @@ public static partial class TdApi
         public bool ProtectContent { get; set; }
 
         /// <summary>
-        /// Non-persistent identifier, which will be returned back in messageSendingStatePending object and can be used to match sent messages and corresponding updateNewMessage updates
+        /// Non-persistent identifier, which will be returned in the messageSendingStatePending object and can be used to match sent messages and corresponding updateNewMessage updates
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("sending_id")]
@@ -104,7 +104,7 @@ public static partial class TdApi
         /// <summary>
         /// The content of the message to be sent. Must be one of the following types: inputMessageText, inputMessageAnimation,
         /// inputMessageAudio, inputMessageDocument, inputMessagePhoto, inputMessageRichMessage, inputMessageSticker, inputMessageVideo, inputMessageVideoNote, inputMessageVoiceNote,
-        /// inputMessageLocation, inputMessageVenue, inputMessageContact
+        /// inputMessageLocation, inputMessageVenue, or inputMessageContact
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("input_message_content")]
@@ -112,7 +112,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Sends an ephemeral message which will be received only by one bot in a chat. Currently, only ephemeral bot commands and replies to bot ephemeral messages can be sent using the method.
+    /// Sends an ephemeral message that will be received only by one bot in a chat. Currently, only ephemeral bot commands and replies to bot ephemeral messages can be sent using the method.
     /// The message is persistent across application restarts only if the message database is used. Returns the sent message
     /// </summary>
     public static Task<Message> SendEphemeralMessageAsync(

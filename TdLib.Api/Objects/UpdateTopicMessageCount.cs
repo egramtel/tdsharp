@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class Update : Object
     {
         /// <summary>
-        /// Number of messages in a topic has changed; for Saved Messages and channel direct messages chat topics only
+        /// The number of messages in a topic has changed; for Saved Messages and channel direct messages chat topics only
         /// </summary>
         public class UpdateTopicMessageCount : Update
         {
@@ -29,7 +29,7 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// Identifier of the chat in topic of which the number of messages has changed
+            /// Identifier of the chat in a topic of which the number of messages has changed
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_id")]

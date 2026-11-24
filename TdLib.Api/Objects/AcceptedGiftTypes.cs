@@ -55,7 +55,7 @@ public static partial class TdApi
         public bool GiftsFromChannels { get; set; }
 
         /// <summary>
-        /// True, if Telegram Premium subscription is accepted
+        /// True, if a Telegram Premium subscription is accepted
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("premium_subscription")]

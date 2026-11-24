@@ -50,7 +50,7 @@ public static partial class TdApi
             public long ChatId { get; set; }
 
             /// <summary>
-            /// Chat identifier, which notification settings must be applied to the added notifications
+            /// Identifier of the chat whose notification settings must be applied to the added notifications
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("notification_settings_chat_id")]
@@ -64,7 +64,7 @@ public static partial class TdApi
             public long NotificationSoundId { get; set; }
 
             /// <summary>
-            /// Total number of unread notifications in the group, can be bigger than number of active notifications
+            /// Total number of unread notifications in the group; can be greater than the number of active notifications
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("total_count")]

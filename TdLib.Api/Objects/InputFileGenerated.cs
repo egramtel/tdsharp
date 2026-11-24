@@ -29,7 +29,7 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// Local path to a file from which the file is generated. The path doesn't have to be a valid path and is used by TDLib only to detect name and MIME type of the generated file
+            /// Local path to a file from which the file is generated. The path doesn't have to be a valid path and is used by TDLib only to detect the name and MIME type of the generated file
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("original_path")]

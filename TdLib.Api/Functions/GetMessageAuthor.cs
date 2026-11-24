@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns information about actual author of a message sent on behalf of a channel. The method can be called if messageProperties.can_get_author == true
+    /// Returns information about the actual author of a message sent on behalf of a channel. The method can be called if messageProperties.can_get_author == true
     /// </summary>
     public class GetMessageAuthor : Function<User>
     {
@@ -46,7 +46,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns information about actual author of a message sent on behalf of a channel. The method can be called if messageProperties.can_get_author == true
+    /// Returns information about the actual author of a message sent on behalf of a channel. The method can be called if messageProperties.can_get_author == true
     /// </summary>
     public static Task<User> GetMessageAuthorAsync(
         this IClient client, long chatId = default, long messageId = default)

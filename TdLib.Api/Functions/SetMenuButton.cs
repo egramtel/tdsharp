@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Sets menu button for the given user or for all users; for bots only
+    /// Sets the menu button for the given user or for all users; for bots only
     /// </summary>
     public class SetMenuButton : Function<Ok>
     {
@@ -31,7 +31,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Identifier of the user or 0 to set menu button for all users
+        /// Identifier of the user or 0 to set the menu button for all users
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("user_id")]
@@ -46,7 +46,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Sets menu button for the given user or for all users; for bots only
+    /// Sets the menu button for the given user or for all users; for bots only
     /// </summary>
     public static Task<Ok> SetMenuButtonAsync(
         this IClient client, long userId = default, BotMenuButton menuButton = default)

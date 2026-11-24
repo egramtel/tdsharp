@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Searches specified query by word prefixes in the provided strings. Returns 0-based positions of strings that matched. Can be called synchronously
+    /// Searches for the specified query by word prefixes in the provided strings. Returns 0-based positions of strings that matched. Can be called synchronously
     /// </summary>
     public class SearchStringsByPrefix : Function<FoundPositions>
     {
@@ -59,7 +59,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Searches specified query by word prefixes in the provided strings. Returns 0-based positions of strings that matched. Can be called synchronously
+    /// Searches for the specified query by word prefixes in the provided strings. Returns 0-based positions of strings that matched. Can be called synchronously
     /// </summary>
     public static Task<FoundPositions> SearchStringsByPrefixAsync(
         this IClient client, string[] strings = default, string query = default, int limit = default, bool returnNoneForEmptyQuery = default)

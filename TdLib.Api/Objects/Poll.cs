@@ -47,7 +47,7 @@ public static partial class TdApi
         public PollOption[] Options { get; set; }
 
         /// <summary>
-        /// Total number of voters, participating in the poll
+        /// Total number of voters participating in the poll
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("total_voter_count")]
@@ -67,7 +67,7 @@ public static partial class TdApi
         public bool CanGetVoters { get; set; }
 
         /// <summary>
-        /// True, if the current user can see results of the poll
+        /// True, if the current user can see the results of the poll
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("can_see_results")]
@@ -95,20 +95,20 @@ public static partial class TdApi
         public bool AllowsRevoting { get; set; }
 
         /// <summary>
-        /// True, if only the users that are members of the chat for more than a day will be able to vote
+        /// True, if only the users who have been members of the chat for more than a day will be able to vote
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("members_only")]
         public bool MembersOnly { get; set; }
 
         /// <summary>
-        /// The list of two-letter ISO 3166-1 alpha-2 codes of countries, users from which will be able to vote. If empty, then all users can participate in the poll
+        /// The list of two-letter ISO 3166-1 alpha-2 codes of countries whose users will be able to vote. If empty, then all users can participate in the poll
         /// </summary>
         [JsonProperty("country_codes", ItemConverterType = typeof(Converter))]
         public string[] CountryCodes { get; set; }
 
         /// <summary>
-        /// The list of 0-based poll option identifiers in which the options of the poll must be shown; empty if the order of options must not be changed
+        /// The list of 0-based poll option identifiers in the order in which the options of the poll must be shown; empty if the order of options must not be changed
         /// </summary>
         [JsonProperty("option_order", ItemConverterType = typeof(Converter))]
         public int[] OptionOrder { get; set; }
@@ -142,7 +142,7 @@ public static partial class TdApi
         public bool IsClosed { get; set; }
 
         /// <summary>
-        /// The reason describing, why the current user can't vote in the poll; may be null if the user can vote in the poll
+        /// The reason describing why the current user can't vote in the poll; may be null if the user can vote in the poll
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("vote_restriction_reason")]

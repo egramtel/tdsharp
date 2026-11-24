@@ -10,7 +10,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// A detailed statistics about revenue earned from sponsored messages in a chat
+    /// Detailed statistics about revenue earned from sponsored messages in a chat
     /// </summary>
     public partial class ChatRevenueStatistics : Object
     {
@@ -27,14 +27,14 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// A graph containing amount of revenue in a given hour
+        /// A graph containing the amount of revenue in a given hour
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("revenue_by_hour_graph")]
         public StatisticalGraph RevenueByHourGraph { get; set; }
 
         /// <summary>
-        /// A graph containing amount of revenue
+        /// A graph containing the amount of revenue
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("revenue_graph")]

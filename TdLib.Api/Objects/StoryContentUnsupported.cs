@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class StoryContent : Object
     {
         /// <summary>
-        /// A story content that is not supported in the current TDLib version
+        /// Story content that is not supported in the current TDLib version
         /// </summary>
         public class StoryContentUnsupported : StoryContent
         {

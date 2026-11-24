@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Edits a business chat link of the current account. Requires Telegram Business subscription. Returns the edited link
+    /// Edits a business chat link of the current account. Requires a Telegram Business subscription. Returns the edited link
     /// </summary>
     public class EditBusinessChatLink : Function<BusinessChatLink>
     {
@@ -46,7 +46,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Edits a business chat link of the current account. Requires Telegram Business subscription. Returns the edited link
+    /// Edits a business chat link of the current account. Requires a Telegram Business subscription. Returns the edited link
     /// </summary>
     public static Task<BusinessChatLink> EditBusinessChatLinkAsync(
         this IClient client, string link = default, InputBusinessChatLink linkInfo = default)

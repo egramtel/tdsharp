@@ -36,7 +36,8 @@ public static partial class TdApi
             public long CustomEmojiId { get; set; }
 
             /// <summary>
-            /// True, if the sticker must be repainted to a text color in messages, the color of the Telegram Premium badge in emoji status, white color on chat photos, or another appropriate color in other places
+            /// True, if the sticker must be repainted to a text color in messages, the color of the Telegram Premium badge in emoji status, white color on chat photos,
+            /// or another appropriate color in other places
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("needs_repainting")]

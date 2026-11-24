@@ -29,7 +29,7 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// True, if default background for dark theme has changed
+            /// True, if the default background for a dark theme has changed
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("for_dark_theme")]

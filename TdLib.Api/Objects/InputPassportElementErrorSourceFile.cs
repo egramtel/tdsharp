@@ -29,7 +29,7 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// Current hash of the file which has the error
+            /// Current hash of the file that has the error
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("file_hash")]

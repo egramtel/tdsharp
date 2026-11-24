@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class StarTransactionType : Object
     {
         /// <summary>
-        /// The transaction is a deposit of Telegram Stars from App Store; relevant for regular users only
+        /// The transaction is a deposit of Telegram Stars from the App Store; relevant for regular users only
         /// </summary>
         public class StarTransactionTypeAppStoreDeposit : StarTransactionType
         {

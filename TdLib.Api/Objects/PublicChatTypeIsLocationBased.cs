@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class PublicChatType : Object
     {
         /// <summary>
-        /// The chat is public, because it is a location-based supergroup
+        /// The chat is public because it is a location-based supergroup
         /// </summary>
         public class PublicChatTypeIsLocationBased : PublicChatType
         {

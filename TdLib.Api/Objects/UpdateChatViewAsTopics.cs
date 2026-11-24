@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class Update : Object
     {
         /// <summary>
-        /// A chat default appearance has changed
+        /// A chat's default appearance has changed
         /// </summary>
         public class UpdateChatViewAsTopics : Update
         {

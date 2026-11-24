@@ -48,14 +48,14 @@ public static partial class TdApi
         public bool CanEditChatList { get; set; }
 
         /// <summary>
-        /// True, if the administrator can add new administrators with a subset of their own privileges or demote administrators that were directly or indirectly promoted by them
+        /// True, if the administrator can add new administrators with a subset of their own privileges or demote administrators who were directly or indirectly promoted by them
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("can_promote_members")]
         public bool CanPromoteMembers { get; set; }
 
         /// <summary>
-        /// True, if the administrator can ban, or unban community members
+        /// True, if the administrator can ban or unban community members
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("can_ban_members")]

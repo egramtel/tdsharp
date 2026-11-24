@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Informs TDLib that an audio was listened by the user
+    /// Informs TDLib that an audio file was listened to by the user
     /// </summary>
     public class ListenToAudio : Function<Ok>
     {
@@ -31,14 +31,14 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Identifier of the file with an audio
+        /// Identifier of the file with the audio
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("audio_file_id")]
         public int AudioFileId { get; set; }
 
         /// <summary>
-        /// Duration of the listening to the audio, in seconds
+        /// Duration of listening to the audio, in seconds
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("duration")]
@@ -46,7 +46,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Informs TDLib that an audio was listened by the user
+    /// Informs TDLib that an audio file was listened to by the user
     /// </summary>
     public static Task<Ok> ListenToAudioAsync(
         this IClient client, int audioFileId = default, int duration = default)

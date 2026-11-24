@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class SuggestedAction : Object
     {
         /// <summary>
-        /// Suggests the user to subscribe to the Premium subscription with annual payments
+        /// Suggests that the user subscribe to the Premium subscription with annual payments
         /// </summary>
         public class SuggestedActionSubscribeToAnnualPremium : SuggestedAction
         {

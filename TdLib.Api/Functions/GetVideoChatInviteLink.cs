@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns invite link to a video chat in a public chat
+    /// Returns an invite link to a video chat in a public chat
     /// </summary>
     public class GetVideoChatInviteLink : Function<HttpUrl>
     {
@@ -38,7 +38,8 @@ public static partial class TdApi
         public int GroupCallId { get; set; }
 
         /// <summary>
-        /// Pass true if the invite link needs to contain an invite hash, passing which to joinVideoChat would allow the invited user to unmute themselves. Requires groupCall.can_be_managed right
+        /// Pass true if the invite link needs to contain an invite hash, passing which to joinVideoChat would allow the invited user to unmute themselves.
+        /// Requires groupCall.can_be_managed right
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("can_self_unmute")]
@@ -46,7 +47,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns invite link to a video chat in a public chat
+    /// Returns an invite link to a video chat in a public chat
     /// </summary>
     public static Task<HttpUrl> GetVideoChatInviteLinkAsync(
         this IClient client, int groupCallId = default, bool canSelfUnmute = default)

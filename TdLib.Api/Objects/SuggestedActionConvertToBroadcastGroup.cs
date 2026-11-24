@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class SuggestedAction : Object
     {
         /// <summary>
-        /// Suggests the user to convert specified supergroup to a broadcast group
+        /// Suggests that the user convert the specified supergroup to a broadcast group
         /// </summary>
         public class SuggestedActionConvertToBroadcastGroup : SuggestedAction
         {

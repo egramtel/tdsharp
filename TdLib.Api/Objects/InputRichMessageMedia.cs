@@ -10,7 +10,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Describes a media to be used in a sent rich message
+    /// Describes media to be used in a sent rich message
     /// </summary>
     public partial class InputRichMessageMedia : Object
     {

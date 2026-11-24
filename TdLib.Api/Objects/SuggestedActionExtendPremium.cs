@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class SuggestedAction : Object
     {
         /// <summary>
-        /// Suggests the user to extend their expiring Telegram Premium subscription
+        /// Suggests that the user extend their expiring Telegram Premium subscription
         /// </summary>
         public class SuggestedActionExtendPremium : SuggestedAction
         {
@@ -29,7 +29,7 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// A URL for managing Telegram Premium subscription
+            /// A URL for managing the Telegram Premium subscription
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("manage_premium_subscription_url")]

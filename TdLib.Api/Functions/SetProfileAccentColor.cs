@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Changes accent color and background custom emoji for profile of the current user; for Telegram Premium users only
+    /// Changes the accent color and background custom emoji for the profile of the current user; for Telegram Premium users only
     /// </summary>
     public class SetProfileAccentColor : Function<Ok>
     {
@@ -31,7 +31,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Identifier of the accent color to use for profile; pass -1 if none
+        /// Identifier of the accent color to use for the profile; pass -1 if none
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("profile_accent_color_id")]
@@ -46,7 +46,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Changes accent color and background custom emoji for profile of the current user; for Telegram Premium users only
+    /// Changes the accent color and background custom emoji for the profile of the current user; for Telegram Premium users only
     /// </summary>
     public static Task<Ok> SetProfileAccentColorAsync(
         this IClient client, int profileAccentColorId = default, long profileBackgroundCustomEmojiId = default)

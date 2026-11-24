@@ -37,7 +37,7 @@ public static partial class TdApi
         public int[] ChatFolderIds { get; set; }
 
         /// <summary>
-        /// Position of the main chat list among chat folders, 0-based. Can be non-zero only for Premium users
+        /// Position of the main chat list among chat folders; 0-based. Can be non-zero only for Premium users
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("main_chat_list_position")]

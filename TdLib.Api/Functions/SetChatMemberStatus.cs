@@ -40,7 +40,7 @@ public static partial class TdApi
         public long ChatId { get; set; }
 
         /// <summary>
-        /// Member identifier. Chats can be only banned and unbanned in supergroups and channels
+        /// Member identifier. Chats can only be banned and unbanned in supergroups and channels
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("member_id")]

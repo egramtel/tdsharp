@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Changes the database encryption key. Usually the encryption key is never changed and is stored in some OS keychain
+    /// Changes the database encryption key. Usually, the encryption key is never changed and is stored in some OS keychain
     /// </summary>
     public class SetDatabaseEncryptionKey : Function<Ok>
     {
@@ -39,7 +39,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Changes the database encryption key. Usually the encryption key is never changed and is stored in some OS keychain
+    /// Changes the database encryption key. Usually, the encryption key is never changed and is stored in some OS keychain
     /// </summary>
     public static Task<Ok> SetDatabaseEncryptionKeyAsync(
         this IClient client, byte[] newEncryptionKey = default)

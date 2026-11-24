@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns settings for automatic moving of chats to and from the Archive chat lists
+    /// Returns settings for automatic moving of chats to and from the Archive chat list
     /// </summary>
     public class GetArchiveChatListSettings : Function<ArchiveChatListSettings>
     {
@@ -34,7 +34,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns settings for automatic moving of chats to and from the Archive chat lists
+    /// Returns settings for automatic moving of chats to and from the Archive chat list
     /// </summary>
     public static Task<ArchiveChatListSettings> GetArchiveChatListSettingsAsync(
         this IClient client)

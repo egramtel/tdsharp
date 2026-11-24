@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class AuthenticationCodeType : Object
     {
         /// <summary>
-        /// An authentication code is a word delivered via an SMS message to the specified phone number; non-official applications may not receive this type of code
+        /// An authentication code is a word delivered via an SMS message to the specified phone number; unofficial applications may not receive this type of code
         /// </summary>
         public class AuthenticationCodeTypeSmsWord : AuthenticationCodeType
         {

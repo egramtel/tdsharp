@@ -34,7 +34,7 @@ public static partial class TdApi
         public byte[] PublicKey { get; set; }
 
         /// <summary>
-        /// The current UNIX timestamp which was used to create the proof
+        /// The current Unix timestamp that was used to create the proof
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("timestamp")]

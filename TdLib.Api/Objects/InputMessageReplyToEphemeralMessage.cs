@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class InputMessageReplyTo : Object
     {
         /// <summary>
-        /// Describes an ephemeral message to be replied; for bots only
+        /// Describes an ephemeral message to be replied to; for bots only
         /// </summary>
         public class InputMessageReplyToEphemeralMessage : InputMessageReplyTo
         {
@@ -29,7 +29,7 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// The identifier of the ephemeral message to be replied
+            /// The identifier of the ephemeral message to be replied to
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("ephemeral_message_id")]

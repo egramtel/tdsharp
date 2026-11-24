@@ -10,7 +10,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Contains information about a suggested post. If the post can be approved or declined, then changes to the post can be also suggested. Use sendMessage with reply to the message
+    /// Contains information about a suggested post. If the post can be approved or declined, then changes to the post can also be suggested. Use sendMessage with a reply to the message
     /// and suggested post information to suggest message changes. Use addOffer to suggest price or time changes
     /// </summary>
     public partial class SuggestedPostInfo : Object
@@ -49,14 +49,14 @@ public static partial class TdApi
         public SuggestedPostState State { get; set; }
 
         /// <summary>
-        /// True, if the suggested post can be approved by the current user using approveSuggestedPost; updates aren't sent when value of this field changes
+        /// True, if the suggested post can be approved by the current user using approveSuggestedPost; updates aren't sent when the value of this field changes
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("can_be_approved")]
         public bool CanBeApproved { get; set; }
 
         /// <summary>
-        /// True, if the suggested post can be declined by the current user using declineSuggestedPost; updates aren't sent when value of this field changes
+        /// True, if the suggested post can be declined by the current user using declineSuggestedPost; updates aren't sent when the value of this field changes
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("can_be_declined")]

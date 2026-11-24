@@ -52,14 +52,15 @@ public static partial class TdApi
         public GiftResalePrice Price { get; set; }
 
         /// <summary>
-        /// Duration of the offer, in seconds; must be one of 21600, 43200, 86400, 129600, 172800, or 259200. Can also be 120 if Telegram test environment is used
+        /// Duration of the offer, in seconds; must be one of 21600, 43200, 86400, 129600, 172800, or 259200. Can also be 120 if the Telegram test environment is used
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("duration")]
         public int Duration { get; set; }
 
         /// <summary>
-        /// The number of Telegram Stars the user agreed to pay additionally for sending of the offer message to the current gift owner; pass userFullInfo.outgoing_paid_message_star_count for users and 0 otherwise
+        /// The number of Telegram Stars the user agreed to pay additionally for sending the offer message to the current gift owner;
+        /// pass userFullInfo.outgoing_paid_message_star_count for users and 0 otherwise
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("paid_message_star_count")]

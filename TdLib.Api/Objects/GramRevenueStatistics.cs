@@ -10,7 +10,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// A detailed statistics about TON Grams earned by the current user
+    /// Detailed statistics about TON Grams earned by the current user
     /// </summary>
     public partial class GramRevenueStatistics : Object
     {
@@ -27,7 +27,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// A graph containing amount of revenue in a given day
+        /// A graph containing the amount of revenue on a given day
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("revenue_by_day_graph")]
@@ -41,7 +41,7 @@ public static partial class TdApi
         public GramRevenueStatus Status { get; set; }
 
         /// <summary>
-        /// Current exchange rate of nanogram to USD cents
+        /// Current exchange rate of a nanogram to USD cents
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("usd_rate")]

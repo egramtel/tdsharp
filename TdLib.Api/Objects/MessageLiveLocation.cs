@@ -36,7 +36,7 @@ public static partial class TdApi
             public LiveLocation Location { get; set; }
 
             /// <summary>
-            /// Left time for which the location can be updated, in seconds. If 0, then the location can't be updated anymore. The update updateMessageContent is not sent when this field changes
+            /// Remaining time for which the location can be updated, in seconds. If 0, then the location can't be updated anymore. The update updateMessageContent is not sent when this field changes
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("expires_in")]

@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class PremiumFeature : Object
     {
         /// <summary>
-        /// Ability to change position of the main chat list, archive and mute all new chats from non-contacts, and completely disable notifications about the user's contacts joined Telegram
+        /// Ability to change the position of the main chat list, archive and mute all new chats from non-contacts, and completely disable notifications about the user's contacts joining Telegram
         /// </summary>
         public class PremiumFeatureAdvancedChatManagement : PremiumFeature
         {

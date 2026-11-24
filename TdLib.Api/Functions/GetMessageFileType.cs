@@ -31,7 +31,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Beginning of the message file; up to 100 first lines
+        /// Beginning of the message file; up to the first 100 lines
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("message_file_head")]

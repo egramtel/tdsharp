@@ -10,7 +10,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Describes a price required to pay to upgrade a gift
+    /// Describes a price that must be paid to upgrade a gift
     /// </summary>
     public partial class GiftUpgradePrice : Object
     {
@@ -34,7 +34,7 @@ public static partial class TdApi
         public int Date { get; set; }
 
         /// <summary>
-        /// The Telegram Star amount required to pay to upgrade the gift
+        /// The Telegram Star amount that must be paid to upgrade the gift
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("star_count")]

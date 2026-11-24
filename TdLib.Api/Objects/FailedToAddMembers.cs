@@ -10,7 +10,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Represents a list of users that has failed to be added to a chat
+    /// Represents a list of users who have failed to be added to a chat
     /// </summary>
     public partial class FailedToAddMembers : Object
     {
@@ -27,7 +27,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Information about users that weren't added to the chat
+        /// Information about users who weren't added to the chat
         /// </summary>
         [JsonProperty("failed_to_add_members", ItemConverterType = typeof(Converter))]
         public FailedToAddMember[] FailedToAddMembers_ { get; set; }

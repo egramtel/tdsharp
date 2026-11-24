@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class ProxyType : Object
     {
         /// <summary>
-        /// A HTTP transparent proxy server
+        /// An HTTP transparent proxy server
         /// </summary>
         public class ProxyTypeHttp : ProxyType
         {
@@ -43,7 +43,7 @@ public static partial class TdApi
             public string Password { get; set; }
 
             /// <summary>
-            /// Pass true if the proxy supports only HTTP requests and doesn't support transparent TCP connections via HTTP CONNECT method
+            /// Pass true if the proxy supports only HTTP requests and doesn't support transparent TCP connections via the HTTP CONNECT method
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("http_only")]

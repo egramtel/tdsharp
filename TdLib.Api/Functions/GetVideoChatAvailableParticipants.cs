@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns the list of participant identifiers, on whose behalf a video chat in the chat can be joined
+    /// Returns the list of participant identifiers on whose behalf a video chat in the chat can be joined
     /// </summary>
     public class GetVideoChatAvailableParticipants : Function<MessageSenders>
     {
@@ -39,7 +39,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns the list of participant identifiers, on whose behalf a video chat in the chat can be joined
+    /// Returns the list of participant identifiers on whose behalf a video chat in the chat can be joined
     /// </summary>
     public static Task<MessageSenders> GetVideoChatAvailableParticipantsAsync(
         this IClient client, long chatId = default)

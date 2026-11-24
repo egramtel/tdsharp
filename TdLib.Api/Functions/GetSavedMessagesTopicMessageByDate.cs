@@ -31,7 +31,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Identifier of Saved Messages topic which message will be returned
+        /// Identifier of the Saved Messages topic whose message will be returned
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("saved_messages_topic_id")]

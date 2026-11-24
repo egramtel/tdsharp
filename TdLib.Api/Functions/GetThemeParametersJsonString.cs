@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Converts a themeParameters object to corresponding JSON-serialized string. Can be called synchronously
+    /// Converts a themeParameters object to the corresponding JSON-serialized string. Can be called synchronously
     /// </summary>
     public class GetThemeParametersJsonString : Function<Text>
     {
@@ -39,7 +39,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Converts a themeParameters object to corresponding JSON-serialized string. Can be called synchronously
+    /// Converts a themeParameters object to the corresponding JSON-serialized string. Can be called synchronously
     /// </summary>
     public static Task<Text> GetThemeParametersJsonStringAsync(
         this IClient client, ThemeParameters theme = default)

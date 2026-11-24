@@ -13,7 +13,8 @@ public static partial class TdApi
     /// <summary>
     /// Checks a passkey to log in to the corresponding account. Call getAuthenticationPasskeyParameters to get parameters for the passkey. Works only when the current authorization state is
     /// authorizationStateWaitPhoneNumber or authorizationStateWaitOtherDeviceConfirmation, or if there is no pending authentication query and the current authorization state is
-    /// authorizationStateWaitPremiumPurchase, authorizationStateWaitEmailAddress, authorizationStateWaitEmailCode, authorizationStateWaitCode, authorizationStateWaitRegistration, or authorizationStateWaitPassword
+    /// authorizationStateWaitPremiumPurchase, authorizationStateWaitEmailAddress, authorizationStateWaitEmailCode, authorizationStateWaitCode, authorizationStateWaitRegistration,
+    /// or authorizationStateWaitPassword
     /// </summary>
     public class CheckAuthenticationPasskey : Function<Ok>
     {
@@ -71,7 +72,8 @@ public static partial class TdApi
     /// <summary>
     /// Checks a passkey to log in to the corresponding account. Call getAuthenticationPasskeyParameters to get parameters for the passkey. Works only when the current authorization state is
     /// authorizationStateWaitPhoneNumber or authorizationStateWaitOtherDeviceConfirmation, or if there is no pending authentication query and the current authorization state is
-    /// authorizationStateWaitPremiumPurchase, authorizationStateWaitEmailAddress, authorizationStateWaitEmailCode, authorizationStateWaitCode, authorizationStateWaitRegistration, or authorizationStateWaitPassword
+    /// authorizationStateWaitPremiumPurchase, authorizationStateWaitEmailAddress, authorizationStateWaitEmailCode, authorizationStateWaitCode, authorizationStateWaitRegistration,
+    /// or authorizationStateWaitPassword
     /// </summary>
     public static Task<Ok> CheckAuthenticationPasskeyAsync(
         this IClient client, string credentialId = default, string clientData = default, byte[] authenticatorData = default, byte[] signature = default, byte[] userHandle = default)

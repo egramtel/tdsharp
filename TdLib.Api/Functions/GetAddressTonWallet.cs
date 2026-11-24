@@ -31,7 +31,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Address in the TON blockchain
+        /// Address on the TON blockchain
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("address")]

@@ -29,7 +29,7 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// The failed to send message
+            /// The message that failed to send
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("message")]

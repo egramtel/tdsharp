@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class Update : Object
     {
         /// <summary>
-        /// The revenue earned from sponsored messages in a chat has changed. If chat revenue screen is opened, then getChatRevenueTransactions may be called to fetch new transactions
+        /// The revenue earned from sponsored messages in a chat has changed. If the chat revenue screen is opened, then getChatRevenueTransactions may be called to fetch new transactions
         /// </summary>
         public class UpdateChatRevenueAmount : Update
         {

@@ -12,7 +12,8 @@ public static partial class TdApi
     public partial class TonWalletTransactionType : Object
     {
         /// <summary>
-        /// A Telegram gift was minted as a TON NFT or was transferred from Telegram to the wallet or back; peer details aren't available for the transaction
+        /// A Telegram gift was minted as a TON NFT directly to the wallet, or a minted gift was linked to or unlinked from a Telegram account.
+        /// Information about the other user isn't available
         /// </summary>
         public class TonWalletTransactionTypeTelegramGiftTransfer : TonWalletTransactionType
         {

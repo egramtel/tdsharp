@@ -29,7 +29,7 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// Identifiers of the users that can't see the story; always unknown and empty for non-owned stories
+            /// Identifiers of the users who can't see the story; always unknown and empty for non-owned stories
             /// </summary>
             [JsonProperty("except_user_ids", ItemConverterType = typeof(Converter))]
             public long[] ExceptUserIds { get; set; }

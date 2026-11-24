@@ -27,7 +27,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Point in time (Unix timestamp) when the preview was added or changed last time
+        /// Point in time (Unix timestamp) when the preview was last added or changed
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("date")]

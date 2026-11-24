@@ -29,7 +29,7 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// Device token from Apple Push Notification service
+            /// Device token from the Apple Push Notification service
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("device_token")]

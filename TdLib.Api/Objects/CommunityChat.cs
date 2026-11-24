@@ -34,7 +34,7 @@ public static partial class TdApi
         public long ChatId { get; set; }
 
         /// <summary>
-        /// True, if message history of the chat can be viewed
+        /// True, if the message history of the chat can be viewed
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("can_view_history")]

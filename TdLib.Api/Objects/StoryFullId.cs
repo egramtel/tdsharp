@@ -10,7 +10,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Contains identifier of a story along with identifier of the chat that posted it
+    /// Contains the identifier of a story along with the identifier of the chat that posted it
     /// </summary>
     public partial class StoryFullId : Object
     {

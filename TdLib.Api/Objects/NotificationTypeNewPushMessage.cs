@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class NotificationType : Object
     {
         /// <summary>
-        /// New message was received through a push notification
+        /// A new message was received through a push notification
         /// </summary>
         public class NotificationTypeNewPushMessage : NotificationType
         {
@@ -29,14 +29,14 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// The message identifier. The message will not be available in the chat history, but the identifier can be used in viewMessages, or as a message to be replied in the same chat
+            /// The message identifier. The message will not be available in the chat history, but the identifier can be used in viewMessages, or as a message to be replied to in the same chat
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("message_id")]
             public long MessageId { get; set; }
 
             /// <summary>
-            /// Identifier of the sender of the message. Corresponding user or chat may be inaccessible
+            /// Identifier of the sender of the message. The corresponding user or chat may be inaccessible
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("sender_id")]

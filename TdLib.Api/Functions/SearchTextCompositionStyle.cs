@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Searches a custom text composition style by its name
+    /// Searches for a custom text composition style by its name
     /// </summary>
     public class SearchTextCompositionStyle : Function<TextCompositionStyle>
     {
@@ -39,7 +39,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Searches a custom text composition style by its name
+    /// Searches for a custom text composition style by its name
     /// </summary>
     public static Task<TextCompositionStyle> SearchTextCompositionStyleAsync(
         this IClient client, string name = default)

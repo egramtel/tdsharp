@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class Update : Object
     {
         /// <summary>
-        /// The list of group call participants that can send and receive encrypted call data has changed; for group calls not bound to a chat only
+        /// The list of group call participants who can send and receive encrypted call data has changed; for group calls not bound to a chat only
         /// </summary>
         public class UpdateGroupCallParticipants : Update
         {

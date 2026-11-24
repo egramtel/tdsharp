@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Changes affiliate program for a bot
+    /// Changes the affiliate program for a bot
     /// </summary>
     public class SetChatAffiliateProgram : Function<Ok>
     {
@@ -31,7 +31,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Identifier of the chat with an owned bot for which affiliate program is changed
+        /// Identifier of the chat with an owned bot for which the affiliate program is changed
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("chat_id")]
@@ -47,7 +47,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Changes affiliate program for a bot
+    /// Changes the affiliate program for a bot
     /// </summary>
     public static Task<Ok> SetChatAffiliateProgramAsync(
         this IClient client, long chatId = default, AffiliateProgramParameters parameters = default)

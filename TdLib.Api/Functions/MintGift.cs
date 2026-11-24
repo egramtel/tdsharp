@@ -11,17 +11,17 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Withdraws an upgraded gift to the TON blockchain as an NFT directly to the TON wallet of the current user, which is created automatically if the user has no wallet yet;
-    /// requires owner privileges for gifts owned by a chat. The user must have a valid temporary password; see createTemporaryPassword.
-    /// The gift will be received by the wallet in a few seconds after the request succeeds
+    /// Mints an upgraded gift as an NFT on the TON blockchain and sends the NFT directly to the TON wallet of the current user, which is created automatically
+    /// if the user has no wallet yet; requires owner privileges for gifts owned by a chat. The user must have a valid temporary password; see createTemporaryPassword.
+    /// Minting is irreversible. The NFT will be received by the wallet in a few seconds after the request succeeds
     /// </summary>
-    public class WithdrawUpgradedGift : Function<Ok>
+    public class MintGift : Function<Ok>
     {
         /// <summary>
         /// Data type for serialization
         /// </summary>
         [JsonProperty("@type")]
-        public override string DataType { get; set; } = "withdrawUpgradedGift";
+        public override string DataType { get; set; } = "mintGift";
 
         /// <summary>
         /// Extra data attached to the function.
@@ -40,7 +40,7 @@ public static partial class TdApi
         public string ReceivedGiftId { get; set; }
 
         /// <summary>
-        /// Pass true to keep the gift displayed on the user's or the chat's profile page after withdrawal
+        /// Pass true to keep the gift displayed on the user's or the chat's profile page after minting
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("keep_on_profile")]
@@ -48,14 +48,14 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Withdraws an upgraded gift to the TON blockchain as an NFT directly to the TON wallet of the current user, which is created automatically if the user has no wallet yet;
-    /// requires owner privileges for gifts owned by a chat. The user must have a valid temporary password; see createTemporaryPassword.
-    /// The gift will be received by the wallet in a few seconds after the request succeeds
+    /// Mints an upgraded gift as an NFT on the TON blockchain and sends the NFT directly to the TON wallet of the current user, which is created automatically
+    /// if the user has no wallet yet; requires owner privileges for gifts owned by a chat. The user must have a valid temporary password; see createTemporaryPassword.
+    /// Minting is irreversible. The NFT will be received by the wallet in a few seconds after the request succeeds
     /// </summary>
-    public static Task<Ok> WithdrawUpgradedGiftAsync(
+    public static Task<Ok> MintGiftAsync(
         this IClient client, string receivedGiftId = default, bool keepOnProfile = default)
     {
-        return client.ExecuteAsync(new WithdrawUpgradedGift
+        return client.ExecuteAsync(new MintGift
         {
             ReceivedGiftId = receivedGiftId, KeepOnProfile = keepOnProfile
         });

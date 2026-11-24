@@ -31,7 +31,8 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Identifier of the channel chat. Pass 0 to remove a link from the supergroup passed in the second argument to a linked channel chat (requires can_pin_messages member right in the supergroup)
+        /// Identifier of the channel chat.
+        /// Pass 0 to remove a link from the supergroup passed in the second argument to a linked channel chat (requires can_pin_messages member right in the supergroup)
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("chat_id")]
@@ -39,7 +40,8 @@ public static partial class TdApi
 
         /// <summary>
         /// Identifier of a new channel's discussion group. Use 0 to remove the discussion group. Use the method getSuitableDiscussionChats to find all suitable groups.
-        /// Basic group chats must be first upgraded to supergroup chats. If new chat members don't have access to old messages in the supergroup, then toggleSupergroupIsAllHistoryAvailable must be used first to change that
+        /// Basic group chats must first be upgraded to supergroup chats.
+        /// If new chat members don't have access to old messages in the supergroup, then toggleSupergroupIsAllHistoryAvailable must be used first to change that
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("discussion_chat_id")]

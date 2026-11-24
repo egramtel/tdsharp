@@ -34,14 +34,14 @@ public static partial class TdApi
         public CountryInfo Country { get; set; }
 
         /// <summary>
-        /// The part of the phone number denoting country calling code or its part
+        /// The part of the phone number denoting the country calling code or a part of it
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("country_calling_code")]
         public string CountryCallingCode { get; set; }
 
         /// <summary>
-        /// The phone number without country calling code formatted accordingly to local rules. Expected digits are returned as '-', but even more digits might be entered by the user
+        /// The phone number without the country calling code formatted according to local rules. Expected digits are returned as '-', but even more digits might be entered by the user
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("formatted_phone_number")]

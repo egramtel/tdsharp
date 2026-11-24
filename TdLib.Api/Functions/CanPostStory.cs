@@ -31,7 +31,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Chat identifier. Pass Saved Messages chat identifier when posting a story on behalf of the current user
+        /// Chat identifier. Pass the Saved Messages chat identifier when posting a story on behalf of the current user
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("chat_id")]

@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Changes the editable username of a supergroup or channel, requires owner privileges in the supergroup or channel
+    /// Changes the editable username of a supergroup or channel; requires owner privileges in the supergroup or channel
     /// </summary>
     public class SetSupergroupUsername : Function<Ok>
     {
@@ -46,7 +46,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Changes the editable username of a supergroup or channel, requires owner privileges in the supergroup or channel
+    /// Changes the editable username of a supergroup or channel; requires owner privileges in the supergroup or channel
     /// </summary>
     public static Task<Ok> SetSupergroupUsernameAsync(
         this IClient client, long supergroupId = default, string username = default)

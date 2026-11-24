@@ -27,7 +27,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// The maximum number of times the gifts can be purchased
+        /// The maximum number of times the gift can be purchased
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("total_count")]

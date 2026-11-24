@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class ButtonStyle : Object
     {
         /// <summary>
-        /// The button has dark blue color
+        /// The button has a dark blue color
         /// </summary>
         public class ButtonStylePrimary : ButtonStyle
         {

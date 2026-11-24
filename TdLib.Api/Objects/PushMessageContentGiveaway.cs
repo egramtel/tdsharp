@@ -29,14 +29,14 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// Number of users who will receive giveaway prizes; 0 for pinned message
+            /// Number of users who will receive giveaway prizes; 0 for a pinned message
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("winner_count")]
             public int WinnerCount { get; set; }
 
             /// <summary>
-            /// Prize of the giveaway; may be null for pinned message
+            /// Prize of the giveaway; may be null for a pinned message
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("prize")]

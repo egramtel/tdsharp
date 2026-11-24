@@ -29,7 +29,7 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// The list of files with theme description
+            /// The list of files with the theme description
             /// </summary>
             [JsonProperty("documents", ItemConverterType = typeof(Converter))]
             public Document[] Documents { get; set; }

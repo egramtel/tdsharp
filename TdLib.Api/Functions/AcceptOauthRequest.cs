@@ -46,14 +46,14 @@ public static partial class TdApi
         public string MatchCode { get; set; }
 
         /// <summary>
-        /// Pass true if the current user allowed the bot that was returned in getOauthLinkInfo, to send them messages
+        /// Pass true if the current user allowed the bot that was returned in getOauthLinkInfo to send them messages
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("allow_write_access")]
         public bool AllowWriteAccess { get; set; }
 
         /// <summary>
-        /// Pass true if the current user allowed the bot that was returned in getOauthLinkInfo, to access their phone number
+        /// Pass true if the current user allowed the bot that was returned in getOauthLinkInfo to access their phone number
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("allow_phone_number_access")]

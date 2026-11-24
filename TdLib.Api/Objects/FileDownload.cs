@@ -10,7 +10,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Describes a file added to file download list
+    /// Describes a file added to the file download list
     /// </summary>
     public partial class FileDownload : Object
     {

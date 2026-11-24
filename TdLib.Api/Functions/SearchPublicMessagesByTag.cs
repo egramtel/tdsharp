@@ -11,7 +11,8 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Searches for public channel posts containing the given hashtag or cashtag. For optimal performance, the number of returned messages is chosen by TDLib and can be smaller than the specified limit
+    /// Searches for public channel posts containing the given hashtag or cashtag.
+    /// For optimal performance, the number of returned messages is chosen by TDLib and can be smaller than the specified limit
     /// </summary>
     public class SearchPublicMessagesByTag : Function<FoundMessages>
     {
@@ -38,7 +39,7 @@ public static partial class TdApi
         public string Tag { get; set; }
 
         /// <summary>
-        /// Offset of the first entry to return as received from the previous request; use empty string to get the first chunk of results
+        /// Offset of the first entry to return as received from the previous request; use an empty string to get the first chunk of results
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("offset")]
@@ -53,7 +54,8 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Searches for public channel posts containing the given hashtag or cashtag. For optimal performance, the number of returned messages is chosen by TDLib and can be smaller than the specified limit
+    /// Searches for public channel posts containing the given hashtag or cashtag.
+    /// For optimal performance, the number of returned messages is chosen by TDLib and can be smaller than the specified limit
     /// </summary>
     public static Task<FoundMessages> SearchPublicMessagesByTagAsync(
         this IClient client, string tag = default, string offset = default, int limit = default)

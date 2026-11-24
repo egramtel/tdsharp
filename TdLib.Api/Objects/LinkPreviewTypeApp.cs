@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class LinkPreviewType : Object
     {
         /// <summary>
-        /// The link is a link to an app at App Store or Google Play
+        /// The link is a link to an app in the App Store or on Google Play
         /// </summary>
         public class LinkPreviewTypeApp : LinkPreviewType
         {

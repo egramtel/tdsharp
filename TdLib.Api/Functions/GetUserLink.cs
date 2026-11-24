@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns an HTTPS link, which can be used to get information about the current user
+    /// Returns an HTTPS link that can be used to get information about the current user
     /// </summary>
     public class GetUserLink : Function<UserLink>
     {
@@ -31,7 +31,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Pass true to get a link, which allows other users to send unpaid messages to the current user. By default, a temporary link is returned in this case
+        /// Pass true to get a link that allows other users to send unpaid messages to the current user. By default, a temporary link is returned in this case
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("remove_messages_fee")]
@@ -45,7 +45,7 @@ public static partial class TdApi
         public bool ReturnPermanentLink { get; set; }
 
         /// <summary>
-        /// Pass true to revoke previously created links, which allow other users to send unpaid messages to the current user;
+        /// Pass true to revoke previously created links that allow other users to send unpaid messages to the current user;
         /// ignored if remove_messages_fee is false. If return_permanent_link is true, then the permanent link is revoked too; otherwise, only temporary links are revoked
         /// </summary>
         [JsonConverter(typeof(Converter))]
@@ -54,7 +54,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns an HTTPS link, which can be used to get information about the current user
+    /// Returns an HTTPS link that can be used to get information about the current user
     /// </summary>
     public static Task<UserLink> GetUserLinkAsync(
         this IClient client, bool removeMessagesFee = default, bool returnPermanentLink = default, bool revokePreviousLinks = default)

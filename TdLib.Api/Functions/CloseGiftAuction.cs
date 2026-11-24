@@ -31,7 +31,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Identifier of the gift, which auction was closed
+        /// Identifier of the gift whose auction was closed
         /// </summary>
         [JsonConverter(typeof(Converter.Int64))]
         [JsonProperty("gift_id")]

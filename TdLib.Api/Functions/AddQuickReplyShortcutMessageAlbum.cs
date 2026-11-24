@@ -11,8 +11,8 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Adds 2-10 messages grouped together into an album to a quick reply shortcut. Currently, only audio, document, photo and video messages can be grouped into an album.
-    /// Documents and audio files can be only grouped in an album with messages of the same type. Returns sent messages
+    /// Adds 2-10 messages grouped together into an album to a quick reply shortcut. Currently, only audio, document, photo, and video messages can be grouped into an album.
+    /// Documents and audio files can only be grouped in an album with messages of the same type. Returns the sent messages
     /// </summary>
     public class AddQuickReplyShortcutMessageAlbum : Function<QuickReplyMessages>
     {
@@ -39,7 +39,7 @@ public static partial class TdApi
         public string ShortcutName { get; set; }
 
         /// <summary>
-        /// Identifier of a quick reply message in the same shortcut to be replied; pass 0 if none
+        /// Identifier of a quick reply message in the same shortcut to be replied to; pass 0 if none
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("reply_to_message_id")]
@@ -53,8 +53,8 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Adds 2-10 messages grouped together into an album to a quick reply shortcut. Currently, only audio, document, photo and video messages can be grouped into an album.
-    /// Documents and audio files can be only grouped in an album with messages of the same type. Returns sent messages
+    /// Adds 2-10 messages grouped together into an album to a quick reply shortcut. Currently, only audio, document, photo, and video messages can be grouped into an album.
+    /// Documents and audio files can only be grouped in an album with messages of the same type. Returns the sent messages
     /// </summary>
     public static Task<QuickReplyMessages> AddQuickReplyShortcutMessageAlbumAsync(
         this IClient client, string shortcutName = default, long replyToMessageId = default, InputMessageContent[] inputMessageContents = default)

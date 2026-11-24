@@ -27,14 +27,14 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Number of left gasless transfers. The daily available number of gasless transfers is available as getOption("ton_wallet_gasless_transfer_daily_count_max")
+        /// Number of remaining gasless transfers. The daily available number of gasless transfers is available as getOption("ton_wallet_gasless_transfer_daily_count_max")
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("left_count")]
         public int LeftCount { get; set; }
 
         /// <summary>
-        /// Point in time (Unix timestamp) when the number of left transfers will be reset; 0 if never
+        /// Point in time (Unix timestamp) when the number of remaining transfers will be reset; 0 if never
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("reset_date")]

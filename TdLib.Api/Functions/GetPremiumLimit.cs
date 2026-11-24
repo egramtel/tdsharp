@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns information about a limit, increased for Premium users. Returns a 404 error if the limit is unknown
+    /// Returns information about a limit increased for Premium users. Returns a 404 error if the limit is unknown
     /// </summary>
     public class GetPremiumLimit : Function<PremiumLimit>
     {
@@ -39,7 +39,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns information about a limit, increased for Premium users. Returns a 404 error if the limit is unknown
+    /// Returns information about a limit increased for Premium users. Returns a 404 error if the limit is unknown
     /// </summary>
     public static Task<PremiumLimit> GetPremiumLimitAsync(
         this IClient client, PremiumLimitType limitType = default)

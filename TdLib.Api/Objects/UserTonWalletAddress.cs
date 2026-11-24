@@ -34,7 +34,7 @@ public static partial class TdApi
         public long UserId { get; set; }
 
         /// <summary>
-        /// Address of the user's wallet in the TON blockchain
+        /// Address of the user's wallet on the TON blockchain
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("wallet_address")]

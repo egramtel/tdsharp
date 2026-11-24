@@ -76,7 +76,7 @@ public static partial class TdApi
             public bool CanSaveCredentials { get; set; }
 
             /// <summary>
-            /// True, if the user will be able to save credentials, if sets up a 2-step verification password
+            /// True, if the user will be able to save credentials if they set up a 2-step verification password
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("need_password")]

@@ -11,7 +11,8 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Sets the background in a specific chat. Supported only in private and secret chats with non-deleted users, and in chats with sufficient boost level and can_change_info administrator right
+    /// Sets the background in a specific chat.
+    /// Supported only in private and secret chats with non-deleted users, and in chats with a sufficient boost level and can_change_info administrator right
     /// </summary>
     public class SetChatBackground : Function<Ok>
     {
@@ -45,7 +46,7 @@ public static partial class TdApi
         public InputBackground Background { get; set; }
 
         /// <summary>
-        /// Background type; pass null to use default background type for the chosen background; backgroundTypeChatTheme isn't supported for private and secret chats.
+        /// Background type; pass null to use the default background type for the chosen background; backgroundTypeChatTheme isn't supported for private and secret chats.
         /// Use chatBoostLevelFeatures.chat_theme_background_count and chatBoostLevelFeatures.can_set_custom_background to check whether the background type can be set in the boosted chat
         /// </summary>
         [JsonConverter(typeof(Converter))]
@@ -60,8 +61,8 @@ public static partial class TdApi
         public int DarkThemeDimming { get; set; }
 
         /// <summary>
-        /// Pass true to set background only for self; pass false to set background for all chat users. Always false for backgrounds set in boosted chats.
-        /// Background can be set for both users only by Telegram Premium users and if set background isn't of the type inputBackgroundPrevious
+        /// Pass true to set the background only for self; pass false to set the background for all chat users. Always false for backgrounds set in boosted chats.
+        /// The background can be set for both users only by Telegram Premium users and if the set background isn't of the type inputBackgroundPrevious
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("only_for_self")]
@@ -69,7 +70,8 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Sets the background in a specific chat. Supported only in private and secret chats with non-deleted users, and in chats with sufficient boost level and can_change_info administrator right
+    /// Sets the background in a specific chat.
+    /// Supported only in private and secret chats with non-deleted users, and in chats with a sufficient boost level and can_change_info administrator right
     /// </summary>
     public static Task<Ok> SetChatBackgroundAsync(
         this IClient client, long chatId = default, InputBackground background = default, BackgroundType type = default, int darkThemeDimming = default, bool onlyForSelf = default)

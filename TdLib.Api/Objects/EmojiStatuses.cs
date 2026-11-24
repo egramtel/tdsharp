@@ -27,7 +27,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// The list of emoji statuses identifiers
+        /// The list of emoji status identifiers
         /// </summary>
         [JsonProperty("emoji_statuses", ItemConverterType = typeof(Converter))]
         public EmojiStatus[] EmojiStatuses_ { get; set; }

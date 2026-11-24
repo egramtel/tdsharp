@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class TextEntityType : Object
     {
         /// <summary>
-        /// Text that must be formatted as if inside pre, and code HTML tags
+        /// Text that must be formatted as if inside pre and code HTML tags
         /// </summary>
         public class TextEntityTypePreCode : TextEntityType
         {

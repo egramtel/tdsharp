@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class ChatPhotoStickerType : Object
     {
         /// <summary>
-        /// Describes type of sticker, which was used to create a chat photo
+        /// Describes type of sticker that was used to create a chat photo
         /// </summary>
         public class ChatPhotoStickerTypeRegularOrMask : ChatPhotoStickerType
         {

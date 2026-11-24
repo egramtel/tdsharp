@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class LinkPreviewType : Object
     {
         /// <summary>
-        /// The link is a link to a story. Link preview description is unavailable
+        /// The link is a link to a story. The link preview description is unavailable
         /// </summary>
         public class LinkPreviewTypeStory : LinkPreviewType
         {

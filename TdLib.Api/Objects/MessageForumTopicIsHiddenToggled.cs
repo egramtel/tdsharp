@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class MessageContent : Object
     {
         /// <summary>
-        /// A General forum topic has been hidden or unhidden
+        /// The General forum topic has been hidden or unhidden
         /// </summary>
         public class MessageForumTopicIsHiddenToggled : MessageContent
         {

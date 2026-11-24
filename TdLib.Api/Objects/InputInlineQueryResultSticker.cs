@@ -43,7 +43,7 @@ public static partial class TdApi
             public string ThumbnailUrl { get; set; }
 
             /// <summary>
-            /// The URL of the WEBP, TGS, or WEBM sticker (sticker file size must not exceed 5MB)
+            /// The URL of the WEBP, TGS, or WEBM sticker (sticker file size must not exceed 5 MB)
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("sticker_url")]
@@ -64,7 +64,7 @@ public static partial class TdApi
             public int StickerHeight { get; set; }
 
             /// <summary>
-            /// The message reply markup; pass null if none. Must be of type replyMarkupInlineKeyboard or null
+            /// The message reply markup; pass null if none. Must be of the type replyMarkupInlineKeyboard or null
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("reply_markup")]

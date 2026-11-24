@@ -11,15 +11,15 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns information about a non-bundled message that is replied by a given message. Also, returns the pinned message for messagePinMessage,
+    /// Returns information about a non-bundled message that is replied to by a given message. Also returns the pinned message for messagePinMessage,
     /// the game message for messageGameScore, the invoice message for messagePaymentSuccessful, the message with a previously set same background for messageChatSetBackground,
-    /// the giveaway message for messageGiveawayCompleted, the checklist message for messageChecklistTasksDone, messageChecklistTasksAdded, the message with suggested post information
-    /// for messageSuggestedPostApprovalFailed, messageSuggestedPostApproved, messageSuggestedPostDeclined, messageSuggestedPostPaid, messageSuggestedPostRefunded,
+    /// the giveaway message for messageGiveawayCompleted, the checklist message for messageChecklistTasksDone and messageChecklistTasksAdded, the message with suggested post information
+    /// for messageSuggestedPostApprovalFailed, messageSuggestedPostApproved, messageSuggestedPostDeclined, messageSuggestedPostPaid, and messageSuggestedPostRefunded,
     /// the message with the regular gift that was upgraded for messageUpgradedGift with origin of the type upgradedGiftOriginUpgrade,
-    /// the message with gift purchase offer for messageUpgradedGiftPurchaseOfferRejected,
+    /// the message with the gift purchase offer for messageUpgradedGiftPurchaseOfferRejected and messageUpgradedGiftOnChainPurchaseOffer,
     /// the message with the request to disable content protection for messageChatHasProtectedContentToggled,
     /// the message with the poll for messagePollOptionAdded and messagePollOptionDeleted,
-    /// and the topic creation message for topic messages without non-bundled replied message. Returns a 404 error if the message doesn't exist
+    /// and the topic creation message for topic messages without a non-bundled replied-to message. Returns a 404 error if the message doesn't exist
     /// </summary>
     public class GetRepliedMessage : Function<Message>
     {
@@ -54,15 +54,15 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns information about a non-bundled message that is replied by a given message. Also, returns the pinned message for messagePinMessage,
+    /// Returns information about a non-bundled message that is replied to by a given message. Also returns the pinned message for messagePinMessage,
     /// the game message for messageGameScore, the invoice message for messagePaymentSuccessful, the message with a previously set same background for messageChatSetBackground,
-    /// the giveaway message for messageGiveawayCompleted, the checklist message for messageChecklistTasksDone, messageChecklistTasksAdded, the message with suggested post information
-    /// for messageSuggestedPostApprovalFailed, messageSuggestedPostApproved, messageSuggestedPostDeclined, messageSuggestedPostPaid, messageSuggestedPostRefunded,
+    /// the giveaway message for messageGiveawayCompleted, the checklist message for messageChecklistTasksDone and messageChecklistTasksAdded, the message with suggested post information
+    /// for messageSuggestedPostApprovalFailed, messageSuggestedPostApproved, messageSuggestedPostDeclined, messageSuggestedPostPaid, and messageSuggestedPostRefunded,
     /// the message with the regular gift that was upgraded for messageUpgradedGift with origin of the type upgradedGiftOriginUpgrade,
-    /// the message with gift purchase offer for messageUpgradedGiftPurchaseOfferRejected,
+    /// the message with the gift purchase offer for messageUpgradedGiftPurchaseOfferRejected and messageUpgradedGiftOnChainPurchaseOffer,
     /// the message with the request to disable content protection for messageChatHasProtectedContentToggled,
     /// the message with the poll for messagePollOptionAdded and messagePollOptionDeleted,
-    /// and the topic creation message for topic messages without non-bundled replied message. Returns a 404 error if the message doesn't exist
+    /// and the topic creation message for topic messages without a non-bundled replied-to message. Returns a 404 error if the message doesn't exist
     /// </summary>
     public static Task<Message> GetRepliedMessageAsync(
         this IClient client, long chatId = default, long messageId = default)

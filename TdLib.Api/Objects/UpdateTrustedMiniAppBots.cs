@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class Update : Object
     {
         /// <summary>
-        /// Lists of bots which Mini Apps must be allowed to read text from clipboard and must be opened without a warning
+        /// Lists of bots whose Mini Apps must be allowed to read text from the clipboard and must be opened without a warning
         /// </summary>
         public class UpdateTrustedMiniAppBots : Update
         {

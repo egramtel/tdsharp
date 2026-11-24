@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class InviteGroupCallParticipantResult : Object
     {
         /// <summary>
-        /// The user was invited and a service message of the type messageGroupCall was sent which can be used in declineGroupCallInvitation to cancel the invitation
+        /// The user was invited and a service message of the type messageGroupCall was sent; the message can be used in declineGroupCallInvitation to cancel the invitation
         /// </summary>
         public class InviteGroupCallParticipantResultSuccess : InviteGroupCallParticipantResult
         {

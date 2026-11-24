@@ -12,7 +12,7 @@ public static partial class TdApi
 {
     /// <summary>
     /// Sends an upgraded gift that is available for resale to another user or channel chat; gifts already owned by the current user
-    /// must be transferred using transferGift and can't be passed to the method
+    /// must be transferred using transferGift and can't be passed to the method. Gifts for which upgradedGift.uses_on_chain_resale is true must be bought using getGiftOnChainPurchaseTransaction
     /// </summary>
     public class SendResoldGift : Function<GiftResaleResult>
     {
@@ -61,7 +61,7 @@ public static partial class TdApi
         public FormattedText Text { get; set; }
 
         /// <summary>
-        /// Pass true to show gift text and sender only to the gift receiver; otherwise, everyone will be able to see them
+        /// Pass true to show the gift text and sender only to the gift receiver; otherwise, everyone will be able to see them
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("is_private")]
@@ -70,7 +70,7 @@ public static partial class TdApi
 
     /// <summary>
     /// Sends an upgraded gift that is available for resale to another user or channel chat; gifts already owned by the current user
-    /// must be transferred using transferGift and can't be passed to the method
+    /// must be transferred using transferGift and can't be passed to the method. Gifts for which upgradedGift.uses_on_chain_resale is true must be bought using getGiftOnChainPurchaseTransaction
     /// </summary>
     public static Task<GiftResaleResult> SendResoldGiftAsync(
         this IClient client, string giftName = default, MessageSender ownerId = default, GiftResalePrice price = default, FormattedText text = default, bool isPrivate = default)

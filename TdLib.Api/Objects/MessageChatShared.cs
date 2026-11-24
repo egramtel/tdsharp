@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class MessageContent : Object
     {
         /// <summary>
-        /// The current user shared a chat, which was requested by the bot
+        /// The current user shared a chat that was requested by the bot
         /// </summary>
         public class MessageChatShared : MessageContent
         {

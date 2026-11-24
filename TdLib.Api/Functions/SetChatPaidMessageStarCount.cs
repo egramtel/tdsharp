@@ -11,7 +11,8 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Changes the Telegram Star amount that must be paid to send a message to a supergroup chat; requires can_restrict_members administrator right and supergroupFullInfo.can_enable_paid_messages
+    /// Changes the Telegram Star amount that must be paid to send a message to a supergroup chat;
+    /// requires can_restrict_members administrator right and supergroupFullInfo.can_enable_paid_messages
     /// </summary>
     public class SetChatPaidMessageStarCount : Function<Ok>
     {
@@ -38,7 +39,8 @@ public static partial class TdApi
         public long ChatId { get; set; }
 
         /// <summary>
-        /// The new number of Telegram Stars that must be paid for each message that is sent to the supergroup chat unless the sender is an administrator of the chat; 0-getOption("paid_message_star_count_max").
+        /// The new number of Telegram Stars that must be paid for each message that is sent to the supergroup chat
+        /// unless the sender is an administrator of the chat; 0-getOption("paid_message_star_count_max").
         /// The supergroup will receive getOption("paid_message_earnings_per_mille") Telegram Stars for each 1000 Telegram Stars paid for message sending
         /// </summary>
         [JsonConverter(typeof(Converter))]
@@ -47,7 +49,8 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Changes the Telegram Star amount that must be paid to send a message to a supergroup chat; requires can_restrict_members administrator right and supergroupFullInfo.can_enable_paid_messages
+    /// Changes the Telegram Star amount that must be paid to send a message to a supergroup chat;
+    /// requires can_restrict_members administrator right and supergroupFullInfo.can_enable_paid_messages
     /// </summary>
     public static Task<Ok> SetChatPaidMessageStarCountAsync(
         this IClient client, long chatId = default, long paidMessageStarCount = default)

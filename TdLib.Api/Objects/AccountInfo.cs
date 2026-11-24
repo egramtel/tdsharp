@@ -48,14 +48,14 @@ public static partial class TdApi
         public string PhoneNumberCountryCode { get; set; }
 
         /// <summary>
-        /// Point in time (Unix timestamp) when the user changed name last time; 0 if unknown
+        /// Point in time (Unix timestamp) when the user last changed their name; 0 if unknown
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("last_name_change_date")]
         public int LastNameChangeDate { get; set; }
 
         /// <summary>
-        /// Point in time (Unix timestamp) when the user changed photo last time; 0 if unknown
+        /// Point in time (Unix timestamp) when the user last changed their photo; 0 if unknown
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("last_photo_change_date")]

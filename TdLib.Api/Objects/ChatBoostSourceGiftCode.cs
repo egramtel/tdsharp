@@ -29,7 +29,7 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// Identifier of a user, for which the gift code was created
+            /// Identifier of a user for whom the gift code was created
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("user_id")]

@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Changes information about a chat. Available for basic groups, supergroups, and channels. Requires can_change_info member right
+    /// Changes information about a chat. Available in basic groups, supergroups, and channels. Requires can_change_info member right
     /// </summary>
     public class SetChatDescription : Function<Ok>
     {
@@ -46,7 +46,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Changes information about a chat. Available for basic groups, supergroups, and channels. Requires can_change_info member right
+    /// Changes information about a chat. Available in basic groups, supergroups, and channels. Requires can_change_info member right
     /// </summary>
     public static Task<Ok> SetChatDescriptionAsync(
         this IClient client, long chatId = default, string description = default)

@@ -11,8 +11,8 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Preliminarily uploads a file to the cloud before sending it in a message, which can be useful for uploading of being recorded voice and video notes.
-    /// In all other cases there is no need to preliminary upload a file. Updates updateFile will be used to notify about upload progress.
+    /// Preliminarily uploads a file to the cloud before sending it in a message, which can be useful for uploading voice and video notes that are being recorded.
+    /// In all other cases, there is no need to upload a file in advance. Updates updateFile will be used to notify about upload progress.
     /// The upload will not be completed until the file is sent in a message
     /// </summary>
     public class PreliminaryUploadFile : Function<File>
@@ -47,7 +47,8 @@ public static partial class TdApi
         public FileType FileType { get; set; }
 
         /// <summary>
-        /// Priority of the upload (1-32). The higher the priority, the earlier the file will be uploaded. If the priorities of two files are equal, then the first one for which preliminaryUploadFile was called will be uploaded first
+        /// Priority of the upload (1-32). The higher the priority, the earlier the file will be uploaded.
+        /// If the priorities of two files are equal, then the first one for which preliminaryUploadFile was called will be uploaded first
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("priority")]
@@ -55,8 +56,8 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Preliminarily uploads a file to the cloud before sending it in a message, which can be useful for uploading of being recorded voice and video notes.
-    /// In all other cases there is no need to preliminary upload a file. Updates updateFile will be used to notify about upload progress.
+    /// Preliminarily uploads a file to the cloud before sending it in a message, which can be useful for uploading voice and video notes that are being recorded.
+    /// In all other cases, there is no need to upload a file in advance. Updates updateFile will be used to notify about upload progress.
     /// The upload will not be completed until the file is sent in a message
     /// </summary>
     public static Task<File> PreliminaryUploadFileAsync(

@@ -11,8 +11,8 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Checks a match-code for an OAuth authorization request. If fails, then the authorization request has failed. Otherwise,
-    /// authorization confirmation dialog must be shown and the link must be processed using acceptOauthRequest or declineOauthRequest
+    /// Checks a match-code for an OAuth authorization request. If it fails, then the authorization request has failed. Otherwise,
+    /// an authorization confirmation dialog must be shown and the link must be processed using acceptOauthRequest or declineOauthRequest
     /// </summary>
     public class CheckOauthRequestMatchCode : Function<Ok>
     {
@@ -47,8 +47,8 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Checks a match-code for an OAuth authorization request. If fails, then the authorization request has failed. Otherwise,
-    /// authorization confirmation dialog must be shown and the link must be processed using acceptOauthRequest or declineOauthRequest
+    /// Checks a match-code for an OAuth authorization request. If it fails, then the authorization request has failed. Otherwise,
+    /// an authorization confirmation dialog must be shown and the link must be processed using acceptOauthRequest or declineOauthRequest
     /// </summary>
     public static Task<Ok> CheckOauthRequestMatchCodeAsync(
         this IClient client, string url = default, string matchCode = default)

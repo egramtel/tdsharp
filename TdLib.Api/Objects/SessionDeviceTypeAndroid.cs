@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class SessionDeviceType : Object
     {
         /// <summary>
-        /// Represents the type of device from which session was created
+        /// Represents the type of device from which the session was created
         /// </summary>
         public class SessionDeviceTypeAndroid : SessionDeviceType
         {

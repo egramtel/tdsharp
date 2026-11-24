@@ -12,7 +12,8 @@ public static partial class TdApi
     public partial class NotificationGroupType : Object
     {
         /// <summary>
-        /// A group containing notifications of type notificationTypeNewMessage and notificationTypeNewPushMessage with unread mentions of the current user, replies to their messages, or a pinned message
+        /// A group containing notifications of the types notificationTypeNewMessage and notificationTypeNewPushMessage with unread mentions of the current user,
+        /// replies to their messages, or a pinned message
         /// </summary>
         public class NotificationGroupTypeMentions : NotificationGroupType
         {

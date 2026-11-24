@@ -10,7 +10,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Contains statistics about number of new members invited by a user
+    /// Contains statistics about the number of new members invited by a user
     /// </summary>
     public partial class ChatStatisticsInviterInfo : Object
     {

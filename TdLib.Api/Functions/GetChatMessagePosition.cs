@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns approximate 1-based position of a message among messages, which can be found by the specified filter in the chat and topic. Cannot be used in secret chats
+    /// Returns the approximate 1-based position of a message among messages that can be found by the specified filter in the chat and topic. Cannot be used in secret chats
     /// </summary>
     public class GetChatMessagePosition : Function<Count>
     {
@@ -31,14 +31,14 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Identifier of the chat in which to find message position
+        /// Identifier of the chat in which to find the message position
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("chat_id")]
         public long ChatId { get; set; }
 
         /// <summary>
-        /// Pass topic identifier to get position among messages only in specific topic; pass null to get position among all chat messages; message threads aren't supported
+        /// Pass a topic identifier to get the position among messages only in a specific topic; pass null to get the position among all chat messages; message threads aren't supported
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("topic_id")]
@@ -61,7 +61,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns approximate 1-based position of a message among messages, which can be found by the specified filter in the chat and topic. Cannot be used in secret chats
+    /// Returns the approximate 1-based position of a message among messages that can be found by the specified filter in the chat and topic. Cannot be used in secret chats
     /// </summary>
     public static Task<Count> GetChatMessagePositionAsync(
         this IClient client, long chatId = default, MessageTopic topicId = default, SearchMessagesFilter filter = default, long messageId = default)

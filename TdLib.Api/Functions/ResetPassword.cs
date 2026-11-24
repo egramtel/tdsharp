@@ -11,7 +11,8 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Removes 2-step verification password without previous password and access to recovery email address. The password can't be reset immediately and the request needs to be repeated after the specified time
+    /// Removes the 2-step verification password without the previous password and access to the recovery email address.
+    /// The password can't be reset immediately and the request needs to be repeated after the specified time
     /// </summary>
     public class ResetPassword : Function<ResetPasswordResult>
     {
@@ -34,7 +35,8 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Removes 2-step verification password without previous password and access to recovery email address. The password can't be reset immediately and the request needs to be repeated after the specified time
+    /// Removes the 2-step verification password without the previous password and access to the recovery email address.
+    /// The password can't be reset immediately and the request needs to be repeated after the specified time
     /// </summary>
     public static Task<ResetPasswordResult> ResetPasswordAsync(
         this IClient client)

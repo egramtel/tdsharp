@@ -11,7 +11,8 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Reports a false deletion of a message by aggressive anti-spam checks; requires administrator rights in the supergroup. Can be called only for messages from chatEventMessageDeleted with can_report_anti_spam_false_positive == true
+    /// Reports a false deletion of a message by aggressive anti-spam checks; requires administrator rights in the supergroup.
+    /// Can be called only for messages from chatEventMessageDeleted with can_report_anti_spam_false_positive == true
     /// </summary>
     public class ReportSupergroupAntiSpamFalsePositive : Function<Ok>
     {
@@ -46,7 +47,8 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Reports a false deletion of a message by aggressive anti-spam checks; requires administrator rights in the supergroup. Can be called only for messages from chatEventMessageDeleted with can_report_anti_spam_false_positive == true
+    /// Reports a false deletion of a message by aggressive anti-spam checks; requires administrator rights in the supergroup.
+    /// Can be called only for messages from chatEventMessageDeleted with can_report_anti_spam_false_positive == true
     /// </summary>
     public static Task<Ok> ReportSupergroupAntiSpamFalsePositiveAsync(
         this IClient client, long supergroupId = default, long messageId = default)

@@ -11,7 +11,8 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Changes the pinned state of a Saved Messages topic. There can be up to getOption("pinned_saved_messages_topic_count_max") pinned topics. The limit can be increased with Telegram Premium
+    /// Changes the pinned state of a Saved Messages topic. There can be up to getOption("pinned_saved_messages_topic_count_max") pinned topics.
+    /// The limit can be increased with Telegram Premium
     /// </summary>
     public class ToggleSavedMessagesTopicIsPinned : Function<Ok>
     {
@@ -31,7 +32,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Identifier of Saved Messages topic to pin or unpin
+        /// Identifier of the Saved Messages topic to pin or unpin
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("saved_messages_topic_id")]
@@ -46,7 +47,8 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Changes the pinned state of a Saved Messages topic. There can be up to getOption("pinned_saved_messages_topic_count_max") pinned topics. The limit can be increased with Telegram Premium
+    /// Changes the pinned state of a Saved Messages topic. There can be up to getOption("pinned_saved_messages_topic_count_max") pinned topics.
+    /// The limit can be increased with Telegram Premium
     /// </summary>
     public static Task<Ok> ToggleSavedMessagesTopicIsPinnedAsync(
         this IClient client, long savedMessagesTopicId = default, bool isPinned = default)

@@ -14,7 +14,7 @@ public static partial class TdApi
         /// <summary>
         /// The link is a link to a chat by its username. Call searchPublicChat with the given chat username to process the link.
         /// If the chat is found, open its profile information screen or the chat itself.
-        /// If draft text isn't empty and the chat is a private chat with a regular user, then put the draft text in the input field
+        /// If the draft text isn't empty and the chat is a private chat with a regular user, then put the draft text in the input field
         /// </summary>
         public class InternalLinkTypePublicChat : InternalLinkType
         {
@@ -38,21 +38,21 @@ public static partial class TdApi
             public string ChatUsername { get; set; }
 
             /// <summary>
-            /// Draft text for message to send in the chat
+            /// Draft text for the message to send in the chat
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("draft_text")]
             public string DraftText { get; set; }
 
             /// <summary>
-            /// True, if chat profile information screen must be opened; otherwise, the chat itself must be opened
+            /// True, if the chat profile information screen must be opened; otherwise, the chat itself must be opened
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("open_profile")]
             public bool OpenProfile { get; set; }
 
             /// <summary>
-            /// Token, which allows the current user to send unpaid messages; may be empty if none.
+            /// Token that allows the current user to send unpaid messages; may be empty if none.
             /// If the token isn't empty and the chat is a private chat with a regular user, then call applyUnpaidMessagesToken with the user and the token
             /// </summary>
             [JsonConverter(typeof(Converter))]

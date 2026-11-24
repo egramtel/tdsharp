@@ -12,7 +12,7 @@ public static partial class TdApi
 {
     /// <summary>
     /// Changes imported contacts using the list of contacts saved on the device. Imports newly added contacts and, if at least the file database is enabled, deletes recently deleted contacts.
-    /// Query result depends on the result of the previous query, so only one query is possible at the same time
+    /// The query result depends on the result of the previous query, so only one query is possible at the same time
     /// </summary>
     public class ChangeImportedContacts : Function<ImportedContacts>
     {
@@ -40,7 +40,7 @@ public static partial class TdApi
 
     /// <summary>
     /// Changes imported contacts using the list of contacts saved on the device. Imports newly added contacts and, if at least the file database is enabled, deletes recently deleted contacts.
-    /// Query result depends on the result of the previous query, so only one query is possible at the same time
+    /// The query result depends on the result of the previous query, so only one query is possible at the same time
     /// </summary>
     public static Task<ImportedContacts> ChangeImportedContactsAsync(
         this IClient client, ImportedContact[] contacts = default)

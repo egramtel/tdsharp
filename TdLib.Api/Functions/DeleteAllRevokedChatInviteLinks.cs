@@ -11,7 +11,8 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Deletes all revoked chat invite links created by a given chat administrator. Requires administrator privileges and can_invite_users right in the chat for own links and owner privileges for other links
+    /// Deletes all revoked chat invite links created by a given chat administrator.
+    /// Requires administrator privileges and can_invite_users right in the chat for own links and owner privileges for other links
     /// </summary>
     public class DeleteAllRevokedChatInviteLinks : Function<Ok>
     {
@@ -38,7 +39,7 @@ public static partial class TdApi
         public long ChatId { get; set; }
 
         /// <summary>
-        /// User identifier of a chat administrator, which links will be deleted. Must be an identifier of the current user for non-owner
+        /// User identifier of a chat administrator whose links will be deleted. Must be an identifier of the current user for non-owners
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("creator_user_id")]
@@ -46,7 +47,8 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Deletes all revoked chat invite links created by a given chat administrator. Requires administrator privileges and can_invite_users right in the chat for own links and owner privileges for other links
+    /// Deletes all revoked chat invite links created by a given chat administrator.
+    /// Requires administrator privileges and can_invite_users right in the chat for own links and owner privileges for other links
     /// </summary>
     public static Task<Ok> DeleteAllRevokedChatInviteLinksAsync(
         this IClient client, long chatId = default, long creatorUserId = default)

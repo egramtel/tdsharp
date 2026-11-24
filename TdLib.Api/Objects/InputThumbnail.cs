@@ -34,14 +34,14 @@ public static partial class TdApi
         public InputFile Thumbnail { get; set; }
 
         /// <summary>
-        /// Thumbnail width, usually shouldn't exceed 320. Use 0 if unknown
+        /// Thumbnail width; usually shouldn't exceed 320. Use 0 if unknown
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("width")]
         public int Width { get; set; }
 
         /// <summary>
-        /// Thumbnail height, usually shouldn't exceed 320. Use 0 if unknown
+        /// Thumbnail height; usually shouldn't exceed 320. Use 0 if unknown
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("height")]

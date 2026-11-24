@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Adds a custom server language pack to the list of installed language packs in current localization target. Can be called before authorization
+    /// Adds a custom server language pack to the list of installed language packs in the current localization target. Can be called before authorization
     /// </summary>
     public class AddCustomServerLanguagePack : Function<Ok>
     {
@@ -39,7 +39,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Adds a custom server language pack to the list of installed language packs in current localization target. Can be called before authorization
+    /// Adds a custom server language pack to the list of installed language packs in the current localization target. Can be called before authorization
     /// </summary>
     public static Task<Ok> AddCustomServerLanguagePackAsync(
         this IClient client, string languagePackId = default)

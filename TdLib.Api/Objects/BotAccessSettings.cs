@@ -10,7 +10,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Describes users that have access to a bot
+    /// Describes users who have access to a bot
     /// </summary>
     public partial class BotAccessSettings : Object
     {
@@ -34,7 +34,7 @@ public static partial class TdApi
         public bool IsRestricted { get; set; }
 
         /// <summary>
-        /// Identifiers of the users who can use the bot additionally to the owner of the bot
+        /// Identifiers of the users who can use the bot in addition to the owner of the bot
         /// </summary>
         [JsonProperty("added_user_ids", ItemConverterType = typeof(Converter))]
         public long[] AddedUserIds { get; set; }

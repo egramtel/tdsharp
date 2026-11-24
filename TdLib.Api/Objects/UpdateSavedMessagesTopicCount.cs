@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class Update : Object
     {
         /// <summary>
-        /// Number of Saved Messages topics has changed
+        /// The number of Saved Messages topics has changed
         /// </summary>
         public class UpdateSavedMessagesTopicCount : Update
         {

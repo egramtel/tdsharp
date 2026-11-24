@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Sends a simple network request to the Telegram servers via proxy; for testing only. Can be called before authorization
+    /// Sends a simple network request to the Telegram servers via a proxy; for testing only. Can be called before authorization
     /// </summary>
     public class TestProxy : Function<Ok>
     {
@@ -38,7 +38,7 @@ public static partial class TdApi
         public Proxy Proxy { get; set; }
 
         /// <summary>
-        /// Identifier of a datacenter with which to test connection
+        /// Identifier of a datacenter with which to test the connection
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("dc_id")]
@@ -53,7 +53,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Sends a simple network request to the Telegram servers via proxy; for testing only. Can be called before authorization
+    /// Sends a simple network request to the Telegram servers via a proxy; for testing only. Can be called before authorization
     /// </summary>
     public static Task<Ok> TestProxyAsync(
         this IClient client, Proxy proxy = default, int dcId = default, double? timeout = default)

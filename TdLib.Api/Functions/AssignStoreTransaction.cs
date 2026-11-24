@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Informs server about an in-store purchase. For official applications only
+    /// Informs the server about an in-store purchase. For official applications only
     /// </summary>
     public class AssignStoreTransaction : Function<Ok>
     {
@@ -46,7 +46,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Informs server about an in-store purchase. For official applications only
+    /// Informs the server about an in-store purchase. For official applications only
     /// </summary>
     public static Task<Ok> AssignStoreTransactionAsync(
         this IClient client, StoreTransaction transaction = default, StorePaymentPurpose purpose = default)

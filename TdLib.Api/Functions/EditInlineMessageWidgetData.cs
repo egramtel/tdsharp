@@ -52,14 +52,14 @@ public static partial class TdApi
         public string PublicData { get; set; }
 
         /// <summary>
-        /// Pass true to edit data of the widget, which is specific to the chat
+        /// Pass true to edit data of the widget that is specific to the chat
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("edit_chat_data")]
         public bool EditChatData { get; set; }
 
         /// <summary>
-        /// New data of the widget, which is specific to the chat; ignored if edit_chat_data is false
+        /// New data of the widget that is specific to the chat; ignored if edit_chat_data is false
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("chat_data")]

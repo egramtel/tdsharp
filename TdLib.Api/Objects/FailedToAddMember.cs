@@ -34,14 +34,14 @@ public static partial class TdApi
         public long UserId { get; set; }
 
         /// <summary>
-        /// True, if subscription to Telegram Premium would have allowed to add the user to the chat
+        /// True, if a subscription to Telegram Premium would have allowed adding the user to the chat
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("premium_would_allow_invite")]
         public bool PremiumWouldAllowInvite { get; set; }
 
         /// <summary>
-        /// True, if subscription to Telegram Premium is required to send the user chat invite link
+        /// True, if a subscription to Telegram Premium is required to send the user a chat invite link
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("premium_required_to_send_messages")]

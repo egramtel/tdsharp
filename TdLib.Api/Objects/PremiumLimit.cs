@@ -10,7 +10,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Contains information about a limit, increased for Premium users
+    /// Contains information about a limit increased for Premium users
     /// </summary>
     public partial class PremiumLimit : Object
     {

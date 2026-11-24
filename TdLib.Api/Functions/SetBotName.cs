@@ -45,7 +45,7 @@ public static partial class TdApi
         public string LanguageCode { get; set; }
 
         /// <summary>
-        /// New bot's name on the specified language; 0-64 characters; must be non-empty if language code is empty
+        /// New bot's name in the specified language; 0-64 characters; must be non-empty if the language code is empty
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("name")]

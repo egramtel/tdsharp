@@ -11,7 +11,8 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns a string stored in the local database from the specified localization target and language pack by its key. Returns a 404 error if the string is not found. Can be called synchronously
+    /// Returns a string stored in the local database from the specified localization target and language pack by its key.
+    /// Returns a 404 error if the string is not found. Can be called synchronously
     /// </summary>
     public class GetLanguagePackString : Function<LanguagePackStringValue>
     {
@@ -60,7 +61,8 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns a string stored in the local database from the specified localization target and language pack by its key. Returns a 404 error if the string is not found. Can be called synchronously
+    /// Returns a string stored in the local database from the specified localization target and language pack by its key.
+    /// Returns a 404 error if the string is not found. Can be called synchronously
     /// </summary>
     public static Task<LanguagePackStringValue> GetLanguagePackStringAsync(
         this IClient client, string languagePackDatabasePath = default, string localizationTarget = default, string languagePackId = default, string key = default)

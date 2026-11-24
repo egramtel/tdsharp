@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class RevenueWithdrawalState : Object
     {
         /// <summary>
-        /// Withdrawal succeeded
+        /// The withdrawal succeeded
         /// </summary>
         public class RevenueWithdrawalStateSucceeded : RevenueWithdrawalState
         {

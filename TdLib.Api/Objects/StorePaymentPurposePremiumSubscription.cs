@@ -29,14 +29,14 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// Pass true if this is a restore of a Telegram Premium purchase; only for App Store
+            /// Pass true if this is a restore of a Telegram Premium purchase; only for the App Store
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_restore")]
             public bool IsRestore { get; set; }
 
             /// <summary>
-            /// Pass true if this is an upgrade from a monthly subscription to early subscription; only for App Store
+            /// Pass true if this is an upgrade from a monthly subscription to a yearly subscription; only for the App Store
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_upgrade")]

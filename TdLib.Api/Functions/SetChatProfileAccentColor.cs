@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Changes accent color and background custom emoji for profile of a supergroup or channel chat. Requires can_change_info administrator right
+    /// Changes the accent color and background custom emoji for the profile of a supergroup or channel chat. Requires can_change_info administrator right
     /// </summary>
     public class SetChatProfileAccentColor : Function<Ok>
     {
@@ -38,7 +38,7 @@ public static partial class TdApi
         public long ChatId { get; set; }
 
         /// <summary>
-        /// Identifier of the accent color to use for profile; pass -1 if none. The chat must have at least profileAccentColor.min_supergroup_chat_boost_level for supergroups
+        /// Identifier of the accent color to use for the profile; pass -1 if none. The chat must have at least profileAccentColor.min_supergroup_chat_boost_level for supergroups
         /// or profileAccentColor.min_channel_chat_boost_level for channels boost level to pass the corresponding color
         /// </summary>
         [JsonConverter(typeof(Converter))]
@@ -46,7 +46,8 @@ public static partial class TdApi
         public int ProfileAccentColorId { get; set; }
 
         /// <summary>
-        /// Identifier of a custom emoji to be shown on the chat's profile photo background; 0 if none. Use chatBoostLevelFeatures.can_set_profile_background_custom_emoji to check whether a custom emoji can be set
+        /// Identifier of a custom emoji to be shown on the chat's profile photo background; 0 if none.
+        /// Use chatBoostLevelFeatures.can_set_profile_background_custom_emoji to check whether a custom emoji can be set
         /// </summary>
         [JsonConverter(typeof(Converter.Int64))]
         [JsonProperty("profile_background_custom_emoji_id")]
@@ -54,7 +55,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Changes accent color and background custom emoji for profile of a supergroup or channel chat. Requires can_change_info administrator right
+    /// Changes the accent color and background custom emoji for the profile of a supergroup or channel chat. Requires can_change_info administrator right
     /// </summary>
     public static Task<Ok> SetChatProfileAccentColorAsync(
         this IClient client, long chatId = default, int profileAccentColorId = default, long profileBackgroundCustomEmojiId = default)

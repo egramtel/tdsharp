@@ -10,7 +10,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Contains information about features, available to Business user accounts
+    /// Contains information about features available to Business user accounts
     /// </summary>
     public partial class BusinessFeatures : Object
     {

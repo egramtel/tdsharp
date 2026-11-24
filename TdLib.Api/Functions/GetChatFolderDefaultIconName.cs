@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns default icon name for a folder. Can be called synchronously
+    /// Returns the default icon name for a folder. Can be called synchronously
     /// </summary>
     public class GetChatFolderDefaultIconName : Function<ChatFolderIcon>
     {
@@ -39,7 +39,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns default icon name for a folder. Can be called synchronously
+    /// Returns the default icon name for a folder. Can be called synchronously
     /// </summary>
     public static Task<ChatFolderIcon> GetChatFolderDefaultIconNameAsync(
         this IClient client, ChatFolder folder = default)

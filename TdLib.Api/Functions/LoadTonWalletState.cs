@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Loads state of the TON wallet of the current user; can be used only if getOption("can_use_ton_wallet")
+    /// Loads the state of the TON wallet of the current user; can be used only if getOption("can_use_ton_wallet")
     /// </summary>
     public class LoadTonWalletState : Function<Ok>
     {
@@ -34,7 +34,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Loads state of the TON wallet of the current user; can be used only if getOption("can_use_ton_wallet")
+    /// Loads the state of the TON wallet of the current user; can be used only if getOption("can_use_ton_wallet")
     /// </summary>
     public static Task<Ok> LoadTonWalletStateAsync(
         this IClient client)

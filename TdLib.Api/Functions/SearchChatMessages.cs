@@ -11,9 +11,11 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Searches for messages with given words in the chat. Returns the results in reverse chronological order, i.e. in order of decreasing message.id. Cannot be used in secret chats with a non-empty query
-    /// (searchSecretMessages must be used instead), or without an enabled message database. For optimal performance, the number of returned messages is chosen by TDLib and can be smaller than the specified limit.
-    /// A combination of query, sender_id, filter and topic_id search criteria is expected to be supported, only if it is required for Telegram official application implementation
+    /// Searches for messages with given words in the chat. Returns the results in reverse chronological order, i.e., in order of decreasing message.id.
+    /// Cannot be used in secret chats with a non-empty query
+    /// (searchSecretMessages must be used instead), or without an enabled message database.
+    /// For optimal performance, the number of returned messages is chosen by TDLib and can be smaller than the specified limit.
+    /// A combination of query, sender_id, filter, and topic_id search criteria is expected to be supported only if it is required for the official Telegram application implementation
     /// </summary>
     public class SearchChatMessages : Function<FoundChatMessages>
     {
@@ -40,7 +42,7 @@ public static partial class TdApi
         public long ChatId { get; set; }
 
         /// <summary>
-        /// Pass topic identifier to search messages only in specific topic; pass null to search for messages in all topics
+        /// Pass a topic identifier to search messages only in a specific topic; pass null to search for messages in all topics
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("topic_id")]
@@ -91,9 +93,11 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Searches for messages with given words in the chat. Returns the results in reverse chronological order, i.e. in order of decreasing message.id. Cannot be used in secret chats with a non-empty query
-    /// (searchSecretMessages must be used instead), or without an enabled message database. For optimal performance, the number of returned messages is chosen by TDLib and can be smaller than the specified limit.
-    /// A combination of query, sender_id, filter and topic_id search criteria is expected to be supported, only if it is required for Telegram official application implementation
+    /// Searches for messages with given words in the chat. Returns the results in reverse chronological order, i.e., in order of decreasing message.id.
+    /// Cannot be used in secret chats with a non-empty query
+    /// (searchSecretMessages must be used instead), or without an enabled message database.
+    /// For optimal performance, the number of returned messages is chosen by TDLib and can be smaller than the specified limit.
+    /// A combination of query, sender_id, filter, and topic_id search criteria is expected to be supported only if it is required for the official Telegram application implementation
     /// </summary>
     public static Task<FoundChatMessages> SearchChatMessagesAsync(
         this IClient client, long chatId = default, MessageTopic topicId = default, string query = default, MessageSender senderId = default, long fromMessageId = default, int offset = default, int limit = default, SearchMessagesFilter filter = default)

@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Informs TDLib on a file generation progress
+    /// Informs TDLib about file generation progress
     /// </summary>
     public class SetFileGenerationProgress : Function<Ok>
     {
@@ -53,7 +53,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Informs TDLib on a file generation progress
+    /// Informs TDLib about file generation progress
     /// </summary>
     public static Task<Ok> SetFileGenerationProgressAsync(
         this IClient client, long generationId = default, long expectedSize = default, long localPrefixSize = default)

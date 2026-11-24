@@ -38,7 +38,7 @@ public static partial class TdApi
         public string Name { get; set; }
 
         /// <summary>
-        /// Pass true to ignore local cache of sticker sets and always send a network request
+        /// Pass true to ignore the local cache of sticker sets and always send a network request
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("ignore_cache")]

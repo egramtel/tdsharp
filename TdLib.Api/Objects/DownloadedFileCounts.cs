@@ -10,7 +10,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Contains number of being downloaded and recently downloaded files found
+    /// Contains the number of files being downloaded and recently downloaded files found
     /// </summary>
     public partial class DownloadedFileCounts : Object
     {

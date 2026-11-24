@@ -31,9 +31,8 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Identifier of the gifts to use for crafting. In the case of a successful craft, the resulting gift will have the number of the first gift.
-        /// Consequently, unless getOption("can_craft_from_withdrawn_first_gift") is true, the first gift must not have been withdrawn to the TON blockchain as an NFT
-        /// and must have an empty gift_address
+        /// Identifiers of the gifts to use for crafting. In the case of a successful craft, the resulting gift will have the number of the first gift.
+        /// Consequently, unless getOption("can_craft_with_minted_first_gift") is true, the first gift must not be minted, which means it must have an empty gift_address
         /// </summary>
         [JsonProperty("received_gift_ids", ItemConverterType = typeof(Converter))]
         public string[] ReceivedGiftIds { get; set; }

@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Converts a JSON-serialized string to corresponding JsonValue object. Can be called synchronously
+    /// Converts a JSON-serialized string to the corresponding JsonValue object. Can be called synchronously
     /// </summary>
     public class GetJsonValue : Function<JsonValue>
     {
@@ -39,7 +39,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Converts a JSON-serialized string to corresponding JsonValue object. Can be called synchronously
+    /// Converts a JSON-serialized string to the corresponding JsonValue object. Can be called synchronously
     /// </summary>
     public static Task<JsonValue> GetJsonValueAsync(
         this IClient client, string json = default)

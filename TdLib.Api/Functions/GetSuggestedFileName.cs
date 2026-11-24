@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns suggested name for saving a file in a given directory
+    /// Returns a suggested name for saving a file in a given directory
     /// </summary>
     public class GetSuggestedFileName : Function<Text>
     {
@@ -46,7 +46,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns suggested name for saving a file in a given directory
+    /// Returns a suggested name for saving a file in a given directory
     /// </summary>
     public static Task<Text> GetSuggestedFileNameAsync(
         this IClient client, int fileId = default, string directory = default)

@@ -11,8 +11,9 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Edits the media content of a message, including message caption. If only the caption needs to be edited, use editMessageCaption instead.
-    /// The type of message content in an album can't be changed with exception of replacing a photo with a video or vice versa. Returns the edited message after the edit is completed on the server side
+    /// Edits the media content of a message, including the message caption. If only the caption needs to be edited, use editMessageCaption instead.
+    /// The type of message content in an album can't be changed with the exception of replacing a photo with a video or vice versa.
+    /// Returns the edited message after the edit is completed on the server side
     /// </summary>
     public class EditMessageMedia : Function<Message>
     {
@@ -61,8 +62,9 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Edits the media content of a message, including message caption. If only the caption needs to be edited, use editMessageCaption instead.
-    /// The type of message content in an album can't be changed with exception of replacing a photo with a video or vice versa. Returns the edited message after the edit is completed on the server side
+    /// Edits the media content of a message, including the message caption. If only the caption needs to be edited, use editMessageCaption instead.
+    /// The type of message content in an album can't be changed with the exception of replacing a photo with a video or vice versa.
+    /// Returns the edited message after the edit is completed on the server side
     /// </summary>
     public static Task<Message> EditMessageMediaAsync(
         this IClient client, long chatId = default, long messageId = default, ReplyMarkup replyMarkup = default, InputMessageContent inputMessageContent = default)

@@ -29,7 +29,7 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// Left time before the email address will be reset, in seconds. updateAuthorizationState is not sent when this field changes
+            /// Time left before the email address will be reset, in seconds. updateAuthorizationState is not sent when this field changes
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("reset_in")]

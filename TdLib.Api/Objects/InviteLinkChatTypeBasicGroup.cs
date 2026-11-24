@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class InviteLinkChatType : Object
     {
         /// <summary>
-        /// Describes the type of chat to which points an invite link
+        /// Describes the type of chat to which an invite link points
         /// </summary>
         public class InviteLinkChatTypeBasicGroup : InviteLinkChatType
         {

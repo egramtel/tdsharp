@@ -38,7 +38,7 @@ public static partial class TdApi
         public string Query { get; set; }
 
         /// <summary>
-        /// Additional filter for type of the chats to be returned; pass null to search for chats of all types
+        /// Additional filter for the type of the chats to be returned; pass null to search for chats of all types
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("type_filter")]

@@ -45,7 +45,7 @@ public static partial class TdApi
         public string Title { get; set; }
 
         /// <summary>
-        /// Sticker set name. Can contain only English letters, digits and underscores. Must end with *"_by_&lt;bot username&gt;"* (*&lt;bot_username&gt;* is case insensitive) for bots; 0-64 characters.
+        /// Sticker set name. Can contain only English letters, digits, and underscores. Must end with *"_by_&lt;bot username&gt;"* (*&lt;bot_username&gt;* is case-insensitive) for bots; 0-64 characters.
         /// If empty, then the name returned by getSuggestedStickerSetName will be used automatically
         /// </summary>
         [JsonConverter(typeof(Converter))]
@@ -67,7 +67,8 @@ public static partial class TdApi
         public bool NeedsRepainting { get; set; }
 
         /// <summary>
-        /// List of stickers to be added to the set; 1-200 stickers for custom emoji sticker sets, and 1-120 stickers otherwise. For TGS stickers, uploadStickerFile must be used before the sticker is shown
+        /// List of stickers to be added to the set; 1-200 stickers for custom emoji sticker sets, and 1-120 stickers otherwise.
+        /// For TGS stickers, uploadStickerFile must be used before the sticker is shown
         /// </summary>
         [JsonProperty("stickers", ItemConverterType = typeof(Converter))]
         public NewSticker[] Stickers { get; set; }

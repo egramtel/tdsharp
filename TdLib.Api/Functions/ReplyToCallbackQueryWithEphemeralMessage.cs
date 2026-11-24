@@ -11,9 +11,9 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Replies to a callback query with an ephemeral message; for bots only
+    /// Replies to a callback query with an ephemeral message; for bots only. Returns the sent message
     /// </summary>
-    public class ReplyToCallbackQueryWithEphemeralMessage : Function<Ok>
+    public class ReplyToCallbackQueryWithEphemeralMessage : Function<Message>
     {
         /// <summary>
         /// Data type for serialization
@@ -61,7 +61,7 @@ public static partial class TdApi
         /// <summary>
         /// New content of the message. Must be one of the following types: inputMessageText, inputMessageAnimation,
         /// inputMessageAudio, inputMessageDocument, inputMessagePhoto, inputMessageRichMessage, inputMessageSticker, inputMessageVideo, inputMessageVideoNote, inputMessageVoiceNote,
-        /// inputMessageLocation, inputMessageVenue, inputMessageContact
+        /// inputMessageLocation, inputMessageVenue, or inputMessageContact
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("input_message_content")]
@@ -69,9 +69,9 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Replies to a callback query with an ephemeral message; for bots only
+    /// Replies to a callback query with an ephemeral message; for bots only. Returns the sent message
     /// </summary>
-    public static Task<Ok> ReplyToCallbackQueryWithEphemeralMessageAsync(
+    public static Task<Message> ReplyToCallbackQueryWithEphemeralMessageAsync(
         this IClient client, long callbackQueryId = default, bool replaceCallbackQueryMessage = default, bool protectContent = default, ReplyMarkup replyMarkup = default, InputMessageContent inputMessageContent = default)
     {
         return client.ExecuteAsync(new ReplyToCallbackQueryWithEphemeralMessage

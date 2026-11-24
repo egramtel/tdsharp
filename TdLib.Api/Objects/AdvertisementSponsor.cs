@@ -34,7 +34,7 @@ public static partial class TdApi
         public string Url { get; set; }
 
         /// <summary>
-        /// Photo of the sponsor; may be null if must not be shown
+        /// Photo of the sponsor; may be null if it must not be shown
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("photo")]

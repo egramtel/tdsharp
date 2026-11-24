@@ -27,7 +27,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// The number of seconds between consecutive Telegram Star debiting
+        /// The number of seconds between consecutive Telegram Star debits
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("period")]

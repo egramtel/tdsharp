@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Sends a request to TON Center API and returns its response in JSON format
+    /// Sends a request to the TON Center API and returns its response in JSON format
     /// </summary>
     public class SendTonCenterApiRequest : Function<Text>
     {
@@ -46,7 +46,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Sends a request to TON Center API and returns its response in JSON format
+    /// Sends a request to the TON Center API and returns its response in JSON format
     /// </summary>
     public static Task<Text> SendTonCenterApiRequestAsync(
         this IClient client, string endpoint = default, TonCenterApiRequestType type = default)

@@ -29,7 +29,7 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// The message with story forward
+            /// The message with the story forward
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("message")]

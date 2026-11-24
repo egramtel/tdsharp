@@ -11,7 +11,8 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Extracts text or caption of the given message and translates it to the given language; must not be used in secret chats. If the current user is a Telegram Premium user, then text formatting is preserved
+    /// Extracts the text or caption of the given message and translates it to the given language; must not be used in secret chats.
+    /// If the current user is a Telegram Premium user, then text formatting is preserved
     /// </summary>
     public class TranslateMessageText : Function<FormattedText>
     {
@@ -60,7 +61,8 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Extracts text or caption of the given message and translates it to the given language; must not be used in secret chats. If the current user is a Telegram Premium user, then text formatting is preserved
+    /// Extracts the text or caption of the given message and translates it to the given language; must not be used in secret chats.
+    /// If the current user is a Telegram Premium user, then text formatting is preserved
     /// </summary>
     public static Task<FormattedText> TranslateMessageTextAsync(
         this IClient client, long chatId = default, long messageId = default, string toLanguageCode = default, string tone = default)

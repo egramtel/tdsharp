@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class CanTransferOwnershipResult : Object
     {
         /// <summary>
-        /// Represents result of checking whether the current session can be used to transfer a chat ownership to another user
+        /// Represents result of checking whether the current session can be used to transfer chat ownership to another user
         /// </summary>
         public class CanTransferOwnershipResultOk : CanTransferOwnershipResult
         {

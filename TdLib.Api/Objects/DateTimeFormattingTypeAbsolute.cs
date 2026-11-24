@@ -43,7 +43,7 @@ public static partial class TdApi
             public DateTimePartPrecision DatePrecision { get; set; }
 
             /// <summary>
-            /// True, if the day of week must be shown
+            /// True, if the day of the week must be shown
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("show_day_of_week")]

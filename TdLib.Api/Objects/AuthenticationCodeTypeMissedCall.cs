@@ -12,7 +12,8 @@ public static partial class TdApi
     public partial class AuthenticationCodeType : Object
     {
         /// <summary>
-        /// An authentication code is delivered by an immediately canceled call to the specified phone number. The last digits of the phone number that calls are the code that must be entered manually by the user
+        /// An authentication code is delivered by an immediately canceled call to the specified phone number.
+        /// The last digits of the phone number that calls are the code that must be entered manually by the user
         /// </summary>
         public class AuthenticationCodeTypeMissedCall : AuthenticationCodeType
         {

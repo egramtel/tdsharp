@@ -11,7 +11,8 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Searches public chats by looking for specified query in their username and title. Currently, only private chats, supergroups and channels can be public. Returns a meaningful number of results.
+    /// Searches for public chats by looking for the specified query in their username and title. Currently, only private chats, supergroups, and channels can be public.
+    /// Returns a meaningful number of results.
     /// Excludes private chats with contacts and chats from the chat list from the results
     /// </summary>
     public class SearchPublicChats : Function<Chats>
@@ -39,7 +40,7 @@ public static partial class TdApi
         public string Query { get; set; }
 
         /// <summary>
-        /// Additional filter for type of the chats to be returned; pass null to search for chats of all types
+        /// Additional filter for the type of the chats to be returned; pass null to search for chats of all types
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("type_filter")]
@@ -47,7 +48,8 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Searches public chats by looking for specified query in their username and title. Currently, only private chats, supergroups and channels can be public. Returns a meaningful number of results.
+    /// Searches for public chats by looking for the specified query in their username and title. Currently, only private chats, supergroups, and channels can be public.
+    /// Returns a meaningful number of results.
     /// Excludes private chats with contacts and chats from the chat list from the results
     /// </summary>
     public static Task<Chats> SearchPublicChatsAsync(

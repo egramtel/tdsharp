@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class SuggestedPostRefundReason : Object
     {
         /// <summary>
-        /// The post was refunded, because the payment for the post was refunded
+        /// The post was refunded because the payment for the post was refunded
         /// </summary>
         public class SuggestedPostRefundReasonPaymentRefunded : SuggestedPostRefundReason
         {

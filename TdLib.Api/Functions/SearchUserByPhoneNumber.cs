@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Searches a user by their phone number. Returns a 404 error if the user can't be found
+    /// Searches for a user by their phone number. Returns a 404 error if the user can't be found
     /// </summary>
     public class SearchUserByPhoneNumber : Function<User>
     {
@@ -46,7 +46,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Searches a user by their phone number. Returns a 404 error if the user can't be found
+    /// Searches for a user by their phone number. Returns a 404 error if the user can't be found
     /// </summary>
     public static Task<User> SearchUserByPhoneNumberAsync(
         this IClient client, string phoneNumber = default, bool onlyLocal = default)

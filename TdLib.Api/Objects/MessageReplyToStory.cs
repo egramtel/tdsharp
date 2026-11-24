@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class MessageReplyTo : Object
     {
         /// <summary>
-        /// Describes a story replied by a given message
+        /// Describes a story replied to by a given message
         /// </summary>
         public class MessageReplyToStory : MessageReplyTo
         {

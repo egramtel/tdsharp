@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class InputMessageReplyTo : Object
     {
         /// <summary>
-        /// Contains information about the message or the story to be replied
+        /// Contains information about the message or the story to be replied to
         /// </summary>
         public class InputMessageReplyToMessage : InputMessageReplyTo
         {
@@ -29,28 +29,28 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// The identifier of the message to be replied in the same chat and forum topic. A message can be replied in the same chat and forum topic only if messageProperties.can_be_replied
+            /// The identifier of the message to be replied to in the same chat and forum topic. A message can be replied to in the same chat and forum topic only if messageProperties.can_be_replied
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("message_id")]
             public long MessageId { get; set; }
 
             /// <summary>
-            /// Quote from the message to be replied; pass null if none. Must always be null for replies in secret chats
+            /// Quote from the message to be replied to; pass null if none. Must always be null for replies in secret chats
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("quote")]
             public InputTextQuote Quote { get; set; }
 
             /// <summary>
-            /// Identifier of the checklist task in the message to be replied; pass 0 to reply to the whole message
+            /// Identifier of the checklist task in the message to be replied to; pass 0 to reply to the whole message
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("checklist_task_id")]
             public int ChecklistTaskId { get; set; }
 
             /// <summary>
-            /// Identifier of the poll option in the message to be replied; pass an empty string if none
+            /// Identifier of the poll option in the message to be replied to; pass an empty string if none
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("poll_option_id")]

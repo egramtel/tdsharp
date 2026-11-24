@@ -11,7 +11,8 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Recovers the 2-step verification password with a password recovery code sent to an email address that was previously set up. Works only when the current authorization state is authorizationStateWaitPassword
+    /// Recovers the 2-step verification password with a password recovery code sent to an email address that was previously set up.
+    /// Works only when the current authorization state is authorizationStateWaitPassword
     /// </summary>
     public class RecoverAuthenticationPassword : Function<Ok>
     {
@@ -53,7 +54,8 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Recovers the 2-step verification password with a password recovery code sent to an email address that was previously set up. Works only when the current authorization state is authorizationStateWaitPassword
+    /// Recovers the 2-step verification password with a password recovery code sent to an email address that was previously set up.
+    /// Works only when the current authorization state is authorizationStateWaitPassword
     /// </summary>
     public static Task<Ok> RecoverAuthenticationPasswordAsync(
         this IClient client, string recoveryCode = default, string newPassword = default, string newHint = default)

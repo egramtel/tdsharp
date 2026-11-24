@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class BotWriteAccessAllowReason : Object
     {
         /// <summary>
-        /// The user added the bot to attachment or side menu using toggleBotIsAddedToAttachmentMenu
+        /// The user added the bot to the attachment or side menu using toggleBotIsAddedToAttachmentMenu
         /// </summary>
         public class BotWriteAccessAllowReasonAddedToAttachmentMenu : BotWriteAccessAllowReason
         {

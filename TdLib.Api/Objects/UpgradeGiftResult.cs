@@ -62,7 +62,7 @@ public static partial class TdApi
         public long TransferStarCount { get; set; }
 
         /// <summary>
-        /// Number of Telegram Stars that must be paid to drop original details of the upgraded gift; 0 if not available
+        /// Number of Telegram Stars that must be paid to drop the original details of the upgraded gift; 0 if not available
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("drop_original_details_star_count")]
@@ -83,11 +83,11 @@ public static partial class TdApi
         public int NextResaleDate { get; set; }
 
         /// <summary>
-        /// Point in time (Unix timestamp) when the gift can be transferred to the TON blockchain as an NFT; can be in the past
+        /// Point in time (Unix timestamp) when the gift can be minted as an NFT; can be in the past
         /// </summary>
         [JsonConverter(typeof(Converter))]
-        [JsonProperty("export_date")]
-        public int ExportDate { get; set; }
+        [JsonProperty("mint_date")]
+        public int MintDate { get; set; }
     }
 }
 // REUSE-IgnoreEnd

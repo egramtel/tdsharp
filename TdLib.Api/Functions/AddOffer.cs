@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Sends a suggested post based on a previously sent message in a channel direct messages chat. Can be also used to suggest price or time change for an existing suggested post.
+    /// Sends a suggested post based on a previously sent message in a channel direct messages chat. Can also be used to suggest a price or time change for an existing suggested post.
     /// Returns the sent message
     /// </summary>
     public class AddOffer : Function<Message>
@@ -39,8 +39,8 @@ public static partial class TdApi
         public long ChatId { get; set; }
 
         /// <summary>
-        /// Identifier of the message in the chat which will be sent as suggested post. Use messageProperties.can_add_offer to check whether an offer can be added
-        /// or messageProperties.can_edit_suggested_post_info to check whether price or time of sending of the post can be changed
+        /// Identifier of the message in the chat that will be sent as a suggested post. Use messageProperties.can_add_offer to check whether an offer can be added
+        /// or messageProperties.can_edit_suggested_post_info to check whether the price or sending time of the post can be changed
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("message_id")]
@@ -55,7 +55,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Sends a suggested post based on a previously sent message in a channel direct messages chat. Can be also used to suggest price or time change for an existing suggested post.
+    /// Sends a suggested post based on a previously sent message in a channel direct messages chat. Can also be used to suggest a price or time change for an existing suggested post.
     /// Returns the sent message
     /// </summary>
     public static Task<Message> AddOfferAsync(

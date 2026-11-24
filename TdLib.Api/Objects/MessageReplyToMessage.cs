@@ -29,42 +29,42 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// The identifier of the chat to which the message belongs; may be 0 if the replied message is in unknown chat
+            /// The identifier of the chat to which the message belongs; may be 0 if the replied-to message is in an unknown chat
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_id")]
             public long ChatId { get; set; }
 
             /// <summary>
-            /// The identifier of the message; may be 0 if the replied message is in unknown chat
+            /// The identifier of the message; may be 0 if the replied-to message is in an unknown chat
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("message_id")]
             public long MessageId { get; set; }
 
             /// <summary>
-            /// Chosen quote from the replied message; may be null if none
+            /// Chosen quote from the replied-to message; may be null if none
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("quote")]
             public TextQuote Quote { get; set; }
 
             /// <summary>
-            /// Identifier of the checklist task in the original message that was replied; 0 if none
+            /// Identifier of the checklist task in the original message that was replied to; 0 if none
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("checklist_task_id")]
             public int ChecklistTaskId { get; set; }
 
             /// <summary>
-            /// Identifier of the poll option in the original message that was replied; empty if none
+            /// Identifier of the poll option in the original message that was replied to; empty if none
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("poll_option_id")]
             public string PollOptionId { get; set; }
 
             /// <summary>
-            /// Information about origin of the message if the message was from another chat or topic; may be null for messages from the same chat
+            /// Information about the origin of the message if the message was from another chat or topic; may be null for messages from the same chat
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("origin")]
@@ -79,7 +79,7 @@ public static partial class TdApi
 
             /// <summary>
             /// Media content of the message if the message was from another chat or topic; may be null for messages from the same chat and messages without media.
-            /// Can be only one of the following types: messageAnimation, messageAudio, messageChecklist, messageContact, messageDice, messageDocument, messageGame,
+            /// Can only be one of the following types: messageAnimation, messageAudio, messageChecklist, messageContact, messageDice, messageDocument, messageGame,
             /// messageGiveaway, messageGiveawayWinners, messageInvoice, messageLocation, messagePaidMedia, messagePhoto, messagePoll, messageStakeDice,
             /// messageSticker, messageStory, messageText (for link preview), messageVenue, messageVideo, messageVideoNote, messageVoiceNote, or messageWidget
             /// </summary>

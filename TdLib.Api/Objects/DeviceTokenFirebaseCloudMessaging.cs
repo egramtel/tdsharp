@@ -12,8 +12,8 @@ public static partial class TdApi
     public partial class DeviceToken : Object
     {
         /// <summary>
-        /// Represents a data needed to subscribe for push notifications through registerDevice method.
-        /// To use specific push notification service, the correct application platform must be specified and a valid server authentication data must be uploaded at https://my.telegram.org
+        /// Represents data needed to subscribe to push notifications through the registerDevice method.
+        /// To use a specific push notification service, the correct application platform must be specified and valid server authentication data must be uploaded at https://my.telegram.org
         /// </summary>
         public class DeviceTokenFirebaseCloudMessaging : DeviceToken
         {

@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class MessageContent : Object
     {
         /// <summary>
-        /// Chat has_protected_content setting was changed or request to change it was rejected
+        /// The chat has_protected_content setting was changed or a request to change it was rejected
         /// </summary>
         public class MessageChatHasProtectedContentToggled : MessageContent
         {

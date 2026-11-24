@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class DeviceToken : Object
     {
         /// <summary>
-        /// A token for web Push API
+        /// A token for the web Push API
         /// </summary>
         public class DeviceTokenWebPush : DeviceToken
         {

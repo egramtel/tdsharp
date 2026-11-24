@@ -11,8 +11,8 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Sends 2-10 messages grouped together into an album. Currently, only audio, document, photo and video messages can be grouped into an album.
-    /// Documents and audio files can be only grouped in an album with messages of the same type. Returns sent messages
+    /// Sends 2-10 messages grouped together into an album. Currently, only audio, document, photo, and video messages can be grouped into an album.
+    /// Documents and audio files can only be grouped in an album with messages of the same type. Returns the sent messages
     /// </summary>
     public class SendMessageAlbum : Function<Messages>
     {
@@ -46,7 +46,7 @@ public static partial class TdApi
         public MessageTopic TopicId { get; set; }
 
         /// <summary>
-        /// Information about the message or story to be replied; pass null if none
+        /// Information about the message or story to be replied to; pass null if none
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("reply_to")]
@@ -67,8 +67,8 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Sends 2-10 messages grouped together into an album. Currently, only audio, document, photo and video messages can be grouped into an album.
-    /// Documents and audio files can be only grouped in an album with messages of the same type. Returns sent messages
+    /// Sends 2-10 messages grouped together into an album. Currently, only audio, document, photo, and video messages can be grouped into an album.
+    /// Documents and audio files can only be grouped in an album with messages of the same type. Returns the sent messages
     /// </summary>
     public static Task<Messages> SendMessageAlbumAsync(
         this IClient client, long chatId = default, MessageTopic topicId = default, InputMessageReplyTo replyTo = default, MessageSendOptions options = default, InputMessageContent[] inputMessageContents = default)

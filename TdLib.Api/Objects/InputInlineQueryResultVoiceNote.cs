@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class InputInlineQueryResult : Object
     {
         /// <summary>
-        /// Represents a link to an opus-encoded audio file within an OGG container, single channel audio
+        /// Represents a link to an Opus-encoded audio file within an OGG container, single-channel audio
         /// </summary>
         public class InputInlineQueryResultVoiceNote : InputInlineQueryResult
         {
@@ -57,7 +57,7 @@ public static partial class TdApi
             public int VoiceNoteDuration { get; set; }
 
             /// <summary>
-            /// The message reply markup; pass null if none. Must be of type replyMarkupInlineKeyboard or null
+            /// The message reply markup; pass null if none. Must be of the type replyMarkupInlineKeyboard or null
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("reply_markup")]

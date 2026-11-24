@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns current verbosity level for a specified TDLib internal log tag. Can be called synchronously
+    /// Returns the current verbosity level for a specified TDLib internal log tag. Can be called synchronously
     /// </summary>
     public class GetLogTagVerbosityLevel : Function<LogVerbosityLevel>
     {
@@ -31,7 +31,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Logging tag to change verbosity level
+        /// Logging tag for which to change the verbosity level
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("tag")]
@@ -39,7 +39,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns current verbosity level for a specified TDLib internal log tag. Can be called synchronously
+    /// Returns the current verbosity level for a specified TDLib internal log tag. Can be called synchronously
     /// </summary>
     public static Task<LogVerbosityLevel> GetLogTagVerbosityLevelAsync(
         this IClient client, string tag = default)

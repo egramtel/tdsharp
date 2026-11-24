@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class Update : Object
     {
         /// <summary>
-        /// A chat content was allowed or restricted for saving
+        /// Chat content was allowed or restricted for saving
         /// </summary>
         public class UpdateChatHasProtectedContent : Update
         {

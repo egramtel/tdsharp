@@ -36,14 +36,14 @@ public static partial class TdApi
             public string StoreProductId { get; set; }
 
             /// <summary>
-            /// Duration of the Telegram Premium subscription after the purchase; may be 0 if Telegram Premium subscription will not be granted
+            /// Duration of the Telegram Premium subscription after the purchase; may be 0 if a Telegram Premium subscription will not be granted
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("premium_day_count")]
             public int PremiumDayCount { get; set; }
 
             /// <summary>
-            /// Email address to use for support if the user has issues with Telegram Premium purchase
+            /// Email address to use for support if the user has issues with the Telegram Premium purchase
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("support_email_address")]

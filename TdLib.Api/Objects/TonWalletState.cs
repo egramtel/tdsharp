@@ -10,7 +10,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Describes state of the wallet of the current user in the TON blockchain
+    /// Describes state of the wallet of the current user on the TON blockchain
     /// </summary>
     public partial class TonWalletState : Object
     {
@@ -41,7 +41,7 @@ public static partial class TdApi
         public byte[] PublicKey { get; set; }
 
         /// <summary>
-        /// The total amount of owned TON Grams, in the smallest units of the cryptocurrency
+        /// The total owned amount, in the smallest units of TON Grams
         /// </summary>
         [JsonConverter(typeof(Converter.Int64))]
         [JsonProperty("gram_amount")]

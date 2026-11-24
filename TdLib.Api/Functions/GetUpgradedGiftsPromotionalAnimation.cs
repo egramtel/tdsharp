@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns promotional animation for upgraded gifts
+    /// Returns the promotional animation for upgraded gifts
     /// </summary>
     public class GetUpgradedGiftsPromotionalAnimation : Function<Animation>
     {
@@ -34,7 +34,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns promotional animation for upgraded gifts
+    /// Returns the promotional animation for upgraded gifts
     /// </summary>
     public static Task<Animation> GetUpgradedGiftsPromotionalAnimationAsync(
         this IClient client)

@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Searches for the specified query in the first names, last names and usernames of the known user contacts
+    /// Searches for the specified query in the first names, last names, and usernames of the known user contacts
     /// </summary>
     public class SearchContacts : Function<Users>
     {
@@ -46,7 +46,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Searches for the specified query in the first names, last names and usernames of the known user contacts
+    /// Searches for the specified query in the first names, last names, and usernames of the known user contacts
     /// </summary>
     public static Task<Users> SearchContactsAsync(
         this IClient client, string query = default, int limit = default)

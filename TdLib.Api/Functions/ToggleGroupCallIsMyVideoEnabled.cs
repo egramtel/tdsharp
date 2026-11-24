@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Toggles whether current user's video is enabled
+    /// Toggles whether the current user's video is enabled
     /// </summary>
     public class ToggleGroupCallIsMyVideoEnabled : Function<Ok>
     {
@@ -46,7 +46,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Toggles whether current user's video is enabled
+    /// Toggles whether the current user's video is enabled
     /// </summary>
     public static Task<Ok> ToggleGroupCallIsMyVideoEnabledAsync(
         this IClient client, int groupCallId = default, bool isMyVideoEnabled = default)

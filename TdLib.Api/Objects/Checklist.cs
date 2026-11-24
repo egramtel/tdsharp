@@ -40,28 +40,28 @@ public static partial class TdApi
         public ChecklistTask[] Tasks { get; set; }
 
         /// <summary>
-        /// True, if users other than creator of the list can add tasks to the list
+        /// True, if users other than the creator of the list can add tasks to the list
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("others_can_add_tasks")]
         public bool OthersCanAddTasks { get; set; }
 
         /// <summary>
-        /// True, if the current user can add tasks to the list if they have Telegram Premium subscription
+        /// True, if the current user can add tasks to the list if they have a Telegram Premium subscription
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("can_add_tasks")]
         public bool CanAddTasks { get; set; }
 
         /// <summary>
-        /// True, if users other than creator of the list can mark tasks as done or not done. If true, then the checklist is called "group checklist"
+        /// True, if users other than the creator of the list can mark tasks as done or not done. If true, then the checklist is called "group checklist"
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("others_can_mark_tasks_as_done")]
         public bool OthersCanMarkTasksAsDone { get; set; }
 
         /// <summary>
-        /// True, if the current user can mark tasks as done or not done if they have Telegram Premium subscription
+        /// True, if the current user can mark tasks as done or not done if they have a Telegram Premium subscription
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("can_mark_tasks_as_done")]

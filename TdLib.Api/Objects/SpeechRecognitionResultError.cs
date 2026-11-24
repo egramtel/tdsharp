@@ -29,7 +29,7 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// Recognition error. An error with a message "MSG_VOICE_TOO_LONG" is returned when media duration is too big to be recognized
+            /// Recognition error. An error with a message "MSG_VOICE_TOO_LONG" is returned when the media duration is too long to be recognized
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("error")]

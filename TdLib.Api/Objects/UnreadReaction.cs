@@ -34,7 +34,7 @@ public static partial class TdApi
         public ReactionType Type { get; set; }
 
         /// <summary>
-        /// Identifier of the sender, added the reaction
+        /// Identifier of the sender who added the reaction
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("sender_id")]

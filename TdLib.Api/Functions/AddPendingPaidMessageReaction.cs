@@ -52,7 +52,7 @@ public static partial class TdApi
         public long StarCount { get; set; }
 
         /// <summary>
-        /// Type of the paid reaction; pass null if the user didn't choose reaction type explicitly, for example, the reaction is set from the message bubble
+        /// Type of the paid reaction; pass null if the user didn't choose the reaction type explicitly, for example, if the reaction is set from the message bubble
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("type")]

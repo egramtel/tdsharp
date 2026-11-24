@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class OptionValue : Object
     {
         /// <summary>
-        /// Represents an unknown option or an option which has a default value
+        /// Represents an unknown option or an option that has a default value
         /// </summary>
         public class OptionValueEmpty : OptionValue
         {

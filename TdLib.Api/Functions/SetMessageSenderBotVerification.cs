@@ -31,22 +31,22 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Identifier of the owned bot, which will verify the user or the chat
+        /// Identifier of the owned bot that will verify the user or the chat
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("bot_user_id")]
         public long BotUserId { get; set; }
 
         /// <summary>
-        /// Identifier of the user or the supergroup or channel chat, which will be verified by the bot
+        /// Identifier of the user or the supergroup or channel chat that will be verified by the bot
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("verified_id")]
         public MessageSender VerifiedId { get; set; }
 
         /// <summary>
-        /// Custom description of verification reason; 0-getOption("bot_verification_custom_description_length_max") characters. Only TextUrl entities are supported.
-        /// If empty, then "was verified by organization "organization_name"" will be used as description. Can be specified only if the bot is allowed to provide custom description
+        /// Custom description of the verification reason; 0-getOption("bot_verification_custom_description_length_max") characters. Only TextUrl entities are supported.
+        /// If empty, then "was verified by organization "organization_name"" will be used as the description. Can be specified only if the bot is allowed to provide a custom description
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("custom_description")]

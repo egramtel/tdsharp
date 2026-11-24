@@ -36,7 +36,7 @@ public static partial class TdApi
             public string JsonData { get; set; }
 
             /// <summary>
-            /// If non-empty, a token which can be used to receive a zoomed in graph
+            /// If non-empty, a token that can be used to receive a zoomed-in graph
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("zoom_token")]

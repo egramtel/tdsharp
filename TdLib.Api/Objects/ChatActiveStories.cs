@@ -41,7 +41,8 @@ public static partial class TdApi
         public StoryList List { get; set; }
 
         /// <summary>
-        /// A parameter used to determine order of the stories in the story list; 0 if the stories don't need to be shown in the story list. Stories must be sorted by the pair (order, chat_id) in descending order
+        /// A parameter used to determine the order of the stories in the story list; 0 if the stories don't need to be shown in the story list.
+        /// Stories must be sorted by the pair (order, chat_id) in descending order
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("order")]
@@ -49,7 +50,7 @@ public static partial class TdApi
 
         /// <summary>
         /// True, if the stories are shown in the main story list and can be archived; otherwise, the stories can be hidden from the main story list
-        /// only by calling removeTopChat with topChatCategoryUsers and the chat_id. Stories of the current user can't be archived nor hidden using removeTopChat
+        /// only by calling removeTopChat with topChatCategoryUsers and the chat_id. Stories of the current user can't be archived or hidden using removeTopChat
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("can_be_archived")]

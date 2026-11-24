@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class InlineKeyboardButtonType : Object
     {
         /// <summary>
-        /// A button that copies specified text to clipboard
+        /// A button that copies the specified text to the clipboard
         /// </summary>
         public class InlineKeyboardButtonTypeCopyText : InlineKeyboardButtonType
         {
@@ -29,7 +29,7 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// The text to copy to clipboard
+            /// The text to copy to the clipboard
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("text")]

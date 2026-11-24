@@ -10,7 +10,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Describes a button to be shown instead of bot commands menu button
+    /// Describes a button to be shown instead of the bot commands menu button
     /// </summary>
     public partial class BotMenuButton : Object
     {

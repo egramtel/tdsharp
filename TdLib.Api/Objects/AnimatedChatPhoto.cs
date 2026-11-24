@@ -41,7 +41,7 @@ public static partial class TdApi
         public File File { get; set; }
 
         /// <summary>
-        /// Timestamp of the frame, used as a static chat photo
+        /// Timestamp of the frame used as a static chat photo
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("main_frame_timestamp")]

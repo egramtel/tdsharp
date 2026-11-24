@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class DeviceToken : Object
     {
         /// <summary>
-        /// A token for Apple Push Notification service
+        /// A token for the Apple Push Notification service
         /// </summary>
         public class DeviceTokenApplePush : DeviceToken
         {

@@ -34,7 +34,7 @@ public static partial class TdApi
         public int TotalCount { get; set; }
 
         /// <summary>
-        /// Identifiers of at most 3 users sent the newest pending join requests
+        /// Identifiers of at most 3 users who sent the newest pending join requests
         /// </summary>
         [JsonProperty("user_ids", ItemConverterType = typeof(Converter))]
         public long[] UserIds { get; set; }

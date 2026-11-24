@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class Update : Object
     {
         /// <summary>
-        /// The parameters of animation search through getOption("animation_search_bot_username") bot have changed
+        /// The parameters of animation search through the getOption("animation_search_bot_username") bot have changed
         /// </summary>
         public class UpdateAnimationSearchParameters : Update
         {

@@ -51,7 +51,7 @@ public static partial class TdApi
         public ChatPhoto PublicPhoto { get; set; }
 
         /// <summary>
-        /// Identifier of the community to which chat with the bot was added; for bots only
+        /// Identifier of the community to which the chat with the bot was added; for bots only
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("community_id")]
@@ -114,14 +114,14 @@ public static partial class TdApi
         public bool HasSponsoredMessagesEnabled { get; set; }
 
         /// <summary>
-        /// True, if the current user needs to explicitly allow to share their phone number with the user when the method addContact is used
+        /// True, if the current user needs to explicitly allow sharing their phone number with the user when the method addContact is used
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("need_phone_number_privacy_exception")]
         public bool NeedPhoneNumberPrivacyException { get; set; }
 
         /// <summary>
-        /// True, if the user set chat background for both chat users and it wasn't reverted yet
+        /// True, if the user set the chat background for both chat users and it hasn't been reverted yet
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("set_chat_background")]
@@ -156,14 +156,14 @@ public static partial class TdApi
         public long PersonalChatId { get; set; }
 
         /// <summary>
-        /// Number of saved to profile gifts for other users or the total number of received gifts for the current user
+        /// Number of gifts saved to the profile for other users or the total number of received gifts for the current user
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("gift_count")]
         public int GiftCount { get; set; }
 
         /// <summary>
-        /// Number of group chats where both the other user and the current user are a member; 0 for the current user
+        /// Number of group chats where both the other user and the current user are members; 0 for the current user
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("group_in_common_count")]
@@ -191,7 +191,7 @@ public static partial class TdApi
         public GiftSettings GiftSettings { get; set; }
 
         /// <summary>
-        /// Information about verification status of the user provided by a bot; may be null if none or unknown
+        /// Information about the verification status of the user provided by a bot; may be null if none or unknown
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("bot_verification")]
@@ -226,7 +226,7 @@ public static partial class TdApi
         public UserRating PendingRating { get; set; }
 
         /// <summary>
-        /// Unix timestamp when rating of the user will change to pending_rating; 0 if the user isn't the current user or there are no pending rating changes
+        /// Unix timestamp when the rating of the user will change to pending_rating; 0 if the user isn't the current user or there are no pending rating changes
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("pending_rating_date")]

@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class MessageReadDate : Object
     {
         /// <summary>
-        /// The read date is unknown due to privacy settings of the current user, but will be known if the user subscribes to Telegram Premium
+        /// The read date is unknown due to the privacy settings of the current user, but will be known if the user subscribes to Telegram Premium
         /// </summary>
         public class MessageReadDateMyPrivacyRestricted : MessageReadDate
         {

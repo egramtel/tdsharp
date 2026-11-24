@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class ChatStatistics : Object
     {
         /// <summary>
-        /// Contains a detailed statistics about a chat
+        /// Contains detailed statistics about a chat
         /// </summary>
         public class ChatStatisticsSupergroup : ChatStatistics
         {
@@ -29,7 +29,7 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// A period to which the statistics applies
+            /// A period to which the statistics apply
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("period")]
@@ -64,75 +64,75 @@ public static partial class TdApi
             public StatisticalValue SenderCount { get; set; }
 
             /// <summary>
-            /// A graph containing number of members in the chat
+            /// A graph containing the number of members in the chat
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("member_count_graph")]
             public StatisticalGraph MemberCountGraph { get; set; }
 
             /// <summary>
-            /// A graph containing number of members joined and left the chat
+            /// A graph containing the number of members who joined and left the chat
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("join_graph")]
             public StatisticalGraph JoinGraph { get; set; }
 
             /// <summary>
-            /// A graph containing number of new member joins per source
+            /// A graph containing the number of new member joins per source
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("join_by_source_graph")]
             public StatisticalGraph JoinBySourceGraph { get; set; }
 
             /// <summary>
-            /// A graph containing distribution of active users per language
+            /// A graph containing the distribution of active users per language
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("language_graph")]
             public StatisticalGraph LanguageGraph { get; set; }
 
             /// <summary>
-            /// A graph containing distribution of sent messages by content type
+            /// A graph containing the distribution of sent messages by content type
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("message_content_graph")]
             public StatisticalGraph MessageContentGraph { get; set; }
 
             /// <summary>
-            /// A graph containing number of different actions in the chat
+            /// A graph containing the number of different actions in the chat
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("action_graph")]
             public StatisticalGraph ActionGraph { get; set; }
 
             /// <summary>
-            /// A graph containing distribution of message views per hour
+            /// A graph containing the distribution of message views per hour
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("day_graph")]
             public StatisticalGraph DayGraph { get; set; }
 
             /// <summary>
-            /// A graph containing distribution of message views per day of week
+            /// A graph containing the distribution of message views per day of the week
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("week_graph")]
             public StatisticalGraph WeekGraph { get; set; }
 
             /// <summary>
-            /// List of users sent most messages in the last week
+            /// List of users who sent the most messages in the last week
             /// </summary>
             [JsonProperty("top_senders", ItemConverterType = typeof(Converter))]
             public ChatStatisticsMessageSenderInfo[] TopSenders { get; set; }
 
             /// <summary>
-            /// List of most active administrators in the last week
+            /// List of the most active administrators in the last week
             /// </summary>
             [JsonProperty("top_administrators", ItemConverterType = typeof(Converter))]
             public ChatStatisticsAdministratorActionsInfo[] TopAdministrators { get; set; }
 
             /// <summary>
-            /// List of most active inviters of new members in the last week
+            /// List of the most active inviters of new members in the last week
             /// </summary>
             [JsonProperty("top_inviters", ItemConverterType = typeof(Converter))]
             public ChatStatisticsInviterInfo[] TopInviters { get; set; }

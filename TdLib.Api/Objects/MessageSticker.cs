@@ -36,7 +36,7 @@ public static partial class TdApi
             public Sticker Sticker { get; set; }
 
             /// <summary>
-            /// True, if premium animation of the sticker must be played
+            /// True, if the premium animation of the sticker must be played
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_premium")]

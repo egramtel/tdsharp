@@ -10,7 +10,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Contains a list of downloaded files, found by a search
+    /// Contains a list of downloaded files found by a search
     /// </summary>
     public partial class FoundFileDownloads : Object
     {

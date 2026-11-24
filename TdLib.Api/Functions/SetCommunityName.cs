@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Changes name of the given community; requires can_change_info administrator right in the community
+    /// Changes the name of the given community; requires can_change_info administrator right in the community
     /// </summary>
     public class SetCommunityName : Function<Ok>
     {
@@ -46,7 +46,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Changes name of the given community; requires can_change_info administrator right in the community
+    /// Changes the name of the given community; requires can_change_info administrator right in the community
     /// </summary>
     public static Task<Ok> SetCommunityNameAsync(
         this IClient client, long communityId = default, string name = default)

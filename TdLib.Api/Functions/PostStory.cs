@@ -31,7 +31,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Identifier of the chat that will post the story. Pass Saved Messages chat identifier when posting a story on behalf of the current user
+        /// Identifier of the chat that will post the story. Pass the Saved Messages chat identifier when posting a story on behalf of the current user
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("chat_id")]
@@ -45,7 +45,7 @@ public static partial class TdApi
         public InputStoryContent Content { get; set; }
 
         /// <summary>
-        /// Clickable rectangle areas to be shown on the story media; pass null if none
+        /// Clickable rectangular areas to be shown on the story media; pass null if none
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("areas")]
@@ -59,7 +59,7 @@ public static partial class TdApi
         public FormattedText Caption { get; set; }
 
         /// <summary>
-        /// Music to be attached to the story; pass null if none. The music can be up to 60 seconds long
+        /// Music to be attached to the story; pass null if none. The music can be up to 60 seconds long. The bot getOption("audio_search_bot_username") can be used to find the music files
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("music")]
@@ -79,14 +79,14 @@ public static partial class TdApi
         public int[] AlbumIds { get; set; }
 
         /// <summary>
-        /// Period after which the story is moved to archive, in seconds; must be one of 6 * 3600, 12 * 3600, 86400, or 2 * 86400 for Telegram Premium users, and 86400 otherwise
+        /// Period after which the story is moved to the archive, in seconds; must be one of 6 * 3600, 12 * 3600, 86400, or 2 * 86400 for Telegram Premium users, and 86400 otherwise
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("active_period")]
         public int ActivePeriod { get; set; }
 
         /// <summary>
-        /// Full identifier of the original story, which content was used to create the story; pass null if the story isn't repost of another story
+        /// Full identifier of the original story whose content was used to create the story; pass null if the story isn't a repost of another story
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("from_story_full_id")]

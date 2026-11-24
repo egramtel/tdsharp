@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class StarTransactionType : Object
     {
         /// <summary>
-        /// The transaction is a sending of a paid reaction to a message in a channel chat by the current user; relevant for regular users only
+        /// The transaction is the sending of a paid reaction to a message in a channel chat by the current user; relevant for regular users only
         /// </summary>
         public class StarTransactionTypeChannelPaidReactionSend : StarTransactionType
         {
@@ -36,7 +36,7 @@ public static partial class TdApi
             public long ChatId { get; set; }
 
             /// <summary>
-            /// Identifier of the reacted message; may be 0 or an identifier of a deleted message
+            /// Identifier of the message that was reacted to; may be 0 or an identifier of a deleted message
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("message_id")]

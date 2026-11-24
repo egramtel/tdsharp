@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Changes cover of a video story. Can be called only if story.can_be_edited == true and the story isn't being edited now
+    /// Changes the cover of a video story. Can be called only if story.can_be_edited == true and the story isn't being edited now
     /// </summary>
     public class EditStoryCover : Function<Ok>
     {
@@ -45,7 +45,7 @@ public static partial class TdApi
         public int StoryId { get; set; }
 
         /// <summary>
-        /// New timestamp of the frame, which will be used as video thumbnail
+        /// New timestamp of the frame that will be used as the video thumbnail
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("cover_frame_timestamp")]
@@ -53,7 +53,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Changes cover of a video story. Can be called only if story.can_be_edited == true and the story isn't being edited now
+    /// Changes the cover of a video story. Can be called only if story.can_be_edited == true and the story isn't being edited now
     /// </summary>
     public static Task<Ok> EditStoryCoverAsync(
         this IClient client, long storyPosterChatId = default, int storyId = default, double? coverFrameTimestamp = default)

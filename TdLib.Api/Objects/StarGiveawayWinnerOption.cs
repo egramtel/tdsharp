@@ -27,7 +27,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// The number of users that will be chosen as winners
+        /// The number of users who will be chosen as winners
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("winner_count")]

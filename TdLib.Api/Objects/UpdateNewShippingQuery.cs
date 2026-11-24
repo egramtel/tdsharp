@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class Update : Object
     {
         /// <summary>
-        /// A new incoming shipping query; for bots only. Only for invoices with flexible price
+        /// A new incoming shipping query; for bots only. Only for invoices with a flexible price
         /// </summary>
         public class UpdateNewShippingQuery : Update
         {

@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns available options for creating of Telegram Premium giveaway or manual distribution of Telegram Premium among chat members
+    /// Returns available options for creating a Telegram Premium giveaway or manual distribution of Telegram Premium among chat members
     /// </summary>
     public class GetPremiumGiveawayPaymentOptions : Function<PremiumGiveawayPaymentOptions>
     {
@@ -31,7 +31,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Identifier of the supergroup or channel chat, which will be automatically boosted by receivers of the gift codes and which is administered by the user
+        /// Identifier of the supergroup or channel chat that will be automatically boosted by receivers of the gift codes and that is administered by the user
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("boosted_chat_id")]
@@ -39,7 +39,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns available options for creating of Telegram Premium giveaway or manual distribution of Telegram Premium among chat members
+    /// Returns available options for creating a Telegram Premium giveaway or manual distribution of Telegram Premium among chat members
     /// </summary>
     public static Task<PremiumGiveawayPaymentOptions> GetPremiumGiveawayPaymentOptionsAsync(
         this IClient client, long boostedChatId = default)

@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Changes the business location of the current user. Requires Telegram Business subscription
+    /// Changes the business location of the current user. Requires a Telegram Business subscription
     /// </summary>
     public class SetBusinessLocation : Function<Ok>
     {
@@ -39,7 +39,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Changes the business location of the current user. Requires Telegram Business subscription
+    /// Changes the business location of the current user. Requires a Telegram Business subscription
     /// </summary>
     public static Task<Ok> SetBusinessLocationAsync(
         this IClient client, BusinessLocation location = default)

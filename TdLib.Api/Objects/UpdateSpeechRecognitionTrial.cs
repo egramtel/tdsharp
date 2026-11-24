@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class Update : Object
     {
         /// <summary>
-        /// The parameters of speech recognition without Telegram Premium subscription have changed
+        /// The parameters of speech recognition without a Telegram Premium subscription have changed
         /// </summary>
         public class UpdateSpeechRecognitionTrial : Update
         {
@@ -29,7 +29,7 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// The maximum allowed duration of media for speech recognition without Telegram Premium subscription, in seconds
+            /// The maximum allowed duration of media for speech recognition without a Telegram Premium subscription, in seconds
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("max_media_duration")]
@@ -43,7 +43,7 @@ public static partial class TdApi
             public int WeeklyCount { get; set; }
 
             /// <summary>
-            /// Number of left speech recognition attempts this week
+            /// Number of remaining speech recognition attempts this week
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("left_count")]

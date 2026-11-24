@@ -34,14 +34,15 @@ public static partial class TdApi
         public ChatFolderName Name { get; set; }
 
         /// <summary>
-        /// The chosen icon for the chat folder; may be null. If null, use getChatFolderDefaultIconName to get default icon name for the folder
+        /// The chosen icon for the chat folder; may be null. If null, use getChatFolderDefaultIconName to get the default icon name for the folder
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("icon")]
         public ChatFolderIcon Icon { get; set; }
 
         /// <summary>
-        /// The identifier of the chosen color for the chat folder icon; from -1 to 6. If -1, then color is disabled. Can't be changed if folder tags are disabled or the current user doesn't have Telegram Premium subscription
+        /// The identifier of the chosen color for the chat folder icon; from -1 to 6. If -1, then the color is disabled.
+        /// Can't be changed if folder tags are disabled or the current user doesn't have a Telegram Premium subscription
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("color_id")]

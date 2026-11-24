@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Toggles whether sender signature or link to the account is added to sent messages in a channel; requires can_change_info member right
+    /// Toggles whether the sender signature or a link to the account is added to sent messages in a channel; requires can_change_info member right
     /// </summary>
     public class ToggleSupergroupSignMessages : Function<Ok>
     {
@@ -53,7 +53,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Toggles whether sender signature or link to the account is added to sent messages in a channel; requires can_change_info member right
+    /// Toggles whether the sender signature or a link to the account is added to sent messages in a channel; requires can_change_info member right
     /// </summary>
     public static Task<Ok> ToggleSupergroupSignMessagesAsync(
         this IClient client, long supergroupId = default, bool signMessages = default, bool showMessageSender = default)

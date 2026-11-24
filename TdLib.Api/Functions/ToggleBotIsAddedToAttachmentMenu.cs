@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Adds or removes a bot to attachment and side menu. Bot can be added to the menu, only if userTypeBot.can_be_added_to_attachment_menu == true
+    /// Adds a bot to or removes it from the attachment and side menus. The bot can be added to the menus only if userTypeBot.can_be_added_to_attachment_menu == true
     /// </summary>
     public class ToggleBotIsAddedToAttachmentMenu : Function<Ok>
     {
@@ -38,7 +38,7 @@ public static partial class TdApi
         public long BotUserId { get; set; }
 
         /// <summary>
-        /// Pass true to add the bot to attachment menu; pass false to remove the bot from attachment menu
+        /// Pass true to add the bot to the attachment menu; pass false to remove the bot from the attachment menu
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("is_added")]
@@ -53,7 +53,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Adds or removes a bot to attachment and side menu. Bot can be added to the menu, only if userTypeBot.can_be_added_to_attachment_menu == true
+    /// Adds a bot to or removes it from the attachment and side menus. The bot can be added to the menus only if userTypeBot.can_be_added_to_attachment_menu == true
     /// </summary>
     public static Task<Ok> ToggleBotIsAddedToAttachmentMenuAsync(
         this IClient client, long botUserId = default, bool isAdded = default, bool allowWriteAccess = default)

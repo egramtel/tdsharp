@@ -29,11 +29,10 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// Text of the quote
+            /// Quote blocks
             /// </summary>
-            [JsonConverter(typeof(Converter))]
-            [JsonProperty("text")]
-            public RichText Text { get; set; }
+            [JsonProperty("blocks", ItemConverterType = typeof(Converter))]
+            public PageBlock[] Blocks { get; set; }
 
             /// <summary>
             /// Quote credit; may be null if none

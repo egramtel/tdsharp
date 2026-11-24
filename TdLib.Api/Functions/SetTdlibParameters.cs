@@ -31,7 +31,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Pass true to use Telegram test environment instead of the production environment
+        /// Pass true to use the Telegram test environment instead of the production environment
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("use_test_dc")]
@@ -66,7 +66,7 @@ public static partial class TdApi
         public bool UseFileDatabase { get; set; }
 
         /// <summary>
-        /// Pass true to keep cache of users, basic groups, supergroups, channels and secret chats between restarts. Implies use_file_database
+        /// Pass true to keep cache of users, basic groups, supergroups, channels, and secret chats between restarts. Implies use_file_database
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("use_chat_info_database")]

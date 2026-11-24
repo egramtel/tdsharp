@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns the most grossing Web App bots
+    /// Returns the highest-grossing Web App bots
     /// </summary>
     public class GetGrossingWebAppBots : Function<FoundUsers>
     {
@@ -31,7 +31,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Offset of the first entry to return as received from the previous request; use empty string to get the first chunk of results
+        /// Offset of the first entry to return as received from the previous request; use an empty string to get the first chunk of results
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("offset")]
@@ -46,7 +46,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns the most grossing Web App bots
+    /// Returns the highest-grossing Web App bots
     /// </summary>
     public static Task<FoundUsers> GetGrossingWebAppBotsAsync(
         this IClient client, string offset = default, int limit = default)

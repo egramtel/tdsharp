@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns approximate number of messages of the specified type in the chat or its topic
+    /// Returns the approximate number of messages of the specified type in the chat or its topic
     /// </summary>
     public class GetChatMessageCount : Function<Count>
     {
@@ -38,7 +38,7 @@ public static partial class TdApi
         public long ChatId { get; set; }
 
         /// <summary>
-        /// Pass topic identifier to get number of messages only in specific topic; pass null to get number of messages in all topics; message threads aren't supported
+        /// Pass a topic identifier to get the number of messages only in a specific topic; pass null to get the number of messages in all topics; message threads aren't supported
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("topic_id")]
@@ -60,7 +60,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns approximate number of messages of the specified type in the chat or its topic
+    /// Returns the approximate number of messages of the specified type in the chat or its topic
     /// </summary>
     public static Task<Count> GetChatMessageCountAsync(
         this IClient client, long chatId = default, MessageTopic topicId = default, SearchMessagesFilter filter = default, bool returnLocal = default)

@@ -29,7 +29,7 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// Name of the theme; full theme description is received through updateEmojiChatThemes
+            /// Name of the theme; the full theme description is received through updateEmojiChatThemes
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("name")]

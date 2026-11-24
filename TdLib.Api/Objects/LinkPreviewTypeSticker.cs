@@ -29,7 +29,7 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// The sticker. It can be an arbitrary WEBP image and can have dimensions bigger than 512
+            /// The sticker. It can be an arbitrary WEBP image and can have dimensions larger than 512
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("sticker")]

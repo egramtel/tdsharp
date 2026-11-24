@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns auction state for a gift
+    /// Returns the auction state for a gift
     /// </summary>
     public class GetGiftAuctionState : Function<GiftAuctionState>
     {
@@ -39,7 +39,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns auction state for a gift
+    /// Returns the auction state for a gift
     /// </summary>
     public static Task<GiftAuctionState> GetGiftAuctionStateAsync(
         this IClient client, string auctionId = default)

@@ -10,7 +10,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Contains an HTTPS URL, which can be used to get information about a user
+    /// Contains an HTTPS URL that can be used to get information about a user
     /// </summary>
     public partial class UserLink : Object
     {
@@ -34,7 +34,7 @@ public static partial class TdApi
         public string Url { get; set; }
 
         /// <summary>
-        /// Left time for which the link is valid, in seconds; 0 if the link is permanent
+        /// Remaining time for which the link is valid, in seconds; 0 if the link is permanent
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("expires_in")]

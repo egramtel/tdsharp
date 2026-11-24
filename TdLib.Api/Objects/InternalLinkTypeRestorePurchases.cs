@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class InternalLinkType : Object
     {
         /// <summary>
-        /// The link forces restore of App Store purchases when opened. For official iOS application only
+        /// The link forces a restore of App Store purchases when opened. For the official iOS application only
         /// </summary>
         public class InternalLinkTypeRestorePurchases : InternalLinkType
         {

@@ -29,35 +29,35 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// The animated stickers with the initial dice animation; may be null if unknown. The update updateMessageContent will be sent when the sticker became known
+            /// The animated stickers with the initial dice animation; may be null if unknown. The update updateMessageContent will be sent when the sticker becomes known
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("initial_state")]
             public DiceStickers InitialState { get; set; }
 
             /// <summary>
-            /// The animated stickers with the final dice animation; may be null if unknown. The update updateMessageContent will be sent when the sticker became known
+            /// The animated stickers with the final dice animation; may be null if unknown. The update updateMessageContent will be sent when the sticker becomes known
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("final_state")]
             public DiceStickers FinalState { get; set; }
 
             /// <summary>
-            /// The dice value. If the value is 0, then the dice don't have final state yet
+            /// The dice value. If the value is 0, then the dice don't have a final state yet
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("value")]
             public int Value { get; set; }
 
             /// <summary>
-            /// The TON Gram amount that was staked; in the smallest units of the currency
+            /// The TON Gram amount that was staked, in the smallest units of the currency
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("stake_gram_amount")]
             public long StakeGramAmount { get; set; }
 
             /// <summary>
-            /// The TON Gram amount that was gained from the roll; in the smallest units of the currency; -1 if the dice don't have final state yet
+            /// The TON Gram amount that was gained from the roll, in the smallest units of the currency; -1 if the dice don't have a final state yet
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("prize_gram_amount")]

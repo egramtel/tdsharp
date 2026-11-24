@@ -11,8 +11,9 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Sends 2-10 messages grouped together into an album on behalf of a business account; for bots only. Currently, only audio, document, photo and video messages can be grouped into an album.
-    /// Documents and audio files can be only grouped in an album with messages of the same type. Returns sent messages
+    /// Sends 2-10 messages grouped together into an album on behalf of a business account; for bots only.
+    /// Currently, only audio, document, photo, and video messages can be grouped into an album.
+    /// Documents and audio files can only be grouped in an album with messages of the same type. Returns the sent messages
     /// </summary>
     public class SendBusinessMessageAlbum : Function<BusinessMessages>
     {
@@ -32,7 +33,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Unique identifier of business connection on behalf of which to send the request
+        /// Unique identifier of the business connection on behalf of which to send the request
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("business_connection_id")]
@@ -46,7 +47,7 @@ public static partial class TdApi
         public long ChatId { get; set; }
 
         /// <summary>
-        /// Information about the message to be replied; pass null if none
+        /// Information about the message to be replied to; pass null if none
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("reply_to")]
@@ -81,8 +82,9 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Sends 2-10 messages grouped together into an album on behalf of a business account; for bots only. Currently, only audio, document, photo and video messages can be grouped into an album.
-    /// Documents and audio files can be only grouped in an album with messages of the same type. Returns sent messages
+    /// Sends 2-10 messages grouped together into an album on behalf of a business account; for bots only.
+    /// Currently, only audio, document, photo, and video messages can be grouped into an album.
+    /// Documents and audio files can only be grouped in an album with messages of the same type. Returns the sent messages
     /// </summary>
     public static Task<BusinessMessages> SendBusinessMessageAlbumAsync(
         this IClient client, string businessConnectionId = default, long chatId = default, InputMessageReplyTo replyTo = default, bool disableNotification = default, bool protectContent = default, long effectId = default, InputMessageContent[] inputMessageContents = default)

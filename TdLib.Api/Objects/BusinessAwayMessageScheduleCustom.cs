@@ -36,7 +36,7 @@ public static partial class TdApi
             public int StartDate { get; set; }
 
             /// <summary>
-            /// Point in time (Unix timestamp) when the away messages will stop to be sent
+            /// Point in time (Unix timestamp) when the away messages will stop being sent
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("end_date")]

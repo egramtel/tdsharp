@@ -31,7 +31,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Identifier of the channel chat which started the giveaway
+        /// Identifier of the channel chat that started the giveaway
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("chat_id")]

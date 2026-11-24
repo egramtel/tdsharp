@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class DeviceToken : Object
     {
         /// <summary>
-        /// A token for Ubuntu Push Client service
+        /// A token for the Ubuntu Push Client service
         /// </summary>
         public class DeviceTokenUbuntuPush : DeviceToken
         {

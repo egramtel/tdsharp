@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class ChatEventAction : Object
     {
         /// <summary>
-        /// A video chat participant volume level was changed
+        /// A video chat participant's volume level was changed
         /// </summary>
         public class ChatEventVideoChatParticipantVolumeLevelChanged : ChatEventAction
         {
@@ -36,7 +36,7 @@ public static partial class TdApi
             public MessageSender ParticipantId { get; set; }
 
             /// <summary>
-            /// New value of volume_level; 1-20000 in hundreds of percents
+            /// New value of volume_level; 1-20000 in hundredths of a percent
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("volume_level")]

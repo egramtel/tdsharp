@@ -50,7 +50,7 @@ public static partial class TdApi
             public bool IsInverted { get; set; }
 
             /// <summary>
-            /// True, if the background needs to be slightly moved when device is tilted
+            /// True, if the background needs to be slightly moved when the device is tilted
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("is_moving")]

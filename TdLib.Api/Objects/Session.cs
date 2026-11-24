@@ -125,7 +125,7 @@ public static partial class TdApi
         public string SystemVersion { get; set; }
 
         /// <summary>
-        /// Point in time (Unix timestamp) when the user has logged in
+        /// Point in time (Unix timestamp) when the user logged in
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("log_in_date")]

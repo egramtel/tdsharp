@@ -45,7 +45,7 @@ public static partial class TdApi
         public string LastName { get; set; }
 
         /// <summary>
-        /// Pass true to disable notification about the current user joining Telegram for other users that added them to contact list
+        /// Pass true to disable notification about the current user joining Telegram for other users who added them to the contact list
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("disable_notification")]

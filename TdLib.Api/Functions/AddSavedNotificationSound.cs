@@ -11,7 +11,8 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Adds a new notification sound to the list of saved notification sounds. The new notification sound is added to the top of the list. If it is already in the list, its position isn't changed
+    /// Adds a new notification sound to the list of saved notification sounds. The new notification sound is added to the top of the list.
+    /// If it is already in the list, its position isn't changed
     /// </summary>
     public class AddSavedNotificationSound : Function<NotificationSound>
     {
@@ -39,7 +40,8 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Adds a new notification sound to the list of saved notification sounds. The new notification sound is added to the top of the list. If it is already in the list, its position isn't changed
+    /// Adds a new notification sound to the list of saved notification sounds. The new notification sound is added to the top of the list.
+    /// If it is already in the list, its position isn't changed
     /// </summary>
     public static Task<NotificationSound> AddSavedNotificationSoundAsync(
         this IClient client, InputFile sound = default)

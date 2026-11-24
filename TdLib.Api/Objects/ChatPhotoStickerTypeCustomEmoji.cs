@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class ChatPhotoStickerType : Object
     {
         /// <summary>
-        /// Information about the custom emoji, which was used to create the chat photo
+        /// Information about the custom emoji that was used to create the chat photo
         /// </summary>
         public class ChatPhotoStickerTypeCustomEmoji : ChatPhotoStickerType
         {

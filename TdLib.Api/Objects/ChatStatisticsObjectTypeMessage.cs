@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class ChatStatisticsObjectType : Object
     {
         /// <summary>
-        /// Describes type of object, for which statistics are provided
+        /// Describes type of object for which statistics are provided
         /// </summary>
         public class ChatStatisticsObjectTypeMessage : ChatStatisticsObjectType
         {

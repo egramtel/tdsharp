@@ -31,7 +31,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Unique identifier of business connection on behalf of which to send the request; for bots only
+        /// Unique identifier of the business connection on behalf of which to send the request; for bots only
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("business_connection_id")]
@@ -52,7 +52,7 @@ public static partial class TdApi
         public MessageSender NewOwnerId { get; set; }
 
         /// <summary>
-        /// The Telegram Star amount required to pay for the transfer
+        /// The Telegram Star amount that must be paid for the transfer
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("star_count")]

@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class Update : Object
     {
         /// <summary>
-        /// A chat video chat state has changed
+        /// A chat's video chat state has changed
         /// </summary>
         public class UpdateChatVideoChat : Update
         {

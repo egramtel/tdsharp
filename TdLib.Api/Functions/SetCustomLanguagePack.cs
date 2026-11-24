@@ -31,7 +31,8 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Information about the language pack. Language pack identifier must start with 'X', consist only of English letters, digits and hyphens, and must not exceed 64 characters. Can be called before authorization
+        /// Information about the language pack.
+        /// The language pack identifier must start with 'X', consist only of English letters, digits, and hyphens, and must not exceed 64 characters. Can be called before authorization
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("info")]

@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Changes the business greeting message settings of the current user. Requires Telegram Business subscription
+    /// Changes the business greeting message settings of the current user. Requires a Telegram Business subscription
     /// </summary>
     public class SetBusinessGreetingMessageSettings : Function<Ok>
     {
@@ -39,7 +39,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Changes the business greeting message settings of the current user. Requires Telegram Business subscription
+    /// Changes the business greeting message settings of the current user. Requires a Telegram Business subscription
     /// </summary>
     public static Task<Ok> SetBusinessGreetingMessageSettingsAsync(
         this IClient client, BusinessGreetingMessageSettings greetingMessageSettings = default)

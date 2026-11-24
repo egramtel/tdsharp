@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns the list of message sender identifiers, which can be used to send messages in a chat
+    /// Returns the list of message sender identifiers that can be used to send messages in a chat
     /// </summary>
     public class GetChatAvailableMessageSenders : Function<ChatMessageSenders>
     {
@@ -39,7 +39,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns the list of message sender identifiers, which can be used to send messages in a chat
+    /// Returns the list of message sender identifiers that can be used to send messages in a chat
     /// </summary>
     public static Task<ChatMessageSenders> GetChatAvailableMessageSendersAsync(
         this IClient client, long chatId = default)

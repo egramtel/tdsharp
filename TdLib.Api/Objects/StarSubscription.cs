@@ -10,7 +10,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Contains information about subscription to a channel chat, a bot, or a business account that was paid in Telegram Stars
+    /// Contains information about a subscription to a channel chat, a bot, or a business account that was paid in Telegram Stars
     /// </summary>
     public partial class StarSubscription : Object
     {

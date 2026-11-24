@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class InternalLinkType : Object
     {
         /// <summary>
-        /// The link is a link that allows to select some chats
+        /// The link is a link that allows selecting some chats
         /// </summary>
         public class InternalLinkTypeChatSelection : InternalLinkType
         {

@@ -11,7 +11,8 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Handles a push notification. Returns error with code 406 if the push notification is not supported and connection to the server is required to fetch new data. Can be called before authorization
+    /// Handles a push notification. Returns an error with code 406 if the push notification is not supported and a connection to the server is required to fetch new data.
+    /// Can be called before authorization
     /// </summary>
     public class ProcessPushNotification : Function<Ok>
     {
@@ -39,7 +40,8 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Handles a push notification. Returns error with code 406 if the push notification is not supported and connection to the server is required to fetch new data. Can be called before authorization
+    /// Handles a push notification. Returns an error with code 406 if the push notification is not supported and a connection to the server is required to fetch new data.
+    /// Can be called before authorization
     /// </summary>
     public static Task<Ok> ProcessPushNotificationAsync(
         this IClient client, string payload = default)

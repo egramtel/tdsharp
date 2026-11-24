@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Sets default background for chats; adds the background to the list of installed backgrounds
+    /// Sets the default background for chats; adds the background to the list of installed backgrounds
     /// </summary>
     public class SetDefaultBackground : Function<Background>
     {
@@ -53,7 +53,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Sets default background for chats; adds the background to the list of installed backgrounds
+    /// Sets the default background for chats; adds the background to the list of installed backgrounds
     /// </summary>
     public static Task<Background> SetDefaultBackgroundAsync(
         this IClient client, InputBackground background = default, BackgroundType type = default, bool forDarkTheme = default)

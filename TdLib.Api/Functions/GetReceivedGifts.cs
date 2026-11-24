@@ -31,7 +31,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Unique identifier of business connection on behalf of which to send the request; for bots only
+        /// Unique identifier of the business connection on behalf of which to send the request; for bots only
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("business_connection_id")]
@@ -45,14 +45,15 @@ public static partial class TdApi
         public MessageSender OwnerId { get; set; }
 
         /// <summary>
-        /// Pass collection identifier to get gifts only from the specified collection; pass 0 to get gifts regardless of collections
+        /// Pass a collection identifier to get gifts only from the specified collection; pass 0 to get gifts regardless of collections
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("collection_id")]
         public int CollectionId { get; set; }
 
         /// <summary>
-        /// Pass true to exclude gifts that aren't saved to the chat's profile page. Always true for gifts received by other users and channel chats without can_post_messages administrator right
+        /// Pass true to exclude gifts that aren't saved to the chat's profile page.
+        /// Always true for gifts received by other users and channel chats without can_post_messages administrator right
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("exclude_unsaved")]
@@ -66,21 +67,21 @@ public static partial class TdApi
         public bool ExcludeSaved { get; set; }
 
         /// <summary>
-        /// Pass true to exclude gifts that can be purchased unlimited number of times
+        /// Pass true to exclude gifts that can be purchased an unlimited number of times
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("exclude_unlimited")]
         public bool ExcludeUnlimited { get; set; }
 
         /// <summary>
-        /// Pass true to exclude gifts that can be purchased limited number of times and can be upgraded
+        /// Pass true to exclude gifts that can be purchased a limited number of times and can be upgraded
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("exclude_upgradable")]
         public bool ExcludeUpgradable { get; set; }
 
         /// <summary>
-        /// Pass true to exclude gifts that can be purchased limited number of times and can't be upgraded
+        /// Pass true to exclude gifts that can be purchased a limited number of times and can't be upgraded
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("exclude_non_upgradable")]
@@ -115,14 +116,15 @@ public static partial class TdApi
         public bool SortByPrice { get; set; }
 
         /// <summary>
-        /// Offset of the first entry to return as received from the previous request; use empty string to get the first chunk of results
+        /// Offset of the first entry to return as received from the previous request; use an empty string to get the first chunk of results
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("offset")]
         public string Offset { get; set; }
 
         /// <summary>
-        /// The maximum number of gifts to be returned; must be positive and can't be greater than 100. For optimal performance, the number of returned objects is chosen by TDLib and can be smaller than the specified limit
+        /// The maximum number of gifts to be returned; must be positive and can't be greater than 100.
+        /// For optimal performance, the number of returned objects is chosen by TDLib and can be smaller than the specified limit
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("limit")]

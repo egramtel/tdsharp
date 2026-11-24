@@ -31,7 +31,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Unique identifier of business connection on behalf of which to send the request; for bots only
+        /// Unique identifier of the business connection on behalf of which to send the request; for bots only
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("business_connection_id")]
@@ -45,14 +45,14 @@ public static partial class TdApi
         public string ReceivedGiftId { get; set; }
 
         /// <summary>
-        /// Pass true to keep the original gift text, sender and receiver in the upgraded gift
+        /// Pass true to keep the original gift text, sender, and receiver in the upgraded gift
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("keep_original_details")]
         public bool KeepOriginalDetails { get; set; }
 
         /// <summary>
-        /// The Telegram Star amount required to pay for the upgrade. If the gift has prepaid_upgrade_star_count &gt; 0, then pass 0, otherwise, pass gift.upgrade_star_count
+        /// The Telegram Star amount that must be paid for the upgrade. If the gift has prepaid_upgrade_star_count &gt; 0, then pass 0; otherwise, pass gift.upgrade_star_count
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("star_count")]

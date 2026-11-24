@@ -31,7 +31,8 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Identifier of the owner of the Telegram Stars; can be identifier of the current user, an owned bot, or a supergroup or a channel chat with supergroupFullInfo.can_get_star_revenue_statistics == true
+        /// Identifier of the owner of the Telegram Stars;
+        /// can be an identifier of the current user, an owned bot, or a supergroup or a channel chat with supergroupFullInfo.can_get_star_revenue_statistics == true
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("owner_id")]

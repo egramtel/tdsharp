@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Removes a custom text composition style from the list of used by the user styles. If the style was created by the current user, then it can only be deleted
+    /// Removes a custom text composition style from the list of styles used by the user. If the style was created by the current user, then it can only be deleted
     /// </summary>
     public class RemoveTextCompositionStyle : Function<Ok>
     {
@@ -39,7 +39,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Removes a custom text composition style from the list of used by the user styles. If the style was created by the current user, then it can only be deleted
+    /// Removes a custom text composition style from the list of styles used by the user. If the style was created by the current user, then it can only be deleted
     /// </summary>
     public static Task<Ok> RemoveTextCompositionStyleAsync(
         this IClient client, string name = default)

@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class RichText : Object
     {
         /// <summary>
-        /// An address in the TON blockchain
+        /// An address on the TON blockchain
         /// </summary>
         public class RichTextTonAddress : RichText
         {

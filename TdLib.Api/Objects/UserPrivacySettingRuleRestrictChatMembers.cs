@@ -29,7 +29,7 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// The chat identifiers, total number of chats in all rules must not exceed 20
+            /// The chat identifiers; the total number of chats in all rules must not exceed 20
             /// </summary>
             [JsonProperty("chat_ids", ItemConverterType = typeof(Converter))]
             public long[] ChatIds { get; set; }

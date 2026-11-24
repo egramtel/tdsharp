@@ -36,7 +36,7 @@ public static partial class TdApi
             public TonWalletTransferReceiver Receiver { get; set; }
 
             /// <summary>
-            /// The pre-filled amount of TON Grams to send; in the smallest units of the cryptocurrency
+            /// The pre-filled amount to send, in the smallest units of TON Grams
             /// </summary>
             [JsonConverter(typeof(Converter.Int64))]
             [JsonProperty("gram_amount")]

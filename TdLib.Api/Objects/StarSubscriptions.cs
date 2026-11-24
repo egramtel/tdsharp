@@ -40,7 +40,7 @@ public static partial class TdApi
         public StarSubscription[] Subscriptions { get; set; }
 
         /// <summary>
-        /// The number of Telegram Stars required to buy to extend subscriptions expiring soon
+        /// The number of Telegram Stars that must be bought to extend subscriptions expiring soon
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("required_star_count")]

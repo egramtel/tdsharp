@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns an HTML code for embedding the message. Available only if messageProperties.can_get_embedding_code
+    /// Returns HTML code for embedding the message. Available only if messageProperties.can_get_embedding_code
     /// </summary>
     public class GetMessageEmbeddingCode : Function<Text>
     {
@@ -45,7 +45,7 @@ public static partial class TdApi
         public long MessageId { get; set; }
 
         /// <summary>
-        /// Pass true to return an HTML code for embedding of the whole media album
+        /// Pass true to return HTML code for embedding the whole media album
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("for_album")]
@@ -53,7 +53,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns an HTML code for embedding the message. Available only if messageProperties.can_get_embedding_code
+    /// Returns HTML code for embedding the message. Available only if messageProperties.can_get_embedding_code
     /// </summary>
     public static Task<Text> GetMessageEmbeddingCodeAsync(
         this IClient client, long chatId = default, long messageId = default, bool forAlbum = default)

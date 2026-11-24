@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns default list of custom emoji stickers for reply background
+    /// Returns the default list of custom emoji stickers for reply background
     /// </summary>
     public class GetDefaultBackgroundCustomEmojiStickers : Function<Stickers>
     {
@@ -34,7 +34,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns default list of custom emoji stickers for reply background
+    /// Returns the default list of custom emoji stickers for reply background
     /// </summary>
     public static Task<Stickers> GetDefaultBackgroundCustomEmojiStickersAsync(
         this IClient client)

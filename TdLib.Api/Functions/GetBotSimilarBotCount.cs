@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns approximate number of bots similar to the given bot
+    /// Returns the approximate number of bots similar to the given bot
     /// </summary>
     public class GetBotSimilarBotCount : Function<Count>
     {
@@ -46,7 +46,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns approximate number of bots similar to the given bot
+    /// Returns the approximate number of bots similar to the given bot
     /// </summary>
     public static Task<Count> GetBotSimilarBotCountAsync(
         this IClient client, long botUserId = default, bool returnLocal = default)

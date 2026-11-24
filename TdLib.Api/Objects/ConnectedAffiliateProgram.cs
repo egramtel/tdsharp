@@ -62,7 +62,7 @@ public static partial class TdApi
         public bool IsDisconnected { get; set; }
 
         /// <summary>
-        /// The number of users that used the affiliate program
+        /// The number of users who used the affiliate program
         /// </summary>
         [JsonConverter(typeof(Converter.Int64))]
         [JsonProperty("user_count")]

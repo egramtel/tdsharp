@@ -76,14 +76,14 @@ public static partial class TdApi
         public Thumbnail Thumbnail { get; set; }
 
         /// <summary>
-        /// Size of file prefix, which is expected to be preloaded, in bytes
+        /// Size of the file prefix, which is expected to be preloaded, in bytes
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("preload_prefix_size")]
         public int PreloadPrefixSize { get; set; }
 
         /// <summary>
-        /// Timestamp of the frame used as video thumbnail
+        /// Timestamp of the frame used as the video thumbnail
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("cover_frame_timestamp")]

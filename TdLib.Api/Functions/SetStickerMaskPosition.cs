@@ -38,7 +38,7 @@ public static partial class TdApi
         public InputFile Sticker { get; set; }
 
         /// <summary>
-        /// Position where the mask is placed; pass null to remove mask position
+        /// Position where the mask is placed; pass null to remove the mask position
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("mask_position")]

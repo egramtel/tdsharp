@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class SuggestedAction : Object
     {
         /// <summary>
-        /// Suggests the user to restore a recently expired Premium subscription
+        /// Suggests that the user restore a recently expired Premium subscription
         /// </summary>
         public class SuggestedActionRestorePremium : SuggestedAction
         {

@@ -34,7 +34,7 @@ public static partial class TdApi
         public int CommissionPerMille { get; set; }
 
         /// <summary>
-        /// Identifier of the chat which received the commission
+        /// Identifier of the chat that received the commission
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("affiliate_chat_id")]

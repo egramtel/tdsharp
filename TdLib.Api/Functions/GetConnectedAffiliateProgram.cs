@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns an affiliate program that was connected to the given affiliate by identifier of the bot that created the program
+    /// Returns an affiliate program that was connected to the given affiliate by the identifier of the bot that created the program
     /// </summary>
     public class GetConnectedAffiliateProgram : Function<ConnectedAffiliateProgram>
     {
@@ -46,7 +46,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns an affiliate program that was connected to the given affiliate by identifier of the bot that created the program
+    /// Returns an affiliate program that was connected to the given affiliate by the identifier of the bot that created the program
     /// </summary>
     public static Task<ConnectedAffiliateProgram> GetConnectedAffiliateProgramAsync(
         this IClient client, AffiliateType affiliate = default, long botUserId = default)

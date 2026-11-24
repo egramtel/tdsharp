@@ -11,7 +11,8 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Sends a Telegram Passport authorization form, effectively sharing data with the service. This method must be called after getPassportAuthorizationFormAvailableElements if some previously available elements are going to be reused
+    /// Sends a Telegram Passport authorization form, effectively sharing data with the service.
+    /// This method must be called after getPassportAuthorizationFormAvailableElements if some previously available elements are going to be reused
     /// </summary>
     public class SendPassportAuthorizationForm : Function<Ok>
     {
@@ -38,14 +39,15 @@ public static partial class TdApi
         public int AuthorizationFormId { get; set; }
 
         /// <summary>
-        /// Types of Telegram Passport elements chosen by user to complete the authorization form
+        /// Types of Telegram Passport elements chosen by the user to complete the authorization form
         /// </summary>
         [JsonProperty("types", ItemConverterType = typeof(Converter))]
         public PassportElementType[] Types { get; set; }
     }
 
     /// <summary>
-    /// Sends a Telegram Passport authorization form, effectively sharing data with the service. This method must be called after getPassportAuthorizationFormAvailableElements if some previously available elements are going to be reused
+    /// Sends a Telegram Passport authorization form, effectively sharing data with the service.
+    /// This method must be called after getPassportAuthorizationFormAvailableElements if some previously available elements are going to be reused
     /// </summary>
     public static Task<Ok> SendPassportAuthorizationFormAsync(
         this IClient client, int authorizationFormId = default, PassportElementType[] types = default)

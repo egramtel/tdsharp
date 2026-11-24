@@ -10,7 +10,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Describes settings for greeting messages that are automatically sent by a Telegram Business account as response to incoming messages in an inactive private chat
+    /// Describes settings for greeting messages that are automatically sent by a Telegram Business account as a response to incoming messages in an inactive private chat
     /// </summary>
     public partial class BusinessGreetingMessageSettings : Object
     {

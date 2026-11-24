@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns default list of custom emoji stickers for placing on a chat photo
+    /// Returns the default list of custom emoji stickers for placing on a chat photo
     /// </summary>
     public class GetDefaultChatPhotoCustomEmojiStickers : Function<Stickers>
     {
@@ -34,7 +34,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns default list of custom emoji stickers for placing on a chat photo
+    /// Returns the default list of custom emoji stickers for placing on a chat photo
     /// </summary>
     public static Task<Stickers> GetDefaultChatPhotoCustomEmojiStickersAsync(
         this IClient client)

@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class Update : Object
     {
         /// <summary>
-        /// Chat emoji status has changed
+        /// The emoji status of a chat has changed
         /// </summary>
         public class UpdateChatEmojiStatus : Update
         {

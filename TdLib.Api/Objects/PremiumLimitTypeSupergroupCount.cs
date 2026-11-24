@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class PremiumLimitType : Object
     {
         /// <summary>
-        /// Describes type of limit, increased for Premium users
+        /// Describes type of limit increased for Premium users
         /// </summary>
         public class PremiumLimitTypeSupergroupCount : PremiumLimitType
         {

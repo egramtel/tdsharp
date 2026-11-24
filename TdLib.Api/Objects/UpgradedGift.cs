@@ -10,7 +10,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Describes an upgraded gift that can be transferred to another owner or transferred to the TON blockchain as an NFT
+    /// Describes an upgraded gift that can be transferred to another owner or minted as an NFT on the TON blockchain
     /// </summary>
     public partial class UpgradedGift : Object
     {
@@ -34,7 +34,7 @@ public static partial class TdApi
         public long Id { get; set; }
 
         /// <summary>
-        /// Unique identifier of the regular gift from which the gift was upgraded; may be 0 for short period of time for old gifts from database
+        /// Unique identifier of the regular gift from which the gift was upgraded; may be 0 for a short period of time for old gifts from the database
         /// </summary>
         [JsonConverter(typeof(Converter.Int64))]
         [JsonProperty("regular_gift_id")]
@@ -118,7 +118,7 @@ public static partial class TdApi
         public long UsedThemeChatId { get; set; }
 
         /// <summary>
-        /// Identifier of the user or the chat to which the upgraded gift was assigned from blockchain; may be null if none or unknown
+        /// Identifier of the user or the chat to which the minted gift is linked; may be null if none or unknown
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("host_id")]
@@ -132,21 +132,23 @@ public static partial class TdApi
         public MessageSender OwnerId { get; set; }
 
         /// <summary>
-        /// Address of the gift NFT owner in TON blockchain; may be empty if none. Append the address to getOption("ton_blockchain_explorer_url") to get a link with information about the address
+        /// Address of the gift NFT owner on the TON blockchain; may be empty if none.
+        /// Append the address to getOption("ton_blockchain_explorer_url") to get a link with information about the address
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("owner_address")]
         public string OwnerAddress { get; set; }
 
         /// <summary>
-        /// Name of the owner for the case when owner identifier and address aren't known
+        /// Name of the owner for the case when the owner identifier and address aren't known
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("owner_name")]
         public string OwnerName { get; set; }
 
         /// <summary>
-        /// Address of the gift NFT in TON blockchain; may be empty if none. Append the address to getOption("ton_blockchain_explorer_url") to get a link with information about the address
+        /// Address of the gift NFT on the TON blockchain; empty if the gift isn't minted.
+        /// Append the address to getOption("ton_blockchain_explorer_url") to get a link with information about the address
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("gift_address")]
@@ -188,11 +190,19 @@ public static partial class TdApi
         public UpgradedGiftOriginalDetails OriginalDetails { get; set; }
 
         /// <summary>
-        /// Colors that can be set for user's name, background of empty chat photo, replies to messages and link previews; may be null if none or unknown
+        /// Colors that can be set for user's name, background of empty chat photo, replies to messages, and link previews; may be null if none or unknown
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("colors")]
         public UpgradedGiftColors Colors { get; set; }
+
+        /// <summary>
+        /// True, if the gift must be bought, put up for sale, and delisted using getGiftOnChainPurchaseTransaction, getGiftOnChainListingTransaction,
+        /// and getGiftOnChainDelistingTransaction; otherwise, sendResoldGift and setGiftResalePrice must be used
+        /// </summary>
+        [JsonConverter(typeof(Converter))]
+        [JsonProperty("uses_on_chain_resale")]
+        public bool UsesOnChainResale { get; set; }
 
         /// <summary>
         /// Resale parameters of the gift; may be null if resale isn't possible
@@ -202,11 +212,25 @@ public static partial class TdApi
         public GiftResaleParameters ResaleParameters { get; set; }
 
         /// <summary>
+        /// The fee for the sale of the gift, in basis points; 1 basis point is 0.01%; 0 if unknown. The fee is deducted from the price received by the seller
+        /// </summary>
+        [JsonConverter(typeof(Converter))]
+        [JsonProperty("fee_basis_points")]
+        public int FeeBasisPoints { get; set; }
+
+        /// <summary>
         /// True, if an offer to purchase the gift can be sent using sendGiftPurchaseOffer
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("can_send_purchase_offer")]
         public bool CanSendPurchaseOffer { get; set; }
+
+        /// <summary>
+        /// The minimum price for an on-chain offer to purchase the gift, in the smallest units of TON Grams; 0 if on-chain purchase offers can't be sent for the gift
+        /// </summary>
+        [JsonConverter(typeof(Converter.Int64))]
+        [JsonProperty("min_on_chain_purchase_offer_gram_amount")]
+        public long MinOnChainPurchaseOfferGramAmount { get; set; }
 
         /// <summary>
         /// Probability that the gift adds to the chance of successful crafting of a new gift; 0 if the gift can't be used for crafting
@@ -216,14 +240,14 @@ public static partial class TdApi
         public int CraftProbabilityPerMille { get; set; }
 
         /// <summary>
-        /// ISO 4217 currency code of the currency in which value of the gift is represented; may be empty if unavailable
+        /// ISO 4217 currency code of the currency in which the value of the gift is represented; may be empty if unavailable
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("value_currency")]
         public string ValueCurrency { get; set; }
 
         /// <summary>
-        /// Estimated value of the gift; in the smallest units of the currency; 0 if unavailable
+        /// Estimated value of the gift, in the smallest units of the currency; 0 if unavailable
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("value_amount")]

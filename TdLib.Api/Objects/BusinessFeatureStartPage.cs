@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class BusinessFeature : Object
     {
         /// <summary>
-        /// The ability to customize start page
+        /// The ability to customize the start page
         /// </summary>
         public class BusinessFeatureStartPage : BusinessFeature
         {

@@ -10,7 +10,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Contains an HTTP URL for TON Center Streaming API
+    /// Contains an HTTP URL for the TON Center Streaming API
     /// </summary>
     public partial class TonCenterStreamingApiUrl : Object
     {

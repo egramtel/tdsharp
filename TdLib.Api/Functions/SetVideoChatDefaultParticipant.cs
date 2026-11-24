@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Changes default participant identifier, on whose behalf a video chat in the chat will be joined
+    /// Changes the default participant identifier on whose behalf a video chat in the chat will be joined
     /// </summary>
     public class SetVideoChatDefaultParticipant : Function<Ok>
     {
@@ -46,7 +46,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Changes default participant identifier, on whose behalf a video chat in the chat will be joined
+    /// Changes the default participant identifier on whose behalf a video chat in the chat will be joined
     /// </summary>
     public static Task<Ok> SetVideoChatDefaultParticipantAsync(
         this IClient client, long chatId = default, MessageSender defaultParticipantId = default)

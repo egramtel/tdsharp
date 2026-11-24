@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class SuggestedAction : Object
     {
         /// <summary>
-        /// Suggests the user to set birthdate
+        /// Suggests that the user set their birthdate
         /// </summary>
         public class SuggestedActionSetBirthdate : SuggestedAction
         {

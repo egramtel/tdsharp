@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Informs TDLib that a chat was opened from the list of similar chats. The method is independent of openChat and closeChat methods
+    /// Informs TDLib that a chat was opened from the list of similar chats. The method is independent of the openChat and closeChat methods
     /// </summary>
     public class OpenChatSimilarChat : Function<Ok>
     {
@@ -31,7 +31,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// Identifier of the original chat, which similar chats were requested
+        /// Identifier of the original chat for which similar chats were requested
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("chat_id")]
@@ -46,7 +46,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Informs TDLib that a chat was opened from the list of similar chats. The method is independent of openChat and closeChat methods
+    /// Informs TDLib that a chat was opened from the list of similar chats. The method is independent of the openChat and closeChat methods
     /// </summary>
     public static Task<Ok> OpenChatSimilarChatAsync(
         this IClient client, long chatId = default, long openedChatId = default)

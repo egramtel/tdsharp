@@ -12,7 +12,8 @@ public static partial class TdApi
     public partial class InputMessageContent : Object
     {
         /// <summary>
-        /// A message with a poll. Polls can't be sent to secret chats and channel direct messages chats. Polls can be sent to a private chat only if the chat is a chat with a bot or the Saved Messages chat
+        /// A message with a poll. Polls can't be sent to secret chats and channel direct messages chats.
+        /// Polls can be sent to a private chat only if the chat is a chat with a bot or the Saved Messages chat
         /// </summary>
         public class InputMessagePoll : InputMessageContent
         {
@@ -78,14 +79,14 @@ public static partial class TdApi
             public bool AllowsRevoting { get; set; }
 
             /// <summary>
-            /// True, if only the users that are members of the chat for more than a day will be able to vote; for channel chats only
+            /// True, if only the users who have been members of the chat for more than a day will be able to vote; for channel chats only
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("members_only")]
             public bool MembersOnly { get; set; }
 
             /// <summary>
-            /// The list of two-letter ISO 3166-1 alpha-2 codes of countries, users from which will be able to vote; for channel chats only. If empty, then all users can participate in the poll.
+            /// The list of two-letter ISO 3166-1 alpha-2 codes of countries whose users will be able to vote; for channel chats only. If empty, then all users can participate in the poll.
             /// There can be up to getOption("poll_country_count_max") chosen countries
             /// </summary>
             [JsonProperty("country_codes", ItemConverterType = typeof(Converter))]

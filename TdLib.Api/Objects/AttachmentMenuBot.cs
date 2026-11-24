@@ -10,7 +10,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Represents a bot, which can be added to attachment or side menu
+    /// Represents a bot that can be added to the attachment or side menu
     /// </summary>
     public partial class AttachmentMenuBot : Object
     {
@@ -34,35 +34,35 @@ public static partial class TdApi
         public long BotUserId { get; set; }
 
         /// <summary>
-        /// True, if the bot supports opening from attachment menu in the chat with the bot
+        /// True, if the bot supports opening from the attachment menu in the chat with the bot
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("supports_self_chat")]
         public bool SupportsSelfChat { get; set; }
 
         /// <summary>
-        /// True, if the bot supports opening from attachment menu in private chats with ordinary users
+        /// True, if the bot supports opening from the attachment menu in private chats with ordinary users
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("supports_user_chats")]
         public bool SupportsUserChats { get; set; }
 
         /// <summary>
-        /// True, if the bot supports opening from attachment menu in private chats with other bots
+        /// True, if the bot supports opening from the attachment menu in private chats with other bots
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("supports_bot_chats")]
         public bool SupportsBotChats { get; set; }
 
         /// <summary>
-        /// True, if the bot supports opening from attachment menu in basic group and supergroup chats
+        /// True, if the bot supports opening from the attachment menu in basic group and supergroup chats
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("supports_group_chats")]
         public bool SupportsGroupChats { get; set; }
 
         /// <summary>
-        /// True, if the bot supports opening from attachment menu in channel chats
+        /// True, if the bot supports opening from the attachment menu in channel chats
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("supports_channel_chats")]
@@ -76,7 +76,8 @@ public static partial class TdApi
         public bool RequestWriteAccess { get; set; }
 
         /// <summary>
-        /// True, if the bot was explicitly added by the user. If the bot isn't added, then on the first bot launch toggleBotIsAddedToAttachmentMenu must be called and the bot must be added or removed
+        /// True, if the bot was explicitly added by the user.
+        /// If the bot isn't added, then, on the first bot launch, toggleBotIsAddedToAttachmentMenu must be called and the bot must be added or removed
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("is_added")]
@@ -97,21 +98,21 @@ public static partial class TdApi
         public bool ShowInSideMenu { get; set; }
 
         /// <summary>
-        /// True, if a disclaimer, why the bot is shown in the side menu, is needed
+        /// True, if a disclaimer explaining why the bot is shown in the side menu is needed
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("show_disclaimer_in_side_menu")]
         public bool ShowDisclaimerInSideMenu { get; set; }
 
         /// <summary>
-        /// Name for the bot in attachment menu
+        /// Name for the bot in the attachment menu
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("name")]
         public string Name { get; set; }
 
         /// <summary>
-        /// Color to highlight selected name of the bot if appropriate; may be null
+        /// Color to highlight the selected name of the bot if appropriate; may be null
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("name_color")]
@@ -174,7 +175,7 @@ public static partial class TdApi
         public File MacosSideMenuIcon { get; set; }
 
         /// <summary>
-        /// Color to highlight selected icon of the bot if appropriate; may be null
+        /// Color to highlight the selected icon of the bot if appropriate; may be null
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("icon_color")]

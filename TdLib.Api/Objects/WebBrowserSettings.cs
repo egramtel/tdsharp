@@ -34,19 +34,19 @@ public static partial class TdApi
         public bool OpenExternalBrowser { get; set; }
 
         /// <summary>
-        /// The list of websites which must always be opened in an external browser
+        /// The list of websites that must always be opened in an external browser
         /// </summary>
         [JsonProperty("external_exceptions", ItemConverterType = typeof(Converter))]
         public WebDomainException[] ExternalExceptions { get; set; }
 
         /// <summary>
-        /// The list of websites which must always be opened in the in-app browser
+        /// The list of websites that must always be opened in the in-app browser
         /// </summary>
         [JsonProperty("in_app_exceptions", ItemConverterType = typeof(Converter))]
         public WebDomainException[] InAppExceptions { get; set; }
 
         /// <summary>
-        /// True, if a close button must be shown in the in-app browser; for Android app only
+        /// True, if a close button must be shown in the in-app browser; for the Android app only
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("display_close_button")]

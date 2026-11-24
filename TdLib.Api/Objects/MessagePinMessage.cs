@@ -29,7 +29,7 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// Identifier of the pinned message, can be an identifier of a deleted message or 0
+            /// Identifier of the pinned message; can be an identifier of a deleted message or 0
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("message_id")]

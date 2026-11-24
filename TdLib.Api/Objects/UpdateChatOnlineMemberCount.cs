@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class Update : Object
     {
         /// <summary>
-        /// The number of online group members has changed. This update with non-zero number of online group members is sent only for currently opened chats.
+        /// The number of online group members has changed. This update with a non-zero number of online group members is sent only for currently opened chats.
         /// There is no guarantee that it is sent just after the number of online users has changed
         /// </summary>
         public class UpdateChatOnlineMemberCount : Update

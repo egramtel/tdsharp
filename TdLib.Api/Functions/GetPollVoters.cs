@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns message senders voted for the specified option in a poll; use poll.can_get_voters to check whether the method can be used.
+    /// Returns message senders who voted for the specified option in a poll; use poll.can_get_voters to check whether the method can be used.
     /// For optimal performance, the number of returned users is chosen by TDLib
     /// </summary>
     public class GetPollVoters : Function<PollVoters>
@@ -69,7 +69,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns message senders voted for the specified option in a poll; use poll.can_get_voters to check whether the method can be used.
+    /// Returns message senders who voted for the specified option in a poll; use poll.can_get_voters to check whether the method can be used.
     /// For optimal performance, the number of returned users is chosen by TDLib
     /// </summary>
     public static Task<PollVoters> GetPollVotersAsync(

@@ -43,7 +43,7 @@ public static partial class TdApi
             public LinkPreview LinkPreview { get; set; }
 
             /// <summary>
-            /// Options which were used for generation of the link preview; may be null if default options were used
+            /// Options that were used for generation of the link preview; may be null if default options were used
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("link_preview_options")]

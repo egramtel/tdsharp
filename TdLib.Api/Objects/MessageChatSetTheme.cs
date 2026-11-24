@@ -29,7 +29,7 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// New theme for the chat; may be null if chat theme was reset to the default one
+            /// New theme for the chat; may be null if the chat theme was reset to the default one
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("theme")]

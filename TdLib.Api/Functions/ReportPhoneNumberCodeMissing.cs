@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Reports that authentication code wasn't delivered via SMS to the specified phone number; for official mobile applications only
+    /// Reports that the authentication code wasn't delivered via SMS to the specified phone number; for official mobile applications only
     /// </summary>
     public class ReportPhoneNumberCodeMissing : Function<Ok>
     {
@@ -39,7 +39,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Reports that authentication code wasn't delivered via SMS to the specified phone number; for official mobile applications only
+    /// Reports that the authentication code wasn't delivered via SMS to the specified phone number; for official mobile applications only
     /// </summary>
     public static Task<Ok> ReportPhoneNumberCodeMissingAsync(
         this IClient client, string mobileNetworkCode = default)

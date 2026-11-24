@@ -11,7 +11,8 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns reactions, which can be added to a message. The list can change after updateActiveEmojiReactions, updateChatAvailableReactions for the chat, or updateMessageInteractionInfo for the message
+    /// Returns reactions that can be added to a message.
+    /// The list can change after updateActiveEmojiReactions, updateChatAvailableReactions for the chat, or updateMessageInteractionInfo for the message
     /// </summary>
     public class GetMessageAvailableReactions : Function<AvailableReactions>
     {
@@ -45,7 +46,7 @@ public static partial class TdApi
         public long MessageId { get; set; }
 
         /// <summary>
-        /// Number of reactions per row, 5-25
+        /// Number of reactions per row; 5-25
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("row_size")]
@@ -53,7 +54,8 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns reactions, which can be added to a message. The list can change after updateActiveEmojiReactions, updateChatAvailableReactions for the chat, or updateMessageInteractionInfo for the message
+    /// Returns reactions that can be added to a message.
+    /// The list can change after updateActiveEmojiReactions, updateChatAvailableReactions for the chat, or updateMessageInteractionInfo for the message
     /// </summary>
     public static Task<AvailableReactions> GetMessageAvailableReactionsAsync(
         this IClient client, long chatId = default, long messageId = default, int rowSize = default)

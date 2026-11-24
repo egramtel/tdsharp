@@ -36,7 +36,7 @@ public static partial class TdApi
             public Gift Gift { get; set; }
 
             /// <summary>
-            /// Point in time (Unix timestamp) when the auction will be ended
+            /// Point in time (Unix timestamp) when the auction will end
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("auction_end_date")]

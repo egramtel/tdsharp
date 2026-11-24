@@ -55,14 +55,14 @@ public static partial class TdApi
         public Minithumbnail Minithumbnail { get; set; }
 
         /// <summary>
-        /// True, if the photo has animated variant
+        /// True, if the photo has an animated variant
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("has_animation")]
         public bool HasAnimation { get; set; }
 
         /// <summary>
-        /// True, if the photo is visible only for the current user
+        /// True, if the photo is visible only to the current user
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("is_personal")]

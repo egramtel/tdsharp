@@ -29,7 +29,7 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// Point in time (Unix timestamp) until stealth mode is active; 0 if it is disabled
+            /// Point in time (Unix timestamp) until which stealth mode is active; 0 if it is disabled
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("active_until_date")]

@@ -39,7 +39,7 @@ public static partial class TdApi
         public long BotUserId { get; set; }
 
         /// <summary>
-        /// A two-letter ISO 639-1 language code for which preview is added. If empty, then the preview will be shown to all users for whose languages there are no dedicated previews.
+        /// A two-letter ISO 639-1 language code for which the preview is added. If empty, then the preview will be shown to all users for whose languages there are no dedicated previews.
         /// If non-empty, then there must be an official language pack of the same name, which is returned by getLocalizationTargetInfo
         /// </summary>
         [JsonConverter(typeof(Converter))]

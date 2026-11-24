@@ -29,7 +29,7 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// User identifier of the chat administrator, approved user join request
+            /// User identifier of the chat administrator who approved the user join request
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("approver_user_id")]

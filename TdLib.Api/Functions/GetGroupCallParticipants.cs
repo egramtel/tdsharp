@@ -31,7 +31,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// The group call which participants will be returned
+        /// The group call whose participants will be returned
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("input_group_call")]

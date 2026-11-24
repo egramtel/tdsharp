@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Checks validness of a name for a quick reply shortcut. Can be called synchronously
+    /// Checks the validity of a name for a quick reply shortcut. Can be called synchronously
     /// </summary>
     public class CheckQuickReplyShortcutName : Function<Ok>
     {
@@ -39,7 +39,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Checks validness of a name for a quick reply shortcut. Can be called synchronously
+    /// Checks the validity of a name for a quick reply shortcut. Can be called synchronously
     /// </summary>
     public static Task<Ok> CheckQuickReplyShortcutNameAsync(
         this IClient client, string name = default)

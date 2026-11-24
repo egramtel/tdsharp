@@ -57,7 +57,7 @@ public static partial class TdApi
             public string PublicData { get; set; }
 
             /// <summary>
-            /// Data of the widget, which is specific to the chat
+            /// Data of the widget that is specific to the chat
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("chat_data")]

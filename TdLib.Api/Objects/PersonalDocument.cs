@@ -10,7 +10,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// A personal document, containing some information about a user
+    /// A personal document containing some information about a user
     /// </summary>
     public partial class PersonalDocument : Object
     {

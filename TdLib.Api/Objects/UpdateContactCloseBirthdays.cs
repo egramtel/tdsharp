@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class Update : Object
     {
         /// <summary>
-        /// The list of contacts that had birthdays recently or will have birthday soon has changed
+        /// The list of contacts who had birthdays recently or will have a birthday soon has changed
         /// </summary>
         public class UpdateContactCloseBirthdays : Update
         {
@@ -29,7 +29,7 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// List of contact users with close birthday
+            /// List of contact users with close birthdays
             /// </summary>
             [JsonProperty("close_birthday_users", ItemConverterType = typeof(Converter))]
             public CloseBirthdayUser[] CloseBirthdayUsers { get; set; }

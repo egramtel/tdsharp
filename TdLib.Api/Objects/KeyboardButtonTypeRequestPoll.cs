@@ -29,14 +29,14 @@ public static partial class TdApi
             public override string ExtraData { get; set; }
 
             /// <summary>
-            /// If true, only regular polls must be allowed to create
+            /// If true, only regular polls must be allowed to be created
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("force_regular")]
             public bool ForceRegular { get; set; }
 
             /// <summary>
-            /// If true, only polls in quiz mode must be allowed to create
+            /// If true, only polls in quiz mode must be allowed to be created
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("force_quiz")]

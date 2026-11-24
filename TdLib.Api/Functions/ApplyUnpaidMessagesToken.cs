@@ -11,8 +11,9 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Allows the current user to send unpaid messages to the given user, which requires payment for incoming messages, using a token from an internal link
-    /// of the type internalLinkTypePublicChat, internalLinkTypeUserPhoneNumber, or internalLinkTypeUserToken. The first message sent to the user will be preceded by a messageUnpaidMessagesAllowedByLink message.
+    /// Allows the current user to send unpaid messages to the given user, who requires payment for incoming messages, using a token from an internal link
+    /// of the type internalLinkTypePublicChat, internalLinkTypeUserPhoneNumber, or internalLinkTypeUserToken.
+    /// The first message sent to the user will be preceded by a messageUnpaidMessagesAllowedByLink message.
     /// Repeated calls and calls for the current user have no effect
     /// </summary>
     public class ApplyUnpaidMessagesToken : Function<Ok>
@@ -48,8 +49,9 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Allows the current user to send unpaid messages to the given user, which requires payment for incoming messages, using a token from an internal link
-    /// of the type internalLinkTypePublicChat, internalLinkTypeUserPhoneNumber, or internalLinkTypeUserToken. The first message sent to the user will be preceded by a messageUnpaidMessagesAllowedByLink message.
+    /// Allows the current user to send unpaid messages to the given user, who requires payment for incoming messages, using a token from an internal link
+    /// of the type internalLinkTypePublicChat, internalLinkTypeUserPhoneNumber, or internalLinkTypeUserToken.
+    /// The first message sent to the user will be preceded by a messageUnpaidMessagesAllowedByLink message.
     /// Repeated calls and calls for the current user have no effect
     /// </summary>
     public static Task<Ok> ApplyUnpaidMessagesTokenAsync(

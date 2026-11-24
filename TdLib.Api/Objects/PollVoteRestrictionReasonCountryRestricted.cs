@@ -12,7 +12,7 @@ public static partial class TdApi
     public partial class PollVoteRestrictionReason : Object
     {
         /// <summary>
-        /// The user is from a country, users from which aren't allowed to vote
+        /// The user is from a country whose users aren't allowed to vote
         /// </summary>
         public class PollVoteRestrictionReasonCountryRestricted : PollVoteRestrictionReason
         {

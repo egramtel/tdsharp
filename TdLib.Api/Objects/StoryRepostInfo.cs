@@ -10,7 +10,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Contains information about original story that was reposted
+    /// Contains information about the original story that was reposted
     /// </summary>
     public partial class StoryRepostInfo : Object
     {
@@ -34,7 +34,7 @@ public static partial class TdApi
         public StoryOrigin Origin { get; set; }
 
         /// <summary>
-        /// True, if story content was modified during reposting; otherwise, story wasn't modified
+        /// True, if the story content was modified during reposting; otherwise, the story wasn't modified
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("is_content_modified")]

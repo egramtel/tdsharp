@@ -43,7 +43,7 @@ public static partial class TdApi
             public UpgradedGift Gift { get; set; }
 
             /// <summary>
-            /// The number of Telegram Stars received by the Telegram for each 1000 Telegram Stars received by the seller of the gift
+            /// The number of Telegram Stars received by Telegram for each 1000 Telegram Stars received by the seller of the gift
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("commission_per_mille")]

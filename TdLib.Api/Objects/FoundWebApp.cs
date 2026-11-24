@@ -34,14 +34,15 @@ public static partial class TdApi
         public WebApp WebApp { get; set; }
 
         /// <summary>
-        /// True, if the user must be asked for the permission to the bot to send them messages
+        /// True, if the user must be asked for the permission for the bot to send them messages
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("request_write_access")]
         public bool RequestWriteAccess { get; set; }
 
         /// <summary>
-        /// True, if there is no need to show an ordinary open URL confirmation before opening the Web App. The field must be ignored and confirmation must be shown anyway if the Web App link was hidden
+        /// True, if there is no need to show an ordinary open URL confirmation before opening the Web App.
+        /// The field must be ignored and confirmation must be shown anyway if the Web App link was hidden
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("skip_confirmation")]

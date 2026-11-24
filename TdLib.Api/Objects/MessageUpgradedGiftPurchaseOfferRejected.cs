@@ -43,7 +43,7 @@ public static partial class TdApi
             public GiftResalePrice Price { get; set; }
 
             /// <summary>
-            /// Identifier of the message with purchase offer which was rejected or expired; may be 0 or an identifier of a deleted message
+            /// Identifier of the message with the purchase offer that was rejected or expired; may be 0 or an identifier of a deleted message
             /// </summary>
             [JsonConverter(typeof(Converter))]
             [JsonProperty("offer_message_id")]

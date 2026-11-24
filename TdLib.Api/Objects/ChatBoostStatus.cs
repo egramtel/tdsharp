@@ -27,7 +27,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// An HTTP URL, which can be used to boost the chat
+        /// An HTTP URL that can be used to boost the chat
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("boost_url")]
@@ -75,14 +75,14 @@ public static partial class TdApi
         public int NextLevelBoostCount { get; set; }
 
         /// <summary>
-        /// Approximate number of Telegram Premium subscribers joined the chat; always 0 if the current user isn't an administrator in the chat
+        /// Approximate number of Telegram Premium subscribers who joined the chat; always 0 if the current user isn't an administrator in the chat
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("premium_member_count")]
         public int PremiumMemberCount { get; set; }
 
         /// <summary>
-        /// A percentage of Telegram Premium subscribers joined the chat; always 0 if the current user isn't an administrator in the chat
+        /// A percentage of Telegram Premium subscribers who joined the chat; always 0 if the current user isn't an administrator in the chat
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("premium_member_percentage")]

@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Encrypts group call data before sending them over network using tgcalls
+    /// Encrypts group call data before sending it over the network using tgcalls
     /// </summary>
     public class EncryptGroupCallData : Function<Data>
     {
@@ -52,7 +52,7 @@ public static partial class TdApi
         public byte[] Data { get; set; }
 
         /// <summary>
-        /// Size of data prefix that must be kept unencrypted
+        /// Size of the data prefix that must be kept unencrypted
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("unencrypted_prefix_size")]
@@ -60,7 +60,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Encrypts group call data before sending them over network using tgcalls
+    /// Encrypts group call data before sending it over the network using tgcalls
     /// </summary>
     public static Task<Data> EncryptGroupCallDataAsync(
         this IClient client, int groupCallId = default, GroupCallDataChannel dataChannel = default, byte[] data = default, int unencryptedPrefixSize = default)

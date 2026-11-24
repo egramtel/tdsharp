@@ -10,7 +10,8 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Describes an option for creating of Telegram Premium giveaway or manual distribution of Telegram Premium among chat members. Use telegramPaymentPurposePremiumGiftCodes or telegramPaymentPurposePremiumGiveaway for out-of-store payments
+    /// Describes an option for creating a Telegram Premium giveaway or manual distribution of Telegram Premium among chat members.
+    /// Use telegramPaymentPurposePremiumGiftCodes or telegramPaymentPurposePremiumGiveaway for out-of-store payments
     /// </summary>
     public partial class PremiumGiveawayPaymentOption : Object
     {
@@ -62,7 +63,7 @@ public static partial class TdApi
         public string StoreProductId { get; set; }
 
         /// <summary>
-        /// Number of times the store product must be paid
+        /// Number of times the store product must be paid for
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("store_product_quantity")]

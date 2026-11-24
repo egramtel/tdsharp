@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Summarizes content of the message with non-empty summary_language_code
+    /// Summarizes the content of the message with a non-empty summary_language_code
     /// </summary>
     public class SummarizeMessage : Function<FormattedText>
     {
@@ -45,7 +45,8 @@ public static partial class TdApi
         public long MessageId { get; set; }
 
         /// <summary>
-        /// Pass a language code to which the summary will be translated; pass an empty string if translation isn't needed. See translateText.to_language_code for the list of supported values
+        /// Pass a language code to which the summary will be translated; pass an empty string if translation isn't needed.
+        /// See translateText.to_language_code for the list of supported values
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("translate_to_language_code")]
@@ -60,7 +61,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Summarizes content of the message with non-empty summary_language_code
+    /// Summarizes the content of the message with a non-empty summary_language_code
     /// </summary>
     public static Task<FormattedText> SummarizeMessageAsync(
         this IClient client, long chatId = default, long messageId = default, string translateToLanguageCode = default, string tone = default)

@@ -10,7 +10,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// A detailed statistics about a message
+    /// Detailed statistics about a message
     /// </summary>
     public partial class MessageStatistics : Object
     {
@@ -27,14 +27,14 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// A graph containing number of message views and shares
+        /// A graph containing the number of message views and shares
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("message_interaction_graph")]
         public StatisticalGraph MessageInteractionGraph { get; set; }
 
         /// <summary>
-        /// A graph containing number of message reactions
+        /// A graph containing the number of message reactions
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("message_reaction_graph")]

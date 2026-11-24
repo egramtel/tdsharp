@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Returns state of Telegram Premium subscription and promotion videos for Premium features
+    /// Returns the state of the Telegram Premium subscription and promotion videos for Premium features
     /// </summary>
     public class GetPremiumState : Function<PremiumState>
     {
@@ -34,7 +34,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Returns state of Telegram Premium subscription and promotion videos for Premium features
+    /// Returns the state of the Telegram Premium subscription and promotion videos for Premium features
     /// </summary>
     public static Task<PremiumState> GetPremiumStateAsync(
         this IClient client)

@@ -11,7 +11,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// Sets new log stream for internal logging of TDLib. Can be called synchronously
+    /// Sets a new log stream for internal logging of TDLib. Can be called synchronously
     /// </summary>
     public class SetLogStream : Function<Ok>
     {
@@ -39,7 +39,7 @@ public static partial class TdApi
     }
 
     /// <summary>
-    /// Sets new log stream for internal logging of TDLib. Can be called synchronously
+    /// Sets a new log stream for internal logging of TDLib. Can be called synchronously
     /// </summary>
     public static Task<Ok> SetLogStreamAsync(
         this IClient client, LogStream logStream = default)

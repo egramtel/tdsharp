@@ -10,7 +10,7 @@ namespace TdLib;
 public static partial class TdApi
 {
     /// <summary>
-    /// A detailed statistics about poll votes
+    /// Detailed statistics about poll votes
     /// </summary>
     public partial class PollVoteStatistics : Object
     {
@@ -27,7 +27,7 @@ public static partial class TdApi
         public override string ExtraData { get; set; }
 
         /// <summary>
-        /// A graph containing distribution of votes in the poll
+        /// A graph containing the distribution of votes in the poll
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("vote_graph")]

@@ -34,14 +34,14 @@ public static partial class TdApi
         public MaskPoint Point { get; set; }
 
         /// <summary>
-        /// Shift by X-axis measured in widths of the mask scaled to the face size, from left to right. (For example, -1.0 will place the mask just to the left of the default mask position)
+        /// Shift along the X-axis measured in widths of the mask scaled to the face size, from left to right. (For example, -1.0 will place the mask just to the left of the default mask position)
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("x_shift")]
         public double? XShift { get; set; }
 
         /// <summary>
-        /// Shift by Y-axis measured in heights of the mask scaled to the face size, from top to bottom. (For example, 1.0 will place the mask just below the default mask position)
+        /// Shift along the Y-axis measured in heights of the mask scaled to the face size, from top to bottom. (For example, 1.0 will place the mask just below the default mask position)
         /// </summary>
         [JsonConverter(typeof(Converter))]
         [JsonProperty("y_shift")]

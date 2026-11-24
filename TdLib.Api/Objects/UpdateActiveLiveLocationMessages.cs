@@ -12,7 +12,8 @@ public static partial class TdApi
     public partial class Update : Object
     {
         /// <summary>
-        /// The list of messages with active live location that need to be updated by the application has changed. The list is persistent across application restarts only if the message database is used
+        /// The list of messages with an active live location that need to be updated by the application has changed.
+        /// The list is persistent across application restarts only if the message database is used
         /// </summary>
         public class UpdateActiveLiveLocationMessages : Update
         {
